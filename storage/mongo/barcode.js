@@ -31,3 +31,4 @@ let barcodeStore = {
 }
 
 module.exports = barcodeStore
+// just comment

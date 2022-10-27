@@ -1,0 +1,49 @@
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: barcodeGenerator.getBarcode is not a function',
+  level: 'error',
+  timestamp: '2022-10-10T13:14:08.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: generateBarcode is not defined',
+  level: 'error',
+  timestamp: '2022-10-10T13:50:09.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: barcodeGenerator.generateBarcode is not a function',
+  level: 'error',
+  timestamp: '2022-10-10T13:55:36.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: ObjectBuilder is not defined',
+  level: 'error',
+  timestamp: '2022-10-10T14:00:00.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: getBarcode is not defined',
+  level: 'error',
+  timestamp: '2022-10-10T14:06:07.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: this.getBarcode is not a function',
+  level: 'error',
+  timestamp: '2022-10-10T14:13:23.929Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.generateBarcode.getBarcode: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2022-10-10T14:57:03.689Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

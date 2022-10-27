@@ -1,0 +1,2674 @@
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T11:25:57.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T11:25:58.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T13:09:35.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T13:09:36.254Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T13:14:08.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T13:14:08.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: barcodeGenerator.getBarcode is not a function',
+  level: 'error',
+  timestamp: '2022-10-10T13:14:08.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T13:19:04.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T13:19:05.709Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T13:46:45.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T13:46:47.171Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T13:50:09.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T13:50:09.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: generateBarcode is not defined',
+  level: 'error',
+  timestamp: '2022-10-10T13:50:09.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T13:52:16.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T13:52:17.257Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T13:55:36.380Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T13:55:36.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: barcodeGenerator.generateBarcode is not a function',
+  level: 'error',
+  timestamp: '2022-10-10T13:55:36.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T13:56:40.012Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T13:56:41.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T13:59:59.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:00:00.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: ObjectBuilder is not defined',
+  level: 'error',
+  timestamp: '2022-10-10T14:00:00.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:01:13.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:01:15.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:02:42.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:02:43.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:06:06.957Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:06:06.958Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: getBarcode is not defined',
+  level: 'error',
+  timestamp: '2022-10-10T14:06:07.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:08:06.803Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:08:07.850Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:09:01.757Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:09:03.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:13:23.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:13:23.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: failed with error: this.getBarcode is not a function',
+  level: 'error',
+  timestamp: '2022-10-10T14:13:23.929Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:14:04.067Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:14:05.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:14:13.850Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:14:14.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:16:18.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:16:20.285Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:19:42.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:42.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:43.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:43.705Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:44.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:44.626Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:45.241Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:45.548Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:46.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:46.367Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:46.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:47.392Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:48.005Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:48.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:49.234Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:49.850Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:50.463Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:50.668Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:51.078Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:51.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:52.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:52.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:53.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:53.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:19:53.536Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:20:59.817Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:21:01.392Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:23:22.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:22.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:23.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:24.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:24.496Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:24.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:25.537Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:26.152Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:26.606Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:27.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:27.688Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:28.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:28.917Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:29.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:30.146Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:30.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:31.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:31.272Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:23:31.638Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:26:24.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:26:26.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:42.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:42.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:42.328Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:42.328Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:50.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:50.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:51.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:51.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:52.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:52.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:53.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:53.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:56.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:56.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:57.278Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:57.278Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:58.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:58.745Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T14:29:59.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T14:29:59.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:30:00.551Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:30:00.551Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T14:30:00.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T14:30:00.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:34:24.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:34:24.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:38:26.549Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:26.550Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:27.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:27.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:27.677Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:28.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:28.604Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:29.210Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:29.413Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:29.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:30.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:30.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:31.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:31.331Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:31.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:32.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:32.895Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:33.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:33.817Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:34.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:34.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:35.346Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:35.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:35.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:36.274Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:36.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:37.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:37.399Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:37.810Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:37.992Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:38.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:38.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:39.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:39.550Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:39.968Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:38:40.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:56:15.884Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:56:17.316Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T14:57:03.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T14:57:03.508Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.generateBarcode.getBarcode: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2022-10-10T14:57:03.689Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T14:57:31.151Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T14:57:32.509Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T15:00:18.070Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:18.071Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:18.383Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:19.077Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:19.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:19.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:20.306Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:20.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:21.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:21.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:21.534Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:21.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:22.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:23.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:23.506Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:23.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:24.166Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:24.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:25.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:25.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:26.319Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:26.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:26.655Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:26.820Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:26.986Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:27.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:27.320Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:27.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:27.652Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:27.820Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:27.990Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:28.156Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:28.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:28.909Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:29.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:29.831Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:30.259Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:30.674Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:31.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:31.675Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:32.176Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:32.600Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:33.074Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:33.518Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:34.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:34.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:34.747Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:35.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:35.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:36.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:36.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:37.014Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:37.512Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:37.937Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:38.255Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:38.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:39.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:39.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:00:40.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T15:01:47.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T15:01:48.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T15:04:39.071Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:39.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:39.316Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:39.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:40.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:40.696Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:41.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:41.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:41.469Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:41.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:41.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:41.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:04:42.145Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T15:06:08.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T15:06:10.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T15:06:44.334Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T15:06:45.258Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T15:09:26.528Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:26.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:26.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:27.484Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:27.794Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:28.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:28.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:29.327Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:29.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:30.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:30.863Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:31.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:31.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:31.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:32.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:32.706Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:09:33.320Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T15:12:18.865Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T15:12:20.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T15:15:18.550Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:15:18.551Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:15:19.244Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:15:19.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:15:20.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:15:20.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:15:21.080Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:15:21.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:15:22.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:15:22.313Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T15:27:19.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T15:27:20.771Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T15:30:18.059Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:30:18.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T15:30:18.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T15:30:18.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T15:32:03.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T15:32:04.829Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T15:35:05.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:35:05.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T15:35:06.320Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T15:35:06.320Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T15:36:48.766Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T15:36:50.205Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T15:40:36.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:36.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:36.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:37.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:37.412Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:37.877Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:38.332Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:38.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:39.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:39.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:39.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:40.176Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:40.791Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:41.264Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:41.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:40:42.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T15:42:53.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T15:42:55.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T15:48:39.059Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:48:39.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:48:39.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:48:40.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:48:40.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:48:40.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:48:41.274Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T15:48:41.887Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T15:58:08.034Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T15:58:08.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T16:02:20.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T16:02:21.811Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T16:05:57.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T16:05:57.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T16:05:57.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T16:05:57.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T16:06:32.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T16:06:32.854Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.generateBarcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T16:09:18.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T16:09:18.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T16:09:18.973Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T16:09:19.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T16:09:19.859Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.getBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T16:09:20.512Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T16:10:08.133Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T16:10:09.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T16:34:41.565Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T16:34:42.097Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-10T16:35:33.206Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-10T16:35:33.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.barcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T16:39:16.259Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.generateBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T16:39:16.259Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.generateBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T16:39:16.660Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.barcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T16:39:16.661Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.barcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T16:39:19.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.generateBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T16:39:19.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.generateBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T16:39:19.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.barcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T16:39:19.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.barcode.getBarcode: requested - {"table_slug":"products"}',
+  level: 'info',
+  timestamp: '2022-10-10T16:39:20.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.generateBarcode: requested, {"table_slug":"products"}',
+  level: 'debug',
+  timestamp: '2022-10-10T16:39:20.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.barcode.generateBarcode: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-10T16:39:21.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.barcode.getBarcode: succeeded',
+  level: 'info',
+  timestamp: '2022-10-10T16:39:21.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-12T13:40:08.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-12T13:40:09.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-10-12T13:56:26.332Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-10-12T13:56:26.333Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-12T13:56:28.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2022-10-12T13:56:28.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-12T14:44:24.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-12T14:44:25.490Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-10-12T14:47:06.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-10-12T14:47:06.686Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-12T14:47:08.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2022-10-12T14:47:08.966Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-12T15:15:13.166Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-12T15:15:14.675Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-10-12T15:17:51.475Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-10-12T15:17:51.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-12T15:17:54.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2022-10-12T15:17:54.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-10-12T15:18:40.740Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-10-12T15:18:40.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-12T15:18:43.565Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2022-10-12T15:18:43.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-10-12T15:36:57.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_check","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-10-12T15:36:57.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-12T15:37:00.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2022-10-12T15:37:00.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-12T15:41:13.373Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-12T15:41:14.887Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_checker","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-10-12T15:45:23.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"BARCODE","index":"string","label":"barcode check","slug":"barcode_checker","table_id":"d122b454-6280-479a-a0de-d21a32beccb1","attributes":{"fields":{"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"}}},"id":"525e5fb0-7cce-400d-8b5e-8e740ea4f897","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-10-12T15:45:23.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-10-12T15:45:26.225Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2022-10-12T15:45:26.226Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-19T12:59:37.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-19T12:59:37.135Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertHtmlToPdf: requested - {"html":"<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><figure class=\\"image\\"><img src=\\"https://cdn.medion.uz/medion/a32a1bf6-5645-4f4f-a88f-c19e42a85f67_medion_logo.png\\"></figure><p>&nbsp;</p><p>&nbsp;Имя: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Shokhrukh</p><p>&nbsp;Фамиля: &nbsp; &nbsp;Boxodir ogli</p>","data":{"fields":{"object_id":{"stringValue":"8f49bfd6-b597-4e79-aecb-e6f0fac6be05","kind":"stringValue"},"page_size":{"stringValue":"A4","kind":"stringValue"},"table_slug":{"stringValue":"patients","kind":"stringValue"}}}}',
+  level: 'info',
+  timestamp: '2022-10-19T13:01:37.272Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertHtmlToPdf: requested, {"html":"<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><figure class=\\"image\\"><img src=\\"https://cdn.medion.uz/medion/a32a1bf6-5645-4f4f-a88f-c19e42a85f67_medion_logo.png\\"></figure><p>&nbsp;</p><p>&nbsp;Имя: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Shokhrukh</p><p>&nbsp;Фамиля: &nbsp; &nbsp;Boxodir ogli</p>","data":{"fields":{"object_id":{"stringValue":"8f49bfd6-b597-4e79-aecb-e6f0fac6be05","kind":"stringValue"},"page_size":{"stringValue":"A4","kind":"stringValue"},"table_slug":{"stringValue":"patients","kind":"stringValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-10-19T13:01:37.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-27T07:41:26.745Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-27T07:41:28.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-10-27T07:42:10.675Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-10-27T07:42:12.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -1,0 +1,378 @@
+const Section = require("../../models/section");
+const ViewRelation = require("../../models/view_relation");
+const Table = require("../../models/table");
+const Relation = require("../../models/relation");
+const catchWrapDb = require("../../helper/catchWrapDb");
+const Field = require("../../models/field");
+const {struct} = require('pb-util');
+const { v4 } = require("uuid");
+const View = require("../../models/view");
+const { data } = require("../../config/logger");
+const relationStore = require("../mongo/relation");
+const ObjectBuilder = require("../../models/object_builder")
+
+
+
+let NAMESPACE = "storage.section";
+
+let sectionStore = {
+    createAll: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
+        for (const sectionReq of data.sections) {
+            const section = new Section(sectionReq); 
+            section.table_id = data.id;
+            var response = section.save();
+        }
+
+        const resp = await Table.updateOne({
+            id: data.id,
+        },
+        {
+            $set: {
+                is_changed: true
+            }
+        })
+        
+        return response;
+    }
+    ),
+    update: catchWrapDb(`${NAMESPACE}.update`, async(data) => {
+        const count = await Section.deleteMany(
+            {
+                table_id: data.table_id,
+            }
+        )
+        for (const sectionReq of data.sections) {
+            const section = new Section(sectionReq); 
+            section.table_id = data.table_id;
+            var response = section.save();
+        }
+
+        const resp = await Table.updateOne({
+            id: data.table_id,
+        },
+        {
+            $set: {
+                is_changed: true
+            }
+        })
+        
+        return;
+    }),
+    upsertViewRelations: catchWrapDb(`${NAMESPACE}.upsertViewRelations`, async(data) => {
+        const count = await ViewRelation.deleteMany(
+            {
+                table_slug: data.table_slug,
+            }
+        )
+        if (data.table_slug === "") {
+            const table = await Table.findOne({
+                id: data.table_id
+            })
+            data.table_slug = table.slug
+        }
+        let viewRelationReq = {}
+        viewRelationReq["id"] = v4()
+        viewRelationReq["relations"] = data.view_relations
+        viewRelationReq["table_slug"] = data.table_slug
+
+        const viewRelation = new ViewRelation(viewRelationReq); 
+        viewRelation.table_slug = data.table_slug;
+        var response = viewRelation.save();
+        
+        const resp = await Table.updateOne({
+            id: data.table_id,
+        },
+        {
+            $set: {
+                is_changed: true
+            }
+        })
+        
+        return;
+    }),
+    getAllViewRelations: catchWrapDb(`${NAMESPACE}.getAllViewRelations`, async(data) => {        
+        let table = {};
+        if (data.table_slug === "") {
+            table = await Table.findOne({
+                slug: data.table_id
+            });
+            data.table_slug = table.slug;
+        }
+        let query = {
+            table: data.table_slug,
+        }
+        let view_relations = await ViewRelation.find(
+            {
+                table_slug: data.table_slug, 
+            },
+            null,
+            {
+                sort: {created_at: -1}
+            }
+        ).skip(data.offset)
+        .limit(data.limit);
+        let newRelations = []
+        for (let index = 0; index < view_relations.length; index++) {
+            let newRelation = {...view_relations[index]}
+            const relationBody = await Relation.findOne({id: view_relations[index].relation_id})
+            newRelation._doc.relation = relationBody
+            newRelations.push(newRelation._doc)
+        }
+
+        const count = await ViewRelation.countDocuments(query);
+        return {view_relations: newRelations,count : count};
+    }),
+    getSingleViewRelation: catchWrapDb(`${NAMESPACE}.getSingleViewRelation`, async(data) => {
+        let table = {};
+        if (data.table_slug === "") {
+            table = await Table.findOne({
+                id: data.table_id
+            });
+            data.table_slug = table.slug;
+        }
+        let resp = {}
+        const view_relation = await ViewRelation.findOne(
+            {
+                table_slug: data.table_slug, 
+            }
+        )
+        let newRelations = []
+        if (!view_relation) {
+            return resp;
+        }
+        const {relations} = await relationStore.getAllForViewRelation({
+            table_slug: view_relation.table_slug,
+            role_id: data.role_id
+        })
+        if (view_relation.relations){
+            for (let index = 0; index < view_relation.relations.length; index++) {
+                let newRelation = {...view_relation.relations[index]}
+                
+                if (newRelation.view_relation_type !== "FILE") {
+                    let relation = relations.find(obj => obj.id === newRelation.relation_id)
+                    newRelation["relation"] = relation
+                }
+                newRelations.push(newRelation)
+            }
+        }
+        return {
+            id: view_relation.id,
+            table_slug: view_relation.table_slug,
+            relations: newRelations,
+        }
+        
+    }),
+    getAll: catchWrapDb(`${NAMESPACE}.getAll`, async(data) => {
+        let table = {};
+        if (data.table_id === "") {
+            table = await Table.findOne({
+                slug: data.table_slug
+            });
+            data.table_id = table.id;
+        }
+        
+        const sections = await Section.find(
+            {
+                table_id: data.table_id, 
+            },
+            null,
+            {
+                sort: {created_at: -1}
+            }
+        );
+        let sectionsResponse = []
+        for (const section of sections) {
+            let fieldsRes = []
+            for (const fieldReq of section.fields) {
+                let guid;
+                let field = {};
+                let field_permission = {}
+                let encodedAttributes = {};
+                if (fieldReq.id.includes("#")) {
+                    field.id = fieldReq.id
+                    field.label = fieldReq.field_name
+                    field.order = fieldReq.order
+                    field.relation_type = fieldReq.relation_type
+                    let relationID = fieldReq.id.split("#")[1]
+                    const fieldResp = await Field.findOne({
+                        relation_id: relationID
+                    })
+                    if (fieldResp) {
+                        field.slug = fieldResp.slug
+                        const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
+                        field_permission = await fieldPermissionTable?.models.findOne({
+                                $and: [
+                                    {
+                                        field_id: fieldResp.id
+                                    },
+                                    {
+                                        role_id: data.role_id
+                                    }
+                                ]
+                            },
+                            {
+                                created_at: 0,
+                                updated_at: 0,
+                                createdAt: 0,
+                                updatedAt: 0,
+                                _id: 0,
+                                __v: 0
+                            }
+                        )
+
+                    }
+
+                    const relation = await Relation.findOne({id:relationID})
+                    let fieldAsAttribute = []
+                    let view_of_relation;
+                    if (relation) {
+                        for (const fieldID of relation.view_fields) {
+                            let field = await Field.findOne({
+                                id:fieldID
+                            },
+                            {
+                                created_at: 0,
+                                updated_at: 0,
+                                createdAt: 0,
+                                updatedAt: 0,
+                                _id: 0,
+                                __v: 0
+                            }).lean();
+                            fieldAsAttribute.push(field)
+                        }
+                        view_of_relation = await View.findOne({
+                            relation_id: relation.id,
+                            relation_table_slug: data.table_slug
+                        })
+
+                    } 
+                    
+                    let tableFields = await Field.find({table_id: data.table_id})
+                    let autofillFields = []
+                    for (const field of tableFields) {
+                        if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0]) {
+                            let autofill = {
+                                field_from : field.autofill_field,
+                                field_to: field.slug,
+                            }
+                            autofillFields.push(autofill)
+                        }
+                    }
+                    let dynamicTables = [];
+                    if (relation?.type === "Many2Dynamic") {
+                        if(relation.dynamic_tables.length) {
+                            let dynamicTableToAttribute;
+                            for (const dynamic_table of relation.dynamic_tables) {
+                                const dynamicTableInfo = await Table.findOne(
+                                    {  
+                                        slug: dynamic_table.table_slug
+                                    },
+                                    {
+                                        deletedAt: 0,
+                                        deleted_at: 0,
+                                        createdAt: 0, 
+                                        updatedAt: 0,
+                                        created_at: 0, 
+                                        updated_at: 0,
+                                        _id: 0, 
+                                        __v: 0
+                                    }
+                                )
+                                dynamicTableToAttribute = dynamic_table
+                                dynamicTableToAttribute["table"] = dynamicTableInfo._doc
+                                viewFieldsInDynamicTable = []
+                                for (const fieldId of dynamicTableToAttribute.view_fields) {
+                                    let view_field = await Field.findOne(
+                                        {
+                                            id: fieldId
+                                        },
+                                        {
+                                            created_at: 0,
+                                            updated_at: 0,
+                                            createdAt: 0,
+                                            updatedAt: 0,
+                                            _id: 0,
+                                            __v: 0
+                                        }
+                                    )
+                                    if (view_field.attributes) {
+                                        view_field.attributes = struct.decode(view_field.attributes)
+                                    }
+                                    viewFieldsInDynamicTable.push(view_field._doc)
+                                }
+                                dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
+                                dynamicTables.push(dynamicTableToAttribute)
+                            }
+                            encodedAttributes = struct.encode({
+                                default_values: view_of_relation?.default_values,
+                                autofill: autofillFields,
+                                view_fields: fieldAsAttribute,
+                                auto_filters: relation?.auto_filters,
+                                relation_field_slug: relation?.relation_field_slug,
+                                dynamic_tables: dynamicTables,
+                                field_permission: field_permission?._doc
+                            })
+                        }
+                    } else {
+                        encodedAttributes = struct.encode({
+                            default_values: view_of_relation?.default_values,
+                            autofill: autofillFields,
+                            view_fields: fieldAsAttribute,
+                            auto_filters: relation?.auto_filters,
+                            field_permission: field_permission?._doc
+                        })
+                    }
+
+                    field.attributes = encodedAttributes
+
+                    fieldsRes.push(field)
+                } else if (fieldReq.id.includes("@")) {
+                    field.id = fieldReq.id
+                } else {
+                    guid = fieldReq.id
+                    field = await Field.findOne({
+                        id: guid
+                    });
+                    if (field) {
+                        field.order = fieldReq.order;
+                        field.column = fieldReq.column;
+                        field.id = fieldReq.id;
+                        field.relation_type = fieldReq.relation_type;
+                        // this for get field permssion
+                        const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
+                        field_permission = await fieldPermissionTable?.models.findOne({
+                                $and: [
+                                    {
+                                        field_id: field.id
+                                    },
+                                    {
+                                        role_id: data.role_id
+                                    },
+                                ]
+                            },
+                            {
+                                created_at: 0,
+                                updated_at: 0,
+                                createdAt: 0,
+                                updatedAt: 0,
+                                _id: 0,
+                                __v: 0
+                            }
+                        )
+                        let decodeAttributes = struct.decode(field.attributes)
+                        decodeAttributes["field_permission"] = field_permission?._doc
+                        field.attributes = struct.encode(decodeAttributes)
+                        fieldsRes.push(field);
+
+                    }
+                } 
+            }
+            section.fields = fieldsRes 
+            sectionsResponse.push(section)
+        }
+        return {sections: sectionsResponse};
+    }
+    )
+};
+
+module.exports = sectionStore;

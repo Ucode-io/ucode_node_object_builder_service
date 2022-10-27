@@ -1,0 +1,36 @@
+{
+  "name": "medion_node_object_builder_service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.udevs.io:medion/medion_node_object_builder_service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/artifact-registry": "^1.3.0",
+    "@grpc/grpc-js": "^1.6.6",
+    "@grpc/proto-loader": "^0.6.9",
+    "art-template": "^4.13.2",
+    "date-fns": "^2.29.2",
+    "dotenv": "^16.0.1",
+    "eta": "^1.12.3",
+    "fs": "^0.0.1-security",
+    "html-pdf": "^3.0.1",
+    "kafkajs": "^2.1.0",
+    "minio": "^7.0.32",
+    "mongoose": "^6.3.0",
+    "nodemon": "^2.0.16",
+    "pb-util": "^1.0.3",
+    "read-excel-file": "^5.5.0",
+    "uuid": "^8.3.2",
+    "winston": "^3.7.2",
+    "wkhtmltopdf": "^0.4.0",
+    "xlsx": "^0.18.5"
+  }
+}

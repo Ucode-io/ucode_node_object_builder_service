@@ -1,0 +1,369 @@
+const View = require("../../models/view");
+const Table = require("../../models/table");
+const catchWrapDb = require("../../helper/catchWrapDb");
+const Minio = require('minio');
+const fs = require("fs");
+const cfg = require("../../config/index");
+const {struct} = require('pb-util');
+var wkhtmltopdf = require('wkhtmltopdf');
+var Eta = require("eta");
+const Relation = require("../../models/relation");
+const ObjectBuilder = require("../../models/object_builder");
+const objectBuilderStore = require("./object_builder");
+const Field = require("../../models/field");
+
+
+
+
+
+
+
+
+let NAMESPACE = "storage.view";
+
+let viewStore = {
+    create: catchWrapDb(`${NAMESPACE}.create`, async(data) => {
+        const view = new View(data);
+
+        const response = await view.save();
+
+        const resp = await Table.updateOne({
+            slug: data.table_slug,
+        },
+        {
+            $set: {
+                is_changed: true
+            }
+        })
+
+        return response;
+    }),
+    update: catchWrapDb(`${NAMESPACE}.update`, async(data) => {
+        const view = await View.updateOne(
+            {
+                id: data.id,
+            },
+            {
+                $set: data
+            }
+        )
+
+        const resp = await Table.updateOne({
+            slug: data.table_slug,
+        },
+        {
+            $set: {
+                is_changed: true
+            }
+        })
+
+
+        return view;
+    }),
+    getList: catchWrapDb(`${NAMESPACE}.getList`, async(data) => {        
+        let query = {
+            table_slug: data.table_slug,
+        }
+        const views = await View.find(
+            {
+                table_slug: data.table_slug, 
+            },
+            null,
+            {
+                sort: {created_at: -1}
+            }
+        );
+
+        const count = await View.countDocuments(query);
+        return {views, count};
+    }
+    ),
+    getSingle: catchWrapDb(`${NAMESPACE}.getList`, async(data) => {     
+        const view = await View.findOne(
+        {
+            id: data.id
+        },
+        {
+            _id: 0,
+            created_at: 0,
+            updated_at: 0,
+            __v: 0
+        });
+        return view;
+    }
+    ),
+    delete: catchWrapDb(`${NAMESPACE}.delete`, async(data) => {
+        const vieww = await View.findOne({id:data.id})
+
+        await Table.updateOne({
+            slug: vieww.table_slug,
+        },
+        {
+            $set: {
+                is_changed: true
+            }
+        })
+
+        const resp = await View.deleteOne({id: data.id});
+
+        return resp;
+    }
+    ),
+    convertHtmlToPdf: catchWrapDb(`${NAMESPACE}.convertHtmlToPdf`, async(data) => {
+
+        const decodedData = struct.decode(data.data)
+
+        let filename = "document_" +  Math.floor(Date.now() / 1000) + ".pdf"
+        link = "https://" + "cdn.medion.uz"+ "/docs/" + filename
+
+        var html = data.html
+        if (decodedData.table_slug && decodedData.object_id) {
+            data.html = data.html.replaceAll('[??', '{')
+            data.html = data.html.replaceAll('??]', '}')
+            data.html = data.html.replaceAll('&lt;', '<')
+            data.html = data.html.replaceAll('&gt;', '>')
+            data.html = data.html.replaceAll('&nbsp;', ' ')
+            data.html = data.html.replaceAll('&amp;', '&')
+            data.html = data.html.replaceAll('&quot;', '"')
+            data.html = data.html.replaceAll('&apos;', `'`)
+            const tableInfo = (await ObjectBuilder())[decodedData.table_slug]
+        
+            let relations = await Relation.find({
+                table_from : decodedData.table_slug,
+                type: "Many2One"
+            })
+        
+            const relationsM2M = await Relation.find({
+                $or: [{
+                    table_from: decodedData.table_slug
+                },
+                {
+                    table_to: decodedData.table_slug
+                }],
+                $and: [{
+                type: "Many2Many"
+                }]
+            })
+
+            let relatedTable = []
+            for (const relation of relations) {
+                const field = await Field.findOne({
+                    relation_id: relation.id
+                })
+                relatedTable.push(field?.slug+"_data")
+            }
+            for (const relation of relationsM2M) {
+                if (relation.table_to === decodedData.table_slug) {
+                    relation.field_from = relation.field_to
+                }
+                const field = await Field.findOne({
+                    slug: relation.field_from,
+                    relation_id: relation.id
+                })
+                relatedTable.push(field?.slug+"_data")
+            }
+
+            let output = await tableInfo.models.findOne({
+                guid: decodedData.object_id
+            },
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0
+            }).populate(relatedTable).lean();
+
+
+            relations = await Relation.find({
+                table_to : decodedData.table_slug,
+                type: "Many2One"
+            })
+          
+            for (const relation of relations) {
+                let relation_field = decodedData.table_slug + "_id"
+                let m2mrelation_field = decodedData.table_slug + "_ids"
+                let response = []
+                if (relation.type === "Many2One") {
+                    response = await (await ObjectBuilder())[relation.table_from].models.find({
+                        [relation_field] : decodedData.object_id,
+                    })
+                } else if (relation.type === "Many2Many") {
+                    response = await (await ObjectBuilder())[relation.table_from].models.find({
+                        [m2mrelation_field] : { $in : [decodedData.object_id]}
+                    })
+                }
+                
+                if (response) {
+                    output[relation.table_from] = response
+                } else {
+                    output[relation.table_from] = []
+                } 
+            }
+
+            html = Eta.render(data.html, output)
+        }
+       
+
+        if (!decodedData.page_size) {
+          decodedData.page_size = "A4"
+        }
+       
+        
+        await new Promise((resolve, reject) => {
+            wkhtmltopdf(html, {output: filename, spawnOptions:{shell: true}, pageSize: decodedData.page_size}, ()=>{
+                var minioClient = new Minio.Client({
+                    endPoint: "172.20.20.17",
+                    port: 9001,
+                    useSSL: false,
+                    accessKey: cfg.minioAccessKeyID,
+                    secretKey: cfg.minioSecretAccessKey                          
+                });
+                   
+                
+                  
+                var metaData = {
+                    'Content-Type': "application/pdf",
+                    'Content-Language': 123,
+                    'X-Amz-Meta-Testing': 1234,
+                    'example': 5678
+                }
+                  
+                let filepath = "./" + filename
+        
+                
+                //file exists
+                minioClient.fPutObject("docs", filename, filepath , metaData, function(error, etag) {
+                    if(error) {
+                        return console.log(error);
+                    }
+                    console.log("uploaded successfully")
+                    fs.stat(filename, async (err, stats) => {
+                        if (err) console.log(err);
+                        else {
+                            splitedFielName = filename.split(".")
+                            let doc = {}
+                            doc.file_link = link
+                            doc[decodedData.table_slug+"_id"] = decodedData.object_id
+                            doc.size = stats.size
+                            doc.type = splitedFielName[splitedFielName.length - 1]
+                            doc.name = filename
+                            doc.date = new Date().toISOString()
+                            if (decodedData.tags) {
+                                doc.tags = decodedData.tags.split(",")
+                            }
+                            let encodedData = struct.encode(doc)
+                            let request = {
+                                table_slug: "file",
+                                data: encodedData
+                            }
+                            response = objectBuilderStore.create(request)
+                        }
+                    })
+                    fs.unlink(filename, (err => {
+                    if (err) console.log(err);
+                    else {
+                        console.log("Deleted file: ", filename);
+                        
+                        resolve()  
+    
+                    }
+                    }));
+                }); 
+            });
+        })
+
+          
+        
+        return {link}
+          
+            
+    }),
+    convertTemplateToHtml: catchWrapDb(`${NAMESPACE}.convertTemplateToHtml`, async(data) => {
+        const decodedData = struct.decode(data.data)
+
+        let filename = "document_" +  Math.floor(Date.now() / 1000) + ".pdf"
+        link = "https://" + "cdn.medion.uz" + "/docs/" + filename
+
+        var html = data.html
+        if (decodedData.table_slug && decodedData.object_id) {
+            data.html = data.html.replace('[??', '{')
+            data.html = data.html.replace('??]', '}')
+            const tableInfo = (await ObjectBuilder())[decodedData.table_slug]
+        
+            let relations = await Relation.find({
+                table_from : decodedData.table_slug,
+                type: "Many2One"
+            })
+        
+            const relationsM2M = await Relation.find({
+                $or: [{
+                    table_from: decodedData.table_slug
+                },
+                {
+                    table_to: decodedData.table_slug
+                }],
+                $and: [{
+                type: "Many2Many"
+                }]
+            })
+
+            let relatedTable = []
+            for (const relation of relations) {
+                const field = await Field.findOne({
+                    relation_id: relation.id
+                })
+                relatedTable.push(field?.slug+"_data")
+            }
+            for (const relation of relationsM2M) {
+                if (relation.table_to === decodedData.table_slug) {
+                    relation.field_from = relation.field_to
+                }
+                const field = await Field.findOne({
+                    slug: relation.field_from,
+                    relation_id: relation.id
+                })
+                relatedTable.push(field?.slug+"_data")
+            }
+
+            let output = await tableInfo.models.findOne({
+                guid: decodedData.object_id
+            },
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0
+            }).populate(relatedTable).lean();
+
+
+            relations = await Relation.find({
+                table_to : decodedData.table_slug,
+                type: "Many2One"
+            })
+          
+            for (const relation of relations) {
+                let relation_field = decodedData.table_slug + "_id"
+                let m2mrelation_field = decodedData.table_slug + "_ids"
+                let response = await (await ObjectBuilder())[relation.table_from].models.find({
+                        $or:[  {[relation_field] : decodedData.object_id},
+                        {[m2mrelation_field] : decodedData.object_id}
+                    ]
+                })
+                if (response) {
+                    output[relation.table_from] = response
+                } else {
+                    output[relation.table_from] = []
+                } 
+            }
+
+            html = Eta.render(data.html, output)
+        }
+        return {html}
+    }),
+};
+
+module.exports = viewStore;

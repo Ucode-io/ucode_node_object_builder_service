@@ -35,7 +35,7 @@ serviceAccount:
 
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
-  vault.hashicorp.com/auth-path: "auth/kubernetes"
+  vault.hashicorp.com/auth-path: "auth/kubernetes-ucode"
   vault.hashicorp.com/agent-inject-secret-.env: "secret/data/k8s/ucode-test/node-object-builder-service"
   vault.hashicorp.com/secret-volume-path-.env: "/app"
   vault.hashicorp.com/role: "ucode-test"
@@ -147,7 +147,7 @@ affinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
         - matchExpressions:
-            - key: kubernetes.io/env-staging
+            - key: kubernetes.io/env-test
               operator: In
               values:
                 - "true"

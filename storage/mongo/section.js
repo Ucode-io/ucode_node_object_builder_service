@@ -7,9 +7,9 @@ const Field = require("../../models/field");
 const {struct} = require('pb-util');
 const { v4 } = require("uuid");
 const View = require("../../models/view");
-const { data } = require("../../config/logger");
 const relationStore = require("../mongo/relation");
-const ObjectBuilder = require("../../models/object_builder")
+const AddPermission = require("../../helper/addPermission");
+
 
 
 
@@ -144,13 +144,15 @@ let sectionStore = {
             table_slug: view_relation.table_slug,
             role_id: data.role_id
         })
+        let viewRelationWithPermissions = await AddPermission.toViewRelation(relations, data.role_id, data.table_slug)
+
         if (view_relation.relations){
             for (let index = 0; index < view_relation.relations.length; index++) {
                 let newRelation = {...view_relation.relations[index]}
                 
                 if (newRelation.view_relation_type !== "FILE") {
-                    let relation = relations.find(obj => obj.id === newRelation.relation_id)
-                    newRelation["relation"] = relation
+                    let relationWithPermission = viewRelationWithPermissions.find(obj => obj.relation_id === newRelation.relation_id)
+                    newRelation["relation"] = relationWithPermission
                 }
                 newRelations.push(newRelation)
             }
@@ -182,11 +184,10 @@ let sectionStore = {
         );
         let sectionsResponse = []
         for (const section of sections) {
-            let fieldsRes = []
+            let fieldsRes = [], fieldsWithPermissions = []
             for (const fieldReq of section.fields) {
                 let guid;
                 let field = {};
-                let field_permission = {}
                 let encodedAttributes = {};
                 if (fieldReq.id.includes("#")) {
                     field.id = fieldReq.id
@@ -199,27 +200,7 @@ let sectionStore = {
                     })
                     if (fieldResp) {
                         field.slug = fieldResp.slug
-                        const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
-                        field_permission = await fieldPermissionTable?.models.findOne({
-                                $and: [
-                                    {
-                                        field_id: fieldResp.id
-                                    },
-                                    {
-                                        role_id: data.role_id
-                                    }
-                                ]
-                            },
-                            {
-                                created_at: 0,
-                                updated_at: 0,
-                                createdAt: 0,
-                                updatedAt: 0,
-                                _id: 0,
-                                __v: 0
-                            }
-                        )
-
+                        field.required = fieldResp.required
                     }
 
                     const relation = await Relation.findOne({id:relationID})
@@ -310,7 +291,8 @@ let sectionStore = {
                                 auto_filters: relation?.auto_filters,
                                 relation_field_slug: relation?.relation_field_slug,
                                 dynamic_tables: dynamicTables,
-                                field_permission: field_permission?._doc
+                                is_user_id_default: relation?.is_user_id_default,
+                                cascadings: relation?.cascadings,
                             })
                         }
                     } else {
@@ -319,7 +301,8 @@ let sectionStore = {
                             autofill: autofillFields,
                             view_fields: fieldAsAttribute,
                             auto_filters: relation?.auto_filters,
-                            field_permission: field_permission?._doc
+                            is_user_id_default: relation?.is_user_id_default,
+                            cascadings: relation?.cascadings,
                         })
                     }
 
@@ -338,36 +321,14 @@ let sectionStore = {
                         field.column = fieldReq.column;
                         field.id = fieldReq.id;
                         field.relation_type = fieldReq.relation_type;
-                        // this for get field permssion
-                        const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
-                        field_permission = await fieldPermissionTable?.models.findOne({
-                                $and: [
-                                    {
-                                        field_id: field.id
-                                    },
-                                    {
-                                        role_id: data.role_id
-                                    },
-                                ]
-                            },
-                            {
-                                created_at: 0,
-                                updated_at: 0,
-                                createdAt: 0,
-                                updatedAt: 0,
-                                _id: 0,
-                                __v: 0
-                            }
-                        )
-                        let decodeAttributes = struct.decode(field.attributes)
-                        decodeAttributes["field_permission"] = field_permission?._doc
-                        field.attributes = struct.encode(decodeAttributes)
                         fieldsRes.push(field);
 
                     }
                 } 
             }
-            section.fields = fieldsRes 
+            // this function add field permission for each field by role id
+            fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug)
+            section.fields = fieldsWithPermissions
             sectionsResponse.push(section)
         }
         return {sections: sectionsResponse};

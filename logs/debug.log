@@ -2686,3 +2686,59 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-08T10:55:35.768Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-08T10:55:36.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-08T10:56:42.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-08T10:56:44.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-11-08T10:57:59.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-11-08T10:57:59.223Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-08T10:58:02.834Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-11-08T10:58:02.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

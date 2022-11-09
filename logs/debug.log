@@ -2742,3 +2742,45 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-08T11:17:51.592Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-08T11:17:53.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"client_type","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-08T11:21:50.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"client_type","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-08T11:21:50.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-08T11:21:56.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-08T11:21:56.868Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -188,7 +188,9 @@ let objectBuilder = {
             const field = await Field.findOne({
                 relation_id: relation.id
             })
-            relatedTable.push(field?.slug + "_data")
+            if (field) {
+                relatedTable.push(field?.slug + "_data")
+            }
         }
         for (const relation of relationsM2M) {
             if (relation.table_to === req.table_slug) {
@@ -198,7 +200,9 @@ let objectBuilder = {
                 slug: relation.field_from,
                 relation_id: relation.id
             })
-            relatedTable.push(field?.slug + "_data")
+            if (field) {
+                relatedTable.push(field?.slug + "_data")
+            }
         }
 
         let output = await tableInfo.models.findOne({

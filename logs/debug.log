@@ -2784,3 +2784,122 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-09T05:43:08.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@68.183.15.135:27017/object_builder_service) connection timed out',
+  level: 'error',
+  timestamp: '2022-11-09T05:43:37.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-09T05:43:37.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-09T05:46:25.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-09T05:46:29.156Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-11-09T05:48:56.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-11-09T05:48:56.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-09T05:48:58.903Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-11-09T05:48:58.903Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-11-09T06:05:20.085Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-11-09T06:05:20.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-09T06:05:25.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-11-09T06:05:25.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-11-09T06:13:36.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-11-09T06:13:36.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-09T06:13:41.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-11-09T06:13:41.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

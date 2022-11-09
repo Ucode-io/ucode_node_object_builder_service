@@ -1,6 +1,6 @@
 const config = {
     environment: getConf("NODE_ENV", "dev"),
-    mongoHost: getConf("MONGO_HOST", "68.183.15.135"),
+    mongoHost: getConf("MONGO_HOST", "161.35.26.178"),
     mongoPort: getConf("MONGO_PORT", "27017"),
     mongoUser: getConf("MONGO_USER", "object_builder_service"),
     mongoPassword: getConf("MONGO_PASSWORD", "eeNgoot2"),

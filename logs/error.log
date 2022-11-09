@@ -47,3 +47,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@68.183.15.135:27017/object_builder_service) connection timed out',
+  level: 'error',
+  timestamp: '2022-11-09T05:43:37.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

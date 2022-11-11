@@ -75,3 +75,66 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:30:37.745Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:32:19.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:37:34.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: paramms is not defined',
+  level: 'error',
+  timestamp: '2022-11-11T11:42:55.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: paramms is not defined',
+  level: 'error',
+  timestamp: '2022-11-11T11:43:13.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: paramms is not defined',
+  level: 'error',
+  timestamp: '2022-11-11T11:44:23.885Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:49:30.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:51:26.205Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T12:49:22.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

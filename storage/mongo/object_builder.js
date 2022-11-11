@@ -406,6 +406,7 @@ let objectBuilder = {
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = tableInfo.fields.filter(val => (val.slug === view_field))
+                    console.log("Type ======> : ", field[0].type)
                     if (field[0].type !== "NUMBER" && field[0].type !== "SWITCH") {
                         let obj = {};
                         obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }
@@ -431,6 +432,15 @@ let objectBuilder = {
             if (key === req.table_slug + "_id" && params[key] !== "") {
                 params["guid"] = params[key]
             }
+
+            if (params[key] === "true" || params[key] === "false" ) {
+                console.log("here")
+                params[key] = bool(params[key])
+            }
+
+            console.log("Key =====> : ", params[key])
+            console.log("Type Of :", typeof params[key])
+
             if (typeof (params[key]) === "object") {
 
                 if (params[key]) {

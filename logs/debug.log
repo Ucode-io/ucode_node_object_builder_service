@@ -3064,3 +3064,388 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T10:46:07.173Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T10:46:08.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:30:36.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:30:36.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:30:37.745Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T11:31:32.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T11:31:33.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:32:18.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:32:18.794Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:32:19.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T11:36:38.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T11:36:39.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:37:33.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:37:33.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:37:34.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T11:42:07.610Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T11:42:09.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:42:54.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:42:54.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: paramms is not defined',
+  level: 'error',
+  timestamp: '2022-11-11T11:42:55.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:43:12.456Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:43:12.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: paramms is not defined',
+  level: 'error',
+  timestamp: '2022-11-11T11:43:13.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T11:43:48.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T11:43:50.161Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:44:23.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:44:23.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: paramms is not defined',
+  level: 'error',
+  timestamp: '2022-11-11T11:44:23.885Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T11:48:10.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T11:48:12.170Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:49:29.387Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:49:29.388Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:49:30.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T11:50:32.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T11:50:34.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:51:25.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:51:25.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T11:51:26.205Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"boolValue":true,"kind":"boolValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:52:19.992Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"boolValue":true,"kind":"boolValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:52:19.993Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-11T11:52:21.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-11T11:52:21.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"boolValue":true,"kind":"boolValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T11:53:36.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"boolValue":true,"kind":"boolValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T11:53:36.848Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-11T11:53:40.264Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-11T11:53:40.264Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T12:14:18.550Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T12:14:20.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T12:49:22.093Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"book","data":{"fields":{"book_author_ids":{"stringValue":"0f308c9b-6897-4fc4-a86f-1c9c2aeb49be","kind":"stringValue"},"is_available":{"stringValue":"true","kind":"stringValue"},"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T12:49:22.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T12:49:22.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T12:50:01.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T12:50:04.146Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T13:39:53.757Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T13:39:55.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

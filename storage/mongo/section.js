@@ -196,7 +196,8 @@ let sectionStore = {
                     field.relation_type = fieldReq.relation_type
                     let relationID = fieldReq.id.split("#")[1]
                     const fieldResp = await Field.findOne({
-                        relation_id: relationID
+                        relation_id: relationID,
+                        table_id: data.table_id
                     })
                     if (fieldResp) {
                         field.slug = fieldResp.slug

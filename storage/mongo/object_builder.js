@@ -118,6 +118,24 @@ let objectBuilder = {
 
         for (const field of fields) {
             let type = converter(field.type);
+            if (field.type === "LOOKUPS") {
+                if (data[field.slug]) {
+                    const relation = await Relation.findOne({
+                        id: field.relation_id
+                    })
+                    
+                    let appendMany2Many = {}
+                    appendMany2Many.id_from = data.guid
+                    appendMany2Many.id_to =  data[field.slug]
+                    appendMany2Many.table_from = req.table_slug
+                    if (relation.table_to === req.table_slug) {
+                        appendMany2Many.table_to = relation.table_from
+                    } else if (relation.table_from === req.table_slug) {
+                        appendMany2Many.table_to = relation.table_to
+                    }
+                    await objectBuilder.appendManyToMany(appendMany2Many)
+                }
+            }
             field_types[field.slug] = type
         }
         field_types.guid = "String"
@@ -151,8 +169,49 @@ let objectBuilder = {
         event.payload.table_slug = req.table_slug
 
         for (const field of tableInfo.fields) {
-            let type = converter(field.type);
+            let type = converter(field.type);      
             field_types[field.slug] = type
+            let newIds = [], deletedIds = []
+
+            // this is many2many append and delete when many2many relation field type input
+            if (field.type === "LOOKUPS") {
+                if (data[field.slug] && objectBeforeUpdate[field.slug]) {
+                    let olderArr = objectBeforeUpdate[field.slug]
+                    newArr = data[field.slug]
+                    newIds = newArr.filter(val => !olderArr.includes(val))
+                    deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
+                }
+
+                const relation = await Relation.findOne({
+                    id: field.relation_id
+                })
+
+                if (newIds.length) {
+                    let appendMany2Many = {}
+                    appendMany2Many.id_from = data.guid
+                    appendMany2Many.id_to = newIds
+                    appendMany2Many.table_from = req.table_slug
+                    if (relation.table_to === req.table_slug) {
+                        appendMany2Many.table_to = relation.table_from
+                    } else if (relation.table_from === req.table_slug) {
+                        appendMany2Many.table_to = relation.table_to
+                    }
+                    await objectBuilder.appendManyToMany(appendMany2Many)
+                } 
+                if (deletedIds.length) {
+                    let deleteMany2Many = {}
+                    deleteMany2Many.id_from = data.guid
+                    deleteMany2Many.id_to =  deletedIds
+                    deleteMany2Many.table_from = req.table_slug
+                    if (relation.table_to === req.table_slug) {
+                        deleteMany2Many.table_to = relation.table_from
+                    } else if (relation.table_from === req.table_slug) {
+                        deleteMany2Many.table_to = relation.table_to
+                    }
+                    await objectBuilder.deleteManyToMany(deleteMany2Many)
+                }
+                
+            }
         }
         field_types.guid = "String"
         event.payload.field_types = field_types

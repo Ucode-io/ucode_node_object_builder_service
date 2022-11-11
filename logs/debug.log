@@ -2903,3 +2903,164 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-10T09:20:49.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-10T09:20:50.947Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T05:40:59.042Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
+  level: 'error',
+  timestamp: '2022-11-11T05:41:28.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T05:41:28.577Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"client_type","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T05:53:56.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"client_type","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T05:53:56.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T06:01:16.513Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
+  level: 'error',
+  timestamp: '2022-11-11T06:01:46.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T06:01:46.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T06:09:02.929Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
+  level: 'error',
+  timestamp: '2022-11-11T06:09:32.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T06:09:32.467Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T06:10:25.252Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T06:10:25.884Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T06:11:40.280Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T06:11:41.701Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"client_type","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-11T06:19:13.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"client_type","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-11T06:19:13.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-11T06:19:18.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-11T06:19:18.927Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T06:47:28.705Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T06:47:29.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

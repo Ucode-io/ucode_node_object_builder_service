@@ -54,3 +54,24 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
+  level: 'error',
+  timestamp: '2022-11-11T05:41:28.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
+  level: 'error',
+  timestamp: '2022-11-11T06:01:46.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
+  level: 'error',
+  timestamp: '2022-11-11T06:09:32.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

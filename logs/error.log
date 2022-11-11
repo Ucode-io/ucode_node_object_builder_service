@@ -138,3 +138,31 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getList: failed with error: bool is not defined',
+  level: 'error',
+  timestamp: '2022-11-11T14:31:28.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T14:36:57.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T14:39:25.337Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
+  level: 'error',
+  timestamp: '2022-11-11T14:41:17.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

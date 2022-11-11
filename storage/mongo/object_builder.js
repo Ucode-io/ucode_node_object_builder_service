@@ -433,13 +433,11 @@ let objectBuilder = {
                 params["guid"] = params[key]
             }
 
-            if (params[key] === "true" || params[key] === "false" ) {
-                console.log("here")
-                params[key] = bool(params[key])
+            if (params[key] === "true") {
+                params[key] = (params[key] === 'true')
+            } else if (params[key] === "false") {
+                params[key] = (params[key] === 'false')
             }
-
-            console.log("Key =====> : ", params[key])
-            console.log("Type Of :", typeof params[key])
 
             if (typeof (params[key]) === "object") {
 

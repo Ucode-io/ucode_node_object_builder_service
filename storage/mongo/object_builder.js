@@ -67,6 +67,7 @@ let objectBuilder = {
         if (randomNumbers) {
             let attributes = struct.decode(randomNumbers.attributes)
             let randomNumber = generators.generateRandomNumber(attributes.prefix, attributes.digit_number)
+            console.log("random number ::::: ", randomNumber)
             let params = {}
             params[randomNumbers.slug] = randomNumber.toString()
 

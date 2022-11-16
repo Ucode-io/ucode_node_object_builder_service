@@ -17,7 +17,7 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const Minio = require('minio');
 var fns_format = require('date-fns/format');
-const generateRandomNumber = require("../../helper/generator")
+const generators = require("../../helper/generator")
 
 
 
@@ -66,7 +66,7 @@ let objectBuilder = {
 
         if (randomNumbers) {
             let attributes = struct.decode(randomNumbers.attributes)
-            let randomNumber = generateRandomNumber(attributes.prefix, attributes.digit_number)
+            let randomNumber = generators.generateRandomNumber(attributes.prefix, attributes.digit_number)
             let params = {}
             params[randomNumbers.slug] = randomNumber.toString()
 
@@ -350,6 +350,7 @@ let objectBuilder = {
         const tableInfo = (await ObjectBuilder())[req.table_slug]
         let keys = Object.keys(params)
         let order = params.order
+        console.log("order : ====", order)
         let fields = tableInfo.fields
         let with_relations = params.with_relations
         const permissionTable = (await ObjectBuilder())["record_permission"]
@@ -406,7 +407,6 @@ let objectBuilder = {
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = tableInfo.fields.filter(val => (val.slug === view_field))
-                    console.log("Type ======> : ", field[0].type)
                     if (field[0].type !== "NUMBER" && field[0].type !== "SWITCH") {
                         let obj = {};
                         obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }

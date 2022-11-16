@@ -19,4 +19,4 @@ function generateRandomNumber(prefix, digitNumber) {
     return result
 }
 
-module.exports = generateBarcode, generateRandomNumber;
+module.exports = {generateBarcode, generateRandomNumber}

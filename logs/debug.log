@@ -3631,3 +3631,1207 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-11T16:38:23.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-11T16:38:25.321Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-15T08:09:05.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-15T08:09:06.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delevery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:34:05.188Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delevery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:34:05.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2022-11-15T08:34:05.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:34:26.512Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:34:26.513Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T08:34:28.344Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T08:34:28.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-15T08:40:02.138Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-15T08:40:03.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:40:48.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:40:48.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T08:40:50.606Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T08:40:50.606Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-15T08:41:14.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-15T08:41:15.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:42:19.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:42:19.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T08:42:22.700Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T08:42:22.700Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:42:37.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:42:37.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T08:42:40.417Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T08:42:40.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-15T08:47:05.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-15T08:47:06.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:47:42.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:47:42.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T08:47:44.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T08:47:44.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-15T08:49:50.155Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-15T08:49:50.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:50:52.674Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:50:52.674Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T08:50:54.332Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T08:50:54.332Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-15T08:53:53.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-15T08:53:55.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:55:42.747Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:55:42.747Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T08:55:45.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T08:55:45.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-15T08:58:41.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-15T08:58:42.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:59:22.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:59:22.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T08:59:25.071Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T08:59:25.071Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T08:59:34.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T08:59:34.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T08:59:36.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T08:59:36.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-15T11:25:55.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-15T11:25:57.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-15T11:28:36.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-15T11:28:36.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-15T11:28:37.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-15T11:28:37.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T05:59:10.895Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T05:59:13.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:00:06.042Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:00:06.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:00:09.578Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:00:09.579Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:07:27.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:07:27.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:07:30.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:07:30.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:08:15.931Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:08:19.254Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:08:58.900Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:08:58.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:09:01.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:09:01.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:09:45.484Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":10,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:09:45.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:09:50.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:09:50.041Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:11:10.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:11:11.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"offset":{"numberValue":0,"kind":"numberValue"},"limit":{"numberValue":10,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:11:13.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"offset":{"numberValue":0,"kind":"numberValue"},"limit":{"numberValue":10,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:11:13.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2022-11-16T06:11:14.006Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:11:24.871Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:11:25.715Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:12:59.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:12:59.770Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:13:03.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:13:03.548Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:13:33.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:13:34.878Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:14:36.540Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:14:36.540Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:14:40.868Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:14:40.868Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:15:02.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:15:04.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:15:49.931Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:15:49.931Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:15:52.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:15:52.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:16:20.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:16:22.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:17:06.960Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"},"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:17:06.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot do exclusion on field updated_at in inclusion projection',
+  level: 'error',
+  timestamp: '2022-11-16T06:17:08.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:17:29.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:17:31.190Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:18:14.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:18:14.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:18:17.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:18:17.041Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:19:04.725Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:19:06.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:20:11.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:20:11.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot do inclusion on field created_at in exclusion projection',
+  level: 'error',
+  timestamp: '2022-11-16T06:20:12.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:20:19.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:20:19.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot do inclusion on field created_at in exclusion projection',
+  level: 'error',
+  timestamp: '2022-11-16T06:20:20.604Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:20:48.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:20:49.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:31:27.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:31:28.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:32:36.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:32:36.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Invalid sort() argument. Must be a string, object, or array.',
+  level: 'error',
+  timestamp: '2022-11-16T06:32:38.256Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:32:43.274Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:32:43.274Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Invalid sort() argument. Must be a string, object, or array.',
+  level: 'error',
+  timestamp: '2022-11-16T06:32:44.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:33:12.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:33:14.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:33:23.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:33:25.579Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:34:51.665Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:34:51.665Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Invalid sort() argument. Must be a string, object, or array.',
+  level: 'error',
+  timestamp: '2022-11-16T06:34:52.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:35:45.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:35:46.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:36:39.057Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:36:39.058Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:36:42.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:36:42.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:38:14.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:38:15.482Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:38:42.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:38:44.228Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:39:30.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:39:30.291Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:39:33.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:39:33.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:40:27.985Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:40:28.812Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:41:04.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:41:04.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:41:06.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:41:06.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:41:51.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:41:52.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"offset":{"numberValue":0,"kind":"numberValue"},"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:42:41.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"offset":{"numberValue":0,"kind":"numberValue"},"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:42:41.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:42:45.515Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:42:45.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T06:43:12.804Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T06:43:13.937Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T06:43:50.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"delivery_man","data":{"fields":{"app_id":{"stringValue":"9c9be365-0566-4058-b5d5-93ccc2ffc75f","kind":"stringValue"},"limit":{"numberValue":0,"kind":"numberValue"},"offset":{"numberValue":0,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T06:43:50.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-16T06:43:53.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-16T06:43:53.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

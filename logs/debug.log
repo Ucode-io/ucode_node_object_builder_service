@@ -4835,3 +4835,52 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T11:36:30.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T11:36:31.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-16T11:36:54.580Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-16T11:36:55.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: requested - {"table_slug":"provider","data":{"fields":{"citizen_passport":{"stringValue":"","kind":"stringValue"},"first_name":{"stringValue":"Temur","kind":"stringValue"},"idd":{"stringValue":"","kind":"stringValue"},"last_name":{"stringValue":"Komilov","kind":"stringValue"},"photo":{"stringValue":"","kind":"stringValue"},"salary":{"stringValue":"2000000","kind":"stringValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-16T11:41:08.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: requested, {"table_slug":"provider","data":{"fields":{"citizen_passport":{"stringValue":"","kind":"stringValue"},"first_name":{"stringValue":"Temur","kind":"stringValue"},"idd":{"stringValue":"","kind":"stringValue"},"last_name":{"stringValue":"Komilov","kind":"stringValue"},"photo":{"stringValue":"","kind":"stringValue"},"salary":{"stringValue":"2000000","kind":"stringValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-16T11:41:08.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-11-16T11:41:15.454Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

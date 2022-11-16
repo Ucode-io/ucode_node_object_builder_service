@@ -222,3 +222,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-11-16T11:41:15.454Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -351,7 +351,6 @@ let objectBuilder = {
         const tableInfo = (await ObjectBuilder())[req.table_slug]
         let keys = Object.keys(params)
         let order = params.order
-        console.log("order : ====", order)
         let fields = tableInfo.fields
         let with_relations = params.with_relations
         const permissionTable = (await ObjectBuilder())["record_permission"]
@@ -736,7 +735,7 @@ let objectBuilder = {
                     updated_at: 0,
                     _id: 0,
                     __v: 0
-                }, { sort: order }
+                }, { sort: {createdAt:-1} }
             )
                 .skip(offset)
                 .limit(limit)
@@ -748,7 +747,6 @@ let objectBuilder = {
 
             result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             count = count - (prev - result.length)
-
 
         }
 
@@ -1003,6 +1001,7 @@ let objectBuilder = {
         if (!responseResult.length) {
             responseResult = result
         }
+        console.log()
         const response = struct.encode({
             count: count,
             response: responseResult,

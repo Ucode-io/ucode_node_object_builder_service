@@ -67,7 +67,6 @@ let objectBuilder = {
         if (randomNumbers) {
             let attributes = struct.decode(randomNumbers.attributes)
             let randomNumber = generators.generateRandomNumber(attributes.prefix, attributes.digit_number)
-            console.log("random number ::::: ", randomNumber)
             let params = {}
             params[randomNumbers.slug] = randomNumber.toString()
 
@@ -428,6 +427,7 @@ let objectBuilder = {
             }
         }
         // add regExp to params for filtering
+
         for (const key of keys) {
             if (key === req.table_slug + "_id" && params[key] !== "") {
                 params["guid"] = params[key]
@@ -1001,7 +1001,7 @@ let objectBuilder = {
         if (!responseResult.length) {
             responseResult = result
         }
-        console.log()
+
         const response = struct.encode({
             count: count,
             response: responseResult,
@@ -1036,7 +1036,6 @@ let objectBuilder = {
         let order = params.order
         let fields = tableInfo.fields
         let with_relations = params.with_relations
-
         // add regExp to params for filtering
         for (const key of keys) {
             if (key === req.table_slug + "_id" && params[key] !== "") {
@@ -1771,83 +1770,32 @@ let objectBuilder = {
     multipleUpdate: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
         const data = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder())[req.table_slug]
+        let resp, allSum = 0
+        
         for (const object of data.objects) {
-            if (object.guid !== "") {
-                const response = await tableInfo.models.updateOne({ guid: object.guid }, { $set: object });
-                let event = {}
-                let field_types = {}
-                event.payload = {}
-                event.payload.data = data
-                event.payload.table_slug = req.table_slug
-
-                for (const field of tableInfo.fields) {
-                    let type = converter(field.type);
-                    field_types[field.slug] = type
+            const keys = Object.keys(object)
+            for (const key of keys) {
+                if (object[key] === "true") {
+                    object[key] = (object[key] === 'true')
+                } else if (object[key] === "false") {
+                    object[key] = (object[key] === 'false')
+                } else {
+                    continue
                 }
-                field_types.guid = "String"
-                event.payload.field_types = field_types
-                await sendMessageToTopic(con.TopicObjectUpdateV1, event)
+            }
+            let request = {
+                table_slug: req.table_slug,
+                data: struct.encode(object)
+            }
+            if (object.guid) {
+                await objectBuilder.update(request)
             } else {
-
-                object.guid = v4()
-                const tableInfo = (await ObjectBuilder())[req.table_slug]
-                if (req.table_slug === "file") {
-                    object.date = new Date().toISOString()
-                }
-                let tableData = await table.findOne(
-                    {
-                        slug: req.table_slug
-                    }
-                )
-
-
-                let incrementField = await Field.findOne({
-                    table_id: tableData.id,
-                    type: "INCREMENT_ID"
-                })
-
-
-                if (incrementField) {
-                    let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-                    let attributes = struct.decode(incrementField.attributes)
-                    let incrementLength = attributes.prefix.length
-                    if (!last || !last[incrementField.slug]) {
-                        data[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
-                    } else {
-                        nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug].length)) + 1
-                        data[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
-                    }
-                }
-
-
-
-                let payload = new tableInfo.models(object);
-                await payload.save();
-
-                let fields = await Field.find(
-                    {
-                        table_id: tableData.id
-                    }
-                )
-                // TODO::: move kafka to service level
-                let event = {}
-                let field_types = {}
-                event.payload = {}
-                event.payload.data = data
-                event.payload.table_slug = req.table_slug
-
-                for (const field of fields) {
-                    let type = converter(field.type);
-                    field_types[field.slug] = type
-                }
-                field_types.guid = "String"
-                event.payload.field_types = field_types
-                await sendMessageToTopic(con.TopicObjectCreateV1, event)
+                await objectBuilder.create(request)
             }
         }
 
         return;
-    })
+   })
 }
 
 module.exports = objectBuilder;

@@ -2,7 +2,8 @@ const Field = require("../../models/field");
 const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
-const con = require("../../helper/constants");
+const con = require("../../config/kafkaTopics");
+
 const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
 const Relation = require("../../models/relation");
@@ -166,7 +167,7 @@ let fieldStore = {
         tableRes.fields = fields 
         event.payload = tableRes
 
-        await sendMessageToTopic(con.TopicFieldCreateV1,event)
+        await sendMessageToTopic(con.topicFieldCreateV1, event)
 
 
         return response;
@@ -244,7 +245,7 @@ let fieldStore = {
         fieldRes.field = fieldToAnalytics
         event.payload = fieldRes
 
-        await sendMessageToTopic(con.TopicFieldUpdateV1,event)
+        await sendMessageToTopic(con.topicFieldUpdateV1,event)
 
         return field;
     }),
@@ -475,7 +476,7 @@ let fieldStore = {
         fieldRes.field = fieldToAnalytics
         event.payload = fieldRes
 
-        await sendMessageToTopic(con.TopicFieldDeleteV1,event)   
+        await sendMessageToTopic(con.topicFieldDeleteV1,event)   
 
         return field;
     }

@@ -4,7 +4,7 @@ const Section = require("../../models/section");
 const App = require("../../models/app");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const View = require("../../models/view");
-const con = require("../../helper/constants")
+const con = require("../../../helper/constants")
 const sendMessageToTopic = require("../../config/kafka");
 const Relation = require("../../models/relation");
 const field = require("../../models/field");
@@ -54,7 +54,7 @@ let tableStore = {
         let event = {}
         event.payload = data
 
-        await sendMessageToTopic(con.TopicTableUpdeteV1, event)
+        await sendMessageToTopic(con.topicTableUpdeteV1, event)
         return table;
     }),
     get: catchWrapDb(`${NAMESPACE}.find`, async(data) => {

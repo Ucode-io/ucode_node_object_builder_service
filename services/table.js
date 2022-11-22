@@ -5,7 +5,7 @@ const fieldStore = require("../storage/mongo/field");
 const sectionStore = require("../storage/mongo/section");
 const viewStore = require("../storage/mongo/view");
 const catchWrapService = require("../helper/catchWrapService");
-const con = require("../helper/constants");
+const con = require("../../config/kafkaTopics");
 const sendMessageToTopic = require("../config/kafka");
 const converter = require("../helper/converter");
 const view = require("../models/view");
@@ -56,7 +56,7 @@ const tableService = {
             table.fields = fields 
             event.payload = table
 
-            await sendMessageToTopic(con.TopicTableCreateV1,event)
+            await sendMessageToTopic(con.topicTableCreateV1, event)
 
             callback(null, {
                 id: response.id

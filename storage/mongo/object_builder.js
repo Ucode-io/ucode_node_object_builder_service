@@ -6,7 +6,8 @@ let NAMESPACE = "storage.object_builder";
 const { struct } = require('pb-util');
 const Relation = require("../../models/relation");
 const { v4 } = require("uuid");
-const con = require("../../helper/constants");
+const con = require("../../config/kafkaTopics");
+
 const sendMessageToTopic = require("../../config/kafka");
 const table = require("../../models/table");
 const converter = require("../../helper/converter");
@@ -141,11 +142,11 @@ let objectBuilder = {
         }
         field_types.guid = "String"
         event.payload.field_types = field_types
-        await sendMessageToTopic(con.TopicObjectCreateV1, event)
+        await sendMessageToTopic(con.topicObjectCreateV1, event)
 
 
         req.current_data = data
-        await sendMessageToTopic(con.TopicEventCreateV1, {
+        await sendMessageToTopic(con.topicEventCreateV1, {
             payload: {
                 current_data: data,
                 table_slug: req.table_slug
@@ -216,7 +217,7 @@ let objectBuilder = {
         }
         field_types.guid = "String"
         event.payload.field_types = field_types
-        await sendMessageToTopic(con.TopicObjectUpdateV1, event)
+        await sendMessageToTopic(con.topicObjectUpdateV1, event)
 
         return response;
     }),
@@ -1023,7 +1024,7 @@ let objectBuilder = {
         table.table_slug = req.table_slug
         event.payload = table
 
-        await sendMessageToTopic(con.TopicObjectDeleteV1, event)
+        await sendMessageToTopic(con.topicObjectDeleteV1, event)
 
         return { table_slug: req.table_slug, data: response };
     }),
@@ -1708,7 +1709,7 @@ let objectBuilder = {
                 }
                 field_types.guid = "String"
                 event.payload.field_types = field_types
-                await sendMessageToTopic(con.TopicObjectUpdateV1, event)
+                await sendMessageToTopic(con.topicObjectUpdateV1, event)
 
             } else {
                 object.guid = v4()
@@ -1757,7 +1758,7 @@ let objectBuilder = {
                 }
                 field_types.guid = "String"
                 event.payload.field_types = field_types
-                await sendMessageToTopic(con.TopicObjectCreateV1, event)
+                await sendMessageToTopic(con.topicObjectCreateV1, event)
             }
         }
 

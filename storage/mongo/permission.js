@@ -4,7 +4,8 @@ let NAMESPACE = "storage.object_builder";
 const {struct} = require('pb-util');
 const Relation = require("../../models/relation");
 const { v4 } = require("uuid");
-const con = require("../../helper/constants");
+const con = require("../../config/kafkaTopics");
+
 const sendMessageToTopic = require("../../config/kafka");
 const table = require("../../models/table");
 const converter = require("../../helper/converter");
@@ -64,7 +65,7 @@ let permission = {
                             }
                             field_types.guid = "String"
                             event.payload.field_types = field_types
-                            await sendMessageToTopic(con.TopicObjectUpdateV1, event)
+                            await sendMessageToTopic(con.topicObjectUpdateV1, event)
                         } else {
                             let methods = ["read", "write", "delete", "update"]
                             let keys = Object.keys(data)
@@ -89,7 +90,7 @@ let permission = {
                             }
                             field_types.guid = "String"
                             event.payload.field_types = field_types
-                            await sendMessageToTopic(con.TopicObjectCreateV1, event)
+                            await sendMessageToTopic(con.topicObjectCreateV1, event)
                         }
                     }
                     response.push(res)

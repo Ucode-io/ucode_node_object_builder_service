@@ -67,6 +67,7 @@ let objectBuilder = {
         if (randomNumbers) {
             let attributes = struct.decode(randomNumbers.attributes)
             let randomNumber = generators.generateRandomNumber(attributes.prefix, attributes.digit_number)
+            console.log("random number ::::: ", randomNumber)
             let params = {}
             params[randomNumbers.slug] = randomNumber.toString()
 
@@ -427,7 +428,6 @@ let objectBuilder = {
             }
         }
         // add regExp to params for filtering
-
         for (const key of keys) {
             if (key === req.table_slug + "_id" && params[key] !== "") {
                 params["guid"] = params[key]
@@ -1001,7 +1001,7 @@ let objectBuilder = {
         if (!responseResult.length) {
             responseResult = result
         }
-
+        console.log()
         const response = struct.encode({
             count: count,
             response: responseResult,
@@ -1036,6 +1036,7 @@ let objectBuilder = {
         let order = params.order
         let fields = tableInfo.fields
         let with_relations = params.with_relations
+
         // add regExp to params for filtering
         for (const key of keys) {
             if (key === req.table_slug + "_id" && params[key] !== "") {
@@ -1773,16 +1774,6 @@ let objectBuilder = {
         let resp, allSum = 0
         
         for (const object of data.objects) {
-            const keys = Object.keys(object)
-            for (const key of keys) {
-                if (object[key] === "true") {
-                    object[key] = (object[key] === 'true')
-                } else if (object[key] === "false") {
-                    object[key] = (object[key] === 'false')
-                } else {
-                    continue
-                }
-            }
             let request = {
                 table_slug: req.table_slug,
                 data: struct.encode(object)
@@ -1795,7 +1786,7 @@ let objectBuilder = {
         }
 
         return;
-   })
+    })
 }
 
 module.exports = objectBuilder;

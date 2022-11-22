@@ -1774,6 +1774,16 @@ let objectBuilder = {
         let resp, allSum = 0
         
         for (const object of data.objects) {
+            const keys = Object.keys(object)
+            for (const key of keys) {
+                if (object[key] === "true") {
+                    object[key] = (object[key] === 'true')
+                } else if (object[key] === "false") {
+                    object[key] = (object[key] === 'false')
+                } else {
+                    continue
+                }
+            }
             let request = {
                 table_slug: req.table_slug,
                 data: struct.encode(object)

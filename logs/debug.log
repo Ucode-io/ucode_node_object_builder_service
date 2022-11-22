@@ -5955,3 +5955,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-22T05:09:54.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-22T05:09:54.887Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

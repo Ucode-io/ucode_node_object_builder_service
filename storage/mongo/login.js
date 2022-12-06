@@ -4,7 +4,7 @@ const catchWrapDbObjectBuilder = require("../../helper/catchWrapDbObjectBuilder"
 let NAMESPACE = "storage.login";
 
 
-
+// just comment
 let loginStore = {
     login: catchWrapDbObjectBuilder(`${NAMESPACE}.login`, async (req) => {
         const clientTypeTable = (await ObjectBuilder())["client_type"]

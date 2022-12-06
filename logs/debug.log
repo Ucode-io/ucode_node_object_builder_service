@@ -6424,3 +6424,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:42:43.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

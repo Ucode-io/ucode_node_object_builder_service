@@ -8,7 +8,7 @@ let NAMESPACE = "storage.login";
 let loginStore = {
     login: catchWrapDbObjectBuilder(`${NAMESPACE}.login`, async (req) => {
         const clientTypeTable = (await ObjectBuilder())["client_type"]
-        
+
         const clientType = await clientTypeTable.models.findOne(
             {
                 name: req.client_type,
@@ -22,7 +22,7 @@ let loginStore = {
                         client_type_id: clientType.guid
                     },
                     {
-                        login_strategy :  "Login with password"
+                        login_strategy: "Login with password"
                     }
                 ]
             }
@@ -32,7 +32,7 @@ let loginStore = {
         }
         const userTable = (await ObjectBuilder())[login.table_slug]
         let user, userId;
-        let params  = {}
+        let params = {}
         params[login.login_view] = req.login
         params[login.password_view] = req.password
         user = await userTable.models.findOne(
@@ -47,22 +47,22 @@ let loginStore = {
             }
         }
         const roleTable = (await ObjectBuilder())["role"]
-        
+
         const role = await roleTable.models.findOne(
             {
                 client_type_id: clientType.guid,
             }
         )
-        
+
         const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
-         
+
         const clientPlatform = await clientPlatfromTable.models.findOne(
             {
                 guid: role.client_platform_id
             }
         )
-        
-        
+
+
         const connectionsTable = (await ObjectBuilder())["connections"]
 
         const connections = await connectionsTable.models.find(
@@ -73,9 +73,9 @@ let loginStore = {
         let clientTypeResp = {}
         clientTypeResp = clientType
         clientTypeResp.tables = connections
-        
+
         const recordPermission = (await ObjectBuilder())["record_permission"]
-        
+
         const permissions = await recordPermission.models.find(
             {
                 $and: [{
@@ -91,18 +91,31 @@ let loginStore = {
         } else {
             userId = ""
         }
+
+        const appTable = (await ObjectBuilder())["record_permission"]
+        const appPermissions = await appTable.models.find(
+            {
+                $and: [{
+                    table_slug: "app"
+                }, {
+                    role_id: user.role_id
+                }]
+            }
+        )
+
         return {
             user_found: user_found,
             client_platform: clientPlatform,
             client_type: clientTypeResp,
             user_id: userId,
+            app_permissions: appPermissions,
             role: role,
             permissions: permissions,
             login_table_slug: login.table_slug
         }
     }),
     loginWithOtp: catchWrapDbObjectBuilder(`${NAMESPACE}.loginWithOtp`, async (req) => {
-        
+
         let clientType, clientPlatform, role, permissions, user, clientTypeResp, userTable, userId;
         let user_found = false
         const tableInfo = (await ObjectBuilder())["test_login"]
@@ -113,10 +126,10 @@ let loginStore = {
             }
         )
         const login = await tableInfo.models.findOne(
-            { 
+            {
                 $and: [{
-                    login_strategy :  "Phone OTP"      
-                },{
+                    login_strategy: "Phone OTP"
+                }, {
                     client_type_id: clientType.guid
                 }]
             }
@@ -126,33 +139,33 @@ let loginStore = {
         }
         let temp = req.phone_number.toString()
         let tempPhone = temp.substring(5, temp.length)
-        let phone = `\(` + temp.substring(1,3) + `\) ` + tempPhone
+        let phone = `\(` + temp.substring(1, 3) + `\) ` + tempPhone
         let params = {}
         params[login.login_view] = phone
         userTable = (await ObjectBuilder())[login.table_slug]
         user = await userTable.models.findOne(
-            { 
+            {
                 $and: [params]
             }
         )
         if (user) {
-            
+
             const roleTable = (await ObjectBuilder())["role"]
-            
+
             role = await roleTable.models.findOne(
                 {
                     client_type_id: clientType.guid,
                 }
             )
             const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
-        
+
             clientPlatform = await clientPlatfromTable.models.findOne(
                 {
                     guid: role.client_platform_id,
                 }
             )
-            
-            
+
+
             const connectionsTable = (await ObjectBuilder())["connections"]
 
             const connections = await connectionsTable.models.find(
@@ -160,12 +173,12 @@ let loginStore = {
                     client_type_id: clientType.guid
                 }
             )
-            
+
             clientTypeResp = clientType
             clientTypeResp.tables = connections
-            
+
             const recordPermission = (await ObjectBuilder())["record_permission"]
-            
+
             permissions = await recordPermission.models.find(
                 {
                     $and: [{
@@ -175,7 +188,7 @@ let loginStore = {
                     }]
                 }
             )
-            
+
             user_found = true
         }
         if (!user) {
@@ -194,7 +207,7 @@ let loginStore = {
         }
     }),
     loginWithEmailOtp: catchWrapDbObjectBuilder(`${NAMESPACE}.loginWithEmailOtp`, async (req) => {
-        
+
         let clientType, clientPlatform, role, permissions, user, clientTypeResp, userTable, userId;
         let user_found = false
         const tableInfo = (await ObjectBuilder())["test_login"]
@@ -205,10 +218,10 @@ let loginStore = {
             }
         )
         const login = await tableInfo.models.findOne(
-            { 
+            {
                 $and: [{
-                    login_strategy :  "Email OTP"      
-                },{
+                    login_strategy: "Email OTP"
+                }, {
                     client_type_id: clientType.guid
                 }]
             }
@@ -220,28 +233,28 @@ let loginStore = {
         params[login.login_view] = req.email
         userTable = (await ObjectBuilder())[login.table_slug]
         user = await userTable.models.findOne(
-            { 
+            {
                 $and: [params]
             }
         )
         if (user) {
-            
+
             const roleTable = (await ObjectBuilder())["role"]
-            
+
             role = await roleTable.models.findOne(
                 {
                     client_type_id: clientType.guid,
                 }
             )
             const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
-        
+
             clientPlatform = await clientPlatfromTable.models.findOne(
                 {
                     guid: role.client_platform_id,
                 }
             )
-            
-            
+
+
             const connectionsTable = (await ObjectBuilder())["connections"]
 
             const connections = await connectionsTable.models.find(
@@ -249,12 +262,12 @@ let loginStore = {
                     client_type_id: clientType.guid
                 }
             )
-            
+
             clientTypeResp = clientType
             clientTypeResp.tables = connections
-            
+
             const recordPermission = (await ObjectBuilder())["record_permission"]
-            
+
             permissions = await recordPermission.models.find(
                 {
                     $and: [{
@@ -264,7 +277,7 @@ let loginStore = {
                     }]
                 }
             )
-            
+
             user_found = true
         }
         if (!user) {
@@ -283,7 +296,7 @@ let loginStore = {
         }
     }),
     getUserUpdatedPermission: catchWrapDbObjectBuilder(`${NAMESPACE}.getUserUpdatedPermission`, async (req) => {
-        
+
         let clientType, clientPlatform, role, permissions, user, clientTypeResp, userTable, userId;
         const tableInfo = (await ObjectBuilder())["test_login"]
         const clientTypeTable = (await ObjectBuilder())["client_type"]
@@ -292,22 +305,22 @@ let loginStore = {
                 guid: req.client_type_id
             }
         )
-                
+
         const roleTable = (await ObjectBuilder())["role"]
-        
+
         role = await roleTable.models.findOne(
             {
                 client_type_id: clientType.guid,
             }
         )
         const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
-    
+
         clientPlatform = await clientPlatfromTable.models.findOne(
             {
                 guid: role.client_platform_id,
             }
         )
-        
+
         const connectionsTable = (await ObjectBuilder())["connections"]
 
         const connections = await connectionsTable.models.find(
@@ -315,12 +328,12 @@ let loginStore = {
                 client_type_id: clientType.guid
             }
         )
-        
+
         clientTypeResp = clientType
         clientTypeResp.tables = connections
-        
+
         const recordPermission = (await ObjectBuilder())["record_permission"]
-        
+
         permissions = await recordPermission.models.find(
             {
                 $and: [{
@@ -330,7 +343,7 @@ let loginStore = {
                 }]
             }
         )
-            
+
         return {
             user_found: true,
             client_platform: clientPlatform,

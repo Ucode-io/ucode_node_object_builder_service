@@ -92,8 +92,7 @@ let loginStore = {
             userId = ""
         }
 
-        const appTable = (await ObjectBuilder())["record_permission"]
-        const appPermissions = await appTable.models.find(
+        const appPermissions = await recordPermission.models.find(
             {
                 $and: [{
                     table_slug: "app"
@@ -102,6 +101,8 @@ let loginStore = {
                 }]
             }
         )
+
+    
 
         return {
             user_found: user_found,

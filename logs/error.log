@@ -411,3 +411,45 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:37:03.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:39:47.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:45:45.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:48:36.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T09:09:44.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-08T09:11:54.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

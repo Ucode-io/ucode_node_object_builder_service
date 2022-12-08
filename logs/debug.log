@@ -8020,3 +8020,213 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T07:20:04.265Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T07:20:05.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T08:37:03.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T08:37:03.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:37:03.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T08:39:03.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T08:39:05.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T08:39:47.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T08:39:47.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:39:47.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T08:44:58.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T08:44:59.460Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T08:45:45.426Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T08:45:45.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:45:45.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T08:47:18.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T08:47:18.889Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T08:48:36.559Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T08:48:36.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:48:36.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T09:07:01.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T09:07:02.204Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T09:09:44.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T09:09:44.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T09:09:44.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T09:10:56.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T09:10:57.843Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T09:11:42.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T09:11:42.508Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-08T09:11:54.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

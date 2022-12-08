@@ -3,6 +3,9 @@ const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
 const con = require("../../config/kafkaTopics");
+const conn = require("../../helper/constants");
+
+
 
 const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
@@ -25,7 +28,7 @@ let fieldStore = {
         
 
         for (const fieldReq of data.fields) {
-            if (con.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
+            if (conn.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
                 let autoFillTable = await Table.findOne({
                     slug: fieldReq.autofill_table
                 })
@@ -91,7 +94,7 @@ let fieldStore = {
     }
     ),
     create: catchWrapDb(`${NAMESPACE}.create`, async(data) => {
-        if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
+        if (conn.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
             let autoFillTable = await Table.findOne({
                 slug: data.autofill_table
             })
@@ -120,6 +123,7 @@ let fieldStore = {
                 data.attributes = autoFillField.attributes
             }
         }
+
         const field = new Field(data);
 
         const response = await field.save();

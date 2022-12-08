@@ -397,3 +397,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.query.getById: failed with error: queryFolder is not defined',
+  level: 'error',
+  timestamp: '2022-12-08T02:36:26.960Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getAll: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2022-12-08T02:44:16.696Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

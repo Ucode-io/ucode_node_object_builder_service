@@ -59,7 +59,7 @@ let fieldStore = {
             }
             const field = new Field(fieldReq); 
             field.table_id = data.id;
-            var response = field.save();
+            var response =  field.save();
             const table = await Table.findOne({
                 id: data.id
             })

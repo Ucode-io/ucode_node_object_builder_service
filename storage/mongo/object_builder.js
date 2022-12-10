@@ -20,7 +20,7 @@ const Minio = require('minio');
 var fns_format = require('date-fns/format');
 const generators = require("../../helper/generator")
 
-
+console.log("KAFKA TOPICS-----", con)
 
 let objectBuilder = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {

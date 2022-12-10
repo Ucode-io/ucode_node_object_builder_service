@@ -141,6 +141,7 @@ let objectBuilder = {
         }
         field_types.guid = "String"
         event.payload.field_types = field_types
+        event.project_id = req.project_id
         await sendMessageToTopic(con.TopicObjectCreateV1, event)
 
 
@@ -149,7 +150,8 @@ let objectBuilder = {
             payload: {
                 current_data: data,
                 table_slug: req.table_slug
-            }
+            },
+            project_id: req.project_id
         })
 
 
@@ -216,6 +218,7 @@ let objectBuilder = {
         }
         field_types.guid = "String"
         event.payload.field_types = field_types
+        event.project_id = req.project_id
         await sendMessageToTopic(con.TopicObjectUpdateV1, event)
 
         return response;
@@ -1022,6 +1025,7 @@ let objectBuilder = {
         table.guid = data.id
         table.table_slug = req.table_slug
         event.payload = table
+        event.project_id = req.project_id
 
         await sendMessageToTopic(con.TopicObjectDeleteV1, event)
 
@@ -1708,6 +1712,8 @@ let objectBuilder = {
                 }
                 field_types.guid = "String"
                 event.payload.field_types = field_types
+                event.project_id = req.project_id
+
                 await sendMessageToTopic(con.TopicObjectUpdateV1, event)
 
             } else {
@@ -1757,6 +1763,8 @@ let objectBuilder = {
                 }
                 field_types.guid = "String"
                 event.payload.field_types = field_types
+                event.project_id = req.project_id
+
                 await sendMessageToTopic(con.TopicObjectCreateV1, event)
             }
         }

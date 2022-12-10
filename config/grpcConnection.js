@@ -24,6 +24,7 @@ const permissionService = require("../services/permission")
 const customEventService = require("../services/custom_event")
 const functionService = require("../services/function")
 const barcodeService = require("../services/barcode")
+const projectService = require("../services/project")
 
 const PROTO_URL = __dirname + "/../protos/object_builder_service/object_builder_service.proto";
 const packageDefinition = protoLoader.loadSync(PROTO_URL, {
@@ -59,6 +60,7 @@ server.addService(objectBuilderProto.PermissionService.service, permissionServic
 server.addService(objectBuilderProto.CustomEventService.service, customEventService);
 server.addService(objectBuilderProto.FunctionService.service, functionService);
 server.addService(objectBuilderProto.BarcodeService.service, barcodeService);
+server.addService(objectBuilderProto.ProjectService.service, projectService);
 
 server.bindAsync(
     "0.0.0.0:" + cfg.RPCPort,

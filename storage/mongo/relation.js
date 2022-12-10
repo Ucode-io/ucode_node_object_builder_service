@@ -101,6 +101,8 @@ let relationStore = {
                 )
                 tableRes.fields = fieldsFrom
                 eventTo.payload = tableRes
+                eventTo.project_id = data.project_id
+
                 tableFrom = await Table.findOne({
                     slug: data.table_from,
                     deleted_at: "1970-01-01T18:00:00.000+00:00"
@@ -132,6 +134,7 @@ let relationStore = {
                 )
                 tableRes.fields = fieldsTo
                 eventFrom.payload = tableRes
+                eventFrom.project_id = data.project_id
                 
                 await sendMessageToTopic(con.TopicRelationFromCreateV1,eventFrom)
                 break;
@@ -171,6 +174,8 @@ let relationStore = {
                 )
                 tableRecursive.fields = fields
                 event.payload = tableRecursive
+                event.project_id = data.project_id
+
                 await sendMessageToTopic(con.TopicRecursiveRelationCreateV1,event)
                 break;
             case 'Many2One':
@@ -207,6 +212,7 @@ let relationStore = {
                 )
                 tableMany2One.fields = fieldsMany2One
                 eventMany2One.payload = tableMany2One
+                eventMany2One.project_id = data.project_id
                 await sendMessageToTopic(con.TopicMany2OneRelationCreateV1,eventMany2One)
                 break;
             default:
@@ -599,6 +605,8 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
+            event.project_id = data.project_id
+
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         } else if (relation.type === 'Many2Many') {
             table = await Table.findOne({
@@ -615,6 +623,8 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
+            event.project_id = data.project_id
+
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
             table = await Table.findOne({
                 slug: relation.table_from,
@@ -630,6 +640,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
+            event.project_id = data.project_id
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         } else if (relation.type === "Recursive") {
             table = await Table.findOne({
@@ -646,6 +657,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
+            event.project_id = data.project_id
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         }else {
             table = await Table.findOne({
@@ -662,6 +674,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
+            event.project_id = data.project_id
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         }
         const res = await Table.updateOne({

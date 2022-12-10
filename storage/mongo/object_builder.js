@@ -20,10 +20,10 @@ const Minio = require('minio');
 var fns_format = require('date-fns/format');
 const generators = require("../../helper/generator")
 
-console.log("KAFKA TOPICS-----", con)
-
 let objectBuilder = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
+        console.log("KAFKA TOPICS-----", con)
+        
         const data = struct.decode(req.data)
         data.guid = v4()
         const tableInfo = (await ObjectBuilder())[req.table_slug]

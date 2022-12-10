@@ -29,11 +29,8 @@ message GetProjectListRequest {
     int32 limit = 1;
     int32 offset = 2;
     string search = 3;
-<<<<<<< HEAD
     string company_id = 4;
     string user_id = 5;
-=======
->>>>>>> 82fda395de65906197e7723fc7042e8b773e9fe1
 }
 
 message GetProjectListResponse {

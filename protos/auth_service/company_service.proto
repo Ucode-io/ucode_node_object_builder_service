@@ -11,11 +11,8 @@ service CompanyService {
     rpc Register(RegisterCompanyRequest) returns (CompanyPrimaryKey) {}
     rpc Update(UpdateCompanyRequest) returns (google.protobuf.Empty) {}
     rpc Remove(CompanyPrimaryKey) returns (google.protobuf.Empty) {}
-<<<<<<< HEAD
     rpc GetList(GetComapnyListRequest) returns (GetListCompanyResponse) {}
     rpc GetByID(CompanyPrimaryKey) returns (Company) {}
-=======
->>>>>>> 82fda395de65906197e7723fc7042e8b773e9fe1
 }
 
 
@@ -38,7 +35,6 @@ message CompanyPrimaryKey {
 message UpdateCompanyRequest {
     string id = 1;
     string name = 2;
-<<<<<<< HEAD
 }
 
 message GetComapnyListRequest {
@@ -51,6 +47,4 @@ message GetComapnyListRequest {
 message GetListCompanyResponse {
     int32 count = 1;
     repeated Company companies = 2;
-=======
->>>>>>> 82fda395de65906197e7723fc7042e8b773e9fe1
 }

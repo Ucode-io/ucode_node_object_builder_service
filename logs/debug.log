@@ -5969,3 +5969,2264 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-22T13:12:53.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-22T13:12:54.329Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-23T11:36:30.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-23T11:36:32.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-11-23T11:43:37.417Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-11-23T11:43:37.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-23T11:43:40.176Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-11-23T11:43:40.176Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"client_type","data":{"fields":{"limit":{"numberValue":10000000,"kind":"numberValue"}}}}',
+  level: 'info',
+  timestamp: '2022-11-23T11:53:37.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"client_type","data":{"fields":{"limit":{"numberValue":10000000,"kind":"numberValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-11-23T11:53:37.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-11-23T11:53:41.080Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-11-23T11:53:41.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-11-28T10:21:17.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-11-28T10:21:18.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:09:00.885Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:09:01.532Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:13:17.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:13:17.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T10:13:19.633Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T10:13:19.633Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:16:45.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:16:47.120Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:17:35.146Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:17:35.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.login: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-06T10:17:39.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:18:11.292Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:18:12.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:19:15.658Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:19:15.660Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.login: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-06T10:19:19.335Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:20:26.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:20:27.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:21:13.886Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:21:15.333Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:22:46.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:22:46.523Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.login: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-06T10:22:50.016Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:23:15.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:23:16.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:23:56.004Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:23:56.005Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.login: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-06T10:23:59.228Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:26:09.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:26:10.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:28:14.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:28:15.648Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:29:28.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:29:28.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T10:29:32.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T10:29:32.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:30:24.239Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:30:25.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:31:06.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:31:06.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T10:31:10.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T10:31:10.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:32:40.676Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:32:42.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:33:33.244Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:33:33.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T10:33:37.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T10:33:37.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:38:42.747Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:40:49.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:40:51.120Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:42:43.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:47:40.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:47:42.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:48:45.669Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:48:45.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T10:48:49.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T10:48:49.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T10:50:49.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T10:50:51.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:51:33.248Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:51:33.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T10:51:36.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T10:51:36.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T10:52:56.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T10:52:56.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T10:53:02.101Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T10:53:02.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T11:44:06.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T11:44:07.931Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T11:46:16.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T11:46:16.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T11:46:21.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T11:46:21.051Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T11:50:33.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T11:50:33.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T11:50:37.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T11:50:37.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T11:59:45.905Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T11:59:45.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T11:59:48.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T11:59:48.348Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T12:01:47.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T12:01:48.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T12:02:51.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T12:02:51.061Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T12:02:54.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T12:02:54.838Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T12:06:14.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T12:06:14.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T12:06:18.585Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T12:06:18.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T12:07:11.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T12:07:12.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T12:08:16.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T12:08:16.411Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T12:08:20.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T12:08:20.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T12:09:06.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T12:09:07.700Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T12:10:08.171Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T12:10:08.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T12:10:11.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T12:10:11.313Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T12:34:15.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T12:34:15.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T12:34:18.982Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T12:34:18.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T12:44:46.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T12:44:47.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T12:45:35.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T12:45:35.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T12:45:39.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T12:45:39.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-06T12:51:21.136Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-06T12:51:22.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T12:52:09.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T12:52:09.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T12:52:13.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T12:52:13.089Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T12:55:25.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T12:55:25.234Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T12:55:29.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T12:55:29.228Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: requested - {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'info',
+  timestamp: '2022-12-06T12:59:42.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"admin_medion123","login":"medion_admin","client_type":"ADMIN","login_strategy":""}',
+  level: 'debug',
+  timestamp: '2022-12-06T12:59:42.003Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-06T12:59:45.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-06T12:59:45.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-07T09:53:10.657Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-07T09:53:12.536Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-07T11:42:33.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-07T11:42:35.059Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-07T13:17:30.706Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-07T13:17:32.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-07T13:51:00.515Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-07T13:51:01.101Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.create: requested - {"title":"New","parent_id":"u819291"}',
+  level: 'info',
+  timestamp: '2022-12-07T13:51:43.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"title":"New","parent_id":"u819291"}',
+  level: 'debug',
+  timestamp: '2022-12-07T13:51:43.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-07T13:51:44.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-07T13:51:44.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-07T13:58:40.990Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-07T13:58:42.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-07T13:59:35.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-07T13:59:36.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-07T14:01:10.563Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-07T14:01:11.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getById: requested - {"id":"e9ab39fa-7017-41b4-8250-a2de974920fe"}',
+  level: 'info',
+  timestamp: '2022-12-07T14:02:06.663Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.getById: requested, {"id":"e9ab39fa-7017-41b4-8250-a2de974920fe"}',
+  level: 'debug',
+  timestamp: '2022-12-07T14:02:06.664Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-07T14:02:06.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-07T14:02:06.940Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.update: requested - {"id":"e9ab39fa-7017-41b4-8250-a2de974920fe","title":"New Title","parent_id":"123456789"}',
+  level: 'info',
+  timestamp: '2022-12-07T14:27:24.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.update: requested, {"id":"e9ab39fa-7017-41b4-8250-a2de974920fe","title":"New Title","parent_id":"123456789"}',
+  level: 'debug',
+  timestamp: '2022-12-07T14:27:24.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.update: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-07T14:27:24.745Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.update: succeeded',
+  level: 'info',
+  timestamp: '2022-12-07T14:27:24.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getById: requested - {"id":"e9ab39fa-7017-41b4-8250-a2de974920fe"}',
+  level: 'info',
+  timestamp: '2022-12-07T14:27:33.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.getById: requested, {"id":"e9ab39fa-7017-41b4-8250-a2de974920fe"}',
+  level: 'debug',
+  timestamp: '2022-12-07T14:27:33.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-07T14:27:33.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-07T14:27:33.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T02:34:03.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T02:34:04.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.create: requested - {"title":"hello","query_folder_id":"hello","attributes":{"fields":{"additionalProp1":{"structValue":{"fields":{"data":{"stringValue":"new","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'info',
+  timestamp: '2022-12-08T02:36:09.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.create: requested, {"title":"hello","query_folder_id":"hello","attributes":{"fields":{"additionalProp1":{"structValue":{"fields":{"data":{"stringValue":"new","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:36:09.982Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:36:10.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:36:10.173Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: requested - {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'info',
+  timestamp: '2022-12-08T02:36:26.785Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: requested, {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:36:26.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: failed with error: queryFolder is not defined',
+  level: 'error',
+  timestamp: '2022-12-08T02:36:26.960Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T02:37:06.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T02:37:07.664Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: requested - {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'info',
+  timestamp: '2022-12-08T02:38:03.414Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: requested, {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:38:03.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:38:03.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:38:03.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.update: requested - {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7","title":"ehlllo world","query_folder_id":"hello world","attributes":{"fields":{"additionalProp1":{"structValue":{"fields":{"data":{"stringValue":"new","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'info',
+  timestamp: '2022-12-08T02:40:21.543Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.update: requested, {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7","title":"ehlllo world","query_folder_id":"hello world","attributes":{"fields":{"additionalProp1":{"structValue":{"fields":{"data":{"stringValue":"new","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:40:21.544Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.update: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:40:21.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.update: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:40:21.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: requested - {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'info',
+  timestamp: '2022-12-08T02:40:30.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: requested, {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:40:30.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:40:30.757Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:40:30.757Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.delete: requested - {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'info',
+  timestamp: '2022-12-08T02:40:59.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.delete: requested, {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:40:59.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.delete: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:40:59.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.delete: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:40:59.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: requested - {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'info',
+  timestamp: '2022-12-08T02:41:03.900Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: requested, {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:41:03.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:41:04.058Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:41:04.059Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: requested - {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'info',
+  timestamp: '2022-12-08T02:41:07.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: requested, {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:41:07.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:41:07.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:41:07.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.delete: requested - {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'info',
+  timestamp: '2022-12-08T02:41:13.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.delete: requested, {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:41:13.194Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.delete: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:41:13.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.delete: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:41:13.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: requested - {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'info',
+  timestamp: '2022-12-08T02:41:20.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: requested, {"id":"2b916f1a-d8e5-457c-8f95-91bc29faa3e7"}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:41:20.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:41:21.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:41:21.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.create: requested - {"title":"mwwlkdkwl","query_folder_id":"12wqwe1","attributes":{"fields":{"additionalProp1":{"structValue":{"fields":{"dataset":{"stringValue":"new dataset","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'info',
+  timestamp: '2022-12-08T02:43:56.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.create: requested, {"title":"mwwlkdkwl","query_folder_id":"12wqwe1","attributes":{"fields":{"additionalProp1":{"structValue":{"fields":{"dataset":{"stringValue":"new dataset","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:43:56.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:43:56.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:43:56.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getAll: requested - {"query_folder_id":"","limit":2,"offset":1,"search":""}',
+  level: 'info',
+  timestamp: '2022-12-08T02:44:16.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getAll: requested, {"query_folder_id":"","limit":2,"offset":1,"search":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:44:16.695Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getAll: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2022-12-08T02:44:16.696Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T02:45:05.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T02:45:06.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getAll: requested - {"query_folder_id":"","limit":2,"offset":1,"search":""}',
+  level: 'info',
+  timestamp: '2022-12-08T02:45:48.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getAll: requested, {"query_folder_id":"","limit":2,"offset":1,"search":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T02:45:48.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T02:45:49.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getAll: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T02:45:49.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T03:04:18.986Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T03:04:20.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getAll: requested - {"query_folder_id":"","limit":2,"offset":1,"search":""}',
+  level: 'info',
+  timestamp: '2022-12-08T03:05:28.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getAll: requested, {"query_folder_id":"","limit":2,"offset":1,"search":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T03:05:28.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T03:05:28.584Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getAll: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T03:05:28.585Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getAll: requested - {"query_folder_id":"","limit":10,"offset":1,"search":""}',
+  level: 'info',
+  timestamp: '2022-12-08T03:05:49.080Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getAll: requested, {"query_folder_id":"","limit":10,"offset":1,"search":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T03:05:49.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T03:05:49.414Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query.getAll: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T03:05:49.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T03:08:58.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T03:08:59.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.web_page.create: requested - {"title":"Header","components":{"fields":{"additionalProp1":{"structValue":{"fields":{"data":{"stringValue":"Header","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'info',
+  timestamp: '2022-12-08T03:09:33.765Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.web_page.create: requested, {"title":"Header","components":{"fields":{"additionalProp1":{"structValue":{"fields":{"data":{"stringValue":"Header","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-12-08T03:09:33.766Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.web_page.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T03:09:33.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.web_page.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T03:09:33.909Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getById: requested - {"id":"d7674f53-df31-45e9-811a-09e99f2993ff"}',
+  level: 'info',
+  timestamp: '2022-12-08T03:09:55.135Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getById: requested, {"id":"d7674f53-df31-45e9-811a-09e99f2993ff"}',
+  level: 'debug',
+  timestamp: '2022-12-08T03:09:55.136Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T03:09:55.311Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T03:09:55.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.web_page.getById: requested - {"id":"d7674f53-df31-45e9-811a-09e99f2993ff"}',
+  level: 'info',
+  timestamp: '2022-12-08T03:11:02.765Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.web_page.getById: requested, {"id":"d7674f53-df31-45e9-811a-09e99f2993ff"}',
+  level: 'debug',
+  timestamp: '2022-12-08T03:11:02.766Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.web_page.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T03:11:02.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.web_page.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T03:11:02.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.web_page.update: requested - {"id":"d7674f53-df31-45e9-811a-09e99f2993ff","title":"HeaderSet","components":{"fields":{"additionalProp1":{"structValue":{"fields":{"data":{"stringValue":"Header Set","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'info',
+  timestamp: '2022-12-08T03:12:02.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.web_page.update: requested, {"id":"d7674f53-df31-45e9-811a-09e99f2993ff","title":"HeaderSet","components":{"fields":{"additionalProp1":{"structValue":{"fields":{"data":{"stringValue":"Header Set","kind":"stringValue"}}},"kind":"structValue"}}}}',
+  level: 'debug',
+  timestamp: '2022-12-08T03:12:02.441Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.web_page.update: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T03:12:02.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.web_page.update: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T03:12:02.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.web_page.getById: requested - {"id":"d7674f53-df31-45e9-811a-09e99f2993ff"}',
+  level: 'info',
+  timestamp: '2022-12-08T03:12:09.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.web_page.getById: requested, {"id":"d7674f53-df31-45e9-811a-09e99f2993ff"}',
+  level: 'debug',
+  timestamp: '2022-12-08T03:12:09.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.web_page.getById: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T03:12:09.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.web_page.getById: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T03:12:09.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T04:45:51.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T04:45:52.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T06:10:08.171Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T06:10:09.161Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: requested - {"parent_id":"","limit":10,"offset":1,"search":""}',
+  level: 'info',
+  timestamp: '2022-12-08T06:11:00.126Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {"parent_id":"","limit":10,"offset":1,"search":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T06:11:00.127Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T06:11:00.658Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T06:11:00.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: requested - {"parent_id":"","limit":10,"offset":0,"search":""}',
+  level: 'info',
+  timestamp: '2022-12-08T06:11:11.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {"parent_id":"","limit":10,"offset":0,"search":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T06:11:11.506Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T06:11:12.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T06:11:12.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.create: requested - {"title":"fdfd","parent_id":"dfdf"}',
+  level: 'info',
+  timestamp: '2022-12-08T06:11:29.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: requested, {"title":"fdfd","parent_id":"dfdf"}',
+  level: 'debug',
+  timestamp: '2022-12-08T06:11:29.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T06:11:29.951Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T06:11:29.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: requested - {"parent_id":"","limit":10,"offset":0,"search":""}',
+  level: 'info',
+  timestamp: '2022-12-08T06:11:36.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {"parent_id":"","limit":10,"offset":0,"search":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T06:11:36.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T06:11:37.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T06:11:37.165Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.delete: requested - {"id":"c11d5114-96b0-4c18-b158-1539e39ef7b5"}',
+  level: 'info',
+  timestamp: '2022-12-08T06:12:47.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.delete: requested, {"id":"c11d5114-96b0-4c18-b158-1539e39ef7b5"}',
+  level: 'debug',
+  timestamp: '2022-12-08T06:12:47.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.delete: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T06:12:47.275Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.delete: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T06:12:47.275Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: requested - {"parent_id":"","limit":10,"offset":0,"search":""}',
+  level: 'info',
+  timestamp: '2022-12-08T06:12:52.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {"parent_id":"","limit":10,"offset":0,"search":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T06:12:52.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T06:12:52.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T06:12:52.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: requested - {"parent_id":"","limit":10,"offset":0,"search":""}',
+  level: 'info',
+  timestamp: '2022-12-08T06:12:54.399Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {"parent_id":"","limit":10,"offset":0,"search":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T06:12:54.399Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-08T06:12:54.951Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.query_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2022-12-08T06:12:54.951Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T06:56:20.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T07:20:04.265Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T07:20:05.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T08:37:03.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T08:37:03.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:37:03.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T08:39:03.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T08:39:05.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T08:39:47.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T08:39:47.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:39:47.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T08:44:58.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T08:44:59.460Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T08:45:45.426Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T08:45:45.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:45:45.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T08:47:18.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T08:47:18.889Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T08:48:36.559Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T08:48:36.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T08:48:36.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T09:07:01.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T09:07:02.204Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T09:09:44.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"icon":{"stringValue":"","kind":"stringValue"},"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T09:09:44.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2022-12-08T09:09:44.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-08T09:10:56.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-08T09:10:57.843Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'info',
+  timestamp: '2022-12-08T09:11:42.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {"default":"","type":"SWITCH","index":"string","label":"Есть условия","slug":"is_have_condition","table_id":"17315c41-4f59-45dd-86c1-3d6378b98530","attributes":{"fields":{"placeholder":{"stringValue":"","kind":"stringValue"},"showTooltip":{"boolValue":false,"kind":"boolValue"},"creatable":{"boolValue":false,"kind":"boolValue"},"defaultValue":{"stringValue":"","kind":"stringValue"},"disabled":{"boolValue":false,"kind":"boolValue"},"icon":{"stringValue":"","kind":"stringValue"}}},"id":"32afe3ae-ad1a-4566-a7ae-813774f09e80","is_visible":false,"autofill_table":"","autofill_field":""}',
+  level: 'debug',
+  timestamp: '2022-12-08T09:11:42.508Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-08T09:11:54.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

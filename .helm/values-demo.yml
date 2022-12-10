@@ -36,31 +36,26 @@ serviceAccount:
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/auth-path: "auth/kubernetes-ucode"
-  vault.hashicorp.com/agent-inject-secret-.env: "secret/data/k8s/ucode-test/node-object-builder-service"
+  vault.hashicorp.com/agent-inject-secret-.env: "secret/data/k8s/ucode-demo/node-object-builder-service"
   vault.hashicorp.com/secret-volume-path-.env: "/app"
-  vault.hashicorp.com/role: "ucode-test"
+  vault.hashicorp.com/role: "ucode-demo"
   vault.hashicorp.com/agent-inject-template-.env: |
-    {{- with secret "secret/data/k8s/ucode-test/vault" -}}
+    {{- with secret "secret/data/k8s/ucode-demo/mongo" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
     {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-test/mongo" -}}
+    {{- with secret "secret/data/k8s/ucode-demo/kafka" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
     {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-test/kafka" -}}
+    {{- with secret "secret/data/k8s/ucode-demo/minio" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
     {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-test/minio" -}}
-    {{- range $key, $value := .Data.data }}
-    {{ $key }}: {{ $value }}
-    {{- end }}
-    {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-test/node-object-builder-service" -}}
+    {{- with secret "secret/data/k8s/ucode-demo/node-object-builder-service" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
@@ -152,7 +147,7 @@ affinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
         - matchExpressions:
-            - key: kubernetes.io/env-test
+            - key: kubernetes.io/env-demo
               operator: In
               values:
                 - "true"

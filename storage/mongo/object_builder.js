@@ -6,7 +6,8 @@ let NAMESPACE = "storage.object_builder";
 const { struct } = require('pb-util');
 const Relation = require("../../models/relation");
 const { v4 } = require("uuid");
-const con = require("../../helper/constants");
+const con = require("../../config/kafkaTopics");
+
 const sendMessageToTopic = require("../../config/kafka");
 const table = require("../../models/table");
 const converter = require("../../helper/converter");
@@ -146,7 +147,7 @@ let objectBuilder = {
 
 
         req.current_data = data
-        await sendMessageToTopic(con.TopicEventCreateV1, {
+        await sendMessageToTopic(con.topicEventCreateV1, {
             payload: {
                 current_data: data,
                 table_slug: req.table_slug
@@ -1027,7 +1028,7 @@ let objectBuilder = {
         event.payload = table
         event.project_id = req.project_id
 
-        await sendMessageToTopic(con.TopicObjectDeleteV1, event)
+        await sendMessageToTopic(con.topicObjectDeleteV1, event)
 
         return { table_slug: req.table_slug, data: response };
     }),

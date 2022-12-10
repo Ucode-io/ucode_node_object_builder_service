@@ -199,6 +199,7 @@ message Project {
     string domain = 4;
     string created_at = 5;
     string updated_at = 6;
+<<<<<<< HEAD
 }
 
 message Company {
@@ -209,4 +210,6 @@ message Company {
     string created_at = 5;
     string updated_at = 6;
     string owner_id = 7;
+=======
+>>>>>>> 82fda395de65906197e7723fc7042e8b773e9fe1
 }

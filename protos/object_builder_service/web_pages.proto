@@ -20,25 +20,37 @@ service WebPageService {
 message CreateWebPageRequest {
     string title = 1;
     google.protobuf.Struct components = 2;
+<<<<<<< HEAD
     string project_id = 3;
+=======
+>>>>>>> 82fda395de65906197e7723fc7042e8b773e9fe1
 }
 
 message WebPage {
     string id = 1;
     string title = 2;
     google.protobuf.Struct components = 3;
+<<<<<<< HEAD
     string project_id = 4;
+=======
+>>>>>>> 82fda395de65906197e7723fc7042e8b773e9fe1
 }
 
 message WebPageId {
     string id = 1;
+<<<<<<< HEAD
     string project_id = 2;
+=======
+>>>>>>> 82fda395de65906197e7723fc7042e8b773e9fe1
 }
 
 message GetAllWebPagesRequest {
     int32 limit = 1;
     int32 offset = 2;
+<<<<<<< HEAD
     string project_id = 3;
+=======
+>>>>>>> 82fda395de65906197e7723fc7042e8b773e9fe1
 }
 
 message GetAllWebPagesResponse {

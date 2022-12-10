@@ -3,7 +3,8 @@ const Field = require("../../models/field");
 const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const converter = require("../../helper/converter");
-const con = require("../../helper/constants");
+const con = require("../../config/kafkaTopics");
+
 const sendMessageToTopic = require("../../config/kafka");
 const View = require("../../models/view");
 const { v4 } = require("uuid");
@@ -121,7 +122,7 @@ let relationStore = {
                 });
                 res = await field.save();
                 console.log("response from field create while creating relation", res)
-                await sendMessageToTopic(con.TopicRelationToCreateV1,eventTo)
+                await sendMessageToTopic(con.topicRelationToCreateV1,eventTo)
                 type = converter(field.type);
                 let fieldsTo = []
                 let eventFrom = {}
@@ -136,7 +137,7 @@ let relationStore = {
                 eventFrom.payload = tableRes
                 eventFrom.project_id = data.project_id
                 
-                await sendMessageToTopic(con.TopicRelationFromCreateV1,eventFrom)
+                await sendMessageToTopic(con.topicRelationFromCreateV1,eventFrom)
                 break;
             case 'Recursive':
                 data.recursive_field = data.table_from + "_id";

@@ -12,12 +12,16 @@ let mongoDBUrl = //`mongodb://medion_node_object_builder_service:Weipheingo7aeCh
     ":" +
     cfg.mongoPassword +
     "@" +
+
+
+    
     cfg.mongoHost +
     ":" +
     cfg.mongoPort +
     "/" +
     cfg.mongoDatabase;
-mongoose.connect(
+    
+    mongoose.connect(
     mongoDBUrl,
     {
         useNewUrlParser: true,

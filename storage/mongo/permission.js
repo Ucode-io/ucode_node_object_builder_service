@@ -4,7 +4,8 @@ let NAMESPACE = "storage.object_builder";
 const {struct} = require('pb-util');
 const Relation = require("../../models/relation");
 const { v4 } = require("uuid");
-const con = require("../../helper/constants");
+const con = require("../../config/kafkaTopics");
+
 const sendMessageToTopic = require("../../config/kafka");
 const table = require("../../models/table");
 const converter = require("../../helper/converter");

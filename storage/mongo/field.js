@@ -172,7 +172,7 @@ let fieldStore = {
         event.payload = tableRes
         event.project_id = data.project_id
 
-        await sendMessageToTopic(con.topicFieldCreateV1, event)
+        await sendMessageToTopic(con.TopicFieldCreateV1, event)
 
 
         return response;
@@ -251,7 +251,7 @@ let fieldStore = {
         event.payload = fieldRes
         event.project_id = data.project_id
 
-        await sendMessageToTopic(con.topicFieldUpdateV1,event)
+        await sendMessageToTopic(con.TopicFieldUpdateV1,event)
 
         return field;
     }),
@@ -483,7 +483,7 @@ let fieldStore = {
         event.payload = fieldRes
         event.project_id = data.project_id
 
-        await sendMessageToTopic(con.topicFieldDeleteV1,event)   
+        await sendMessageToTopic(con.TopicFieldDeleteV1,event)   
 
         return field;
     }

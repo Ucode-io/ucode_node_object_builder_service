@@ -122,7 +122,7 @@ let relationStore = {
                 });
                 res = await field.save();
                 console.log("response from field create while creating relation", res)
-                await sendMessageToTopic(con.topicRelationToCreateV1,eventTo)
+                await sendMessageToTopic(con.TopicRelationToCreateV1,eventTo)
                 type = converter(field.type);
                 let fieldsTo = []
                 let eventFrom = {}
@@ -137,7 +137,7 @@ let relationStore = {
                 eventFrom.payload = tableRes
                 eventFrom.project_id = data.project_id
                 
-                await sendMessageToTopic(con.topicRelationFromCreateV1,eventFrom)
+                await sendMessageToTopic(con.TopicRelationFromCreateV1,eventFrom)
                 break;
             case 'Recursive':
                 data.recursive_field = data.table_from + "_id";

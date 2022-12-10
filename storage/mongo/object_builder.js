@@ -148,7 +148,7 @@ let objectBuilder = {
 
 
         req.current_data = data
-        await sendMessageToTopic(con.topicEventCreateV1, {
+        await sendMessageToTopic(con.TopicEventCreateV1, {
             payload: {
                 current_data: data,
                 table_slug: req.table_slug
@@ -1029,7 +1029,7 @@ let objectBuilder = {
         event.payload = table
         event.project_id = req.project_id
 
-        await sendMessageToTopic(con.topicObjectDeleteV1, event)
+        await sendMessageToTopic(con.TopicObjectDeleteV1, event)
 
         return { table_slug: req.table_slug, data: response };
     }),

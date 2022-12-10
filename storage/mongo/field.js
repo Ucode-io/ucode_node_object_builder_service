@@ -170,7 +170,7 @@ let fieldStore = {
         
         tableRes.fields = fields 
         event.payload = tableRes
-        event.project_id = data.project_id
+        event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
         await sendMessageToTopic(con.TopicFieldCreateV1, event)
 
@@ -249,7 +249,7 @@ let fieldStore = {
         }
         fieldRes.field = fieldToAnalytics
         event.payload = fieldRes
-        event.project_id = data.project_id
+        event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
         await sendMessageToTopic(con.TopicFieldUpdateV1,event)
 
@@ -481,7 +481,7 @@ let fieldStore = {
         }
         fieldRes.field = fieldToAnalytics
         event.payload = fieldRes
-        event.project_id = data.project_id
+        event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
         await sendMessageToTopic(con.TopicFieldDeleteV1,event)   
 

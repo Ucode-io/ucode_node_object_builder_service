@@ -102,7 +102,7 @@ let relationStore = {
                 )
                 tableRes.fields = fieldsFrom
                 eventTo.payload = tableRes
-                eventTo.project_id = data.project_id
+                eventTo.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
                 tableFrom = await Table.findOne({
                     slug: data.table_from,
@@ -135,7 +135,7 @@ let relationStore = {
                 )
                 tableRes.fields = fieldsTo
                 eventFrom.payload = tableRes
-                eventFrom.project_id = data.project_id
+                eventFrom.project_id = data.project_id || cfg.ucodeDefaultProjectID
                 
                 await sendMessageToTopic(con.TopicRelationFromCreateV1,eventFrom)
                 break;
@@ -175,7 +175,7 @@ let relationStore = {
                 )
                 tableRecursive.fields = fields
                 event.payload = tableRecursive
-                event.project_id = data.project_id
+                event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
                 await sendMessageToTopic(con.TopicRecursiveRelationCreateV1,event)
                 break;
@@ -213,7 +213,7 @@ let relationStore = {
                 )
                 tableMany2One.fields = fieldsMany2One
                 eventMany2One.payload = tableMany2One
-                eventMany2One.project_id = data.project_id
+                eventMany2One.project_id = data.project_id || cfg.ucodeDefaultProjectID
                 await sendMessageToTopic(con.TopicMany2OneRelationCreateV1,eventMany2One)
                 break;
             default:
@@ -606,7 +606,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            event.project_id = data.project_id
+            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         } else if (relation.type === 'Many2Many') {
@@ -624,7 +624,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            event.project_id = data.project_id
+            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
             table = await Table.findOne({
@@ -641,7 +641,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            event.project_id = data.project_id
+            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         } else if (relation.type === "Recursive") {
             table = await Table.findOne({
@@ -658,7 +658,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            event.project_id = data.project_id
+            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         }else {
             table = await Table.findOne({
@@ -675,7 +675,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            event.project_id = data.project_id
+            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         }
         const res = await Table.updateOne({

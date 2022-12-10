@@ -25,9 +25,5 @@ import "barcode.proto";
 import "function.proto";
 import "query_folder.proto";
 import "queryies.proto";
-<<<<<<< HEAD
 import "web_pages.proto";
 import "project.proto";
-=======
-import "web_pages.proto";
->>>>>>> 82fda395de65906197e7723fc7042e8b773e9fe1

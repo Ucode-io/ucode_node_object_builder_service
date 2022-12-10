@@ -8,7 +8,7 @@ const config = {
     RPCPort: getConf("RPC_PORT", 9102),
     kafkaHost: getConf("KAFKA_HOST", "localhost"),
     kafkaPort: getConf("KAFKA_PORT", "9092"),
-    kafkaClientId: getConf("KAFKA_CLIENT_ID", ""),
+    kafkaClientId: getConf("KAFKA_CLIENT_ID", "medion_node_object_builder_service"),
     limit: getConf("DEFAULT_LIMIT", 10),
     page: getConf("DEFAULT_PAGE", 1),
     minioAccessKeyID: getConf("MINIO_ACCESS_KEY", "JqEZQP7w5XJSy2K6ZQh5VJbLWZWbcESZcVkNbakGw977FCwa"),

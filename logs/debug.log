@@ -8230,3 +8230,1242 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T07:32:14.844Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://admin:admin1234@0.0.0.0:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T07:32:14.845Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'There is an error in connecting db "mongodb://admin:admin1234@0.0.0.0:27017/object_builder_service": Authentication failed.',
+  level: 'error',
+  timestamp: '2022-12-12T07:32:14.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T07:32:57.981Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T07:32:57.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T07:32:58.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:16:16.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:16:16.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T09:16:16.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:17:32.080Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:17:32.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:17:53.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:17:53.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:18:29.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:18:29.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:21:58.940Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:21:58.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T09:21:58.954Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:26:42.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:26:42.626Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T09:26:42.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:26:46.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:26:46.755Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T09:26:46.768Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:28:08.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:28:08.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T09:28:08.508Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:34:39.591Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:34:39.593Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T09:34:39.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:35:52.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://admin:admin1234@localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:35:52.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:40:34.920Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://mongoadmin:secret@localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:40:34.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:40:55.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://mongoadmin:secret@localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:40:55.183Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:41:04.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://mongoadmin:secret@localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:41:04.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:42:01.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://mongoadmin:secret@localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:42:01.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:44:07.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://myUserAdmin:admin1234@localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:44:07.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:44:17.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://myUserAdmin:admin1234@0.0.0.0:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:44:17.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:46:26.851Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://admin:admin1234@0.0.0.0:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:46:26.853Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:48:04.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://admin:admin1234@0.0.0.0:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:48:04.540Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:48:36.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://admin:admin1234@127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:48:36.456Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:49:28.171Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://admin:admin1234@127.0.0.1:27017/admin',
+  level: 'debug',
+  timestamp: '2022-12-12T09:49:28.173Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T09:49:28.205Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:49:58.582Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://admin:admin1234@127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:49:58.584Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:55:18.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:55:18.145Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T09:55:18.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T09:55:53.780Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T09:55:53.781Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T09:55:53.811Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T10:03:54.210Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T10:03:54.211Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T10:03:54.244Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T10:04:33.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T10:04:33.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T10:04:33.059Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T10:13:22.955Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T10:13:22.956Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T10:13:23.012Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T10:57:38.281Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T10:57:38.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T10:57:38.337Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T10:58:26.536Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T10:58:26.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T10:58:26.594Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:07:24.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:07:24.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:07:24.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:08:21.740Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:08:21.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:08:21.794Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:12:13.819Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:12:13.821Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:12:13.880Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:12:29.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:12:29.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:12:29.534Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:12:41.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://127.0.0.1:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:12:41.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:12:41.800Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:54:57.804Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:54:57.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:54:57.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:54:57.831Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:54:57.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:27.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:27.535Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:27.535Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:27.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:27.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:55:27.588Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:41.379Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:41.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:41.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:41.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T11:55:41.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:55:41.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:57:11.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:57:11.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:57:11.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:57:11.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T11:57:11.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:57:11.399Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:58:00.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:58:00.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:58:00.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:58:00.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T11:58:00.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:58:00.320Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:59:46.231Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T11:59:46.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T11:59:46.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T11:59:46.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T11:59:46.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T11:59:46.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T11:59:46.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T12:12:39.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T12:12:39.429Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T12:12:39.429Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T12:12:39.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.getByID: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:12:39.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:12:39.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:12:39.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T12:12:39.491Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:00.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:00.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:00.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:00.495Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.getByID: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:00.495Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:00.515Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:00.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T12:13:00.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:22.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:22.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:22.657Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.getByID: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:22.663Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:22.664Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.deregister: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:22.682Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:22.682Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T12:13:22.707Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, undefined',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:31.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:31.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:31.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.getByID: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:31.369Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:31.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T12:13:31.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:58.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:58.106Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:58.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.getByID: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:58.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:13:58.133Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T12:13:58.165Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:17:21.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T12:17:21.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T12:17:21.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:17:21.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.getByID: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:17:21.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.getByID: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:17:21.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T12:17:21.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:18:00.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-12T12:18:00.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://localhost:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-12T12:18:00.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:18:00.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.getByID: requested, "ucode_default_project_id"',
+  level: 'debug',
+  timestamp: '2022-12-12T12:18:00.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.getByID: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-12T12:18:00.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-12T12:18:00.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -453,3 +453,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'There is an error in connecting db "mongodb://admin:admin1234@0.0.0.0:27017/object_builder_service": Authentication failed.',
+  level: 'error',
+  timestamp: '2022-12-12T07:32:14.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

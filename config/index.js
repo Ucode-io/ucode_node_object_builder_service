@@ -1,9 +1,9 @@
 const config = {
     environment: getConf("NODE_ENV", "dev"),
-    mongoHost: getConf("MONGO_HOST", "161.35.26.178"),
+    mongoHost: getConf("MONGO_HOST", "127.0.0.1"),
     mongoPort: getConf("MONGO_PORT", "27017"),
-    mongoUser: getConf("MONGO_USER", "object_builder_service"),
-    mongoPassword: getConf("MONGO_PASSWORD", "eeNgoot2"),
+    mongoUser: getConf("MONGO_USER", "admin"),
+    mongoPassword: getConf("MONGO_PASSWORD", "admin1234"),
     mongoDatabase: getConf("MONGO_DATABASE", "object_builder_service"),
     RPCPort: getConf("RPC_PORT", 9102),
     kafkaHost: getConf("KAFKA_HOST", "localhost"),

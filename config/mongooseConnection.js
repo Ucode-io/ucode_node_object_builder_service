@@ -6,15 +6,13 @@ ObjectBuilder(false).then(res => {
     console.log("object builder is successfully runned");
 })
 
-let mongoDBUrl = //`mongodb://medion_node_object_builder_service:Weipheingo7aeCho@46.101.114.171:27017/medion_node_object_builder_service`
+let mongoDBUrl = 
+    //`mongodb://medion_node_object_builder_service:Weipheingo7aeCho@46.101.114.171:27017/medion_node_object_builder_service`
     "mongodb://" +
     cfg.mongoUser +
     ":" +
     cfg.mongoPassword +
     "@" +
-
-
-    
     cfg.mongoHost +
     ":" +
     cfg.mongoPort +

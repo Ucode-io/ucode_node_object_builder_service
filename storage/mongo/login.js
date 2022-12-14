@@ -111,7 +111,7 @@ let loginStore = {
         )
 
         console.log('user_found', user_found)
-        console.log('user_id', user_id)
+        console.log('user_id', userId)
         console.log('login.table_slug', login.table_slug)
         console.log('clientPlatform', JSON.parse(clientPlatform))
         console.log('clientTypeResp', JSON.parse(clientTypeResp))

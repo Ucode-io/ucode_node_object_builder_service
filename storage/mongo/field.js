@@ -4,7 +4,7 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
 const con = require("../../config/kafkaTopics");
 const conn = require("../../helper/constants");
-
+const cfg = require('../../config/index')
 
 
 const sendMessageToTopic = require("../../config/kafka");

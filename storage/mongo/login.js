@@ -110,14 +110,14 @@ let loginStore = {
             }
         )
 
-        console.log('user_found', user_found)
-        console.log('user_id', userId)
-        console.log('login.table_slug', login.table_slug)
-        console.log('clientPlatform', JSON.parse(clientPlatform))
-        console.log('clientTypeResp', JSON.parse(clientTypeResp))
-        console.log('appPermissions', JSON.parse(appPermissions))
-        console.log('role', JSON.parse(role))
-        console.log('permissions', JSON.parse(permissions))
+        // console.log('user_found', user_found)
+        // console.log('user_id', userId)
+        // console.log('login.table_slug', login.table_slug)
+        // console.log('clientPlatform', JSON.parse(clientPlatform))
+        // console.log('clientTypeResp', JSON.parse(clientTypeResp))
+        // console.log('appPermissions', JSON.parse(appPermissions))
+        // console.log('role', JSON.parse(role))
+        // console.log('permissions', JSON.parse(permissions))
 
         return {
             user_found: user_found,

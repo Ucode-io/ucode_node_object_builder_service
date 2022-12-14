@@ -9,7 +9,7 @@ let mongooseObject = {};
 
 async function buildModels(is_build = true) {
 
-    const mongoDBConn = await newMongoDBConn()
+    const mongoDBConn = await newMongoDBConn(Config)
 
     const Table = mongoDBConn.models['Table']
     const Field = mongoDBConn.models['Field']

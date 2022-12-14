@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 const Constants = require("../helper/constants");
+const Config = require('../config/index')
 const newMongoDBConn = require('../config/mongoConn')
 
 

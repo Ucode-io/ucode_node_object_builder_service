@@ -10,6 +10,7 @@ const Relation = require("../../models/relation");
 const field = require("../../models/field");
 const { struct } = require("pb-util/build");
 const ObjectBuilder = require("../../models/object_builder")
+const cfg = require('../../config/index')
 
 let NAMESPACE = "storage.table";
 

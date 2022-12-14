@@ -4,17 +4,39 @@ const mongoose = require('mongoose')
 async function newMongoConn(Config) {
     Logger.debug("Main function is running");
 
-    let mongoDBUrl = `mongodb://${Config.mongoHost}:${Config.mongoPort}/${Config.mongoDatabase}`
+    let mongoDBUrl = 
+    //`mongodb://medion_node_object_builder_service:Weipheingo7aeCho@46.101.114.171:27017/medion_node_object_builder_service`
+    "mongodb://" +
+    cfg.mongoUser +
+    ":" +
+    cfg.mongoPassword +
+    "@" +
+    cfg.mongoHost +
+    ":" +
+    cfg.mongoPort +
+    "/" +
+    cfg.mongoDatabase;
 
     let options = {
         // poolSize: 10,
-        authSource: "admin",
-        user: Config.mongoUser,
-        pass: Config.mongoPassword,
         useNewUrlParser: true,
         useUnifiedTopology: true,
         // useCreateIndex: true,
         // useFindAndModify: false
+    }
+
+    if (Config.mongoHost == 'localhost') {
+        mongoDBUrl = `mongodb://${Config.mongoHost}:${Config.mongoPort}/${Config.mongoDatabase}`
+        options = {
+            // poolSize: 10,
+            authSource: "admin",
+            user: Config.mongoUser,
+            pass: Config.mongoPassword,
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            // useCreateIndex: true,
+            // useFindAndModify: false
+        }
     }
 
     Logger.debug("Connecting to db: " + mongoDBUrl);

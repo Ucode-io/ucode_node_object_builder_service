@@ -2,10 +2,13 @@ require('dotenv').config({ path: '/app/.env' });
 
 
 (async function () {
-    const ProjectStorage = require('./storage/mongo/project')
+
+    const projectStorage = require('./storage/mongo/project')
     const config = require('./config/index')
 
-    await ProjectStorage.register({ project_id: config.ucodeDefaultProjectID })
+    console.log(`CONFIGURATION---- ${config}\n`)
+
+    await projectStorage.register({ project_id: config.ucodeDefaultProjectID })
 
     const mongooseConnection = require("./config/mongooseConnection");
     const collectionDeleteInterval = require("./helper/collectionDeleteInterval");

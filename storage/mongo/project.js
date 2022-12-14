@@ -10,11 +10,11 @@ let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
             const mongoDBConn = await newMongoDBConn({
-                mongoHost: 'localhost',
-                mongoPort: 27017,
-                mongoDatabase: 'object_builder_service',
-                mongoUser: 'admin',
-                mongoPassword: 'admin1234'
+                mongoHost: config.mongoHost,
+                mongoPort: config.mongoPort,
+                mongoDatabase: config.mongoDatabase,
+                mongoUser: config.mongoUser,
+                mongoPassword: config.mongoPassword
             })
 
             await add(data?.project_id || config.ucodeDefaultProjectID, mongoDBConn)

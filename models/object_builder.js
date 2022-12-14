@@ -2,14 +2,15 @@ const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 const Constants = require("../helper/constants");
 const Config = require('../config/index')
-const newMongoDBConn = require('../config/mongoConn')
+const mongoPool = require('../pkg/pool')
 
 
 let mongooseObject = {};
 
-async function buildModels(is_build = true) {
-
-    const mongoDBConn = await newMongoDBConn(Config)
+async function buildModels(is_build = true, project_id = Config.ucodeDefaultProjectID) {
+    
+    const mongoDBConn = await mongoPool.get(project_id)
+    // const mongoDBConn = await newMongoDBConn(Config)
 
     const Table = mongoDBConn.models['Table']
     const Field = mongoDBConn.models['Field']

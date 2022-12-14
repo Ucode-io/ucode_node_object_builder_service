@@ -30,11 +30,13 @@ let loginStore = {
         if (!login) {
             return null
         }
-        const userTable = (await ObjectBuilder())[login.table_slug]
-        let user, userId;
+
         let params = {}
         params[login.login_view] = req.login
         params[login.password_view] = req.password
+
+        const userTable = (await ObjectBuilder())[login.table_slug]
+        let user, userId;
         user = await userTable.models.findOne(
             {
                 $and: [params]
@@ -78,11 +80,14 @@ let loginStore = {
 
         const permissions = await recordPermission.models.find(
             {
-                $and: [{
-                    client_type_id: clientType.guid
-                }, {
-                    role_id: role.guid
-                }]
+                $and: [
+                    {
+                        client_type_id: clientType.guid
+                    },
+                    {
+                        role_id: role.guid
+                    }
+                ]
             }
         )
         if (user) {
@@ -94,15 +99,25 @@ let loginStore = {
 
         const appPermissions = await recordPermission.models.find(
             {
-                $and: [{
-                    table_slug: "app"
-                }, {
-                    role_id: user.role_id
-                }]
+                $and: [
+                    {
+                        table_slug: "app"
+                    },
+                    {
+                        role_id: user.role_id
+                    }
+                ]
             }
         )
 
-    
+        console.log('user_found', user_found)
+        console.log('user_id', user_id)
+        console.log('login.table_slug', login.table_slug)
+        console.log('clientPlatform', JSON.parse(clientPlatform))
+        console.log('clientTypeResp', JSON.parse(clientTypeResp))
+        console.log('appPermissions', JSON.parse(appPermissions))
+        console.log('role', JSON.parse(role))
+        console.log('permissions', JSON.parse(permissions))
 
         return {
             user_found: user_found,
@@ -117,7 +132,15 @@ let loginStore = {
     }),
     loginWithOtp: catchWrapDbObjectBuilder(`${NAMESPACE}.loginWithOtp`, async (req) => {
 
-        let clientType, clientPlatform, role, permissions, user, clientTypeResp, userTable, userId;
+        let clientType,
+            clientPlatform,
+            role,
+            permissions,
+            user,
+            clientTypeResp,
+            userTable,
+            userId;
+
         let user_found = false
         const tableInfo = (await ObjectBuilder())["test_login"]
         const clientTypeTable = (await ObjectBuilder())["client_type"]
@@ -128,16 +151,20 @@ let loginStore = {
         )
         const login = await tableInfo.models.findOne(
             {
-                $and: [{
-                    login_strategy: "Phone OTP"
-                }, {
-                    client_type_id: clientType.guid
-                }]
+                $and: [
+                    {
+                        login_strategy: "Phone OTP"
+                    },
+                    {
+                        client_type_id: clientType.guid
+                    }
+                ]
             }
         )
         if (!login) {
             return null
         }
+
         let temp = req.phone_number.toString()
         let tempPhone = temp.substring(5, temp.length)
         let phone = `\(` + temp.substring(1, 3) + `\) ` + tempPhone
@@ -182,11 +209,14 @@ let loginStore = {
 
             permissions = await recordPermission.models.find(
                 {
-                    $and: [{
-                        client_type_id: clientType.guid
-                    }, {
-                        role_id: role.guid
-                    }]
+                    $and: [
+                        {
+                            client_type_id: clientType.guid
+                        },
+                        {
+                            role_id: role.guid
+                        }
+                    ]
                 }
             )
 

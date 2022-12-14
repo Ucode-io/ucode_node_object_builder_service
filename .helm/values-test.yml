@@ -7,7 +7,7 @@ global:
   # list of key: value
   # GLOBAL1: value
 labels:
-  app: node-object-builder-service
+  app: ucode-node-object-builder-service
 replicaCount: 1
 
 image:
@@ -67,7 +67,7 @@ podAnnotations:
     {{ end -}}
 
 podLabels:
-  app: node-object-builder-service
+  app: ucode-node-object-builder-service
 
 podSecurityContext:
   {}

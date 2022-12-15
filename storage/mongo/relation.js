@@ -11,7 +11,7 @@ const { v4 } = require("uuid");
 const {struct} = require('pb-util');
 const relationFieldChecker = require("../../helper/relationFieldChecker");
 const ObjectBuilder = require("../../models/object_builder");
-
+const cfg = require('../../config/index')
 
 let NAMESPACE = "storage.relation";
 

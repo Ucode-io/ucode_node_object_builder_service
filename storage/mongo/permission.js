@@ -11,6 +11,7 @@ const table = require("../../models/table");
 const converter = require("../../helper/converter");
 const Field = require("../../models/field");
 const App = require("../../models/app");
+const cfg = require('../../config/index')
 
 let permission = {
     upsertPermissionsByAppId: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertPermissionsByAppId`, async (req) => {

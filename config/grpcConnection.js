@@ -63,7 +63,7 @@ server.addService(objectBuilderProto.PermissionService.service, permissionServic
 server.addService(objectBuilderProto.CustomEventService.service, customEventService);
 server.addService(objectBuilderProto.FunctionService.service, functionService);
 server.addService(objectBuilderProto.BarcodeService.service, barcodeService);
-server.addService(objectBuilderProto.ProjectService.service, projectService);
+server.addService(objectBuilderProto.BuilderProjectService.service, projectService);
 server.addService(objectBuilderProto.QueryFolderService.service, queryFolderService);
 server.addService(objectBuilderProto.QueryService.service, queryService);
 server.addService(objectBuilderProto.WebPageService.service, webPageService);

@@ -6,7 +6,16 @@ require('dotenv').config({ path: '/app/.env' });
     const projectStorage = require('./storage/mongo/project')
     const config = require('./config/index')
 
-    await projectStorage.register({ project_id: config.ucodeDefaultProjectID })
+    await projectStorage.register({ 
+        project_id: config.ucodeDefaultProjectID,
+        credentials: {
+            host: config.mongoHost,
+            port: config.mongoPort,
+            database: config.mongoDatabase,
+            username: config.mongoUser,
+            password: config.mongoPassword,
+        },
+    })
 
     const mongooseConnection = require("./config/mongooseConnection");
     const collectionDeleteInterval = require("./helper/collectionDeleteInterval");

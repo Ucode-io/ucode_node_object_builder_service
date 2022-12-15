@@ -10,14 +10,14 @@ let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
             const mongoDBConn = await newMongoDBConn({
-                mongoHost: config.mongoHost,
-                mongoPort: config.mongoPort,
-                mongoDatabase: config.mongoDatabase,
-                mongoUser: config.mongoUser,
-                mongoPassword: config.mongoPassword
+                mongoHost: data.credentials.host,
+                mongoPort: data.credentials.port,
+                mongoDatabase: data.credentials.database,
+                mongoUser: data.credentials.username,
+                mongoPassword: data.credentials.password
             })
 
-            await add(data?.project_id || config.ucodeDefaultProjectID, mongoDBConn)
+            await add(data?.project_id, mongoDBConn)
             return {}
 
         } catch(err) {
@@ -27,7 +27,7 @@ let projectStore = {
 
     deregister: catchWrapDb(`${NAMESPACE}.deregister`, async (data) => {
         try {
-            await remove(data?.project_id || config.ucodeDefaultProjectID)
+            await remove(data?.project_id)
             return {}
 
         } catch(err) {
@@ -45,7 +45,7 @@ let projectStore = {
 
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
-            const mongoConn = await get(data?.project_id || config.ucodeDefaultProjectID)
+            const mongoConn = await get(data?.project_id)
             return mongoConn
             
         } catch(err) {

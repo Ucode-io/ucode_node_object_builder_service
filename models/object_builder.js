@@ -7,10 +7,13 @@ const mongoPool = require('../pkg/pool')
 
 let mongooseObject = {};
 
-async function buildModels(is_build = true, project_id = Config.ucodeDefaultProjectID) {
-    
+async function buildModels(is_build=true, project_id=Config.ucodeDefaultProjectID) {
+   
+    if (!project_id) {
+        console.warn('WARNING:: Using default project id in build models...')
+    }
+   
     const mongoDBConn = await mongoPool.get(project_id)
-    // const mongoDBConn = await newMongoDBConn(Config)
 
     const Table = mongoDBConn.models['Table']
     const Field = mongoDBConn.models['Field']

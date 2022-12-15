@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const logger = require('./logger')
 const ObjectBuilder = require("../models/object_builder");
 ObjectBuilder(false).then(res => {
-    console.log("object builder is successfully runned");
+    console.log("object builder has successfully runned");
 })
 
 let mongoDBUrl = 
@@ -28,9 +28,7 @@ let mongoDBUrl =
     },
     (err) => {
         if (err) {
-            console.log("Error while connecting to database (" + 
-            mongoDBUrl + ") "+ err.message);
-            logger.error("Error while connecting to database (" + 
+            logger.error("[Error::ignorable] while connecting to database (" + 
             mongoDBUrl + ") "+ err.message);
         }
 

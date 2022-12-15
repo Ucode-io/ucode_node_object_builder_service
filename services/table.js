@@ -9,6 +9,7 @@ const con = require("../config/kafkaTopics");
 const sendMessageToTopic = require("../config/kafka");
 const converter = require("../helper/converter");
 const view = require("../models/view");
+const cfg = require('../config/index')
 
 const NAMESPACE = `services.table`;
 

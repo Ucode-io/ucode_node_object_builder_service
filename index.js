@@ -6,8 +6,6 @@ require('dotenv').config({ path: '/app/.env' });
     const projectStorage = require('./storage/mongo/project')
     const config = require('./config/index')
 
-    console.log(`CONFIGURATION---- monghost ${config.mongoHost} mongoport ${config.mongoPort} mongoDatabase ${config.mongoDatabase} mongouser ${config.mongoUser} mongopassword ${config.mongoPassword}\n`)
-
     await projectStorage.register({ project_id: config.ucodeDefaultProjectID })
 
     const mongooseConnection = require("./config/mongooseConnection");

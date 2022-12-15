@@ -23,7 +23,9 @@ const generators = require("../../helper/generator")
 let objectBuilder = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
 
+        console.log(`OBJECT BUILDER STORAGE req.table_slug ${req.table_slug}`)
         const data = struct.decode(req.data)
+        console.log(`OBJECT BUILDER STORAGE data.table_slug ${data.table_slug}`)
         data.guid = v4()
         const tableInfo = (await ObjectBuilder())[req.table_slug]
         let tableData = await table.findOne(
@@ -100,8 +102,6 @@ let objectBuilder = {
             }
         }
 
-
-
         let payload = new tableInfo.models(data);
         await payload.save();
 
@@ -124,6 +124,10 @@ let objectBuilder = {
                     const relation = await Relation.findOne({
                         id: field.relation_id
                     })
+
+                    if (!relation) {
+                        console.log("RELATION ERROR", relation.table_to)
+                    }
                     
                     let appendMany2Many = {}
                     appendMany2Many.id_from = data.guid

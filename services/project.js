@@ -6,6 +6,7 @@ const projectService = {
     Deregister: catchWrapService(`service.project.deregister`, projectStore.deregister),
     RegisterMany: catchWrapService(`service.project.registerMany`, projectStore.registerMany),
     DeregisterMany: catchWrapService(`service.project.deregisterMany`, projectStore.deregisterMany),
+    Reconnect: catchWrapService(`service.project.reconnect`, projectStore.reconnect),
 };
 
 module.exports = projectService;

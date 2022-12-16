@@ -46,5 +46,17 @@ async function remove(projectId=config.ucodeDefaultProjectID) {
     pool.delete(projectId)
 }
 
-module.exports = {get, add, remove}
+async function override(projectId=config.ucodeDefaultProjectID, dbConn) {
+    if (!projectId) {
+        console.warn('WARNING:: Using default project id in pool...')
+    }
+
+    if (pool.has(projectId)) {
+        console.warn('WARNING:: Overriding project in pool...', projectId)
+    }
+
+    pool.set(projectId, dbConn)
+}
+
+module.exports = {get, add, remove, override}
 

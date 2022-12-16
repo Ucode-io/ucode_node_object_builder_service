@@ -7187,3 +7187,276 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-16T19:09:48.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-16T19:09:48.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-16T19:09:48.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-16T19:09:48.738Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-16T19:09:49.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-16T19:09:49.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-16T19:09:49.660Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"test_company7","kind":"stringValue"},"password":{"stringValue":"test_company7","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-16T19:10:54.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"test_company7","kind":"stringValue"},"password":{"stringValue":"test_company7","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-16T19:10:54.003Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-16T19:10:59.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-16T19:10:59.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"25d5b1d1-8002-40dc-838d-26600a96c5e6","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-16T19:10:59.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"25d5b1d1-8002-40dc-838d-26600a96c5e6","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-16T19:10:59.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-16T19:10:59.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2022-12-16T19:10:59.927Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"test_company7","kind":"stringValue"},"password":{"stringValue":"test_company7","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-16T19:13:24.265Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"test_company7","kind":"stringValue"},"password":{"stringValue":"test_company7","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-16T19:13:24.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-16T19:13:29.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-16T19:13:29.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"25d5b1d1-8002-40dc-838d-26600a96c5e6","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-16T19:13:29.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"25d5b1d1-8002-40dc-838d-26600a96c5e6","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-16T19:13:29.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-16T19:13:30.106Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2022-12-16T19:13:30.106Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"test_company7","kind":"stringValue"},"password":{"stringValue":"test_company7","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-16T19:15:05.325Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"test_company7","kind":"stringValue"},"password":{"stringValue":"test_company7","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-16T19:15:05.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-16T19:15:10.725Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-16T19:15:10.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"25d5b1d1-8002-40dc-838d-26600a96c5e6","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-16T19:15:10.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"25d5b1d1-8002-40dc-838d-26600a96c5e6","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-16T19:15:10.738Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-16T19:15:11.226Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2022-12-16T19:15:11.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"password":{"stringValue":"test_company7","kind":"stringValue"},"login":{"stringValue":"test_company7","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-16T19:16:42.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"password":{"stringValue":"test_company7","kind":"stringValue"},"login":{"stringValue":"test_company7","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-16T19:16:42.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-16T19:16:47.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-16T19:16:47.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"25d5b1d1-8002-40dc-838d-26600a96c5e6","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-16T19:16:47.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"25d5b1d1-8002-40dc-838d-26600a96c5e6","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-16T19:16:47.504Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-16T19:16:47.988Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2022-12-16T19:16:47.988Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

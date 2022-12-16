@@ -1,8 +1,6 @@
-const { get, add, remove } = require("../../pkg/pool")
+const pool = require("../../pkg/pool")
 const catchWrapDb = require("../../helper/catchWrapDb");
-const { v4 } = require("uuid");
 const newMongoDBConn = require('../../config/mongoConn')
-const config = require('../../config/index')
 
 let NAMESPACE = "storage.project";
 
@@ -17,7 +15,7 @@ let projectStore = {
                 mongoPassword: data.credentials.password
             })
 
-            await add(data?.project_id, mongoDBConn)
+            await pool.add(data?.project_id, mongoDBConn)
             return {}
 
         } catch(err) {
@@ -27,7 +25,7 @@ let projectStore = {
 
     deregister: catchWrapDb(`${NAMESPACE}.deregister`, async (data) => {
         try {
-            await remove(data?.project_id)
+            await pool.remove(data?.project_id)
             return {}
 
         } catch(err) {
@@ -45,9 +43,27 @@ let projectStore = {
 
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
-            const mongoConn = await get(data?.project_id)
+            const mongoConn = await pool.get(data?.project_id)
             return mongoConn
             
+        } catch(err) {
+            throw err
+        }
+    }),
+
+    reconnect: catchWrapDb(`${NAMESPACE}.reconnect`, async (data) => {
+        try {
+            const mongoDBConn = await newMongoDBConn({
+                mongoHost: data.credentials.host,
+                mongoPort: data.credentials.port,
+                mongoDatabase: data.credentials.database,
+                mongoUser: data.credentials.username,
+                mongoPassword: data.credentials.password
+            })
+
+            await pool.override(data?.project_id, mongoDBConn)
+            return {}
+
         } catch(err) {
             throw err
         }

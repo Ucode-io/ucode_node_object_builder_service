@@ -399,14 +399,22 @@ let objectBuilder = {
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
         try {
+            let start = Date.now();
+            let millis;
+
+            millis = Date.now() - start;
+            console.log(`begin[0] seconds elapsed = ${Math.floor(millis / 1000)}`);
+
             const mongoConn = await mongoPool.get(req.project_id)
+            millis = Date.now() - start;
+            console.log(`[1] seconds elapsed = ${Math.floor(millis / 1000)}`);
+
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
+
+            millis = Date.now() - start;
+            console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
             const params = struct.decode(req.data)
             const limit = params.limit
@@ -414,11 +422,15 @@ let objectBuilder = {
             let clientTypeId = params["client_type_id_from_token"]
             delete params["client_type_id_from_token"]
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            millis = Date.now() - start;
+            console.log(`[3] seconds elapsed = ${Math.floor(millis / 1000)}`);
             let keys = Object.keys(params)
             let order = params.order
             let fields = tableInfo.fields
             let with_relations = params.with_relations
             const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
+            millis = Date.now() - start;
+            console.log(`[4] seconds elapsed = ${Math.floor(millis / 1000)}`);
             const permission = await permissionTable.models.findOne({
                 $and: [
                     {
@@ -429,6 +441,8 @@ let objectBuilder = {
                     }
                 ]
             })
+            millis = Date.now() - start;
+            console.log(`[5] seconds elapsed = ${Math.floor(millis / 1000)}`);
             if (permission?.is_have_condition) {
                 const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
                 const automatic_filters = await automaticFilterTable.models.find({
@@ -467,6 +481,8 @@ let objectBuilder = {
                 }
 
             }
+            millis = Date.now() - start;
+            console.log(`[6] seconds elapsed = ${Math.floor(millis / 1000)}`);
             if (params.view_fields) {
                 if (params.view_fields.length) {
                     let arrayOfViewFields = [];
@@ -483,6 +499,8 @@ let objectBuilder = {
                     }
                 }
             }
+            millis = Date.now() - start;
+            console.log(`[7] seconds elapsed = ${Math.floor(millis / 1000)}`);
             if (clientTypeId) {
                 const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
                 const clientType = await clientTypeTable?.models.findOne({
@@ -559,6 +577,8 @@ let objectBuilder = {
                 }
                 ]
             })
+            millis = Date.now() - start;
+            console.log(`[8] seconds elapsed = ${Math.floor(millis / 1000)}`);
             let relationsFields = []
             if (with_relations) {
                 for (const relation of relations) {
@@ -637,7 +657,8 @@ let objectBuilder = {
                 }
             }
 
-
+            millis = Date.now() - start;
+            console.log(`[9] seconds elapsed = ${Math.floor(millis / 1000)}`);
             let result, count;
             let searchByField = []
             if (params.search) {
@@ -659,6 +680,9 @@ let objectBuilder = {
                 let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
                 params.phone = phone
             }
+
+            millis = Date.now() - start;
+            console.log(`[10] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -709,6 +733,8 @@ let objectBuilder = {
                         }
                     }
                 }
+                millis = Date.now() - start;
+                console.log(`[11] seconds elapsed = ${Math.floor(millis / 1000)}`);
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -790,6 +816,8 @@ let objectBuilder = {
                     }
                     populateArr.push(papulateTable)
                 }
+                millis = Date.now() - start;
+                console.log(`[12] seconds elapsed = ${Math.floor(millis / 1000)}`);
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -815,7 +843,8 @@ let objectBuilder = {
 
             }
 
-
+            millis = Date.now() - start;
+            console.log(`[13] seconds elapsed = ${Math.floor(millis / 1000)}`);
             let decodedFields = []
             // below for loop is in order to decode FIELD.ATTRIBUTES from proto struct to normal object
             for (const element of fields) {
@@ -879,6 +908,8 @@ let objectBuilder = {
                 }
             };
 
+            millis = Date.now() - start;
+            console.log(`[14] seconds elapsed = ${Math.floor(millis / 1000)}`);
             for (const field of decodedFields) {
                 if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                     let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
@@ -908,6 +939,9 @@ let objectBuilder = {
                     field.view_fields = viewFields
                 }
             }
+
+            millis = Date.now() - start;
+            console.log(`[15] seconds elapsed = ${Math.floor(millis / 1000)}`);
             if (params.additional_request && params.additional_request.additional_values.length && params.additional_request.additional_field) {
                 let additional_results;
                 const additional_param = {};
@@ -1015,7 +1049,8 @@ let objectBuilder = {
                 }
                 result = result.concat(additional_results)
             }
-
+            millis = Date.now() - start;
+            console.log(`[16] seconds elapsed = ${Math.floor(millis / 1000)}`);
             let responseResult = []
             let formulaFields = tableInfo.fields.filter(val => val.type === "FORMULA")
             for (const res of result) {
@@ -1066,6 +1101,9 @@ let objectBuilder = {
             if (!responseResult.length) {
                 responseResult = result
             }
+
+            millis = Date.now() - start;
+            console.log(`[17] seconds elapsed = ${Math.floor(millis / 1000)}`);
             console.log()
             const response = struct.encode({
                 count: count,
@@ -1074,6 +1112,9 @@ let objectBuilder = {
                 views: tableInfo.views,
                 relation_fields: relationsFields,
             });
+
+            millis = Date.now() - start;
+            console.log(`finish[18] seconds elapsed = ${Math.floor(millis / 1000)}`);
             return { table_slug: req.table_slug, data: response }
 
         } catch (err) {

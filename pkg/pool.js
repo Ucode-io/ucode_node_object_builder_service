@@ -8,7 +8,6 @@ const interval = setInterval(() => {
         console.log()
     }
 
-    clearInterval(interval);
 }, 15000);
 
 

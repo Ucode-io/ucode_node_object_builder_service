@@ -18,7 +18,7 @@ async function newMongoConn(Config) {
     Config.mongoDatabase;
 
     let options = {
-        // poolSize: 10,
+        poolSize: 10,
         useNewUrlParser: true,
         useUnifiedTopology: true,
         // useCreateIndex: true,
@@ -28,7 +28,7 @@ async function newMongoConn(Config) {
     if (Config.mongoHost == 'localhost') {
         mongoDBUrl = `mongodb://${Config.mongoHost}:${Config.mongoPort}/${Config.mongoDatabase}`
         options = {
-            // poolSize: 10,
+            poolSize: 10,
             authSource: "admin",
             user: Config.mongoUser,
             pass: Config.mongoPassword,

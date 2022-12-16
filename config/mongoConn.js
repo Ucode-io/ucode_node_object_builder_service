@@ -18,7 +18,7 @@ async function newMongoConn(Config) {
     Config.mongoDatabase;
 
     let options = {
-        poolSize: 10,
+        // poolSize: 10,
         useNewUrlParser: true,
         useUnifiedTopology: true,
         // useCreateIndex: true,

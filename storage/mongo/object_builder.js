@@ -29,11 +29,7 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             const data = struct.decode(req.data)
             data.guid = v4()
@@ -181,13 +177,7 @@ let objectBuilder = {
     update: catchWrapDbObjectBuilder(`${NAMESPACE}.update`, async (req) => {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             const data = struct.decode(req.data)
             if (!data.guid) {
@@ -262,13 +252,8 @@ let objectBuilder = {
     getSingle: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingle`, async (req) => {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             const data = struct.decode(req.data)
 
@@ -1125,15 +1110,6 @@ let objectBuilder = {
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {
-            const mongoConn = await mongoPool.get(req.project_id)
-            // const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
-
             const data = struct.decode(req.data)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
@@ -1161,11 +1137,7 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             const params = struct.decode(req.data)
             const limit = params.limit
@@ -1591,15 +1563,6 @@ let objectBuilder = {
     }),
     deleteManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteManyToMany`, async (data) => {
         try {
-            const mongoConn = await mongoPool.get(data.project_id)
-            const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
-
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
             const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
 
@@ -1645,14 +1608,6 @@ let objectBuilder = {
     ),
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
         try {
-            const mongoConn = await mongoPool.get(data.project_id)
-            const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
             const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
@@ -1718,11 +1673,7 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             const params = struct.decode(req.data)
             const limit = params.limit
@@ -1872,11 +1823,6 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             const params = {}
             const data = struct.decode(req.data)
@@ -1980,14 +1926,6 @@ let objectBuilder = {
     }),
     multipleUpdate: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
         try {
-            const mongoConn = await mongoPool.get(req.project_id)
-            const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             const data = struct.decode(req.data)
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]

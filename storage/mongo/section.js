@@ -24,12 +24,7 @@ let sectionStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             for (const sectionReq of data.sections) {
                 const section = new Section(sectionReq);
@@ -59,13 +54,7 @@ let sectionStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
-
 
             const count = await Section.deleteMany(
                 {
@@ -100,11 +89,6 @@ let sectionStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
             const ViewRelation = mongoConn.models['ViewRelation']
 
 
@@ -150,10 +134,6 @@ let sectionStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
             const ViewRelation = mongoConn.models['ViewRelation']
 
@@ -201,11 +181,6 @@ let sectionStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
             const ViewRelation = mongoConn.models['ViewRelation']
 
 
@@ -264,10 +239,8 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             let table = {};
             if (data.table_id === "") {

@@ -12,7 +12,6 @@ let appStore = {
             const mongoConn = await mongoPool.get(data.project_id)
 
             const App = mongoConn.models['App']
-            const Table = mongoConn.models['Table']
 
             const app = new App(data);
 
@@ -53,7 +52,6 @@ let appStore = {
             console.log('data.project_id', data.project_id)
 
             const App = mongoConn.models['App']
-            const Table = mongoConn.models['Table']
 
             let query = {
                 name: RegExp(data.search, "i"),
@@ -111,7 +109,6 @@ let appStore = {
             const mongoConn = await mongoPool.get(data.project_id)
 
             const App = mongoConn.models['App']
-            const Table = mongoConn.models['Table']
 
             const app = await App.deleteOne({ id: data.id });
 

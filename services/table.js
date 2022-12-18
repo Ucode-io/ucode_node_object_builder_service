@@ -57,7 +57,7 @@ const tableService = {
             event.payload = table
             event.project_id = call.request.project_id || cfg.ucodeDefaultProjectID
 
-            await sendMessageToTopic(con.topicTableCreateV1, event)
+            await sendMessageToTopic(con.TopicTableCreateV1, event)
 
             callback(null, {
                 id: response.id

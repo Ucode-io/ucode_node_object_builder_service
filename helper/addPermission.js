@@ -97,8 +97,6 @@ let permissionFunctions = {
             }
 
             const mongoConn = await mongoPool.get(project_id)
-            const Table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
 
             let customEventIds = [], actionPermissions = [], actionWithPermissions = []
             const actionPermissionMap = new Map();
@@ -160,8 +158,6 @@ let permissionFunctions = {
             }
 
             const mongoConn = await mongoPool.get(project_id)
-            const Table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
 
             let relationIds = []
             relations.forEach(element => {

@@ -8,7 +8,7 @@ REGISTRY=gitlab.udevs.io:5050
 TAG=latest
 ENV_TAG=latest
 PROJECT_NAME=${PROJECT_NAME}
-
+DOCKERFILE=Dockerfile
 
 build:
 	CGO_ENABLED=0 GOOS=linux go build -mod=vendor -a -installsuffix cgo -o ${CURRENT_DIR}/bin/${APP} ${APP_CMD_DIR}/main.go
@@ -51,12 +51,16 @@ mark-as-production-image:
 	docker push ${REGISTRY}/${APP}:production
 
 build-image:
-	docker build --rm -t ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG} .
+	docker build --rm -t ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG} . -f ${DOCKERFILE}
 	docker tag ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG} ${REGISTRY}/${PROJECT_NAME}/${APP}:${ENV_TAG}
 
 push-image:
 	docker push ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG}
 	docker push ${REGISTRY}/${PROJECT_NAME}/${APP}:${ENV_TAG}
+
+clear-image:
+	docker rmi ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG}
+	docker rmi ${REGISTRY}/${PROJECT_NAME}/${APP}:${ENV_TAG}
 
 swag_init:
 	swag init -g api/main.go -o api/docs

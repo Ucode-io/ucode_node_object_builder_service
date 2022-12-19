@@ -3,7 +3,7 @@ const cfg = require('./index.js')
 
 
 const kafka = new Kafka({
-    clientId: 'medion_node_object_builder_service',
+    clientId: cfg.kafkaClientId,
     brokers: [`${cfg.kafkaHost}:${cfg.kafkaPort}`],
 })
 

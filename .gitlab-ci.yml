@@ -1,0 +1,44 @@
+include:
+  - .gitlab/ci/*.gitlab-ci.yml
+
+stages:
+  - build
+  - deploy
+  - rollback
+
+build-staging:
+  stage: build
+  extends: .build_template
+  variables:
+    DOCKERFILE: Dockerfile
+    ENV_TAG: test
+  only:
+    - staging
+
+deploy-staging:
+  stage: deploy
+  extends: .deploy_template
+  variables:
+    NAMESPACE: test
+    VALUES_FILE: .helm/values-test.yml
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
+  only:
+    - staging
+
+# deploy-demo:
+#   stage: deploy
+#   extends: .deploy_template
+#   variables:
+#     NAMESPACE: ucode-demo
+#     VALUES_FILE: .helm/values-demo.yml
+#     K8SCONFIGJSON: $UCODE_KUBECONFIG
+#   only:
+#     - staging
+
+rollback-staging:
+  stage: rollback
+  extends: .rollback_template
+  variables:
+    NAMESPACE: test
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
+  when: manual

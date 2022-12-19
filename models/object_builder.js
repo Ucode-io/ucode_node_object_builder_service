@@ -1,19 +1,30 @@
 const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 const Constants = require("../helper/constants");
-const Table = require("./table")
-const Field = require("./field");
-const Relation = require("./relation");
-const Section = require("./section");
-const View = require("./view");
+const Config = require('../config/index')
+const mongoPool = require('../pkg/pool')
+
 
 let mongooseObject = {};
 
-async function buildModels(is_build = true) {
+async function buildModels(is_build=true, project_id=Config.ucodeDefaultProjectID) {
+   
+    if (!project_id) {
+        console.warn('WARNING:: Using default project id in build models...')
+    }
+   
+    const mongoDBConn = await mongoPool.get(project_id)
 
-// hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
+    const Table = mongoDBConn.models['Table']
+    const Field = mongoDBConn.models['Field']
+    const Relation = mongoDBConn.models['Relation']
+    const Section = mongoDBConn.models['Section']
+    const View = mongoDBConn.models['View']
 
-// all tables should be got to build their schema
+    // hi guys, comments will be written below in order to
+    // explain what is going on in auto-object-builder logic
+
+    // all tables should be got to build their schema
     let tables = []
     if (!is_build) {
         tables = await Table.find({
@@ -25,7 +36,7 @@ async function buildModels(is_build = true) {
             is_changed: true
         });
     }
-    
+
 
     let tempArray = []
     for (const table of tables) {
@@ -40,27 +51,28 @@ async function buildModels(is_build = true) {
                 }, {
                     type: "Many2One"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
-                  table_to: table.slug
+                    table_to: table.slug
                 }, {
-                  type: "One2Many"
+                    type: "One2Many"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
                     $or: [{
                         table_from: table.slug
                     },
                     {
                         "dynamic_tables.table_slug": table.slug
-                    }]},   
-                    {
-                        type: "Many2Dynamic"
-                    }
+                    }]
+                },
+                {
+                    type: "Many2Dynamic"
+                }
                 ]
-              }
+            }
             ]
         });
         let relationsM2M = await Relation.find({
@@ -78,12 +90,12 @@ async function buildModels(is_build = true) {
         const fields = await Field.find({
             table_id: table.id,
         },
-        {
-            created_at: 0,
-            updated_at: 0,
-            _id: 0,
-            __v: 0,
-        });
+            {
+                created_at: 0,
+                updated_at: 0,
+                _id: 0,
+                __v: 0,
+            });
         let fieldObject = {};
         let fieldsModel = [];
         let fieldsIndex = {};
@@ -134,22 +146,22 @@ async function buildModels(is_build = true) {
                         }
                     }
                 }
-               
+
 
                 // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
                 if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS") {
-                    fieldsModel.push(field._doc) 
+                    fieldsModel.push(field._doc)
                     fieldsIndex[field.slug] = 'text'
-                } else if ((field.type === "LOOKUP" || field.type === "LOOKUPS") && isReferenced == false){
+                } else if ((field.type === "LOOKUP" || field.type === "LOOKUPS") && isReferenced == false) {
                     // else if we need to add all relation fields to related table fields
 
                     // sections have to be got, so that we can specify by which fields tables are related
-                    
+
                     // if section.field contains '#' (it is M2O and O2M related tables field) OR (@ is for O2O relation field)
-                
+
                     // relation fields get by field.relation_id
-                    const relation = await Relation.findOne({id: field.relation_id})
-                    const view = await View.findOne({relation_id: field.relation_id, relation_table_slug: table.slug})
+                    const relation = await Relation.findOne({ id: field.relation_id })
+                    const view = await View.findOne({ relation_id: field.relation_id, relation_table_slug: table.slug })
                     let resField = {}
                     resField.id = field.id
                     resField.label = view?.name
@@ -162,16 +174,16 @@ async function buildModels(is_build = true) {
                     if (relation) {
                         for (const fieldID of relation.view_fields) {
                             let field = await Field.findOne({
-                                id:fieldID
+                                id: fieldID
                             },
-                            {
-                                created_at: 0,
-                                updated_at: 0,
-                                createdAt: 0,
-                                updatedAt: 0,
-                                _id: 0,
-                                __v: 0
-                            }).lean();
+                                {
+                                    created_at: 0,
+                                    updated_at: 0,
+                                    createdAt: 0,
+                                    updatedAt: 0,
+                                    _id: 0,
+                                    __v: 0
+                                }).lean();
                             fieldAsAttribute.push(field)
                         }
                         if (!resField.attributes) {
@@ -202,29 +214,29 @@ async function buildModels(is_build = true) {
                     // after the first time when all relation fields are appended to our field array, 
                     // we change isReferenced to true in order to avoid adding the same fields twice or more
                 }
-            }  
+            }
             isReferenced = true
         }
-        
 
-        temp =  mongoose.Schema(
+
+        temp = mongoose.Schema(
             {
-            ...fieldObject,
-            createdAt: {type: Date, select: false},
-	        updatedAt: {type: Date, select: false}
-        },
-        {
-            timestamps: true,
-            toObject: {
-                virtuals: true
+                ...fieldObject,
+                createdAt: { type: Date, select: false },
+                updatedAt: { type: Date, select: false }
             },
-            toJSON: {
-                virtuals: true
-            },
-        }
-    )
+            {
+                timestamps: true,
+                toObject: {
+                    virtuals: true
+                },
+                toJSON: {
+                    virtuals: true
+                },
+            }
+        )
 
-        
+
 
         // create populate virtual for relation tables
         let populateParams;
@@ -259,20 +271,20 @@ async function buildModels(is_build = true) {
                     justOne: false
                 }
                 slug = relation.field_from + "_data"
-            } else if (relation.type === "Many2One"){
+            } else if (relation.type === "Many2One") {
                 populateParams = {
                     ref: relation.table_to,
                     localField: field?.slug,
                     foreignField: 'guid',
                     justOne: true
                 }
-            } else if (relation.type === "Recursive"){
+            } else if (relation.type === "Recursive") {
                 populateParams = {
                     ref: relation.table_to,
                     localField: field?.slug,
                     foreignField: 'guid',
                     justOne: true
-                }   
+                }
             } else if (relation.type === "One2Many") {
                 relation.table_to = relation.table_from
                 populateParams = {
@@ -281,7 +293,7 @@ async function buildModels(is_build = true) {
                     foreignField: 'guid',
                     justOne: true
                 }
-            } else if (relation.type === "Many2Dynamic"){
+            } else if (relation.type === "Many2Dynamic") {
                 for (dynamic_table of relation.dynamic_tables) {
                     populateParams = {
                         ref: dynamic_table.table_slug,
@@ -293,8 +305,8 @@ async function buildModels(is_build = true) {
                 }
                 continue;
             }
-            
-            
+
+
             temp.virtual(slug, populateParams);
         }
         temp.index(fieldsIndex);
@@ -302,23 +314,25 @@ async function buildModels(is_build = true) {
         let views = await View.find({
             table_slug: table.slug
         },
-        {
-            created_at: 0,
-            updated_at: 0,
-            _id: 0,
-            __v: 0,
-        }).lean()
-        tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug});
+            {
+                created_at: 0,
+                updated_at: 0,
+                _id: 0,
+                __v: 0,
+            }).lean()
+        tempArray.push({ field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug });
     }
 
     // build mongoose schemas for tables
     for (const model of tempArray) {
 
         // delete previous mongoose schema for a table, if new fields are added or fields are deleted, schema has to renewed
-        delete mongoose.connection.models[model.slug]
+        // delete mongoose.connection.models[model.slug]
+        delete mongoDBConn.models[model.slug]
         delete mongooseObject[model.slug]
         mongooseObject[model.slug] = {};
-        mongooseObject[model.slug].models = mongoose.model(model.slug, model.model);
+        // mongooseObject[model.slug].models = mongoose.model(model.slug, model.model);
+        mongooseObject[model.slug].models = mongoDBConn.model(model.slug, model.model);
         mongooseObject[model.slug].fields = model.field;
         mongooseObject[model.slug].relations = model.relation;
         mongooseObject[model.slug].views = model.view;
@@ -326,11 +340,11 @@ async function buildModels(is_build = true) {
         const resp = await Table.updateOne({
             slug: model.slug,
         },
-        {
-            $set: {
-                is_changed: false
-            }
-        })
+            {
+                $set: {
+                    is_changed: false
+                }
+            })
     }
     return mongooseObject
 }

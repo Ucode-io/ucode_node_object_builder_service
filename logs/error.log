@@ -1,49 +1,168 @@
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: barcodeGenerator.getBarcode is not a function',
+  message: 'Error while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T13:14:08.374Z',
+  timestamp: '2022-12-15T13:41:38.400Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: generateBarcode is not defined',
+  message: 'Error while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T13:50:09.345Z',
+  timestamp: '2022-12-15T13:42:01.956Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: barcodeGenerator.generateBarcode is not a function',
+  message: 'Error while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T13:55:36.382Z',
+  timestamp: '2022-12-15T13:42:19.873Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: ObjectBuilder is not defined',
+  message: 'Error while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T14:00:00.001Z',
+  timestamp: '2022-12-15T13:53:18.449Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: getBarcode is not defined',
+  message: '[Error] while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T14:06:07.459Z',
+  timestamp: '2022-12-15T13:54:32.146Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: this.getBarcode is not a function',
+  message: '[Error::ignorable] while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T14:13:23.929Z',
+  timestamp: '2022-12-15T13:54:47.219Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: "service.generateBarcode.getBarcode: failed with error: Cannot read properties of undefined (reading 'fields')",
+  message: '[Error::ignorable] while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T14:57:03.689Z',
+  timestamp: '2022-12-15T13:55:14.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[Error::ignorable] while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
+  level: 'error',
+  timestamp: '2022-12-15T13:55:21.145Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Operation `tables.findOne()` buffering timed out after 10000ms',
+  level: 'error',
+  timestamp: '2022-12-15T13:59:43.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-15T14:03:27.422Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-15T14:05:11.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-15T14:05:44.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Closed connection',
+  level: 'error',
+  timestamp: '2022-12-15T14:07:32.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-15T14:10:25.934Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-15T14:14:09.370Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[Error::ignorable] while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
+  level: 'error',
+  timestamp: '2022-12-15T19:08:35.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-15T19:49:58.765Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-15T19:53:05.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-15T21:02:36.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot access 'data' before initialization",
+  level: 'error',
+  timestamp: '2022-12-15T22:09:51.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot access 'data' before initialization",
+  level: 'error',
+  timestamp: '2022-12-15T22:11:32.964Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot access 'data' before initialization",
+  level: 'error',
+  timestamp: '2022-12-15T22:15:50.262Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-15T22:34:09.771Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-12-15T22:38:34.326Z',
   label: 'object_builder_service',
   metadata: {}
 }

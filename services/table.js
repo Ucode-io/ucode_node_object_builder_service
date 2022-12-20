@@ -8,7 +8,7 @@ const catchWrapService = require("../helper/catchWrapService");
 const con = require("../config/kafkaTopics");
 const sendMessageToTopic = require("../config/kafka");
 const converter = require("../helper/converter");
-const view = require("../models/view");
+const cfg = require('../config/index')
 
 const NAMESPACE = `services.table`;
 
@@ -55,8 +55,9 @@ const tableService = {
             }
             table.fields = fields 
             event.payload = table
+            event.project_id = call.request.project_id || cfg.ucodeDefaultProjectID
 
-            await sendMessageToTopic(con.topicTableCreateV1, event)
+            await sendMessageToTopic(con.TopicTableCreateV1, event)
 
             callback(null, {
                 id: response.id

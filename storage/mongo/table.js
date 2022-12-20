@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 const cfg = require('../../config/index')
 const catchWrapDb = require("../../helper/catchWrapDb");
 const con = require("../../config/kafkaTopics");
@@ -5,20 +9,34 @@ const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
 
 const mongoPool = require('../../pkg/pool');
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 
 let NAMESPACE = "storage.table";
 
+
 let tableStore = {
+<<<<<<< HEAD
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
+=======
+
+    create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
         try {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const App = mongoConn.models['App']
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
             const table = new Table(data);
             const response = await table.save();
 
@@ -39,11 +57,22 @@ let tableStore = {
                 }
             );
             return response;
+<<<<<<< HEAD
         } catch (err) {
             throw err
         }
 
     }),
+    update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
+=======
+
+        } catch (err) {
+            throw err
+        }
+
+
+    }
+    ),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
 
@@ -65,30 +94,45 @@ let tableStore = {
             data["older_slug"] = tableBeforeUpdate.slug
             let event = {}
             event.payload = data
+            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
-            await sendMessageToTopic(con.topicTableUpdeteV1, event)
+            await sendMessageToTopic(con.TopicTableUpdeteV1, event)
             return table;
+
         } catch (err) {
             throw err
         }
-
     }),
     get: catchWrapDb(`${NAMESPACE}.find`, async (data) => {
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
         try {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
+<<<<<<< HEAD
+
+            data.is_changed = true
+            const tableBeforeUpdate = await Table.findOne({
+                id: data.id
+            })
+            const table = await Table.updateOne(
+                {
+                    id: data.id,
+=======
 
             const table = await Table.findOne({
-                id: req.id,
+                id: data.id,
                 deleted_at: "1970-01-01T18:00:00.000+00:00",
             });
 
             return table;
+
         } catch (err) {
             throw err
         }
-    }),
+
+    }
+    ),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -102,9 +146,97 @@ let tableStore = {
                 {
                     deleted_at: "1970-01-01T18:00:00.000+00:00",
                     name: RegExp(data.search, "i")
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
                 },
                 null,
                 {
+<<<<<<< HEAD
+                    $set: data
+                }
+            )
+            data["older_slug"] = tableBeforeUpdate.slug
+            let event = {}
+            event.payload = data
+
+            await sendMessageToTopic(con.topicTableUpdeteV1, event)
+            return table;
+=======
+                    sort: { created_at: -1 }
+                }
+            ).skip(data.offset)
+                .limit(data.limit);
+
+            const count = await Table.countDocuments(query);
+            return { tables, count };
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
+        } catch (err) {
+            throw err
+        }
+    }),
+    getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+
+<<<<<<< HEAD
+    }),
+    get: catchWrapDb(`${NAMESPACE}.find`, async (data) => {
+        try {
+
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+
+            const table = await Table.findOne({
+                id: req.id,
+                deleted_at: "1970-01-01T18:00:00.000+00:00",
+            });
+
+            return table;
+=======
+            const table = await Table.findOne({ id: data.id });
+
+            return table;
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
+        } catch (err) {
+            throw err
+        }
+    }),
+<<<<<<< HEAD
+    getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+
+            let query = {
+                deleted_at: "1970-01-01T18:00:00.000+00:00",
+                name: RegExp(data.search, "i")
+            }
+            const tables = await Table.find(
+                {
+                    deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    name: RegExp(data.search, "i")
+=======
+    delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+            const Section = mongoConn.models['Section']
+            const Relation = mongoConn.models['Relation']
+
+            const table = await Table.findOne({
+                id: data.id
+            })
+            const resp = await Table.updateOne(
+                {
+                    id: data.id
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
+                },
+                null,
+                {
+<<<<<<< HEAD
                     sort: { created_at: -1 }
                 }
             ).skip(data.offset)
@@ -142,6 +274,12 @@ let tableStore = {
                         deleted_at: Date.now(),
                     }
                 }
+=======
+                    $set: {
+                        deleted_at: Date.now(),
+                    }
+                }
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
             );
 
             const getRelations = await Relation.find({
@@ -192,10 +330,17 @@ let tableStore = {
             })
 
             return table;
+<<<<<<< HEAD
         } catch (err) {
             throw err
         }
 
+=======
+
+        } catch (err) {
+            throw err
+        }
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
     }),
 };
 

@@ -1,455 +1,168 @@
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: barcodeGenerator.getBarcode is not a function',
+  message: 'Error while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T13:14:08.374Z',
+  timestamp: '2022-12-15T13:41:38.400Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: generateBarcode is not defined',
+  message: 'Error while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T13:50:09.345Z',
+  timestamp: '2022-12-15T13:42:01.956Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: barcodeGenerator.generateBarcode is not a function',
+  message: 'Error while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T13:55:36.382Z',
+  timestamp: '2022-12-15T13:42:19.873Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: ObjectBuilder is not defined',
+  message: 'Error while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T14:00:00.001Z',
+  timestamp: '2022-12-15T13:53:18.449Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: getBarcode is not defined',
+  message: '[Error] while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T14:06:07.459Z',
+  timestamp: '2022-12-15T13:54:32.146Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.generateBarcode.getBarcode: failed with error: this.getBarcode is not a function',
+  message: '[Error::ignorable] while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T14:13:23.929Z',
+  timestamp: '2022-12-15T13:54:47.219Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: "service.generateBarcode.getBarcode: failed with error: Cannot read properties of undefined (reading 'fields')",
+  message: '[Error::ignorable] while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-10-10T14:57:03.689Z',
+  timestamp: '2022-12-15T13:55:14.164Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@68.183.15.135:27017/object_builder_service) connection timed out',
+  message: '[Error::ignorable] while connecting to database (mongodb://admin:admin1234@localhost:27017/object_builder_service) Authentication failed.',
   level: 'error',
-  timestamp: '2022-11-09T05:43:37.617Z',
+  timestamp: '2022-12-15T13:55:21.145Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
+  message: 'service.object_builder.create: failed with error: Operation `tables.findOne()` buffering timed out after 10000ms',
   level: 'error',
-  timestamp: '2022-11-11T05:41:28.576Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
-  level: 'error',
-  timestamp: '2022-11-11T06:01:46.001Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'Error while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
-  level: 'error',
-  timestamp: '2022-11-11T06:09:32.465Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
-  level: 'error',
-  timestamp: '2022-11-11T11:30:37.745Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
-  level: 'error',
-  timestamp: '2022-11-11T11:32:19.634Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
-  level: 'error',
-  timestamp: '2022-11-11T11:37:34.524Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: paramms is not defined',
-  level: 'error',
-  timestamp: '2022-11-11T11:42:55.942Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: paramms is not defined',
-  level: 'error',
-  timestamp: '2022-11-11T11:43:13.028Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: paramms is not defined',
-  level: 'error',
-  timestamp: '2022-11-11T11:44:23.885Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
-  level: 'error',
-  timestamp: '2022-11-11T11:49:30.295Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
-  level: 'error',
-  timestamp: '2022-11-11T11:51:26.205Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
-  level: 'error',
-  timestamp: '2022-11-11T12:49:22.710Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: bool is not defined',
-  level: 'error',
-  timestamp: '2022-11-11T14:31:28.602Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
-  level: 'error',
-  timestamp: '2022-11-11T14:36:57.008Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
-  level: 'error',
-  timestamp: '2022-11-11T14:39:25.337Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cast to Boolean failed for value "/true/i" (type RegExp) at path "is_available" for model "book"',
-  level: 'error',
-  timestamp: '2022-11-11T14:41:17.520Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
-  level: 'error',
-  timestamp: '2022-11-15T08:34:05.339Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
-  level: 'error',
-  timestamp: '2022-11-16T06:11:14.006Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot do exclusion on field updated_at in inclusion projection',
-  level: 'error',
-  timestamp: '2022-11-16T06:17:08.439Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot do inclusion on field created_at in exclusion projection',
-  level: 'error',
-  timestamp: '2022-11-16T06:20:12.462Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot do inclusion on field created_at in exclusion projection',
-  level: 'error',
-  timestamp: '2022-11-16T06:20:20.604Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Invalid sort() argument. Must be a string, object, or array.',
-  level: 'error',
-  timestamp: '2022-11-16T06:32:38.256Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Invalid sort() argument. Must be a string, object, or array.',
-  level: 'error',
-  timestamp: '2022-11-16T06:32:44.401Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Invalid sort() argument. Must be a string, object, or array.',
-  level: 'error',
-  timestamp: '2022-11-16T06:34:52.618Z',
+  timestamp: '2022-12-15T13:59:43.999Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2022-11-16T11:41:15.454Z',
+  timestamp: '2022-12-15T14:03:27.422Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-15T14:05:11.558Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2022-11-16T13:31:21.322Z',
+  timestamp: '2022-12-15T14:05:44.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Closed connection',
+  level: 'error',
+  timestamp: '2022-12-15T14:07:32.022Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2022-11-16T13:32:07.317Z',
+  timestamp: '2022-12-15T14:10:25.934Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2022-11-21T07:41:10.756Z',
+  timestamp: '2022-12-15T14:14:09.370Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: data.objects is not iterable',
+  message: '[Error::ignorable] while connecting to database (mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service) connection timed out',
   level: 'error',
-  timestamp: '2022-11-21T07:44:33.166Z',
+  timestamp: '2022-12-15T19:08:35.452Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: data.objects is not iterable',
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
-  timestamp: '2022-11-21T07:46:08.184Z',
+  timestamp: '2022-12-15T19:49:58.765Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: data.objects is not iterable',
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
-  timestamp: '2022-11-21T08:00:21.830Z',
+  timestamp: '2022-12-15T19:53:05.632Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: data.objects is not iterable',
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
-  timestamp: '2022-11-21T08:08:36.313Z',
+  timestamp: '2022-12-15T21:02:36.499Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: data.objects is not iterable',
+  message: "service.object_builder.getSingle: failed with error: Cannot access 'data' before initialization",
   level: 'error',
-  timestamp: '2022-11-21T09:12:59.401Z',
+  timestamp: '2022-12-15T22:09:51.428Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: key is not defined',
+  message: "service.object_builder.getSingle: failed with error: Cannot access 'data' before initialization",
   level: 'error',
-  timestamp: '2022-11-21T10:41:58.015Z',
+  timestamp: '2022-12-15T22:11:32.964Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: key is not defined',
+  message: "service.object_builder.getSingle: failed with error: Cannot access 'data' before initialization",
   level: 'error',
-  timestamp: '2022-11-21T10:52:40.147Z',
+  timestamp: '2022-12-15T22:15:50.262Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: key is not defined',
+  message: 'service.field.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
-  timestamp: '2022-11-21T10:55:07.704Z',
+  timestamp: '2022-12-15T22:34:09.771Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.multipleUpdate: failed with error: data is not iterable',
+  message: "service.field.getAll: failed with error: Cannot read properties of null (reading 'id')",
   level: 'error',
-  timestamp: '2022-11-22T04:13:38.789Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.multipleUpdate: failed with error: key is not defined',
-  level: 'error',
-  timestamp: '2022-11-22T04:17:08.093Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.multipleUpdate: failed with error: objects is not iterable',
-  level: 'error',
-  timestamp: '2022-11-22T04:21:13.535Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.multipleUpdate: failed with error: key is not defined',
-  level: 'error',
-  timestamp: '2022-11-22T04:29:05.784Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.multipleUpdate: failed with error: key is not defined',
-  level: 'error',
-  timestamp: '2022-11-22T04:31:40.311Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.multipleUpdate: failed with error: key is not defined',
-  level: 'error',
-  timestamp: '2022-11-22T04:33:54.350Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.multipleUpdate: failed with error: key is not defined',
-  level: 'error',
-  timestamp: '2022-11-22T04:35:56.309Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.multipleUpdate: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2022-11-22T04:40:28.902Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.multipleUpdate: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2022-11-22T04:40:47.658Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.login: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2022-12-06T10:17:39.359Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.login: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2022-12-06T10:19:19.335Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.login: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2022-12-06T10:22:50.016Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.login: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2022-12-06T10:23:59.228Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.query.getById: failed with error: queryFolder is not defined',
-  level: 'error',
-  timestamp: '2022-12-08T02:36:26.960Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.query.getAll: failed with error: data is not defined',
-  level: 'error',
-  timestamp: '2022-12-08T02:44:16.696Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
-  level: 'error',
-  timestamp: '2022-12-08T08:37:03.420Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
-  level: 'error',
-  timestamp: '2022-12-08T08:39:47.614Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
-  level: 'error',
-  timestamp: '2022-12-08T08:45:45.428Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
-  level: 'error',
-  timestamp: '2022-12-08T08:48:36.561Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.field.create: failed with error: Cannot read properties of undefined (reading 'includes')",
-  level: 'error',
-  timestamp: '2022-12-08T09:09:44.453Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.field.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2022-12-08T09:11:54.094Z',
+  timestamp: '2022-12-15T22:38:34.326Z',
   label: 'object_builder_service',
   metadata: {}
 }

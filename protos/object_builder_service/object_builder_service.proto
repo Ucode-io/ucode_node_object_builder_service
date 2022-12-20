@@ -26,5 +26,9 @@ import "function.proto";
 import "query_folder.proto";
 import "queryies.proto";
 import "web_pages.proto";
+<<<<<<< HEAD
 import "cascading.proto";
 import "builder_project.proto";
+=======
+import "builder_project.proto";
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

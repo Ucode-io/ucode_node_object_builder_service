@@ -6,6 +6,7 @@ const relationStore = require("../mongo/relation");
 const AddPermission = require("../../helper/addPermission");
 
 const mongoPool = require('../../pkg/pool');
+<<<<<<< HEAD
 
 // const mongoConn = await mongoPool.get(data.project_id)
 // const Table = mongoConn.models['Table']
@@ -16,7 +17,17 @@ const mongoPool = require('../../pkg/pool');
 // const Relation = mongoConn.models['Relation']
 // const ViewRelation = mongoConn.models['ViewRelation']
 
+=======
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 
+// const mongoConn = await mongoPool.get(data.project_id)
+// const Table = mongoConn.models['Table']
+// const Field = mongoConn.models['Field']
+// const Section = mongoConn.models['Section']
+// const App = mongoConn.models['App']
+// const View = mongoConn.models['View']
+// const Relation = mongoConn.models['Relation']
+// const ViewRelation = mongoConn.models['ViewRelation']
 
 
 let NAMESPACE = "storage.section";
@@ -32,6 +43,12 @@ let sectionStore = {
                 const section = new Section(sectionReq);
                 section.table_id = data.id;
                 var response = section.save();
+<<<<<<< HEAD
+            }
+
+            const resp = await Table.updateOne({
+                id: data.id,
+=======
             }
 
             const resp = await Table.updateOne({
@@ -44,6 +61,47 @@ let sectionStore = {
                 })
 
             return response;
+
+
+        } catch (err) {
+            throw err
+        }
+
+    }
+    ),
+    update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+            const Section = mongoConn.models['Section']
+
+            const count = await Section.deleteMany(
+                {
+                    table_id: data.table_id,
+                }
+            )
+            for (const sectionReq of data.sections) {
+                const section = new Section(sectionReq);
+                section.table_id = data.table_id;
+                var response = section.save();
+            }
+
+            const resp = await Table.updateOne({
+                id: data.table_id,
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
+            },
+                {
+                    $set: {
+                        is_changed: true
+                    }
+                })
+
+<<<<<<< HEAD
+            return response;
+=======
+            return;
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
         } catch (err) {
             throw err
         }
@@ -54,6 +112,7 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const Section = mongoConn.models['Section']
 
+<<<<<<< HEAD
             const count = await Section.deleteMany(
                 {
                     table_id: data.table_id,
@@ -78,6 +137,9 @@ let sectionStore = {
         } catch (err) {
             throw err
         }
+=======
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 
     }),
     upsertViewRelations: catchWrapDb(`${NAMESPACE}.upsertViewRelations`, async (data) => {
@@ -86,6 +148,10 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
             const count = await ViewRelation.deleteMany(
                 {
                     table_slug: data.table_slug,
@@ -116,9 +182,19 @@ let sectionStore = {
                 })
 
             return;
+<<<<<<< HEAD
         } catch (err) {
             throw err
         }
+=======
+
+        } catch (err) {
+            throw err
+        }
+
+
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
     }),
     getAllViewRelations: catchWrapDb(`${NAMESPACE}.getAllViewRelations`, async (data) => {
         try {
@@ -136,6 +212,7 @@ let sectionStore = {
             }
             let query = {
                 table: data.table_slug,
+<<<<<<< HEAD
             }
             let view_relations = await ViewRelation.find(
                 {
@@ -162,12 +239,49 @@ let sectionStore = {
             throw err
         }
     }),
+=======
+            }
+            let view_relations = await ViewRelation.find(
+                {
+                    table_slug: data.table_slug,
+                },
+                null,
+                {
+                    sort: { created_at: -1 }
+                }
+            ).skip(data.offset)
+                .limit(data.limit);
+            let newRelations = []
+            for (let index = 0; index < view_relations.length; index++) {
+                let newRelation = { ...view_relations[index] }
+                const relationBody = await Relation.findOne({ id: view_relations[index].relation_id })
+                newRelation._doc.relation = relationBody
+                newRelations.push(newRelation._doc)
+            }
+
+            const count = await ViewRelation.countDocuments(query);
+            return { view_relations: newRelations, count: count };
+
+
+        } catch (err) {
+            throw err
+        }
+
+
+
+    }),
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
     getSingleViewRelation: catchWrapDb(`${NAMESPACE}.getSingleViewRelation`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
             let table = {};
             if (data.table_slug === "") {
                 table = await Table.findOne({
@@ -189,7 +303,11 @@ let sectionStore = {
                 table_slug: view_relation.table_slug,
                 role_id: data.role_id
             })
+<<<<<<< HEAD
             let viewRelationWithPermissions = await AddPermission.toViewRelation(relations, data.role_id, data.table_slug)
+=======
+            let viewRelationWithPermissions = await AddPermission.toViewRelation(relations, data.role_id, data.table_slug, data.project_id)
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 
             if (view_relation.relations) {
                 for (let index = 0; index < view_relation.relations.length; index++) {
@@ -207,11 +325,23 @@ let sectionStore = {
                 table_slug: view_relation.table_slug,
                 relations: newRelations,
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
         } catch (err) {
             throw err
         }
 
+<<<<<<< HEAD
     }),
+=======
+
+
+
+    }),
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -364,6 +494,7 @@ let sectionStore = {
                         }
 
                         field.attributes = encodedAttributes
+<<<<<<< HEAD
 
                         fieldsRes.push(field)
                     } else if (fieldReq.id.includes("@")) {
@@ -380,21 +511,54 @@ let sectionStore = {
                             field.relation_type = fieldReq.relation_type;
                             fieldsRes.push(field);
 
+=======
+
+                        fieldsRes.push(field)
+                    } else if (fieldReq.id.includes("@")) {
+                        field.id = fieldReq.id
+                    } else {
+                        guid = fieldReq.id
+                        field = await Field.findOne({
+                            id: guid
+                        });
+                        if (field) {
+                            field.order = fieldReq.order;
+                            field.column = fieldReq.column;
+                            field.id = fieldReq.id;
+                            field.relation_type = fieldReq.relation_type;
+                            fieldsRes.push(field);
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
                         }
                     }
                 }
                 // this function add field permission for each field by role id
+<<<<<<< HEAD
                 fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug)
+=======
+                fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)
             }
             return { sections: sectionsResponse };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
         } catch (err) {
             throw err
         }
 
+<<<<<<< HEAD
     })
+=======
+
+
+    }
+    )
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 };
 
 module.exports = sectionStore;

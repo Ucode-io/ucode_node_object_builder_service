@@ -9,7 +9,7 @@ let NAMESPACE = "storage.barcode"
 let barcodeStore = {
     generateBarcode: catchWrapDb(`${NAMESPACE}.generateBarcode`, async (data) => {
         let barcode = generateBarcode()
-        const tableInfo = (await ObjectBuilder())[data.table_slug]
+        const tableInfo = (await ObjectBuilder(true, data.project_id))[data.table_slug]
         let barcodeFields = tableInfo.fields.filter(value => (value.type === "BARCODE"))
 
         for (const barcodeField of barcodeFields) {

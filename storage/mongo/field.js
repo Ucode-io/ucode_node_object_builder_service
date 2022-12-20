@@ -1,5 +1,3 @@
-const Field = require("../../models/field");
-const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
 const con = require("../../config/kafkaTopics");
@@ -9,6 +7,8 @@ const converter = require("../../helper/converter");
 const Relation = require("../../models/relation");
 const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
+const mongoPool = require('../../pkg/pool');
+
 
 let NAMESPACE = "storage.field";
 
@@ -27,7 +27,6 @@ let fieldStore = {
                 unique: true,
                 type: "UUID",
             });
-
 
 
             for (const fieldReq of data.fields) {
@@ -485,6 +484,24 @@ let fieldStore = {
 
             const count = await Field.countDocuments(query);
             return { fields: fields, count: count, data: response };
+        } catch (err) {
+            throw err
+        }
+    }),
+    delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+        
+
+            const deletedField = await Field.findOne({ id: data.id })
+            const table = await Table.findOne({ id: deletedField.table_id })
+            const field = await Field.deleteOne({ id: data.id });
+            const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
+            const response = await fieldPermissionTable?.models.deleteMany({
+                field_id: data.id
+            })
         } catch (err) {
             throw err
         }

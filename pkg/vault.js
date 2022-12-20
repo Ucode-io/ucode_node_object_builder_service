@@ -24,4 +24,8 @@ const run = async () => {
     await vault.delete("secret/data/mysql/webapp"); // This attempt will fail as the AppRole node-app-role doesn't have delete permissions.
 };
 
+<<<<<<< HEAD
 run();
+=======
+run();
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

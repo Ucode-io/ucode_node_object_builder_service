@@ -1,6 +1,5 @@
 const objectBuilderStore = require("../storage/mongo/object_builder");
 const catchWrapServiceObjectBuilder = require("../helper/catchWrapServiceObjectBuilder");
-const objectBuilder = require("../storage/mongo/object_builder");
 
 const objectBuilderService = {
     Create: catchWrapServiceObjectBuilder(`service.object_builder.create`, objectBuilderStore.create),
@@ -13,8 +12,12 @@ const objectBuilderService = {
     ManyToManyDelete: catchWrapServiceObjectBuilder(`service.object_builder.deleteManyToMany`, objectBuilderStore.deleteManyToMany),
     GetObjectDetails: catchWrapServiceObjectBuilder(`service.object_builder.getObjectDetails`, objectBuilderStore.getObjectDetails),
     Batch: catchWrapServiceObjectBuilder("service.object_builder.batch", objectBuilderStore.batch),
+<<<<<<< HEAD
     MultipleUpdate: catchWrapServiceObjectBuilder("service.object_builder.multipleUpdate", objectBuilder.multipleUpdate),
     GetFinancialAnalytics: catchWrapServiceObjectBuilder("service.object_builder.getFinancialAnalytics", objectBuilder.getFinancialAnalytics),
+=======
+    MultipleUpdate: catchWrapServiceObjectBuilder("service.object_builder.multipleUpdate", objectBuilderStore.multipleUpdate)
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 };
 
 module.exports = objectBuilderService;  

@@ -1,14 +1,14 @@
+const XLSX = require('xlsx');
+const fs = require('fs');
+const Minio = require('minio');
+const { struct } = require('pb-util');
+
 const cfg = require("../../config/index");
 const logger = require("../../config/logger");
-const ObjectBuilder = require("../../models/object_builder");
 const catchWrapDbObjectBuilder = require("../../helper/catchWrapDbObjectBuilder")
-let NAMESPACE = "storage.object_builder";
-const { struct } = require('pb-util');
-const Relation = require("../../models/relation");
 const { v4 } = require("uuid");
 const con = require("../../helper/constants");
 const sendMessageToTopic = require("../../config/kafka");
-const table = require("../../models/table");
 const converter = require("../../helper/converter");
 const Field = require("../../models/field");
 const XLSX = require('xlsx');
@@ -20,8 +20,15 @@ const AddPermission = require("../../helper/addPermission");
 const View = require("../../models/view");
 const RangeDate = require("../../helper/rangeDate");
 const generators = require("../../helper/generator")
+const ObjectBuilder = require("../../models/object_builder");
+
+const { exists } = require("../../models/table");
 
 
+const mongoPool = require('../../pkg/pool');
+
+
+let NAMESPACE = "storage.object_builder";
 
 let objectBuilder = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
@@ -31,7 +38,6 @@ let objectBuilder = {
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
-
 
             const data = struct.decode(req.data)
             if (!data.guid) {
@@ -183,6 +189,7 @@ let objectBuilder = {
             }
             const object = struct.encode({ data });
             return { table_slug: req.table_slug, data: object };
+
         } catch (err) {
             throw err
         }
@@ -480,7 +487,6 @@ let objectBuilder = {
 
             millis = Date.now() - start;
             console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
-
 
             const params = struct.decode(req.data)
             const limit = params.limit
@@ -1393,7 +1399,7 @@ let objectBuilder = {
                         updated_at: 0,
                         _id: 0,
                         __v: 0
-                    }, { sort: order }
+                    }, { sort: { createdAt: -1 } }
                 )
                     .skip(offset)
                     .limit(limit)
@@ -1469,7 +1475,6 @@ let objectBuilder = {
                                 if (viewField.attributes) {
                                     viewField.attributes = struct.decode(viewField.attributes)
                                 }
-                                viewFields.push(viewField._doc)
                             }
                         }
                     }
@@ -1974,146 +1979,140 @@ let objectBuilder = {
     }),
 
     multipleInsert: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
-        try {
-
-
-            //if you will be change this function, you need to change create function
-            const data = struct.decode(req.data)
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
-            let objects = [], appendMany2ManyObjects = []
-            for (const object of data.objects) {
-                //this condition used for object.guid may be exists
-                if (!object.guid) {
-                    object.guid = v4()
+        //if you will be change this function, you need to change create function
+        const data = struct.decode(req.data)
+        const tableInfo = (await ObjectBuilder())[req.table_slug]
+        let objects = [], appendMany2ManyObjects = []
+        for (const object of data.objects) {
+            //this condition used for object.guid may be exists
+            if (!object.guid) {
+                object.guid = v4()
+            }
+            let tableData = await table.findOne(
+                {
+                    slug: req.table_slug
                 }
-                let tableData = await table.findOne(
-                    {
-                        slug: req.table_slug
-                    }
-                )
-                if (req.table_slug === "template" || req.table_slug === "file") {
-                    const relation = await Relation.findOne({
-                        $or: [
-                            {
-                                $and: [
-                                    { table_to: req.table_slug },
-                                    { table_from: object.table_slug }
-                                ]
-                            },
-                            {
-                                $and: [
-                                    { table_to: object.table_slug },
-                                    { table_from: req.table_slug }
-                                ]
-                            }
-                        ]
-                    })
-                    if (relation) {
-                        const field = await Field.findOne({
-                            relation_id: relation.id,
-                            table_id: tableData.id
-                        })
-                        if (!data[field?.slug]) {
-                            data[field?.slug] = object.object_id
+            )
+            if (req.table_slug === "template" || req.table_slug === "file") {
+                const relation = await Relation.findOne({
+                    $or: [
+                        {
+                            $and: [
+                                { table_to: req.table_slug },
+                                { table_from: object.table_slug }
+                            ]
+                        },
+                        {
+                            $and: [
+                                { table_to: object.table_slug },
+                                { table_from: req.table_slug }
+                            ]
                         }
-                    }
-                }
-
-
-                let incrementField = await Field.findOne({
-                    table_id: tableData.id,
-                    type: "INCREMENT_ID"
+                    ]
                 })
-
-
-                if (incrementField) {
-                    let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-                    let attributes = struct.decode(incrementField.attributes)
-                    let incrementLength = attributes.prefix.length
-                    if (!last || !last[incrementField.slug]) {
-                        object[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
-                    } else {
-                        nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug].length)) + 1
-                        object[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
-                    }
-                }
-
-                let incrementNum = await Field.findOne({
-                    table_id: tableData.id,
-                    type: "INCREMENT_NUMBER"
-                })
-                if (incrementNum) {
-                    let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-                    let attributes = struct.decode(incrementNum.attributes)
-                    let incrementLength = attributes.prefix.length
-                    if (!last || !last[incrementNum.slug]) {
-                        object[incrementNum.slug] = attributes.prefix + '1'.padStart(attributes.digit_number, '0')
-                    } else {
-                        nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug].length)) + 1
-                        object[incrementNum.slug] = attributes.prefix + nextIncrement.toString().padStart(attributes.digit_number, '0')
-                    }
-                }
-
-
-
-                let payload = new tableInfo.models(object);
-                objects.push(payload)
-
-                let fields = await Field.find(
-                    {
+                if (relation) {
+                    const field = await Field.findOne({
+                        relation_id: relation.id,
                         table_id: tableData.id
+                    })
+                    if (!data[field?.slug]) {
+                        data[field?.slug] = object.object_id
                     }
-                )
-                // TODO::: move kafka to service level
-                let event = {}
-                let field_types = {}
-                event.payload = {}
-                event.payload.data = object
-                event.payload.table_slug = req.table_slug
-
-                for (const field of fields) {
-                    let type = converter(field.type);
-                    if (field.type === "LOOKUPS") {
-                        if (object[field.slug] && object[field.slug].length) {
-                            const relation = await Relation.findOne({
-                                id: field.relation_id
-                            })
-
-                            let appendMany2Many = {}
-                            appendMany2Many.id_from = object.guid
-                            appendMany2Many.id_to = object[field.slug]
-                            appendMany2Many.table_from = req.table_slug
-                            if (relation.table_to === req.table_slug) {
-                                appendMany2Many.table_to = relation.table_from
-                            } else if (relation.table_from === req.table_slug) {
-                                appendMany2Many.table_to = relation.table_to
-                            }
-                            appendMany2ManyObjects.push(appendMany2Many)
-                        }
-                    }
-                    field_types[field.slug] = type
                 }
-                field_types.guid = "String"
-                event.payload.field_types = field_types
-                await sendMessageToTopic(con.TopicObjectCreateV1, event)
+            }
 
 
-                req.current_data = object
-                await sendMessageToTopic(con.TopicEventCreateV1, {
-                    payload: {
-                        current_data: object,
-                        table_slug: req.table_slug
+            let incrementField = await Field.findOne({
+                table_id: tableData.id,
+                type: "INCREMENT_ID"
+            })
+
+
+            if (incrementField) {
+                let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+                let attributes = struct.decode(incrementField.attributes)
+                let incrementLength = attributes.prefix.length
+                if (!last || !last[incrementField.slug]) {
+                    object[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
+                } else {
+                    nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug].length)) + 1
+                    object[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
+                }
+            }
+
+            let incrementNum = await Field.findOne({
+                table_id: tableData.id,
+                type: "INCREMENT_NUMBER"
+            })
+            if (incrementNum) {
+                let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+                let attributes = struct.decode(incrementNum.attributes)
+                let incrementLength = attributes.prefix.length
+                if (!last || !last[incrementNum.slug]) {
+                    object[incrementNum.slug] = attributes.prefix + '1'.padStart(attributes.digit_number, '0')
+                } else {
+                    nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug].length)) + 1
+                    object[incrementNum.slug] = attributes.prefix + nextIncrement.toString().padStart(attributes.digit_number, '0')
+                }
+            }
+
+
+
+            let payload = new tableInfo.models(object);
+            objects.push(payload)
+
+            let fields = await Field.find(
+                {
+                    table_id: tableData.id
+                }
+            )
+            // TODO::: move kafka to service level
+            let event = {}
+            let field_types = {}
+            event.payload = {}
+            event.payload.data = object
+            event.payload.table_slug = req.table_slug
+
+            for (const field of fields) {
+                let type = converter(field.type);
+                if (field.type === "LOOKUPS") {
+                    if (object[field.slug] && object[field.slug].length) {
+                        const relation = await Relation.findOne({
+                            id: field.relation_id
+                        })
+
+                        let appendMany2Many = {}
+                        appendMany2Many.id_from = object.guid
+                        appendMany2Many.id_to = object[field.slug]
+                        appendMany2Many.table_from = req.table_slug
+                        if (relation.table_to === req.table_slug) {
+                            appendMany2Many.table_to = relation.table_from
+                        } else if (relation.table_from === req.table_slug) {
+                            appendMany2Many.table_to = relation.table_to
+                        }
+                        appendMany2ManyObjects.push(appendMany2Many)
                     }
-                })
+                }
+                field_types[field.slug] = type
             }
-            await tableInfo.models.insertMany(objects)
-            for (const appendMany2Many of appendMany2ManyObjects) {
-                await objectBuilder.appendManyToMany(appendMany2Many)
-            }
-            return
-        } catch (err) {
-            throw err
+            field_types.guid = "String"
+            event.payload.field_types = field_types
+            await sendMessageToTopic(con.TopicObjectCreateV1, event)
+
+
+            req.current_data = object
+            await sendMessageToTopic(con.TopicEventCreateV1, {
+                payload: {
+                    current_data: object,
+                    table_slug: req.table_slug
+                }
+            })
         }
+        await tableInfo.models.insertMany(objects)
+        for (const appendMany2Many of appendMany2ManyObjects) {
+            await objectBuilder.appendManyToMany(appendMany2Many)
+        }
+        return
     }),
     multipleUpdateV2: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdateV2`, async (req) => {
         //if you will be change this function, you need to change update function

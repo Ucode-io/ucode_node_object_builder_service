@@ -45,4 +45,8 @@ vault.auths({
 .then((result) => {
   console.log(result);
 })
+<<<<<<< HEAD
 .catch((err) => console.error("errorline", err.message));
+=======
+.catch((err) => console.error("errorline", err.message));
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

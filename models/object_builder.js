@@ -26,9 +26,10 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
 
 
 
-// hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
+    // hi guys, comments will be written below in order to
+    // explain what is going on in auto-object-builder logic
 
-// all tables should be got to build their schema
+    // all tables should be got to build their schema
     let tables = []
     if (!is_build) {
         tables = await Table.find({
@@ -40,7 +41,7 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
             is_changed: true
         });
     }
-    
+
 
     let tempArray = []
     for (const table of tables) {
@@ -54,25 +55,26 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
                 }, {
                     type: "Many2One"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
-                  table_to: table.slug
+                    table_to: table.slug
                 }, {
-                  type: "One2Many"
+                    type: "One2Many"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
                     $or: [{
                         table_from: table.slug
                     },
                     {
                         "dynamic_tables.table_slug": table.slug
-                    }]},   
-                    {
-                        type: "Many2Dynamic"
-                    }
+                    }]
+                },
+                {
+                    type: "Many2Dynamic"
+                }
                 ]
               },
             //   {
@@ -99,12 +101,12 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
         const fields = await Field.find({
             table_id: table.id,
         },
-        {
-            created_at: 0,
-            updated_at: 0,
-            _id: 0,
-            __v: 0,
-        });
+            {
+                created_at: 0,
+                updated_at: 0,
+                _id: 0,
+                __v: 0,
+            });
         let fieldObject = {};
         let fieldsModel = [];
         let fieldsIndex = [];
@@ -182,7 +184,7 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
                         }
                     }
                 }
-               
+
 
                 // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
                 if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS") {
@@ -192,12 +194,12 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
                     // else if we need to add all relation fields to related table fields
 
                     // sections have to be got, so that we can specify by which fields tables are related
-                    
+
                     // if section.field contains '#' (it is M2O and O2M related tables field) OR (@ is for O2O relation field)
-                
+
                     // relation fields get by field.relation_id
-                    const relation = await Relation.findOne({id: field.relation_id})
-                    const view = await View.findOne({relation_id: field.relation_id, relation_table_slug: table.slug})
+                    const relation = await Relation.findOne({ id: field.relation_id })
+                    const view = await View.findOne({ relation_id: field.relation_id, relation_table_slug: table.slug })
                     let resField = {}
                     resField.id = field.id
                     resField.label = view?.name
@@ -211,16 +213,16 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
                     if (relation) {
                         for (const fieldID of relation.view_fields) {
                             let field = await Field.findOne({
-                                id:fieldID
+                                id: fieldID
                             },
-                            {
-                                created_at: 0,
-                                updated_at: 0,
-                                createdAt: 0,
-                                updatedAt: 0,
-                                _id: 0,
-                                __v: 0
-                            }).lean();
+                                {
+                                    created_at: 0,
+                                    updated_at: 0,
+                                    createdAt: 0,
+                                    updatedAt: 0,
+                                    _id: 0,
+                                    __v: 0
+                                }).lean();
                             fieldAsAttribute.push(field)
 
                         }
@@ -287,26 +289,18 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
                     // after the first time when all relation fields are appended to our field array, 
                     // we change isReferenced to true in order to avoid adding the same fields twice or more
                 }
-            }  
+            }
             isReferenced = true
         }
-        
 
-        temp =  mongoose.Schema(
+
+        temp = mongoose.Schema(
             {
-            ...fieldObject,
-            createdAt: {type: Date, select: false},
-	        updatedAt: {type: Date, select: false}
-        },
-        {
-            timestamps: true,
-            toObject: {
-                virtuals: true
+                ...fieldObject,
+                createdAt: { type: Date, select: false },
+                updatedAt: { type: Date, select: false }
             },
-            toJSON: {
-                virtuals: true
-            },
-        })
+        )
         if (hasPasswordField) {
             for (let i=0; i<arrayOfMiddlewares.length; i++) {
                 temp[arrayOfMiddlewares[i].type](arrayOfMiddlewares[i].method, arrayOfMiddlewares[i]._function)
@@ -346,20 +340,20 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
                     justOne: false
                 }
                 slug = relation.field_from + "_data"
-            } else if (relation.type === "Many2One"){
+            } else if (relation.type === "Many2One") {
                 populateParams = {
                     ref: relation.table_to,
                     localField: field?.slug,
                     foreignField: 'guid',
                     justOne: true
                 }
-            } else if (relation.type === "Recursive"){
+            } else if (relation.type === "Recursive") {
                 populateParams = {
                     ref: relation.table_to,
                     localField: field?.slug,
                     foreignField: 'guid',
                     justOne: true
-                }   
+                }
             } else if (relation.type === "One2Many") {
                 relation.table_to = relation.table_from
                 populateParams = {
@@ -368,7 +362,7 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
                     foreignField: 'guid',
                     justOne: true
                 }
-            } else if (relation.type === "Many2Dynamic"){
+            } else if (relation.type === "Many2Dynamic") {
                 for (dynamic_table of relation.dynamic_tables) {
                     populateParams = {
                         ref: dynamic_table.table_slug,
@@ -430,11 +424,11 @@ async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjec
         const resp = await Table.updateOne({
             slug: model.slug,
         },
-        {
-            $set: {
-                is_changed: false
-            }
-        })
+            {
+                $set: {
+                    is_changed: false
+                }
+            })
     }
     return mongooseObject
 }

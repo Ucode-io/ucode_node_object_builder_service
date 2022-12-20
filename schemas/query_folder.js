@@ -24,4 +24,8 @@ const QueryFolderSchema = mongoose.Schema(
     }
 );
 
+<<<<<<< HEAD
 module.exports =  QueryFolderSchema
+=======
+module.exports =  QueryFolderSchema
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

@@ -7,7 +7,7 @@ global:
   # list of key: value
   # GLOBAL1: value
 labels:
-  app: node-object-builder-service
+  app: ucode-node-object-builder-service
 replicaCount: 1
 
 image:
@@ -40,6 +40,11 @@ podAnnotations:
   vault.hashicorp.com/secret-volume-path-.env: "/app"
   vault.hashicorp.com/role: "ucode-test"
   vault.hashicorp.com/agent-inject-template-.env: |
+    {{- with secret "secret/data/k8s/ucode-test/vault" -}}
+    {{- range $key, $value := .Data.data }}
+    {{ $key }}: {{ $value }}
+    {{- end }}
+    {{ end -}}
     {{- with secret "secret/data/k8s/ucode-test/mongo" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
@@ -62,7 +67,7 @@ podAnnotations:
     {{ end -}}
 
 podLabels:
-  app: node-object-builder-service
+  app: ucode-node-object-builder-service
 
 podSecurityContext:
   {}

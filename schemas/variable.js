@@ -49,4 +49,8 @@ const VariabledSchema = mongoose.Schema(
     }
 );
 
+<<<<<<< HEAD
 module.exports = VariabledSchema
+=======
+module.exports = VariabledSchema
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

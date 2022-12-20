@@ -82,4 +82,8 @@ const ViewSchema = mongoose.Schema(
     }
 );
 
+<<<<<<< HEAD
 module.exports = ViewSchema
+=======
+module.exports = ViewSchema
+>>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

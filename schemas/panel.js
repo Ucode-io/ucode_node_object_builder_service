@@ -41,8 +41,4 @@ const panelSchema = mongoose.Schema(
 )
 
 
-<<<<<<< HEAD
 module.exports = panelSchema
-=======
-module.exports = panelSchema
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

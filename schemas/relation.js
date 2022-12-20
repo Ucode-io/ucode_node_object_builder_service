@@ -63,8 +63,4 @@ RelationSchema.virtual("fields", {
     justOne: false
 })
 
-<<<<<<< HEAD
 module.exports = RelationSchema
-=======
-module.exports = RelationSchema
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

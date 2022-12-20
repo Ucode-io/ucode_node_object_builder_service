@@ -22,8 +22,4 @@ const WebPageSchema = mongoose.Schema(
     }
 );
 
-<<<<<<< HEAD
 module.exports = WebPageSchema
-=======
-module.exports = WebPageSchema
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

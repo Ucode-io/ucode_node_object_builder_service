@@ -27,13 +27,9 @@ message CreateFieldRequest {
     bool is_visible = 9;
     string autofill_table = 10;
     string autofill_field = 11;
-<<<<<<< HEAD
     bool unique = 12;
     bool automatic = 13;
     string project_id = 14;
-=======
-    string project_id = 12;
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 }
 
 message CreateFieldsRequest {
@@ -46,13 +42,9 @@ message CreateFieldsRequest {
     bool required = 7;
     google.protobuf.Struct attributes = 8;
     bool is_visible = 9;
-<<<<<<< HEAD
     bool unique = 10;
     bool automatic = 11;
     string project_id = 12;
-=======
-    string project_id = 10;
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 }
 
 message Field {
@@ -69,13 +61,9 @@ message Field {
     string autofill_field = 11;
     string autofill_table = 12;
     string relation_id = 13;
-<<<<<<< HEAD
     bool unique = 14;
     bool automatic = 15;
     string project_id = 16;
-=======
-    string project_id = 14;
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 }
 
 message GetAllFieldsResponse {

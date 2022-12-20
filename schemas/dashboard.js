@@ -38,8 +38,4 @@ DashboardSchema.virtual("variables", {
     justOne: false,
 })
 
-<<<<<<< HEAD
 module.exports = DashboardSchema
-=======
-module.exports = DashboardSchema
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

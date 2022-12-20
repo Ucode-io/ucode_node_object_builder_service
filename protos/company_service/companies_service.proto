@@ -24,7 +24,6 @@ message CreateCompanyRequest {
 
 message Company {
     string id = 1;
-<<<<<<< HEAD
     string name = 2;
     string logo = 3;
     string description = 4;
@@ -33,23 +32,10 @@ message Company {
 
 message CompanyWithProjects {
     string id = 1;
-=======
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
     string name = 2;
     string logo = 3;
     string description = 4;
     string owner_id = 5;
-<<<<<<< HEAD
-=======
-}
-
-message CompanyWithProjects {
-    string id = 1;
-    string name = 2;
-    string logo = 3;
-    string description = 4;
-    string owner_id = 5;
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
     repeated ProjectWithoutResource projects = 6;
 }
 
@@ -97,15 +83,4 @@ message GetListWithProjectsRequest {
 message GetListWithProjectsResponse {
     int32 count = 1;
     repeated CompanyWithProjects companies = 2;
-<<<<<<< HEAD
 }
-=======
-}
-
-// message ProjectWithoutResource {
-//     string id = 1;
-//     string company_id = 2;
-//     string k8s_namespace = 3;
-//     string title = 4;
-// }
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

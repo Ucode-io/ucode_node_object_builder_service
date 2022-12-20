@@ -31,8 +31,4 @@ const config = require('./config/index');
     } catch (e) {
         console.log('fail get', e)
     }
-<<<<<<< HEAD
 })();
-=======
-})();
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

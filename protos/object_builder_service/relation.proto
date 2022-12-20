@@ -34,7 +34,6 @@ message CreateRelationRequest {
     string relation_field_slug = 15;
     repeated AutoFilter auto_filters = 16;
     repeated string default_values = 17;
-<<<<<<< HEAD
     bool is_user_id_default = 18;
     repeated Cascading cascadings = 19;
     bool object_id_from_jwt = 20;
@@ -46,9 +45,6 @@ message CreateRelationRequest {
     repeated string updated_fields = 26;
     string multiple_insert_field = 27;
     string project_id = 28;
-=======
-    string project_id = 18;
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 }
 
 message AutoFilter {
@@ -80,7 +76,6 @@ message UpdateRelationRequest {
     string relation_field_slug = 16;
     repeated AutoFilter auto_filters = 17;
     repeated string default_values = 18;
-<<<<<<< HEAD
     bool is_user_id_default = 19;
     repeated Cascading cascadings = 20;
     bool object_id_from_jwt = 21;
@@ -92,9 +87,6 @@ message UpdateRelationRequest {
     repeated string updated_fields = 27;
     string multiple_insert_field = 28;
     string project_id = 29;
-=======
-    string project_id = 19;
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74
 }
 
 

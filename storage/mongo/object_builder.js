@@ -11,9 +11,6 @@ const con = require("../../helper/constants");
 const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
 const Field = require("../../models/field");
-const XLSX = require('xlsx');
-const fs = require('fs');
-const Minio = require('minio');
 var fns_format = require('date-fns/format');
 var { addMonths, addDays, addYears } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
@@ -1599,51 +1596,6 @@ let objectBuilder = {
                 excelArr.push(excelObj)
             }
 
-
-            const workSheet = XLSX.utils.json_to_sheet(excelArr);
-            const workBook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
-            let filename = "report_" + Math.floor(Date.now() / 1000) + ".xlsx"
-            XLSX.writeFile(workBook, "./" + filename);
-
-            let ssl = true
-            if (cfg.minioSSL !== "true") {
-                ssl = false
-            }
-
-
-            let filepath = "./" + filename
-            var minioClient = new Minio.Client({
-                endPoint: cfg.minioEndpoint,
-                useSSL: ssl,
-                accessKey: cfg.minioAccessKeyID,
-                secretKey: cfg.minioSecretAccessKey
-            });
-
-            var metaData = {
-                'Content-Type': "application/octet-stream",
-                'Content-Language': 123,
-                'X-Amz-Meta-Testing': 1234,
-                'example': 5678
-            }
-
-
-            minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
-                if (error) {
-                    return console.log(error);
-                }
-                console.log("uploaded successfully")
-                fs.unlink(filename, (err => {
-                    if (err) console.log(err);
-                    else {
-                        console.log("Deleted file: ", filename);
-                    }
-                }));
-            });
-
-            const response = struct.encode({
-                link: cfg.minioEndpoint + "/reports/" + filename,
-            });
             return { table_slug: req.table_slug, data: response }
         } catch (err) {
             throw err

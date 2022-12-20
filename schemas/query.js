@@ -27,8 +27,4 @@ const QuerySchema = mongoose.Schema(
     }
 );
 
-<<<<<<< HEAD
 module.exports = QuerySchema
-=======
-module.exports = QuerySchema
->>>>>>> 2fbf8fabc2aec9207eea37ff75cd26705f4dcf74

@@ -8,15 +8,15 @@ const table = require("../../models/table");
 let NAMESPACE = "storage.app";
 
 let appStore = {
-    create: catchWrapDb(`${NAMESPACE}.create`, async(data) => {
+    create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         const app = new App(data);
 
         const response = await app.save();
 
         return response;
     }),
-    update: catchWrapDb(`${NAMESPACE}.update`, async(data) => {
-    
+    update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
+
         const app = await App.updateOne(
             {
                 id: data.id,
@@ -25,35 +25,35 @@ let appStore = {
                 $set: data
             }
         )
-        
+
         return app;
     }),
-    getAll: catchWrapDb(`${NAMESPACE}.getAll`, async(data) => {        
+    getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         let query = {
-            name: RegExp(data.search,"i"),
+            name: RegExp(data.search, "i"),
         }
         const apps = await App.find(
             {
-                name: RegExp(data.search,"i"),
+                name: RegExp(data.search, "i"),
             },
             null,
             {
-                sort: {created_at: -1}
+                sort: { created_at: -1 }
             }
         ).skip(data.offset)
-        .limit(data.limit);
+            .limit(data.limit);
 
         const count = await App.countDocuments(query);
-        return {apps, count};
+        return { apps, count };
     }
     ),
     getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
-        const app = await App.findOne({id: data.id});
+        const app = await App.findOne({ id: data.id });
         let tables = []
         if (app.tables) {
             for (const single_table of app.tables) {
                 let table = {}
-                table = await Table.findOne({id:single_table.table_id, deleted_at: "1970-01-01T18:00:00.000+00:00"})
+                table = await Table.findOne({ id: single_table.table_id, deleted_at: "1970-01-01T18:00:00.000+00:00" })
                 if (table) {
                     tables.push({
                         ...table._doc,
@@ -66,8 +66,8 @@ let appStore = {
         app.tables = tables
         return app;
     }),
-    delete: catchWrapDb(`${NAMESPACE}.delete`, async(data) => {
-        const app = await App.deleteOne({id: data.id});
+    delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
+        const app = await App.deleteOne({ id: data.id });
 
         return app;
     }

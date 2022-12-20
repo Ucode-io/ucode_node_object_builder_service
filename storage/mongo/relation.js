@@ -3,14 +3,13 @@ const Field = require("../../models/field");
 const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const converter = require("../../helper/converter");
-const con = require("../../config/kafkaTopics");
-
+const con = require("../../helper/constants");
 const sendMessageToTopic = require("../../config/kafka");
 const View = require("../../models/view");
 const { v4 } = require("uuid");
 const {struct} = require('pb-util');
 const relationFieldChecker = require("../../helper/relationFieldChecker");
-const ObjectBuilder = require("../../models/object_builder");
+
 
 
 let NAMESPACE = "storage.relation";
@@ -120,7 +119,7 @@ let relationStore = {
                 });
                 res = await field.save();
                 console.log("response from field create while creating relation", res)
-                await sendMessageToTopic(con.topicRelationToCreateV1,eventTo)
+                await sendMessageToTopic(con.TopicRelationToCreateV1,eventTo)
                 type = converter(field.type);
                 let fieldsTo = []
                 let eventFrom = {}
@@ -134,7 +133,7 @@ let relationStore = {
                 tableRes.fields = fieldsTo
                 eventFrom.payload = tableRes
                 
-                await sendMessageToTopic(con.topicRelationFromCreateV1,eventFrom)
+                await sendMessageToTopic(con.TopicRelationFromCreateV1,eventFrom)
                 break;
             case 'Recursive':
                 data.recursive_field = data.table_from + "_id";
@@ -172,7 +171,7 @@ let relationStore = {
                 )
                 tableRecursive.fields = fields
                 event.payload = tableRecursive
-                await sendMessageToTopic(con.topicRecursiveRelationCreateV1,event)
+                await sendMessageToTopic(con.TopicRecursiveRelationCreateV1,event)
                 break;
             case 'Many2One':
             case 'One2One':
@@ -208,7 +207,7 @@ let relationStore = {
                 )
                 tableMany2One.fields = fieldsMany2One
                 eventMany2One.payload = tableMany2One
-                await sendMessageToTopic(con.topicMany2OneRelationCreateV1,eventMany2One)
+                await sendMessageToTopic(con.TopicMany2OneRelationCreateV1,eventMany2One)
                 break;
             default:
         }
@@ -277,6 +276,11 @@ let relationStore = {
                         type: data.view_type,
                         summaries: data.summaries,
                         default_values: data.default_values,
+                        action_relations: data.action_relations,
+                        default_limit: data.default_limit,
+                        multiple_insert:  data.multiple_insert,
+                        multiple_insert_field: data.multiple_insert_field,
+                        updated_fields:  data.updated_fields,
                     }
                 }
             )
@@ -325,36 +329,6 @@ let relationStore = {
             let tableFrom = await Table.findOne({
                 slug : relations[i].table_from
             })
-            const fields = await Field.find({
-                relation_id: relations[i].id
-            })
-            let fieldIds = [], field_permissions = [];
-            fields.forEach(field => {
-                fieldIds.push(field.id)
-            })
-            if (fieldIds.length) {
-                const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
-                field_permissions = await fieldPermissionTable?.models.find({
-                    $and: [
-                        {
-                            field_id: {$in: fieldIds}
-                        },
-                        {
-                            role_id: data.role_id
-                        }
-                    ]},
-                    {
-                        __v: 0,
-                        _id: 0,
-                    }
-                )
-            }
-            let docPermissions = []
-            for (const fieldPermission of field_permissions) {
-                docPermissions.push(fieldPermission._doc)
-            }
-            field_permissions = docPermissions
-            const encodedFieldPermissions = struct.encode({field_permissions}) 
             if (relations[i].type === "Many2Dynamic"){
                 for (const dynamic_table of relations[i].dynamic_tables) {
                     if (dynamic_table.table_slug === data.table_slug || tableFrom.slug === data.table_slug){
@@ -399,7 +373,11 @@ let relationStore = {
                             dynamic_tables: relations[i].dynamic_tables,
                             relation_field_slug: relations[i].relation_field_slug,
                             auto_filters: relations[i].auto_filters,
-                            field_permissions: encodedFieldPermissions
+                            is_user_id_default: relations[i].is_user_id_default,
+                            cascadings: relations[i].cascadings,
+                            object_id_from_jwt: relations[i].object_id_from_jwt,
+                            cascading_tree_table_slug: relations[i].cascading_tree_table_slug,
+                            cascading_tree_field_slug: relations[i].cascading_tree_field_slug
                         }
                         if (view) {
                             responseRelation["title"] = view.name
@@ -412,6 +390,12 @@ let relationStore = {
                             responseRelation["summaries"] = view.summaries
                             responseRelation["relation_id"] = view.relation_id
                             responseRelation["default_values"] = view.default_values
+                            responseRelation["action_relations"] = view.action_relations
+                            responseRelation["default_limit"] = view.default_limit
+                            responseRelation["multiple_insert"] = view.multiple_insert
+                            responseRelation["multiple_insert_field"] = view.multiple_insert_field
+                            responseRelation["updated_fields"] = view.updated_fields
+
                         }
                         responseRelations.push(responseRelation)
                     }
@@ -437,7 +421,11 @@ let relationStore = {
                 dynamic_tables: relations[i].dynamic_tables,
                 relation_field_slug: relations[i].relation_field_slug,
                 auto_filters: relations[i].auto_filters,
-                field_permissions: encodedFieldPermissions
+                is_user_id_default: relations[i].is_user_id_default,
+                cascadings: relations[i].cascadings,
+                object_id_from_jwt: relations[i].object_id_from_jwt,
+                cascading_tree_table_slug: relations[i].cascading_tree_table_slug,
+                cascading_tree_field_slug: relations[i].cascading_tree_field_slug,
             }
             if (view) {
                 responseRelation["title"] = view.name
@@ -450,6 +438,11 @@ let relationStore = {
                 responseRelation["summaries"] = view.summaries
                 responseRelation["relation_id"] = view.relation_id
                 responseRelation["default_values"] = view.default_values
+                responseRelation["action_relations"] = view.action_relations
+                responseRelation["default_limit"] = view.default_limit
+                responseRelation["multiple_insert"] = view.multiple_insert
+                responseRelation["multiple_insert_field"] = view.multiple_insert_field
+                responseRelation["updated_fields"] = view.updated_fields
             }
             responseRelations.push(responseRelation)
         }
@@ -507,12 +500,19 @@ let relationStore = {
                 let responseRelation = {
                     id : relations[i].id,
                     table_from: tableFrom,
+                    field_from: relations[i].field_from,
+                    field_to: relations[i].field_to,
                     type: relations[i].type,
                     view_fields: relations[i].fields,
                     editable: relations[i].editable,
                     dynamic_tables: relations[i].dynamic_tables,
                     relation_field_slug: relations[i].relation_field_slug,
-                    auto_filters: relations[i].auto_filters
+                    auto_filters: relations[i].auto_filters,
+                    is_user_id_default: relations[i].is_user_id_default,
+                    cascadings: relations[i].cascadings,
+                    object_id_from_jwt: relations[i].object_id_from_jwt,
+                    cascading_tree_table_slug: relations[i].cascading_tree_table_slug,
+                    cascading_tree_field_slug: relations[i].cascading_tree_field_slug,
                 }
                 if (tableTo) {
                     responseRelation["table_to"] = tableTo
@@ -534,6 +534,11 @@ let relationStore = {
                     responseRelation["summaries"] = view.summaries
                     responseRelation["relation_id"] = view.relation_id
                     responseRelation["default_values"] = view.default_values
+                    responseRelation["action_relations"] = view.action_relations
+                    responseRelation["default_limit"] = view.default_limit
+                    responseRelation["multiple_insert"] = view.multiple_insert
+                    responseRelation["multiple_insert_field"] = view.multiple_insert_field
+                    responseRelation["updated_fields"] = view.updated_fields
                 }
                 responseRelations.push(responseRelation)
                 continue;
@@ -551,12 +556,19 @@ let relationStore = {
                 id : relations[i].id,
                 table_from: tableFrom,
                 table_to: tableTo,
+                field_from: relations[i].field_from,
+                field_to: relations[i].field_to,
                 type: relations[i].type,
                 view_fields: relations[i].fields,
                 editable: relations[i].editable,
                 dynamic_tables: relations[i].dynamic_tables,
                 relation_field_slug: relations[i].relation_field_slug,
-                auto_filters: relations[i].auto_filters
+                auto_filters: relations[i].auto_filters,
+                is_user_id_default: relations[i].is_user_id_default,
+                cascadings: relations[i].cascadings,
+                object_id_from_jwt: relations[i].object_id_from_jwt,
+                cascading_tree_table_slug: relations[i].cascading_tree_table_slug,
+                cascading_tree_field_slug: relations[i].cascading_tree_field_slug
             }
             if (view) {
                 responseRelation["title"] = view.name
@@ -569,6 +581,11 @@ let relationStore = {
                 responseRelation["summaries"] = view.summaries
                 responseRelation["relation_id"] = view.relation_id
                 responseRelation["default_values"] = view.default_values
+                responseRelation["action_relations"] = view.action_relations
+                responseRelation["default_limit"] = view.default_limit
+                responseRelation["multiple_insert"] = view.multiple_insert
+                responseRelation["multiple_insert_field"] = view.multiple_insert_field
+                responseRelation["updated_fields"] = view.updated_fields
             }
             responseRelations.push(responseRelation)
         }
@@ -600,7 +617,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            await sendMessageToTopic(con.topicRelationDeleteV1, event)
+            await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         } else if (relation.type === 'Many2Many') {
             table = await Table.findOne({
                 slug: relation.table_to,
@@ -616,7 +633,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            await sendMessageToTopic(con.topicRelationDeleteV1, event)
+            await sendMessageToTopic(con.TopicRelationDeleteV1, event)
             table = await Table.findOne({
                 slug: relation.table_from,
                 deleted_at: "1970-01-01T18:00:00.000+00:00"
@@ -631,7 +648,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            await sendMessageToTopic(con.topicRelationDeleteV1, event)
+            await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         } else if (relation.type === "Recursive") {
             table = await Table.findOne({
                 slug: relation.table_from,
@@ -647,7 +664,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            await sendMessageToTopic(con.topicRelationDeleteV1, event)
+            await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         }else {
             table = await Table.findOne({
                 slug: relation.table_from,
@@ -663,7 +680,7 @@ let relationStore = {
             tableResp.slug = table.slug
             tableResp.fields = fields
             event.payload = tableResp
-            await sendMessageToTopic(con.topicRelationDeleteV1, event)
+            await sendMessageToTopic(con.TopicRelationDeleteV1, event)
         }
         const res = await Table.updateOne({
             slug : { $in: [relation.table_from, relation.table_to] } ,

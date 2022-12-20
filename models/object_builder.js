@@ -7,6 +7,8 @@ const Relation = require("./relation");
 const Section = require("./section");
 const View = require("./view");
 
+const { struct } = require("pb-util");
+const logger = require("../config/logger");
 let mongooseObject = {};
 
 async function buildModels(is_build = true) {
@@ -31,7 +33,6 @@ async function buildModels(is_build = true) {
     for (const table of tables) {
         // declare isReferences var to indicate that fields related to a table were added to schema
         let isReferenced = false
-
         // get all relations and fields of a table
         let relations = await Relation.find({
             $or: [{
@@ -60,7 +61,14 @@ async function buildModels(is_build = true) {
                         type: "Many2Dynamic"
                     }
                 ]
-              }
+              },
+            //   {
+            //     $and: [{
+            //         table_from: table.slug
+            //     }, {
+            //         type: "Recursive"
+            //     }]
+            //   }
             ]
         });
         let relationsM2M = await Relation.find({
@@ -86,7 +94,12 @@ async function buildModels(is_build = true) {
         });
         let fieldObject = {};
         let fieldsModel = [];
-        let fieldsIndex = {};
+        let fieldsIndex = [];
+        let dropIndex = {};
+        let hashPasswordOnSaveMiddleware = {};
+        let hashPasswordOnUpdateMiddleware = {};
+        let arrayOfMiddlewares = []
+        let hasPasswordField = false;
         if (fields) {
             for (const field of fields) {
                 let fieldType;
@@ -123,6 +136,28 @@ async function buildModels(is_build = true) {
                             default: _default,
                         }
                     }
+
+                    // checking field uniqueness
+                    switch (field.unique) {
+                        case true:
+                            fieldObject[field.slug].unique = true
+                            fieldsIndex.push(
+                                {
+                                    [field.slug]: 1,
+                                },
+                                {unique: true, dropDups: true, sparse: true},
+                            )
+                            break;
+                        case false:
+                            // if not unique then drop the index and remove uniqueness from object field
+                            fieldObject[field.slug].unique = false
+                            dropIndex = {
+                                ...dropIndex,
+                                [field.slug]: 1,
+                            }
+                        default:
+                            break;
+                    }
                 } else {
                     fieldObject = {
                         ...fieldObject,
@@ -139,7 +174,7 @@ async function buildModels(is_build = true) {
                 // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
                 if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS") {
                     fieldsModel.push(field._doc) 
-                    fieldsIndex[field.slug] = 'text'
+                    fieldsIndex.push({[field.slug]: 'text'})
                 } else if ((field.type === "LOOKUP" || field.type === "LOOKUPS") && isReferenced == false){
                     // else if we need to add all relation fields to related table fields
 
@@ -159,6 +194,7 @@ async function buildModels(is_build = true) {
                     resField.slug = field.slug
                     let fieldAsAttribute = []
                     resField.attributes = field.attributes
+                    let relationTableSlug;
                     if (relation) {
                         for (const fieldID of relation.view_fields) {
                             let field = await Field.findOne({
@@ -173,11 +209,47 @@ async function buildModels(is_build = true) {
                                 __v: 0
                             }).lean();
                             fieldAsAttribute.push(field)
+
+                        }
+                        if (relation?.table_from === table.slug) {
+                            relationTableSlug = relation?.table_to
+                        } else {
+                            relationTableSlug = relation?.table_from
                         }
                         if (!resField.attributes) {
                             resField.attributes = {}
                         }
                         resField.attributes["view_fields"] = fieldAsAttribute
+                        const tableElement = await Table.findOne({
+                            slug: table.slug
+                        })
+                        const tableElementFields = await Field.find({
+                            table_id: tableElement.id
+                        })
+                        let autofillFields = []; 
+                        for (const field of tableElementFields) {
+                            if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
+                                let autofill = {
+                                    field_from : field.autofill_field,
+                                    field_to: field.slug,
+                                    automatic: field.automatic,
+                                }
+                                autofillFields.push(autofill)
+                            }
+                        }
+                        resField.attributes["autofill"] = autofillFields,
+                        resField.attributes["cascadings"] = relation?.cascadings
+                        resField.attributes["cascading_tree_table_slug"] = relation?.cascading_tree_table_slug
+                        resField.attributes["cascading_tree_field_slug"] = relation?.cascading_tree_field_slug
+                        resField.attributes["auto_filters"] = relation?.auto_filters
+                        
+                        resField.table_slug = relationTableSlug
+                        if (view) {
+                            if (view.default_values && view.default_values.length) {
+                                resField.attributes["default_values"] = view.default_values
+                            }
+                        }
+                        resField.attributes = struct.encode(resField.attributes)
                         fieldsModel.push(resField)
                     }
                     // if (field.id.includes("@")) {
@@ -221,10 +293,12 @@ async function buildModels(is_build = true) {
             toJSON: {
                 virtuals: true
             },
+        })
+        if (hasPasswordField) {
+            for (let i=0; i<arrayOfMiddlewares.length; i++) {
+                temp[arrayOfMiddlewares[i].type](arrayOfMiddlewares[i].method, arrayOfMiddlewares[i]._function)
+            }
         }
-    )
-
-        
 
         // create populate virtual for relation tables
         let populateParams;
@@ -294,10 +368,12 @@ async function buildModels(is_build = true) {
                 continue;
             }
             
-            
             temp.virtual(slug, populateParams);
         }
-        temp.index(fieldsIndex);
+
+        for (const index of fieldsIndex) {
+            temp.index(index);
+        }
 
         let views = await View.find({
             table_slug: table.slug
@@ -308,12 +384,11 @@ async function buildModels(is_build = true) {
             _id: 0,
             __v: 0,
         }).lean()
-        tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug});
+        tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex});
     }
 
     // build mongoose schemas for tables
     for (const model of tempArray) {
-
         // delete previous mongoose schema for a table, if new fields are added or fields are deleted, schema has to renewed
         delete mongoose.connection.models[model.slug]
         delete mongooseObject[model.slug]
@@ -323,6 +398,22 @@ async function buildModels(is_build = true) {
         mongooseObject[model.slug].relations = model.relation;
         mongooseObject[model.slug].views = model.view;
 
+        // drop indexes if unique is disabled
+        let index_list, dropIndexes;
+        try {
+            index_list = await mongooseObject[model.slug].models.collection.getIndexes()
+            dropIndexes = model.dropIndex
+            for (const index_name in dropIndexes) {
+                if (!(index_name.concat('_1') in index_list)) {
+                    delete dropIndexes[index_name]
+                }
+            } 
+        } catch (error) {
+            logger.info("error while get index");
+        }
+        if(dropIndexes && Object.keys(dropIndexes).length > 0) {
+            mongooseObject[model.slug].models.collection.dropIndex(dropIndexes);
+        }
         const resp = await Table.updateOne({
             slug: model.slug,
         },

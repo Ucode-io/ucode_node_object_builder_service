@@ -4,9 +4,6 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
 const con = require("../../config/kafkaTopics");
 const conn = require("../../helper/constants");
-
-
-
 const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
 const Relation = require("../../models/relation");

@@ -13,7 +13,8 @@ const objectBuilderService = {
     ManyToManyDelete: catchWrapServiceObjectBuilder(`service.object_builder.deleteManyToMany`, objectBuilderStore.deleteManyToMany),
     GetObjectDetails: catchWrapServiceObjectBuilder(`service.object_builder.getObjectDetails`, objectBuilderStore.getObjectDetails),
     Batch: catchWrapServiceObjectBuilder("service.object_builder.batch", objectBuilderStore.batch),
-    MultipleUpdate: catchWrapServiceObjectBuilder("service.object_builder.multipleUpdate", objectBuilder.multipleUpdate)
+    MultipleUpdate: catchWrapServiceObjectBuilder("service.object_builder.multipleUpdate", objectBuilder.multipleUpdate),
+    GetFinancialAnalytics: catchWrapServiceObjectBuilder("service.object_builder.getFinancialAnalytics", objectBuilder.getFinancialAnalytics),
 };
 
 module.exports = objectBuilderService;  

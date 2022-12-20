@@ -1,8 +1,14 @@
-const Field = require("../models/field");
-const Table = require("../models/table");
+const mongoPool = require('../pkg/pool');
+const config = require('../config/index')
 
+async function checkRelationFieldExists (field_name, table_id, project_id=config.ucodeDefaultProjectID) {
+    if (!project_id) {
+        console.warn('WARNING:: Using default project id in checkRelationFieldExists...')
+    }
 
-async function checkRelationFieldExists (field_name, table_id) {
+    const mongoConn = await mongoPool.get(project_id)
+    const Table = mongoConn.models['Table']
+    const Field = mongoConn.models['Field']
 
     const table = await Table.findOne({
         id: table_id

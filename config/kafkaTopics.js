@@ -1,24 +1,24 @@
 const config = {
-    topicTableCreateV1: getConfig("TopicTableCreateV1", ""),
-    topicTableUpdeteV1: getConfig("TopicTableUpdeteV1", ""),
+    TopicTableCreateV1: getConfig("TopicTableCreateV1", "v1.analytics_service.table.create"),
+    TopicTableUpdeteV1: getConfig("TopicTableUpdeteV1", "v1.analytics_service.table.update"),
 
-    topicObjectCreateV1: getConfig("TopicObjectCreateV1", ""),
-    topicObjectDeleteV1: getConfig("TopicObjectDeleteV1", ""),
-    topicObjectUpdateV1: getConfig("TopicObjectUpdateV1", ""),
+    TopicObjectCreateV1: getConfig("TopicObjectCreateV1", "v1.analytics_service.object.create"),
+    TopicObjectDeleteV1: getConfig("TopicObjectDeleteV1", "v1.analytics_service.object.delete"),
+    TopicObjectUpdateV1: getConfig("TopicObjectUpdateV1", "v1.analytics_service.object.update"),
 
-    topicFieldCreateV1: getConfig("TopicFieldCreateV1", ""),
-    topicFieldUpdateV1: getConfig("TopicFieldUpdateV1", ""),
-    topicFieldDeleteV1: getConfig("TopicFieldDeleteV1", ""),
+    TopicFieldCreateV1: getConfig("TopicFieldCreateV1", "v1.analytics_service.field.create"),
+    TopicFieldUpdateV1: getConfig("TopicFieldUpdateV1", "v1.analytics_service.field.update"),
+    TopicFieldDeleteV1: getConfig("TopicFieldDeleteV1", "v1.analytics_service.field.delete"),
 
-    topicRelationFromCreateV1: getConfig("TopicRelationFromCreateV1", ""),
-    topicRelationToCreateV1: getConfig("TopicRelationToCreateV1", ""),
-    topicRecursiveRelationCreateV1: getConfig("TopicRecursiveRelationCreateV1", ""),
-    topicMany2OneRelationCreateV1: getConfig("TopicMany2OneRelationCreateV1", ""),
-    topicRelationDeleteV1: getConfig("TopicRelationDeleteV1", ""),
+    TopicRelationFromCreateV1: getConfig("TopicRelationFromCreateV1", "v1.analytics_service.relation.from.create"),
+    TopicRelationToCreateV1: getConfig("TopicRelationToCreateV1", "v1.analytics_service.relation.to.create"),
+    TopicRecursiveRelationCreateV1: getConfig("TopicRecursiveRelationCreateV1", "v1.analytics_service.recursive.relation.create"),
+    TopicMany2OneRelationCreateV1: getConfig("TopicMany2OneRelationCreateV1", "v1.analytics_service.many.2.one.relation.create"),
+    TopicRelationDeleteV1: getConfig("TopicRelationDeleteV1", "v1.analytics_service.relation.delete"),
 
-    topicEventCreateV1: getConfig("TopicEventCreateV1", ""),
-    topicEventUpdateV1: getConfig("TopicEventUpdateV1", ""),
-    topicEventDeleteV1: getConfig("TopicEventDeleteV1", ""),
+    TopicEventCreateV1: getConfig("TopicEventCreateV1", "v1.event_service.event.create"),
+    TopicEventUpdateV1: getConfig("TopicEventUpdateV1", "v1.event_service.event.delete"),
+    TopicEventDeleteV1: getConfig("TopicEventDeleteV1", "v1.event_service.event.update"),
 }
 
 function getConfig(name, def = "") {

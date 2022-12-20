@@ -24,6 +24,7 @@ const permissionService = require("../services/permission")
 const customEventService = require("../services/custom_event")
 const functionService = require("../services/function")
 const barcodeService = require("../services/barcode")
+const projectService = require("../services/project")
 const queryFolderService = require("../services/query_folder")
 const queryService = require("../services/query")
 const webPageService = require("../services/web_pages")
@@ -62,6 +63,7 @@ server.addService(objectBuilderProto.PermissionService.service, permissionServic
 server.addService(objectBuilderProto.CustomEventService.service, customEventService);
 server.addService(objectBuilderProto.FunctionService.service, functionService);
 server.addService(objectBuilderProto.BarcodeService.service, barcodeService);
+server.addService(objectBuilderProto.BuilderProjectService.service, projectService);
 server.addService(objectBuilderProto.QueryFolderService.service, queryFolderService);
 server.addService(objectBuilderProto.QueryService.service, queryService);
 server.addService(objectBuilderProto.WebPageService.service, webPageService);

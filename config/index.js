@@ -15,7 +15,11 @@ const config = {
     minioSecretAccessKey: getConf("MINIO_SECRET_KEY", "bYTX8fnBKGLhvpvQfsp63MXkBHCuEp8gScf4wUfnGANUwHxZ"),
     minioEndpoint: getConf("MINIO_ENDPOINT", "test.cdn.medion.uz"),
     minioPort: getConf("MINIO_PORT", 9001),
-    minioSSL: getConf("MINIO_SSL", true)
+    minioSSL: getConf("MINIO_SSL", true),
+
+    ucodeDefaultProjectID: "ucode_default_project_id"
+
+
 };
 
 function getConf(name, def = "") {

@@ -1,4 +1,3 @@
-
 const cfg = require('../../config/index')
 const catchWrapDb = require("../../helper/catchWrapDb");
 const con = require("../../config/kafkaTopics");
@@ -7,19 +6,19 @@ const ObjectBuilder = require("../../models/object_builder");
 
 const mongoPool = require('../../pkg/pool');
 
+
+
+
 let NAMESPACE = "storage.table";
 
 
 let tableStore = {
-
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
-
         try {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const App = mongoConn.models['App']
-
 
             const table = new Table(data);
             const response = await table.save();
@@ -41,14 +40,11 @@ let tableStore = {
                 }
             );
             return response;
-
         } catch (err) {
             throw err
         }
 
-
-    }
-    ),
+    }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
 
@@ -63,6 +59,7 @@ let tableStore = {
                 {
                     id: data.id,
                 },
+                null,
                 {
                     $set: data
                 }
@@ -71,13 +68,27 @@ let tableStore = {
             let event = {}
             event.payload = data
             event.project_id = data.project_id || cfg.ucodeDefaultProjectID
-
-            await sendMessageToTopic(con.TopicTableUpdeteV1, event)
+            
+            await sendMessageToTopic(con.topicTableUpdeteV1, event)
             return table;
-
         } catch (err) {
             throw err
         }
+    }),
+    getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+            const table = await Table.findOne({
+                id: req.id,
+                deleted_at: "1970-01-01T18:00:00.000+00:00",
+            });
+
+            return table;
+        } catch (err) {
+            throw err
+        }
+
     }),
     get: catchWrapDb(`${NAMESPACE}.find`, async (data) => {
         try {
@@ -86,18 +97,15 @@ let tableStore = {
             const Table = mongoConn.models['Table']
 
             const table = await Table.findOne({
-                id: data.id,
+                id: req.id,
                 deleted_at: "1970-01-01T18:00:00.000+00:00",
             });
 
             return table;
-
         } catch (err) {
             throw err
         }
-
-    }
-    ),
+    }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -121,23 +129,15 @@ let tableStore = {
 
             const count = await Table.countDocuments(query);
             return { tables, count };
-
         } catch (err) {
             throw err
         }
+
     }),
-    getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
-        try {
-            const mongoConn = await mongoPool.get(data.project_id)
-            const Table = mongoConn.models['Table']
+    getByID: catchWrapDb(`${NAMESPACE}.getById`, async (args) => {
+        const table = await Table.findOne({ id: args.id });
 
-            const table = await Table.findOne({ id: data.id });
-
-            return table;
-
-        } catch (err) {
-            throw err
-        }
+        return table;
     }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
@@ -209,10 +209,10 @@ let tableStore = {
             })
 
             return table;
-
         } catch (err) {
             throw err
         }
+
     }),
 };
 

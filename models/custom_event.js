@@ -26,6 +26,12 @@ const CustomEventSchema = mongoose.Schema(
         disable: {
             type: Boolean,
             default: false,
+        },
+        method: {
+            type: String,
+        },
+        action_type: {
+            type: String,
         }
     },
     {

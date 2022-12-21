@@ -1939,333 +1939,359 @@ let objectBuilder = {
 
     multipleInsert: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
         //if you will be change this function, you need to change create function
-        const data = struct.decode(req.data)
-        const tableInfo = (await ObjectBuilder())[req.table_slug]
-        let objects = [], appendMany2ManyObjects = []
-        for (const object of data.objects) {
-            //this condition used for object.guid may be exists
-            if (!object.guid) {
-                object.guid = v4()
-            }
-            let tableData = await table.findOne(
-                {
-                    slug: req.table_slug
+        try {
+            const mongoConn = await mongoPool.get(req.project_id)
+            const table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+            const Relation = mongoConn.models['Relation']
+
+            const data = struct.decode(req.data)
+            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            let objects = [], appendMany2ManyObjects = []
+            for (const object of data.objects) {
+                //this condition used for object.guid may be exists
+                if (!object.guid) {
+                    object.guid = v4()
                 }
-            )
-            if (req.table_slug === "template" || req.table_slug === "file") {
-                const relation = await Relation.findOne({
-                    $or: [
-                        {
-                            $and: [
-                                { table_to: req.table_slug },
-                                { table_from: object.table_slug }
-                            ]
-                        },
-                        {
-                            $and: [
-                                { table_to: object.table_slug },
-                                { table_from: req.table_slug }
-                            ]
-                        }
-                    ]
-                })
-                if (relation) {
-                    const field = await Field.findOne({
-                        relation_id: relation.id,
-                        table_id: tableData.id
+                let tableData = await table.findOne(
+                    {
+                        slug: req.table_slug
+                    }
+                )
+                if (req.table_slug === "template" || req.table_slug === "file") {
+                    const relation = await Relation.findOne({
+                        $or: [
+                            {
+                                $and: [
+                                    { table_to: req.table_slug },
+                                    { table_from: object.table_slug }
+                                ]
+                            },
+                            {
+                                $and: [
+                                    { table_to: object.table_slug },
+                                    { table_from: req.table_slug }
+                                ]
+                            }
+                        ]
                     })
-                    if (!data[field?.slug]) {
-                        data[field?.slug] = object.object_id
+                    if (relation) {
+                        const field = await Field.findOne({
+                            relation_id: relation.id,
+                            table_id: tableData.id
+                        })
+                        if (!data[field?.slug]) {
+                            data[field?.slug] = object.object_id
+                        }
                     }
                 }
-            }
 
 
-            let incrementField = await Field.findOne({
-                table_id: tableData.id,
-                type: "INCREMENT_ID"
-            })
+                let incrementField = await Field.findOne({
+                    table_id: tableData.id,
+                    type: "INCREMENT_ID"
+                })
 
 
-            if (incrementField) {
-                let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-                let attributes = struct.decode(incrementField.attributes)
-                let incrementLength = attributes.prefix.length
-                if (!last || !last[incrementField.slug]) {
-                    object[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
-                } else {
-                    nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug].length)) + 1
-                    object[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
+                if (incrementField) {
+                    let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+                    let attributes = struct.decode(incrementField.attributes)
+                    let incrementLength = attributes.prefix.length
+                    if (!last || !last[incrementField.slug]) {
+                        object[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
+                    } else {
+                        nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug].length)) + 1
+                        object[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
+                    }
                 }
-            }
 
-            let incrementNum = await Field.findOne({
-                table_id: tableData.id,
-                type: "INCREMENT_NUMBER"
-            })
-            if (incrementNum) {
-                let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-                let attributes = struct.decode(incrementNum.attributes)
-                let incrementLength = attributes.prefix.length
-                if (!last || !last[incrementNum.slug]) {
-                    object[incrementNum.slug] = attributes.prefix + '1'.padStart(attributes.digit_number, '0')
-                } else {
-                    nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug].length)) + 1
-                    object[incrementNum.slug] = attributes.prefix + nextIncrement.toString().padStart(attributes.digit_number, '0')
+                let incrementNum = await Field.findOne({
+                    table_id: tableData.id,
+                    type: "INCREMENT_NUMBER"
+                })
+                if (incrementNum) {
+                    let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+                    let attributes = struct.decode(incrementNum.attributes)
+                    let incrementLength = attributes.prefix.length
+                    if (!last || !last[incrementNum.slug]) {
+                        object[incrementNum.slug] = attributes.prefix + '1'.padStart(attributes.digit_number, '0')
+                    } else {
+                        nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug].length)) + 1
+                        object[incrementNum.slug] = attributes.prefix + nextIncrement.toString().padStart(attributes.digit_number, '0')
+                    }
                 }
-            }
 
 
 
-            let payload = new tableInfo.models(object);
-            objects.push(payload)
+                let payload = new tableInfo.models(object);
+                objects.push(payload)
 
-            let fields = await Field.find(
-                {
-                    table_id: tableData.id
+                let fields = await Field.find(
+                    {
+                        table_id: tableData.id
+                    }
+                )
+                // TODO::: move kafka to service level
+                let event = {}
+                let field_types = {}
+                event.payload = {}
+                event.payload.data = object
+                event.payload.table_slug = req.table_slug
+
+                for (const field of fields) {
+                    let type = converter(field.type);
+                    if (field.type === "LOOKUPS") {
+                        if (object[field.slug] && object[field.slug].length) {
+                            const relation = await Relation.findOne({
+                                id: field.relation_id
+                            })
+
+                            let appendMany2Many = {}
+                            appendMany2Many.id_from = object.guid
+                            appendMany2Many.id_to = object[field.slug]
+                            appendMany2Many.table_from = req.table_slug
+                            if (relation.table_to === req.table_slug) {
+                                appendMany2Many.table_to = relation.table_from
+                            } else if (relation.table_from === req.table_slug) {
+                                appendMany2Many.table_to = relation.table_to
+                            }
+                            appendMany2ManyObjects.push(appendMany2Many)
+                        }
+                    }
+                    field_types[field.slug] = type
                 }
-            )
-            // TODO::: move kafka to service level
-            let event = {}
-            let field_types = {}
-            event.payload = {}
-            event.payload.data = object
-            event.payload.table_slug = req.table_slug
+                field_types.guid = "String"
+                event.payload.field_types = field_types
+                event.project_id = req.project_id || cfg.ucodeDefaultProjectID
+                await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
-            for (const field of fields) {
-                let type = converter(field.type);
-                if (field.type === "LOOKUPS") {
-                    if (object[field.slug] && object[field.slug].length) {
+
+                req.current_data = object
+                await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
+                    payload: {
+                        current_data: object,
+                        table_slug: req.table_slug
+                    }
+                })
+            }
+            await tableInfo.models.insertMany(objects)
+            for (const appendMany2Many of appendMany2ManyObjects) {
+                await objectBuilder.appendManyToMany(appendMany2Many)
+            }
+            return
+        } catch (err) {
+            throw err
+        }
+    }),
+    multipleUpdateV2: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdateV2`, async (req) => {
+        //if you will be change this function, you need to change update function
+        try {
+            const mongoConn = await mongoPool.get(req.project_id)
+            const table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+            const Relation = mongoConn.models['Relation']
+
+            const datas = struct.decode(req.data)
+            let objects = []
+            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            for (const data of datas.objects) {
+                if (!data.guid) {
+                    data.guid = data.id
+                }
+                const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
+
+                let event = {}
+                let field_types = {}
+                event.payload = {}
+                event.payload.data = data
+                event.payload.table_slug = req.table_slug
+
+                for (const field of tableInfo.fields) {
+                    let type = converter(field.type);
+                    field_types[field.slug] = type
+                    let newIds = [], deletedIds = []
+
+                    // this is many2many append and delete when many2many relation field type input
+                    if (field.type === "LOOKUPS") {
+                        if (data[field.slug] && objectBeforeUpdate[field.slug]) {
+                            let olderArr = objectBeforeUpdate[field.slug]
+                            newArr = data[field.slug]
+                            newIds = newArr.filter(val => !olderArr.includes(val))
+                            deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
+                        }
+
                         const relation = await Relation.findOne({
                             id: field.relation_id
                         })
 
-                        let appendMany2Many = {}
-                        appendMany2Many.id_from = object.guid
-                        appendMany2Many.id_to = object[field.slug]
-                        appendMany2Many.table_from = req.table_slug
-                        if (relation.table_to === req.table_slug) {
-                            appendMany2Many.table_to = relation.table_from
-                        } else if (relation.table_from === req.table_slug) {
-                            appendMany2Many.table_to = relation.table_to
+                        if (newIds.length) {
+                            let appendMany2Many = {}
+                            appendMany2Many.id_from = data.guid
+                            appendMany2Many.id_to = newIds
+                            appendMany2Many.table_from = req.table_slug
+                            if (relation.table_to === req.table_slug) {
+                                appendMany2Many.table_to = relation.table_from
+                            } else if (relation.table_from === req.table_slug) {
+                                appendMany2Many.table_to = relation.table_to
+                            }
+                            await objectBuilder.appendManyToMany(appendMany2Many)
                         }
-                        appendMany2ManyObjects.push(appendMany2Many)
-                    }
-                }
-                field_types[field.slug] = type
-            }
-            field_types.guid = "String"
-            event.payload.field_types = field_types
-            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
-
-
-            req.current_data = object
-            await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
-                payload: {
-                    current_data: object,
-                    table_slug: req.table_slug
-                }
-            })
-        }
-        await tableInfo.models.insertMany(objects)
-        for (const appendMany2Many of appendMany2ManyObjects) {
-            await objectBuilder.appendManyToMany(appendMany2Many)
-        }
-        return
-    }),
-    multipleUpdateV2: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdateV2`, async (req) => {
-        //if you will be change this function, you need to change update function
-        const datas = struct.decode(req.data)
-        let objects = []
-        const tableInfo = (await ObjectBuilder())[req.table_slug]
-        for (const data of datas.objects) {
-            if (!data.guid) {
-                data.guid = data.id
-            }
-            const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
-
-            let event = {}
-            let field_types = {}
-            event.payload = {}
-            event.payload.data = data
-            event.payload.table_slug = req.table_slug
-
-            for (const field of tableInfo.fields) {
-                let type = converter(field.type);
-                field_types[field.slug] = type
-                let newIds = [], deletedIds = []
-
-                // this is many2many append and delete when many2many relation field type input
-                if (field.type === "LOOKUPS") {
-                    if (data[field.slug] && objectBeforeUpdate[field.slug]) {
-                        let olderArr = objectBeforeUpdate[field.slug]
-                        newArr = data[field.slug]
-                        newIds = newArr.filter(val => !olderArr.includes(val))
-                        deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
-                    }
-
-                    const relation = await Relation.findOne({
-                        id: field.relation_id
-                    })
-
-                    if (newIds.length) {
-                        let appendMany2Many = {}
-                        appendMany2Many.id_from = data.guid
-                        appendMany2Many.id_to = newIds
-                        appendMany2Many.table_from = req.table_slug
-                        if (relation.table_to === req.table_slug) {
-                            appendMany2Many.table_to = relation.table_from
-                        } else if (relation.table_from === req.table_slug) {
-                            appendMany2Many.table_to = relation.table_to
+                        if (deletedIds.length) {
+                            let deleteMany2Many = {}
+                            deleteMany2Many.id_from = data.guid
+                            deleteMany2Many.id_to = deletedIds
+                            deleteMany2Many.table_from = req.table_slug
+                            if (relation.table_to === req.table_slug) {
+                                deleteMany2Many.table_to = relation.table_from
+                            } else if (relation.table_from === req.table_slug) {
+                                deleteMany2Many.table_to = relation.table_to
+                            }
+                            await objectBuilder.deleteManyToMany(deleteMany2Many)
                         }
-                        await objectBuilder.appendManyToMany(appendMany2Many)
-                    }
-                    if (deletedIds.length) {
-                        let deleteMany2Many = {}
-                        deleteMany2Many.id_from = data.guid
-                        deleteMany2Many.id_to = deletedIds
-                        deleteMany2Many.table_from = req.table_slug
-                        if (relation.table_to === req.table_slug) {
-                            deleteMany2Many.table_to = relation.table_from
-                        } else if (relation.table_from === req.table_slug) {
-                            deleteMany2Many.table_to = relation.table_to
-                        }
-                        await objectBuilder.deleteManyToMany(deleteMany2Many)
-                    }
 
+                    }
                 }
-            }
-            field_types.guid = "String"
-            event.payload.field_types = field_types
-            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
-            let bulk = {
-                updateOne: {
-                    filter:
-                        { guid: data.guid },
-                    update: data
+                field_types.guid = "String"
+                event.payload.field_types = field_types
+                event.project_id = req.project_id || cfg.ucodeDefaultProjectID
+                await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
+                let bulk = {
+                    updateOne: {
+                        filter:
+                            { guid: data.guid },
+                        update: data
+                    }
                 }
+                objects.push(bulk)
             }
-            objects.push(bulk)
+            await tableInfo.models.bulkWrite(objects);
+            return
+        } catch (err) {
+            throw err
         }
-        await tableInfo.models.bulkWrite(objects);
-        return
     }),
     getFinancialAnalytics: catchWrapDbObjectBuilder(`${NAMESPACE}.getFinancialAnalytics`, async (req) => {
-        const request = struct.decode(req.data)
-        const view = await View.findOne({
-            id: request.view_id
-        })
-        let resp = await objectBuilder.getList({
-            table_slug: req.table_slug,
-            data: req.data
-        })
-        let chartOfAccounts = view.attributes?.chart_of_accounts
-        const data = struct.decode(resp.data)
-        const objects = data.response
-        if (objects.length) {
-            for (const obj of objects) {
-                obj.amounts = []
+        try {
+            const mongoConn = await mongoPool.get(req.project_id)
+            const table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+            const Relation = mongoConn.models['Relation']
+            const request = struct.decode(req.data)
+            const view = await View.findOne({
+                id: request.view_id
+            })
+            let resp = await objectBuilder.getList({
+                table_slug: req.table_slug,
+                data: req.data
+            })
+            let chartOfAccounts = view.attributes?.chart_of_accounts
+            const data = struct.decode(resp.data)
+            const objects = data.response
+            if (objects.length) {
+                for (const obj of objects) {
+                    obj.amounts = []
+                }
             }
-        }
-        let dates = await RangeDate(request.start, request.end, request.interval)
-        for (const obj of objects) {
-            for (const date of dates) {
-                let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
-                let keyDate = new Date(date.$gte)
-                keyDate = addDays(keyDate, 1)
-                let key = keyDate.toISOString()
-                let monthlyAmount = obj.amounts.find(el => el.month === key)
-                if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
-                    for (const option of chartOfAccount.options) {
-                        let groupBy = req.table_slug + '_id'
-                        let groupByWithDollorSign = '$' + req.table_slug + '_id'
-                        let sumFieldWithDollowSign = '$' + option.number_field
-                        let dateBy = option.date_field
-                        let aggregateFunction = "$sum"
-                        const pipelines = [
-                            {
-                                '$match': {
-                                    [groupBy]: {
-                                        '$eq': chartOfAccount.object_id
-                                    },
-                                    [dateBy]: date
-                                }
-                            }, {
-                                '$group': {
-                                    '_id': groupByWithDollorSign,
-                                    'res': {
-                                        [aggregateFunction]: sumFieldWithDollowSign
+            let dates = await RangeDate(request.start, request.end, request.interval)
+            for (const obj of objects) {
+                for (const date of dates) {
+                    let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
+                    let keyDate = new Date(date.$gte)
+                    keyDate = addDays(keyDate, 1)
+                    let key = keyDate.toISOString()
+                    let monthlyAmount = obj.amounts.find(el => el.month === key)
+                    if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
+                        for (const option of chartOfAccount.options) {
+                            let groupBy = req.table_slug + '_id'
+                            let groupByWithDollorSign = '$' + req.table_slug + '_id'
+                            let sumFieldWithDollowSign = '$' + option.number_field
+                            let dateBy = option.date_field
+                            let aggregateFunction = "$sum"
+                            const pipelines = [
+                                {
+                                    '$match': {
+                                        [groupBy]: {
+                                            '$eq': chartOfAccount.object_id
+                                        },
+                                        [dateBy]: date
+                                    }
+                                }, {
+                                    '$group': {
+                                        '_id': groupByWithDollorSign,
+                                        'res': {
+                                            [aggregateFunction]: sumFieldWithDollowSign
+                                        }
                                     }
                                 }
-                            }
-                        ];
-                        const resultOption = await (await ObjectBuilder())[option.table_slug].models.aggregate(pipelines)
-                        if (resultOption.length) {
-                            if (option.type === "debet") {
-                                if (monthlyAmount) {
-                                    monthlyAmount.amount += resultOption[0].res
-                                } else {
-                                    monthlyAmount = {
-                                        amount: resultOption[0].res,
-                                        month: key
+                            ];
+                            const resultOption = await (await ObjectBuilder())[option.table_slug].models.aggregate(pipelines)
+                            if (resultOption.length) {
+                                if (option.type === "debet") {
+                                    if (monthlyAmount) {
+                                        monthlyAmount.amount += resultOption[0].res
+                                    } else {
+                                        monthlyAmount = {
+                                            amount: resultOption[0].res,
+                                            month: key
+                                        }
                                     }
-                                }
 
-                            } else if (option.type === "credit") {
-                                if (monthlyAmount) {
-                                    monthlyAmount.amount -= resultOption[0].res
-                                } else {
-                                    monthlyAmount = {
-                                        amount: -resultOption[0].res,
-                                        month: key
+                                } else if (option.type === "credit") {
+                                    if (monthlyAmount) {
+                                        monthlyAmount.amount -= resultOption[0].res
+                                    } else {
+                                        monthlyAmount = {
+                                            amount: -resultOption[0].res,
+                                            month: key
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    if (!monthlyAmount) {
+                        if (!monthlyAmount) {
+                            monthlyAmount = {
+                                amount: 0,
+                                month: key
+                            }
+                        }
+                    } else {
                         monthlyAmount = {
                             amount: 0,
                             month: key
                         }
                     }
-                } else {
-                    monthlyAmount = {
-                        amount: 0,
-                        month: key
-                    }
-                }
-                obj.amounts.push(monthlyAmount)
-                let parentObj = objects.find(el => el.guid === obj[req.table_slug + "_id"])
-                while (parentObj) {
-                    let parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
+                    obj.amounts.push(monthlyAmount)
+                    let parentObj = objects.find(el => el.guid === obj[req.table_slug + "_id"])
+                    while (parentObj) {
+                        let parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
 
-                    if (parentMonthlyAmount && monthlyAmount) {
-                        parentMonthlyAmount.amount += monthlyAmount.amount
-                    } else if (monthlyAmount) {
-                        parentMonthlyAmount = {
-                            amount: monthlyAmount.amount,
-                            month: monthlyAmount.month
+                        if (parentMonthlyAmount && monthlyAmount) {
+                            parentMonthlyAmount.amount += monthlyAmount.amount
+                        } else if (monthlyAmount) {
+                            parentMonthlyAmount = {
+                                amount: monthlyAmount.amount,
+                                month: monthlyAmount.month
+                            }
+                            parentObj.amounts.push(parentMonthlyAmount)
+                        } else {
+                            parentMonthlyAmount = {
+                                amount: 0,
+                                month: key
+                            }
+                            parentObj.amounts.push(parentMonthlyAmount)
                         }
-                        parentObj.amounts.push(parentMonthlyAmount)
-                    } else {
-                        parentMonthlyAmount = {
-                            amount: 0,
-                            month: key
+                        parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"])
+                        monthlyAmount = parentMonthlyAmount
+                        if (parentObj) {
+                            parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
                         }
-                        parentObj.amounts.push(parentMonthlyAmount)
-                    }
-                    parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"])
-                    monthlyAmount = parentMonthlyAmount
-                    if (parentObj) {
-                        parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
                     }
                 }
             }
+            return { table_slug: req.table_slug, data: struct.encode(data) }
+        } catch (err) {
+            throw err
         }
-        return { table_slug: req.table_slug, data: struct.encode(data) }
     })
 
 }

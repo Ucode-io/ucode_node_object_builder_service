@@ -482,32 +482,14 @@ let fieldStore = {
                 many_relation_fields: many_relation_fields,
             });
 
+            
 
-            const count = await Field.countDocuments(query);
             return { fields: fields, count: count, data: response };
         } catch (err) {
             throw err
         }
     }),
-    delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
-        try {
-            const mongoConn = await mongoPool.get(data.project_id)
-            const Table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-        
 
-            const deletedField = await Field.findOne({ id: data.id })
-            const table = await Table.findOne({ id: deletedField.table_id })
-            const field = await Field.deleteOne({ id: data.id });
-            const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
-            const response = await fieldPermissionTable?.models.deleteMany({
-                field_id: data.id
-            })
-        } catch (err) {
-            throw err
-        }
-
-    }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -535,7 +517,7 @@ let fieldStore = {
             }
             fieldRes.field = fieldToAnalytics
             event.payload = fieldRes
-            
+
             event.project_id = data.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.topicFieldDeleteV1, event)
 

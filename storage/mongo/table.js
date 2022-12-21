@@ -135,11 +135,20 @@ let tableStore = {
         }
 
     }),
-    getByID: catchWrapDb(`${NAMESPACE}.getById`, async (args) => {
-        const table = await Table.findOne({ id: args.id });
+    getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
 
-        return table;
+            const table = await Table.findOne({ id: data.id });
+
+            return table;
+
+        } catch (err) {
+            throw err
+        }
     }),
+
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

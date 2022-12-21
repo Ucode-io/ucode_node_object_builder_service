@@ -28,6 +28,8 @@ const projectService = require("../services/project")
 const queryFolderService = require("../services/query_folder")
 const queryService = require("../services/query")
 const webPageService = require("../services/web_pages")
+const cascadingService = require("../services/cascading")
+
 
 const PROTO_URL = __dirname + "/../protos/object_builder_service/object_builder_service.proto";
 const packageDefinition = protoLoader.loadSync(PROTO_URL, {
@@ -67,6 +69,8 @@ server.addService(objectBuilderProto.BuilderProjectService.service, projectServi
 server.addService(objectBuilderProto.QueryFolderService.service, queryFolderService);
 server.addService(objectBuilderProto.QueryService.service, queryService);
 server.addService(objectBuilderProto.WebPageService.service, webPageService);
+server.addService(objectBuilderProto.CascadingService.service, cascadingService);
+
 
 
 server.bindAsync(

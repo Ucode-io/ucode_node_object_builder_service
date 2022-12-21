@@ -73,6 +73,21 @@ const ViewSchema = mongoose.Schema(
         },
         default_values: {
             type: mongoose.Schema.Types.Mixed,
+        },
+        app_id: {
+            type: String,
+        },
+        table_label: {
+            type: String,
+        },
+        action_relations: {
+            type: mongoose.Schema.Types.Mixed
+        },
+        default_limit: {
+            type: String,
+        },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
         }
     },
     {

@@ -1,0 +1,68 @@
+const RelationStore = require("./relation")
+const catchWrapDb = require("../../helper/catchWrapDb");
+const {struct} = require('pb-util');
+
+let NAMESPACE = "storage.cascading";
+
+let cascaderStore = {
+    getCascadingList: catchWrapDb(`${NAMESPACE}.getCascadingList`, async (data) => {
+        let response;
+        let resp = await RelationStore.getAll({table_slug: data.table_slug, relation_table_slug: data.table_slug})
+            let cascadings = []
+            for (const relation of resp.relations) {
+                let validObject = {};
+                let table = {}
+                if (relation.type === "Many2Many") {
+                    validObject.id = relation.id
+                    validObject.type = relation.type
+                    if (relation.table_from.slug === data.table_slug) {
+                        table.slug = relation.table_to.slug
+                        table.label = relation.table_to.label
+                        table.id = relation.table_to.id
+
+                        validObject.table = table
+                        validObject.field_slug = relation.field_from
+                    } else if (relation.table_to.slug === data.table_slug) {
+                        table.slug = relation.table_from.slug
+                        table.label = relation.table_from.label
+                        table.id = relation.table_from.id
+
+                        validObject.table = table
+                        validObject.field_slug = relation.field_to
+                    }
+                } else if (relation.type !== "Recursive") {
+                    if (relation.table_from.slug === data.table_slug) {
+                        
+                        table.slug = relation.table_to.slug
+                        table.label = relation.table_to.label
+                        table.id = relation.table_to.id
+
+                        validObject.id = relation.id
+                        validObject.table = table
+                        validObject.type = relation.type
+                        validObject.field_slug = relation.field_from
+                    }
+                } else {
+                    table.slug = relation.table_from.slug
+                    table.label = relation.table_from.label
+                    table.id = relation.table_from.id
+
+                    validObject.id = relation.id
+                    validObject.table = table
+                    validObject.type = relation.type
+                    validObject.field_slug = relation.field_to
+
+                }
+                if (validObject.id) {
+                    cascadings.push(validObject)
+                }
+            }
+            response = struct.encode(
+                {cascadings}
+            )
+        return {table_slug: data.table_slug, data: response}
+
+    })
+}
+
+module.exports = cascaderStore

@@ -23,7 +23,7 @@ message ProjectWithoutResource {
     string id = 1;
     string company_id = 2;
     string k8s_namespace = 3;
-    string title = 4;
+    string name = 4;
 }
 
 message ResourceWithoutPassword {

@@ -9,6 +9,7 @@ const catchWrapDbObjectBuilder = require("../../helper/catchWrapDbObjectBuilder"
 const { v4 } = require("uuid");
 const con = require("../../helper/constants");
 const sendMessageToTopic = require("../../config/kafka");
+const conkafkaTopic = require("../../config/kafkaTopics");
 const converter = require("../../helper/converter");
 const Field = require("../../models/field");
 var fns_format = require('date-fns/format');
@@ -172,11 +173,11 @@ let objectBuilder = {
             field_types.guid = "String"
             event.payload.field_types = field_types
             event.project_id = req.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(con.TopicObjectCreateV1, event)
+            await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
 
             req.current_data = data
-            await sendMessageToTopic(con.TopicEventCreateV1, {
+            await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
                 payload: {
                     current_data: data,
                     table_slug: req.table_slug
@@ -259,7 +260,7 @@ let objectBuilder = {
             field_types.guid = "String"
             event.payload.field_types = field_types
             event.project_id = req.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(con.TopicObjectUpdateV1, event)
+            await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
 
             return response;
         } catch (err) {
@@ -1122,7 +1123,7 @@ let objectBuilder = {
             event.payload = table
 
             event.project_id = req.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(con.TopicObjectDeleteV1, event)
+            await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
 
             return { table_slug: req.table_slug, data: response };
         } catch (err) {
@@ -2056,11 +2057,11 @@ let objectBuilder = {
             field_types.guid = "String"
             event.payload.field_types = field_types
             event.project_id = req.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(con.TopicObjectCreateV1, event)
+            await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
 
             req.current_data = object
-            await sendMessageToTopic(con.TopicEventCreateV1, {
+            await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
                 payload: {
                     current_data: object,
                     table_slug: req.table_slug
@@ -2138,7 +2139,7 @@ let objectBuilder = {
             field_types.guid = "String"
             event.payload.field_types = field_types
             event.project_id = req.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(con.TopicObjectUpdateV1, event)
+            await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
             let bulk = {
                 updateOne: {
                     filter:

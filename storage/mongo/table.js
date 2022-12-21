@@ -70,7 +70,7 @@ let tableStore = {
             event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
 
-            await sendMessageToTopic(con.topicTableUpdeteV1, event)
+            await sendMessageToTopic(con.TopicTableUpdeteV1, event)
             return table;
         } catch (err) {
             throw err

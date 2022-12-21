@@ -166,3 +166,38 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getSingle: failed with error: table is not defined',
+  level: 'error',
+  timestamp: '2022-12-21T06:53:27.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: table is not defined',
+  level: 'error',
+  timestamp: '2022-12-21T06:55:05.992Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2022-12-21T06:56:35.608Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: table is not defined',
+  level: 'error',
+  timestamp: '2022-12-21T06:57:06.513Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: table is not defined',
+  level: 'error',
+  timestamp: '2022-12-21T07:05:15.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

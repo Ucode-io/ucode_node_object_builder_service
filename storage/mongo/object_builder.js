@@ -268,9 +268,12 @@ let objectBuilder = {
     }),
     getSingle: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingle`, async (req) => {
         try {
+            console.log("req slug table : ", req.table_slug)
             const mongoConn = await mongoPool.get(req.project_id)
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
+            const table = mongoConn.models['Table']
+
 
 
             const data = struct.decode(req.data)

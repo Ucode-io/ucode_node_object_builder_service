@@ -67,7 +67,8 @@ let tableStore = {
             data["older_slug"] = tableBeforeUpdate.slug
             let event = {}
             event.payload = data
-
+            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
+            
             await sendMessageToTopic(con.topicTableUpdeteV1, event)
             return table;
         } catch (err) {

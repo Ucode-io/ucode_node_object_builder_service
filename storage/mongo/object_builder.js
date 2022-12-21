@@ -171,6 +171,7 @@ let objectBuilder = {
             }
             field_types.guid = "String"
             event.payload.field_types = field_types
+            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicObjectCreateV1, event)
 
 
@@ -257,6 +258,7 @@ let objectBuilder = {
             }
             field_types.guid = "String"
             event.payload.field_types = field_types
+            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicObjectUpdateV1, event)
 
             return response;
@@ -1116,6 +1118,7 @@ let objectBuilder = {
             table.table_slug = req.table_slug
             event.payload = table
 
+            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicObjectDeleteV1, event)
 
             return { table_slug: req.table_slug, data: response };
@@ -2049,6 +2052,7 @@ let objectBuilder = {
             }
             field_types.guid = "String"
             event.payload.field_types = field_types
+            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicObjectCreateV1, event)
 
 
@@ -2130,6 +2134,7 @@ let objectBuilder = {
             }
             field_types.guid = "String"
             event.payload.field_types = field_types
+            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicObjectUpdateV1, event)
             let bulk = {
                 updateOne: {

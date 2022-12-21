@@ -483,7 +483,7 @@ let fieldStore = {
             });
 
             
-
+            const count = await Field.countDocuments(query);
             return { fields: fields, count: count, data: response };
         } catch (err) {
             throw err

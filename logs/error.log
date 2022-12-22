@@ -166,3 +166,1000 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.project.autoConnect: failed with error: not connected',
+  level: 'error',
+  timestamp: '2022-12-20T10:41:15.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-21T12:13:13.439Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:78:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:20:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-21T14:41:26.557Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: relation "project" does not exist
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:78:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:20:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: relation "project" does not exist',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-21T15:14:43.560Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:78:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-21T15:16:54.283Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-21T15:17:08.018Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T04:33:58.180Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T05:20:16.641Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'service.project.register: failed with error: db conn with given projectId already exists',
+  level: 'error',
+  timestamp: '2022-12-22T10:15:02.140Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:40:36.551Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: Scan error on column index 3, name "updated_at": converting NULL to string is unsupported
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: Scan error on column index 3, name "updated_at": converting NULL to string is unsupported',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:41:25.512Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:50:51.145Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:51:47.981Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:52:49.409Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: converting argument $1 type: pq: Unable to convert string to array
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: converting argument $1 type: pq: Unable to convert string to array',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:56:22.472Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:57:02.652Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: converting argument $1 type: pq: Unable to convert string to array
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: converting argument $1 type: pq: Unable to convert string to array',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:57:33.605Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:03:12.042Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:06:07.702Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:46:06.573Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:48:03.960Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:50:35.559Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: syntax error at or near "["
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: syntax error at or near "["',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:51:14.049Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: op ANY/ALL (array) requires array on right side
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: op ANY/ALL (array) requires array on right side',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:05:29.597Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:07:52.406Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp 161.35.26.178:8090: i/o timeout"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp 161.35.26.178:8090: i/o timeout"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:09:56.922Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:31:35.576Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:32:13.810Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:34:28.289Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:40:31.426Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:42:52.543Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:29:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:28:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}

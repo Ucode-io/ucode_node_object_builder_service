@@ -16,6 +16,9 @@ let projectStore = {
             })
 
             await pool.add(data?.project_id, mongoDBConn)
+
+            // mongoDBConn migrations
+            mongoDBConn.models['App'] 
             return {}
 
         } catch(err) {

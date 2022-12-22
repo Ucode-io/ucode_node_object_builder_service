@@ -9,6 +9,7 @@ service CascadingService {
     rpc GetCascadings (GetCascadingRequest) returns (CommonMessage) {}
 }
 
+
 message GetCascadingRequest {
     string table_slug = 1;
     string project_id = 2;

@@ -125,7 +125,7 @@ let permission = {
     }),
     getAllPermissionsByRoleId: catchWrapDbObjectBuilder(`${NAMESPACE}.getAllPermissionsByRoleId`, async (req) => {
         try {
-            const mongoConn = await mongoPool.get(data.project_id)
+            const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
@@ -189,7 +189,7 @@ let permission = {
     }),
     getFieldPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getFieldPermissions`, async (req) => {
         try {
-            const mongoConn = await mongoPool.get(data.project_id)
+            const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
@@ -258,3 +258,4 @@ let permission = {
 }
 
 module.exports = permission
+// 

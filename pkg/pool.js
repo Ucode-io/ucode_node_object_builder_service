@@ -1,5 +1,6 @@
 const config = require('../config/index');
 let pool = new Map();
+const client = require('../services/project')
 
 const interval = setInterval(() => {
     for (projectID of pool.keys()) {

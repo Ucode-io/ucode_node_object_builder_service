@@ -1,6 +1,11 @@
 const pool = require("../../pkg/pool")
 const catchWrapDb = require("../../helper/catchWrapDb");
-const newMongoDBConn = require('../../config/mongoConn')
+const newMongoDBConn = require('../../config/mongoConn');
+// const {AutoConn} = require('../../services/project');
+const config = require('../../config/index')
+const client = require('../../services/grpc/client');
+const { k8s_namespace } = require("../../config/index");
+
 
 let NAMESPACE = "storage.project";
 
@@ -68,7 +73,28 @@ let projectStore = {
             throw err
         }
     }),
+    autoConnect : catchWrapDb(`${NAMESPACE}.autoConnect`, async (args) => {
+        if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
+        console.log("args ==> ",args)
+        let projects = await client.autoConn(config.k8s_namespace)
+        console.log('projects', projects)
+        return projects;
+    })
+}; 
 
-};
+
+// async function AutoConn(args){
+    
+//     if (!config.k8s_namespace) { throw new Error("k8s_spaceName is REQUIRED") };
+//     let query = {
+//         // query
+//         _id: config.k8s_namespace
+//     }
+
+//     let resConn = await client.ProjectService.AutoConnect(query);
+    
+//     return resConn
+// }
+// module.exports = {AutoConn};
 
 module.exports = projectStore;

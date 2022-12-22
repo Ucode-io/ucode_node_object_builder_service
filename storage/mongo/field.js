@@ -2,9 +2,9 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
 const con = require("../../config/kafkaTopics");
 const conn = require("../../helper/constants");
-const cfg = require('../../config/index')
 const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
+const Relation = require("../../models/relation");
 const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require('../../pkg/pool');
@@ -68,8 +68,8 @@ let fieldStore = {
                 const table = await Table.findOne({
                     id: data.id
                 })
-                const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
-                const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+                const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
+                const roleTable = (await ObjectBuilder())["role"]
                 const roles = await roleTable?.models.find()
                 for (const role of roles) {
                     let permission = {
@@ -93,17 +93,16 @@ let fieldStore = {
                     }
                 })
             return response;
-
         } catch (err) {
             throw err
         }
+
     }),
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-         
 
             if (conn.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 let autoFillTable = await Table.findOne({
@@ -150,8 +149,8 @@ let fieldStore = {
             const table = await Table.findOne({
                 id: data.table_id
             });
-            const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
-            const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+            const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
+            const roleTable = (await ObjectBuilder())["role"]
             const roles = await roleTable?.models.find()
             for (const role of roles) {
                 let permission = {
@@ -182,15 +181,14 @@ let fieldStore = {
             tableRes.fields = fields
             event.payload = tableRes
             event.project_id = data.project_id || cfg.ucodeDefaultProjectID
-
             await sendMessageToTopic(con.TopicFieldCreateV1, event)
 
 
             return response;
-
         } catch (err) {
             throw err
         }
+
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
@@ -269,15 +267,15 @@ let fieldStore = {
             }
             fieldRes.field = fieldToAnalytics
             event.payload = fieldRes
-            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
+            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicFieldUpdateV1, event)
 
             return field;
-
         } catch (err) {
             throw err
         }
+
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
@@ -484,25 +482,24 @@ let fieldStore = {
                 many_relation_fields: many_relation_fields,
             });
 
-
+            
             const count = await Field.countDocuments(query);
             return { fields: fields, count: count, data: response };
-
         } catch (err) {
             throw err
         }
     }),
+
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-        
 
             const deletedField = await Field.findOne({ id: data.id })
             const table = await Table.findOne({ id: deletedField.table_id })
             const field = await Field.deleteOne({ id: data.id });
-            const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
+            const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
             const response = await fieldPermissionTable?.models.deleteMany({
                 field_id: data.id
             })
@@ -520,8 +517,8 @@ let fieldStore = {
             }
             fieldRes.field = fieldToAnalytics
             event.payload = fieldRes
-            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
+            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
             await sendMessageToTopic(con.TopicFieldDeleteV1, event)
 
             return field;
@@ -529,6 +526,7 @@ let fieldStore = {
         } catch (err) {
             throw err
         }
+
     }),
 };
 

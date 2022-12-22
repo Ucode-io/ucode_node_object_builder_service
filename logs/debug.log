@@ -7461,6 +7461,7 @@
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
   level: 'debug',
   timestamp: '2022-12-20T10:41:15.809Z',
@@ -7492,10 +7493,16 @@
   message: 'service.project.autoConnect: requested - {"k8s_namespace":"cp-region-type-id"}',
   level: 'info',
   timestamp: '2022-12-20T10:41:15.865Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-19T15:32:04.410Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.autoConnect: requested, {"k8s_namespace":"cp-region-type-id"}',
   level: 'debug',
   timestamp: '2022-12-20T10:41:15.865Z',
@@ -7513,17 +7520,27 @@
   message: 'grpc server is running at 8090',
   level: 'info',
   timestamp: '2022-12-20T10:41:16.213Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-19T15:33:51.802Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connected to mongoDB',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-20T10:41:16.782Z',
+=======
+  timestamp: '2022-12-19T15:33:52.983Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'Connected to the database',
   level: 'info',
   timestamp: '2022-12-20T10:41:16.789Z',
@@ -8025,17 +8042,27 @@
   message: 'Connected to the database',
   level: 'info',
   timestamp: '2022-12-22T05:21:39.860Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T04:57:25.807Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connected to mongoDB',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-22T05:21:40.172Z',
+=======
+  timestamp: '2022-12-20T04:57:26.955Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: requested - {"table_slug":"project","data":{"fields":{"company_id":{"stringValue":"dc49340a-fcb2-4e8c-b3c7-b51329d14575","kind":"stringValue"},"domain":{"stringValue":"test.admin.u-code.io","kind":"stringValue"},"name":{"stringValue":"test","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
   level: 'info',
   timestamp: '2022-12-22T06:11:30.688Z',
@@ -8312,17 +8339,27 @@
   message: 'Connected to the database',
   level: 'info',
   timestamp: '2022-12-22T06:53:43.389Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T05:14:24.878Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connected to mongoDB',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-22T06:53:43.401Z',
+=======
+  timestamp: '2022-12-20T05:14:26.431Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
   level: 'debug',
   timestamp: '2022-12-22T08:44:20.811Z',
@@ -8361,73 +8398,858 @@
   message: 'Connected to the database',
   level: 'info',
   timestamp: '2022-12-22T08:44:22.594Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T05:17:04.612Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connected to mongoDB',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-22T08:44:22.648Z',
+=======
+  timestamp: '2022-12-20T05:17:05.950Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"javlon","kind":"stringValue"},"password":{"stringValue":"javlon00","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
   level: 'info',
   timestamp: '2022-12-22T10:11:52.213Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T05:41:15.893Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"javlon","kind":"stringValue"},"password":{"stringValue":"javlon00","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
   level: 'debug',
   timestamp: '2022-12-22T10:11:52.223Z',
+=======
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-20T05:41:17.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T05:45:57.761Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-20T05:45:59.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T06:08:31.958Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-20T06:08:33.286Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T06:17:01.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-20T06:17:03.886Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T06:31:57.677Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-20T06:31:58.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T06:32:06.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-20T12:50:37.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-20T12:50:37.142Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-20T12:50:37.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-20T12:50:37.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T12:50:38.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-20T12:50:39.211Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-20T12:50:39.317Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-20T14:43:26.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-20T14:43:26.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-20T14:43:26.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-20T14:43:26.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T14:43:26.591Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-20T14:43:27.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-20T14:43:27.801Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-20T18:49:03.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-20T18:49:03.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-20T18:49:03.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-20T18:49:03.261Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-20T18:49:04.041Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-20T18:49:05.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-20T18:49:05.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T05:16:22.454Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T05:16:22.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T05:16:22.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T05:16:22.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-21T05:16:23.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-21T05:16:24.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-21T05:16:24.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:26:52.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T06:26:52.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T06:26:52.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T06:26:52.152Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-21T06:26:52.661Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-21T06:26:53.161Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-21T06:26:53.272Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:44:35.032Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T06:44:35.036Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T06:44:35.036Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T06:44:35.087Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-21T06:44:35.607Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-21T06:44:36.590Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-21T06:44:36.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T06:53:23.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:53:23.239Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.object_builder.getList: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T10:11:58.380Z',
+=======
+  timestamp: '2022-12-21T06:53:26.778Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.object_builder.getList: succeeded',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-22T10:11:58.381Z',
+=======
+  timestamp: '2022-12-21T06:53:26.779Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
   level: 'info',
   timestamp: '2022-12-22T10:11:58.400Z',
+=======
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T06:53:26.793Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
   level: 'debug',
   timestamp: '2022-12-22T10:11:58.400Z',
+=======
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:53:26.794Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: table is not defined',
+  level: 'error',
+  timestamp: '2022-12-21T06:53:27.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:54:10.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T06:54:10.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T06:54:10.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T06:54:10.098Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-21T06:54:10.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-21T06:54:11.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-21T06:54:11.929Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T06:55:03.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:55:03.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T06:55:05.475Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-21T06:55:05.476Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T06:55:05.491Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:55:05.491Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: table is not defined',
+  level: 'error',
+  timestamp: '2022-12-21T06:55:05.992Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:56:03.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T06:56:03.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T06:56:03.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T06:56:03.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-21T06:56:03.949Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-21T06:56:04.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-21T06:56:04.509Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T06:56:35.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:56:35.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2022-12-21T06:56:35.608Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T06:57:02.982Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:57:02.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T06:57:06.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-21T06:57:06.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T06:57:06.037Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T06:57:06.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: table is not defined',
+  level: 'error',
+  timestamp: '2022-12-21T06:57:06.513Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"password":{"stringValue":"1234567","kind":"stringValue"},"login":{"stringValue":"medion_admin","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T07:05:11.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"password":{"stringValue":"1234567","kind":"stringValue"},"login":{"stringValue":"medion_admin","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T07:05:11.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T07:05:15.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-21T07:05:15.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T07:05:15.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T07:05:15.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: table is not defined',
+  level: 'error',
+  timestamp: '2022-12-21T07:05:15.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T07:09:57.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T07:09:57.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T07:09:57.636Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T07:09:57.689Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-21T07:09:58.257Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-21T07:09:58.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-21T07:09:58.827Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T07:11:02.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"medion_admin","kind":"stringValue"},"password":{"stringValue":"1234567","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T07:11:02.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T07:11:05.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-21T07:11:05.317Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-21T07:11:05.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-21T07:11:05.331Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.object_builder.getSingle: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T10:11:58.883Z',
+=======
+  timestamp: '2022-12-21T07:11:07.465Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.object_builder.getSingle: succeeded',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-22T10:11:58.884Z',
+=======
+  timestamp: '2022-12-21T07:11:07.466Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.loginStore.login: requested - {"password":"javlon00","login":"javlon","client_type":"JAVLONBEK ADMIN","login_strategy":"","project_id":"ucode_default_project_id"}',
   level: 'info',
   timestamp: '2022-12-22T10:11:58.893Z',
@@ -8522,40 +9344,64 @@
   message: 'storage.project.register: requested, {"k8s_namespace":"not_required_yet","project_id":"aa443a69-360c-4c45-b839-e85595877c6c","secret_path":"k8s/ucode-test/dc49340a-fcb2-4e8c-b3c7-b51329d14575/aa443a69-360c-4c45-b839-e85595877c6c/MONGODB","credentials":{"host":"161.35.26.178","port":"27017","username":"object_builder_service","password":"eeNgoot2","database":"object_builder_service"}}',
   level: 'debug',
   timestamp: '2022-12-22T10:14:54.241Z',
+=======
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T10:08:49.731Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Main function is running',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T10:14:54.241Z',
+=======
+  timestamp: '2022-12-21T10:08:49.735Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T10:14:54.242Z',
+=======
+  timestamp: '2022-12-21T10:08:49.735Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.register: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T10:14:54.320Z',
+=======
+  timestamp: '2022-12-21T10:08:49.783Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.project.register: succeeded',
   level: 'info',
   timestamp: '2022-12-22T10:14:54.320Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-21T10:08:50.307Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connected to the database',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-22T10:14:54.856Z',
   label: 'object_builder_service',
   metadata: {}
@@ -9439,45 +10285,69 @@
   message: 'Connected to the database',
   level: 'info',
   timestamp: '2022-12-22T11:52:50.559Z',
+=======
+  timestamp: '2022-12-21T10:08:51.269Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connected to mongoDB',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:52:50.716Z',
+=======
+  timestamp: '2022-12-21T10:08:51.394Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:57:00.260Z',
+=======
+  timestamp: '2022-12-21T10:22:48.883Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Main function is running',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:57:00.265Z',
+=======
+  timestamp: '2022-12-21T10:22:48.886Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:57:00.265Z',
+=======
+  timestamp: '2022-12-21T10:22:48.886Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.register: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:57:00.608Z',
+=======
+  timestamp: '2022-12-21T10:22:48.927Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
   level: 'debug',
   timestamp: '2022-12-22T11:57:00.608Z',
@@ -9495,52 +10365,82 @@
   message: 'grpc server is running at 8090',
   level: 'info',
   timestamp: '2022-12-22T11:57:04.366Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-21T10:22:49.524Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connected to the database',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:57:04.815Z',
+=======
+  timestamp: '2022-12-21T10:22:50.025Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connected to mongoDB',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:57:05.011Z',
+=======
+  timestamp: '2022-12-21T10:22:50.077Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:58:03.075Z',
+=======
+  timestamp: '2022-12-21T13:01:38.710Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Main function is running',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:58:03.080Z',
+=======
+  timestamp: '2022-12-21T13:01:38.715Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:58:03.080Z',
+=======
+  timestamp: '2022-12-21T13:01:38.716Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.register: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2022-12-22T11:58:03.340Z',
+=======
+  timestamp: '2022-12-21T13:01:38.810Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
   level: 'debug',
   timestamp: '2022-12-22T11:58:03.340Z',
@@ -10607,6 +11507,11 @@
   message: 'Connected to the database',
   level: 'info',
   timestamp: '2022-12-22T13:29:59.684Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-21T13:01:39.670Z',
+>>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
   label: 'object_builder_service',
   metadata: {}
 }

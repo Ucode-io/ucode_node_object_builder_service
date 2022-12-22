@@ -17,6 +17,7 @@ const ErrProjectExists = new Error("db conn with given projectId already exists"
 
 async function get(projectId=config.ucodeDefaultProjectID) {
     if (!projectId) {
+        projectId=config.ucodeDefaultProjectID
         console.warn('WARNING:: Using default project id in pool...')
     }
 
@@ -60,4 +61,3 @@ async function override(projectId=config.ucodeDefaultProjectID, dbConn) {
 }
 
 module.exports = {get, add, remove, override}
-

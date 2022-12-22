@@ -1,4 +1,3 @@
-
 const ObjectBuilder = require("../models/object_builder");
 const { struct } = require("pb-util");
 

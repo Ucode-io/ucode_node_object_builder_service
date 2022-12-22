@@ -11,6 +11,8 @@ const cfg = require('../../config/index')
 const mongoPool = require('../../pkg/pool');
 
 
+
+
 let NAMESPACE = "storage.relation";
 
 let relationStore = {
@@ -25,11 +27,9 @@ let relationStore = {
                 var response = relation.save();
             }
             return response;
-
         } catch (err) {
             throw err
         }
-
     }),
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
@@ -51,7 +51,7 @@ let relationStore = {
                         slug: data.table_to,
                         deleted_at: "1970-01-01T18:00:00.000+00:00"
                     });
-                    result = await relationFieldChecker(data.field_to, table.id, data.project_id)
+                    result = await relationFieldChecker(data.field_to, table.id)
                     if (result.exists) {
                         data.field_to = result.lastField
                     }
@@ -89,7 +89,7 @@ let relationStore = {
                         slug: data.table_to,
                         deleted_at: "1970-01-01T18:00:00.000+00:00"
                     });
-                    result = await relationFieldChecker(data.field_to, tableTo.id, data.project_id)
+                    result = await relationFieldChecker(data.field_to, tableTo.id)
                     if (result.exists) {
                         data.field_to = result.lastField
                     }
@@ -115,13 +115,11 @@ let relationStore = {
                     )
                     tableRes.fields = fieldsFrom
                     eventTo.payload = tableRes
-                    eventTo.project_id = data.project_id || cfg.ucodeDefaultProjectID
-
                     tableFrom = await Table.findOne({
                         slug: data.table_from,
                         deleted_at: "1970-01-01T18:00:00.000+00:00"
                     });
-                    result = await relationFieldChecker(data.field_from, tableFrom.id, data.project_id)
+                    result = await relationFieldChecker(data.field_from, tableFrom.id)
                     if (result.exists) {
                         data.field_from = result.lastField
                     }
@@ -148,7 +146,6 @@ let relationStore = {
                     )
                     tableRes.fields = fieldsTo
                     eventFrom.payload = tableRes
-                    eventFrom.project_id = data.project_id || cfg.ucodeDefaultProjectID
 
                     await sendMessageToTopic(con.TopicRelationFromCreateV1, eventFrom)
                     break;
@@ -160,7 +157,7 @@ let relationStore = {
                         slug: data.table_from,
                         deleted_at: "1970-01-01T18:00:00.000+00:00"
                     });
-                    result = await relationFieldChecker(data.recursive_field, table.id, data.project_id)
+                    result = await relationFieldChecker(data.recursive_field, table.id)
                     if (result.exists) {
                         data.recursive_field = result.lastField
                     }
@@ -188,8 +185,6 @@ let relationStore = {
                     )
                     tableRecursive.fields = fields
                     event.payload = tableRecursive
-                    event.project_id = data.project_id || cfg.ucodeDefaultProjectID
-
                     await sendMessageToTopic(con.TopicRecursiveRelationCreateV1, event)
                     break;
                 case 'Many2One':
@@ -200,7 +195,7 @@ let relationStore = {
                         slug: data.table_from,
                         deleted_at: "1970-01-01T18:00:00.000+00:00"
                     });
-                    result = await relationFieldChecker(data.field_from, table.id, data.project_id)
+                    result = await relationFieldChecker(data.field_from, table.id)
                     if (result.exists) {
                         data.field_from = result.lastField
                     }
@@ -226,7 +221,6 @@ let relationStore = {
                     )
                     tableMany2One.fields = fieldsMany2One
                     eventMany2One.payload = tableMany2One
-                    eventMany2One.project_id = data.project_id || cfg.ucodeDefaultProjectID
                     await sendMessageToTopic(con.TopicMany2OneRelationCreateV1, eventMany2One)
                     break;
                 default:
@@ -249,10 +243,10 @@ let relationStore = {
                 })
 
             return response;
-
         } catch (err) {
             throw err
         }
+
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
@@ -308,6 +302,11 @@ let relationStore = {
                             type: data.view_type,
                             summaries: data.summaries,
                             default_values: data.default_values,
+                            action_relations: data.action_relations,
+                            default_limit: data.default_limit,
+                            multiple_insert: data.multiple_insert,
+                            multiple_insert_field: data.multiple_insert_field,
+                            updated_fields: data.updated_fields,
                         }
                     }
                 )
@@ -321,10 +320,10 @@ let relationStore = {
             }
 
             return relation;
-
         } catch (err) {
             throw err
         }
+
     }),
     getAllForViewRelation: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
@@ -367,37 +366,6 @@ let relationStore = {
                 let tableFrom = await Table.findOne({
                     slug: relations[i].table_from
                 })
-                const fields = await Field.find({
-                    relation_id: relations[i].id
-                })
-                let fieldIds = [], field_permissions = [];
-                fields.forEach(field => {
-                    fieldIds.push(field.id)
-                })
-                if (fieldIds.length) {
-                    const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
-                    field_permissions = await fieldPermissionTable?.models.find({
-                        $and: [
-                            {
-                                field_id: { $in: fieldIds }
-                            },
-                            {
-                                role_id: data.role_id
-                            }
-                        ]
-                    },
-                        {
-                            __v: 0,
-                            _id: 0,
-                        }
-                    )
-                }
-                let docPermissions = []
-                for (const fieldPermission of field_permissions) {
-                    docPermissions.push(fieldPermission._doc)
-                }
-                field_permissions = docPermissions
-                const encodedFieldPermissions = struct.encode({ field_permissions })
                 if (relations[i].type === "Many2Dynamic") {
                     for (const dynamic_table of relations[i].dynamic_tables) {
                         if (dynamic_table.table_slug === data.table_slug || tableFrom.slug === data.table_slug) {
@@ -442,7 +410,11 @@ let relationStore = {
                                 dynamic_tables: relations[i].dynamic_tables,
                                 relation_field_slug: relations[i].relation_field_slug,
                                 auto_filters: relations[i].auto_filters,
-                                field_permissions: encodedFieldPermissions
+                                is_user_id_default: relations[i].is_user_id_default,
+                                cascadings: relations[i].cascadings,
+                                object_id_from_jwt: relations[i].object_id_from_jwt,
+                                cascading_tree_table_slug: relations[i].cascading_tree_table_slug,
+                                cascading_tree_field_slug: relations[i].cascading_tree_field_slug
                             }
                             if (view) {
                                 responseRelation["title"] = view.name
@@ -455,6 +427,12 @@ let relationStore = {
                                 responseRelation["summaries"] = view.summaries
                                 responseRelation["relation_id"] = view.relation_id
                                 responseRelation["default_values"] = view.default_values
+                                responseRelation["action_relations"] = view.action_relations
+                                responseRelation["default_limit"] = view.default_limit
+                                responseRelation["multiple_insert"] = view.multiple_insert
+                                responseRelation["multiple_insert_field"] = view.multiple_insert_field
+                                responseRelation["updated_fields"] = view.updated_fields
+
                             }
                             responseRelations.push(responseRelation)
                         }
@@ -480,7 +458,11 @@ let relationStore = {
                     dynamic_tables: relations[i].dynamic_tables,
                     relation_field_slug: relations[i].relation_field_slug,
                     auto_filters: relations[i].auto_filters,
-                    field_permissions: encodedFieldPermissions
+                    is_user_id_default: relations[i].is_user_id_default,
+                    cascadings: relations[i].cascadings,
+                    object_id_from_jwt: relations[i].object_id_from_jwt,
+                    cascading_tree_table_slug: relations[i].cascading_tree_table_slug,
+                    cascading_tree_field_slug: relations[i].cascading_tree_field_slug,
                 }
                 if (view) {
                     responseRelation["title"] = view.name
@@ -493,6 +475,11 @@ let relationStore = {
                     responseRelation["summaries"] = view.summaries
                     responseRelation["relation_id"] = view.relation_id
                     responseRelation["default_values"] = view.default_values
+                    responseRelation["action_relations"] = view.action_relations
+                    responseRelation["default_limit"] = view.default_limit
+                    responseRelation["multiple_insert"] = view.multiple_insert
+                    responseRelation["multiple_insert_field"] = view.multiple_insert_field
+                    responseRelation["updated_fields"] = view.updated_fields
                 }
                 responseRelations.push(responseRelation)
             }
@@ -502,10 +489,10 @@ let relationStore = {
             });
 
             return { relations: responseRelations, count: count };
-
         } catch (err) {
             throw err
         }
+
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
@@ -559,12 +546,19 @@ let relationStore = {
                     let responseRelation = {
                         id: relations[i].id,
                         table_from: tableFrom,
+                        field_from: relations[i].field_from,
+                        field_to: relations[i].field_to,
                         type: relations[i].type,
                         view_fields: relations[i].fields,
                         editable: relations[i].editable,
                         dynamic_tables: relations[i].dynamic_tables,
                         relation_field_slug: relations[i].relation_field_slug,
-                        auto_filters: relations[i].auto_filters
+                        auto_filters: relations[i].auto_filters,
+                        is_user_id_default: relations[i].is_user_id_default,
+                        cascadings: relations[i].cascadings,
+                        object_id_from_jwt: relations[i].object_id_from_jwt,
+                        cascading_tree_table_slug: relations[i].cascading_tree_table_slug,
+                        cascading_tree_field_slug: relations[i].cascading_tree_field_slug,
                     }
                     if (tableTo) {
                         responseRelation["table_to"] = tableTo
@@ -586,6 +580,11 @@ let relationStore = {
                         responseRelation["summaries"] = view.summaries
                         responseRelation["relation_id"] = view.relation_id
                         responseRelation["default_values"] = view.default_values
+                        responseRelation["action_relations"] = view.action_relations
+                        responseRelation["default_limit"] = view.default_limit
+                        responseRelation["multiple_insert"] = view.multiple_insert
+                        responseRelation["multiple_insert_field"] = view.multiple_insert_field
+                        responseRelation["updated_fields"] = view.updated_fields
                     }
                     responseRelations.push(responseRelation)
                     continue;
@@ -603,12 +602,19 @@ let relationStore = {
                     id: relations[i].id,
                     table_from: tableFrom,
                     table_to: tableTo,
+                    field_from: relations[i].field_from,
+                    field_to: relations[i].field_to,
                     type: relations[i].type,
                     view_fields: relations[i].fields,
                     editable: relations[i].editable,
                     dynamic_tables: relations[i].dynamic_tables,
                     relation_field_slug: relations[i].relation_field_slug,
-                    auto_filters: relations[i].auto_filters
+                    auto_filters: relations[i].auto_filters,
+                    is_user_id_default: relations[i].is_user_id_default,
+                    cascadings: relations[i].cascadings,
+                    object_id_from_jwt: relations[i].object_id_from_jwt,
+                    cascading_tree_table_slug: relations[i].cascading_tree_table_slug,
+                    cascading_tree_field_slug: relations[i].cascading_tree_field_slug
                 }
                 if (view) {
                     responseRelation["title"] = view.name
@@ -621,6 +627,11 @@ let relationStore = {
                     responseRelation["summaries"] = view.summaries
                     responseRelation["relation_id"] = view.relation_id
                     responseRelation["default_values"] = view.default_values
+                    responseRelation["action_relations"] = view.action_relations
+                    responseRelation["default_limit"] = view.default_limit
+                    responseRelation["multiple_insert"] = view.multiple_insert
+                    responseRelation["multiple_insert_field"] = view.multiple_insert_field
+                    responseRelation["updated_fields"] = view.updated_fields
                 }
                 responseRelations.push(responseRelation)
             }
@@ -629,10 +640,10 @@ let relationStore = {
             });
 
             return { relations: responseRelations, count: count };
-
         } catch (err) {
             throw err
         }
+
     }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
@@ -662,8 +673,6 @@ let relationStore = {
                 tableResp.slug = table.slug
                 tableResp.fields = fields
                 event.payload = tableResp
-                event.project_id = data.project_id || cfg.ucodeDefaultProjectID
-
                 await sendMessageToTopic(con.TopicRelationDeleteV1, event)
             } else if (relation.type === 'Many2Many') {
                 table = await Table.findOne({
@@ -680,8 +689,6 @@ let relationStore = {
                 tableResp.slug = table.slug
                 tableResp.fields = fields
                 event.payload = tableResp
-                event.project_id = data.project_id || cfg.ucodeDefaultProjectID
-
                 await sendMessageToTopic(con.TopicRelationDeleteV1, event)
                 table = await Table.findOne({
                     slug: relation.table_from,
@@ -697,7 +704,6 @@ let relationStore = {
                 tableResp.slug = table.slug
                 tableResp.fields = fields
                 event.payload = tableResp
-                event.project_id = data.project_id || cfg.ucodeDefaultProjectID
                 await sendMessageToTopic(con.TopicRelationDeleteV1, event)
             } else if (relation.type === "Recursive") {
                 table = await Table.findOne({
@@ -714,7 +720,6 @@ let relationStore = {
                 tableResp.slug = table.slug
                 tableResp.fields = fields
                 event.payload = tableResp
-                event.project_id = data.project_id || cfg.ucodeDefaultProjectID
                 await sendMessageToTopic(con.TopicRelationDeleteV1, event)
             } else {
                 table = await Table.findOne({
@@ -731,7 +736,6 @@ let relationStore = {
                 tableResp.slug = table.slug
                 tableResp.fields = fields
                 event.payload = tableResp
-                event.project_id = data.project_id || cfg.ucodeDefaultProjectID
                 await sendMessageToTopic(con.TopicRelationDeleteV1, event)
             }
             const res = await Table.updateOne({
@@ -745,10 +749,10 @@ let relationStore = {
             const deleteViews = await View.deleteMany({ relation_id: relation.id })
             resp = await Relation.deleteOne({ id: data.id });
             return resp;
-
         } catch (err) {
             throw err
         }
+
     }),
 };
 

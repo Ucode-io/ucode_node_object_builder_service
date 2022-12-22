@@ -17,6 +17,16 @@ const mongoPool = require('../../pkg/pool');
 // const ViewRelation = mongoConn.models['ViewRelation']
 
 
+// const mongoConn = await mongoPool.get(data.project_id)
+// const Table = mongoConn.models['Table']
+// const Field = mongoConn.models['Field']
+// const Section = mongoConn.models['Section']
+// const App = mongoConn.models['App']
+// const View = mongoConn.models['View']
+// const Relation = mongoConn.models['Relation']
+// const ViewRelation = mongoConn.models['ViewRelation']
+
+
 let NAMESPACE = "storage.section";
 
 let sectionStore = {
@@ -42,14 +52,10 @@ let sectionStore = {
                 })
 
             return response;
-
-
         } catch (err) {
             throw err
         }
-
-    }
-    ),
+    }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -77,12 +83,9 @@ let sectionStore = {
                 })
 
             return;
-
         } catch (err) {
             throw err
         }
-
-
 
     }),
     upsertViewRelations: catchWrapDb(`${NAMESPACE}.upsertViewRelations`, async (data) => {
@@ -90,7 +93,6 @@ let sectionStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
-
 
             const count = await ViewRelation.deleteMany(
                 {
@@ -122,13 +124,9 @@ let sectionStore = {
                 })
 
             return;
-
         } catch (err) {
             throw err
         }
-
-
-
     }),
     getAllViewRelations: catchWrapDb(`${NAMESPACE}.getAllViewRelations`, async (data) => {
         try {
@@ -168,21 +166,15 @@ let sectionStore = {
             const count = await ViewRelation.countDocuments(query);
             return { view_relations: newRelations, count: count };
 
-
         } catch (err) {
             throw err
         }
-
-
-
     }),
-
     getSingleViewRelation: catchWrapDb(`${NAMESPACE}.getSingleViewRelation`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
-
 
             let table = {};
             if (data.table_slug === "") {
@@ -205,7 +197,7 @@ let sectionStore = {
                 table_slug: view_relation.table_slug,
                 role_id: data.role_id
             })
-            let viewRelationWithPermissions = await AddPermission.toViewRelation(relations, data.role_id, data.table_slug, data.project_id)
+            let viewRelationWithPermissions = await AddPermission.toViewRelation(relations, data.role_id, data.table_slug)
 
             if (view_relation.relations) {
                 for (let index = 0; index < view_relation.relations.length; index++) {
@@ -223,16 +215,11 @@ let sectionStore = {
                 table_slug: view_relation.table_slug,
                 relations: newRelations,
             }
-
         } catch (err) {
             throw err
         }
 
-
-
-
     }),
-
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -405,21 +392,17 @@ let sectionStore = {
                     }
                 }
                 // this function add field permission for each field by role id
-                fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
+                fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)
             }
             return { sections: sectionsResponse };
 
-
         } catch (err) {
             throw err
         }
 
-
-
-    }
-    )
+    })
 };
 
 module.exports = sectionStore;

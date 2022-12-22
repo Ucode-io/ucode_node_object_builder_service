@@ -11,6 +11,9 @@ const ViewSchema = mongoose.Schema(
         table_slug: {
             type: String,
         },
+        app_id: {
+            type: String,
+        },
         type: {
             type: String,
         },

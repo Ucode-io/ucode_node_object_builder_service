@@ -31,6 +31,7 @@ const tableService = {
             let viewData = {}
             viewData.table_slug = call.request.slug
             viewData.type = "TABLE"
+            viewData.app_id = call.request.app_id
             call.view = viewData
             const viewResp = await viewStore.create(call.view);
             console.log("it is createViews response", viewResp)

@@ -22,7 +22,7 @@ const mongoPool = require('../../pkg/pool');
 let permission = {
     upsertPermissionsByAppId: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertPermissionsByAppId`, async (req) => {
         try {
-            const mongoConn = await mongoPool.get(data.project_id)
+            const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']

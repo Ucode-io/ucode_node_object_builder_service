@@ -25,15 +25,15 @@ const service = require('./services/project');
     const grpcConnection = require("./config/grpcConnection");
     const kafka = require("./config/kafka");
 
-    await projectStorage.autoConnect(
-        {
-            request: {
-                k8s_namespace : config.k8s_namespace
-            }
-        },
-        (code, result) => {
-            console.log(code, result)
-        }
-    )
+    // await projectStorage.autoConnect(
+    //     {
+    //         request: {
+    //             k8s_namespace : config.k8s_namespace
+    //         }
+    //     },
+    //     (code, result) => {
+    //         console.log(code, result)
+    //     }
+    // )
 
 })();

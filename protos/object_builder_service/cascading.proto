@@ -12,4 +12,5 @@ service CascadingService {
 
 message GetCascadingRequest {
     string table_slug = 1;
+    string project_id = 2;
 }

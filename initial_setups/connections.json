@@ -1,0 +1,49 @@
+[{
+  "table_slug": "branches",
+  "icon": "address-card.svg",
+  "view_slug": "name",
+  "view_label": "",
+  "type": "",
+  "name": "Филиал",
+  "guid": "a4db48cc-8e36-4ca2-9f72-3d22cb1a7888",
+  "client_type_id": "0ec8e532-7b9f-4b26-a903-2e4f8825d4f4",
+  "createdAt": {
+    "$date": "2022-11-16T13:29:49.446Z"
+  },
+  "updatedAt": {
+    "$date": "2022-11-16T13:29:49.446Z"
+  },
+  "__v": 0
+},{
+  "table_slug": "cash",
+  "icon": "",
+  "view_slug": "name",
+  "view_label": "",
+  "type": "",
+  "name": "Касса",
+  "guid": "b84eb8ee-30c2-4f2d-950e-cea88af63d20",
+  "client_type_id": "0ec8e532-7b9f-4b26-a903-2e4f8825d4f4",
+  "createdAt": {
+    "$date": "2022-11-27T05:26:51.821Z"
+  },
+  "updatedAt": {
+    "$date": "2022-11-27T05:26:51.821Z"
+  },
+  "__v": 0
+},{
+  "table_slug": "branches",
+  "icon": "",
+  "view_slug": "name",
+  "view_label": "",
+  "type": "",
+  "name": "",
+  "guid": "71c7a400-2e67-4292-91bb-f1f68cb812fd",
+  "client_type_id": "142e9d0b-d9d3-4f71-bde1-5f1dbd70e83d",
+  "createdAt": {
+    "$date": "2022-12-16T11:38:53.758Z"
+  },
+  "updatedAt": {
+    "$date": "2022-12-16T11:38:53.758Z"
+  },
+  "__v": 0
+}]

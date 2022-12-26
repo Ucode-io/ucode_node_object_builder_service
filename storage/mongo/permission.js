@@ -395,7 +395,7 @@ let permission = {
                 $set: {
                     name: req.name
                 }
-            }, 
+            },
             {
                 upsert: false
             }
@@ -428,7 +428,7 @@ let permission = {
                     return ErrWhileUpdate
                 }
 
-               
+
                 for (let field_permission of table.field_permissions) {
                     if (field_permission) {
                         await FieldPermission.findOneAndUpdate(
@@ -468,6 +468,122 @@ let permission = {
     }),
     createRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.createRoleAppTablePermissions`, async (req) => {
 
+    }),
+    getActionPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getActionPermissions`, async (req) => {
+
+        const customEvents = await CustomEvent.find({
+            table_slug: req.table_slug
+        })
+        let customEventIdAndLabels = []
+        customEvents.forEach(customEvent => {
+            customEventIdAndLabels.push({ custom_event_id: customEvent.id, label: customEvent.label })
+        })
+        const permissionTable = (await ObjectBuilder())["action_permission"]
+        let actionPermissions = await permissionTable.models.find({
+            role_id: req.role_id,
+            table_slug: req.table_slug
+        },
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0
+            }
+        )
+        let permissioncustomEventIds = []
+        actionPermissions.forEach(actionPermission => {
+            permissioncustomEventIds.push(actionPermission.custom_event_id)
+        })
+        let docPermissions = []
+        let noActionPermissions = customEventIdAndLabels.filter(val => !permissioncustomEventIds.includes(val.custom_event_id))
+        actionPermissions = actionPermissions.concat(noActionPermissions)
+        for (const actionPermission of actionPermissions) {
+            if (!actionPermission.guid) {
+                actionPermission.role_id = req.role_id
+                actionPermission.table_slug = req.table_slug
+                actionPermission.permission = false
+                docPermissions.push(actionPermission)
+            } else {
+                let customEvent = customEvents.find(obj => obj.id === actionPermission.custom_event_id)
+                actionPermission._doc.label = customEvent?.label
+                docPermissions.push(actionPermission._doc)
+            }
+        }
+
+        const response = struct.encode({
+            action_permission: docPermissions
+        })
+        return { table_slug: "action_permission", data: response }
+    }),
+    getViewRelationPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getViewRelationPermissions`, async (req) => {
+        const relations = await Relation.find({
+            $or: [
+                {
+                    type: "Many2Many",
+                    $or: [
+                        { table_to: req.table_slug },
+                        { table_from: req.table_slug },
+                    ]
+                },
+                {
+                    type: { $ne: "Many2Many" },
+                    table_to: req.table_slug
+                }
+            ]
+        })
+        let relationIdsObject = [], relationIds = []
+        relations.forEach(element => {
+            relationIdsObject.push({ relation_id: element.id })
+            relationIds.push(element.id)
+        })
+        let views = []
+        if (relationIds.length) {
+            views = await View.find({
+                relation_table_slug: req.table_slug,
+                relation_id: { $in: relationIds }
+            })
+        }
+        const relationPermissionTable = (await ObjectBuilder())["view_relation_permission"]
+        let viewRelationPermissions = await relationPermissionTable.models.find({
+            role_id: req.role_id,
+            table_slug: req.table_slug
+        },
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0
+            }
+        )
+        let viewRelationPermissionsIds = []
+        viewRelationPermissions.forEach(element => {
+            viewRelationPermissionsIds.push(element.relation_id)
+        })
+        let docViewRelationPermissions = []
+        let noViewRelationPermission = relationIdsObject.filter(obj => !viewRelationPermissionsIds.includes(obj.relation_id))
+        viewRelationPermissions = viewRelationPermissions.concat(noViewRelationPermission)
+        for (const viewRelationPermission of viewRelationPermissions) {
+            let view = views.find(obj => (obj.relation_id === viewRelationPermission['relation_id'] && obj.relation_table_slug === req.table_slug))
+            let relation = relations.find(obj => obj.id === viewRelationPermission.relation_id)
+            if (!viewRelationPermission.guid) {
+                viewRelationPermission.role_id = req.role_id,
+                    viewRelationPermission.table_slug = req.table_slug,
+                    viewRelationPermission.view_permission = false,
+                    viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                docViewRelationPermissions.push(viewRelationPermission)
+            } else {
+                viewRelationPermission._doc.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                docViewRelationPermissions.push(viewRelationPermission._doc)
+            }
+        }
+        const response = struct.encode({
+            view_relation_permissions: docViewRelationPermissions
+        })
+        return { table_slug: "view_relation_permission", data: response }
     }),
 }
 

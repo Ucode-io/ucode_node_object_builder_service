@@ -1,10 +1,12 @@
 const pool = require("../../pkg/pool")
 const catchWrapDb = require("../../helper/catchWrapDb");
-const newMongoDBConn = require('../../config/mongoConn');
-// const {AutoConn} = require('../../services/project');
+const insertCollections = require("../../helper/initialDatabaseSetup");
+const newMongoDBConn = require('../../config/mongoConn')
 const config = require('../../config/index')
 const client = require('../../services/grpc/client');
 const { k8s_namespace } = require("../../config/index");
+const objectBuilder = require("../../models/object_builder");
+
 
 
 let NAMESPACE = "storage.project";
@@ -21,9 +23,17 @@ let projectStore = {
             })
 
             await pool.add(data?.project_id, mongoDBConn)
+
+            mongoDBConn.once("open", async function () {
+                console.log("Connected to the database, building models");
+                await objectBuilder(false, data?.project_id).then(res => {
+                    console.log("Object builder has successfully runned for", data?.project_id);
+                })
+            });
+
             return {}
 
-        } catch(err) {
+        } catch (err) {
             throw err
         }
     }),
@@ -33,7 +43,7 @@ let projectStore = {
             await pool.remove(data?.project_id)
             return {}
 
-        } catch(err) {
+        } catch (err) {
             throw err
         }
     }),
@@ -50,8 +60,8 @@ let projectStore = {
         try {
             const mongoConn = await pool.get(data?.project_id)
             return mongoConn
-            
-        } catch(err) {
+
+        } catch (err) {
             throw err
         }
     }),
@@ -69,7 +79,36 @@ let projectStore = {
             await pool.override(data?.project_id, mongoDBConn)
             return {}
 
-        } catch(err) {
+        } catch (err) {
+            throw err
+        }
+    }),
+
+    registerProjects: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
+        try {
+            const mongoDBConn = await newMongoDBConn({
+                mongoHost: data.credentials.host,
+                mongoPort: data.credentials.port,
+                mongoDatabase: data.credentials.database,
+                mongoUser: data.credentials.username,
+                mongoPassword: data.credentials.password
+            })
+
+            await insertCollections(mongoDBConn)
+
+            await pool.add(data?.project_id, mongoDBConn)
+
+            mongoDBConn.once("open", async function () {
+                console.log("Connected to the database, building models");
+
+                await objectBuilder(false, data?.project_id).then(res => {
+                    console.log("Object builder has successfully runned for", data?.project_id);
+                })
+            });
+
+            return {}
+
+        } catch (err) {
             throw err
         }
     }),
@@ -98,3 +137,5 @@ let projectStore = {
 // module.exports = {AutoConn};
 
 module.exports = projectStore;
+
+

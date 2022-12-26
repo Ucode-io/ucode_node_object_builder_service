@@ -7461,6 +7461,37 @@
   metadata: {}
 }
 {
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-20T10:41:15.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-20T10:41:15.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-20T10:41:15.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-20T10:41:15.864Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.autoConnect: requested - {"k8s_namespace":"cp-region-type-id"}',
+  level: 'info',
+  timestamp: '2022-12-20T10:41:15.865Z',
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2022-12-19T15:32:04.410Z',
@@ -7468,6 +7499,23 @@
   metadata: {}
 }
 {
+  message: 'storage.project.autoConnect: requested, {"k8s_namespace":"cp-region-type-id"}',
+  level: 'debug',
+  timestamp: '2022-12-20T10:41:15.865Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.autoConnect: failed with error: not connected',
+  level: 'error',
+  timestamp: '2022-12-20T10:41:15.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-20T10:41:16.213Z',
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2022-12-19T15:33:51.802Z',
@@ -7477,11 +7525,513 @@
 {
   message: 'Connected to mongoDB',
   level: 'info',
+  timestamp: '2022-12-20T10:41:16.782Z',
   timestamp: '2022-12-19T15:33:52.983Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-20T10:41:16.789Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T12:12:26.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T12:12:26.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T12:12:26.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T12:12:26.419Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T12:12:26.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T12:13:13.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T14:41:26.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T14:41:26.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T14:41:26.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T14:41:26.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T14:41:26.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-21T14:41:26.557Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: relation "project" does not exist
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:78:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:20:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: relation "project" does not exist',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T15:14:43.367Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T15:14:43.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T15:14:43.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T15:14:43.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T15:14:43.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-21T15:14:43.560Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:78:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T15:16:54.128Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T15:16:54.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T15:16:54.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T15:16:54.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T15:16:54.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-21T15:16:54.283Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T15:17:07.877Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-21T15:17:07.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-21T15:17:07.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-21T15:17:07.944Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-21T15:17:07.945Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-21T15:17:08.018Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T04:33:57.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T04:33:57.897Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T04:33:57.897Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T04:33:57.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T04:33:57.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T04:33:58.180Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T05:20:16.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T05:20:16.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T05:20:16.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T05:20:16.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T05:20:16.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T05:20:16.641Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T05:21:38.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T05:21:38.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T05:21:38.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T05:21:38.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T05:21:39.125Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T05:21:39.860Z',
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2022-12-20T04:57:25.807Z',
@@ -7491,11 +8041,288 @@
 {
   message: 'Connected to mongoDB',
   level: 'info',
+  timestamp: '2022-12-22T05:21:40.172Z',
   timestamp: '2022-12-20T04:57:26.955Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'service.object_builder.create: requested - {"table_slug":"project","data":{"fields":{"company_id":{"stringValue":"dc49340a-fcb2-4e8c-b3c7-b51329d14575","kind":"stringValue"},"domain":{"stringValue":"test.admin.u-code.io","kind":"stringValue"},"name":{"stringValue":"test","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:30.688Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: requested, {"table_slug":"project","data":{"fields":{"company_id":{"stringValue":"dc49340a-fcb2-4e8c-b3c7-b51329d14575","kind":"stringValue"},"domain":{"stringValue":"test.admin.u-code.io","kind":"stringValue"},"name":{"stringValue":"test","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:30.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:33.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:33.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: requested - {"table_slug":"client_type","data":{"fields":{"name":{"stringValue":"TEST ADMIN","kind":"stringValue"},"project_id":{"stringValue":"aa443a69-360c-4c45-b839-e85595877c6c","kind":"stringValue"},"self_recover":{"boolValue":true,"kind":"boolValue"},"self_register":{"boolValue":true,"kind":"boolValue"},"confirm_by":{"stringValue":"UNDECIDED","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:33.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: requested, {"table_slug":"client_type","data":{"fields":{"name":{"stringValue":"TEST ADMIN","kind":"stringValue"},"project_id":{"stringValue":"aa443a69-360c-4c45-b839-e85595877c6c","kind":"stringValue"},"self_recover":{"boolValue":true,"kind":"boolValue"},"self_register":{"boolValue":true,"kind":"boolValue"},"confirm_by":{"stringValue":"UNDECIDED","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:33.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:34.051Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:34.051Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: requested - {"table_slug":"client_platform","data":{"fields":{"client_type_ids":{"listValue":{"values":[{"stringValue":"000a3468-2698-4744-9829-cea1d9300f48","kind":"stringValue"}]},"kind":"listValue"},"name":{"stringValue":"ADMIN PLATFORM","kind":"stringValue"},"project_id":{"stringValue":"aa443a69-360c-4c45-b839-e85595877c6c","kind":"stringValue"},"subdomain":{"stringValue":"test.admin.u-code.io","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:34.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: requested, {"table_slug":"client_platform","data":{"fields":{"client_type_ids":{"listValue":{"values":[{"stringValue":"000a3468-2698-4744-9829-cea1d9300f48","kind":"stringValue"}]},"kind":"listValue"},"name":{"stringValue":"ADMIN PLATFORM","kind":"stringValue"},"project_id":{"stringValue":"aa443a69-360c-4c45-b839-e85595877c6c","kind":"stringValue"},"subdomain":{"stringValue":"test.admin.u-code.io","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:34.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.appendManyToMany: requested, {"id_from":"7655563a-1b6b-4ccd-b89a-23089629b351","id_to":["000a3468-2698-4744-9829-cea1d9300f48"],"table_from":"client_platform","table_to":"client_type"}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:34.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.appendManyToMany: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:35.700Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:35.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:35.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: requested - {"table_slug":"test_login","data":{"fields":{"login_strategy":{"stringValue":"Login with password","kind":"stringValue"},"login_view":{"stringValue":"login","kind":"stringValue"},"object_id":{"stringValue":"2546e042-af2f-4cef-be7c-834e6bde951c","kind":"stringValue"},"password_label":{"stringValue":"","kind":"stringValue"},"password_view":{"stringValue":"password","kind":"stringValue"},"table_slug":{"stringValue":"user","kind":"stringValue"},"client_type_id":{"stringValue":"000a3468-2698-4744-9829-cea1d9300f48","kind":"stringValue"},"login_label":{"stringValue":"Логин","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:35.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: requested, {"table_slug":"test_login","data":{"fields":{"login_strategy":{"stringValue":"Login with password","kind":"stringValue"},"login_view":{"stringValue":"login","kind":"stringValue"},"object_id":{"stringValue":"2546e042-af2f-4cef-be7c-834e6bde951c","kind":"stringValue"},"password_label":{"stringValue":"","kind":"stringValue"},"password_view":{"stringValue":"password","kind":"stringValue"},"table_slug":{"stringValue":"user","kind":"stringValue"},"client_type_id":{"stringValue":"000a3468-2698-4744-9829-cea1d9300f48","kind":"stringValue"},"login_label":{"stringValue":"Логин","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:35.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:36.663Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:36.664Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: requested - {"table_slug":"role","data":{"fields":{"client_platform_id":{"stringValue":"7655563a-1b6b-4ccd-b89a-23089629b351","kind":"stringValue"},"client_type_id":{"stringValue":"000a3468-2698-4744-9829-cea1d9300f48","kind":"stringValue"},"name":{"stringValue":"ADMIN","kind":"stringValue"},"project_id":{"stringValue":"aa443a69-360c-4c45-b839-e85595877c6c","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:36.665Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: requested, {"table_slug":"role","data":{"fields":{"client_platform_id":{"stringValue":"7655563a-1b6b-4ccd-b89a-23089629b351","kind":"stringValue"},"client_type_id":{"stringValue":"000a3468-2698-4744-9829-cea1d9300f48","kind":"stringValue"},"name":{"stringValue":"ADMIN","kind":"stringValue"},"project_id":{"stringValue":"aa443a69-360c-4c45-b839-e85595877c6c","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:36.666Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:37.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:37.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: requested - {"table_slug":"record_permission","data":{"fields":{"update":{"stringValue":"Yes","kind":"stringValue"},"write":{"stringValue":"Yes","kind":"stringValue"},"delete":{"stringValue":"Yes","kind":"stringValue"},"is_have_condition":{"boolValue":false,"kind":"boolValue"},"read":{"stringValue":"Yes","kind":"stringValue"},"role_id":{"stringValue":"2bdd3ea1-c674-4bca-a9e8-b6bd0057b6a7","kind":"stringValue"},"table_slug":{"stringValue":"app","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:37.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: requested, {"table_slug":"record_permission","data":{"fields":{"update":{"stringValue":"Yes","kind":"stringValue"},"write":{"stringValue":"Yes","kind":"stringValue"},"delete":{"stringValue":"Yes","kind":"stringValue"},"is_have_condition":{"boolValue":false,"kind":"boolValue"},"read":{"stringValue":"Yes","kind":"stringValue"},"role_id":{"stringValue":"2bdd3ea1-c674-4bca-a9e8-b6bd0057b6a7","kind":"stringValue"},"table_slug":{"stringValue":"app","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:37.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:38.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:38.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: requested - {"table_slug":"record_permission","data":{"fields":{"delete":{"stringValue":"Yes","kind":"stringValue"},"is_have_condition":{"boolValue":false,"kind":"boolValue"},"read":{"stringValue":"Yes","kind":"stringValue"},"role_id":{"stringValue":"2bdd3ea1-c674-4bca-a9e8-b6bd0057b6a7","kind":"stringValue"},"table_slug":{"stringValue":"record_permission","kind":"stringValue"},"update":{"stringValue":"Yes","kind":"stringValue"},"write":{"stringValue":"Yes","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:38.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: requested, {"table_slug":"record_permission","data":{"fields":{"delete":{"stringValue":"Yes","kind":"stringValue"},"is_have_condition":{"boolValue":false,"kind":"boolValue"},"read":{"stringValue":"Yes","kind":"stringValue"},"role_id":{"stringValue":"2bdd3ea1-c674-4bca-a9e8-b6bd0057b6a7","kind":"stringValue"},"table_slug":{"stringValue":"record_permission","kind":"stringValue"},"update":{"stringValue":"Yes","kind":"stringValue"},"write":{"stringValue":"Yes","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:38.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:39.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:39.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: requested - {"table_slug":"user","data":{"fields":{"password":{"stringValue":"java009","kind":"stringValue"},"photo_url":{"stringValue":"","kind":"stringValue"},"role_id":{"stringValue":"2bdd3ea1-c674-4bca-a9e8-b6bd0057b6a7","kind":"stringValue"},"salary":{"numberValue":0,"kind":"numberValue"},"active":{"numberValue":1,"kind":"numberValue"},"client_platform_id":{"stringValue":"7655563a-1b6b-4ccd-b89a-23089629b351","kind":"stringValue"},"name":{"stringValue":"","kind":"stringValue"},"phone":{"stringValue":"(90) 909-65-05","kind":"stringValue"},"project_id":{"stringValue":"aa443a69-360c-4c45-b839-e85595877c6c","kind":"stringValue"},"client_type_id":{"stringValue":"000a3468-2698-4744-9829-cea1d9300f48","kind":"stringValue"},"login":{"stringValue":"javlonbek","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:39.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: requested, {"table_slug":"user","data":{"fields":{"password":{"stringValue":"java009","kind":"stringValue"},"photo_url":{"stringValue":"","kind":"stringValue"},"role_id":{"stringValue":"2bdd3ea1-c674-4bca-a9e8-b6bd0057b6a7","kind":"stringValue"},"salary":{"numberValue":0,"kind":"numberValue"},"active":{"numberValue":1,"kind":"numberValue"},"client_platform_id":{"stringValue":"7655563a-1b6b-4ccd-b89a-23089629b351","kind":"stringValue"},"name":{"stringValue":"","kind":"stringValue"},"phone":{"stringValue":"(90) 909-65-05","kind":"stringValue"},"project_id":{"stringValue":"aa443a69-360c-4c45-b839-e85595877c6c","kind":"stringValue"},"client_type_id":{"stringValue":"000a3468-2698-4744-9829-cea1d9300f48","kind":"stringValue"},"login":{"stringValue":"javlonbek","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:39.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:11:40.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T06:11:40.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T06:53:38.225Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T06:53:38.275Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T06:53:38.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T06:53:38.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T06:53:42.719Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T06:53:43.389Z',
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2022-12-20T05:14:24.878Z',
@@ -7505,11 +8332,50 @@
 {
   message: 'Connected to mongoDB',
   level: 'info',
+  timestamp: '2022-12-22T06:53:43.401Z',
   timestamp: '2022-12-20T05:14:26.431Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T08:44:20.811Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T08:44:20.817Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T08:44:20.817Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T08:44:20.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T08:44:22.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T08:44:22.594Z',
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2022-12-20T05:17:04.612Z',
@@ -7519,11 +8385,15 @@
 {
   message: 'Connected to mongoDB',
   level: 'info',
+  timestamp: '2022-12-22T08:44:22.648Z',
   timestamp: '2022-12-20T05:17:05.950Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'service.object_builder.getList: requested - {"table_slug":"user","data":{"fields":{"login":{"stringValue":"javlon","kind":"stringValue"},"password":{"stringValue":"javlon00","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T10:11:52.213Z',
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2022-12-20T05:41:15.893Z',
@@ -7531,6 +8401,9 @@
   metadata: {}
 }
 {
+  message: 'storage.object_builder.getList: requested, {"table_slug":"user","data":{"fields":{"login":{"stringValue":"javlon","kind":"stringValue"},"password":{"stringValue":"javlon00","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:11:52.223Z',
   message: 'Connected to mongoDB',
   level: 'info',
   timestamp: '2022-12-20T05:41:17.615Z',
@@ -7911,6 +8784,7 @@
 {
   message: 'storage.object_builder.getList: succeeded',
   level: 'debug',
+  timestamp: '2022-12-22T10:11:58.380Z',
   timestamp: '2022-12-21T06:53:26.778Z',
   label: 'object_builder_service',
   metadata: {}
@@ -7918,11 +8792,15 @@
 {
   message: 'service.object_builder.getList: succeeded',
   level: 'info',
+  timestamp: '2022-12-22T10:11:58.381Z',
   timestamp: '2022-12-21T06:53:26.779Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T10:11:58.400Z',
   message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
   level: 'info',
   timestamp: '2022-12-21T06:53:26.793Z',
@@ -7930,6 +8808,9 @@
   metadata: {}
 }
 {
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:11:58.400Z',
   message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
   level: 'debug',
   timestamp: '2022-12-21T06:53:26.794Z',
@@ -8303,6 +9184,7 @@
 {
   message: 'storage.object_builder.getSingle: succeeded',
   level: 'debug',
+  timestamp: '2022-12-22T10:11:58.883Z',
   timestamp: '2022-12-21T07:11:07.465Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8310,11 +9192,106 @@
 {
   message: 'service.object_builder.getSingle: succeeded',
   level: 'info',
+  timestamp: '2022-12-22T10:11:58.884Z',
   timestamp: '2022-12-21T07:11:07.466Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'service.loginStore.login: requested - {"password":"javlon00","login":"javlon","client_type":"JAVLONBEK ADMIN","login_strategy":"","project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T10:11:58.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: requested, {"password":"javlon00","login":"javlon","client_type":"JAVLONBEK ADMIN","login_strategy":"","project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:11:58.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:12:00.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T10:12:00.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T10:12:39.378Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:12:39.378Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:12:39.862Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T10:12:39.862Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T10:14:53.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:14:53.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:14:53.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T10:14:53.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.register: requested - {"k8s_namespace":"not_required_yet","project_id":"aa443a69-360c-4c45-b839-e85595877c6c","secret_path":"k8s/ucode-test/dc49340a-fcb2-4e8c-b3c7-b51329d14575/aa443a69-360c-4c45-b839-e85595877c6c/MONGODB","credentials":{"host":"161.35.26.178","port":"27017","username":"object_builder_service","password":"eeNgoot2","database":"object_builder_service"}}',
+  level: 'info',
+  timestamp: '2022-12-22T10:14:54.240Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"k8s_namespace":"not_required_yet","project_id":"aa443a69-360c-4c45-b839-e85595877c6c","secret_path":"k8s/ucode-test/dc49340a-fcb2-4e8c-b3c7-b51329d14575/aa443a69-360c-4c45-b839-e85595877c6c/MONGODB","credentials":{"host":"161.35.26.178","port":"27017","username":"object_builder_service","password":"eeNgoot2","database":"object_builder_service"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:14:54.241Z',
   message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
   level: 'debug',
   timestamp: '2022-12-21T10:08:49.731Z',
@@ -8324,6 +9301,7 @@
 {
   message: 'Main function is running',
   level: 'debug',
+  timestamp: '2022-12-22T10:14:54.241Z',
   timestamp: '2022-12-21T10:08:49.735Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8331,6 +9309,7 @@
 {
   message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
   level: 'debug',
+  timestamp: '2022-12-22T10:14:54.242Z',
   timestamp: '2022-12-21T10:08:49.735Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8338,11 +9317,15 @@
 {
   message: 'storage.project.register: succeeded',
   level: 'debug',
+  timestamp: '2022-12-22T10:14:54.320Z',
   timestamp: '2022-12-21T10:08:49.783Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'service.project.register: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T10:14:54.320Z',
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2022-12-21T10:08:50.307Z',
@@ -8352,6 +9335,889 @@
 {
   message: 'Connected to the database',
   level: 'info',
+  timestamp: '2022-12-22T10:14:54.856Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T10:15:01.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:15:01.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:15:01.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T10:15:01.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.register: requested - {"k8s_namespace":"not_required_yet","project_id":"aa443a69-360c-4c45-b839-e85595877c6c","secret_path":"k8s/ucode-test/dc49340a-fcb2-4e8c-b3c7-b51329d14575/aa443a69-360c-4c45-b839-e85595877c6c/MONGODB","credentials":{"host":"161.35.26.178","port":"27017","username":"object_builder_service","password":"eeNgoot2","database":"object_builder_service"}}',
+  level: 'info',
+  timestamp: '2022-12-22T10:15:02.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"k8s_namespace":"not_required_yet","project_id":"aa443a69-360c-4c45-b839-e85595877c6c","secret_path":"k8s/ucode-test/dc49340a-fcb2-4e8c-b3c7-b51329d14575/aa443a69-360c-4c45-b839-e85595877c6c/MONGODB","credentials":{"host":"161.35.26.178","port":"27017","username":"object_builder_service","password":"eeNgoot2","database":"object_builder_service"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:15:02.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T10:15:02.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T10:15:02.118Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.register: failed with error: db conn with given projectId already exists',
+  level: 'error',
+  timestamp: '2022-12-22T10:15:02.140Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T10:15:02.720Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'info',
+  timestamp: '2022-12-22T10:15:28.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {"table_slug":"client_type","data":{"fields":{"id":{"stringValue":"3d786323-c7b3-4c67-8ebd-7a7e5f3257a0","kind":"stringValue"}}},"project_id":"ucode_default_project_id"}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:15:28.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:15:28.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T10:15:28.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:40:36.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T10:40:36.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T10:40:36.034Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:40:36.234Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:40:36.234Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:40:36.551Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: Scan error on column index 3, name "updated_at": converting NULL to string is unsupported
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: Scan error on column index 3, name "updated_at": converting NULL to string is unsupported',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:41:24.860Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T10:41:24.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T10:41:24.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:41:25.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:41:25.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:50:50.553Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T10:50:50.579Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T10:50:50.580Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:50:50.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:50:50.880Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:50:51.145Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:51:47.443Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T10:51:47.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T10:51:47.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:51:47.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:51:47.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:52:48.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T10:52:48.811Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T10:52:48.812Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:52:49.156Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:52:49.157Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:56:21.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T10:56:21.789Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T10:56:21.790Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:56:22.097Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:56:22.097Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:01.947Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:01.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:01.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:02.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:02.167Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:32.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:32.974Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:32.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:33.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T10:57:33.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T10:57:33.605Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: sql: no rows in result set
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'sql: no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:03:11.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T11:03:11.272Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T11:03:11.272Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:03:11.669Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:03:11.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:03:12.042Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:06:06.955Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T11:06:06.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T11:06:06.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:06:07.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:06:07.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:46:06.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T11:46:06.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T11:46:06.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:46:06.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:46:06.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:46:06.573Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:48:03.300Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T11:48:03.306Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T11:48:03.306Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:48:03.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:48:03.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:50:34.954Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T11:50:34.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T11:50:34.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:50:35.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:50:35.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:50:35.559Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: syntax error at or near "["
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: syntax error at or near "["',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:51:13.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T11:51:13.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T11:51:13.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:51:13.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:51:13.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T11:51:14.049Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: pq: op ANY/ALL (array) requires array on right side
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 2,
+      details: 'pq: op ANY/ALL (array) requires array on right side',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:52:46.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T11:52:46.306Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T11:52:46.307Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:52:46.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:52:46.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:52:46.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T11:52:50.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T11:52:50.559Z',
   timestamp: '2022-12-21T10:08:51.269Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8359,6 +10225,7 @@
 {
   message: 'Connected to mongoDB',
   level: 'info',
+  timestamp: '2022-12-22T11:52:50.716Z',
   timestamp: '2022-12-21T10:08:51.394Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8366,6 +10233,7 @@
 {
   message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
   level: 'debug',
+  timestamp: '2022-12-22T11:57:00.260Z',
   timestamp: '2022-12-21T10:22:48.883Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8373,6 +10241,7 @@
 {
   message: 'Main function is running',
   level: 'debug',
+  timestamp: '2022-12-22T11:57:00.265Z',
   timestamp: '2022-12-21T10:22:48.886Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8380,6 +10249,7 @@
 {
   message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
   level: 'debug',
+  timestamp: '2022-12-22T11:57:00.265Z',
   timestamp: '2022-12-21T10:22:48.886Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8387,11 +10257,29 @@
 {
   message: 'storage.project.register: succeeded',
   level: 'debug',
+  timestamp: '2022-12-22T11:57:00.608Z',
   timestamp: '2022-12-21T10:22:48.927Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:57:00.608Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:57:00.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T11:57:04.366Z',
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2022-12-21T10:22:49.524Z',
@@ -8401,6 +10289,7 @@
 {
   message: 'Connected to the database',
   level: 'info',
+  timestamp: '2022-12-22T11:57:04.815Z',
   timestamp: '2022-12-21T10:22:50.025Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8408,6 +10297,7 @@
 {
   message: 'Connected to mongoDB',
   level: 'info',
+  timestamp: '2022-12-22T11:57:05.011Z',
   timestamp: '2022-12-21T10:22:50.077Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8415,6 +10305,7 @@
 {
   message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
   level: 'debug',
+  timestamp: '2022-12-22T11:58:03.075Z',
   timestamp: '2022-12-21T13:01:38.710Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8422,6 +10313,7 @@
 {
   message: 'Main function is running',
   level: 'debug',
+  timestamp: '2022-12-22T11:58:03.080Z',
   timestamp: '2022-12-21T13:01:38.715Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8429,6 +10321,7 @@
 {
   message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
   level: 'debug',
+  timestamp: '2022-12-22T11:58:03.080Z',
   timestamp: '2022-12-21T13:01:38.716Z',
   label: 'object_builder_service',
   metadata: {}
@@ -8436,11 +10329,1078 @@
 {
   message: 'storage.project.register: succeeded',
   level: 'debug',
+  timestamp: '2022-12-22T11:58:03.340Z',
   timestamp: '2022-12-21T13:01:38.810Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:58:03.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:58:03.616Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T11:58:06.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T11:58:07.209Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-22T11:58:07.313Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:58:50.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T11:58:50.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T11:58:50.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:58:50.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:58:50.981Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:58:51.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T11:58:54.708Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T11:58:55.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-22T11:58:55.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:59:53.334Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T11:59:53.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T11:59:53.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:59:53.671Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T11:59:53.671Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T11:59:53.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T11:59:56.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T11:59:57.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-22T11:59:57.495Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:01:52.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:01:52.605Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:01:52.605Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:01:52.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:01:52.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:01:53.179Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T12:01:55.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T12:01:56.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-22T12:01:56.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:02:32.395Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:02:32.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:02:32.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:02:32.600Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:02:32.600Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:02:33.018Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T12:02:36.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T12:02:36.584Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-22T12:02:36.708Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:05:28.638Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:05:28.644Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:05:28.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:05:28.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:05:28.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:05:29.597Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:07:39.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:07:39.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:07:39.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:07:39.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:07:39.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T12:07:40.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:07:52.406Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp 161.35.26.178:8090: i/o timeout"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp 161.35.26.178:8090: i/o timeout"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:09:55.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:09:55.949Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:09:55.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:09:56.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:09:56.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:09:56.922Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:31:34.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:31:34.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:31:34.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:31:34.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:31:34.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:31:35.576Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:32:12.945Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:32:12.956Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:32:12.957Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:32:13.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:32:13.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:32:13.810Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:34:27.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:34:27.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:34:27.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:34:27.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:34:27.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:34:28.289Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:40:30.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:40:30.417Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:40:30.419Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:40:30.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:40:30.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:40:31.426Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:42:51.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:42:51.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:42:51.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:42:51.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:42:51.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2022-12-22T12:42:52.543Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
+        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
+        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11)
+    for call at
+        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
+        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:29:26
+        at new Promise (<anonymous>)
+        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:28:12)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
+        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
+        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
+        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+      code: 14,
+      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      },
+      progress: 'PROCESSED'
+    }
+  }
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:42.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:42.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:42.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:42.841Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:45.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T12:48:46.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.reconnect: requested - {"k8s_namespace":"not_required_yet","project_id":"aa443a69-360c-4c45-b839-e85595877c6c","secret_path":"k8s/ucode-test/dc49340a-fcb2-4e8c-b3c7-b51329d14575/aa443a69-360c-4c45-b839-e85595877c6c/MONGODB","credentials":{"host":"161.35.26.178","port":"27017","username":"object_builder_service","password":"eeNgoot2","database":"object_builder_service"}}',
+  level: 'info',
+  timestamp: '2022-12-22T12:48:46.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {"k8s_namespace":"not_required_yet","project_id":"aa443a69-360c-4c45-b839-e85595877c6c","secret_path":"k8s/ucode-test/dc49340a-fcb2-4e8c-b3c7-b51329d14575/aa443a69-360c-4c45-b839-e85595877c6c/MONGODB","credentials":{"host":"161.35.26.178","port":"27017","username":"object_builder_service","password":"eeNgoot2","database":"object_builder_service"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:46.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:46.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:46.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:46.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.reconnect: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T12:48:46.443Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T12:48:46.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T12:48:46.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-22T12:48:46.584Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T12:48:47.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:54.772Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:54.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:54.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:55.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {"request":{"k8s_namespace":"cp-region-type-id"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:58.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 8090',
+  level: 'info',
+  timestamp: '2022-12-22T13:29:58.592Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.reconnect: requested - {"k8s_namespace":"not_required_yet","project_id":"aa443a69-360c-4c45-b839-e85595877c6c","secret_path":"k8s/ucode-test/dc49340a-fcb2-4e8c-b3c7-b51329d14575/aa443a69-360c-4c45-b839-e85595877c6c/MONGODB","credentials":{"host":"161.35.26.178","port":"27017","username":"object_builder_service","password":"eeNgoot2","database":"object_builder_service"}}',
+  level: 'info',
+  timestamp: '2022-12-22T13:29:59.006Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {"k8s_namespace":"not_required_yet","project_id":"aa443a69-360c-4c45-b839-e85595877c6c","secret_path":"k8s/ucode-test/dc49340a-fcb2-4e8c-b3c7-b51329d14575/aa443a69-360c-4c45-b839-e85595877c6c/MONGODB","credentials":{"host":"161.35.26.178","port":"27017","username":"object_builder_service","password":"eeNgoot2","database":"object_builder_service"}}',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:59.006Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:59.007Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:59.007Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:59.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.reconnect: succeeded',
+  level: 'info',
+  timestamp: '2022-12-22T13:29:59.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-22T13:29:59.037Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-22T13:29:59.151Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T13:29:59.170Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-22T13:29:59.684Z',
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2022-12-21T13:01:39.670Z',
@@ -9725,6 +12685,41 @@
   message: 'Connected to mongoDB',
   level: 'info',
   timestamp: '2022-12-24T06:47:32.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T07:03:09.616Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T07:03:09.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T07:03:09.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T07:03:09.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T07:03:10.279Z',
   label: 'object_builder_service',
   metadata: {}
 }

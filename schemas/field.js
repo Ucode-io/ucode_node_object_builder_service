@@ -51,6 +51,12 @@ const FieldSchema = mongoose.Schema(
         },
         relation_id: {
             type: String,
+        },
+        unique: {
+            type: Boolean,
+        },
+        automatic: {
+            type: Boolean,
         }
     },
     {

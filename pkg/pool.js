@@ -1,5 +1,6 @@
 const config = require('../config/index');
 let pool = new Map();
+const client = require('../services/project')
 
 const interval = setInterval(() => {
     for (projectID of pool.keys()) {
@@ -16,6 +17,7 @@ const ErrProjectExists = new Error("db conn with given projectId already exists"
 
 async function get(projectId=config.ucodeDefaultProjectID) {
     if (!projectId) {
+        projectId=config.ucodeDefaultProjectID
         console.warn('WARNING:: Using default project id in pool...')
     }
 

@@ -180,7 +180,7 @@ let viewStore = {
                 data.html = data.html.replaceAll('&amp;', '&')
                 data.html = data.html.replaceAll('&quot;', '"')
                 data.html = data.html.replaceAll('&apos;', `'`)
-                const tableInfo = (await ObjectBuilder())[decodedData.table_slug]
+                const tableInfo = (await ObjectBuilder(false, data.project_id))[decodedData.table_slug]
 
                 let relations = await Relation.find({
                     table_from: decodedData.table_slug,
@@ -240,11 +240,11 @@ let viewStore = {
                     let m2mrelation_field = decodedData.table_slug + "_ids"
                     let response = []
                     if (relation.type === "Many2One") {
-                        response = await (await ObjectBuilder())[relation.table_from].models.find({
+                        response = await (await ObjectBuilder(false, data.project_id))[relation.table_from].models.find({
                             [relation_field]: decodedData.object_id,
                         })
                     } else if (relation.type === "Many2Many") {
-                        response = await (await ObjectBuilder())[relation.table_from].models.find({
+                        response = await (await ObjectBuilder(false, data.project_id))[relation.table_from].models.find({
                             [m2mrelation_field]: { $in: [decodedData.object_id] }
                         })
                     }
@@ -351,7 +351,7 @@ let viewStore = {
             if (decodedData.table_slug && decodedData.object_id) {
                 data.html = data.html.replace('[??', '{')
                 data.html = data.html.replace('??]', '}')
-                const tableInfo = (await ObjectBuilder())[decodedData.table_slug]
+                const tableInfo = (await ObjectBuilder(false, data.project_id))[decodedData.table_slug]
 
                 let relations = await Relation.find({
                     table_from: decodedData.table_slug,
@@ -409,7 +409,7 @@ let viewStore = {
                 for (const relation of relations) {
                     let relation_field = decodedData.table_slug + "_id"
                     let m2mrelation_field = decodedData.table_slug + "_ids"
-                    let response = await (await ObjectBuilder())[relation.table_from].models.find({
+                    let response = await (await ObjectBuilder(false, data.project_id))[relation.table_from].models.find({
                         $or: [{ [relation_field]: decodedData.object_id },
                         { [m2mrelation_field]: decodedData.object_id }
                         ]

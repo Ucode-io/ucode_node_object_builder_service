@@ -133,10 +133,11 @@ let permission = {
                 tableSlugs.push(table.slug)
             })
             const permissionTable = (await ObjectBuilder())["record_permission"]
-            let permissions = await permissionTable.models.find({
-                role_id: req.role_id,
-                table_slug: { $in: tableSlugs }
-            },
+            let permissions = await permissionTable.models.find(
+                {
+                    role_id: req.role_id,
+                    table_slug: { $in: tableSlugs }
+                },
                 {
                     _id: 0,
                     __v: 0
@@ -155,24 +156,24 @@ let permission = {
                     write: "No",
                     delete: "No",
                     update: "No",
-                    is_have_condition: false
+                    is_have_condition: falsek
                 }
                 noPermissions.push(permission)
-            }
-            permissions = permissions.concat(noPermissions)
+                permissions = permissions.concat(noPermissions)
 
-            let docPermissions = []
-            for (const permission of permissions) {
-                if (permission._doc) {
-                    docPermissions.push(permission._doc)
-                } else {
-                    docPermissions.push(permission)
+                let docPermissions = []
+                for (const permission of permissions) {
+                    if (permission._doc) {
+                        docPermissions.push(permission._doc)
+                    } else {
+                        docPermissions.push(permission)
+                    }
                 }
+                const response = struct.encode({
+                    permissions: docPermissions
+                })
+                return { table_slug: "record_permission", data: response }
             }
-            const response = struct.encode({
-                permissions: docPermissions
-            })
-            return { table_slug: "record_permission", data: response }
         } catch (err) {
             throw err
         }

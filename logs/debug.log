@@ -12723,3 +12723,73 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T07:07:48.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T07:07:48.731Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T07:07:48.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T07:07:48.773Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T07:07:49.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T07:12:19.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T07:12:19.506Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T07:12:19.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T07:12:19.549Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T07:12:20.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

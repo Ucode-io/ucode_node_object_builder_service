@@ -68,8 +68,8 @@ let fieldStore = {
                 const table = await Table.findOne({
                     id: data.id
                 })
-                const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
-                const roleTable = (await ObjectBuilder())["role"]
+                const fieldPermissionTable = (await ObjectBuilder(false, data.project_id))["field_permission"]
+                const roleTable = (await ObjectBuilder(false, data.project_id))["role"]
                 const roles = await roleTable?.models.find()
                 for (const role of roles) {
                     let permission = {
@@ -149,8 +149,8 @@ let fieldStore = {
             const table = await Table.findOne({
                 id: data.table_id
             });
-            const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
-            const roleTable = (await ObjectBuilder())["role"]
+            const fieldPermissionTable = (await ObjectBuilder(false, data.project_id))["field_permission"]
+            const roleTable = (await ObjectBuilder(false, data.project_id))["role"]
             const roles = await roleTable?.models.find()
             for (const role of roles) {
                 let permission = {
@@ -499,7 +499,7 @@ let fieldStore = {
             const deletedField = await Field.findOne({ id: data.id })
             const table = await Table.findOne({ id: deletedField.table_id })
             const field = await Field.deleteOne({ id: data.id });
-            const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
+            const fieldPermissionTable = (await ObjectBuilder(false, data.project_id))["field_permission"]
             const response = await fieldPermissionTable?.models.deleteMany({
                 field_id: data.id
             })

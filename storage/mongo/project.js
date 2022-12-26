@@ -5,6 +5,7 @@ const newMongoDBConn = require('../../config/mongoConn')
 const config = require('../../config/index')
 const client = require('../../services/grpc/client');
 const { k8s_namespace } = require("../../config/index");
+const objectBuilder = require("../../models/object_builder");
 
 
 
@@ -89,6 +90,14 @@ let projectStore = {
             await insertCollections(mongoDBConn)
 
             await pool.add(data?.project_id, mongoDBConn)
+
+            mongoDBConn.once("open", async function () {
+                Logger.info("Connected to the database, building models");
+
+                await objectBuilder(false, data?.project_id).then(res => {
+                    console.log("Object builder has successfully runned for", data?.project_id);
+                })
+            });
 
             return {}
 

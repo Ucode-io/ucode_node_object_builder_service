@@ -12954,3 +12954,38 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T08:12:19.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T08:12:19.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T08:12:19.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T08:12:19.161Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T08:12:19.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

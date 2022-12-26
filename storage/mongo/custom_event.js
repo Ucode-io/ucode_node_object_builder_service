@@ -96,7 +96,7 @@ let customEventStore = {
             }
         )
         let field_slug = data.field_slug
-        const tableInfo = (await ObjectBuilder())[custom_event.table_slug]
+        const tableInfo = (await ObjectBuilder(false, data.project_id))[custom_event.table_slug]
         for (const id of data.object_ids) {
             let object = await tableInfo.models.findOne({
                 guid: id

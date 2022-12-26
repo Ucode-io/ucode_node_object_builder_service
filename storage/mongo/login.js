@@ -7,14 +7,14 @@ let NAMESPACE = "storage.login";
 // just comment
 let loginStore = {
     login: catchWrapDbObjectBuilder(`${NAMESPACE}.login`, async (req) => {
-        const clientTypeTable = (await ObjectBuilder())["client_type"]
+        const clientTypeTable = (await ObjectBuilder(false, req.project_id))["client_type"]
 
         const clientType = await clientTypeTable.models.findOne(
             {
                 name: req.client_type,
             }
         )
-        const tableInfo = (await ObjectBuilder())["test_login"]
+        const tableInfo = (await ObjectBuilder(false, req.project_id))["test_login"]
         const login = await tableInfo.models.findOne(
             {
                 $and: [
@@ -35,7 +35,7 @@ let loginStore = {
         params[login.login_view] = req.login
         params[login.password_view] = req.password
 
-        const userTable = (await ObjectBuilder())[login.table_slug]
+        const userTable = (await ObjectBuilder(false, req.project_id))[login.table_slug]
         let user, userId;
         user = await userTable.models.findOne(
             {
@@ -48,7 +48,7 @@ let loginStore = {
                 user_found: user_found
             }
         }
-        const roleTable = (await ObjectBuilder())["role"]
+        const roleTable = (await ObjectBuilder(false, req.project_id))["role"]
 
         const role = await roleTable.models.findOne(
             {
@@ -56,7 +56,7 @@ let loginStore = {
             }
         )
 
-        const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
+        const clientPlatfromTable = (await ObjectBuilder(false, req.project_id))["client_platform"]
 
         const clientPlatform = await clientPlatfromTable.models.findOne(
             {
@@ -65,7 +65,7 @@ let loginStore = {
         )
 
 
-        const connectionsTable = (await ObjectBuilder())["connections"]
+        const connectionsTable = (await ObjectBuilder(false, req.project_id))["connections"]
 
         const connections = await connectionsTable.models.find(
             {
@@ -76,7 +76,7 @@ let loginStore = {
         clientTypeResp = clientType
         clientTypeResp.tables = connections
 
-        const recordPermission = (await ObjectBuilder())["record_permission"]
+        const recordPermission = (await ObjectBuilder(false, req.project_id))["record_permission"]
 
         const permissions = await recordPermission.models.find(
             {
@@ -142,8 +142,8 @@ let loginStore = {
             userId;
 
         let user_found = false
-        const tableInfo = (await ObjectBuilder())["test_login"]
-        const clientTypeTable = (await ObjectBuilder())["client_type"]
+        const tableInfo = (await ObjectBuilder(false, req.project_id))["test_login"]
+        const clientTypeTable = (await ObjectBuilder(false, req.project_id))["client_type"]
         clientType = await clientTypeTable.models.findOne(
             {
                 name: req.client_type
@@ -170,7 +170,7 @@ let loginStore = {
         let phone = `\(` + temp.substring(1, 3) + `\) ` + tempPhone
         let params = {}
         params[login.login_view] = phone
-        userTable = (await ObjectBuilder())[login.table_slug]
+        userTable = (await ObjectBuilder(false, req.project_id))[login.table_slug]
         user = await userTable.models.findOne(
             {
                 $and: [params]
@@ -178,14 +178,14 @@ let loginStore = {
         )
         if (user) {
 
-            const roleTable = (await ObjectBuilder())["role"]
+            const roleTable = (await ObjectBuilder(false, req.project_id))["role"]
 
             role = await roleTable.models.findOne(
                 {
                     client_type_id: clientType.guid,
                 }
             )
-            const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
+            const clientPlatfromTable = (await ObjectBuilder(false, req.project_id))["client_platform"]
 
             clientPlatform = await clientPlatfromTable.models.findOne(
                 {
@@ -194,7 +194,7 @@ let loginStore = {
             )
 
 
-            const connectionsTable = (await ObjectBuilder())["connections"]
+            const connectionsTable = (await ObjectBuilder(false, req.project_id))["connections"]
 
             const connections = await connectionsTable.models.find(
                 {
@@ -205,7 +205,7 @@ let loginStore = {
             clientTypeResp = clientType
             clientTypeResp.tables = connections
 
-            const recordPermission = (await ObjectBuilder())["record_permission"]
+            const recordPermission = (await ObjectBuilder(false, req.project_id))["record_permission"]
 
             permissions = await recordPermission.models.find(
                 {
@@ -241,8 +241,8 @@ let loginStore = {
 
         let clientType, clientPlatform, role, permissions, user, clientTypeResp, userTable, userId;
         let user_found = false
-        const tableInfo = (await ObjectBuilder())["test_login"]
-        const clientTypeTable = (await ObjectBuilder())["client_type"]
+        const tableInfo = (await ObjectBuilder(false, req.project_id))["test_login"]
+        const clientTypeTable = (await ObjectBuilder(false, req.project_id))["client_type"]
         clientType = await clientTypeTable.models.findOne(
             {
                 name: req.client_type
@@ -262,7 +262,7 @@ let loginStore = {
         }
         let params = {}
         params[login.login_view] = req.email
-        userTable = (await ObjectBuilder())[login.table_slug]
+        userTable = (await ObjectBuilder(false, req.project_id))[login.table_slug]
         user = await userTable.models.findOne(
             {
                 $and: [params]
@@ -270,14 +270,14 @@ let loginStore = {
         )
         if (user) {
 
-            const roleTable = (await ObjectBuilder())["role"]
+            const roleTable = (await ObjectBuilder(false, req.project_id))["role"]
 
             role = await roleTable.models.findOne(
                 {
                     client_type_id: clientType.guid,
                 }
             )
-            const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
+            const clientPlatfromTable = (await ObjectBuilder(false, req.project_id))["client_platform"]
 
             clientPlatform = await clientPlatfromTable.models.findOne(
                 {
@@ -286,7 +286,7 @@ let loginStore = {
             )
 
 
-            const connectionsTable = (await ObjectBuilder())["connections"]
+            const connectionsTable = (await ObjectBuilder(false, req.project_id))["connections"]
 
             const connections = await connectionsTable.models.find(
                 {
@@ -297,7 +297,7 @@ let loginStore = {
             clientTypeResp = clientType
             clientTypeResp.tables = connections
 
-            const recordPermission = (await ObjectBuilder())["record_permission"]
+            const recordPermission = (await ObjectBuilder(false, req.project_id))["record_permission"]
 
             permissions = await recordPermission.models.find(
                 {
@@ -329,22 +329,22 @@ let loginStore = {
     getUserUpdatedPermission: catchWrapDbObjectBuilder(`${NAMESPACE}.getUserUpdatedPermission`, async (req) => {
 
         let clientType, clientPlatform, role, permissions, user, clientTypeResp, userTable, userId;
-        const tableInfo = (await ObjectBuilder())["test_login"]
-        const clientTypeTable = (await ObjectBuilder())["client_type"]
+        const tableInfo = (await ObjectBuilder(false, req.project_id))["test_login"]
+        const clientTypeTable = (await ObjectBuilder(false, req.project_id))["client_type"]
         clientType = await clientTypeTable.models.findOne(
             {
                 guid: req.client_type_id
             }
         )
 
-        const roleTable = (await ObjectBuilder())["role"]
+        const roleTable = (await ObjectBuilder(false, req.project_id))["role"]
 
         role = await roleTable.models.findOne(
             {
                 client_type_id: clientType.guid,
             }
         )
-        const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
+        const clientPlatfromTable = (await ObjectBuilder(false, req.project_id))["client_platform"]
 
         clientPlatform = await clientPlatfromTable.models.findOne(
             {
@@ -352,7 +352,7 @@ let loginStore = {
             }
         )
 
-        const connectionsTable = (await ObjectBuilder())["connections"]
+        const connectionsTable = (await ObjectBuilder(false, req.project_id))["connections"]
 
         const connections = await connectionsTable.models.find(
             {
@@ -363,7 +363,7 @@ let loginStore = {
         clientTypeResp = clientType
         clientTypeResp.tables = connections
 
-        const recordPermission = (await ObjectBuilder())["record_permission"]
+        const recordPermission = (await ObjectBuilder(false, req.project_id))["record_permission"]
 
         permissions = await recordPermission.models.find(
             {

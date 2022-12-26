@@ -41,7 +41,7 @@ let permission = {
                         const tableInfo = await table.findOne({ id: tableFromApp.table_id })
                         let res;
                         if (tableInfo) {
-                            const permissionTable = (await ObjectBuilder())["record_permission"]
+                            const permissionTable = (await ObjectBuilder(false, req.project_id))["record_permission"]
                             const permission = await permissionTable.models.findOne({
                                 $and: [
                                     {
@@ -142,7 +142,7 @@ let permission = {
             tables.forEach(table => {
                 tableSlugs.push(table.slug)
             })
-            const permissionTable = (await ObjectBuilder())["record_permission"]
+            const permissionTable = (await ObjectBuilder(false, req.project_id))["record_permission"]
             let permissions = await permissionTable.models.find({
                 role_id: req.role_id,
                 table_slug: { $in: tableSlugs }
@@ -210,7 +210,7 @@ let permission = {
             fields.forEach(field => {
                 fieldIds.push(field.id)
             })
-            const permissionTable = (await ObjectBuilder())["field_permission"]
+            const permissionTable = (await ObjectBuilder(false, req.project_id))["field_permission"]
             let fieldPermissions = await permissionTable.models.find({
                 role_id: req.role_id,
                 table_slug: req.table_slug
@@ -264,7 +264,7 @@ let permission = {
         customEvents.forEach(customEvent => {
             customEventIdAndLabels.push({ custom_event_id: customEvent.id, label: customEvent.label })
         })
-        const permissionTable = (await ObjectBuilder())["action_permission"]
+        const permissionTable = (await ObjectBuilder(false, req.project_id))["action_permission"]
         let actionPermissions = await permissionTable.models.find({
             role_id: req.role_id,
             table_slug: req.table_slug
@@ -331,7 +331,7 @@ let permission = {
                 relation_id: { $in: relationIds }
             })
         }
-        const relationPermissionTable = (await ObjectBuilder())["view_relation_permission"]
+        const relationPermissionTable = (await ObjectBuilder(false, req.project_id))["view_relation_permission"]
         let viewRelationPermissions = await relationPermissionTable.models.find({
             role_id: req.role_id,
             table_slug: req.table_slug

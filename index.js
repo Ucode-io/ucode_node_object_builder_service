@@ -19,16 +19,16 @@ const service = require('./services/project');
     })
    
 
-    // This for checking in localhost
+  //  This for checking in localhost
 
     // await projectStorage.registerProjects({
-    //     project_id: "test12123",
+    //     project_id: "50008d64-d3ce-47d0-98b5-cfce24cc7be0",
     //     credentials: {
-    //         host: "localhost",
+    //         host: "161.35.26.178",
     //         port: 27017,
-    //         database: "new_test",
-    //         username: "sirojiddin",
-    //         password: "1234",
+    //         database: "transasia_transasia_object_builder_service",
+    //         username: "transasia_transasia_object_builder_service",
+    //         password: "123JFWxq",
     //     }
     // })
     

@@ -10,14 +10,10 @@ const converter = require("../../helper/converter");
 const cfg = require('../../config/index')
 const mongoPool = require('../../pkg/pool');
 
-// const mongoConn = await mongoPool.get(data.project_id)
-// const table = mongoConn.models['Table']
-// const Field = mongoConn.models['Field']
-// const Section = mongoConn.models['Section']
-// const App = mongoConn.models['App']
-// const View = mongoConn.models['View']
-// const Relation = mongoConn.models['Relation']
-// const ViewRelation = mongoConn.models['ViewRelation']
+const App = require('./app')
+const Table = require('./table');
+const { limit } = require("../../config/index");
+const { ta } = require("date-fns/locale");
 
 let permission = {
     upsertPermissionsByAppId: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertPermissionsByAppId`, async (req) => {
@@ -127,12 +123,6 @@ let permission = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
 
             const tables = await table.find({
                 deleted_at: "1970-01-01T18:00:00.000+00:00"
@@ -254,6 +244,230 @@ let permission = {
         } catch (err) {
             throw err
         }
+    }),
+    getListWithAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithAppTablePermissions`, async (req) => {
+
+    }),
+    getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
+
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Table = mongoConn.models['Table']
+        const App = mongoConn.models['App']
+        const Role = (await ObjectBuilder())['role'].models
+        const RecordPermission = (await ObjectBuilder())['record_permission'].models
+        const FieldPermission = (await ObjectBuilder())['field_permission'].models
+        const ViewPermission = (await ObjectBuilder())['view_relation_permission'].models
+
+        const role = await Role.findOne(
+            { guid: req.role_id },
+            null,
+            { sort: { createdAt: -1 } }
+        )
+
+        if (!role) {
+            console.log('WARNING role not found')
+            throw new Error('Error role not found')
+        }
+
+        let roleCopy = {
+            ...role._doc
+        }
+
+        const apps = await App.find(
+            {},
+            null,
+            {
+                sort: { created_at: -1 }
+            }
+        );
+
+        if (!apps) {
+            console.log('WARNING apps not found')
+            return roleCopy
+        }
+
+        let appsList = []
+        for (let app of apps) {
+
+            let appCopy = {
+                ...app._doc
+            }
+
+            let tableIds = []
+            for (let table of app.tables) {
+                tableIds.push(table.table_id)
+            }
+
+            const tables = await Table.find(
+                {
+                    id: { $in: tableIds },
+                    deleted_at: "1970-01-01T18:00:00.000+00:00",
+                },
+                null,
+                {
+                    sort: { created_at: -1 }
+                }
+            );
+
+            if (!tables) {
+                console.log('WARNING tables not found')
+                return roleCopy
+            }
+
+            let tablesList = []
+
+            for (let table of tables) {
+                let tableCopy = {
+                    ...table._doc
+                }
+
+                const record_permissions = await RecordPermission.find(
+                    {
+                        table_slug: table.slug,
+                        role_id: req.role_id
+                    },
+                    null,
+                    { sort: { createdAt: -1 } }
+                );
+
+                if (record_permissions.length > 0) {
+                    tableCopy.record_permissions = record_permissions[0]
+                } else {
+                    console.log('WARNING record_permissions not found')
+                    tableCopy.record_permissions = {}
+                }
+
+                const field_permissions = await FieldPermission.find(
+                    {
+                        table_slug: table.slug,
+                        role_id: req.role_id
+                    },
+                    null,
+                    { sort: { createdAt: -1 } }
+                );
+
+                tableCopy.field_permissions = field_permissions || []
+
+                const view_permissions = await ViewPermission.find(
+                    {
+                        //@TODO:: filter data
+                    },
+                    null,
+                    { sort: { createdAt: -1 } }
+                );
+
+                tableCopy.view_permissions = view_permissions || []
+
+                tablesList.push(tableCopy)
+            }
+
+            appCopy.tables = tablesList
+
+            appsList.push(appCopy)
+        }
+
+        roleCopy.apps = appsList
+
+        return roleCopy
+
+    }),
+    updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {
+        const ErrRoleNotFound = new Error('role_id is required')
+        const ErrWhileUpdate = new Error('error while updating')
+
+        if (!req.guid) {
+            throw ErrRoleNotFound
+        }
+
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Table = mongoConn.models['Table']
+        const App = mongoConn.models['App']
+        const Role = (await ObjectBuilder())['role'].models
+        const RecordPermission = (await ObjectBuilder())['record_permission'].models
+        const FieldPermission = (await ObjectBuilder())['field_permission'].models
+        const ViewPermission = (await ObjectBuilder())['view_relation_permission'].models
+
+        let role = await Role.findOneAndUpdate(
+            {
+                role_id: req.guid
+            },
+            {
+                $set: {
+                    name: req.name
+                }
+            }, 
+            {
+                upsert: false
+            }
+        )
+
+        if (!role) {
+            throw ErrRoleNotFound
+        }
+
+        for (let app of req?.apps) {
+            for (let table of app?.tables) {
+                // console.log('table.record_permissions', table.record_permissions)
+                // console.log('table.field_permissions', table.field_permissions)
+                // console.log('table.view_permissions', table.view_permissions)
+
+                const record_permissions = await RecordPermission.findOneAndUpdate(
+                    {
+                        role_id: table.record_permissions.role_id,
+                        table_slug: table.record_permissions.table_slug
+                    },
+                    {
+                        $set: table.record_permissions
+                    },
+                    {
+                        upsert: false
+                    }
+                )
+
+                if (!record_permissions) {
+                    return ErrWhileUpdate
+                }
+
+               
+                for (let field_permission of table.field_permissions) {
+                    if (field_permission) {
+                        await FieldPermission.findOneAndUpdate(
+                            {
+                                guid: field_permission.guid,
+                            },
+                            {
+                                $set: field_permission
+                            },
+                            {
+                                upsert: false
+                            }
+                        )
+                    }
+                }
+
+                for (let view_permission of table.view_permissions) {
+                    if (view_permission) {
+                        await FieldPermission.findOneAndUpdate(
+                            {
+                                guid: view_permission.guid,
+                            },
+                            {
+                                $set: view_permission
+                            },
+                            {
+                                upsert: false
+                            }
+                        )
+                    }
+                }
+            }
+        }
+
+
+
+    }),
+    createRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.createRoleAppTablePermissions`, async (req) => {
+
     }),
 }
 

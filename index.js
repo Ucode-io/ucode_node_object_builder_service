@@ -19,7 +19,20 @@ const service = require('./services/project');
     })
    
 
+    // This for checking in localhost
+
+    // await projectStorage.registerProjects({
+    //     project_id: "test12123",
+    //     credentials: {
+    //         host: "localhost",
+    //         port: 27017,
+    //         database: "new_test",
+    //         username: "sirojiddin",
+    //         password: "1234",
+    //     }
+    // })
     
+
     const mongooseConnection = require("./config/mongooseConnection");
     const collectionDeleteInterval = require("./helper/collectionDeleteInterval");
     const grpcConnection = require("./config/grpcConnection");

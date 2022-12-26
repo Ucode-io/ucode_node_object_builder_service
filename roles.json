@@ -1,0 +1,27 @@
+[{
+  "name": "DEFAULT ADMIN",
+  "guid": "59e336b5-229e-4495-903f-e167512e90d2",
+  "project_id": "80cc11d9-2ee6-494a-a09d-40150d151145",
+  "client_platform_id": "3f6320a6-b6ed-4f5f-ad90-14a154c95ed3",
+  "client_type_id": "142e9d0b-d9d3-4f71-bde1-5f1dbd70e83d",
+  "createdAt": {
+    "$date": "2022-08-25T08:58:44.749Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-14T11:52:17.328Z"
+  },
+  "__v": 0
+},{
+  "name": "DEFAULT",
+  "guid": "54ad3db3-5a01-4d65-b8d4-93886f2c4f1c",
+  "project_id": "80cc11d9-2ee6-494a-a09d-40150d151145",
+  "client_platform_id": "3f6320a6-b6ed-4f5f-ad90-14a154c95ed3",
+  "client_type_id": "0ec8e532-7b9f-4b26-a903-2e4f8825d4f4",
+  "createdAt": {
+    "$date": "2022-08-25T08:59:11.460Z"
+  },
+  "updatedAt": {
+    "$date": "2022-08-25T08:59:52.305Z"
+  },
+  "__v": 0
+}]

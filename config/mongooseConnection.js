@@ -6,7 +6,7 @@ ObjectBuilder(false).then(res => {
     console.log("object builder has successfully runned");
 })
 
-let mongoDBUrl = 
+let mongoDBUrl =
     //`mongodb://medion_node_object_builder_service:Weipheingo7aeCho@46.101.114.171:27017/medion_node_object_builder_service`
     "mongodb://" +
     cfg.mongoUser +
@@ -18,8 +18,8 @@ let mongoDBUrl =
     cfg.mongoPort +
     "/" +
     cfg.mongoDatabase;
-    
-    mongoose.connect(
+
+mongoose.connect(
     mongoDBUrl,
     {
         useNewUrlParser: true,
@@ -28,10 +28,13 @@ let mongoDBUrl =
     },
     (err) => {
         if (err) {
-            logger.error("[Error::ignorable] while connecting to database (" + 
-            mongoDBUrl + ") "+ err.message);
+            logger.error("[Error::ignorable] while connecting to database (" +
+                mongoDBUrl + ") " + err.message);
         }
 
         logger.info("Connected to mongoDB")
     }
-);
+
+)
+
+

@@ -480,9 +480,9 @@ let permission = {
                             upsert: false
                         }
                     )
-                    if (!record_permissions) {
-                        throw ErrWhileUpdate
-                    }
+                    // if (!record_permissions) {
+                    //     throw ErrWhileUpdate
+                    // }
                 } else {
                     await RecordPermission.findOneAndUpdate(
                         {

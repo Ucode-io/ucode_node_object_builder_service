@@ -483,7 +483,7 @@ let loginStore = {
         // console.log('permissions', JSON.parse(permissions))
 
         //@TODO:: check user can login with this login strategy
-        return {
+        let response =  {
             user_found: user_found,
             client_platform: clientPlatform,
             client_type: clientTypeResp,
@@ -493,6 +493,11 @@ let loginStore = {
             permissions: permissions,
             login_table_slug: 'user'
         }
+
+        console.log('/login/loginData', JSON.stringify(response, null, 2))
+
+        return response
+
     }),
 }
 

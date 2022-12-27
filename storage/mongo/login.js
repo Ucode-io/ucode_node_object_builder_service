@@ -459,9 +459,10 @@ let loginStore = {
         // } else {
         //     userId = ""
         // }
-        
+
         let userId;
-        if (user?.guid) {
+        if (user) {
+            console.log('---------------inside user-----------')
             user_found = true
             userId = user.guid
         }

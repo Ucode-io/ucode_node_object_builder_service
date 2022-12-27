@@ -41,7 +41,7 @@ let objectBuilder = {
             if (!data.guid) {
                 data.guid = v4()
             }
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             let tableData = await table.findOne(
                 {
                     slug: req.table_slug
@@ -203,7 +203,7 @@ let objectBuilder = {
             if (!data.guid) {
                 data.guid = data.id
             }
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
             const response = await tableInfo.models.updateOne({ guid: data.guid }, { $set: data });
             let event = {}
@@ -279,7 +279,7 @@ let objectBuilder = {
 
             const data = struct.decode(req.data)
 
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             const relations = await Relation.find({
                 table_from: req.table_slug,
@@ -373,7 +373,7 @@ let objectBuilder = {
                         ];
 
 
-                        const resultFormula = await (await ObjectBuilder())[attributes.table_from].models.aggregate(pipelines)
+                        const resultFormula = await (await ObjectBuilder(true, req.project_id))[attributes.table_from].models.aggregate(pipelines)
                         if (resultFormula.length) {
                             output[field.slug] = resultFormula[0].res
                         }
@@ -496,14 +496,14 @@ let objectBuilder = {
             const offset = params.offset
             let clientTypeId = params["client_type_id_from_token"]
             delete params["client_type_id_from_token"]
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             millis = Date.now() - start;
             console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
             let keys = Object.keys(params)
             let order = params.order
             let fields = tableInfo.fields
             let with_relations = params.with_relations
-            const permissionTable = (await ObjectBuilder())["record_permission"]
+            const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
             millis = Date.now() - start;
             console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
             const permission = await permissionTable.models.findOne({
@@ -519,7 +519,7 @@ let objectBuilder = {
             millis = Date.now() - start;
             console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
             if (permission?.is_have_condition) {
-                const automaticFilterTable = (await ObjectBuilder())["automatic_filter"]
+                const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
                 const automatic_filters = await automaticFilterTable.models.find({
                     $and: [
                         {
@@ -577,7 +577,7 @@ let objectBuilder = {
             millis = Date.now() - start;
             console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
             if (clientTypeId) {
-                const clientTypeTable = (await ObjectBuilder())["client_type"]
+                const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
                 const clientType = await clientTypeTable?.models.findOne({
                     guid: clientTypeId
                 })
@@ -720,7 +720,7 @@ let objectBuilder = {
                                 changedField._doc.table_slug = table_slug
                                 relationsFields.push(changedField._doc)
                             } else {
-                                await ObjectBuilder()
+                                await ObjectBuilder(false, req.project_id)
                                 if (field.attributes) {
                                     field.attributes = struct.decode(field.attributes)
                                 }
@@ -1078,7 +1078,7 @@ let objectBuilder = {
                             }
                         ];
 
-                        const resultFormula = await (await ObjectBuilder())[attributes.table_from].models.aggregate(pipelines)
+                        const resultFormula = await (await ObjectBuilder(true, req.project_id))[attributes.table_from].models.aggregate(pipelines)
                         if (resultFormula.length) {
                             editedResult[field.slug] = resultFormula[0].res
                         }
@@ -1113,7 +1113,7 @@ let objectBuilder = {
         try {
             const data = struct.decode(req.data)
 
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             const response = await tableInfo.models.deleteOne({ guid: data.id });
             let event = {}
@@ -1140,7 +1140,7 @@ let objectBuilder = {
             const params = struct.decode(req.data)
             const limit = params.limit
             const offset = params.offset
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             let keys = Object.keys(params)
             let order = params.order
             let fields = tableInfo.fields
@@ -1528,7 +1528,7 @@ let objectBuilder = {
                                 }
                             ];
 
-                            const resultFormula = await (await ObjectBuilder())[attributes.table_from].models.aggregate(pipelines)
+                            const resultFormula = await (await ObjectBuilder(true, req.project_id))[attributes.table_from].models.aggregate(pipelines)
 
                             if (resultFormula.length) {
                                 obj[field.slug] = resultFormula[0].res
@@ -1610,8 +1610,8 @@ let objectBuilder = {
     }),
     deleteManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteManyToMany`, async (data) => {
         try {
-            const fromTableModel = (await ObjectBuilder())[data.table_from]
-            const toTableModel = (await ObjectBuilder())[data.table_to]
+            const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
+            const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
 
             const modelFrom = await fromTableModel.models.findOne({
                 guid: data.id_from,
@@ -1651,8 +1651,8 @@ let objectBuilder = {
     }),
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
         try {
-            const fromTableModel = (await ObjectBuilder())[data.table_from]
-            const toTableModel = (await ObjectBuilder())[data.table_to]
+            const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
+            const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
 
             const modelFrom = await fromTableModel.models.findOne({
                 guid: data.id_from,
@@ -1717,7 +1717,7 @@ let objectBuilder = {
             const params = struct.decode(req.data)
             const limit = params.limit
             const offset = params.offset
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             let keys = Object.keys(params)
             let order = params.order
             let fields = tableInfo.fields
@@ -1862,7 +1862,7 @@ let objectBuilder = {
 
             const params = {}
             const data = struct.decode(req.data)
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             let result;
             for (const object of data.objects) {
@@ -1946,7 +1946,7 @@ let objectBuilder = {
             const Relation = mongoConn.models['Relation']
 
             const data = struct.decode(req.data)
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             let objects = [], appendMany2ManyObjects = []
             for (const object of data.objects) {
                 //this condition used for object.guid may be exists
@@ -2093,7 +2093,7 @@ let objectBuilder = {
 
             const datas = struct.decode(req.data)
             let objects = []
-            const tableInfo = (await ObjectBuilder())[req.table_slug]
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             for (const data of datas.objects) {
                 if (!data.guid) {
                     data.guid = data.id
@@ -2224,7 +2224,7 @@ let objectBuilder = {
                                     }
                                 }
                             ];
-                            const resultOption = await (await ObjectBuilder())[option.table_slug].models.aggregate(pipelines)
+                            const resultOption = await (await ObjectBuilder(true, req.project_id))[option.table_slug].models.aggregate(pipelines)
                             if (resultOption.length) {
                                 if (option.type === "debet") {
                                     if (monthlyAmount) {

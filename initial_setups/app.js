@@ -4,12 +4,8 @@
         "description": "Авторизация",
         "icon": "user-shield.svg",
         "id": "c57eedc3-a954-4262-a0af-376c65b5a283",
-        "created_at": {
-          "$date": "2022-08-25T07:07:17.665Z"
-        },
-        "updated_at": {
-          "$date": "2022-11-29T15:51:52.651Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0,
         "tables": [
           {

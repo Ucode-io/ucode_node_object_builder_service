@@ -6,12 +6,8 @@ async function createViewRelationPermissions(roleID) {
         "guid": "4a186d1d-8ebd-4828-9a77-a7a6da245976",
         "role_id": roleID,
         "__v": 0,
-        "createdAt": {
-            "$date": "2022-11-07T09:57:56.599Z"
-        },
-        "updatedAt": {
-            "$date": "2022-11-07T09:57:56.599Z"
-        }
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
     }]
 
     return viewRelationPermissions

@@ -37,12 +37,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
-        "created_at": {
-            "$date": "2022-11-07T08:33:53.943Z"
-        },
-        "updated_at": {
-            "$date": "2022-11-07T08:33:53.943Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "076c519a-5503-4bff-99f1-c741ed7d47b8",
@@ -82,12 +78,6 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
-        "created_at": {
-            "$date": "2022-11-07T08:33:53.982Z"
-        },
-        "updated_at": {
-            "$date": "2022-11-07T08:33:53.982Z"
-        },
         "__v": 0
     }, {
         "id": "c5962e1c-2687-46a5-b2dd-d46d41a038c1",
@@ -127,12 +117,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
-        "created_at": {
-            "$date": "2022-11-07T08:33:54Z"
-        },
-        "updated_at": {
-            "$date": "2022-11-07T08:33:54Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -144,12 +130,8 @@ async function createField() {
         "is_visible": true,
         "id": "a73fd453-3c21-4ab8-9e21-59d85acd106c",
         "table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
-        "created_at": {
-            "$date": "2022-11-07T08:33:54.020Z"
-        },
-        "updated_at": {
-            "$date": "2022-11-07T08:33:54.020Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
@@ -160,12 +142,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "158213ef-f38d-4c0d-b9ec-815e4d27db7e",
         "id": "6f344830-819c-40a3-a255-f11cdb515c2e",
-        "created_at": {
-            "$date": "2022-11-07T08:34:22.607Z"
-        },
-        "updated_at": {
-            "$date": "2022-11-07T08:34:22.607Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "9d53673d-4df3-4679-91be-8a787bdff724",
@@ -193,12 +171,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
-        "created_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "546320ae-8d9f-43cb-afde-3df5701e4b49",
@@ -226,12 +200,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
-        "created_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "a9767595-8863-414e-9220-f6499def0276",
@@ -259,12 +229,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
-        "created_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "b73c268c-9b91-47e4-9cb8-4f1d4ad14605",
@@ -292,12 +258,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
-        "created_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "71a33f28-002e-42a9-95fe-934a1f04b789",
@@ -331,12 +293,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
-        "created_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "c71928df-22d1-408c-8d63-7784cbec4a1d",
@@ -364,12 +322,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
-        "created_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:21:39.906Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -381,12 +335,8 @@ async function createField() {
         "is_visible": true,
         "id": "fbcf919a-25b8-486b-a110-342c8c47385f",
         "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
-        "created_at": {
-            "$date": "2022-08-25T08:21:39.907Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:21:39.907Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
@@ -397,12 +347,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "65a2d42f-5479-422f-84db-1a98547dfa04",
         "id": "f6962da4-bc72-4236-ac7b-18589c2fc029",
-        "created_at": {
-            "$date": "2022-09-17T09:57:38.405Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:57:38.405Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "c12adfef-2991-4c6a-9dff-b4ab8810f0df",
@@ -430,12 +376,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
-        "created_at": {
-            "$date": "2022-08-25T07:22:16.119Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:22:16.119Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -447,12 +389,8 @@ async function createField() {
         "is_visible": true,
         "id": "3bb6863b-5024-4bfb-9fa0-6ed5bf8d2406",
         "table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
-        "created_at": {
-            "$date": "2022-08-25T07:22:16.120Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:22:16.120Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
@@ -463,12 +401,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "a56d0ad8-4645-42d8-9fbb-77e22526bd17",
         "id": "123cd75b-2da5-458f-8020-8176a18b54ce",
-        "created_at": {
-            "$date": "2022-09-17T09:53:57.827Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:53:57.827Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
@@ -479,12 +413,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "ca008469-cfe2-4227-86db-efdf69680310",
         "id": "cb677e25-ddb3-4a64-a0cd-5aa6653417ed",
-        "created_at": {
-            "$date": "2022-09-17T09:54:25.535Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:54:25.535Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
@@ -495,12 +425,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "8ab28259-800d-4079-8572-a0f033d70e35",
         "id": "110055ac-75ab-4c1f-ae35-67098d1816a5",
-        "created_at": {
-            "$date": "2022-09-17T09:55:02.498Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:55:02.498Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "36bc2274-0c0d-47af-8aeb-7a799c0a8d0b",
@@ -528,12 +454,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "17e7dc4e-cf14-4663-829a-d43d528c06e0",
@@ -561,12 +483,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "645d85b8-67e0-4594-96c7-540b63d6b018",
@@ -594,12 +512,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "ba3ff08e-3cd3-4a14-9319-289ec730d285",
@@ -627,12 +541,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "87ddadf0-689b-4285-9fc7-5cb76bdd4a7c",
@@ -659,13 +569,8 @@ async function createField() {
             }
         },
         "is_visible": false,
-        "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "3228884d-e937-4428-b940-52e5fae10c63",
@@ -693,12 +598,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "978e1507-3965-4f21-a522-041072e261cd",
@@ -726,12 +627,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "22144ff4-7c1c-4102-9697-80f3ccaf3941",
@@ -759,12 +656,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "d1a2df97-d21f-47d3-b5d2-90cba03926da",
@@ -792,12 +685,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "d99e474a-d13e-42d4-b848-b86bc1808cf8",
@@ -825,12 +714,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "539363ad-4d5a-4570-944c-fb1e0d00f4bf",
@@ -858,12 +743,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "afe9d898-e620-4832-aec3-34d13496b70a",
@@ -891,12 +772,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "49d8e248-902b-43cf-904a-e465a0d4c420",
@@ -924,12 +801,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -941,12 +814,8 @@ async function createField() {
         "is_visible": true,
         "id": "2a77fd05-5278-4188-ba34-a7b8d13e2e51",
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:15:41.265Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
@@ -957,12 +826,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "6d2f94cb-0de4-455e-8dfc-97800eac7579",
         "id": "be11f4ac-1f91-4e04-872d-31cef96954e9",
-        "created_at": {
-            "$date": "2022-09-17T09:55:46.891Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:55:46.891Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
@@ -973,12 +838,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "e03071ed-a3e1-417d-a654-c0998a7c74bc",
         "id": "d84b1431-f7ae-43c5-b2e1-83f82ec1f979",
-        "created_at": {
-            "$date": "2022-09-17T09:56:14.567Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:56:14.567Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
@@ -989,12 +850,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "8f123dec-dfe4-4b89-956c-f607c84a84bd",
         "id": "5ca9db39-f165-4877-a191-57b5e8fedaf5",
-        "created_at": {
-            "$date": "2022-09-17T09:56:33.594Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:56:33.594Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
@@ -1005,12 +862,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "63b54109-5476-43c1-bf26-24e2266a33f0",
         "id": "bd5f353e-52d6-4b07-946c-678534a624ec",
-        "created_at": {
-            "$date": "2022-09-17T09:56:49.549Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:56:49.549Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "ad070af0-aca3-41ff-9f6a-a5e8b52f8f5a",
@@ -1052,12 +905,8 @@ async function createField() {
         "is_visible": false,
         "autofill_field": "",
         "autofill_table": "",
-        "created_at": {
-            "$date": "2022-11-04T10:35:04.193Z"
-        },
-        "updated_at": {
-            "$date": "2022-12-08T09:40:09.854Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0,
         "relation_id": "",
         "unique": false
@@ -1087,12 +936,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
-        "created_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "9bdbb8eb-334b-4515-87dc-20abd0da129a",
@@ -1120,12 +965,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
-        "created_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "1e71486b-1438-4170-8883-50b505b8bb14",
@@ -1153,12 +994,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
-        "created_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -1170,12 +1007,8 @@ async function createField() {
         "is_visible": true,
         "id": "4d1bb99b-d2f0-4ac7-8c50-2f5dd7932755",
         "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
-        "created_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "27355d70-1c11-4fb9-9192-a1fffd93d9db",
@@ -1203,12 +1036,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
-        "created_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "d95c1242-63ab-45c1-bd23-86f23ee72971",
@@ -1236,12 +1065,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
-        "created_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:26:08.140Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
@@ -1252,12 +1077,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "82e93baf-2e02-432a-942b-2c93cbe26b89",
         "id": "8e748044-1b00-485c-b445-63e44380a6b1",
-        "created_at": {
-            "$date": "2022-09-17T09:58:18.981Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:58:18.981Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "5f099f9f-8217-4790-a8ee-954ec165b8d8",
@@ -1295,12 +1116,8 @@ async function createField() {
         "is_visible": false,
         "autofill_field": "",
         "autofill_table": "",
-        "created_at": {
-            "$date": "2022-09-30T06:12:27.013Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-30T06:12:27.013Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "37137f5f-ef9b-4710-a6df-fb920750fdfb",
@@ -1328,12 +1145,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "373e9aae-315b-456f-8ec3-0851cad46fbf",
-        "created_at": {
-            "$date": "2022-08-25T07:10:34.036Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:10:34.036Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "dfbf6a89-9c78-4922-9a00-0e1555c23ece",
@@ -1361,12 +1174,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "373e9aae-315b-456f-8ec3-0851cad46fbf",
-        "created_at": {
-            "$date": "2022-08-25T07:10:34.036Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:10:34.036Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -1378,12 +1187,8 @@ async function createField() {
         "is_visible": true,
         "id": "8265459c-ab41-45b5-a79d-cbfa299ddaa7",
         "table_id": "373e9aae-315b-456f-8ec3-0851cad46fbf",
-        "created_at": {
-            "$date": "2022-08-25T07:10:34.036Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:10:34.036Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "8368fc76-0e80-409c-b64e-2275304411d8",
@@ -1411,12 +1216,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
-        "created_at": {
-            "$date": "2022-09-05T05:31:53.747Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-05T05:31:53.747Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "6d5d18cd-255d-49fd-a08e-5a6b0f1b093f",
@@ -1444,12 +1245,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
-        "created_at": {
-            "$date": "2022-09-05T05:31:53.747Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-05T05:31:53.747Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "957ffe32-714a-41d2-9bd8-e6b6b30fef67",
@@ -1477,12 +1274,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
-        "created_at": {
-            "$date": "2022-09-05T05:31:53.747Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-05T05:31:53.747Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -1494,12 +1287,8 @@ async function createField() {
         "is_visible": true,
         "id": "2ca6eec7-faea-4afd-a75f-980c18164f3c",
         "table_id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
-        "created_at": {
-            "$date": "2022-09-05T05:31:53.747Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-05T05:31:53.747Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
@@ -1510,12 +1299,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "697fbd16-97d8-4233-ab21-4ce12dd6c5c6",
         "id": "a1ece772-a8e0-41ae-8060-e1f667d0d96e",
-        "created_at": {
-            "$date": "2022-09-17T09:59:23.966Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:59:23.966Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "c818bc89-c2e9-4181-9db4-06fdf837d6e2",
@@ -1543,12 +1328,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "53edfff0-2a31-4c73-b230-06a134afa50b",
-        "created_at": {
-            "$date": "2022-08-25T07:14:33.249Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:14:33.249Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "948500db-538e-412b-ba36-09f5e9f0eccc",
@@ -1576,12 +1357,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "53edfff0-2a31-4c73-b230-06a134afa50b",
-        "created_at": {
-            "$date": "2022-08-25T07:14:33.249Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:14:33.249Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -1593,12 +1370,8 @@ async function createField() {
         "is_visible": true,
         "id": "6c812f3d-1aae-4b9e-8c28-55019ede57f8",
         "table_id": "53edfff0-2a31-4c73-b230-06a134afa50b",
-        "created_at": {
-            "$date": "2022-08-25T07:14:33.249Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:14:33.249Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "53edfff0-2a31-4c73-b230-06a134afa50b",
@@ -1609,12 +1382,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "c1492b03-8e76-4a09-9961-f61d413dbe68",
         "id": "f7220ec5-d9cb-485b-9652-f3429132375d",
-        "created_at": {
-            "$date": "2022-09-17T09:51:04.920Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:51:04.920Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "53edfff0-2a31-4c73-b230-06a134afa50b",
@@ -1625,12 +1394,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "426a0cd6-958d-4317-bf23-3b4ea4720e53",
         "id": "d95156ba-d443-4c95-8383-c122747330c5",
-        "created_at": {
-            "$date": "2022-09-17T09:52:45.865Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:52:45.865Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "1e39a65d-9709-4c5a-99e4-dde67191d95a",
@@ -1670,12 +1435,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
-        "created_at": {
-            "$date": "2022-10-29T21:22:35.605Z"
-        },
-        "updated_at": {
-            "$date": "2022-10-29T21:22:35.605Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "34abee63-37ad-48c1-95d2-f4a032c373a1",
@@ -1715,12 +1476,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
-        "created_at": {
-            "$date": "2022-10-29T21:22:35.660Z"
-        },
-        "updated_at": {
-            "$date": "2022-10-29T21:22:35.660Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "b84f052c-c407-48c5-a4bf-6bd54869fbd7",
@@ -1760,12 +1517,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
-        "created_at": {
-            "$date": "2022-10-29T21:22:35.705Z"
-        },
-        "updated_at": {
-            "$date": "2022-10-29T21:22:35.705Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -1777,12 +1530,8 @@ async function createField() {
         "is_visible": true,
         "id": "cf504dda-a34a-4422-843b-afaa32efbe49",
         "table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
-        "created_at": {
-            "$date": "2022-10-29T21:22:35.744Z"
-        },
-        "updated_at": {
-            "$date": "2022-10-29T21:22:35.744Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
@@ -1793,12 +1542,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "d522a2ac-7fb4-413d-b5bb-8d1d34b65b98",
         "id": "f58a6d67-7254-474c-af2a-052596bb0513",
-        "created_at": {
-            "$date": "2022-10-29T21:23:34.321Z"
-        },
-        "updated_at": {
-            "$date": "2022-10-29T21:23:34.321Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "d02ddb83-ad98-47f5-bc0a-6ee7586d9a8e",
@@ -1826,12 +1571,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
-        "created_at": {
-            "$date": "2022-08-25T08:40:48.512Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:40:48.512Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "f5486957-e804-4050-a3c5-cfdcdaca0a16",
@@ -1859,12 +1600,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
-        "created_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "fbc9b3e9-0507-48f5-9772-d42febfb4d30",
@@ -1892,12 +1629,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
-        "created_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "5591515f-8212-4bd5-b13b-fffd9751e9ce",
@@ -1925,12 +1658,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
-        "created_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "35ddf13d-d724-42ab-a1bb-f3961c7db9d6",
@@ -1958,12 +1687,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
-        "created_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "7ab42774-6ca9-4e10-a71b-77871009e0a2",
@@ -1991,12 +1716,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
-        "created_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "276c0e0c-2b79-472a-bcdf-ac0eed115ebe",
@@ -2024,12 +1745,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
-        "created_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -2041,12 +1758,8 @@ async function createField() {
         "is_visible": true,
         "id": "14e3ed9a-384e-45ac-897f-0fb4174adfaf",
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
-        "created_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T08:40:48.513Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
@@ -2057,12 +1770,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "79bdd075-eef0-48d1-b763-db8dfd819043",
         "id": "d5fda673-95b2-492a-97c2-afd0466f1e32",
-        "created_at": {
-            "$date": "2022-09-17T10:33:05.273Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T10:33:05.273Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "7587ed1d-a8b9-4aa8-b845-56dbb9333e25",
@@ -2098,12 +1807,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
-        "created_at": {
-            "$date": "2022-09-27T14:05:23.345Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-27T14:05:23.345Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "27634c7a-1de8-4d54-9f57-5ff7c77d0af9",
@@ -2139,12 +1844,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
-        "created_at": {
-            "$date": "2022-09-27T14:05:23.345Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-27T14:05:23.345Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "00787831-04b4-4a08-b74d-14f80a219b86",
@@ -2180,12 +1881,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
-        "created_at": {
-            "$date": "2022-09-27T14:05:23.345Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-27T14:05:23.345Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "9ae553a2-edca-41f7-ba8a-557dc24cb74a",
@@ -2221,12 +1918,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
-        "created_at": {
-            "$date": "2022-09-27T14:05:23.345Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-29T09:54:14.459Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0,
         "autofill_field": "",
         "autofill_table": "",
@@ -2241,12 +1934,8 @@ async function createField() {
         "is_visible": true,
         "id": "6040f51f-7b41-4e7a-87b1-b48286a00bea",
         "table_id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
-        "created_at": {
-            "$date": "2022-09-27T14:05:23.345Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-27T14:05:23.345Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
@@ -2257,12 +1946,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "8283449e-7978-4e75-83d6-1b6f3a194683",
         "id": "1267fb0d-2788-4171-ab69-b9573d3974a2",
-        "created_at": {
-            "$date": "2022-09-27T14:05:48.732Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-27T14:05:48.732Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "285ceb40-6267-4f5e-9327-f75fe79e8bfe",
@@ -2300,12 +1985,8 @@ async function createField() {
         "is_visible": false,
         "autofill_field": "",
         "autofill_table": "",
-        "created_at": {
-            "$date": "2022-09-28T07:59:37.683Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-28T07:59:37.683Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "04d0889a-b9ba-4f5c-8473-c8447aab350d",
@@ -2333,12 +2014,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
-        "created_at": {
-            "$date": "2022-08-25T07:19:13.033Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:19:13.033Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "d99ac785-1d1a-49d8-af23-4d92774d15b6",
@@ -2381,12 +2058,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
-        "created_at": {
-            "$date": "2022-08-25T07:19:13.034Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:19:13.034Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "763a0625-59d7-4fd1-ad4b-7ef303c3aadf",
@@ -2406,12 +2079,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
-        "created_at": {
-            "$date": "2022-08-25T07:19:13.034Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:19:13.034Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "required": false,
@@ -2423,12 +2092,8 @@ async function createField() {
         "is_visible": true,
         "id": "5bcd3857-9f9e-4ab9-97da-52dbdcb3e5d7",
         "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
-        "created_at": {
-            "$date": "2022-08-25T07:19:13.034Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:19:13.034Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "id": "d37e08d6-f7d0-441e-b7af-6034e5c2a77f",
@@ -2456,12 +2121,8 @@ async function createField() {
         },
         "is_visible": false,
         "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
-        "created_at": {
-            "$date": "2022-08-25T07:19:13.034Z"
-        },
-        "updated_at": {
-            "$date": "2022-08-25T07:19:13.034Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
@@ -2472,12 +2133,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "094c33df-5556-45f3-a74c-7f589412bcc8",
         "id": "faa90368-d201-4322-82b7-e370f788d248",
-        "created_at": {
-            "$date": "2022-09-17T09:51:57.719Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:51:57.719Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
@@ -2488,12 +2145,8 @@ async function createField() {
         "is_visible": true,
         "relation_id": "426a0cd6-958d-4317-bf23-3b4ea4720e53",
         "id": "4eb81779-7529-420f-991f-a194e2010563",
-        "created_at": {
-            "$date": "2022-09-17T09:52:45.871Z"
-        },
-        "updated_at": {
-            "$date": "2022-09-17T09:52:45.871Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }]
 

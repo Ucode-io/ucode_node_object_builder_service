@@ -6,12 +6,8 @@ async function createClientType(clientPlatformID, clientTypeID, projectID) {
         "guid": clientTypeID,
         "self_recover": false,
         "project_id": projectID,
-        "createdAt": {
-          "$date": "2022-08-25T08:56:04.692Z"
-        },
-        "updatedAt": {
-          "$date": "2022-10-17T10:17:18.283Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0,
         "client_platform_ids": [
           clientPlatformID

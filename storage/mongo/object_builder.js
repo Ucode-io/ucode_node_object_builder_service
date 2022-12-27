@@ -172,7 +172,7 @@ let objectBuilder = {
             }
             field_types.guid = "String"
             event.payload.field_types = field_types
-            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
+            event.project_id = req.project_id 
             await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
 
@@ -259,7 +259,7 @@ let objectBuilder = {
             }
             field_types.guid = "String"
             event.payload.field_types = field_types
-            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
+            event.project_id = req.project_id 
             await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
 
             return response;
@@ -481,6 +481,7 @@ let objectBuilder = {
             console.log(`begin[0] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
             const mongoConn = await mongoPool.get(req.project_id)
+            mongoPool.listKeys()
             millis = Date.now() - start;
             console.log(`[1] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
@@ -928,7 +929,7 @@ let objectBuilder = {
 
 
             // this function add field permission for each field by role id
-            let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug)
+            let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
             millis = Date.now() - start;
             console.log(`[13] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
@@ -1122,7 +1123,7 @@ let objectBuilder = {
             table.table_slug = req.table_slug
             event.payload = table
 
-            event.project_id = req.project_id || cfg.ucodeDefaultProjectID
+            event.project_id = req.project_id 
             await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
 
             return { table_slug: req.table_slug, data: response };
@@ -2062,7 +2063,7 @@ let objectBuilder = {
                 }
                 field_types.guid = "String"
                 event.payload.field_types = field_types
-                event.project_id = req.project_id || cfg.ucodeDefaultProjectID
+                event.project_id = req.project_id 
                 await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
 
@@ -2153,7 +2154,7 @@ let objectBuilder = {
                 }
                 field_types.guid = "String"
                 event.payload.field_types = field_types
-                event.project_id = req.project_id || cfg.ucodeDefaultProjectID
+                event.project_id = req.project_id 
                 await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
                 let bulk = {
                     updateOne: {

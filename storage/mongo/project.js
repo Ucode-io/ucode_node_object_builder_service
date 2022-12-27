@@ -88,11 +88,20 @@ let projectStore = {
 
             await pool.override(data?.project_id, mongoDBConn)
 
-            mongoDBConn.once("open", async function () {
-                console.log("Connected to the database, building models for", data.project_id);
-                await objectBuilder(false, data.project_id)
-                console.log("Object builder has successfully runned for", data.project_id);
-            });
+
+            await new Promise( (resolve, reject) => {
+                try {
+                    mongoDBConn.once("open", async function () {
+                        console.log("Connected to the database, building models for", data.project_id);
+                        await objectBuilder(false, data.project_id)
+                        console.log("Object builder has successfully runned for", data.project_id);
+                        resolve()
+                    });
+                } catch (err) {
+                    reject(err)
+                }
+               
+            })
 
             return {}
 

@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const fs = require('fs');
 
 async function newMongoConn(Config) {
-    Logger.debug("Main function is running");
 
     let mongoDBUrl =
         //`mongodb://medion_node_object_builder_service:Weipheingo7aeCho@46.101.114.171:27017/medion_node_object_builder_service`
@@ -40,12 +39,11 @@ async function newMongoConn(Config) {
         }
     }
 
-    Logger.debug("Connecting to db: " + mongoDBUrl);
+    Logger.debug("connecting to mongodb: " + mongoDBUrl);
 
     const conn = await mongoose.createConnection(mongoDBUrl, options)
     conn.once("open", async function () {
-        Logger.info("Connected to the database");
-
+        Logger.info("connected to the database: " + mongoDBUrl);
     });
 
     conn.on('error', async function (err) {
@@ -71,9 +69,6 @@ async function newMongoConn(Config) {
     conn.model('ViewRelation', require('../schemas/view_relation'))
     conn.model('View', require('../schemas/view'))
     conn.model('WebPage', require('../schemas/web_pages'))
-
-
-
 
     return conn
 }

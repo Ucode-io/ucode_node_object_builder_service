@@ -78,7 +78,7 @@ let permission = {
                                 }
                                 field_types.guid = "String"
                                 event.payload.field_types = field_types
-                                event.project_id = req.project_id || cfg.ucodeDefaultProjectID
+                                event.project_id = req.project_id 
 
                                 await sendMessageToTopic(con.TopicObjectUpdateV1, event)
                             } else {
@@ -105,7 +105,7 @@ let permission = {
                                 }
                                 field_types.guid = "String"
                                 event.payload.field_types = field_types
-                                event.project_id = req.project_id || cfg.ucodeDefaultProjectID
+                                event.project_id = req.project_id 
 
                                 await sendMessageToTopic(con.TopicObjectCreateV1, event)
                             }

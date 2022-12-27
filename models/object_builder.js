@@ -10,14 +10,16 @@ const { struct } = require("pb-util");
 const logger = require("../config/logger");
 let mongooseObject = {};
 
-async function buildModels(is_build = true, project_id=Config.ucodeDefaultProjectID) {
+async function buildModels(is_build = true, project_id) {
+
+    console.log('REQUEST CAME TO MODELS BUILDER FOR', project_id)
 
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }
-   
-    const mongoDBConn = await mongoPool.get(project_id)
 
+    const mongoDBConn = await mongoPool.get(project_id)
+   
     const Table = mongoDBConn.models['Table']
     const Field = mongoDBConn.models['Field']
     const Relation = mongoDBConn.models['Relation']

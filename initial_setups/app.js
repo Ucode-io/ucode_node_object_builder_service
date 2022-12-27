@@ -1,0 +1,81 @@
+ async function createApp() {
+    let app = [{
+        "name": "Авторизация",
+        "description": "Авторизация",
+        "icon": "user-shield.svg",
+        "id": "c57eedc3-a954-4262-a0af-376c65b5a283",
+        "created_at": {
+          "$date": "2022-08-25T07:07:17.665Z"
+        },
+        "updated_at": {
+          "$date": "2022-11-29T15:51:52.651Z"
+        },
+        "__v": 0,
+        "tables": [
+          {
+            "table_id": "373e9aae-315b-456f-8ec3-0851cad46fbf",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "53edfff0-2a31-4c73-b230-06a134afa50b",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
+            "is_visible": false,
+            "is_own_table": true
+          },
+          {
+            "table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
+            "is_visible": true,
+            "is_own_table": true
+          }
+        ]
+      }]
+
+      return app
+}
+
+module.exports = createApp;

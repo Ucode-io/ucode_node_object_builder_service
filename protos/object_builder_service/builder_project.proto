@@ -27,6 +27,7 @@ message RegisterProjectRequest {
     string project_id = 2;
     string secret_path = 3;
     Credentials credentials = 4;
+    string user_id = 5;
 }
 
 message DeregisterProjectRequest {

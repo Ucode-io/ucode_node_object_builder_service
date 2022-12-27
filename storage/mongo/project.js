@@ -94,7 +94,7 @@ let projectStore = {
                 mongoPassword: data.credentials.password
             })
 
-            await insertCollections(mongoDBConn)
+            await insertCollections(mongoDBConn, "ucoder", "ucoder123")
 
             await pool.add(data?.project_id, mongoDBConn)
 

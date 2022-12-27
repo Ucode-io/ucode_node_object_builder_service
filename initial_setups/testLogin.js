@@ -10,12 +10,8 @@ async function createTestLogin(testLoginID, clientTypeID) {
             "password_label": "Парол",
             "guid": testLoginID,
             "client_type_id": clientTypeID,
-            "createdAt": {
-                "$date": "2022-11-07T06:55:03.697Z"
-            },
-            "updatedAt": {
-                "$date": "2022-11-07T06:55:03.697Z"
-            },
+            "createdAt": new Date(),
+            "updatedAt": new Date(),
             "__v": 0
         }
     ]

@@ -12,12 +12,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:52:45.906Z"
-        },
-        "updated_at": {
-          "$date": "2022-10-04T10:18:44.274Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0,
         "auto_filters": []
       },{
@@ -33,12 +29,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:54:25.551Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:54:25.551Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "e03071ed-a3e1-417d-a654-c0998a7c74bc",
@@ -53,12 +45,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:56:14.581Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T10:22:41.753Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "8ab28259-800d-4079-8572-a0f033d70e35",
@@ -73,12 +61,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:55:02.513Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:55:02.513Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "8f123dec-dfe4-4b89-956c-f607c84a84bd",
@@ -93,12 +77,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:56:33.607Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:56:33.607Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "65a2d42f-5479-422f-84db-1a98547dfa04",
@@ -113,12 +93,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:57:38.417Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:57:38.417Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "79bdd075-eef0-48d1-b763-db8dfd819043",
@@ -133,12 +109,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T10:33:05.299Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T10:33:05.299Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "c1492b03-8e76-4a09-9961-f61d413dbe68",
@@ -153,12 +125,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:51:05.018Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:51:05.018Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "094c33df-5556-45f3-a74c-7f589412bcc8",
@@ -173,12 +141,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:51:57.741Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:51:57.741Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "a56d0ad8-4645-42d8-9fbb-77e22526bd17",
@@ -193,12 +157,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:53:57.839Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:53:57.839Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "6d2f94cb-0de4-455e-8dfc-97800eac7579",
@@ -213,12 +173,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:55:46.903Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:55:46.903Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "63b54109-5476-43c1-bf26-24e2266a33f0",
@@ -233,12 +189,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:56:49.560Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:56:49.560Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "82e93baf-2e02-432a-942b-2c93cbe26b89",
@@ -253,12 +205,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:58:18.995Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:58:18.995Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "697fbd16-97d8-4233-ab21-4ce12dd6c5c6",
@@ -273,12 +221,8 @@ async function createRelation() {
         "relation_field_slug": "",
         "dynamic_tables": [],
         "editable": false,
-        "created_at": {
-          "$date": "2022-09-17T09:59:23.981Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T09:59:23.981Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "8283449e-7978-4e75-83d6-1b6f3a194683",
@@ -294,12 +238,8 @@ async function createRelation() {
         "dynamic_tables": [],
         "editable": false,
         "auto_filters": [],
-        "created_at": {
-          "$date": "2022-09-27T14:05:48.758Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-27T14:05:48.758Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "d522a2ac-7fb4-413d-b5bb-8d1d34b65b98",
@@ -315,12 +255,8 @@ async function createRelation() {
         "dynamic_tables": [],
         "editable": false,
         "auto_filters": [],
-        "created_at": {
-          "$date": "2022-10-29T21:23:34.377Z"
-        },
-        "updated_at": {
-          "$date": "2022-10-29T21:23:34.377Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "158213ef-f38d-4c0d-b9ec-815e4d27db7e",
@@ -338,12 +274,8 @@ async function createRelation() {
         "auto_filters": [],
         "is_user_id_default": false,
         "cascadings": [],
-        "created_at": {
-          "$date": "2022-11-07T08:34:22.640Z"
-        },
-        "updated_at": {
-          "$date": "2022-11-07T08:34:22.640Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "0ab05a13-d077-4086-9b7e-a4029d451acd",
@@ -360,12 +292,8 @@ async function createRelation() {
         "dynamic_tables": [],
         "editable": false,
         "auto_filters": [],
-        "created_at": {
-          "$date": "2022-11-04T10:35:49.068Z"
-        },
-        "updated_at": {
-          "$date": "2022-11-25T10:09:37.769Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0,
         "cascadings": [],
         "is_user_id_default": true,

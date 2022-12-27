@@ -8,12 +8,8 @@ async function createConnection(connectionID, clientTypeID) {
         "name": "Филиал",
         "guid": connectionID,
         "client_type_id": clientTypeID,
-        "createdAt": {
-            "$date": "2022-11-16T13:29:49.446Z"
-        },
-        "updatedAt": {
-            "$date": "2022-11-16T13:29:49.446Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
     }]
 

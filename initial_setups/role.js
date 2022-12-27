@@ -5,12 +5,8 @@ async function createRole(roleID, clientPlatformID, clientTypeID, projectID) {
         "project_id": projectID,
         "client_platform_id": clientPlatformID,
         "client_type_id": clientTypeID,
-        "createdAt": {
-          "$date": "2022-08-25T08:58:44.749Z"
-        },
-        "updatedAt": {
-          "$date": "2022-09-17T10:26:39.945Z"
-        }
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
       }]
 
     return role

@@ -17,12 +17,8 @@ async function createUser(userID, roleID, clientTypeID, clientPlatformID, projec
         "client_type_id": clientTypeID,
         "client_platform_id": clientPlatformID,
         "project_id": projectID,
-        "createdAt": {
-          "$date": "2022-08-25T09:03:28.869Z"
-        },
-        "updatedAt": {
-          "$date": "2022-12-23T05:53:59.152Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0,
         "surname": ""
       }]

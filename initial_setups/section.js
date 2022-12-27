@@ -37,12 +37,8 @@ async function createSection() {
         ],
         "is_summary_section": false,
         "table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
-        "created_at": {
-          "$date": "2022-11-08T08:27:42.399Z"
-        },
-        "updated_at": {
-          "$date": "2022-11-08T08:27:42.399Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "6c8eabc5-4de2-4eb5-b98a-768f0d340819",
@@ -53,12 +49,8 @@ async function createSection() {
         "fields": [],
         "is_summary_section": true,
         "table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
-        "created_at": {
-          "$date": "2022-11-08T08:27:42.399Z"
-        },
-        "updated_at": {
-          "$date": "2022-11-08T08:27:42.399Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "0819a8b6-f821-4e54-9098-beab8cef352c",
@@ -118,12 +110,8 @@ async function createSection() {
           }
         ],
         "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
-        "created_at": {
-          "$date": "2022-09-17T10:28:55.460Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T10:28:55.460Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "5934a317-94f1-4ad6-b93a-bec839a9140c",
@@ -162,12 +150,8 @@ async function createSection() {
           }
         ],
         "table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
-        "created_at": {
-          "$date": "2022-09-17T10:26:24.457Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T10:26:24.457Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "b8f29626-81d4-494c-9c62-fb523bfcca65",
@@ -178,12 +162,8 @@ async function createSection() {
         "fields": [],
         "is_summary_section": true,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-          "$date": "2022-12-08T09:40:11.480Z"
-        },
-        "updated_at": {
-          "$date": "2022-12-08T09:40:11.480Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "13f969c2-d7b2-46a5-a436-0c263f31af8b",
@@ -321,12 +301,8 @@ async function createSection() {
         ],
         "is_summary_section": false,
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": {
-          "$date": "2022-12-08T09:40:11.480Z"
-        },
-        "updated_at": {
-          "$date": "2022-12-08T09:40:11.480Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "1d9bc74b-7f9c-47da-b257-071010b6f28f",
@@ -387,12 +363,8 @@ async function createSection() {
         ],
         "is_summary_section": false,
         "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
-        "created_at": {
-          "$date": "2022-09-30T06:12:37.032Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-30T06:12:37.032Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "85ba2dfb-2e53-47d1-897b-b38fb5fb96a2",
@@ -415,12 +387,8 @@ async function createSection() {
           }
         ],
         "table_id": "373e9aae-315b-456f-8ec3-0851cad46fbf",
-        "created_at": {
-          "$date": "2022-08-25T07:10:34.050Z"
-        },
-        "updated_at": {
-          "$date": "2022-08-25T07:10:34.050Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "92e97876-37e5-4c26-9ffd-757ef6f27b3d",
@@ -459,12 +427,8 @@ async function createSection() {
           }
         ],
         "table_id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
-        "created_at": {
-          "$date": "2022-09-17T10:34:13.065Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T10:34:13.065Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "0c4e79e7-45d8-4048-b81d-8b18f7bf783e",
@@ -497,12 +461,8 @@ async function createSection() {
         ],
         "is_summary_section": false,
         "table_id": "53edfff0-2a31-4c73-b230-06a134afa50b",
-        "created_at": {
-          "$date": "2022-10-04T10:17:40.950Z"
-        },
-        "updated_at": {
-          "$date": "2022-10-04T10:17:40.950Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "9b849f45-561f-477f-a1d6-e7cbf6fe41a6",
@@ -513,12 +473,8 @@ async function createSection() {
         "fields": [],
         "is_summary_section": true,
         "table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
-        "created_at": {
-          "$date": "2022-11-08T08:26:58.337Z"
-        },
-        "updated_at": {
-          "$date": "2022-11-08T08:26:58.337Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "1481e534-b6a2-44d8-8e78-e2e75083fb88",
@@ -558,12 +514,8 @@ async function createSection() {
         ],
         "is_summary_section": false,
         "table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
-        "created_at": {
-          "$date": "2022-11-08T08:26:58.337Z"
-        },
-        "updated_at": {
-          "$date": "2022-11-08T08:26:58.337Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "1ef2a483-2135-448d-b3b6-c4a496425573",
@@ -630,12 +582,8 @@ async function createSection() {
           }
         ],
         "table_id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
-        "created_at": {
-          "$date": "2022-09-17T10:33:26.284Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-17T10:33:26.284Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "5d356993-be07-48af-b719-e4eecc5e6b5f",
@@ -688,12 +636,8 @@ async function createSection() {
           }
         ],
         "table_id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
-        "created_at": {
-          "$date": "2022-09-28T07:59:44.613Z"
-        },
-        "updated_at": {
-          "$date": "2022-09-28T07:59:44.613Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       },{
         "id": "c9453c53-ca78-4d55-91f7-4f3dfe271e36",
@@ -747,12 +691,8 @@ async function createSection() {
         ],
         "is_summary_section": false,
         "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
-        "created_at": {
-          "$date": "2022-10-04T10:21:02.360Z"
-        },
-        "updated_at": {
-          "$date": "2022-10-04T10:21:02.360Z"
-        },
+        "created_at": new Date(),
+        "updated_at": new Date(),
         "__v": 0
       }]
 

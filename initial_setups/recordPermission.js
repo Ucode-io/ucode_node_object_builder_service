@@ -7,12 +7,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-08-25T09:04:43.049Z"
-        },
-        "updatedAt": {
-            "$date": "2022-12-05T13:37:24.551Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0,
         "is_have_condition": false
     }, {
@@ -23,12 +19,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-08-25T09:05:12.359Z"
-        },
-        "updatedAt": {
-            "$date": "2022-08-25T09:05:12.359Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0
     }, {
         "update": "Yes",
@@ -38,12 +30,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-08-25T09:06:11.280Z"
-        },
-        "updatedAt": {
-            "$date": "2022-08-25T09:06:11.280Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0
     }, {
         "update": "Yes",
@@ -53,12 +41,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-08-25T09:06:31.979Z"
-        },
-        "updatedAt": {
-            "$date": "2022-08-25T09:06:31.979Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0
     }, {
         "update": "Yes",
@@ -68,12 +52,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-08-25T11:24:14.343Z"
-        },
-        "updatedAt": {
-            "$date": "2022-08-25T11:24:14.343Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0
     }, {
         "update": "Yes",
@@ -83,12 +63,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-08-25T11:24:41.619Z"
-        },
-        "updatedAt": {
-            "$date": "2022-08-25T11:24:41.619Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0
     }, {
         "update": "Yes",
@@ -98,12 +74,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-08-25T11:25:36.011Z"
-        },
-        "updatedAt": {
-            "$date": "2022-08-25T11:25:36.011Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0
     }, {
         "update": "Yes",
@@ -113,12 +85,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-08-25T11:33:38.991Z"
-        },
-        "updatedAt": {
-            "$date": "2022-08-25T11:33:45.059Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0
     }, {
         "update": "Yes",
@@ -128,12 +96,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-08-25T11:56:27.112Z"
-        },
-        "updatedAt": {
-            "$date": "2022-08-25T11:56:27.112Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0
     }, {
         "update": "Yes",
@@ -143,12 +107,8 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
-        "createdAt": {
-            "$date": "2022-09-05T05:32:54.675Z"
-        },
-        "updatedAt": {
-            "$date": "2022-09-05T05:32:59.807Z"
-        },
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
         "__v": 0
     }]
 

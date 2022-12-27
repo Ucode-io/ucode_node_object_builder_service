@@ -5,7 +5,7 @@ require('dotenv').config({ path: '/app/.env' });
     const projectStorage = require('./storage/mongo/project')
     const config = require('./config/index')
 
-    await projectStorage.register({
+    await projectStorage.reconnect({
         project_id: config.ucodeDefaultProjectID,
         credentials: {
             host: config.mongoHost,

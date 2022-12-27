@@ -1,14 +1,11 @@
 require('dotenv').config({ path: '/app/.env' });
-const service = require('./services/project');
-const ObjectBuilder = require("./models/object_builder");
 
 (async function () {
 
     const projectStorage = require('./storage/mongo/project')
     const config = require('./config/index')
 
-
-    await projectStorage.register({
+    await projectStorage.reconnect({
         project_id: config.ucodeDefaultProjectID,
         credentials: {
             host: config.mongoHost,
@@ -18,20 +15,6 @@ const ObjectBuilder = require("./models/object_builder");
             password: config.mongoPassword,
         },
     })
-
-
-    //  This for checking in localhost
-
-    // await projectStorage.registerProjects({
-    //     project_id: "50008d64-d3ce-47d0-98b5-cfce24cc7be0",
-    //     credentials: {
-    //         host: "161.35.26.178",
-    //         port: 27017,
-    //         database: "transasia_transasia_object_builder_service",
-    //         username: "transasia_transasia_object_builder_service",
-    //         password: "123JFWxq",
-    //     }
-    // })
 
 
     const mongooseConnection = require("./config/mongooseConnection");
@@ -50,17 +33,30 @@ const ObjectBuilder = require("./models/object_builder");
     //     }
     // )
 
-    await ObjectBuilder(false, config.ucodeDefaultProjectID)
-    console.log("object builder has successfully runned for", config.ucodeDefaultProjectID);
+    const projectService = require('./services/project')
 
+    // await projectService.Register(
+    //     {
+    //         request: {
+    //             user_id: '61d566fc-39a9-40c2-8156-8822149ce7dd',
+    //             project_id: 'b9a4806a-c5d5-43fb-ae2f-a4a5054bb112',
+    //             credentials: {
+    //                 host: '161.35.26.178',
+    //                 port: 27017,
+    //                 database: 'transasia_transasia_object_builder_service',
+    //                 username: 'transasia_transasia_object_builder_service',
+    //                 password: '123JFWxq'
+    //             }
 
-    // const permissionStore = require('./storage/mongo/permission')
+    //         }
+    //     },
 
-    // const permission = await permissionStore.getListWithRoleAppTablePermissions({
-    //     project_id: config.ucodeDefaultProjectID,
-    //     role_id: 'd3b48c94-c46b-4e08-9415-ede7a71adfa6'
-    // })
+    //     ((err, result) => {
+    //         if (err) {
+    //             throw err
+    //         }
 
-    // console.log('permission', JSON.stringify(permission, null, 2))
-
+    //         console.log('success', result)
+    //     })
+    // )
 })();

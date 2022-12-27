@@ -390,7 +390,7 @@ let loginStore = {
 
         const clientType = await clientTypeTable.models.findOne(
             {
-                name: req.client_type,
+                guid: req.client_type,
             }
         )
 

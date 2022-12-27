@@ -384,6 +384,115 @@ let loginStore = {
             permissions: permissions,
         }
     }),
+
+    login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login`, async (req) => {
+        const clientTypeTable = (await ObjectBuilder())["client_type"]
+
+        const clientType = await clientTypeTable.models.findOne(
+            {
+                name: req.client_type,
+            }
+        )
+
+        let params = {}
+        params["guid"] = req.user_id
+        params["project_id"] = req.project_id
+
+        const userTable = (await ObjectBuilder())["user"]
+        let user, userId;
+        user = await userTable.models.findOne(
+            {
+                $and: [params]
+            }
+        )
+        let user_found = false
+        if (!user) {
+            return {
+                user_found: user_found
+            }
+        }
+        const roleTable = (await ObjectBuilder())["role"]
+
+        const role = await roleTable.models.findOne(
+            {
+                client_type_id: clientType.guid,
+            }
+        )
+
+        const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
+
+        const clientPlatform = await clientPlatfromTable.models.findOne(
+            {
+                guid: role.client_platform_id
+            }
+        )
+
+
+        const connectionsTable = (await ObjectBuilder())["connections"]
+
+        const connections = await connectionsTable.models.find(
+            {
+                client_type_id: clientType.guid
+            }
+        )
+        let clientTypeResp = {}
+        clientTypeResp = clientType
+        clientTypeResp.tables = connections
+
+        const recordPermission = (await ObjectBuilder())["record_permission"]
+
+        const permissions = await recordPermission.models.find(
+            {
+                $and: [
+                    {
+                        client_type_id: clientType.guid
+                    },
+                    {
+                        role_id: role.guid
+                    }
+                ]
+            }
+        )
+        if (user) {
+            user_found = true
+            userId = user.guid
+        } else {
+            userId = ""
+        }
+
+        const appPermissions = await recordPermission.models.find(
+            {
+                $and: [
+                    {
+                        table_slug: "app"
+                    },
+                    {
+                        role_id: user.role_id
+                    }
+                ]
+            }
+        )
+
+        // console.log('user_found', user_found)
+        // console.log('user_id', userId)
+        // console.log('login.table_slug', login.table_slug)
+        // console.log('clientPlatform', JSON.parse(clientPlatform))
+        // console.log('clientTypeResp', JSON.parse(clientTypeResp))
+        // console.log('appPermissions', JSON.parse(appPermissions))
+        // console.log('role', JSON.parse(role))
+        // console.log('permissions', JSON.parse(permissions))
+
+        return {
+            user_found: user_found,
+            client_platform: clientPlatform,
+            client_type: clientTypeResp,
+            user_id: userId,
+            app_permissions: appPermissions,
+            role: role,
+            permissions: permissions,
+            login_table_slug: login.table_slug
+        }
+    }),
 }
 
 module.exports = loginStore;

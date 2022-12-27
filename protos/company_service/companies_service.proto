@@ -13,6 +13,15 @@ service CompanyService {
     rpc Update(Company) returns (Company) {}
     rpc Delete(DeleteCompanyRequest) returns (Empty) {}
     rpc GetListWithProjects(GetListWithProjectsRequest) returns (GetListWithProjectsResponse) {}
+    rpc GetCompaniesByOwnerId(GetCompaniesByOwnerIdReq) returns (GetCompaniesByOwnerIdRes) {}
+}
+
+message GetCompaniesByOwnerIdReq {
+    string id = 1;
+}
+
+message GetCompaniesByOwnerIdRes {
+    repeated Company companies = 1;
 }
 
 message CreateCompanyRequest {
@@ -84,10 +93,3 @@ message GetListWithProjectsResponse {
     int32 count = 1;
     repeated CompanyWithProjects companies = 2;
 }
-
-// message ProjectWithoutResource {
-//     string id = 1;
-//     string company_id = 2;
-//     string k8s_namespace = 3;
-//     string title = 4;
-// }

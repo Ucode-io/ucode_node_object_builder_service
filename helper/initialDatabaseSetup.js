@@ -15,13 +15,13 @@ const createSection = require("../initial_setups/section");
 const createViewRelationPermissions = require("../initial_setups/viewRelationPermission");
 const createRelation = require("../initial_setups/relation");
 
-async function insertCollections(conn, userLogin, userPassword) {
+async function insertCollections(conn, userId, projectId) {
 
-        const projectID = v4.toString()
+        const projectID = projectId.toString()
         const clientPlatformID = v4.toString()
         const clientTypeID = v4.toString()
         const roleID = v4.toString()
-        const userID = v4.toString()
+        const userID = userId.toString()
         const testLoginID = v4.toString()
         const connectionID = v4.toString()
 

@@ -1,0 +1,294 @@
+{
+  message: 'storage.project.reconnect: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-27T13:47:49.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-27T13:47:49.504Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-27T13:47:49.504Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-27T13:47:49.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-27T13:47:49.993Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-27T13:47:50.482Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-27T13:47:50.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-27T13:49:24.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-27T13:49:24.057Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-27T13:49:24.057Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-27T13:49:24.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-27T13:49:24.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-27T13:49:25.062Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-27T13:49:25.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-27T13:54:49.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-27T13:54:49.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-27T13:54:49.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-27T13:54:49.272Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.register: requested - {"user_id":"61d566fc-39a9-40c2-8156-8822149ce7dd","project_id":"b9a4806a-c5d5-43fb-ae2f-a4a5054bb112","credentials":{"host":"161.35.26.178","port":27017,"database":"transasia_transasia_object_builder_service","username":"transasia_transasia_object_builder_service","password":"123JFWxq"}}',
+  level: 'info',
+  timestamp: '2022-12-27T13:54:49.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"user_id":"61d566fc-39a9-40c2-8156-8822149ce7dd","project_id":"b9a4806a-c5d5-43fb-ae2f-a4a5054bb112","credentials":{"host":"161.35.26.178","port":27017,"database":"transasia_transasia_object_builder_service","username":"transasia_transasia_object_builder_service","password":"123JFWxq"}}',
+  level: 'debug',
+  timestamp: '2022-12-27T13:54:49.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-27T13:54:49.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://transasia_transasia_object_builder_service:123JFWxq@161.35.26.178:27017/transasia_transasia_object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-27T13:54:49.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-27T13:54:49.747Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.register: succeeded',
+  level: 'info',
+  timestamp: '2022-12-27T13:54:49.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-27T13:54:49.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-27T13:54:50.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-27T13:54:50.317Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-27T13:54:50.337Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-27T13:57:34.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-27T13:57:34.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-27T13:57:34.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-27T13:57:34.862Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.register: requested - {"user_id":"61d566fc-39a9-40c2-8156-8822149ce7dd","project_id":"b9a4806a-c5d5-43fb-ae2f-a4a5054bb112","credentials":{"host":"161.35.26.178","port":27017,"database":"transasia_transasia_object_builder_service","username":"transasia_transasia_object_builder_service","password":"123JFWxq"}}',
+  level: 'info',
+  timestamp: '2022-12-27T13:57:35.329Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"user_id":"61d566fc-39a9-40c2-8156-8822149ce7dd","project_id":"b9a4806a-c5d5-43fb-ae2f-a4a5054bb112","credentials":{"host":"161.35.26.178","port":27017,"database":"transasia_transasia_object_builder_service","username":"transasia_transasia_object_builder_service","password":"123JFWxq"}}',
+  level: 'debug',
+  timestamp: '2022-12-27T13:57:35.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-27T13:57:35.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://transasia_transasia_object_builder_service:123JFWxq@161.35.26.178:27017/transasia_transasia_object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-27T13:57:35.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-27T13:57:35.335Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.project.register: succeeded',
+  level: 'info',
+  timestamp: '2022-12-27T13:57:35.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-27T13:57:35.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-27T13:57:35.874Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-27T13:57:35.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-27T13:57:35.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

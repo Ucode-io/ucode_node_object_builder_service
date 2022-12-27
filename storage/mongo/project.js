@@ -14,10 +14,12 @@ let NAMESPACE = "storage.project";
 let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
-            if (data.user_id) {
+
+            console.log('data-->',data)
+            if (!data.user_id) {
                 throw new Error('Error user_id is required')
             }
-            if (data.project_id) {
+            if (!data.project_id) {
                 throw new Error('Error project_id is required')
             }
 

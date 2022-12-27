@@ -1,13 +1,11 @@
 
-async function createUser(userID, roleID, clientTypeID, clientPlatformID, projectID, login, password) {
+async function createUser(userID, roleID, clientTypeID, clientPlatformID, projectID) {
     let userData = [{
         "phone": "(90) 150-10-69",
         "work_place": "<p>Udevs</p>",
         "active": 1,
         "passport_number": "111111",
         "expires_at": "2026-08-21T09:03:03.905Z",
-        "password": password,
-        "login": login,
         "name": "Admin",
         "photo_url": "https://cdn.medion.uz/medion/d9bd2cd6-ada1-452a-849f-32fbfa81dd1d_Medion.png",
         "verified": true,

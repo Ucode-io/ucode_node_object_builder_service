@@ -18,14 +18,14 @@ const createRelation = require("../initial_setups/relation");
 async function insertCollections(conn, userId, projectId) {
 
         const projectID = projectId.toString()
-        const clientPlatformID = v4.toString()
-        const clientTypeID = v4.toString()
-        const roleID = v4.toString()
+        const clientPlatformID = v4().toString()
+        const clientTypeID = v4().toString()
+        const roleID = v4().toString()
         const userID = userId.toString()
-        const testLoginID = v4.toString()
-        const connectionID = v4.toString()
+        const testLoginID = v4().toString()
+        const connectionID = v4().toString()
 
-        const  app = await appCreate()
+        const app = await appCreate()
 
         conn.collection('apps').insertMany(app, function (err, result) {
             if (err) throw err;
@@ -50,7 +50,7 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted Role :", result.insertedCount)
         })
 
-        const user = await createUser(userID, roleID, clientTypeID, clientPlatformID, projectID, userLogin, userPassword)
+        const user = await createUser(userID, roleID, clientTypeID, clientPlatformID, projectID)
         conn.collection('users').insertMany(user, function (err, result) {
             if (err) throw err;
             console.log("Inserted User :", result.insertedCount)
@@ -107,7 +107,7 @@ async function insertCollections(conn, userId, projectId) {
         const viewRelationPermissions = await createViewRelationPermissions(roleID)
         conn.collection('view_permissions').insertMany(viewRelationPermissions, function (err, result) {
             if (err) throw err;
-            console.log("Inserted View Permissions :", result.insertCollections)
+            console.log("Inserted View Permissions :", result.insertedCount)
         })
 
 }

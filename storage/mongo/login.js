@@ -462,9 +462,13 @@ let loginStore = {
 
         let userId;
         if (user) {
-            console.log('---------------inside user-----------')
+            let userDoc = {
+                ...user._doc
+            }
+            console.log('userDoc',userDoc, userDoc.guid)
+            console.log('---------------inside user-----------', user.guid, )
             user_found = true
-            userId = user.guid
+            userId = userDoc.guid
         }
 
         const appPermissions = await recordPermission.models.find(

@@ -1197,3 +1197,24 @@
   metadata: {}
 >>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
 }
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T15:51:31.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.updateRoleAppTablePermissions: failed with error: Cannot access 'record_permissions' before initialization",
+  level: 'error',
+  timestamp: '2022-12-26T16:11:12.363Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.updateRoleAppTablePermissions: failed with error: Cannot access 'record_permissions' before initialization",
+  level: 'error',
+  timestamp: '2022-12-26T16:12:13.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

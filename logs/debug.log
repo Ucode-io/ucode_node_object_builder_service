@@ -12954,3 +12954,2530 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T12:44:56.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T12:44:56.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T12:44:56.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T12:44:56.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d7e705e7-b27a-4813-9e10-9a600ff50eef"}',
+  level: 'debug',
+  timestamp: '2022-12-26T12:44:57.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T12:44:57.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T12:44:57.609Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T12:44:57.700Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T12:46:51.128Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T12:46:51.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T12:46:51.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T12:46:51.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T12:46:51.611Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T12:46:52.118Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T12:46:52.225Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d7e705e7-b27a-4813-9e10-9a600ff50eef"}',
+  level: 'debug',
+  timestamp: '2022-12-26T12:47:26.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T12:47:33.664Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T12:51:04.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T12:51:04.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T12:51:04.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T12:51:04.426Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T12:51:04.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T12:51:05.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T12:51:05.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T12:51:39.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T12:51:46.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:04:32.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:04:32.101Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:04:32.101Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:04:32.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:04:32.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:04:33.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:04:33.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:05:06.854Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:05:13.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:06:32.761Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:06:32.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:06:32.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:06:32.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:06:33.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:06:33.766Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:06:33.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:07:07.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:07:14.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:15:50.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:15:50.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:15:50.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:15:50.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:15:51.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:15:51.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:15:51.704Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:16:24.610Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:17:47.395Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:17:47.396Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:17:47.396Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:17:47.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:17:47.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:17:48.380Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:17:48.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:18:21.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:20:42.655Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:20:42.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:20:42.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:20:42.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:20:43.152Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:20:43.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:20:43.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:21:18.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:23:14.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:23:14.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:23:14.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:23:14.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:23:14.743Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:23:15.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:23:15.328Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:23:50.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:23:57.167Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:24:31.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:24:31.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:24:31.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:24:31.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:24:32.437Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:24:32.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:24:33.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:25:06.665Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:25:13.463Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:27:35.722Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:27:35.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:27:35.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:27:35.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:27:36.210Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:27:36.704Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:27:36.862Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:28:11.079Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:53:10.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:53:10.111Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:53:10.111Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:53:10.146Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:53:10.652Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:53:11.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:53:11.292Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:53:43.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:53:50.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:58:18.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T13:58:18.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T13:58:18.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T13:58:18.680Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T13:58:19.184Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T13:58:19.669Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T13:58:19.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T13:58:51.591Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:04:17.509Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:04:17.511Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:04:17.511Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:04:17.537Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:04:18.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:04:18.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:04:18.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:04:52.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:04:59.375Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:18:51.593Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:18:51.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:18:51.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:18:51.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:18:52.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:18:52.593Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:18:52.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:19:25.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:21:32.686Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:21:32.688Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:21:32.688Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:21:32.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:21:33.183Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:21:33.690Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:21:33.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:22:05.821Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:24:08.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:24:08.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:24:08.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:24:08.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:24:08.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:24:09.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:24:09.469Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:24:41.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:25:52.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:25:52.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:25:52.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:25:52.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:25:53.231Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:25:53.726Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:25:53.800Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:26:26.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:26:46.098Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:26:46.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:26:46.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:26:46.126Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:26:46.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:26:47.092Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:26:47.167Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:27:20.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:27:48.622Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:27:48.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:27:48.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:27:48.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:27:49.125Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:27:49.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:27:49.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:28:22.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:28:37.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:28:37.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:28:37.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:28:37.553Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:28:38.250Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:28:38.800Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:28:38.928Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:29:11.574Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:29:14.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:29:14.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:29:14.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:29:15.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:29:15.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:29:15.948Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:29:16.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:29:48.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:29:49.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:31:01.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:31:01.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:31:01.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:31:01.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:31:01.554Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:31:02.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:31:02.122Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:31:41.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:32:59.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:32:59.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:32:59.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:32:59.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:32:59.674Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:33:00.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:33:00.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:33:33.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:33:34.016Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:37:45.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T14:37:45.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T14:37:45.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:37:45.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T14:37:45.636Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T14:37:46.136Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T14:37:46.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T14:38:18.897Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T14:38:25.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:08:35.608Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T15:08:35.610Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T15:08:35.610Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:08:35.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T15:08:36.184Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T15:08:36.678Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T15:08:36.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:09:10.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:09:17.699Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:11:17.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T15:11:17.216Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T15:11:17.216Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:11:17.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T15:11:17.703Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T15:11:18.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T15:11:18.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'info',
+  timestamp: '2022-12-26T15:12:04.071Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:12:04.074Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:12:10.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T15:12:10.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:13:22.841Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T15:13:22.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T15:13:22.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:13:22.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T15:13:23.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T15:13:23.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T15:13:24.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'info',
+  timestamp: '2022-12-26T15:17:20.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:17:20.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:17:27.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T15:17:27.155Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'info',
+  timestamp: '2022-12-26T15:18:26.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:18:26.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:18:33.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T15:18:33.120Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:29:56.140Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T15:29:56.142Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T15:29:56.142Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:29:56.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T15:29:56.860Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T15:29:57.853Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T15:29:57.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'info',
+  timestamp: '2022-12-26T15:31:24.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:31:24.701Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:31:35.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T15:31:35.131Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:41:44.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T15:41:44.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T15:41:44.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T15:41:44.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T15:41:45.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T15:41:45.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T15:41:45.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":false,"edit_permission":false,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}',
+  level: 'info',
+  timestamp: '2022-12-26T15:51:31.593Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":false,"edit_permission":false,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}',
+  level: 'debug',
+  timestamp: '2022-12-26T15:51:31.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T15:51:31.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:01:30.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T16:01:30.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T16:01:30.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:01:30.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T16:01:30.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T16:01:31.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T16:01:31.319Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":false,"edit_permission":false,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:04:15.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":false,"edit_permission":false,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:04:15.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:04:16.184Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:04:16.185Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:04:37.907Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:04:37.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:04:38.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:04:38.574Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"No","write":"No","update":"No","delete":"No","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:05:19.790Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"No","write":"No","update":"No","delete":"No","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:05:19.791Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:05:20.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:05:20.454Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:05:41.692Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:05:41.693Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:05:42.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:05:42.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:05:52.626Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:05:52.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:05:53.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:05:53.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch2","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:06:14.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch2","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:06:14.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:06:15.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:06:15.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch2","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:06:27.699Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch2","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:06:27.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:06:28.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:06:28.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"No","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:08:00.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"No","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:08:00.894Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:08:01.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:08:01.577Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"No","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:08:10.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"No","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:08:10.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:08:10.644Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:08:10.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch2","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"No","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:09:23.077Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch2","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"No","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:09:23.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:09:23.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:09:23.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:10:25.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T16:10:25.441Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T16:10:25.441Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:10:25.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T16:10:25.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T16:10:26.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T16:10:26.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:11:11.866Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:11:11.868Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.updateRoleAppTablePermissions: failed with error: Cannot access 'record_permissions' before initialization",
+  level: 'error',
+  timestamp: '2022-12-26T16:11:12.363Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch22","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:12:12.992Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch22","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:12:12.993Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.updateRoleAppTablePermissions: failed with error: Cannot access 'record_permissions' before initialization",
+  level: 'error',
+  timestamp: '2022-12-26T16:12:13.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:13:45.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T16:13:45.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T16:13:45.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:13:45.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T16:13:46.037Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T16:13:46.526Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T16:13:46.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch22","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:14:22.591Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch22","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:14:22.593Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:14:23.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:14:23.284Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:14:33.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:14:33.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:14:33.930Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:14:33.930Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:14:48.070Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:14:48.071Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:14:48.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:14:48.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:15:01.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"Yes","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:15:01.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:15:01.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:15:01.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"No","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'info',
+  timestamp: '2022-12-26T16:16:58.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","data":{"apps":[{"tables":[{"field_permissions":[{"field_id":"c409433c-e8a5-456e-9abc-99b3f9e83bad","table_slug":"safia_branch","view_permission":true,"edit_permission":true,"role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","field_label":"ID","guid":"eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"}],"view_permissions":[],"label":"Branch","slug":"safia_branch","description":"Branch ","show_in_menu":true,"is_changed":false,"icon":"code-branch.svg","subtitle_field_slug":"","with_increment_id":false,"digit_number":0,"id":"30cce939-ce5a-4995-bba4-65ddc02492c6","record_permissions":{"read":"No","write":"Yes","update":"Yes","delete":"Yes","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","table_slug":"safia_branch","guid":"718f7830-2bf2-44a1-9507-c0425de4a317","is_have_condition":false}}],"name":"TEST","description":"TEST","icon":"address-book.svg","id":"8acde3e8-6ca2-4713-b49f-93bd27606b7a"}],"name":"ADMIN","guid":"d3b48c94-c46b-4e08-9415-ede7a71adfa6","project_id":"7b372941-0435-45b6-a16e-c245b95efd94","client_platform_id":"6396ed57-e54e-4b0b-84bf-281289c82411","client_type_id":"a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:16:58.724Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.updateRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:16:59.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-26T16:16:59.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-26T16:19:11.210Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-26T16:19:11.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-26T16:19:11.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-26T16:19:11.236Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-26T16:19:11.700Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-26T16:19:12.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-26T16:19:12.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

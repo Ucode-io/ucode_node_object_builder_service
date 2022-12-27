@@ -287,6 +287,7 @@ let permission = {
             return roleCopy
         }
 
+
         let appsList = []
         for (let app of apps) {
 
@@ -369,6 +370,7 @@ let permission = {
 
         roleCopy.apps = appsList
 
+        console.log('response->', JSON.stringify(roleCopy, null, 2))
         return roleCopy
 
     }),
@@ -376,7 +378,7 @@ let permission = {
         const ErrRoleNotFound = new Error('role_id is required')
         const ErrWhileUpdate = new Error('error while updating')
 
-        if (!req.guid) {
+        if (!req.data.guid) {
             throw ErrRoleNotFound
         }
 
@@ -390,11 +392,11 @@ let permission = {
 
         let role = await Role.findOneAndUpdate(
             {
-                role_id: req.guid
+                role_id: req.data.guid
             },
             {
                 $set: {
-                    name: req.name
+                    name: req.data.name
                 }
             },
             {
@@ -406,29 +408,31 @@ let permission = {
             throw ErrRoleNotFound
         }
 
-        for (let app of req?.apps) {
+        for (let app of req?.data?.apps) {
             for (let table of app?.tables) {
-                // console.log('table.record_permissions', table.record_permissions)
-                // console.log('table.field_permissions', table.field_permissions)
-                // console.log('table.view_permissions', table.view_permissions)
-
-                const record_permissions = await RecordPermission.findOneAndUpdate(
-                    {
-                        role_id: table.record_permissions.role_id,
-                        table_slug: table.record_permissions.table_slug
-                    },
-                    {
-                        $set: table.record_permissions
-                    },
-                    {
-                        upsert: false
+   
+                if (table.record_permissions) {
+                    const record_permissions = await RecordPermission.findOneAndUpdate(
+                        {
+                            guid: table.record_permissions.guid
+                        },
+                        {
+                            $set: {
+                                read: table.record_permissions.read,
+                                write: table.record_permissions.write,
+                                update: table.record_permissions.update,
+                                delete: table.record_permissions.delete,
+                            }
+                        },
+                        {
+                            upsert: false
+                        }
+                    )
+    
+                    if (!record_permissions) {
+                        return ErrWhileUpdate
                     }
-                )
-
-                if (!record_permissions) {
-                    return ErrWhileUpdate
                 }
-
 
                 for (let field_permission of table.field_permissions) {
                     if (field_permission) {
@@ -437,7 +441,10 @@ let permission = {
                                 guid: field_permission.guid,
                             },
                             {
-                                $set: field_permission
+                                $set: {
+                                    view_permission: field_permission.view_permission,
+                                    edit_permission: field_permission.edit_permission,
+                                }
                             },
                             {
                                 upsert: false
@@ -453,7 +460,9 @@ let permission = {
                                 guid: view_permission.guid,
                             },
                             {
-                                $set: view_permission
+                                $set: {
+                                    view_permission: view_permission?.view_permission
+                                }
                             },
                             {
                                 upsert: false
@@ -464,7 +473,7 @@ let permission = {
             }
         }
 
-
+        return {}
 
     }),
     createRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.createRoleAppTablePermissions`, async (req) => {

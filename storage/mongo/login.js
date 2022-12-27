@@ -482,6 +482,7 @@ let loginStore = {
         // console.log('role', JSON.parse(role))
         // console.log('permissions', JSON.parse(permissions))
 
+        //@TODO:: check user can login with this login strategy
         return {
             user_found: user_found,
             client_platform: clientPlatform,
@@ -490,7 +491,7 @@ let loginStore = {
             app_permissions: appPermissions,
             role: role,
             permissions: permissions,
-            login_table_slug: login.table_slug
+            login_table_slug: 'user'
         }
     }),
 }

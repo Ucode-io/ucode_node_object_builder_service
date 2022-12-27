@@ -386,7 +386,7 @@ let loginStore = {
     }),
 
     login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login`, async (req) => {
-        const clientTypeTable = (await ObjectBuilder())["client_type"]
+        const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
 
         const clientType = await clientTypeTable.models.findOne(
             {
@@ -398,7 +398,7 @@ let loginStore = {
         params["guid"] = req.user_id
         params["project_id"] = req.project_id
 
-        const userTable = (await ObjectBuilder())["user"]
+        const userTable = (await ObjectBuilder(true, req.project_id))["user"]
         let user, userId;
         user = await userTable.models.findOne(
             {
@@ -411,7 +411,7 @@ let loginStore = {
                 user_found: user_found
             }
         }
-        const roleTable = (await ObjectBuilder())["role"]
+        const roleTable = (await ObjectBuilder(true, req.project_id))["role"]
 
         const role = await roleTable.models.findOne(
             {
@@ -419,7 +419,7 @@ let loginStore = {
             }
         )
 
-        const clientPlatfromTable = (await ObjectBuilder())["client_platform"]
+        const clientPlatfromTable = (await ObjectBuilder(true, req.project_id))["client_platform"]
 
         const clientPlatform = await clientPlatfromTable.models.findOne(
             {
@@ -428,7 +428,7 @@ let loginStore = {
         )
 
 
-        const connectionsTable = (await ObjectBuilder())["connections"]
+        const connectionsTable = (await ObjectBuilder(true, req.project_id))["connections"]
 
         const connections = await connectionsTable.models.find(
             {
@@ -439,7 +439,7 @@ let loginStore = {
         clientTypeResp = clientType
         clientTypeResp.tables = connections
 
-        const recordPermission = (await ObjectBuilder())["record_permission"]
+        const recordPermission = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
         const permissions = await recordPermission.models.find(
             {

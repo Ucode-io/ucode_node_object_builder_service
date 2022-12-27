@@ -1,0 +1,248 @@
+{
+    "name": "DEFAULT ADMIN",
+    "guid": "59e336b5-229e-4495-903f-e167512e90d2",
+    "project_id": "80cc11d9-2ee6-494a-a09d-40150d151145",
+    "client_platform_id": "3f6320a6-b6ed-4f5f-ad90-14a154c95ed3",
+    "client_type_id": "142e9d0b-d9d3-4f71-bde1-5f1dbd70e83d",
+    "apps": [
+        {
+            "name": "Авторизация",
+            "description": "Авторизация",
+            "icon": "user-shield.svg",
+            "id": "c57eedc3-a954-4262-a0af-376c65b5a283",
+            "tables": [
+                {
+                    "label": "Связь",
+                    "slug": "connections",
+                    "description": "connections",
+                    "show_in_menu": true,
+                    "is_changed": false,
+                    "icon": "brand_connectdevelop.svg",
+                    "subtitle_field_slug": "",
+                    "with_increment_id": false,
+                    "digit_number": 0,
+                    "id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
+                    "record_permissions": {
+                        "update": "No",
+                        "table_slug": "app",
+                        "write": "Yes",
+                        "guid": "b0c3bc25-8439-4e5a-84db-cd36a456aaef",
+                        "read": "No",
+                        "delete": "No",
+                        "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                        "is_have_condition": false
+                    },
+                    "field_permissions": [
+                        {
+                            "field_id": "da748eab-536b-433b-906d-203335f03912",
+                            "table_slug": "branch",
+                            "view_permission": true,
+                            "edit_permission": true,
+                            "role_id": "54ad3db3-5a01-4d65-b8d4-93886f2c4f1c",
+                            "field_label": "ID",
+                            "guid": "b9a4806a-c5d5-43fb-ae2f-a4a5054bb112"
+                        },
+                        {
+                            "field_id": "da748eab-536b-433b-906d-203335f03912",
+                            "table_slug": "branch",
+                            "view_permission": true,
+                            "edit_permission": true,
+                            "role_id": "f5bf8611-c22b-43d0-b6ee-866ec53b8a3d",
+                            "field_label": "ID",
+                            "guid": "33581afa-402a-4a6f-b02b-8fc3a2b0d349"
+                        }
+                    ],
+                    "view_relation_permissions": [
+                        {
+                            "guid": "b73c6618-9eb7-4355-9660-7a369d2d2476",
+                            "label": "Направление",
+                            "relation_id": "ed1ad388-7230-43ae-b732-caa7da80f4c3",
+                            "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                            "table_slug": "doctors",
+                            "view_permission": true
+                        },
+                        {
+                            "guid": "b73c6618-9eb7-4355-9660-7a369d2d2476",
+                            "label": "Направление",
+                            "relation_id": "ed1ad388-7230-43ae-b732-caa7da80f4c3",
+                            "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                            "table_slug": "doctors",
+                            "view_permission": true
+                        }
+                    ]
+                },
+                {
+                    "label": "Роли",
+                    "slug": "role",
+                    "description": "role",
+                    "show_in_menu": true,
+                    "is_changed": false,
+                    "icon": "brand_critical-role.svg",
+                    "subtitle_field_slug": "",
+                    "with_increment_id": false,
+                    "digit_number": 0,
+                    "id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
+                    "record_permissions": {
+                        "update": "No",
+                        "table_slug": "app",
+                        "write": "Yes",
+                        "guid": "b0c3bc25-8439-4e5a-84db-cd36a456aaef",
+                        "read": "No",
+                        "delete": "No",
+                        "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                        "is_have_condition": false
+                    },
+                    "field_permissions": [
+                        {
+                            "field_id": "da748eab-536b-433b-906d-203335f03912",
+                            "table_slug": "branch",
+                            "view_permission": true,
+                            "edit_permission": true,
+                            "role_id": "54ad3db3-5a01-4d65-b8d4-93886f2c4f1c",
+                            "field_label": "ID",
+                            "guid": "b9a4806a-c5d5-43fb-ae2f-a4a5054bb112"
+                        },
+                        {
+                            "field_id": "da748eab-536b-433b-906d-203335f03912",
+                            "table_slug": "branch",
+                            "view_permission": true,
+                            "edit_permission": true,
+                            "role_id": "f5bf8611-c22b-43d0-b6ee-866ec53b8a3d",
+                            "field_label": "ID",
+                            "guid": "33581afa-402a-4a6f-b02b-8fc3a2b0d349"
+                        }
+                    ],
+                    "view_relation_permissions": [
+                        {
+                            "guid": "b73c6618-9eb7-4355-9660-7a369d2d2476",
+                            "label": "Направление",
+                            "relation_id": "ed1ad388-7230-43ae-b732-caa7da80f4c3",
+                            "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                            "table_slug": "doctors",
+                            "view_permission": true
+                        },
+                        {
+                            "guid": "b73c6618-9eb7-4355-9660-7a369d2d2476",
+                            "label": "Направление",
+                            "relation_id": "ed1ad388-7230-43ae-b732-caa7da80f4c3",
+                            "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                            "table_slug": "doctors",
+                            "view_permission": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Админ Панель",
+            "description": "Админ Панель\n",
+            "icon": "people-roof.svg",
+            "id": "f3a9b642-11d0-404a-864d-ac972ffe4a6c",
+            "tables": [
+                {
+                    "label": "Связь",
+                    "slug": "connections",
+                    "description": "connections",
+                    "show_in_menu": true,
+                    "is_changed": false,
+                    "icon": "brand_connectdevelop.svg",
+                    "subtitle_field_slug": "",
+                    "with_increment_id": false,
+                    "digit_number": 0,
+                    "id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
+                    "record_permissions": {
+                        "update": "No",
+                        "table_slug": "app",
+                        "write": "Yes",
+                        "guid": "b0c3bc25-8439-4e5a-84db-cd36a456aaef",
+                        "read": "No",
+                        "delete": "No",
+                        "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                        "is_have_condition": false
+                    },
+                    "field_permissions": [
+                        {
+                            "field_id": "da748eab-536b-433b-906d-203335f03912",
+                            "table_slug": "branch",
+                            "view_permission": true,
+                            "edit_permission": true,
+                            "role_id": "54ad3db3-5a01-4d65-b8d4-93886f2c4f1c",
+                            "field_label": "ID",
+                            "guid": "b9a4806a-c5d5-43fb-ae2f-a4a5054bb112"
+                        },
+                        {
+                            "field_id": "da748eab-536b-433b-906d-203335f03912",
+                            "table_slug": "branch",
+                            "view_permission": true,
+                            "edit_permission": true,
+                            "role_id": "f5bf8611-c22b-43d0-b6ee-866ec53b8a3d",
+                            "field_label": "ID",
+                            "guid": "33581afa-402a-4a6f-b02b-8fc3a2b0d349"
+                        }
+                    ],
+                    "view_relation_permissions": [
+                        {
+                            "guid": "b73c6618-9eb7-4355-9660-7a369d2d2476",
+                            "label": "Направление",
+                            "relation_id": "ed1ad388-7230-43ae-b732-caa7da80f4c3",
+                            "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                            "table_slug": "doctors",
+                            "view_permission": true
+                        },
+                        {
+                            "guid": "b73c6618-9eb7-4355-9660-7a369d2d2476",
+                            "label": "Направление",
+                            "relation_id": "ed1ad388-7230-43ae-b732-caa7da80f4c3",
+                            "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                            "table_slug": "doctors",
+                            "view_permission": true
+                        }
+                    ]
+                },
+                {
+                    "label": "Роли",
+                    "slug": "role",
+                    "description": "role",
+                    "show_in_menu": true,
+                    "is_changed": false,
+                    "icon": "brand_critical-role.svg",
+                    "subtitle_field_slug": "",
+                    "with_increment_id": false,
+                    "digit_number": 0,
+                    "id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
+                    "record_permissions": {
+                        "update": "No",
+                        "table_slug": "app",
+                        "write": "Yes",
+                        "guid": "b0c3bc25-8439-4e5a-84db-cd36a456aaef",
+                        "read": "No",
+                        "delete": "No",
+                        "role_id": "59e336b5-229e-4495-903f-e167512e90d2",
+                        "is_have_condition": false
+                    },
+                    "field_permissions": [
+                        {
+                            "field_id": "da748eab-536b-433b-906d-203335f03912",
+                            "table_slug": "branch",
+                            "view_permission": true,
+                            "edit_permission": true,
+                            "role_id": "54ad3db3-5a01-4d65-b8d4-93886f2c4f1c",
+                            "field_label": "ID",
+                            "guid": "b9a4806a-c5d5-43fb-ae2f-a4a5054bb112"
+                        },
+                        {
+                            "field_id": "da748eab-536b-433b-906d-203335f03912",
+                            "table_slug": "branch",
+                            "view_permission": true,
+                            "edit_permission": true,
+                            "role_id": "f5bf8611-c22b-43d0-b6ee-866ec53b8a3d",
+                            "field_label": "ID",
+                            "guid": "33581afa-402a-4a6f-b02b-8fc3a2b0d349"
+                        }
+                    ],
+                    "view_relation_permissions": []
+                }
+            ]
+        }
+    ]
+}

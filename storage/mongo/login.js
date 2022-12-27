@@ -466,7 +466,7 @@ let loginStore = {
                 ...user._doc
             }
             console.log('userDoc',userDoc, userDoc.guid)
-            console.log('---------------inside user-----------', user.guid, )
+            console.log('---------------inside user-----------', user.guid)
             user_found = true
             userId = userDoc.guid
         }

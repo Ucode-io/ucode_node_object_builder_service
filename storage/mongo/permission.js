@@ -87,7 +87,7 @@ let permission = {
                                 for (const method of methods) {
                                     let exists = keys.includes(method)
                                     if (!exists) {
-                                        data[method] = "No"
+                                        data[method] = "Yes"
                                     }
                                 }
                                 data["is_have_condition"] = false
@@ -151,11 +151,11 @@ let permission = {
                 let permission = {
                     table_slug: tableSlug,
                     role_id: req.role_id,
-                    read: "No",
-                    write: "No",
-                    delete: "No",
-                    update: "No",
-                    is_have_condition: falsek
+                    read: "Yes",
+                    write: "Yes",
+                    delete: "Yes",
+                    update: "Yes",
+                    is_have_condition: false
                 }
                 noPermissions.push(permission)
                 permissions = permissions.concat(noPermissions)
@@ -335,8 +335,17 @@ let permission = {
                     tableCopy.record_permissions = record_permissions[0]
                 } else {
                     console.log('WARNING record_permissions not found')
-                    tableCopy.record_permissions = {}
+                    tableCopy.record_permissions = {
+                        table_slug: table.slug,
+                        role_id: req.role_id,
+                        read: "Yes",
+                        write: "Yes",
+                        delete: "Yes",
+                        update: "Yes",
+                        is_have_condition: false
+                    }
                 }
+
 
                 const field_permissions = await FieldPermission.find(
                     {
@@ -370,7 +379,7 @@ let permission = {
         roleCopy.apps = appsList
 
         console.log('response->', JSON.stringify(roleCopy, null, 2))
-        return roleCopy
+        return {project_id: req.project_id, data: roleCopy}
 
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {

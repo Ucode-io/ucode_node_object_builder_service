@@ -1218,3 +1218,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Field is not defined',
+  level: 'error',
+  timestamp: '2022-12-27T08:38:17.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

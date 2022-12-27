@@ -1,0 +1,147 @@
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-27T08:33:28.588Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-27T08:33:28.590Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-27T08:33:28.590Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-27T08:33:28.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-27T08:33:29.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-27T08:33:29.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-27T08:33:29.687Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'info',
+  timestamp: '2022-12-27T08:38:16.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-27T08:38:16.738Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Field is not defined',
+  level: 'error',
+  timestamp: '2022-12-27T08:38:17.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: requested, {"project_id":"ucode_default_project_id","credentials":{"host":"161.35.26.178","port":"27017","database":"object_builder_service","username":"object_builder_service","password":"eeNgoot2"}}',
+  level: 'debug',
+  timestamp: '2022-12-27T08:40:53.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Main function is running',
+  level: 'debug',
+  timestamp: '2022-12-27T08:40:53.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connecting to db: mongodb://object_builder_service:eeNgoot2@161.35.26.178:27017/object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-27T08:40:53.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.register: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-27T08:40:53.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-27T08:40:54.005Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to the database',
+  level: 'info',
+  timestamp: '2022-12-27T08:40:54.496Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Connected to mongoDB',
+  level: 'info',
+  timestamp: '2022-12-27T08:40:54.570Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'info',
+  timestamp: '2022-12-27T08:41:30.628Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {"project_id":"ucode_default_project_id","role_id":"d3b48c94-c46b-4e08-9415-ede7a71adfa6"}',
+  level: 'debug',
+  timestamp: '2022-12-27T08:41:30.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-27T08:41:37.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-27T08:41:37.534Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

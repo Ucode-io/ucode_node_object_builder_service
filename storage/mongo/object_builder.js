@@ -481,7 +481,7 @@ let objectBuilder = {
             console.log(`begin[0] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
             const mongoConn = await mongoPool.get(req.project_id)
-            mongoPool.listKeys()
+            
             millis = Date.now() - start;
             console.log(`[1] seconds elapsed = ${Math.floor(millis / 1000)}`);
 

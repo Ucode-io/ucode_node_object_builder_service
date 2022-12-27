@@ -213,7 +213,7 @@ let tableStore = {
                     }
                 ]
             });
-            const fieldPermissionTable = (await ObjectBuilder(false, data.project_id))["field_permission"]
+            const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const response = await fieldPermissionTable?.models.deleteMany({
                 table_slug: table.slug
             })

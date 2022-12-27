@@ -399,8 +399,7 @@ let loginStore = {
         params["project_id"] = req.project_id
 
         const userTable = (await ObjectBuilder(true, req.project_id))["user"]
-        let user, userId;
-        user = await userTable.models.findOne(
+        let user = await userTable.models.findOne(
             {
                 $and: [params]
             }
@@ -453,11 +452,18 @@ let loginStore = {
                 ]
             }
         )
-        if (user) {
+
+        // if (user) {
+        //     user_found = true
+        //     userId = user.guid
+        // } else {
+        //     userId = ""
+        // }
+        
+        let userId;
+        if (user?.guid) {
             user_found = true
             userId = user.guid
-        } else {
-            userId = ""
         }
 
         const appPermissions = await recordPermission.models.find(

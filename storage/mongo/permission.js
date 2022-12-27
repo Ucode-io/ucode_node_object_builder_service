@@ -257,6 +257,7 @@ let permission = {
         const RecordPermission = (await ObjectBuilder())['record_permission'].models
         const FieldPermission = (await ObjectBuilder())['field_permission'].models
         const ViewPermission = (await ObjectBuilder())['view_relation_permission'].models
+        const Field = mongoConn.models['Field']
 
         const role = await Role.findOne(
             { guid: req.role_id },
@@ -346,17 +347,60 @@ let permission = {
                     }
                 }
 
+                // NEW
+                const fields = await Field.find({
+                    table_id: table.id
+                })
+                let fieldIds = []
+                let noFieldPermissions = []
 
-                const field_permissions = await FieldPermission.find(
+                fields.forEach(field => {
+                    fieldIds.push(field.id)
+                })
+
+                let fieldPermissions = await FieldPermission.find({
+                    role_id: req.role_id,
+                    table_slug: table.slug
+                },
                     {
-                        table_slug: table.slug,
-                        role_id: req.role_id
-                    },
-                    null,
-                    { sort: { createdAt: -1 } }
-                );
+                        _id: 0,
+                        __v: 0
+                    }
+                )
 
-                tableCopy.field_permissions = field_permissions || []
+                let permissionFieldIds = []
+                fieldPermissions.forEach(fieldPermission => {
+                    permissionFieldIds.push(fieldPermission.field_id)
+                })
+
+                let noFieldPermissionIds = fieldIds.filter(val => !permissionFieldIds.includes(val))
+
+                for (const fieldId of noFieldPermissionIds) {
+                    let field = fields.find(field => (field.id == fieldId))
+                    let fieldPermission = {
+                        field_id: fieldId,
+                        role_id: req.role_id,
+                        table_slug: req.table_slug,
+                        view_permission: true,
+                        edit_permission: true,
+                        field_label: field.label
+                    }
+                    noFieldPermissions.push(fieldPermission)
+                }
+                fieldPermissions = fieldPermissions.concat(noFieldPermissions)
+
+                let docPermissions = []
+                for (const permission of fieldPermissions) {
+                    if (permission._doc) {
+                        docPermissions.push(permission._doc)
+                    } else {
+                        docPermissions.push(permission)
+                    }
+                }
+                // NEW
+
+
+                tableCopy.field_permissions = docPermissions || []
 
                 const view_permissions = await ViewPermission.find(
                     {
@@ -379,7 +423,7 @@ let permission = {
         roleCopy.apps = appsList
 
         console.log('response->', JSON.stringify(roleCopy, null, 2))
-        return {project_id: req.project_id, data: roleCopy}
+        return { project_id: req.project_id, data: roleCopy }
 
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {
@@ -418,8 +462,8 @@ let permission = {
 
         for (let app of req?.data?.apps) {
             for (let table of app?.tables) {
-   
-                if (table.record_permissions) {
+
+                if (table?.record_permissions?.guid) {
                     const record_permissions = await RecordPermission.findOneAndUpdate(
                         {
                             guid: table.record_permissions.guid
@@ -436,14 +480,26 @@ let permission = {
                             upsert: false
                         }
                     )
-    
                     if (!record_permissions) {
-                        return ErrWhileUpdate
+                        throw ErrWhileUpdate
                     }
+                } else {
+                    await RecordPermission.findOneAndUpdate(
+                        {
+                            read: table.record_permissions.read,
+                            write: table.record_permissions.write,
+                            update: table.record_permissions.update,
+                            delete: table.record_permissions.delete,
+                            guid: v4(),
+                            role_id: req.data.guid,
+                            table_slug: table.record_permissions.table_slug,
+                        }
+                    )
                 }
 
                 for (let field_permission of table.field_permissions) {
-                    if (field_permission) {
+
+                    if (field_permission?.guid) {
                         await FieldPermission.findOneAndUpdate(
                             {
                                 guid: field_permission.guid,
@@ -458,22 +514,45 @@ let permission = {
                                 upsert: false
                             }
                         )
+                    } else {
+                        await FieldPermission.create(
+                            {
+                                view_permission: field_permission.view_permission,
+                                edit_permission: field_permission.edit_permission,
+                                field_id: field_permission.field_id,
+                                table_slug: field_permission.table_slug,
+                                role_id: field_permission.role_id,
+                                field_label: field_permission.field_label,
+                                guid: v4()
+                            }
+                        )
                     }
                 }
 
                 for (let view_permission of table.view_permissions) {
-                    if (view_permission) {
+                    if (view_permission?.guid) {
                         await FieldPermission.findOneAndUpdate(
                             {
                                 guid: view_permission.guid,
                             },
                             {
                                 $set: {
-                                    view_permission: view_permission?.view_permission
+                                    view_permission: view_permission.view_permission
                                 }
                             },
                             {
                                 upsert: false
+                            }
+                        )
+                    } else {
+                        await FieldPermission.create(
+                            {
+                                guid: v4(),
+                                label: view_permission.label,
+                                relation_id: view_permission.relation_id,
+                                role_id: view_permission.role_id,
+                                table_slug: view_permission.table_slug,
+                                view_permission: view_permission.view_permission,
                             }
                         )
                     }
@@ -590,7 +669,7 @@ let permission = {
             if (!viewRelationPermission.guid) {
                 viewRelationPermission.role_id = req.role_id,
                     viewRelationPermission.table_slug = req.table_slug,
-                    viewRelationPermission.view_permission = false,
+                    viewRelationPermission.view_permission = true,
                     viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
                 docViewRelationPermissions.push(viewRelationPermission)
             } else {

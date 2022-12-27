@@ -1,0 +1,16 @@
+[{
+  "name": "Ucode",
+  "subdomain": "ucode",
+  "guid": "3f6320a6-b6ed-4f5f-ad90-14a154c95ed3",
+  "project_id": "80cc11d9-2ee6-494a-a09d-40150d151145",
+  "createdAt": {
+    "$date": "2022-10-17T09:36:37.383Z"
+  },
+  "updatedAt": {
+    "$date": "2022-12-20T11:56:41.646Z"
+  },
+  "__v": 0,
+  "client_type_ids": [
+    "142e9d0b-d9d3-4f71-bde1-5f1dbd70e83d"
+  ]
+}]

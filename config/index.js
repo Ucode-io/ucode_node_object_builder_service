@@ -7,7 +7,7 @@ const config = {
     mongoPassword: getConf("MONGO_PASSWORD", "eeNgoot2"),
     mongoDatabase: getConf("MONGO_DATABASE", "object_builder_service"),
 
-    RPCPort: getConf("RPC_PORT", 8090),
+    RPCPort: getConf("RPC_PORT", 9102),
 
     kafkaHost: getConf("KAFKA_HOST", "localhost"),
     kafkaPort: getConf("KAFKA_PORT", "9092"),
@@ -22,7 +22,11 @@ const config = {
     minioPort: getConf("MINIO_PORT", 9001),
     minioSSL: getConf("MINIO_SSL", true),
     
-    ucodeDefaultProjectID: "ucode_default_project_id"
+    ucodeDefaultProjectID: "ucode_default_project_id",
+    k8s_namespace: "cp-region-type-id",
+
+    companyServiceHost : getConf("COMPANY_SERVICE_HOST", "localhost"),
+    companyServicePort : getConf("RPC_PORT", ":8092")
 };
 
 function getConf(name, def = "") {

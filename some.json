@@ -1,0 +1,48 @@
+{
+    "project_id": "ucode_default_project_id",
+    "data": {
+        "name": "ADMIN",
+        "guid": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
+        "project_id": "7b372941-0435-45b6-a16e-c245b95efd94",
+        "client_platform_id": "6396ed57-e54e-4b0b-84bf-281289c82411",
+        "client_type_id": "a13f0bd7-2742-4e65-bb92-1d8afe3ad0ef",
+        "apps": [
+            {
+                "name": "TEST",
+                "description": "TEST",
+                "icon": "address-book.svg",
+                "id": "8acde3e8-6ca2-4713-b49f-93bd27606b7a",
+                "tables": [
+                    {
+                        "label": "Branch",
+                        "slug": "safia_branch",
+                        "description": "Branch ",
+                        "show_in_menu": true,
+                        "icon": "code-branch.svg",
+                        "id": "30cce939-ce5a-4995-bba4-65ddc02492c6",
+                        "record_permissions": {
+                            "read": "Yes",
+                            "write": "Yes",
+                            "update": "Yes",
+                            "delete": "Yes",
+                            "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
+                            "table_slug": "safia_branch",
+                            "guid": "718f7830-2bf2-44a1-9507-c0425de4a317"
+                        },
+                        "field_permissions": [
+                            {
+                                "field_id": "c409433c-e8a5-456e-9abc-99b3f9e83bad",
+                                "table_slug": "safia_branch",
+                                "view_permission": true,
+                                "edit_permission": true,
+                                "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
+                                "field_label": "ID",
+                                "guid": "eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

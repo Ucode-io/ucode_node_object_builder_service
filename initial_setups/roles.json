@@ -1,0 +1,13 @@
+[{
+  "name": "DEFAULT ADMIN",
+  "guid": "59e336b5-229e-4495-903f-e167512e90d2",
+  "project_id": "80cc11d9-2ee6-494a-a09d-40150d151145",
+  "client_platform_id": "3f6320a6-b6ed-4f5f-ad90-14a154c95ed3",
+  "client_type_id": "142e9d0b-d9d3-4f71-bde1-5f1dbd70e83d",
+  "createdAt": {
+    "$date": "2022-08-25T08:58:44.749Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-17T10:26:39.945Z"
+  }
+}]

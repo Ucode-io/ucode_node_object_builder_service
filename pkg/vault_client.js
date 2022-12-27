@@ -23,6 +23,3 @@ const token = vault.loginWithAppRole(roleId, secretId, "auth/ucode")
     console.log(err)
 })
 
-
-
-

@@ -47,6 +47,21 @@ const RelationSchema = mongoose.Schema(
         },
         auto_filters: {
             type: mongoose.Schema.Types.Mixed
+        },
+        is_user_id_default: {
+            type: Boolean
+        },
+        cascadings: {
+            type: mongoose.Schema.Types.Mixed
+        },
+        object_id_from_jwt: {
+            type: Boolean
+        },
+        cascading_tree_table_slug: {
+            type: String
+        },
+        cascading_tree_field_slug: {
+            type: String
         }
     },
     {

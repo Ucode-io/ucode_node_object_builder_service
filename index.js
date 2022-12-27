@@ -19,17 +19,16 @@ const ObjectBuilder = require("./models/object_builder");
         },
     })
 
-
-    //  This for checking in localhost
+    //This for checking in localhost
 
     // await projectStorage.registerProjects({
-    //     project_id: "50008d64-d3ce-47d0-98b5-cfce24cc7be0",
+    //     project_id: "test121231",
     //     credentials: {
-    //         host: "161.35.26.178",
+    //         host: "localhost",
     //         port: 27017,
-    //         database: "transasia_transasia_object_builder_service",
-    //         username: "transasia_transasia_object_builder_service",
-    //         password: "123JFWxq",
+    //         database: "test_new_migration",
+    //         username: "sirojiddin",
+    //         password: "1234",
     //     }
     // })
 

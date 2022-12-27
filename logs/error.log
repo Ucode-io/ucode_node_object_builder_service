@@ -167,1061 +167,989 @@
   metadata: {}
 }
 {
-<<<<<<< HEAD
-  message: 'service.project.autoConnect: failed with error: not connected',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of null (reading 'guid')",
   level: 'error',
-  timestamp: '2022-12-20T10:41:15.867Z',
-=======
-  message: 'service.object_builder.getSingle: failed with error: table is not defined',
-  level: 'error',
-  timestamp: '2022-12-21T06:53:27.305Z',
->>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
+  timestamp: '2022-12-20T09:15:23.304Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-<<<<<<< HEAD
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of null (reading 'guid')",
   level: 'error',
-  timestamp: '2022-12-21T12:13:13.439Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: No connection established
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:78:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:20:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 14,
-      details: 'No connection established',
-      metadata: Metadata { internalRepr: Map(0) {}, options: {} },
-      progress: 'PROCESSED'
-    }
-  }
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2022-12-21T14:41:26.557Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: pq: relation "project" does not exist
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:78:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:20:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'pq: relation "project" does not exist',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2022-12-21T15:14:43.560Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: no rows in result set
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:78:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: no rows in result set',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2022-12-21T15:16:54.283Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: no rows in result set
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: no rows in result set',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2022-12-21T15:17:08.018Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: no rows in result set
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: no rows in result set',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2022-12-22T04:33:58.180Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: no rows in result set
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: no rows in result set',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2022-12-22T05:20:16.641Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: no rows in result set
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: no rows in result set',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
-}
-{
-  message: 'service.project.register: failed with error: db conn with given projectId already exists',
-  level: 'error',
-  timestamp: '2022-12-22T10:15:02.140Z',
-=======
-  message: 'service.object_builder.getSingle: failed with error: table is not defined',
-  level: 'error',
-  timestamp: '2022-12-21T06:55:05.992Z',
->>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
+  timestamp: '2022-12-20T09:19:07.437Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-<<<<<<< HEAD
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T10:40:36.551Z',
+  timestamp: '2022-12-21T09:50:08.310Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: Scan error on column index 3, name "updated_at": converting NULL to string is unsupported
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: Scan error on column index 3, name "updated_at": converting NULL to string is unsupported',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T10:41:25.512Z',
+  timestamp: '2022-12-21T09:50:18.768Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: no rows in result set
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: no rows in result set',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T10:50:51.145Z',
+  timestamp: '2022-12-21T09:50:53.464Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T10:51:47.981Z',
+  timestamp: '2022-12-21T09:52:28.197Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T10:52:49.409Z',
+  timestamp: '2022-12-21T09:53:15.134Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: converting argument $1 type: pq: Unable to convert string to array
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: converting argument $1 type: pq: Unable to convert string to array',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T10:56:22.472Z',
+  timestamp: '2022-12-21T09:53:16.346Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: converting argument $1 type: unsupported type company_service.GetProjectsResponse, a struct',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T10:57:02.652Z',
+  timestamp: '2022-12-21T09:53:17.652Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: converting argument $1 type: pq: Unable to convert string to array
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: converting argument $1 type: pq: Unable to convert string to array',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T10:57:33.605Z',
+  timestamp: '2022-12-21T09:53:19.304Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: sql: no rows in result set
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'sql: no rows in result set',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T11:03:12.042Z',
+  timestamp: '2022-12-21T09:54:05.423Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T11:06:07.702Z',
+  timestamp: '2022-12-21T09:54:06.301Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T11:46:06.573Z',
+  timestamp: '2022-12-21T09:54:07.037Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T11:48:03.960Z',
+  timestamp: '2022-12-21T09:54:07.705Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'pq: invalid input syntax for type uuid: "{"f0ba8775-7948-410e-bb17-8a1239d2b451","aa443a69-360c-4c45-b839-e85595877c6c"}"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T11:50:35.559Z',
+  timestamp: '2022-12-21T09:54:08.327Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: pq: syntax error at or near "["
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'pq: syntax error at or near "["',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T11:51:14.049Z',
+  timestamp: '2022-12-21T09:54:08.885Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: pq: op ANY/ALL (array) requires array on right side
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 2,
-      details: 'pq: op ANY/ALL (array) requires array on right side',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T12:05:29.597Z',
+  timestamp: '2022-12-21T09:54:09.458Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 14,
-      details: 'connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T12:07:52.406Z',
+  timestamp: '2022-12-21T09:54:10.158Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp 161.35.26.178:8090: i/o timeout"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 14,
-      details: 'connection error: desc = "transport: Error while dialing dial tcp 161.35.26.178:8090: i/o timeout"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T12:09:56.922Z',
+  timestamp: '2022-12-21T09:54:10.785Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 14,
-      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T12:31:35.576Z',
+  timestamp: '2022-12-21T09:54:11.678Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 14,
-      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T12:32:13.810Z',
+  timestamp: '2022-12-21T09:54:12.529Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 14,
-      details: 'connection error: desc = "transport: Error while dialing dial tcp 0.0.0.0:8090: connect: connection refused"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T12:34:28.289Z',
+  timestamp: '2022-12-21T09:54:13.082Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 14,
-      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T12:40:31.426Z',
+  timestamp: '2022-12-21T09:54:13.600Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:26:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:25:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 14,
-      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
+  metadata: {}
 }
 {
-  message: 'Error while auto connecting',
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
   level: 'error',
-  timestamp: '2022-12-22T12:42:52.543Z',
+  timestamp: '2022-12-21T09:54:14.717Z',
   label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"
-        at callErrorFromStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:192:76)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:360:141)
-        at Object.onReceiveStatus (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/resolving-call.js:93:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11)
-    for call at
-        at ServiceClientImpl.makeUnaryRequest (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:160:34)
-        at ServiceClientImpl.<anonymous> (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:29:26
-        at new Promise (<anonymous>)
-        at Object.autoConn (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/services/grpc/client.js:28:12)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/storage/mongo/project.js:79:37
-        at Object.autoConnect (/Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)
-        at /Users/javlon/Documents/projects/ucode/ucode_node_object_builder_service/index.js:19:26
-        at processTicksAndRejections (node:internal/process/task_queues:96:5) {
-      code: 14,
-      details: 'connection error: desc = "transport: Error while dialing dial tcp [::1]:8090: connect: connection refused"',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      },
-      progress: 'PROCESSED'
-    }
-  }
-=======
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:16.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:16.805Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:17.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:18.095Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:18.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:19.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:19.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:20.348Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:20.918Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:21.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:22.125Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:22.644Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:23.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:23.745Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:45.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:47.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:48.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:48.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:49.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:50.363Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:51.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:51.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:51.982Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:52.446Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:52.743Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:53.020Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:53.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:53.931Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:54.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:54.460Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:54:54.755Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:07.333Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:08.387Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:09.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:09.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:09.953Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:10.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:10.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:11.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:11.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:11.680Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:11.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:12.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:12.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:13.318Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:13.709Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:14.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:14.387Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:14.688Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:15.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:16.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:16.664Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:17.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:17.940Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:18.548Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:23.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:24.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:24.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:25.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:25.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:55:26.409Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:56:05.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:56:20.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.loginWithOtp: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-21T09:56:22.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-22T13:17:54.796Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-22T13:19:51.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-22T13:24:35.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-22T13:32:26.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:22:14.551Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:22:21.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:23:15.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:23:17.827Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:23:21.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:23:25.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:23:28.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:23:32.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:23:37.889Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:30:44.653Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:30:46.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to determine kind for "[object Object]".',
+  level: 'error',
+  timestamp: '2022-12-22T20:30:56.933Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:17:12.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:18:00.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:18:29.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:18:42.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:18:59.136Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:19:05.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:19:24.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:21:56.188Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:22:30.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:22:44.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:22:45.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:23:00.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:23:30.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:24:33.346Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:24:56.070Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:27:02.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-24T18:27:12.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:30:50.412Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:30:54.317Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:31:05.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:31:14.432Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:33:25.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:33:32.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:37:32.583Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:38:38.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:38:58.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:39:33.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-26T06:41:06.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-26T06:44:55.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-26T07:05:47.799Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2022-12-26T07:05:57.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: undefined',
+  level: 'error',
+  timestamp: '2022-12-26T07:06:14.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: undefined',
+  level: 'error',
+  timestamp: '2022-12-26T07:07:19.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: undefined',
+  level: 'error',
+  timestamp: '2022-12-26T07:09:00.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: undefined',
+  level: 'error',
+  timestamp: '2022-12-26T07:10:06.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: undefined',
+  level: 'error',
+  timestamp: '2022-12-26T07:10:32.059Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
   message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
   level: 'error',
-  timestamp: '2022-12-21T06:56:35.608Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getSingle: failed with error: table is not defined',
-  level: 'error',
-  timestamp: '2022-12-21T06:57:06.513Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getSingle: failed with error: table is not defined',
-  level: 'error',
-  timestamp: '2022-12-21T07:05:15.527Z',
-  label: 'object_builder_service',
-  metadata: {}
->>>>>>> 12c53d8cfae6df2f83124f9ace7b74cf44c73766
-}
-{
-  message: 'service.app.updateRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2022-12-26T15:51:31.596Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.app.updateRoleAppTablePermissions: failed with error: Cannot access 'record_permissions' before initialization",
-  level: 'error',
-  timestamp: '2022-12-26T16:11:12.363Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.app.updateRoleAppTablePermissions: failed with error: Cannot access 'record_permissions' before initialization",
-  level: 'error',
-  timestamp: '2022-12-26T16:12:13.483Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Field is not defined',
-  level: 'error',
-  timestamp: '2022-12-27T08:38:17.573Z',
+  timestamp: '2022-12-26T07:17:59.990Z',
   label: 'object_builder_service',
   metadata: {}
 }

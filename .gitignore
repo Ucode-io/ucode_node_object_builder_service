@@ -1,1 +1,7 @@
 node_modules
+/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/ucode_node_object_builder_service.iml
+/.idea/vcs.xml
+/.idea/.gitignore
+/.idea/git_toolbox_prj.xml

@@ -1,136 +1,115 @@
-const fs = require('fs');
+const { v4 } = require("uuid");
 
-function insertCollections(conn) {
-    return new Promise((resolve, reject) => {
+const appCreate = require("../initial_setups/app");
+const createClientPlatform = require("../initial_setups/clientPlatforms");
+const createClientType = require("../initial_setups/clientType");
+const createRole = require("../initial_setups/role");
+const createUser = require("../initial_setups/user");
+const createTestLogin = require("../initial_setups/testLogin");
+const createConnection = require("../initial_setups/connections");
+const createField = require("../initial_setups/field");
+const createTable = require("../initial_setups/tables");
+const createRecordPermision = require("../initial_setups/recordPermission");
+const createFieldPermission = require("../initial_setups/fieldPermission");
+const createSection = require("../initial_setups/section");
+const createViewRelationPermissions = require("../initial_setups/viewRelationPermission");
+const createRelation = require("../initial_setups/relation");
 
-        const appFile = fs.readFileSync("./initial_setups/apps.json")
-        const apps = JSON.parse(appFile.toString())
-        conn.collection('apps').insertMany(apps, function (err, result) {
+async function insertCollections(conn, userId, projectId) {
+
+        const projectID = projectId.toString()
+        const clientPlatformID = v4.toString()
+        const clientTypeID = v4.toString()
+        const roleID = v4.toString()
+        const userID = userId.toString()
+        const testLoginID = v4.toString()
+        const connectionID = v4.toString()
+
+        const  app = await appCreate()
+
+        conn.collection('apps').insertMany(app, function (err, result) {
             if (err) throw err;
-            console.log('Inserted Apps', result.insertedCount);
-
+            console.log("Inserted Apps : ", result.insertedCount)
         })
 
-        const clientPlatformFile = fs.readFileSync("./initial_setups/client_platforms.json")
-        const clientPlatforms = JSON.parse(clientPlatformFile.toString())
-        conn.collection('client_platforms').insertMany(clientPlatforms, function (err, result) {
+        const clientPlatform = await createClientPlatform(clientPlatformID, clientTypeID, projectID)
+        conn.collection('client_platforms').insertMany(clientPlatform, function (err, result) {
             if (err) throw err;
-            console.log('Inserted Client Platforms:', result.insertedCount);
-
+            console.log("Inserted Client Platform : ", result.insertedCount)
         })
 
-        const clientTypesFile = fs.readFileSync("./initial_setups/client_types.json")
-        const clientTypes = JSON.parse(clientTypesFile.toString())
-        conn.collection('client_types').insertMany(clientTypes, function (err, result) {
+        const clientType = await createClientType(clientPlatformID, clientTypeID, projectID)
+        conn.collection('client_types').insertMany(clientType, function (err, result) {
             if (err) throw err;
-            console.log('Inserted Client Types:', result.insertedCount);
-
+            console.log("Inserted Client Type :", result.insertedCount)
         })
 
-        const connectionFile = fs.readFileSync("./initial_setups/connections.json")
-        const connections = JSON.parse(connectionFile.toString())
+        const role = await createRole(roleID, clientPlatformID, clientTypeID, projectID)
+        conn.collection('roles').insertMany(role, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted Role :", result.insertedCount)
+        })
+
+        const user = await createUser(userID, roleID, clientTypeID, clientPlatformID, projectID, userLogin, userPassword)
+        conn.collection('users').insertMany(user, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted User :", result.insertedCount)
+        })
+
+        const testLogin = await createTestLogin(testLoginID, clientTypeID)
+        conn.collection('test_logins').insertMany(testLogin, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted Test Login :", result.insertedCount)
+        })
+
+        const connections = await createConnection(connectionID, clientTypeID)
         conn.collection('connections').insertMany(connections, function (err, result) {
             if (err) throw err;
-            console.log('Inserted Connections:', result.insertedCount);
-
+            console.log("Inserted Connections : ", result.insertedCount)
         })
 
-        const fieldsFile = fs.readFileSync("./initial_setups/fields.json")
-        const fields = JSON.parse(fieldsFile.toString())
-        conn.collection('fields').insertMany(fields, function (err, result) {
+        const table = await createTable()
+        conn.collection('tables').insertMany(table, function (err, result) {
             if (err) throw err;
-            console.log('Inserted Fields:', result.insertedCount);
-
+            console.log("Inserted Table :", result.insertedCount)
         })
 
-
-        const projectFile = fs.readFileSync("./initial_setups/projects.json")
-        const projects = JSON.parse(projectFile.toString())
-        conn.collection('projects').insertMany(projects, function (err, result) {
+        const relation = await createRelation()
+        conn.collection('relation').insertMany(relation, function (err, result) {
             if (err) throw err;
-            console.log('Inserted Projects:', result.insertedCount);
-
+            console.log("Inserted Relation :", result.insertedCount)
         })
 
-
-        const recordPermissionFile = fs.readFileSync("./initial_setups/record_permissions.json")
-        const recordPermissions = JSON.parse(recordPermissionFile.toString())
-        conn.collection('record_permissions').insertMany(recordPermissions, function (err, result) {
+        const recordPermission = await createRecordPermision(roleID)
+        conn.collection('record_permissions').insertMany(recordPermission, function (err, result) {
             if (err) throw err;
-            console.log('Inserted Record Permissions:', result.insertedCount);
-
+            console.log("Inserted Record Permission :", result.insertedCount)
         })
 
-
-        const relationFile = fs.readFileSync("./initial_setups/relations.json")
-        const relations = JSON.parse(relationFile.toString())
-        conn.collection('relations').insertMany(relations, function (err, result) {
+        const fields = await createField()
+        conn.collection('field').insertMany(fields, function (err, result) {
             if (err) throw err;
-            console.log('Inserted Relations:', result.insertedCount);
-
+            console.log("Inserted Field :", result.insertedCount)
         })
 
-        const roleFile = fs.readFileSync("./initial_setups/roles.json")
-        const roles = JSON.parse(roleFile.toString())
-        conn.collection('roles').insertMany(roles, function (err, result) {
-            if (err) throw err;
-            console.log('Inserted Roles:', result.insertedCount);
-
-        })
-
-
-        const sectionFile = fs.readFileSync("./initial_setups/sections.json")
-        const sections = JSON.parse(sectionFile.toString())
-        conn.collection('sections').insertMany(sections, function (err, result) {
-            if (err) throw err;
-            console.log('Inserted Sections:', result.insertedCount);
-
-        })
-
-
-        const tableFile = fs.readFileSync("./initial_setups/tables.json")
-        const tables = JSON.parse(tableFile.toString())
-        conn.collection('tables').insertMany(tables, function (err, result) {
-            if (err) throw err;
-            console.log('Inserted Tables:', result.insertedCount);
-
-        })
-
-
-        const testLoginFile = fs.readFileSync("./initial_setups/test_logins.json")
-        const testLogins = JSON.parse(testLoginFile.toString())
-        conn.collection('test_logins').insertMany(testLogins, function (err, result) {
-            if (err) throw err;
-            console.log('Inserted Test Logins:', result.insertedCount);
-
-        })
-
-
-        const userFile = fs.readFileSync("./initial_setups/users.json")
-        const users = JSON.parse(userFile.toString())
-        conn.collection('users').insertMany(users, function (err, result) {
-            if (err) throw err;
-            console.log('Inserted Users:', result.insertedCount);
-
-        })
-
-        const fieldPermissionFile = fs.readFileSync("./initial_setups/field_permissions.json")
-        const fieldPermissions = JSON.parse(fieldPermissionFile.toString())
+        const fieldPermissions = await createFieldPermission(roleID)
         conn.collection('field_permissions').insertMany(fieldPermissions, function (err, result) {
             if (err) throw err;
-            console.log('Inserted Field Permission File:', result.insertedCount);
-
+            console.log("Inserted Field Permissions :", result.insertedCount)
         })
 
-        const viewRelationPermissionFile = fs.readFileSync("./initial_setups/view_relation_permissions.json")
-        const viewRelationPermission = JSON.parse(viewRelationPermissionFile.toString())
-        conn.collection('view_relation_permissions').insertMany(viewRelationPermission, function (err, result) {
+        const section = await createSection()
+        conn.collection('section').insertMany(section, function (err, result) {
             if (err) throw err;
-            console.log('Inserted View Relation Permission :', result.insertedCount);
-
+            console.log("Inserted Section :", result.insertedCount)
         })
 
-    })
+        const viewRelationPermissions = await createViewRelationPermissions(roleID)
+        conn.collection('view_permissions').insertMany(viewRelationPermissions, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted View Permissions :", result.insertCollections)
+        })
+
 }
 
 module.exports = insertCollections

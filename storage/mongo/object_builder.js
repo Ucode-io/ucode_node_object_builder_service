@@ -492,21 +492,22 @@ let objectBuilder = {
             millis = Date.now() - start;
             console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
-            const params = struct.decode(req.data)
+            // const params = struct.decode(req.data)
+            const params = {}
             const limit = params.limit
             const offset = params.offset
             let clientTypeId = params["client_type_id_from_token"]
             delete params["client_type_id_from_token"]
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             millis = Date.now() - start;
-            console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[3] seconds elapsed = ${Math.floor(millis / 1000)}`);
             let keys = Object.keys(params)
             let order = params.order
             let fields = tableInfo.fields
             let with_relations = params.with_relations
             const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
             millis = Date.now() - start;
-            console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[4] seconds elapsed = ${Math.floor(millis / 1000)}`);
             const permission = await permissionTable.models.findOne({
                 $and: [
                     {
@@ -518,7 +519,7 @@ let objectBuilder = {
                 ]
             })
             millis = Date.now() - start;
-            console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[5] seconds elapsed = ${Math.floor(millis / 1000)}`);
             if (permission?.is_have_condition) {
                 const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
                 const automatic_filters = await automaticFilterTable.models.find({
@@ -558,7 +559,7 @@ let objectBuilder = {
 
             }
             millis = Date.now() - start;
-            console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[6] seconds elapsed = ${Math.floor(millis / 1000)}`);
             if (params.view_fields) {
                 if (params.view_fields.length && params.search !== "") {
                     let arrayOfViewFields = [];
@@ -576,7 +577,7 @@ let objectBuilder = {
                 }
             }
             millis = Date.now() - start;
-            console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[7] seconds elapsed = ${Math.floor(millis / 1000)}`);
             if (clientTypeId) {
                 const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
                 const clientType = await clientTypeTable?.models.findOne({
@@ -658,7 +659,7 @@ let objectBuilder = {
                 ]
             })
             millis = Date.now() - start;
-            console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[8] seconds elapsed = ${Math.floor(millis / 1000)}`);
             let relationsFields = []
             if (with_relations) {
                 for (const relation of relations) {
@@ -738,7 +739,7 @@ let objectBuilder = {
             }
 
             millis = Date.now() - start;
-            console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[9] seconds elapsed = ${Math.floor(millis / 1000)}`);
             let result = [], count;
             let searchByField = []
             if (params.search) {

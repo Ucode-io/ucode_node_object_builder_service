@@ -1321,3 +1321,115 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T08:56:53.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T08:57:58.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T08:58:25.318Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T08:58:58.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T08:59:35.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T09:00:13.037Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T09:00:42.854Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T09:02:08.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T09:03:07.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T09:03:28.958Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T09:03:50.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: table.view_permissions is not iterable',
+  level: 'error',
+  timestamp: '2022-12-28T09:07:02.644Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T09:16:31.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T09:18:10.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T09:19:52.765Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2022-12-28T09:20:55.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

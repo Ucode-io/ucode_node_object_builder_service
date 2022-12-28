@@ -5,6 +5,7 @@ const config = require('./config/index')
 // const collectionDeleteInterval = require("./helper/collectionDeleteInterval");
 const grpcConnection = require("./config/grpcConnection");
 const kafka = require("./config/kafka");
+const { struct } = require('pb-util');
 
 (async function () {
 
@@ -57,5 +58,61 @@ const kafka = require("./config/kafka");
     //         console.log(res)
     //     })
     // )
+
+    let permissionService = require('./services/permission');
+
+    let data;
+    await permissionService.GetListWithRoleAppTablePermissions(
+        {
+            request: {
+                project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
+                role_id: 'd78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26'
+            }
+        },
+        ((err, res) => {
+            if (err) { throw err }
+            data = res
+            // console.log('-----', JSON.stringify(res, null, 2))
+            console.log('get ok')
+        })
+
+    )
+
+    // await permissionService.UpdateRoleAppTablePermissions(
+    //     {
+    //         request: {
+    //             ...data
+    //         }
+    //     },
+    //     ((err, res) => {
+    //         if (err) { throw err }
+
+    //         console.log('+++++', JSON.stringify(res, null, 2))
+    //     })
+    // )
+
+    let builderService = require('./services/object_builder')
+
+    const params = struct.encode({
+        limit: 10,
+        offset: 0,
+        search: ''
+    })
+
+    await builderService.GetList(
+        {
+            request: {
+                table_slug: 'client_type',
+                project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
+                data: params
+            }
+        },
+        ( (err, res) => {
+            if (err) { throw err }
+
+            const response = struct.decode(res)
+            console.log('res--', JSON.stringify(res, null, 2))
+        } )
+    )
 
 })();

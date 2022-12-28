@@ -68,7 +68,7 @@ const RelationSchema = mongoose.Schema(
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
         toObject: { virtuals: true },
         toJSON: { virtuals: true },
-        strict: true,
+        strict: false,
         strictQuery: false
     }
 );

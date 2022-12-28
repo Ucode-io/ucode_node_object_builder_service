@@ -258,7 +258,7 @@ let permission = {
         const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const Field = mongoConn.models['Field']
-
+        
         const role = await Role.findOne(
             { guid: req.role_id },
             null,
@@ -296,7 +296,7 @@ let permission = {
             }
 
             let tableIds = []
-            for (let table of app.tables) {
+            for (let table of (app.tables || [])) {
                 tableIds.push(table.table_id)
             }
 
@@ -323,17 +323,18 @@ let permission = {
                     ...table._doc
                 }
 
-                const record_permissions = await RecordPermission.find(
-                    {
-                        table_slug: table.slug,
-                        role_id: req.role_id
-                    },
-                    null,
-                    { sort: { createdAt: -1 } }
+                const record_permissions = await RecordPermission.findOne(
+                    {   
+                        $and: [
+                            {table_slug: table.slug},
+                            {role_id: req.role_id}
+                        ]
+                        
+                    }
                 );
 
-                if (record_permissions.length > 0) {
-                    tableCopy.record_permissions = record_permissions[0]._doc
+                if (record_permissions) {
+                    tableCopy.record_permissions = record_permissions._doc
                 } else {
                     console.log('WARNING record_permissions not found')
                     tableCopy.record_permissions = {
@@ -359,8 +360,10 @@ let permission = {
                 })
 
                 let fieldPermissions = await FieldPermission.find({
-                    role_id: req.role_id,
-                    table_slug: table.slug
+                    $and: [
+                        {role_id: req.role_id},
+                        {table_slug: table.slug}
+                    ]
                 },
                     {
                         _id: 0,

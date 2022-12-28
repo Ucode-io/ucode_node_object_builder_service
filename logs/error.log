@@ -1293,3 +1293,31 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: app.tables is not iterable',
+  level: 'error',
+  timestamp: '2022-12-28T06:21:38.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: app.tables is not iterable',
+  level: 'error',
+  timestamp: '2022-12-28T06:27:39.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: appCopy.tables is not iterable',
+  level: 'error',
+  timestamp: '2022-12-28T06:28:20.065Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: app.tables is not iterable',
+  level: 'error',
+  timestamp: '2022-12-28T06:28:48.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -253,10 +253,10 @@ let permission = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Table = mongoConn.models['Table']
         const App = mongoConn.models['App']
-        const Role = (await ObjectBuilder())['role'].models
-        const RecordPermission = (await ObjectBuilder())['record_permission'].models
-        const FieldPermission = (await ObjectBuilder())['field_permission'].models
-        const ViewPermission = (await ObjectBuilder())['view_relation_permission'].models
+        const Role = (await ObjectBuilder(true, req.project_id))['role'].models
+        const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
+        const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
+        const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const Field = mongoConn.models['Field']
 
         const role = await Role.findOne(
@@ -437,10 +437,10 @@ let permission = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Table = mongoConn.models['Table']
         const App = mongoConn.models['App']
-        const Role = (await ObjectBuilder())['role'].models
-        const RecordPermission = (await ObjectBuilder())['record_permission'].models
-        const FieldPermission = (await ObjectBuilder())['field_permission'].models
-        const ViewPermission = (await ObjectBuilder())['view_relation_permission'].models
+        const Role = (await ObjectBuilder(true, req.project_id))['role'].models
+        const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
+        const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
+        const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
 
         let role = await Role.findOneAndUpdate(
             {

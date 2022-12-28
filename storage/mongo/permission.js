@@ -333,7 +333,7 @@ let permission = {
                 );
 
                 if (record_permissions.length > 0) {
-                    tableCopy.record_permissions = record_permissions[0]
+                    tableCopy.record_permissions = record_permissions[0]._doc
                 } else {
                     console.log('WARNING record_permissions not found')
                     tableCopy.record_permissions = {

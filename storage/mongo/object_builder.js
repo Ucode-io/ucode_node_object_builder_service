@@ -492,8 +492,8 @@ let objectBuilder = {
             millis = Date.now() - start;
             console.log(`[2] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
-            // const params = struct.decode(req.data)
-            const params = {}
+            const params = struct.decode(req.data)
+            // const params = {}
             const limit = params.limit
             const offset = params.offset
             let clientTypeId = params["client_type_id_from_token"]

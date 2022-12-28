@@ -10,7 +10,7 @@ const { struct } = require("pb-util");
 const logger = require("../config/logger");
 let mongooseObject = {};
 
-async function buildModels(is_build = true, project_id) {
+async function buildModels(is_build = true, project_id, strict=true, strictQuery=true) {
 
     console.log('REQUEST CAME TO MODELS BUILDER FOR', project_id)
 
@@ -305,8 +305,8 @@ async function buildModels(is_build = true, project_id) {
             {
                 // toObject: { virtuals: true },
                 // toJSON: { virtuals: true },
-                strict: true,
-                strictQuery: true
+                strict: strict,
+                strictQuery: strictQuery
             }
         )
         if (hasPasswordField) {

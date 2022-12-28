@@ -1286,3 +1286,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.project.register: failed with error: db conn with given projectId already exists',
+  level: 'error',
+  timestamp: '2022-12-28T05:15:28.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -570,6 +570,9 @@ let permission = {
     }),
     getActionPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getActionPermissions`, async (req) => {
 
+        const mongoConn = await mongoPool.get(req.project_id)
+        const CustomEvent = mongoConn.models['CustomEvent']
+        
         const customEvents = await CustomEvent.find({
             table_slug: req.table_slug
         })

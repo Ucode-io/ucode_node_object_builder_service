@@ -122,17 +122,18 @@ const { struct } = require('pb-util');
     // let permissionService = require('./services/permission');
 
     // let data;
-    // await permissionService.GetViewRelationPermissions(
+    // await permissionService.GetFieldPermissions(
     //     {
     //         request: {
     //             project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
-    //             role_id: 'd78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26'
+    //             role_id: '2d00bb3a-4b5f-47b8-9436-e4bceb096fda',
+    //             table_slug: 'role'
     //         }
     //     },
     //     ((err, res) => {
     //         if (err) { throw err }
     //         data = res
-    //         console.log('-----', JSON.stringify(res, null, 2))
+    //         // console.log('-----', JSON.stringify(res, null, 2))
     //         console.log('get ok')
     //     })
 

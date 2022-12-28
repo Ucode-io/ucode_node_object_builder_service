@@ -37,7 +37,7 @@
                   "view_permission": true,
                   "edit_permission": true,
                   "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
-                  "field_label": "ID",
+                  "label": "ID",
                   "guid": "eb504bc6-e713-4cb3-884e-b4ecb5eeabb5"
                 },
                 {
@@ -46,7 +46,7 @@
                   "view_permission": true,
                   "edit_permission": true,
                   "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
-                  "field_label": "Title",
+                  "label": "Title",
                   "guid": "b8624432-859f-4798-97c6-a07a96df9dd0"
                 },
                 {
@@ -55,7 +55,7 @@
                   "view_permission": true,
                   "edit_permission": true,
                   "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
-                  "field_label": "Phone",
+                  "label": "Phone",
                   "guid": "5250d1b6-707e-4736-b329-d4275ab3df67"
                 },
                 {
@@ -64,7 +64,7 @@
                   "view_permission": true,
                   "edit_permission": true,
                   "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
-                  "field_label": "Address",
+                  "label": "Address",
                   "guid": "aedc5b2b-603c-4824-87f1-d9ade2aae3d9"
                 }
               ]
@@ -92,7 +92,7 @@
                   "view_permission": true,
                   "edit_permission": true,
                   "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
-                  "field_label": "ID",
+                  "label": "ID",
                   "guid": "e80a1961-465f-4816-8d2c-e7b4279c861b"
                 },
                 {
@@ -101,7 +101,7 @@
                   "view_permission": true,
                   "edit_permission": true,
                   "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
-                  "field_label": "Firstname",
+                  "label": "Firstname",
                   "guid": "0702e688-b3e7-4716-bfeb-be2d262e2939"
                 },
                 {
@@ -110,7 +110,7 @@
                   "view_permission": true,
                   "edit_permission": true,
                   "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
-                  "field_label": "Lastname",
+                  "label": "Lastname",
                   "guid": "3353c67e-e36b-4bb1-ad07-55c2080ab5a3"
                 },
                 {
@@ -118,7 +118,7 @@
                   "view_permission": true,
                   "edit_permission": true,
                   "role_id": "d3b48c94-c46b-4e08-9415-ede7a71adfa6",
-                  "field_label": "FROM candidate TO safia_branch"
+                  "label": "FROM candidate TO safia_branch"
                 }
               ]
             }

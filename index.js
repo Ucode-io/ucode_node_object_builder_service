@@ -9,16 +9,16 @@ const { struct } = require('pb-util');
 
 (async function () {
 
-    await projectStorage.reconnect({
-        project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
-        credentials: {
-            host: '161.35.26.178',
-            port: 27017,
-            database: 'transasia_transasia_object_builder_service',
-            username: 'transasia_transasia_object_builder_service',
-            password: '123JFWxq'
-        },
-    })
+    // await projectStorage.reconnect({
+    //     project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
+    //     credentials: {
+    //         host: '161.35.26.178',
+    //         port: 27017,
+    //         database: 'transasia_transasia_object_builder_service',
+    //         username: 'transasia_transasia_object_builder_service',
+    //         password: '123JFWxq'
+    //     },
+    // })
 
 
 
@@ -34,30 +34,30 @@ const { struct } = require('pb-util');
     // )
 
 
-    // let projectService = require('./services/project')
+    let projectService = require('./services/project')
 
-    // projectService.Register(
-    //     {
-    //         request: {
-    //             user_id: 'a0bb1bdc-e5bd-4f9e-bc45-6f705851f29e',
-    //             project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
-    //             credentials: {
-    //                 host: '161.35.26.178',
-    //                 port: 27017,
-    //                 database: 'transasia_transasia_object_builder_service',
-    //                 username: 'transasia_transasia_object_builder_service',
-    //                 password: '123JFWxq'
-    //             }
-    //         }
-    //     },
-    //     ((err, res) => {
-    //         if (err) {
-    //             throw err
-    //         }
+    projectService.Register(
+        {
+            request: {
+                user_id: 'a0bb1bdc-e5bd-4f9e-bc45-6f705851f29e',
+                project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
+                credentials: {
+                    host: '161.35.26.178',
+                    port: 27017,
+                    database: 'transasia_transasia_object_builder_service',
+                    username: 'transasia_transasia_object_builder_service',
+                    password: '123JFWxq'
+                }
+            }
+        },
+        ((err, res) => {
+            if (err) {
+                throw err
+            }
 
-    //         console.log(res)
-    //     })
-    // )
+            console.log(res)
+        })
+    )
 
     // let permissionService = require('./services/permission');
 
@@ -119,22 +119,22 @@ const { struct } = require('pb-util');
     // )
 
 
-    let permissionService = require('./services/permission');
+    // let permissionService = require('./services/permission');
 
-    let data;
-    await permissionService.GetViewRelationPermissions(
-        {
-            request: {
-                project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
-                role_id: 'd78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26'
-            }
-        },
-        ((err, res) => {
-            if (err) { throw err }
-            data = res
-            console.log('-----', JSON.stringify(res, null, 2))
-            console.log('get ok')
-        })
+    // let data;
+    // await permissionService.GetViewRelationPermissions(
+    //     {
+    //         request: {
+    //             project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
+    //             role_id: 'd78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26'
+    //         }
+    //     },
+    //     ((err, res) => {
+    //         if (err) { throw err }
+    //         data = res
+    //         console.log('-----', JSON.stringify(res, null, 2))
+    //         console.log('get ok')
+    //     })
 
     // )
 

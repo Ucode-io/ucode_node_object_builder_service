@@ -1953,7 +1953,7 @@ async function createField() {
         "id": "285ceb40-6267-4f5e-9327-f75fe79e8bfe",
         "table_id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
         "required": false,
-        "slug": "field_label",
+        "slug": "label",
         "label": "Название поля",
         "default": "",
         "type": "SINGLE_LINE",

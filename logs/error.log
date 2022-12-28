@@ -1321,3 +1321,122 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T09:56:20.988Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: undefined',
+  level: 'error',
+  timestamp: '2022-12-28T09:56:35.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: undefined',
+  level: 'error',
+  timestamp: '2022-12-28T09:56:49.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: undefined',
+  level: 'error',
+  timestamp: '2022-12-28T09:56:52.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T10:51:07.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T10:52:27.484Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T10:53:04.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T10:54:12.443Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T10:54:59.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T10:59:57.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T11:02:28.007Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T11:07:33.907Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T11:12:22.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T11:15:45.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T11:19:01.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2022-12-28T11:19:41.216Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.getByID: failed with error: Cannot read properties of null (reading 'tables')",
+  level: 'error',
+  timestamp: '2022-12-28T12:11:33.414Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

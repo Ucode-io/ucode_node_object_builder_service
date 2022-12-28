@@ -1,18 +1,20 @@
-const CustomEvent = require("../../models/custom_event");
-const Field = require("../../models/field");
-const Function = require("../../models/function");
-const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
-const table = require("../../models/table");
-const field = require("../../models/field");
 const ObjectBuilder = require("../../models/object_builder");
+const mongoPool = require("../../pkg/pool");
 
 
 let NAMESPACE = "storage.custom_event";
 
 let customEventStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async(data) => {
+        const mongoConn = await mongoPool.get(data.project_id)
+
+        const CustomEvent = mongoConn.models['CustomEvent']
+        const Table = mongoConn.models['Table']
+        const Function = mongoConn.models['Function']
+        const Field = mongoConn.models['Field']
+
         const custom_event = new CustomEvent(data);
 
         const response = await custom_event.save();
@@ -40,7 +42,11 @@ let customEventStore = {
         return response;
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async(data) => {
-    
+
+        const mongoConn = await mongoPool.get(data.project_id)
+
+        const CustomEvent = mongoConn.models['CustomEvent']
+
         const custom_event = await CustomEvent.updateOne(
             {
                 id: data.id,
@@ -49,10 +55,13 @@ let customEventStore = {
                 $set: data
             }
         )
-        
+
         return custom_event;
     }),
-    getList: catchWrapDb(`${NAMESPACE}.getList`, async(data) => {        
+    getList: catchWrapDb(`${NAMESPACE}.getList`, async(data) => {
+        const mongoConn = await mongoPool.get(data.project_id);
+        const CustomEvent = mongoConn.models['CustomEvent'];
+
         let query = {
             table_slug: data.table_slug,
         }
@@ -69,11 +78,20 @@ let customEventStore = {
     }
     ),
     getSingle: catchWrapDb(`${NAMESPACE}.getSingle`, async (data) => {
+        const mongoConn = await mongoPool.get(data.project_id);
+        const CustomEvent = mongoConn.models['CustomEvent'];
+
         const custom_event = await CustomEvent.findOne({id: data.id});
 
         return custom_event;
     }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async(data) => {
+        const mongoConn = await mongoPool.get(data.project_id);
+        const CustomEvent = mongoConn.models['CustomEvent'];
+        const Table = mongoConn.models['Table'];
+        const Function = mongoConn.models['Function'];
+        const Field = mongoConn.models['Field'];
+
         const resp = await CustomEvent.findOne({id: data.id})
         const table = await Table.findOne({slug: resp.table_slug})
         const custom_event = await CustomEvent.deleteOne({id: data.id});
@@ -85,6 +103,9 @@ let customEventStore = {
         return custom_event;
     }),
     updateCustomEventByFunctionId: catchWrapDb(`${NAMESPACE}.updateCustomEventByFunctionId`, async(data) => {
+        const mongoConn = await mongoPool.get(data.project_id);
+        const CustomEvent = mongoConn.models['CustomEvent'];
+
         let custom_event = await CustomEvent.findOneAndUpdate(
             {
                 event_path: data.function_id

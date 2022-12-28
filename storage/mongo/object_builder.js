@@ -1882,6 +1882,7 @@ let objectBuilder = {
                     object.guid = objectFromTable.guid
                     let requestToUpdate = {
                         table_slug: req.table_slug,
+                        project_id: req.project_id,
                         data: struct.encode(object)
                     }
                     await objectBuilder.update(requestToUpdate)
@@ -1889,6 +1890,7 @@ let objectBuilder = {
                 } else {
                     let requestToCreate = {
                         table_slug: req.table_slug,
+                        project_id: req.project_id,
                         data: struct.encode(object)
                     }
                     await objectBuilder.create(requestToCreate)
@@ -1921,6 +1923,7 @@ let objectBuilder = {
                 }
                 let request = {
                     table_slug: req.table_slug,
+                    project_id: req.project_id,
                     data: struct.encode(object)
                 }
                 if (object.guid) {
@@ -2131,6 +2134,7 @@ let objectBuilder = {
                             appendMany2Many.id_from = data.guid
                             appendMany2Many.id_to = newIds
                             appendMany2Many.table_from = req.table_slug
+                            appendMany2Many.project_id = req.project_id
                             if (relation.table_to === req.table_slug) {
                                 appendMany2Many.table_to = relation.table_from
                             } else if (relation.table_from === req.table_slug) {
@@ -2143,6 +2147,7 @@ let objectBuilder = {
                             deleteMany2Many.id_from = data.guid
                             deleteMany2Many.id_to = deletedIds
                             deleteMany2Many.table_from = req.table_slug
+                            deleteMany2Many.project_id = req.project_id
                             if (relation.table_to === req.table_slug) {
                                 deleteMany2Many.table_to = relation.table_from
                             } else if (relation.table_from === req.table_slug) {
@@ -2183,6 +2188,7 @@ let objectBuilder = {
                 id: request.view_id
             })
             let resp = await objectBuilder.getList({
+                project_id: req.project_id,
                 table_slug: req.table_slug,
                 data: req.data
             })

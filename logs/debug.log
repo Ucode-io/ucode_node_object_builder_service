@@ -6588,3 +6588,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'connected to the database: mongodb://transasia_transasia_object_builder_service:123JFWxq@161.35.26.178:27017/transasia_transasia_object_builder_service',
+  level: 'info',
+  timestamp: '2022-12-28T13:51:04.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

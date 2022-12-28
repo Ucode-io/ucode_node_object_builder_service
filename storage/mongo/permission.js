@@ -425,7 +425,7 @@ let permission = {
 
         roleCopy.apps = appsList
 
-        console.log('response->', JSON.stringify(roleCopy, null, 2))
+        // console.log('response->', JSON.stringify(roleCopy, null, 2))
         return { project_id: req.project_id, data: roleCopy }
 
     }),
@@ -433,7 +433,8 @@ let permission = {
         const ErrRoleNotFound = new Error('role_id is required')
         const ErrWhileUpdate = new Error('error while updating')
 
-        if (!req.data.guid) {
+        const roleId = req?.data?.guid || ''
+        if (!roleId) {
             throw ErrRoleNotFound
         }
 
@@ -447,7 +448,7 @@ let permission = {
 
         let role = await Role.findOneAndUpdate(
             {
-                role_id: req.data.guid
+                guid: req.data.guid
             },
             {
                 $set: {
@@ -467,7 +468,7 @@ let permission = {
             for (let table of app?.tables) {
 
                 if (table?.record_permissions?.guid) {
-                    const record_permissions = await RecordPermission.findOneAndUpdate(
+                    await RecordPermission.findOneAndUpdate(
                         {
                             guid: table.record_permissions.guid
                         },
@@ -483,11 +484,9 @@ let permission = {
                             upsert: false
                         }
                     )
-                    // if (!record_permissions) {
-                    //     throw ErrWhileUpdate
-                    // }
+                    
                 } else {
-                    await RecordPermission.findOneAndUpdate(
+                    await RecordPermission.create(
                         {
                             read: table.record_permissions.read,
                             write: table.record_permissions.write,
@@ -500,7 +499,7 @@ let permission = {
                     )
                 }
 
-                for (let field_permission of table.field_permissions) {
+                for (let field_permission of (table.field_permissions || [])) {
 
                     if (field_permission?.guid) {
                         await FieldPermission.findOneAndUpdate(
@@ -532,7 +531,7 @@ let permission = {
                     }
                 }
 
-                for (let view_permission of table.view_permissions) {
+                for (let view_permission of (table.view_permissions || [])) {
                     if (view_permission?.guid) {
                         await FieldPermission.findOneAndUpdate(
                             {

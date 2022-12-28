@@ -1322,121 +1322,114 @@
   metadata: {}
 }
 {
-  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T09:56:20.988Z',
+  timestamp: '2022-12-28T08:56:53.033Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'failed to find object in table undefined with given id: undefined',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T09:56:35.995Z',
+  timestamp: '2022-12-28T08:57:58.813Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'failed to find object in table undefined with given id: undefined',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T09:56:49.710Z',
+  timestamp: '2022-12-28T08:58:25.318Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'failed to find object in table undefined with given id: undefined',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T09:56:52.883Z',
+  timestamp: '2022-12-28T08:58:58.486Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T10:51:07.902Z',
+  timestamp: '2022-12-28T08:59:35.405Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T10:52:27.484Z',
+  timestamp: '2022-12-28T09:00:13.037Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T10:53:04.304Z',
+  timestamp: '2022-12-28T09:00:42.854Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T10:54:12.443Z',
+  timestamp: '2022-12-28T09:02:08.082Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T10:54:59.452Z',
+  timestamp: '2022-12-28T09:03:07.090Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T10:59:57.501Z',
+  timestamp: '2022-12-28T09:03:28.958Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T11:02:28.007Z',
+  timestamp: '2022-12-28T09:03:50.499Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: table.view_permissions is not iterable',
   level: 'error',
-  timestamp: '2022-12-28T11:07:33.907Z',
+  timestamp: '2022-12-28T09:07:02.644Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T11:12:22.816Z',
+  timestamp: '2022-12-28T09:16:31.394Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T11:15:45.400Z',
+  timestamp: '2022-12-28T09:18:10.345Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
   level: 'error',
-  timestamp: '2022-12-28T11:19:01.950Z',
+  timestamp: '2022-12-28T09:19:52.765Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
   level: 'error',
-  timestamp: '2022-12-28T11:19:41.216Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.app.getByID: failed with error: Cannot read properties of null (reading 'tables')",
-  level: 'error',
-  timestamp: '2022-12-28T12:11:33.414Z',
+  timestamp: '2022-12-28T09:20:55.119Z',
   label: 'object_builder_service',
   metadata: {}
 }

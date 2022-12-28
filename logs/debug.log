@@ -5082,3 +5082,171 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "transasia_transasia_object_builder_service",\n' +
+    '    "username": "transasia_transasia_object_builder_service",\n' +
+    '    "password": "123JFWxq"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2022-12-28T13:15:34.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transasia_transasia_object_builder_service:123JFWxq@161.35.26.178:27017/transasia_transasia_object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-28T13:15:34.042Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-28T13:15:34.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transasia_transasia_object_builder_service:123JFWxq@161.35.26.178:27017/transasia_transasia_object_builder_service',
+  level: 'info',
+  timestamp: '2022-12-28T13:15:34.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-28T13:15:45.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "role_id": "d78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2022-12-28T13:15:45.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "role_id": "d78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2022-12-28T13:15:45.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-28T13:15:51.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2022-12-28T13:15:51.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 10\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 0\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": ""\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": "790bdce3-95c7-4396-bbba-1d2fb0da2495"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": "d78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": "a0bb1bdc-e5bd-4f9e-bc45-6f705851f29e"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2022-12-28T13:15:51.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 10\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 0\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": ""\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": "790bdce3-95c7-4396-bbba-1d2fb0da2495"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": "d78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": "a0bb1bdc-e5bd-4f9e-bc45-6f705851f29e"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2022-12-28T13:15:51.508Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-28T13:15:52.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-28T13:15:52.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

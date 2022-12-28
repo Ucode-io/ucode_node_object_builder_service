@@ -195,7 +195,8 @@ let sectionStore = {
             }
             const { relations } = await relationStore.getAllForViewRelation({
                 table_slug: view_relation.table_slug,
-                role_id: data.role_id
+                role_id: data.role_id,
+                project_id: data.project_id
             })
             let viewRelationWithPermissions = await AddPermission.toViewRelation(relations, data.role_id, data.table_slug, data.project_id)
 

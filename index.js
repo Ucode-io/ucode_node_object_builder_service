@@ -96,7 +96,10 @@ const { struct } = require('pb-util');
     const params = struct.encode({
         limit: 10,
         offset: 0,
-        search: ''
+        search: '',
+        client_type_id_from_token: '790bdce3-95c7-4396-bbba-1d2fb0da2495',
+        role_id_from_token: 'd78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26',
+        user_id_from_token: 'a0bb1bdc-e5bd-4f9e-bc45-6f705851f29e', 
     })
 
     await builderService.GetList(

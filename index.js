@@ -59,24 +59,24 @@ const { struct } = require('pb-util');
     //     })
     // )
 
-    let permissionService = require('./services/permission');
+    // let permissionService = require('./services/permission');
 
-    let data;
-    await permissionService.GetListWithRoleAppTablePermissions(
-        {
-            request: {
-                project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
-                role_id: 'd78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26'
-            }
-        },
-        ((err, res) => {
-            if (err) { throw err }
-            data = res
-            // console.log('-----', JSON.stringify(res, null, 2))
-            console.log('get ok')
-        })
+    // let data;
+    // await permissionService.GetListWithRoleAppTablePermissions(
+    //     {
+    //         request: {
+    //             project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
+    //             role_id: 'd78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26'
+    //         }
+    //     },
+    //     ((err, res) => {
+    //         if (err) { throw err }
+    //         data = res
+    //         // console.log('-----', JSON.stringify(res, null, 2))
+    //         console.log('get ok')
+    //     })
 
-    )
+    // )
 
     // await permissionService.UpdateRoleAppTablePermissions(
     //     {
@@ -91,28 +91,31 @@ const { struct } = require('pb-util');
     //     })
     // )
 
-    let builderService = require('./services/object_builder')
+    // let builderService = require('./services/object_builder')
 
-    const params = struct.encode({
-        limit: 10,
-        offset: 0,
-        search: ''
-    })
+    // const params = struct.encode({
+    //     limit: 10,
+    //     offset: 0,
+    //     search: '',
+    //     client_type_id_from_token: '790bdce3-95c7-4396-bbba-1d2fb0da2495',
+    //     role_id_from_token: 'd78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26',
+    //     user_id_from_token: 'a0bb1bdc-e5bd-4f9e-bc45-6f705851f29e', 
+    // })
 
-    await builderService.GetList(
-        {
-            request: {
-                table_slug: 'client_type',
-                project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
-                data: params
-            }
-        },
-        ( (err, res) => {
-            if (err) { throw err }
+    // await builderService.GetList(
+    //     {
+    //         request: {
+    //             table_slug: 'client_type',
+    //             project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
+    //             data: params
+    //         }
+    //     },
+    //     ( (err, res) => {
+    //         if (err) { throw err }
 
-            const response = struct.decode(res)
-            console.log('res--', JSON.stringify(res, null, 2))
-        } )
-    )
+    //         const response = struct.decode(res)
+    //         console.log('res--', JSON.stringify(res, null, 2))
+    //     } )
+    // )
 
 })();

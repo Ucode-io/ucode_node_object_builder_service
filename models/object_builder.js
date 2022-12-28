@@ -305,7 +305,7 @@ async function buildModels(is_build = true, project_id) {
             {
                 // toObject: { virtuals: true },
                 // toJSON: { virtuals: true },
-                strict: false,
+                strict: true,
                 strictQuery: false
             }
         )

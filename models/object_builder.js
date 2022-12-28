@@ -302,6 +302,12 @@ async function buildModels(is_build = true, project_id) {
                 createdAt: { type: Date, select: false },
                 updatedAt: { type: Date, select: false }
             },
+            {
+                // toObject: { virtuals: true },
+                // toJSON: { virtuals: true },
+                strict: false,
+                strictQuery: false
+            }
         )
         if (hasPasswordField) {
             for (let i=0; i<arrayOfMiddlewares.length; i++) {

@@ -1294,72 +1294,30 @@
   metadata: {}
 }
 {
-  message: 'service.loginStore.login_data: failed with error: login is not defined',
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: app.tables is not iterable',
   level: 'error',
-  timestamp: '2022-12-28T06:57:42.406Z',
+  timestamp: '2022-12-28T06:21:38.099Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.loginStore.login_data: failed with error: Unexpected token _ in JSON at position 4',
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: app.tables is not iterable',
   level: 'error',
-  timestamp: '2022-12-28T06:58:33.472Z',
+  timestamp: '2022-12-28T06:27:39.478Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.loginStore.login_data: failed with error: Unexpected token _ in JSON at position 4',
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: appCopy.tables is not iterable',
   level: 'error',
-  timestamp: '2022-12-28T07:00:59.572Z',
+  timestamp: '2022-12-28T06:28:20.065Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.loginStore.login: failed with error: db conn with given projectId does not exist',
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: app.tables is not iterable',
   level: 'error',
-  timestamp: '2022-12-28T07:08:16.197Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.login_data: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2022-12-28T07:32:24.911Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.login_data: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2022-12-28T07:38:41.994Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.login_data: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2022-12-28T08:36:38.117Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.login_data: failed with error: Unexpected token _ in JSON at position 4',
-  level: 'error',
-  timestamp: '2022-12-28T08:39:55.150Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.login_data: failed with error: Unexpected token o in JSON at position 1',
-  level: 'error',
-  timestamp: '2022-12-28T08:43:06.665Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.login_data: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2022-12-28T08:43:23.009Z',
+  timestamp: '2022-12-28T06:28:48.001Z',
   label: 'object_builder_service',
   metadata: {}
 }

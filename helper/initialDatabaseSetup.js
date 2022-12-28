@@ -75,7 +75,7 @@ async function insertCollections(conn, userId, projectId) {
         })
 
         const relation = await createRelation()
-        conn.collection('relation').insertMany(relation, function (err, result) {
+        conn.collection('relations').insertMany(relation, function (err, result) {
             if (err) throw err;
             console.log("Inserted Relation :", result.insertedCount)
         })
@@ -87,7 +87,7 @@ async function insertCollections(conn, userId, projectId) {
         })
 
         const fields = await createField()
-        conn.collection('field').insertMany(fields, function (err, result) {
+        conn.collection('fields').insertMany(fields, function (err, result) {
             if (err) throw err;
             console.log("Inserted Field :", result.insertedCount)
         })
@@ -99,7 +99,7 @@ async function insertCollections(conn, userId, projectId) {
         })
 
         const section = await createSection()
-        conn.collection('section').insertMany(section, function (err, result) {
+        conn.collection('sections').insertMany(section, function (err, result) {
             if (err) throw err;
             console.log("Inserted Section :", result.insertedCount)
         })

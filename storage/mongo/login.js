@@ -447,14 +447,7 @@ let loginStore = {
 
         const permissions = await recordPermission.models.find(
             {
-                $and: [
-                    {
-                        client_type_id: clientType.guid
-                    },
-                    {
                         role_id: role.guid
-                    }
-                ]
             }
         ).lean()
         console.log("TEST:::::::::7")

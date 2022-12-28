@@ -572,7 +572,7 @@ let permission = {
 
         const mongoConn = await mongoPool.get(req.project_id)
         const CustomEvent = mongoConn.models['CustomEvent']
-        
+
         const customEvents = await CustomEvent.find({
             table_slug: req.table_slug
         })
@@ -620,6 +620,10 @@ let permission = {
         return { table_slug: "action_permission", data: response }
     }),
     getViewRelationPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getViewRelationPermissions`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Relation = mongoConn.models['Relation']
+        const View = mongoConn.models['View']
+
         const relations = await Relation.find({
             $or: [
                 {

@@ -385,47 +385,50 @@ let loginStore = {
         }
     }),
 
-    login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login`, async (req) => {
+    login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login_data`, async (req) => {
+        console.log("TEST:::::::::1")
         const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
 
         const clientType = await clientTypeTable.models.findOne(
             {
                 guid: req.client_type,
             }
-        )
-
+        ).lean()
+        console.log("TEST:::::::::2")
         let params = {}
         params["guid"] = req.user_id
         params["project_id"] = req.project_id
+        params["client_type_id"] = req.client_type
 
         const userTable = (await ObjectBuilder(true, req.project_id))["user"]
         let user = await userTable.models.findOne(
             {
                 $and: [params]
             }
-        )
+        ).lean()
         let user_found = false
         if (!user) {
             return {
                 user_found: user_found
             }
         }
+        console.log("TEST:::::::::3")
         const roleTable = (await ObjectBuilder(true, req.project_id))["role"]
 
         const role = await roleTable.models.findOne(
             {
                 client_type_id: clientType.guid,
             }
-        )
-
+        ).lean()
+        console.log("TEST:::::::::4")
         const clientPlatfromTable = (await ObjectBuilder(true, req.project_id))["client_platform"]
 
         const clientPlatform = await clientPlatfromTable.models.findOne(
             {
                 guid: role.client_platform_id
             }
-        )
-
+        ).lean()
+        console.log("TEST:::::::::5")
 
         const connectionsTable = (await ObjectBuilder(true, req.project_id))["connections"]
 
@@ -433,7 +436,9 @@ let loginStore = {
             {
                 client_type_id: clientType.guid
             }
-        )
+        ).lean()
+
+        console.log("TEST:::::::::6")
         let clientTypeResp = {}
         clientTypeResp = clientType
         clientTypeResp.tables = connections
@@ -451,8 +456,8 @@ let loginStore = {
                     }
                 ]
             }
-        )
-
+        ).lean()
+        console.log("TEST:::::::::7")
         // if (user) {
         //     user_found = true
         //     userId = user.guid
@@ -462,15 +467,10 @@ let loginStore = {
 
         let userId;
         if (user) {
-            let userDoc = {
-                ...user._doc
-            }
-            console.log('userDoc',userDoc, userDoc.guid)
-            console.log('---------------inside user-----------', user.guid)
             user_found = true
-            userId = userDoc.guid
+            userId = user.guid
         }
-
+        console.log("TEST:::::::::8")
         const appPermissions = await recordPermission.models.find(
             {
                 $and: [
@@ -482,17 +482,17 @@ let loginStore = {
                     }
                 ]
             }
-        )
-
-        console.log('user_found', user_found)
-        console.log('user_id', userId)
-        console.log('user', JSON.stringify(user, null, 2))
-        // console.log('login.table_slug', login.table_slug)
-        // console.log('clientPlatform', JSON.parse(clientPlatform))
-        // console.log('clientTypeResp', JSON.parse(clientTypeResp))
-        // console.log('appPermissions', JSON.parse(appPermissions))
-        // console.log('role', JSON.parse(role))
-        // console.log('permissions', JSON.parse(permissions))
+        ).lean()
+        console.log("TEST:::::::::9")
+        // console.log('user_found', user_found)
+        // console.log('user_id', userId)
+        // console.log('user', JSON.stringify(user, null, 2))
+        // console.log('clientPlatform', JSON.stringify(clientPlatform))
+        // console.log('clientTypeResp', JSON.stringify(clientTypeResp))
+        // console.log('appPermissions', JSON.stringify(appPermissions[0]._doc))
+        // console.log('appPermissions', appPermissions)
+        // console.log('role', JSON.stringify(role))
+        // console.log('permissions', JSON.stringify(permissions))
 
         //@TODO:: check user can login with this login strategy
         let response =  {
@@ -505,11 +505,10 @@ let loginStore = {
             permissions: permissions,
             login_table_slug: 'user'
         }
-
-        console.log('/login/loginData', JSON.stringify(response, null, 2))
+        console.log("TEST:::::::::10")
+        // console.log('/login/loginData', JSON.stringify(response, null, 2))
 
         return response
-
     }),
 }
 

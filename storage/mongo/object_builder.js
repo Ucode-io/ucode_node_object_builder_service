@@ -269,185 +269,167 @@ let objectBuilder = {
         }
     }),
     getSingle: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingle`, async (req) => {
-        try {
-            console.log("req slug table : ", req.table_slug)
-            const mongoConn = await mongoPool.get(req.project_id)
-            const Field = mongoConn.models['Field']
-            const Relation = mongoConn.models['Relation']
-            const table = mongoConn.models['Table']
 
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Field = mongoConn.models['Field']
+        const Relation = mongoConn.models['Relation']
+        const table = mongoConn.models['Table']
+        const data = struct.decode(req.data)
 
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-            const data = struct.decode(req.data)
+        const relations = await Relation.find({
+            table_from : req.table_slug,
+            type: "One2One"
+        })
 
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-
-            const relations = await Relation.find({
-                table_from: req.table_slug,
-                type: "One2One"
-            })
-
-            const relationsM2M = await Relation.find({
-                $or: [{
-                    table_from: req.table_slug
-                },
-                {
-                    table_to: req.table_slug
-                }],
-                $and: [{
-                    type: "Many2Many"
-                }]
-            })
-
-
-            let relatedTable = []
-            for (const relation of relations) {
-                const field = await Field.findOne({
-                    relation_id: relation.id
-                })
-                if (field) {
-                    relatedTable.push(field?.slug + "_data")
-                }
-            }
-            for (const relation of relationsM2M) {
-                if (relation.table_to === req.table_slug) {
-                    relation.field_from = relation.field_to
-                }
-                const field = await Field.findOne({
-                    slug: relation.field_from,
-                    relation_id: relation.id
-                })
-                if (field) {
-                    relatedTable.push(field?.slug + "_data")
-                }
-            }
-
-            let output = await tableInfo.models.findOne({
-                guid: data.id
+        const relationsM2M = await Relation.find({
+            $or: [{
+                table_from: req.table_slug
             },
-                {
-                    created_at: 0,
-                    updated_at: 0,
-                    createdAt: 0,
-                    updatedAt: 0,
-                    _id: 0,
-                    __v: 0
-                }).populate(relatedTable).lean();
-
-            if (!output) { logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`) };
-
-            for (const field of tableInfo.fields) {
-                if (field.type === "FORMULA") {
-
-                    let attributes = struct.decode(field.attributes)
-                    if (attributes.table_from && attributes.sum_field) {
-                        let groupBy = req.table_slug + '_id'
-                        let groupByWithDollorSign = '$' + req.table_slug + '_id'
-                        let sumFieldWithDollowSign = '$' + attributes["sum_field"]
-                        let aggregateFunction = '$sum';
-                        switch (attributes.type) {
-                            case 'SUMM':
-                                aggregateFunction = '$sum'
-                                break;
-                            case 'AVG':
-                                aggregateFunction = '$avg'
-                                break;
-                            case 'MAX':
-                                aggregateFunction = '$max'
-                                break;
-                        }
-                        const pipelines = [
-                            {
-                                '$match': {
-                                    [groupBy]: {
-                                        '$eq': data.id
-                                    }
-                                }
-                            }, {
-                                '$group': {
-                                    '_id': groupByWithDollorSign,
-                                    'res': {
-                                        [aggregateFunction]: sumFieldWithDollowSign
-                                    }
-                                }
-                            }
-                        ];
+            {
+                table_to: req.table_slug
+            }],
+            $and: [{
+                type: "Many2Many"
+            }]
+        })
 
 
-                        const resultFormula = await (await ObjectBuilder(true, req.project_id))[attributes.table_from].models.aggregate(pipelines)
-                        if (resultFormula.length) {
-                            output[field.slug] = resultFormula[0].res
-                        }
+        let relatedTable = []
+        for (const relation of relations) {
+            const field = await Field.findOne({
+                relation_id: relation.id
+            })
+            if (field) {
+                relatedTable.push(field?.slug+"_data")
+            }
+        }
+        for (const relation of relationsM2M) {
+            if (relation.table_to === req.table_slug) {
+                relation.field_from = relation.field_to
+            }
+            const field = await Field.findOne({
+                slug: relation.field_from,
+                relation_id: relation.id
+            })
+            if (field) {
+                relatedTable.push(field?.slug+"_data")
+            }
+        }
 
+        let output = await tableInfo.models.findOne({
+            guid: data.id
+        },
+        {
+            created_at: 0,
+            updated_at: 0,
+            createdAt: 0,
+            updatedAt: 0,
+            _id: 0,
+            __v: 0
+        }).populate(relatedTable).lean();
+
+        if (!output) {logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`)};
+        let isChanged = false
+        for (const field of tableInfo.fields) {
+            let attributes = struct.decode(field.attributes)
+            if (field.type === "FORMULA") {
+                if (attributes.table_from && attributes.sum_field) {
+                    let matchParams = {
+                        [req.table_slug+"_id"]: {'$eq': data.id}
                     }
+                    const resultFormula =  await FormulaFunction.calculateFormulaBackend(attributes, req.table_slug, matchParams, req.project_id)
+                    if (resultFormula.length) {
+                        if (output[field.slug] !== resultFormula[0].res ) {
+                            isChanged = true
+                        }
+                        output[field.slug] = resultFormula[0].res 
+                    }
+                }
+            } else if (field.type === "FORMULA_FRONTEND") {
+                if (attributes && attributes.fomula) {
+                    const resultFormula =  await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, output)
+                    if (output[field.slug] !== resultFormula) {
+                        isChanged = true
+                    }
+                    output[field.slug] = resultFormula
                 }
             }
-
-            for (const relation of relatedTable) {
-                if (relation in output) {
-                    nameWithDollarSign = "$" + relation
-                    output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
-                    delete output[relation]
-                }
+        }
+        if (isChanged) {
+            await objectBuilder.update({
+                table_slug: req.table_slug,
+                project_id: req.project_id,
+                data: struct.encode(output)
+            })
+        }
+        
+        for (const relation of relatedTable) {
+            if (relation in output) {
+                nameWithDollarSign = "$" + relation
+                output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
+                delete output[relation]
             }
-            let decodedFields = []
-            for (const element of tableInfo.fields) {
-                if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
-                    let field = { ...element }
-                    field.attributes = struct.decode(element.attributes)
-                    decodedFields.push(field)
-                } else {
-                    let autofillFields = []
-                    let elementField = { ...element }
-                    const relation = relations.find(val => (val.id === elementField.relation_id))
-                    let relationTableSlug;
-                    if (relation) {
-                        if (relation?.table_from === req.table_slug) {
-                            relationTableSlug = relation?.table_to
-                        } else {
-                            relationTableSlug = relation?.table_from
-                        }
-                        elementField.table_slug = relationTableSlug
+        }
+        let decodedFields = []
+        for (const element of tableInfo.fields) {
+            if (element.attributes&&!(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
+                let field = {...element}
+                field.attributes = struct.decode(element.attributes)
+                decodedFields.push(field)
+            } else {
+                let autofillFields = []
+                let elementField = {...element}
+                const relation = relations.find(val => (val.id === elementField.relation_id))
+                let relationTableSlug;
+                if (relation) {
+                    if (relation?.table_from === req.table_slug) {
+                        relationTableSlug = relation?.table_to
+                    } else {
+                        relationTableSlug = relation?.table_from
                     }
-                    elementField.attributes = struct.decode(element.attributes)
-                    const tableElement = await table.findOne({
-                        slug: req.table_slug
-                    })
-                    const tableElementFields = await Field.find({
-                        table_id: tableElement.id
-                    })
-                    for (const field of tableElementFields) {
-                        if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
-                            let autofill = {
-                                field_from: field.autofill_field,
-                                field_to: field.slug,
-                            }
-                            autofillFields.push(autofill)
-                        }
-                    }
-                    elementField.attributes["autofill"] = autofillFields,
-                        decodedFields.push(elementField)
+                    elementField.table_slug = relationTableSlug
                 }
-            };
+                elementField.attributes = struct.decode(element.attributes)
+                const tableElement = await table.findOne({
+                    slug: req.table_slug
+                })
+                const tableElementFields = await Field.find({
+                    table_id: tableElement.id
+                })
+                for (const field of tableElementFields) {
+                    if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
+                        let autofill = {
+                            field_from : field.autofill_field,
+                            field_to: field.slug,
+                        }
+                        autofillFields.push(autofill)
+                    }
+                }
+                elementField.attributes["autofill"] = autofillFields,
+                decodedFields.push(elementField)
+            }
+        };
 
-            for (const field of decodedFields) {
-                if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
-                    let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
-                    let viewFields = []
+        for (const field of decodedFields) {
+            if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
+                let relation = await Relation.findOne({table_from:req.table_slug, table_to:field.table_slug})
+                let viewFields = []
                     if (relation) {
                         for (const view_field of relation.view_fields) {
                             let viewField = await Field.findOne(
-                                {
-                                    id: view_field
-                                },
-                                {
-                                    createdAt: 0,
-                                    updatedAt: 0,
-                                    created_at: 0,
-                                    updated_at: 0,
-                                    _id: 0,
-                                    __v: 0
-                                })
+                            {
+                                id:view_field
+                            },
+                            {
+                                createdAt: 0, 
+                                updatedAt: 0,
+                                created_at: 0, 
+                                updated_at: 0,
+                                _id: 0, 
+                                __v: 0
+                            })
                             if (viewField) {
                                 if (viewField.attributes) {
                                     viewField.attributes = struct.decode(viewField.attributes)
@@ -457,21 +439,16 @@ let objectBuilder = {
                         }
                     }
                     field.view_fields = viewFields
-                }
             }
-
-            return {
-                table_slug: data.table_slug,
-                data: struct.encode({
-                    response: output,
-                    fields: decodedFields
-                })
-            }
-        } catch (err) {
-            throw err
         }
 
-
+        return {
+            table_slug: data.table_slug,
+            data: struct.encode({
+                response: output,
+                fields: decodedFields
+            })
+        }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
 

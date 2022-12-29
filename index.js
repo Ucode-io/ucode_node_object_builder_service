@@ -96,16 +96,18 @@ const { struct } = require('pb-util');
     // const params = struct.encode({
     //     limit: 10,
     //     offset: 0,
-    //     search: '',
-    //     // client_type_id_from_token: '790bdce3-95c7-4396-bbba-1d2fb0da2495',
-    //     // role_id_from_token: 'd78a8c8e-4b8d-4bbe-9d11-92bb0c4fbd26',
-    //     // user_id_from_token: 'a0bb1bdc-e5bd-4f9e-bc45-6f705851f29e', 
+    //     // search: '',
+    //     client_type_id_from_token: '',
+    //     client_type_id: '',
+    //     role_id_from_token: '',
+    //     user_id_from_token: '', 
+    //     tables: null
     // })
 
     // await builderService.GetList(
     //     {
     //         request: {
-    //             table_slug: 'client_platform',
+    //             table_slug: 'connections',
     //             project_id: '39f1b0cc-8dc3-42df-b2bf-813310c007a4',
     //             data: params
     //         }

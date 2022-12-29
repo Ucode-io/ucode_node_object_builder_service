@@ -328,8 +328,10 @@ async function buildModels(is_build = true, project_id) {
         temp =  mongoose.Schema(
             {
             ...fieldObject,
-            createdAt: {type: Date, select: false},
-	        updatedAt: {type: Date, select: false}
+                createdAt: {type: Date, select: false},
+                updatedAt: {type: Date, select: false},
+                created_at: {type: Date, select: false},
+                updated_at: {type: Date, select: false}
         },
         {
             timestamps: true,

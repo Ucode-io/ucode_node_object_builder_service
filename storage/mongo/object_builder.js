@@ -479,6 +479,7 @@ let objectBuilder = {
                 }
             ]
         })
+        console.log(`${NAMESPACE}.getList permission`, JSON.stringify(permission, null, 2))
         if (permission?.is_have_condition) {
             const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({

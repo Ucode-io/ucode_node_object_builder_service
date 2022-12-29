@@ -223,7 +223,7 @@ let permission = {
                     table_slug: req.table_slug,
                     view_permission: false,
                     edit_permission: false,
-                    field_label: field.label
+                    label: field.label
                 }
                 noFieldPermissions.push(fieldPermission)
             }
@@ -386,7 +386,7 @@ let permission = {
                         table_slug: req.table_slug,
                         view_permission: true,
                         edit_permission: true,
-                        field_label: field.label
+                        label: field.label
                     }
                     noFieldPermissions.push(fieldPermission)
                 }
@@ -524,7 +524,7 @@ let permission = {
                                 field_id: field_permission.field_id,
                                 table_slug: field_permission.table_slug,
                                 role_id: field_permission.role_id,
-                                field_label: field_permission.field_label,
+                                label: field_permission.label,
                                 guid: v4()
                             }
                         )

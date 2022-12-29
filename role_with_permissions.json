@@ -39,7 +39,7 @@
                             "view_permission": true,
                             "edit_permission": true,
                             "role_id": "54ad3db3-5a01-4d65-b8d4-93886f2c4f1c",
-                            "field_label": "ID",
+                            "label": "ID",
                             "guid": "b9a4806a-c5d5-43fb-ae2f-a4a5054bb112"
                         },
                         {
@@ -48,7 +48,7 @@
                             "view_permission": true,
                             "edit_permission": true,
                             "role_id": "f5bf8611-c22b-43d0-b6ee-866ec53b8a3d",
-                            "field_label": "ID",
+                            "label": "ID",
                             "guid": "33581afa-402a-4a6f-b02b-8fc3a2b0d349"
                         }
                     ],
@@ -99,7 +99,7 @@
                             "view_permission": true,
                             "edit_permission": true,
                             "role_id": "54ad3db3-5a01-4d65-b8d4-93886f2c4f1c",
-                            "field_label": "ID",
+                            "label": "ID",
                             "guid": "b9a4806a-c5d5-43fb-ae2f-a4a5054bb112"
                         },
                         {
@@ -108,7 +108,7 @@
                             "view_permission": true,
                             "edit_permission": true,
                             "role_id": "f5bf8611-c22b-43d0-b6ee-866ec53b8a3d",
-                            "field_label": "ID",
+                            "label": "ID",
                             "guid": "33581afa-402a-4a6f-b02b-8fc3a2b0d349"
                         }
                     ],
@@ -167,7 +167,7 @@
                             "view_permission": true,
                             "edit_permission": true,
                             "role_id": "54ad3db3-5a01-4d65-b8d4-93886f2c4f1c",
-                            "field_label": "ID",
+                            "label": "ID",
                             "guid": "b9a4806a-c5d5-43fb-ae2f-a4a5054bb112"
                         },
                         {
@@ -176,7 +176,7 @@
                             "view_permission": true,
                             "edit_permission": true,
                             "role_id": "f5bf8611-c22b-43d0-b6ee-866ec53b8a3d",
-                            "field_label": "ID",
+                            "label": "ID",
                             "guid": "33581afa-402a-4a6f-b02b-8fc3a2b0d349"
                         }
                     ],
@@ -227,7 +227,7 @@
                             "view_permission": true,
                             "edit_permission": true,
                             "role_id": "54ad3db3-5a01-4d65-b8d4-93886f2c4f1c",
-                            "field_label": "ID",
+                            "label": "ID",
                             "guid": "b9a4806a-c5d5-43fb-ae2f-a4a5054bb112"
                         },
                         {
@@ -236,7 +236,7 @@
                             "view_permission": true,
                             "edit_permission": true,
                             "role_id": "f5bf8611-c22b-43d0-b6ee-866ec53b8a3d",
-                            "field_label": "ID",
+                            "label": "ID",
                             "guid": "33581afa-402a-4a6f-b02b-8fc3a2b0d349"
                         }
                     ],

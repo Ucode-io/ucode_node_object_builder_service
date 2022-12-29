@@ -953,7 +953,7 @@ let objectBuilder = {
             };
 
             millis = Date.now() - start;
-            console.log(`[13] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[14] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
             for (const field of decodedFields) {
                 if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
@@ -986,7 +986,7 @@ let objectBuilder = {
             }
 
             millis = Date.now() - start;
-            console.log(`[13] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[15] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
             if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
                 let additional_results;
@@ -1039,7 +1039,7 @@ let objectBuilder = {
             }
 
             millis = Date.now() - start;
-            console.log(`[13] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[16] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
             let responseResult = []
             let formulaFields = tableInfo.fields.filter(val => val.type === "FORMULA")
@@ -1093,7 +1093,7 @@ let objectBuilder = {
             }
 
             millis = Date.now() - start;
-            console.log(`[13] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[17] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
             const response = struct.encode({
                 count: count,
@@ -1104,7 +1104,7 @@ let objectBuilder = {
             });
 
             millis = Date.now() - start;
-            console.log(`[13] seconds elapsed = ${Math.floor(millis / 1000)}`);
+            console.log(`[18] seconds elapsed = ${Math.floor(millis / 1000)}`);
 
             return { table_slug: req.table_slug, data: response }
         } catch (err) {

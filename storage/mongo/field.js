@@ -77,7 +77,7 @@ let fieldStore = {
                         edit_permission: true,
                         table_slug: table?.slug,
                         field_id: field.id,
-                        field_label: field.label,
+                        label: field.label,
                         role_id: role.guid
                     }
                     const fieldPermission = new fieldPermissionTable.models(permission)
@@ -158,7 +158,7 @@ let fieldStore = {
                     edit_permission: true,
                     table_slug: table?.slug,
                     field_id: field.id,
-                    field_label: field.label,
+                    label: field.label,
                     role_id: role.guid
                 }
                 const fieldPermission = new fieldPermissionTable.models(permission)

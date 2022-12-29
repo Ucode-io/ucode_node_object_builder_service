@@ -106,6 +106,8 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
             {
                 created_at: 0,
                 updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
                 _id: 0,
                 __v: 0,
             });
@@ -396,6 +398,8 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
         {
             created_at: 0,
             updated_at: 0,
+            createdAt: 0,
+            updatedAt: 0,
             _id: 0,
             __v: 0,
         }).lean()

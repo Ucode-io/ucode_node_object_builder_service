@@ -67,6 +67,21 @@
             "table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
             "is_visible": true,
             "is_own_table": true
+          },
+          {
+            "table_id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+            "is_visible": true,
+            "is_own_table": true
+          },
+          {
+            "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+            "is_visible": true,
+            "is_own_table": false
           }
         ]
       }]

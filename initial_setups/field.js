@@ -2148,7 +2148,1846 @@ async function createField() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-    }]
+    },{
+        "id": "834df8ef-edb7-4170-996c-9bd5431d9a62",
+        "required": false,
+        "slug": "table_slug",
+        "label": "Таблица",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "table_slug",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "5dda58a1-84ac-4c50-8993-02e2cefcb29a",
+        "required": false,
+        "slug": "size",
+        "label": "Размер",
+        "default": "",
+        "type": "MULTISELECT",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "options": {
+              "listValue": {
+                "values": [
+                  {
+                    "structValue": {
+                      "fields": {
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "id": {
+                          "stringValue": "l8pqwm99uvafrgkle38",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "A4",
+                          "kind": "stringValue"
+                        },
+                        "value": {
+                          "stringValue": "A4",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  },
+                  {
+                    "structValue": {
+                      "fields": {
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "id": {
+                          "stringValue": "l8pqwp8kktxrtw6xebi",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "A5",
+                          "kind": "stringValue"
+                        },
+                        "value": {
+                          "stringValue": "A5",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  }
+                ]
+              },
+              "kind": "listValue"
+            },
+            "placeholder": {
+              "stringValue": "size",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "has_color": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "has_icon": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "is_multiselect": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "9772b679-33ec-4004-b527-317a1165575e",
+        "required": false,
+        "slug": "title",
+        "label": "Название",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "98279b02-10c0-409e-8303-14224fd76ec6",
+        "required": false,
+        "slug": "html",
+        "label": "HTML",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "address-card.svg",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "required": false,
+        "slug": "guid",
+        "label": "ID",
+        "default": "v4",
+        "type": "UUID",
+        "index": "true",
+        "is_visible": true,
+        "id": "494e1ad3-fce8-4e6c-921f-850d0ec73cc4",
+        "table_id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
+        "required": false,
+        "slug": "doctors_ids",
+        "label": "FROM doctors TO template",
+        "type": "LOOKUPS",
+        "is_visible": true,
+        "relation_id": "4d5f933c-3d46-4303-95aa-31daccef96cf",
+        "id": "fd7f0fde-3de7-4073-b64d-bd3076c6e3fb",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "required": false,
+        "slug": "guid",
+        "label": "ID",
+        "default": "v4",
+        "type": "UUID",
+        "index": "true",
+        "is_visible": true,
+        "id": "e7b87d05-f42d-4a09-a8e0-0b563caa215e",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "4ea88c51-404f-485a-9b39-0fc04b917455",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": true,
+        "slug": "name",
+        "label": "Имя",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "maxLength": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "594a42b4-afab-40ea-bb2b-76afb3d4541b",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": true,
+        "slug": "last_name",
+        "label": "Фамилия",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "maxLength": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "e38e938c-946a-4117-b91d-d7dcd6a88f8b",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": true,
+        "slug": "second_name",
+        "label": "Отчество",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "maxLength": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "3d1104d1-955c-4eb7-90d9-a474166b3302",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "phone",
+        "label": "Телефон",
+        "default": "",
+        "type": "PHONE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "maxLength": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "b3a50c0f-f1ee-4044-bbdf-a197f6ea8f90",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "email",
+        "label": "Email",
+        "default": "",
+        "type": "EMAIL",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "maxLength": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "5cd5aedd-d736-4a66-aad0-327d08e55469",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "desc",
+        "label": "Описание",
+        "default": "",
+        "type": "MULTI_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "maxLength": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "0c1cd74e-f2b5-4722-8182-95bb9e823c5b",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "has_telemedicine",
+        "label": "Телемедицина",
+        "default": "",
+        "type": "SWITCH",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "2c6d1713-52a1-478f-8b6b-269f88872b4c",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "status",
+        "label": "Статус",
+        "default": "",
+        "type": "MULTISELECT",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "has_color": {
+              "boolValue": true,
+              "kind": "boolValue"
+            },
+            "has_icon": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "is_multiselect": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "options": {
+              "listValue": {
+                "values": [
+                  {
+                    "structValue": {
+                      "fields": {
+                        "color": {
+                          "stringValue": "#40BC86",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "Активный",
+                          "kind": "stringValue"
+                        },
+                        "value": {
+                          "stringValue": "active",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  },
+                  {
+                    "structValue": {
+                      "fields": {
+                        "color": {
+                          "stringValue": "#FC575E",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "Не активный",
+                          "kind": "stringValue"
+                        },
+                        "value": {
+                          "stringValue": "inactive",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  }
+                ]
+              },
+              "kind": "listValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "relation_id": ""
+      },{
+        "id": "5e3eb754-afea-4ed0-87e0-0045d9d6b29c",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "birth_date",
+        "label": "Дата рождение",
+        "default": "",
+        "type": "DATE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "0310b9c1-15ac-4816-b566-18d58f5e1bb1",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "id",
+        "label": "ID",
+        "default": "",
+        "type": "INCREMENT_ID",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "digit_number": {
+              "numberValue": 4,
+              "kind": "numberValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "prefix": {
+              "stringValue": "D",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "921e385d-14c3-419d-b208-3d64ec872c28",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "gender",
+        "label": "Пол",
+        "default": "",
+        "type": "MULTISELECT",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "has_icon": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "is_multiselect": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "options": {
+              "listValue": {
+                "values": [
+                  {
+                    "structValue": {
+                      "fields": {
+                        "value": {
+                          "stringValue": "М",
+                          "kind": "stringValue"
+                        },
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "id": {
+                          "stringValue": "l81a3zl1stexsrdv8rc",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "М",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  },
+                  {
+                    "structValue": {
+                      "fields": {
+                        "label": {
+                          "stringValue": "Ж",
+                          "kind": "stringValue"
+                        },
+                        "value": {
+                          "stringValue": "Ж",
+                          "kind": "stringValue"
+                        },
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "id": {
+                          "stringValue": "l81a42z5nuq170kuqm",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  }
+                ]
+              },
+              "kind": "listValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "has_color": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "relation_id": ""
+      },{
+        "id": "d2374b19-224e-4de6-9cb6-b2415d0c8a08",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "patient_type",
+        "label": "Тип пациентов по возрасту",
+        "default": "",
+        "type": "MULTISELECT",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "has_color": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "has_icon": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "is_multiselect": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "tooltipText": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "options": {
+              "listValue": {
+                "values": [
+                  {
+                    "structValue": {
+                      "fields": {
+                        "value": {
+                          "stringValue": "Детский",
+                          "kind": "stringValue"
+                        },
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "id": {
+                          "stringValue": "l81ahhhxniw6jiipfm",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "Детский",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  },
+                  {
+                    "structValue": {
+                      "fields": {
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "id": {
+                          "stringValue": "l81ahsneljf35reu68l",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "Взрослый",
+                          "kind": "stringValue"
+                        },
+                        "value": {
+                          "stringValue": "Взрослый",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  },
+                  {
+                    "structValue": {
+                      "fields": {
+                        "id": {
+                          "stringValue": "l81ahxu4jut33ey5le9",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "Все",
+                          "kind": "stringValue"
+                        },
+                        "value": {
+                          "stringValue": "Все",
+                          "kind": "stringValue"
+                        },
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  }
+                ]
+              },
+              "kind": "listValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "relation_id": ""
+      },{
+        "id": "4328279e-1bad-4d69-87a0-c10e32089e26",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "passport_photo",
+        "label": "Фото пасспорта",
+        "default": "",
+        "type": "PHOTO",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "d4c55b2b-864f-42e3-9c1c-c2bce11df4c4",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "pinfl",
+        "label": "ПИНФЛ",
+        "default": "",
+        "type": "NUMBER",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "ed1e123a-c845-494b-8346-d7bda3bbcb15",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "passport_number_series",
+        "label": "Серия и номер пасспорта",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "e6c42a89-62c6-4246-a557-94e4ebf4bd44",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "experience",
+        "label": "Опыт работы",
+        "default": "",
+        "type": "NUMBER",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "5f5e4a0b-0b48-48aa-a786-aab5e46cac06",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "professional_achivements",
+        "label": "Профессиональные награды:",
+        "default": "",
+        "type": "MULTI_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "9c83c2de-1189-4449-98ab-b1687c8ab149",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "education",
+        "label": "Образование:",
+        "default": "",
+        "type": "MULTI_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "ff91ee92-07e1-41b3-8d24-b3a270ee02bf",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "specification",
+        "label": "Спецификация:",
+        "default": "",
+        "type": "MULTI_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "specialities_ids",
+        "label": "IT'S RELATION",
+        "type": "LOOKUPS",
+        "is_visible": true,
+        "relation_id": "3598b204-74ec-45ff-8831-1a0d7cfcf162",
+        "id": "95bbe127-af30-4a9e-8766-39dac91e08b7",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "categories_ids",
+        "label": "IT'S RELATION",
+        "type": "LOOKUPS",
+        "is_visible": true,
+        "relation_id": "ae355887-5bb3-4e67-bd76-c0f51bc4c881",
+        "id": "a9e5373d-e74f-448f-831c-8466f982c631",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "branches_id",
+        "label": "IT'S RELATION",
+        "type": "LOOKUP",
+        "is_visible": true,
+        "relation_id": "32e05007-f0d1-4f62-a17f-276502116d42",
+        "id": "c60b8e9f-42da-4eaf-b15a-c61e70a7b439",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "7265e91c-2cc0-40d5-89d9-f9d7031839e9",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "starting_working_year",
+        "label": "Начало врачебной практики",
+        "default": "",
+        "type": "NUMBER",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "a0404df4-fcd8-42d3-b5ac-a6c64fa8a658",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "satisfied_patients",
+        "label": "Довольных пациентов",
+        "default": "",
+        "type": "NUMBER",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "10381db4-2229-45c6-b829-114c83c324c4",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "phd",
+        "label": "учёная степень",
+        "default": "",
+        "type": "SWITCH",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "template_ids",
+        "label": "FROM doctors TO template",
+        "type": "LOOKUPS",
+        "is_visible": true,
+        "relation_id": "4d5f933c-3d46-4303-95aa-31daccef96cf",
+        "id": "b508fc9d-b509-4776-a81e-c7bd2bb6a367",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "9212144e-e0ce-4267-a013-96c24bdf43db",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "showInIndex",
+        "label": "Показать на сайте на главном странице",
+        "default": "",
+        "type": "SWITCH",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "9876f21c-ac10-4500-ac60-49925f959c22",
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "is_foreign",
+        "label": "Зарубежная врачь",
+        "default": "",
+        "type": "SWITCH",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "unique": false,
+        "automatic": false,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "required": false,
+        "slug": "doctor_diary_ids",
+        "label": "FROM doctors TO doctor_diary",
+        "type": "LOOKUPS",
+        "is_visible": true,
+        "relation_id": "4750962b-db2c-41ed-ba32-9f6e22df2762",
+        "id": "2f9a77d7-6277-4193-a502-67f7214be86b",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "a99106a9-32dc-446b-9850-8713d687804a",
+        "required": false,
+        "slug": "date",
+        "label": "Время создание",
+        "default": "",
+        "type": "DATE_TIME",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "b1bb10c9-d399-4baa-98d1-0a04171ff5d1",
+        "required": false,
+        "slug": "tags",
+        "label": "Теги",
+        "default": "",
+        "type": "MULTISELECT",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "has_icon": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "is_multiselect": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "has_color": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "options": {
+              "listValue": {
+                "values": [
+                  {
+                    "structValue": {
+                      "fields": {
+                        "value": {
+                          "stringValue": "diagnostic",
+                          "kind": "stringValue"
+                        },
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "id": {
+                          "stringValue": "l8pr3dqxbq4nlviy49h",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "Диагностика",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  },
+                  {
+                    "structValue": {
+                      "fields": {
+                        "value": {
+                          "stringValue": "consultation",
+                          "kind": "stringValue"
+                        },
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "id": {
+                          "stringValue": "l8pr3u7pgyf1lz5urgg",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "Консультация",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  },
+                  {
+                    "structValue": {
+                      "fields": {
+                        "icon": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        },
+                        "id": {
+                          "stringValue": "lao5vpro3wkmmqhss0p",
+                          "kind": "stringValue"
+                        },
+                        "label": {
+                          "stringValue": "Лаборатория",
+                          "kind": "stringValue"
+                        },
+                        "value": {
+                          "stringValue": "laboratory",
+                          "kind": "stringValue"
+                        },
+                        "color": {
+                          "stringValue": "",
+                          "kind": "stringValue"
+                        }
+                      }
+                    },
+                    "kind": "structValue"
+                  }
+                ]
+              },
+              "kind": "listValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "__v": 0,
+        "autofill_field": "",
+        "autofill_table": "",
+        "relation_id": "",
+        "unique": false
+      },{
+        "id": "61870278-3195-4874-9c0c-28104bbfb19a",
+        "required": false,
+        "slug": "type",
+        "label": "Тип файла",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "afb99f72-106d-4939-b831-9e4b025afb9f",
+        "required": false,
+        "slug": "name",
+        "label": "Название",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "b7e00be4-70f2-4a57-bf77-91d3834d0520",
+        "required": false,
+        "slug": "size",
+        "label": "Размер",
+        "default": "",
+        "type": "NUMBER",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "id": "5c0efd79-60f4-455b-b1df-e51e3b56b140",
+        "required": false,
+        "slug": "file_link",
+        "label": "Линк фaйла",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "autofill_field": "",
+        "autofill_table": "",
+        "relation_id": "",
+        "unique": false
+      },{
+        "required": false,
+        "slug": "guid",
+        "label": "ID",
+        "default": "v4",
+        "type": "UUID",
+        "index": "true",
+        "is_visible": true,
+        "id": "a9199d67-72bc-42b0-bcd3-04d8a18b9441",
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "required": false,
+        "slug": "patients_id",
+        "label": "IT'S RELATION",
+        "type": "LOOKUP",
+        "is_visible": true,
+        "relation_id": "ccc39e6d-f3f6-43b0-82f3-eee3044d25f8",
+        "id": "ef53a742-3442-4225-8a9c-90d59ab9b53c",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "required": false,
+        "slug": "doctors_id",
+        "label": "IT'S RELATION",
+        "type": "LOOKUP",
+        "is_visible": true,
+        "relation_id": "c257fe1d-488b-4d0f-a657-b0b729811a56",
+        "id": "69652ef4-71e8-43dc-8cd5-dd0572f6b9a7",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "required": false,
+        "slug": "cashbox_id",
+        "label": "FROM file TO cash_transaction",
+        "type": "LOOKUP",
+        "is_visible": true,
+        "relation_id": "dae09c03-247a-4353-8f17-fc35e545a44e",
+        "id": "4be7708d-e8af-4687-ad3d-8df0f7be1566",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "attributes": {
+          "fields": {
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "autofill_field": "",
+        "autofill_table": "",
+        "default": "",
+        "index": "string"
+      },{
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "required": false,
+        "slug": "branches_id",
+        "label": "FROM file TO branches",
+        "type": "LOOKUP",
+        "is_visible": true,
+        "relation_id": "e7604b67-027f-4314-a270-86db31e33887",
+        "id": "bd35cc88-e671-41a6-a334-554b88a20604",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "required": false,
+        "slug": "specialities_id",
+        "label": "FROM file TO specialities",
+        "type": "LOOKUP",
+        "is_visible": true,
+        "relation_id": "df8b1c3b-7f1a-43f4-8368-b37f191c888d",
+        "id": "673a828f-3955-40f7-8968-dfee6eb6442d",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "table_id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "required": false,
+        "slug": "news_id",
+        "label": "FROM file TO news",
+        "type": "LOOKUP",
+        "is_visible": true,
+        "relation_id": "89afc0b2-431b-4243-a22f-53539f50deff",
+        "id": "bbe64ec5-9b8b-4b8a-886f-fa96342f29ab",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      }]
 
     return fields
 }

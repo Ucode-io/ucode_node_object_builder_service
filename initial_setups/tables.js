@@ -176,7 +176,48 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-    }]
+    },{
+        "label": "Шаблон",
+        "slug": "template",
+        "description": "Шаблоны",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "arrow-right-to-bracket.svg",
+        "subtitle_field_slug": "",
+        "id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "label": "Врачи",
+        "slug": "doctors",
+        "description": "Специалисты",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "stethoscope.svg",
+        "subtitle_field_slug": "name",
+        "with_increment_id": true,
+        "digit_number": 3,
+        "id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "label": "Файл",
+        "slug": "file",
+        "description": "Файлы",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "file-arrow-down.svg",
+        "subtitle_field_slug": "",
+        "id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      }]
 
     return tables;
 }

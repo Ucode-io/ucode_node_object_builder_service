@@ -1709,3 +1709,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.delete: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-29T14:41:55.375Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.delete: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-29T15:26:53.860Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -1454,3 +1454,80 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2022-12-29T07:14:56.933Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "Thu Dec 29 2022 11:08:14 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2022-12-29T10:18:17.309Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "Thu Dec 29 2022 11:08:14 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2022-12-29T10:23:18.852Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "Thu Dec 29 2022 11:08:14 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2022-12-29T10:27:30.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "Thu Dec 29 2022 11:08:14 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2022-12-29T10:29:00.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "Thu Dec 29 2022 11:08:14 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2022-12-29T10:33:30.818Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "Thu Dec 29 2022 11:08:14 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2022-12-29T10:36:33.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "Thu Dec 29 2022 11:08:14 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2022-12-29T10:38:42.044Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "Thu Dec 29 2022 11:08:14 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2022-12-29T10:52:19.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "Thu Dec 29 2022 11:08:14 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2022-12-29T10:54:06.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2022-12-29T11:21:26.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

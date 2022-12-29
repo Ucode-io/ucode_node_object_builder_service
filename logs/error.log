@@ -1433,3 +1433,24 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of null (reading 'name')",
+  level: 'error',
+  timestamp: '2022-12-29T05:58:27.534Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of null (reading 'name')",
+  level: 'error',
+  timestamp: '2022-12-29T05:59:16.495Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of null (reading 'name')",
+  level: 'error',
+  timestamp: '2022-12-29T06:04:10.495Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

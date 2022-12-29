@@ -32,14 +32,15 @@ const CustomEventSchema = mongoose.Schema(
         },
         action_type: {
             type: String,
+        },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
         }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
         toObject: { virtuals: true },
         toJSON: { virtuals: true },
-        strict: true,
-        strictQuery: true
     }
 );
 

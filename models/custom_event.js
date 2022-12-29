@@ -32,6 +32,9 @@ const CustomEventSchema = mongoose.Schema(
         },
         action_type: {
             type: String,
+        },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
         }
     },
     {

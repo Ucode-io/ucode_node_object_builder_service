@@ -19,7 +19,7 @@ const SectionSchema = mongoose.Schema(
         },
         column: {
             type: String,
-            required: [true, "Field must have column"],
+            // required: [true, "Field must have column"],
             index: true
         },
         label: {
@@ -41,8 +41,6 @@ const SectionSchema = mongoose.Schema(
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
         toObject: { virtuals: true },
         toJSON: { virtuals: true },
-        strict: true,
-        strictQuery: true
     }
 );
 

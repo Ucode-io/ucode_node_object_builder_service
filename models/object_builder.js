@@ -1,16 +1,14 @@
 const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 const Constants = require("../helper/constants");
-const Config = require('../config/index')
 const mongoPool = require('../pkg/pool')
 
-
-
+const passwordTools = require('../helper/passwordTools');
 const { struct } = require("pb-util");
 const logger = require("../config/logger");
 let mongooseObject = {};
 
-async function buildModels(is_build = true, project_id, strict=true, strictQuery=true) {
+async function buildModels(is_build = true, project_id) {
 
     console.log('REQUEST CAME TO MODELS BUILDER FOR', project_id)
 
@@ -26,12 +24,9 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
     const Section = mongoDBConn.models['Section']
     const View = mongoDBConn.models['View']
 
+// hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
 
-
-    // hi guys, comments will be written below in order to
-    // explain what is going on in auto-object-builder logic
-
-    // all tables should be got to build their schema
+// all tables should be got to build their schema
     let tables = []
     if (!is_build) {
         tables = await Table.find({
@@ -43,7 +38,7 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
             is_changed: true
         });
     }
-
+    
 
     let tempArray = []
     for (const table of tables) {
@@ -57,26 +52,25 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
                 }, {
                     type: "Many2One"
                 }]
-            },
-            {
+              },
+              {
                 $and: [{
-                    table_to: table.slug
+                  table_to: table.slug
                 }, {
-                    type: "One2Many"
+                  type: "One2Many"
                 }]
-            },
-            {
+              },
+              {
                 $and: [{
                     $or: [{
                         table_from: table.slug
                     },
                     {
                         "dynamic_tables.table_slug": table.slug
-                    }]
-                },
-                {
-                    type: "Many2Dynamic"
-                }
+                    }]},   
+                    {
+                        type: "Many2Dynamic"
+                    }
                 ]
               },
             //   {
@@ -103,14 +97,12 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
         const fields = await Field.find({
             table_id: table.id,
         },
-            {
-                created_at: 0,
-                updated_at: 0,
-                createdAt: 0,
-                updatedAt: 0,
-                _id: 0,
-                __v: 0,
-            });
+        {
+            created_at: 0,
+            updated_at: 0,
+            _id: 0,
+            __v: 0,
+        });
         let fieldObject = {};
         let fieldsModel = [];
         let fieldsIndex = [];
@@ -122,6 +114,39 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
         if (fields) {
             for (const field of fields) {
                 let fieldType;
+                if (field?.type === 'PASSWORD') {
+                    hasPasswordField = true;
+                    arrayOfMiddlewares.push(
+                        {
+                            type: 'pre',
+                            method: 'save',
+                            _function: function(next) {
+                                if (this[field.slug]) {
+                                    let checkPassword = this[field.slug].substring(0,4)
+                                    if (checkPassword !== "$2b$" && checkPassword !== "$2a$") {
+                                        this[field.slug] = passwordTools.generatePasswordHash(this[field.slug]);
+                                    } else {
+                                        throw new Error("Wrong password type. Password must not be started '$2a$' or $2b$' ")
+                                    }
+                                }
+                                next()
+                            }
+                        },
+                        {
+                            type: 'pre',
+                            method: 'updateOne',
+                            _function: function(next) {
+                                if (this.getUpdate()?.$set[field.slug] && this.getUpdate()?.$set[field.slug] !== '') {
+                                    let checkHashedPass = this.getUpdate()?.$set[field.slug].substring(0,4)
+                                    if (checkHashedPass !== "$2b$" && checkHashedPass !== "$2a$") {
+                                        this.set({[field.slug]: passwordTools.generatePasswordHash(this.getUpdate().$set[field.slug])});
+                                    }
+                                }
+                                next()
+                            }
+                        }
+                    )
+                }
 
                 // below we convert given by front types to our usual datatypes
                 if (Constants.STRING_TYPES.includes(field.type)) {
@@ -188,7 +213,7 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
                         }
                     }
                 }
-
+               
 
                 // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
                 if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS") {
@@ -198,12 +223,12 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
                     // else if we need to add all relation fields to related table fields
 
                     // sections have to be got, so that we can specify by which fields tables are related
-
+                    
                     // if section.field contains '#' (it is M2O and O2M related tables field) OR (@ is for O2O relation field)
-
+                
                     // relation fields get by field.relation_id
-                    const relation = await Relation.findOne({ id: field.relation_id })
-                    const view = await View.findOne({ relation_id: field.relation_id, relation_table_slug: table.slug })
+                    const relation = await Relation.findOne({id: field.relation_id})
+                    const view = await View.findOne({relation_id: field.relation_id, relation_table_slug: table.slug})
                     let resField = {}
                     resField.id = field.id
                     resField.label = view?.name
@@ -217,16 +242,16 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
                     if (relation) {
                         for (const fieldID of relation.view_fields) {
                             let field = await Field.findOne({
-                                id: fieldID
+                                id:fieldID
                             },
-                                {
-                                    created_at: 0,
-                                    updated_at: 0,
-                                    createdAt: 0,
-                                    updatedAt: 0,
-                                    _id: 0,
-                                    __v: 0
-                                }).lean();
+                            {
+                                created_at: 0,
+                                updated_at: 0,
+                                createdAt: 0,
+                                updatedAt: 0,
+                                _id: 0,
+                                __v: 0
+                            }).lean();
                             fieldAsAttribute.push(field)
 
                         }
@@ -261,6 +286,8 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
                         resField.attributes["cascading_tree_table_slug"] = relation?.cascading_tree_table_slug
                         resField.attributes["cascading_tree_field_slug"] = relation?.cascading_tree_field_slug
                         resField.attributes["auto_filters"] = relation?.auto_filters
+                        resField.attributes["is_user_id_default"] = relation?.is_user_id_default,
+                        resField.attributes["object_id_from_jwt"] = relation?.object_id_from_jwt,
                         
                         resField.table_slug = relationTableSlug
                         if (view) {
@@ -293,24 +320,26 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
                     // after the first time when all relation fields are appended to our field array, 
                     // we change isReferenced to true in order to avoid adding the same fields twice or more
                 }
-            }
+            }  
             isReferenced = true
         }
+        
 
-
-        temp = mongoose.Schema(
+        temp =  mongoose.Schema(
             {
-                ...fieldObject,
-                createdAt: { type: Date, select: false },
-                updatedAt: { type: Date, select: false }
+            ...fieldObject,
+            createdAt: {type: Date, select: false},
+	        updatedAt: {type: Date, select: false}
+        },
+        {
+            timestamps: true,
+            toObject: {
+                virtuals: true
             },
-            {
-                // toObject: { virtuals: true },
-                // toJSON: { virtuals: true },
-                strict: strict,
-                strictQuery: strictQuery
-            }
-        )
+            toJSON: {
+                virtuals: true
+            },
+        })
         if (hasPasswordField) {
             for (let i=0; i<arrayOfMiddlewares.length; i++) {
                 temp[arrayOfMiddlewares[i].type](arrayOfMiddlewares[i].method, arrayOfMiddlewares[i]._function)
@@ -350,20 +379,20 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
                     justOne: false
                 }
                 slug = relation.field_from + "_data"
-            } else if (relation.type === "Many2One") {
+            } else if (relation.type === "Many2One"){
                 populateParams = {
                     ref: relation.table_to,
                     localField: field?.slug,
                     foreignField: 'guid',
                     justOne: true
                 }
-            } else if (relation.type === "Recursive") {
+            } else if (relation.type === "Recursive"){
                 populateParams = {
                     ref: relation.table_to,
                     localField: field?.slug,
                     foreignField: 'guid',
                     justOne: true
-                }
+                }   
             } else if (relation.type === "One2Many") {
                 relation.table_to = relation.table_from
                 populateParams = {
@@ -372,7 +401,7 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
                     foreignField: 'guid',
                     justOne: true
                 }
-            } else if (relation.type === "Many2Dynamic") {
+            } else if (relation.type === "Many2Dynamic"){
                 for (dynamic_table of relation.dynamic_tables) {
                     populateParams = {
                         ref: dynamic_table.table_slug,
@@ -398,8 +427,6 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
         {
             created_at: 0,
             updated_at: 0,
-            createdAt: 0,
-            updatedAt: 0,
             _id: 0,
             __v: 0,
         }).lean()
@@ -436,11 +463,11 @@ async function buildModels(is_build = true, project_id, strict=true, strictQuery
         const resp = await Table.updateOne({
             slug: model.slug,
         },
-            {
-                $set: {
-                    is_changed: false
-                }
-            })
+        {
+            $set: {
+                is_changed: false
+            }
+        })
     }
     return mongooseObject
 }

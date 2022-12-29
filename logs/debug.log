@@ -5826,3 +5826,197 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "transasia_transasia_object_builder_service",\n' +
+    '    "username": "transasia_transasia_object_builder_service",\n' +
+    '    "password": "123JFWxq"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2022-12-29T05:48:24.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transasia_transasia_object_builder_service:123JFWxq@161.35.26.178:27017/transasia_transasia_object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-29T05:48:24.568Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-29T05:48:24.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transasia_transasia_object_builder_service:123JFWxq@161.35.26.178:27017/transasia_transasia_object_builder_service',
+  level: 'info',
+  timestamp: '2022-12-29T05:48:25.169Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-29T05:48:44.683Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "client_platform",\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2022-12-29T05:48:44.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "client_platform",\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2022-12-29T05:48:44.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-29T05:48:45.865Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-29T05:48:45.866Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "transasia_transasia_object_builder_service",\n' +
+    '    "username": "transasia_transasia_object_builder_service",\n' +
+    '    "password": "123JFWxq"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2022-12-29T05:49:02.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transasia_transasia_object_builder_service:123JFWxq@161.35.26.178:27017/transasia_transasia_object_builder_service',
+  level: 'debug',
+  timestamp: '2022-12-29T05:49:02.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2022-12-29T05:49:02.378Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transasia_transasia_object_builder_service:123JFWxq@161.35.26.178:27017/transasia_transasia_object_builder_service',
+  level: 'info',
+  timestamp: '2022-12-29T05:49:02.970Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-29T05:49:22.890Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "client_platform",\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 10\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 0\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": ""\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2022-12-29T05:49:22.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "client_platform",\n' +
+    '  "project_id": "39f1b0cc-8dc3-42df-b2bf-813310c007a4",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 10\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 0\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "kind": "stringValue",\n' +
+    '        "stringValue": ""\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2022-12-29T05:49:22.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2022-12-29T05:49:24.106Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2022-12-29T05:49:24.106Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -151,7 +151,7 @@ let excelStore = {
                                     }
                                     
                                     if (viewField) {
-                                        const tableTo = (await ObjectBuilder())[relation.table_to]
+                                        const tableTo = (await ObjectBuilder(true, req.project_id))[relation.table_to]
                                         const objectFromObjectBuilder = await tableTo.models.findOne({
                                             $and: [params]
                                         })

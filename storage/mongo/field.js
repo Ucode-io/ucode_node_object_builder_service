@@ -68,8 +68,8 @@ let fieldStore = {
                 const table = await Table.findOne({
                     id: data.id
                 })
-                const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
-                const roleTable = (await ObjectBuilder())["role"]
+                const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
+                const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
                 const roles = await roleTable?.models.find()
                 for (const role of roles) {
                     let permission = {
@@ -77,7 +77,7 @@ let fieldStore = {
                         edit_permission: true,
                         table_slug: table?.slug,
                         field_id: field.id,
-                        field_label: field.label,
+                        label: field.label,
                         role_id: role.guid
                     }
                     const fieldPermission = new fieldPermissionTable.models(permission)
@@ -149,8 +149,8 @@ let fieldStore = {
             const table = await Table.findOne({
                 id: data.table_id
             });
-            const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
-            const roleTable = (await ObjectBuilder())["role"]
+            const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
+            const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
             for (const role of roles) {
                 let permission = {
@@ -158,7 +158,7 @@ let fieldStore = {
                     edit_permission: true,
                     table_slug: table?.slug,
                     field_id: field.id,
-                    field_label: field.label,
+                    label: field.label,
                     role_id: role.guid
                 }
                 const fieldPermission = new fieldPermissionTable.models(permission)
@@ -180,8 +180,8 @@ let fieldStore = {
 
             tableRes.fields = fields
             event.payload = tableRes
-            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(con.topicFieldCreateV1, event)
+            event.project_id = data.project_id
+            await sendMessageToTopic(con.TopicFieldCreateV1, event)
 
 
             return response;
@@ -268,8 +268,8 @@ let fieldStore = {
             fieldRes.field = fieldToAnalytics
             event.payload = fieldRes
 
-            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(con.topicFieldUpdateV1, event)
+            event.project_id = data.project_id
+            await sendMessageToTopic(con.TopicFieldUpdateV1, event)
 
             return field;
         } catch (err) {
@@ -482,42 +482,24 @@ let fieldStore = {
                 many_relation_fields: many_relation_fields,
             });
 
-
+            
             const count = await Field.countDocuments(query);
             return { fields: fields, count: count, data: response };
         } catch (err) {
             throw err
         }
     }),
+
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-        
 
             const deletedField = await Field.findOne({ id: data.id })
             const table = await Table.findOne({ id: deletedField.table_id })
             const field = await Field.deleteOne({ id: data.id });
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
-            const response = await fieldPermissionTable?.models.deleteMany({
-                field_id: data.id
-            })
-        } catch (err) {
-            throw err
-        }
-
-    }),
-    delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
-        try {
-            const mongoConn = await mongoPool.get(data.project_id)
-            const Table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-
-            const deletedField = await Field.findOne({ id: data.id })
-            const table = await Table.findOne({ id: deletedField.table_id })
-            const field = await Field.deleteOne({ id: data.id });
-            const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
             const response = await fieldPermissionTable?.models.deleteMany({
                 field_id: data.id
             })
@@ -535,9 +517,9 @@ let fieldStore = {
             }
             fieldRes.field = fieldToAnalytics
             event.payload = fieldRes
-            
-            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
-            await sendMessageToTopic(con.topicFieldDeleteV1, event)
+
+            event.project_id = data.project_id
+            await sendMessageToTopic(con.TopicFieldDeleteV1, event)
 
             return field;
 

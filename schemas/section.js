@@ -20,7 +20,7 @@ const SectionSchema = mongoose.Schema(
         column: {
             type: String,
             // required: [true, "Field must have column"],
-            // index: true
+            index: true
         },
         label: {
             type: String,

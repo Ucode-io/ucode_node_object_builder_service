@@ -4,7 +4,7 @@ const grpc = require("@grpc/grpc-js");
 module.exports = (namespace, fn) => {
     return async (call, callback) => {
         logger.info(
-            `${namespace}: requested - ${JSON.stringify(call.request)}`
+            `${namespace}: requested - ${JSON.stringify(call.request, null, 2)}`
         );
 
         try {

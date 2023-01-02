@@ -1,13 +1,21 @@
 const RelationStore = require("./relation")
 const catchWrapDb = require("../../helper/catchWrapDb");
-const {struct} = require('pb-util');
+const { struct } = require('pb-util');
+const mongoPool = require('../../pkg/pool');
+
 
 let NAMESPACE = "storage.cascading";
 
 let cascaderStore = {
     getCascadingList: catchWrapDb(`${NAMESPACE}.getCascadingList`, async (data) => {
-        let response;
-        let resp = await RelationStore.getAll({table_slug: data.table_slug, relation_table_slug: data.table_slug})
+        try {
+            const mongoConn = await mongoPool.get(req.project_id)
+            const table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+            const Relation = mongoConn.models['Relation']
+
+            let response;
+            let resp = await RelationStore.getAll({ table_slug: data.table_slug, relation_table_slug: data.table_slug })
             let cascadings = []
             for (const relation of resp.relations) {
                 let validObject = {};
@@ -32,7 +40,7 @@ let cascaderStore = {
                     }
                 } else if (relation.type !== "Recursive") {
                     if (relation.table_from.slug === data.table_slug) {
-                        
+
                         table.slug = relation.table_to.slug
                         table.label = relation.table_to.label
                         table.id = relation.table_to.id
@@ -58,10 +66,12 @@ let cascaderStore = {
                 }
             }
             response = struct.encode(
-                {cascadings}
+                { cascadings }
             )
-        return {table_slug: data.table_slug, data: response}
-
+            return { table_slug: data.table_slug, data: response }
+        } catch (err) {
+            throw err
+        }
     })
 }
 

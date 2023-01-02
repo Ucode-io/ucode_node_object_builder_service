@@ -5,7 +5,7 @@ const mongoPool = require('../pkg/pool');
 const config = require('../config/index')
 
 let permissionFunctions = {
-    toField: async (fields, roleId, tableSlug, project_id = config.ucodeDefaultProjectID) => {
+    toField: async (fields, roleId, tableSlug, project_id) => {
 
         try {
             if (!project_id) {
@@ -88,7 +88,7 @@ let permissionFunctions = {
             throw err
         }
     },
-    toCustomEvent: async (customEvents, roleId, tableSlug, project_id = config.ucodeDefaultProjectID) => {
+    toCustomEvent: async (customEvents, roleId, tableSlug, project_id) => {
 
         try {
             if (!project_id) {
@@ -149,7 +149,7 @@ let permissionFunctions = {
         }
 
     },
-    toViewRelation: async (relations, roleId, tableSlug, project_id = config.ucodeDefaultProjectID) => {
+    toViewRelation: async (relations, roleId, tableSlug, project_id) => {
 
         try {
             if (!project_id) {

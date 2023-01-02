@@ -67,10 +67,10 @@ let tableStore = {
             data["older_slug"] = tableBeforeUpdate.slug
             let event = {}
             event.payload = data
-            event.project_id = data.project_id || cfg.ucodeDefaultProjectID
+            event.project_id = data.project_id
 
 
-            await sendMessageToTopic(con.topicTableUpdeteV1, event)
+            await sendMessageToTopic(con.TopicTableUpdeteV1, event)
             return table;
         } catch (err) {
             throw err
@@ -135,11 +135,20 @@ let tableStore = {
         }
 
     }),
-    getByID: catchWrapDb(`${NAMESPACE}.getById`, async (args) => {
-        const table = await Table.findOne({ id: args.id });
+    getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
 
-        return table;
+            const table = await Table.findOne({ id: data.id });
+
+            return table;
+
+        } catch (err) {
+            throw err
+        }
     }),
+
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -204,7 +213,7 @@ let tableStore = {
                     }
                 ]
             });
-            const fieldPermissionTable = (await ObjectBuilder())["field_permission"]
+            const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const response = await fieldPermissionTable?.models.deleteMany({
                 table_slug: table.slug
             })

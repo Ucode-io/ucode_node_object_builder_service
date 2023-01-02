@@ -195,9 +195,10 @@ let sectionStore = {
             }
             const { relations } = await relationStore.getAllForViewRelation({
                 table_slug: view_relation.table_slug,
-                role_id: data.role_id
+                role_id: data.role_id,
+                project_id: data.project_id
             })
-            let viewRelationWithPermissions = await AddPermission.toViewRelation(relations, data.role_id, data.table_slug)
+            let viewRelationWithPermissions = await AddPermission.toViewRelation(relations, data.role_id, data.table_slug, data.project_id)
 
             if (view_relation.relations) {
                 for (let index = 0; index < view_relation.relations.length; index++) {
@@ -392,7 +393,7 @@ let sectionStore = {
                     }
                 }
                 // this function add field permission for each field by role id
-                fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug)
+                fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)
             }

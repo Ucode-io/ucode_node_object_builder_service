@@ -1,7 +1,7 @@
 const mongoPool = require('../pkg/pool');
 const config = require('../config/index')
 
-async function checkRelationFieldExists (field_name, table_id, project_id=config.ucodeDefaultProjectID) {
+async function checkRelationFieldExists (field_name, table_id, project_id) {
     if (!project_id) {
         console.warn('WARNING:: Using default project id in checkRelationFieldExists...')
     }

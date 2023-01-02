@@ -6,7 +6,7 @@ const config = require('./config/index')
 // const collectionDeleteInterval = require("./helper/collectionDeleteInterval"); 
 const grpcConnection = require("./config/grpcConnection");
 const kafka = require("./config/kafka");
-const logger = require("../config/logger");
+const logger = require("./config/logger");
 
 (async function () {
     try {

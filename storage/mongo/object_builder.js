@@ -107,11 +107,11 @@ let objectBuilder = {
             if (incrementField) {
                 let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
                 let attributes = struct.decode(incrementField.attributes)
-                let incrementLength = attributes.prefix.length
+                let incrementLength = attributes.prefix?.length
                 if (!last || !last[incrementField.slug]) {
                     data[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
                 } else {
-                    nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug].length)) + 1
+                    nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug]?.length)) + 1
                     data[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
                 }
             }
@@ -123,11 +123,11 @@ let objectBuilder = {
             if (incrementNum) {
                 let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
                 let attributes = struct.decode(incrementNum.attributes)
-                let incrementLength = attributes.prefix.length
+                let incrementLength = attributes.prefix?.length
                 if (!last || !last[incrementNum.slug]) {
                     data[incrementNum.slug] = attributes.prefix + '1'.padStart(attributes.digit_number, '0')
                 } else {
-                    nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug].length)) + 1
+                    nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug]?.length)) + 1
                     data[incrementNum.slug] = attributes.prefix + nextIncrement.toString().padStart(attributes.digit_number, '0')
                 }
             }
@@ -152,7 +152,7 @@ let objectBuilder = {
             for (const field of fields) {
                 let type = converter(field.type);
                 if (field.type === "LOOKUPS") {
-                    if (data[field.slug] && data[field.slug].length) {
+                    if (data[field.slug] && data[field.slug]?.length) {
                         const relation = await Relation.findOne({
                             id: field.relation_id
                         })

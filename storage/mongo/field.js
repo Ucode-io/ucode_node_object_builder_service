@@ -30,7 +30,7 @@ let fieldStore = {
 
 
             for (const fieldReq of data.fields) {
-                if (conn.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
+                if (con.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
                     let autoFillTable = await Table.findOne({
                         slug: fieldReq.autofill_table
                     })
@@ -104,7 +104,7 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
 
-            if (conn.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
+            if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 let autoFillTable = await Table.findOne({
                     slug: data.autofill_table
                 })

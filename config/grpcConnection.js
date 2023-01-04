@@ -32,56 +32,65 @@ const cascadingService = require("../services/cascading")
 
 
 const PROTO_URL = __dirname + "/../protos/object_builder_service/object_builder_service.proto";
-const packageDefinition = protoLoader.loadSync(PROTO_URL, {
-    keepCase: true,
-    longs: String,
-    enums: String,
-    defaults: true,
-    oneofs: true
-});
 
-const objectBuilderProto =
-    grpc.loadPackageDefinition(packageDefinition).object_builder_service;
+module.exports = new Promise((resolve, reject) => {
+    try {
+        const packageDefinition = protoLoader.loadSync(PROTO_URL, {
+            keepCase: true,
+            longs: String,
+            enums: String,
+            defaults: true,
+            oneofs: true
+        });
 
-var server = new grpc.Server();
+        const objectBuilderProto =
+            grpc.loadPackageDefinition(packageDefinition).object_builder_service;
 
-server.addService(objectBuilderProto.TableService.service, tableService);
-server.addService(objectBuilderProto.FieldService.service, fieldService);
-server.addService(objectBuilderProto.ObjectBuilderService.service, objectBuilderService);
-server.addService(objectBuilderProto.SectionService.service, sectionService);
-server.addService(objectBuilderProto.RelationService.service, relationService);
-server.addService(objectBuilderProto.ViewService.service, viewService);
-server.addService(objectBuilderProto.AppService.service, appService);
-server.addService(objectBuilderProto.DashboardService.service, dashboardService);
-server.addService(objectBuilderProto.VariableService.service, variableService);
-server.addService(objectBuilderProto.PanelService.service, panelService);
-server.addService(objectBuilderProto.HtmlTemplateService.service, htmlTemplateService);
-server.addService(objectBuilderProto.LoginService.service, loginService);
-server.addService(objectBuilderProto.DocumentService.service, documentService);
-server.addService(objectBuilderProto.EventService.service, eventService);
-server.addService(objectBuilderProto.EventLogsService.service, eventLogsService);
-server.addService(objectBuilderProto.ExcelService.service, excelService);
-server.addService(objectBuilderProto.PermissionService.service, permissionService);
-server.addService(objectBuilderProto.CustomEventService.service, customEventService);
-server.addService(objectBuilderProto.FunctionService.service, functionService);
-server.addService(objectBuilderProto.BarcodeService.service, barcodeService);
-server.addService(objectBuilderProto.BuilderProjectService.service, projectService);
-server.addService(objectBuilderProto.QueryFolderService.service, queryFolderService);
-server.addService(objectBuilderProto.QueryService.service, queryService);
-server.addService(objectBuilderProto.WebPageService.service, webPageService);
-server.addService(objectBuilderProto.CascadingService.service, cascadingService);
+        var server = new grpc.Server();
+
+        server.addService(objectBuilderProto.TableService.service, tableService);
+        server.addService(objectBuilderProto.FieldService.service, fieldService);
+        server.addService(objectBuilderProto.ObjectBuilderService.service, objectBuilderService);
+        server.addService(objectBuilderProto.SectionService.service, sectionService);
+        server.addService(objectBuilderProto.RelationService.service, relationService);
+        server.addService(objectBuilderProto.ViewService.service, viewService);
+        server.addService(objectBuilderProto.AppService.service, appService);
+        server.addService(objectBuilderProto.DashboardService.service, dashboardService);
+        server.addService(objectBuilderProto.VariableService.service, variableService);
+        server.addService(objectBuilderProto.PanelService.service, panelService);
+        server.addService(objectBuilderProto.HtmlTemplateService.service, htmlTemplateService);
+        server.addService(objectBuilderProto.LoginService.service, loginService);
+        server.addService(objectBuilderProto.DocumentService.service, documentService);
+        server.addService(objectBuilderProto.EventService.service, eventService);
+        server.addService(objectBuilderProto.EventLogsService.service, eventLogsService);
+        server.addService(objectBuilderProto.ExcelService.service, excelService);
+        server.addService(objectBuilderProto.PermissionService.service, permissionService);
+        server.addService(objectBuilderProto.CustomEventService.service, customEventService);
+        server.addService(objectBuilderProto.FunctionService.service, functionService);
+        server.addService(objectBuilderProto.BarcodeService.service, barcodeService);
+        server.addService(objectBuilderProto.BuilderProjectService.service, projectService);
+        server.addService(objectBuilderProto.QueryFolderService.service, queryFolderService);
+        server.addService(objectBuilderProto.QueryService.service, queryService);
+        server.addService(objectBuilderProto.WebPageService.service, webPageService);
+        server.addService(objectBuilderProto.CascadingService.service, cascadingService);
 
 
+        server.bindAsync(
+            "0.0.0.0:" + cfg.RPCPort,
+            grpc.ServerCredentials.createInsecure(),
+            (err, bindPort) => {
+                if (err) {
+                    throw new Error("Error while binding grpc server to the port");
+                }
 
-server.bindAsync(
-    "0.0.0.0:" + cfg.RPCPort,
-    grpc.ServerCredentials.createInsecure(),
-    (err, bindPort) => {
-        if (err) {
-            throw new Error("Error while binding grpc server to the port");
-        }
+                logger.info("grpc server is running at %s", bindPort);
+                server.start();
+                resolve('connected')
+            }
+        );
 
-        logger.info("grpc server is running at %s", bindPort);
-        server.start();
+    } catch (err) {
+        reject(err)
     }
-);
+})
+

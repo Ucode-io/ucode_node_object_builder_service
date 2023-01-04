@@ -10,6 +10,13 @@ const logger = require("./config/logger");
 
 (async function () {
     try {
+        await grpcConnection()
+
+    } catch (err) {
+        throw err
+    }
+    
+    try {
         logger.info(`autoconnecting to resources`);
 
         await projectStorage.autoConnect(

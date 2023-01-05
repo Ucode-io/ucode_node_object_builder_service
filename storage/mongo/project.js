@@ -41,8 +41,8 @@ let projectStore = {
 
             mongoDBConn.once("open", async function () {
                 console.log("Connected to the database, building models");
-                await objectBuilder(false, data.project_id)
-                console.log("Object builder has successfully runned for", data.project_id);
+                await objectBuilder(false, data.resource_id)
+                console.log("Object builder has successfully runned for", data.resource_id);
             });
 
             return {}

@@ -1,7 +1,7 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
-const con = require("../../config/kafkaTopics");
-const conn = require("../../helper/constants");
+const topics = require("../../config/kafkaTopics");
+const con = require("../../helper/constants");
 const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
 const Relation = require("../../models/relation");
@@ -30,7 +30,7 @@ let fieldStore = {
 
 
             for (const fieldReq of data.fields) {
-                if (conn.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
+                if (con.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
                     let autoFillTable = await Table.findOne({
                         slug: fieldReq.autofill_table
                     })
@@ -104,7 +104,7 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
 
-            if (conn.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
+            if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 let autoFillTable = await Table.findOne({
                     slug: data.autofill_table
                 })
@@ -181,7 +181,7 @@ let fieldStore = {
             tableRes.fields = fields
             event.payload = tableRes
             event.project_id = data.project_id
-            await sendMessageToTopic(con.TopicFieldCreateV1, event)
+            await sendMessageToTopic(topics.TopicFieldCreateV1, event)
 
 
             return response;
@@ -269,7 +269,7 @@ let fieldStore = {
             event.payload = fieldRes
 
             event.project_id = data.project_id
-            await sendMessageToTopic(con.TopicFieldUpdateV1, event)
+            await sendMessageToTopic(topics.TopicFieldUpdateV1, event)
 
             return field;
         } catch (err) {
@@ -519,7 +519,7 @@ let fieldStore = {
             event.payload = fieldRes
 
             event.project_id = data.project_id
-            await sendMessageToTopic(con.TopicFieldDeleteV1, event)
+            await sendMessageToTopic(topics.TopicFieldDeleteV1, event)
 
             return field;
 

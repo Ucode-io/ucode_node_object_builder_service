@@ -21,7 +21,7 @@ const ProjectService = () => {
         });
         
     const project_service = grpc.loadPackageDefinition(packageDefinition).company_service;
-    return new project_service.ProjectService(`${companyServiceHost}${companyServicePort}`, grpc.credentials.createInsecure());
+    return new project_service.ProjectService(`${companyServiceHost}:80`, grpc.credentials.createInsecure());
 };
 
 const autoConn = async (k8s_namespace) => {

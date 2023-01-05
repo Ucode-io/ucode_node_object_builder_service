@@ -23,6 +23,10 @@ let projectStore = {
                 throw new Error('Error project_id is required')
             }
 
+            if (!data.resource_id) {
+                throw new Error('Error resource_id is required')
+            }
+
             const mongoDBConn = await newMongoDBConn({
                 mongoHost: data.credentials.host,
                 mongoPort: data.credentials.port,
@@ -33,7 +37,7 @@ let projectStore = {
 
             await insertCollections(mongoDBConn, data.user_id, data.project_id)
 
-            await pool.add(data.project_id, mongoDBConn)
+            await pool.add(data.resource_id, mongoDBConn)
 
             mongoDBConn.once("open", async function () {
                 console.log("Connected to the database, building models");

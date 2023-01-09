@@ -221,8 +221,8 @@ let permission = {
                     field_id: fieldId,
                     role_id: req.role_id,
                     table_slug: req.table_slug,
-                    view_permission: false,
-                    edit_permission: false,
+                    view_permission: true,
+                    edit_permission: true,
                     label: field.label
                 }
                 noFieldPermissions.push(fieldPermission)

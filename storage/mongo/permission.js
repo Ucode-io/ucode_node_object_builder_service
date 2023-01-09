@@ -182,16 +182,16 @@ let permission = {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            const Section = mongoConn.models['Section']
-            const App = mongoConn.models['App']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const ViewRelation = mongoConn.models['ViewRelation']
+            // const Section = mongoConn.models['Section']
+            // const App = mongoConn.models['App']
+            // const View = mongoConn.models['View']
+            // const Relation = mongoConn.models['Relation']
+            // const ViewRelation = mongoConn.models['ViewRelation']
 
             const tableInfo = await table.findOne({
                 slug: req.table_slug,
                 deleted_at: "1970-01-01T18:00:00.000+00:00"
-            })
+            }).lean()
             const fields = await Field.find({
                 table_id: tableInfo.id
             })
@@ -209,36 +209,31 @@ let permission = {
                     _id: 0,
                     __v: 0
                 }
-            )
+            ).lean()
+
             let permissionFieldIds = []
             fieldPermissions.forEach(fieldPermission => {
                 permissionFieldIds.push(fieldPermission.field_id)
             })
+
             let noFieldPermissionIds = fieldIds.filter(val => !permissionFieldIds.includes(val))
+
             for (const fieldId of noFieldPermissionIds) {
-                let field = fields.find(field => (field.id == fieldId))
+                let field = fields.find(field => (field.id === fieldId))
                 let fieldPermission = {
                     field_id: fieldId,
                     role_id: req.role_id,
                     table_slug: req.table_slug,
-                    view_permission: false,
-                    edit_permission: false,
+                    view_permission: true,
+                    edit_permission: true,
                     label: field.label
                 }
                 noFieldPermissions.push(fieldPermission)
             }
             fieldPermissions = fieldPermissions.concat(noFieldPermissions)
 
-            let docPermissions = []
-            for (const permission of fieldPermissions) {
-                if (permission._doc) {
-                    docPermissions.push(permission._doc)
-                } else {
-                    docPermissions.push(permission)
-                }
-            }
             const response = struct.encode({
-                field_permissions: docPermissions
+                field_permissions: fieldPermissions
             })
             return { table_slug: "field_permission", data: response }
         } catch (err) {
@@ -638,19 +633,21 @@ let permission = {
                     table_to: req.table_slug
                 }
             ]
-        })
+        }).lean()
         let relationIdsObject = [], relationIds = []
         relations.forEach(element => {
             relationIdsObject.push({ relation_id: element.id })
             relationIds.push(element.id)
         })
+
         let views = []
         if (relationIds.length) {
             views = await View.find({
                 relation_table_slug: req.table_slug,
                 relation_id: { $in: relationIds }
-            })
+            }).lean()
         }
+
         const relationPermissionTable = (await ObjectBuilder(true, req.project_id))["view_relation_permission"]
         let viewRelationPermissions = await relationPermissionTable.models.find({
             role_id: req.role_id,
@@ -664,7 +661,8 @@ let permission = {
                 _id: 0,
                 __v: 0
             }
-        )
+        ).lean()
+
         let viewRelationPermissionsIds = []
         viewRelationPermissions.forEach(element => {
             viewRelationPermissionsIds.push(element.relation_id)
@@ -676,14 +674,14 @@ let permission = {
             let view = views.find(obj => (obj.relation_id === viewRelationPermission['relation_id'] && obj.relation_table_slug === req.table_slug))
             let relation = relations.find(obj => obj.id === viewRelationPermission.relation_id)
             if (!viewRelationPermission.guid) {
-                viewRelationPermission.role_id = req.role_id,
-                    viewRelationPermission.table_slug = req.table_slug,
-                    viewRelationPermission.view_permission = true,
-                    viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                viewRelationPermission.role_id = req.role_id
+                viewRelationPermission.table_slug = req.table_slug
+                viewRelationPermission.view_permission = true
+                viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
                 docViewRelationPermissions.push(viewRelationPermission)
             } else {
-                viewRelationPermission._doc.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
-                docViewRelationPermissions.push(viewRelationPermission._doc)
+                viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                docViewRelationPermissions.push(viewRelationPermission)
             }
         }
         const response = struct.encode({

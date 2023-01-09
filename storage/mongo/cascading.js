@@ -9,7 +9,7 @@ let NAMESPACE = "storage.cascading";
 let cascaderStore = {
     getCascadingList: catchWrapDb(`${NAMESPACE}.getCascadingList`, async (data) => {
         try {
-            const mongoConn = await mongoPool.get(req.project_id)
+            const mongoConn = await mongoPool.get(data.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']

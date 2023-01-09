@@ -20,9 +20,6 @@ let projectStore = {
             throw new Error('Error project_id is required')
         }
 
-        if (!data.resource_id) {
-            throw new Error('Error resource_id is required')
-        }
 
         // shouldCompileModels=false since we have to list 
         // existing collections in mongodb before running migrations
@@ -57,14 +54,14 @@ let projectStore = {
         mongoDBConn.model('View', require('../schemas/view'))
         mongoDBConn.model('WebPage', require('../schemas/web_pages'))
 
-        await pool.add(data.resource_id, mongoDBConn)
+        await pool.add(data.project_id, mongoDBConn)
 
         mongoDBConn.once("open", async function () {
             console.log("Connected to the database, building models");
 
-            await objectBuilder(false, data.resource_id)
+            await objectBuilder(false, data.project_id)
 
-            console.log("Object builder has successfully runned for", data.resource_id);
+            console.log("Object builder has successfully runned for", data.project_id);
         });
 
         return {}

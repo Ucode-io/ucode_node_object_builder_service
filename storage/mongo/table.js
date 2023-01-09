@@ -3,6 +3,7 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const con = require("../../config/kafkaTopics");
 const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
+const { v4 } = require("uuid");
 
 const mongoPool = require('../../pkg/pool');
 
@@ -22,6 +23,24 @@ let tableStore = {
 
             const table = new Table(data);
             const response = await table.save();
+
+            const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
+            const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+            const roles = await roleTable?.models.find()
+            for (const role of roles) {
+                let permission = {
+                    delete: "Yes",
+                    write: "Yes",
+                    table_slug: table?.slug,
+                    update: "Yes",
+                    read: "Yes",
+                    is_have_condition: false,
+                    role_id: role.guid,
+                    guid: v4()
+                }
+                const recordPermission = new recordPermissionTable.models(permission)
+                recordPermission.save()
+            }
 
             await App.updateOne(
                 {

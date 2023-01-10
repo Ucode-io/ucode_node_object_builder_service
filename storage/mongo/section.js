@@ -135,6 +135,7 @@ let sectionStore = {
                             }
                         ]
                     }).lean()
+                    console.log("is_exist_view", is_exist_view)
                     if (!is_exist_view) {
                         let permissionViewRelation = {
                             table_slug: data.table_slug,

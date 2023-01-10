@@ -6,6 +6,7 @@ const relationStore = require("../mongo/relation");
 const AddPermission = require("../../helper/addPermission");
 
 const mongoPool = require('../../pkg/pool');
+const ObjectBuilder = require("../../models/object_builder");
 
 // const mongoConn = await mongoPool.get(data.project_id)
 // const Table = mongoConn.models['Table']
@@ -94,7 +95,7 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
 
-            const count = await ViewRelation.deleteMany(
+            ViewRelation.deleteMany(
                 {
                     table_slug: data.table_slug,
                 }
@@ -112,9 +113,44 @@ let sectionStore = {
 
             const viewRelation = new ViewRelation(viewRelationReq);
             viewRelation.table_slug = data.table_slug;
-            var response = viewRelation.save();
+            viewRelation.save();
 
-            const resp = await Table.updateOne({
+            const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
+            const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+            const roles = await roleTable?.models.find()
+            for (const role of roles) {
+                let view_relations = data.view_relations? data.view_relations : []
+
+                for (const relation of view_relations) {
+                    let is_exist_view = viewRelationPermissionTable.models.findOne({
+                        $and: [
+                            {
+                                table_slug: data.table_slug,
+                            },
+                            {
+                                relation_id: relation.relation_id,
+                            },
+                            {
+                                role_id: role.guid
+                            }
+                        ]
+                    }).lean()
+                    if (!is_exist_view) {
+                        let permissionViewRelation = {
+                            table_slug: data.table_slug,
+                            relation_id: relation.relation_id,
+                            view_permission: true,
+                            guid: v4(),
+                            role_id: role.guid
+                        }
+
+                        const viewRelationPermission = new viewRelationPermissionTable.models(permissionViewRelation)
+                        viewRelationPermission.save()
+                    }
+                }
+            }
+
+            await Table.updateOne({
                 id: data.table_id,
             },
                 {

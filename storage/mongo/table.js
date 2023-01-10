@@ -25,7 +25,6 @@ let tableStore = {
             const response = await table.save();
 
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
-            const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
             for (const role of roles) {
@@ -90,7 +89,6 @@ let tableStore = {
             event.project_id = data.project_id
 
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
-            const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
             for (const role of roles) {
@@ -113,36 +111,6 @@ let tableStore = {
                     }
                     const recordPermission = new recordPermissionTable.models(permissionRecord)
                     recordPermission.save()
-                }
-
-                let table_relations = table.tableRelations? table.tableRelations : []
-
-                for (const relation of table_relations) {
-                    let is_exist_view = viewRelationPermissionTable.models.findOne({
-                        $and: [
-                            {
-                                table_slug: table?.slug,
-                            },
-                            {
-                                relation_id: relation.id,
-                            },
-                            {
-                                role_id: role.guid
-                            }
-                        ]
-                    }).lean()
-                    if (!is_exist_view) {
-                        let permissionViewRelation = {
-                            table_slug: table?.slug,
-                            relation_id: relation.id,
-                            view_permission: true,
-                            guid: v4(),
-                            role_id: role.guid
-                        }
-
-                        const viewRelationPermission = new viewRelationPermissionTable.models(permissionViewRelation)
-                        viewRelationPermission.save()
-                    }
                 }
             }
 

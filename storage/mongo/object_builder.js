@@ -451,7 +451,7 @@ let objectBuilder = {
         }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-
+        console.log("TEST::::::1")
         const mongoConn = await mongoPool.get(req.project_id)
 
         const table = mongoConn.models['Table']
@@ -518,6 +518,7 @@ let objectBuilder = {
             }
 
         }
+        console.log("TEST::::::2")
         if (params.view_fields) {
             if (params.view_fields.length && params.search !== ""){
                 let arrayOfViewFields = [];
@@ -543,6 +544,7 @@ let objectBuilder = {
                 params["guid"] = params["user_id_from_token"]
             }
         }
+        console.log("TEST::::::3")
         let views = []
         if (params.app_id) {
             views = tableInfo.views.filter(val => (val.app_id === params.app_id))
@@ -564,6 +566,7 @@ let objectBuilder = {
                 params[key] = RegExp(params[key], "i")
             } 
         }
+        console.log("TEST::::::4")
         const relations = await Relation.find({
             $or: [{
                 $and: [{
@@ -613,6 +616,7 @@ let objectBuilder = {
             //   }
             ]
         })
+        console.log("TEST::::::5")
         let relationsFields = []
         if (with_relations) {
             for (const relation of relations) {
@@ -689,6 +693,7 @@ let objectBuilder = {
 
             }
         }
+        console.log("TEST::::::6")
         
 
         let result = [], count;
@@ -712,6 +717,7 @@ let objectBuilder = {
             let phone = `\(` + temp.substring(2,4) + `\)` + tempPhone
             params.phone = phone
         }
+        console.log("TEST::::::7")
         let populateArr = []
         if (limit !== 0) {
             if (relations.length == 0) {
@@ -762,6 +768,7 @@ let objectBuilder = {
                         }
                     }
                 }
+                console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -826,6 +833,7 @@ let objectBuilder = {
                             }
                         }
                     }
+                    console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -871,13 +879,14 @@ let objectBuilder = {
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
+        console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
         }
-        
 
+        console.log("TEST::::::11")
         // this function add field permission for each field by role id
         let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
@@ -893,7 +902,7 @@ let objectBuilder = {
                 decodedFields.push(elementField)
             }
         };
-
+        console.log("TEST::::::12")
         for (const field of decodedFields) {
             if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                 let relation = await Relation.findOne({table_from: req.table_slug, table_to: field.table_slug})
@@ -923,6 +932,7 @@ let objectBuilder = {
                     field.view_fields = viewFields
             }
         }
+        console.log("TEST::::::13")
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
             const additional_param = {};
@@ -972,6 +982,7 @@ let objectBuilder = {
             }
             result = result.concat(additional_results)
         }
+        console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         for (const res of result) {
@@ -1012,6 +1023,7 @@ let objectBuilder = {
                 data: struct.encode({objects: updatedObjects})
             })
         }
+        console.log("TEST::::::15")
         const response = struct.encode({
             count: count,
             response: result,

@@ -120,7 +120,7 @@ let sectionStore = {
             const roles = await roleTable?.models.find()
             for (const role of roles) {
                 let view_relations = data.view_relations? data.view_relations : []
-
+                console.log("TEST::::::1", view_relations, data.view_relations)
                 for (const relation of view_relations) {
                     let is_exist_view = viewRelationPermissionTable.models.findOne({
                         $and: [
@@ -144,7 +144,8 @@ let sectionStore = {
                             role_id: role.guid
                         }
 
-                        const viewRelationPermission = new viewRelationPermissionTable.models(permissionViewRelation)
+                        const viewRelationPermission = new viewRelationPermissionTable?.models(permissionViewRelation)
+                        console.log("viewRelationPermission", viewRelationPermission)
                         viewRelationPermission.save()
                     }
                 }

@@ -120,7 +120,6 @@ let sectionStore = {
             const roles = await roleTable?.models.find()
             for (const role of roles) {
                 let view_relations = data.view_relations? data.view_relations : []
-                console.log("TEST::::::1", view_relations, data.view_relations)
                 for (const relation of view_relations) {
                     let is_exist_view = await viewRelationPermissionTable?.models.findOne({
                         $and: [
@@ -135,7 +134,6 @@ let sectionStore = {
                             }
                         ]
                     }).lean()
-                    console.log("is_exist_view", is_exist_view)
                     if (!is_exist_view) {
                         let permissionViewRelation = {
                             table_slug: data.table_slug,

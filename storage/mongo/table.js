@@ -115,7 +115,9 @@ let tableStore = {
                     recordPermission.save()
                 }
 
-                for (const relation of table?.tableRelations) {
+                let table_relations = table.tableRelations? table.tableRelations : []
+
+                for (const relation of table_relations) {
                     let is_exist_view = viewRelationPermissionTable.models.findOne({
                         $and: [
                             {

@@ -25,10 +25,11 @@ let tableStore = {
             const response = await table.save();
 
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
+            const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
             for (const role of roles) {
-                let permission = {
+                let permissionRecord = {
                     delete: "Yes",
                     write: "Yes",
                     table_slug: table?.slug,
@@ -38,8 +39,21 @@ let tableStore = {
                     role_id: role.guid,
                     guid: v4()
                 }
-                const recordPermission = new recordPermissionTable.models(permission)
+                const recordPermission = new recordPermissionTable.models(permissionRecord)
                 recordPermission.save()
+
+                for (const relation of table?.tableRelations) {
+                    let permissionViewRelation = {
+                        table_slug: table?.slug,
+                        relation_id: relation.id,
+                        view_permission: true,
+                        guid: v4(),
+                        role_id: role.guid
+                    }
+
+                    const viewRelationPermission = new viewRelationPermissionTable.models(permissionViewRelation)
+                    viewRelationPermission.save()
+                }
             }
 
             await App.updateOne(
@@ -87,6 +101,61 @@ let tableStore = {
             let event = {}
             event.payload = data
             event.project_id = data.project_id
+
+            const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
+            const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
+            const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+            const roles = await roleTable?.models.find()
+            for (const role of roles) {
+                let is_exist_record = recordPermissionTable.models.findOne({
+                    $and: [
+                        { table_slug: table?.slug },
+                        { role_id: role.guid }
+                    ]
+                }).lean()
+                if (!is_exist_record) {
+                    let permissionRecord = {
+                        delete: "Yes",
+                        write: "Yes",
+                        table_slug: table?.slug,
+                        update: "Yes",
+                        read: "Yes",
+                        is_have_condition: false,
+                        role_id: role.guid,
+                        guid: v4()
+                    }
+                    const recordPermission = new recordPermissionTable.models(permissionRecord)
+                    recordPermission.save()
+                }
+
+                for (const relation of table?.tableRelations) {
+                    let is_exist_view = viewRelationPermissionTable.models.findOne({
+                        $and: [
+                            {
+                                table_slug: table?.slug,
+                            },
+                            {
+                                relation_id: relation.id,
+                            },
+                            {
+                                role_id: role.guid
+                            }
+                        ]
+                    }).lean()
+                    if (!is_exist_view) {
+                        let permissionViewRelation = {
+                            table_slug: table?.slug,
+                            relation_id: relation.id,
+                            view_permission: true,
+                            guid: v4(),
+                            role_id: role.guid
+                        }
+
+                        const viewRelationPermission = new viewRelationPermissionTable.models(permissionViewRelation)
+                        viewRelationPermission.save()
+                    }
+                }
+            }
 
 
             await sendMessageToTopic(con.TopicTableUpdeteV1, event)

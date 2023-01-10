@@ -41,19 +41,6 @@ let tableStore = {
                 }
                 const recordPermission = new recordPermissionTable.models(permissionRecord)
                 recordPermission.save()
-
-                for (const relation of table?.tableRelations) {
-                    let permissionViewRelation = {
-                        table_slug: table?.slug,
-                        relation_id: relation.id,
-                        view_permission: true,
-                        guid: v4(),
-                        role_id: role.guid
-                    }
-
-                    const viewRelationPermission = new viewRelationPermissionTable.models(permissionViewRelation)
-                    viewRelationPermission.save()
-                }
             }
 
             await App.updateOne(

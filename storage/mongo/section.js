@@ -95,7 +95,7 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
 
-            ViewRelation.deleteMany(
+            await ViewRelation.deleteMany(
                 {
                     table_slug: data.table_slug,
                 }
@@ -116,6 +116,11 @@ let sectionStore = {
             viewRelation.save();
 
             const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
+            await viewRelationPermissionTable.models.deleteMany(
+                {
+                    table_slug: data.table_slug,
+                }
+            )
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
             for (const role of roles) {

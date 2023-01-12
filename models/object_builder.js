@@ -23,7 +23,10 @@ async function buildModels(is_build = true, project_id) {
     const Relation = mongoDBConn.models['Relation']
     const Section = mongoDBConn.models['Section']
     const View = mongoDBConn.models['View']
-
+    
+    const tempTables = await Table.find({slug: 'view_relation_permission'})
+    console.log('tempTables', tempTables)
+    
 // hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
 
 // all tables should be got to build their schema

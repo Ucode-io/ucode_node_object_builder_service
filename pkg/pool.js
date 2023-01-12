@@ -23,7 +23,10 @@ async function get(projectId) {
         throw ErrProjectNotExists
     }
 
-    return pool.get(projectId)
+    conn = pool.get(projectId)
+    console.log('POOL GET METHOD PROJECTID', projectId)
+    console.log('POOL GET METHOD CONNECTION', conn)
+    return conn
 }
 
 async function add(projectId, dbConn) {

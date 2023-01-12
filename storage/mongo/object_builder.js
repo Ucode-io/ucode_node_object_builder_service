@@ -537,10 +537,12 @@ let objectBuilder = {
         }
         if (clientTypeId) {
             const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
+            console.log('clientTypeTable', clientTypeTable)
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
-            if (clientType.name === "DOCTOR" && req.table_slug === "doctors") {
+            console.log('clientType', clientType)
+            if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
                 params["guid"] = params["user_id_from_token"]
             }
         }

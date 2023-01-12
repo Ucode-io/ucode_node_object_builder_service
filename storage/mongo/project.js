@@ -6,6 +6,7 @@ const config = require('../../config/index')
 const client = require('../../services/grpc/client');
 const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
+const logger = require("../../config/logger");
 
 
 
@@ -110,6 +111,11 @@ let projectStore = {
                     resolve()
                 });
 
+                mongoDBConn.on('error', async function (err) {
+                    logger.error("mongo connection error", err)
+                    reject(err)
+                })
+
             } catch (err) {
                 reject(err)
             }
@@ -150,9 +156,18 @@ let projectStore = {
 
         if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
 
-        let projects = await client.autoConn(config.k8s_namespace)
+        let reconnect_data = await client.autoConn(config.k8s_namespace);
 
-        return projects;
+        for (let it of reconnect_data.data) {
+            // console.log("credentials::::::", it)
+            try {
+                await projectStore.reconnect(it)
+            } catch (err) {
+                logger.info(`autoconnecting to resources failed: ${err}`);
+            }
+        }
+
+        return {}
     })
 };
 

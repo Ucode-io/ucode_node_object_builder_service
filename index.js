@@ -15,6 +15,14 @@ const logger = require("./config/logger");
     } catch (err) {
         throw err
     }
+
+    process.addListener("uncaughtException", (e) => {
+        console.error("Custom Unhandled Exception", e);
+    });
+
+    process.addListener("unhandledRejection", (e) => {
+        console.error("Custom Unhandled Rejection", e);
+    });
     
     try {
         logger.info(`autoconnecting to resources`);

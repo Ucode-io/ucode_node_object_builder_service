@@ -394,7 +394,7 @@ let loginStore = {
                 guid: req.client_type,
             }
         ).lean()
-        console.log("TEST:::::::::2")
+        console.log("TEST:::::::::2", JSON.stringify(clientType, null, 2))
         let params = {}
         params["guid"] = req.user_id
         params["project_id"] = req.project_id
@@ -406,13 +406,16 @@ let loginStore = {
                 $and: [params]
             }
         ).lean()
+
         let user_found = false
+        console.log("TEST:::::::::3",  JSON.stringify(user, null, 2))
+
         if (!user) {
             return {
                 user_found: user_found
             }
         }
-        console.log("TEST:::::::::3")
+        
         const roleTable = (await ObjectBuilder(true, req.project_id))["role"]
 
         const role = await roleTable.models.findOne(
@@ -420,7 +423,8 @@ let loginStore = {
                 client_type_id: clientType.guid,
             }
         ).lean()
-        console.log("TEST:::::::::4")
+
+        console.log("TEST:::::::::4", JSON.stringify(role, null, 2))
         const clientPlatfromTable = (await ObjectBuilder(true, req.project_id))["client_platform"]
 
         const clientPlatform = await clientPlatfromTable.models.findOne(
@@ -428,7 +432,8 @@ let loginStore = {
                 guid: role.client_platform_id
             }
         ).lean()
-        console.log("TEST:::::::::5")
+
+        console.log("TEST:::::::::5", JSON.stringify(clientPlatform, null, 2))
 
         const connectionsTable = (await ObjectBuilder(true, req.project_id))["connections"]
 
@@ -438,7 +443,7 @@ let loginStore = {
             }
         ).lean()
 
-        console.log("TEST:::::::::6")
+        console.log("TEST:::::::::6", JSON.stringify(connections, null, 2))
         let clientTypeResp = {}
         clientTypeResp = clientType
         clientTypeResp.tables = connections
@@ -450,13 +455,7 @@ let loginStore = {
                         role_id: role.guid
             }
         ).lean()
-        console.log("TEST:::::::::7")
-        // if (user) {
-        //     user_found = true
-        //     userId = user.guid
-        // } else {
-        //     userId = ""
-        // }
+        console.log("TEST:::::::::7", JSON.stringify(permissions, null, 2))
 
         let userId;
         if (user) {
@@ -476,7 +475,7 @@ let loginStore = {
                 ]
             }
         ).lean()
-        console.log("TEST:::::::::9")
+        console.log("TEST:::::::::9", JSON.stringify(appPermissions, null, 2))
         // console.log('user_found', user_found)
         // console.log('user_id', userId)
         // console.log('user', JSON.stringify(user, null, 2))
@@ -498,7 +497,7 @@ let loginStore = {
             permissions: permissions,
             login_table_slug: 'user'
         }
-        console.log("TEST:::::::::10")
+        console.log("TEST:::::::::10", JSON.stringify(response, null, 2))
         // console.log('/login/loginData', JSON.stringify(response, null, 2))
 
         return response

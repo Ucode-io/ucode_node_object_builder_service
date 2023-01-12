@@ -114,6 +114,12 @@ let projectStore = {
 
                     const apps = await App.find().limit(1);
                     console.log('apps-->', JSON.stringify(apps, null, 2))
+
+                    const clientTypeTable = (await objectBuilder(true, data.project_id))["client_type"]
+                    const clientType = await clientTypeTable.models.find()
+
+                    console.log('clientType-->', JSON.stringify(clientType, null, 2))
+
                     resolve()
                 });
 

@@ -38,10 +38,13 @@ async function buildModels(is_build = true, project_id) {
             is_changed: true
         });
     }
+
+    console.log('[1]::/models/object_builder.js tables -->', tables)
     
 
     let tempArray = []
     for (const table of tables) {
+        console.log('[2]::/models/object_builder.js table -->', table)
         // declare isReferences var to indicate that fields related to a table were added to schema
         let isReferenced = false
         // get all relations and fields of a table

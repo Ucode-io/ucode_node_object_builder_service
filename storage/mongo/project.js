@@ -108,6 +108,12 @@ let projectStore = {
                     console.log("Connected to the database, building models for", data.project_id);
                     await objectBuilder(false, data.project_id)
                     console.log("Object builder has successfully runned for", data.project_id);
+                    const mongoConn = await pool.get(data.project_id)
+
+                    const App = mongoConn.models['App']
+
+                    const apps = await App.find().limit(1);
+                    console.log('apps-->', JSON.stringify(apps, null, 2))
                     resolve()
                 });
 

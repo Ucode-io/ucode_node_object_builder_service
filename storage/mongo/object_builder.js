@@ -464,6 +464,12 @@ let objectBuilder = {
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
+        console.log('req.project_id', req.project_id)
+        const tableDatass = await tableInfo.models.find()
+        console.log('tableDatass', JSON.stringify(tableDatass, null, 2))
+
+
         let keys = Object.keys(params)
         let order = params.order 
         let fields = tableInfo.fields

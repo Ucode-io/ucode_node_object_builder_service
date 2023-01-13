@@ -91,7 +91,7 @@ let projectStore = {
     }),
 
     reconnect: catchWrapDb(`${NAMESPACE}.reconnect`, async (data) => {
-        if (data?.project_id !== "caf1dfc0-3f77-4ee4-beec-fef5467b645c") {
+        if (data?.project_id !== "caf1dfc0-3f77-4ee4-beec-fef5467b645c" || data?.project_id !== "da10fd63-707a-4bc0-ac19-923d240882d8") {
             throw new Error("lalalallalal")
         }
 

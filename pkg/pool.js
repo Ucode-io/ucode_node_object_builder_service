@@ -24,8 +24,11 @@ async function get(projectId) {
     }
 
     conn = pool.get(projectId)
-    console.log('POOL GET METHOD PROJECTID', projectId)
-    console.log('POOL GET METHOD CONNECTION', conn)
+    // console.log('POOL GET METHOD PROJECTID', projectId)
+    // console.log('POOL GET METHOD CONNECTION', conn)
+    if (conn.name !== "transasia_transasia_object_builder_service") {
+        console.log("ERROR::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
+    }
     return conn
 }
 

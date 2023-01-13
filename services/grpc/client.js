@@ -3,8 +3,6 @@ const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 const { k8s_namespace, companyServiceHost, companyServicePort } = require("../../config");
 
-console.log(companyServiceHost, companyServicePort)
-
 const logger = require('../../config/logger')
 
 const ProjectService = () => {
@@ -21,7 +19,6 @@ const ProjectService = () => {
         });
         
     const project_service = grpc.loadPackageDefinition(packageDefinition).company_service;
-    console.log(companyServiceHost, 80)
     return new project_service.ProjectService(`${companyServiceHost}:80`, grpc.credentials.createInsecure());
 };
 

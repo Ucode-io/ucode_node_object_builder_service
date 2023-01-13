@@ -444,8 +444,6 @@ async function buildModels(is_build = true, project_id) {
         delete mongoDBConn.models[model.slug]
         // delete mongooseObject[project_id]
 
-        console.log(project_id, model.slug)
-        
         mongooseObject[project_id][model.slug] = {};
         mongooseObject[project_id][model.slug].models = mongoDBConn.model(model.slug, model.model);
         mongooseObject[project_id][model.slug].fields = model.field;

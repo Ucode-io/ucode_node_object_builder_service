@@ -465,11 +465,6 @@ let objectBuilder = {
         delete params["client_type_id_from_token"]
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-        console.log('req.project_id', req.project_id)
-        const tableDatass = await tableInfo.models.find()
-        console.log('tableDatass', JSON.stringify(tableDatass, null, 2))
-
-
         let keys = Object.keys(params)
         let order = params.order 
         let fields = tableInfo.fields
@@ -485,7 +480,6 @@ let objectBuilder = {
                 }
             ]
         })
-        console.log(`${NAMESPACE}.getList permission`, JSON.stringify(permission, null, 2))
         if (permission?.is_have_condition) {
             const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -543,11 +537,9 @@ let objectBuilder = {
         }
         if (clientTypeId) {
             const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
-            console.log('clientTypeTable', clientTypeTable)
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
-            console.log('clientType', clientType)
             if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
                 params["guid"] = params["user_id_from_token"]
             }

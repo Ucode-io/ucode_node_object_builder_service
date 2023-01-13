@@ -23,9 +23,7 @@ async function buildModels(is_build = true, project_id) {
     const Relation = mongoDBConn.models['Relation']
     const Section = mongoDBConn.models['Section']
     const View = mongoDBConn.models['View']
-    
-    const tempTables = await Table.find({slug: 'view_relation_permission'})
-    console.log('tempTables', tempTables)
+
     
 // hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
 
@@ -40,10 +38,7 @@ async function buildModels(is_build = true, project_id) {
             deleted_at: "1970-01-01T18:00:00.000+00:00",
             is_changed: true
         });
-    }
-
-    console.log('[1]::/models/object_builder.js tables -->', tables)
-    
+    }    
 
     let tempArray = []
     for (const table of tables) {
@@ -445,8 +440,9 @@ async function buildModels(is_build = true, project_id) {
         // delete previous mongoose schema for a table, if new fields are added or fields are deleted, schema has to renewed
         
         delete mongoDBConn.models[model.slug]
-        delete mongooseObject[project_id][model.slug]
+        delete mongooseObject[project_id]
 
+        console.log(project_id, model.slug)
         mongooseObject[project_id] = {};
         mongooseObject[project_id][model.slug] = {};
         mongooseObject[project_id][model.slug].models = mongoDBConn.model(model.slug, model.model);
@@ -465,7 +461,7 @@ async function buildModels(is_build = true, project_id) {
         // drop indexes if unique is disabled
         let index_list, dropIndexes;
         try {
-            index_list = await mongooseObject[model.slug].models.collection.getIndexes()
+            index_list = await mongooseObject[project_id][model.slug].models.collection.getIndexes()
             dropIndexes = model.dropIndex
             for (const index_name in dropIndexes) {
                 if (!(index_name.concat('_1') in index_list)) {
@@ -476,7 +472,7 @@ async function buildModels(is_build = true, project_id) {
             logger.info("error while get index");
         }
         if(dropIndexes && Object.keys(dropIndexes).length > 0) {
-            mongooseObject[model.slug].models.collection.dropIndex(dropIndexes);
+            mongooseObject[project_id][model.slug].models.collection.dropIndex(dropIndexes);
         }
         const resp = await Table.updateOne({
             slug: model.slug,

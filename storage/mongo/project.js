@@ -91,10 +91,7 @@ let projectStore = {
     }),
 
     reconnect: catchWrapDb(`${NAMESPACE}.reconnect`, async (data) => {
-        if (data?.project_id !== "caf1dfc0-3f77-4ee4-beec-fef5467b645c" && data?.project_id !== "da10fd63-707a-4bc0-ac19-923d240882d8") {
-            throw new Error("lalalallalal")
-        }
-
+    
         const mongoDBConn = await newMongoDBConn({
             mongoHost: data.credentials.host,
             mongoPort: data.credentials.port,
@@ -111,18 +108,6 @@ let projectStore = {
                     console.log("Connected to the database, building models for", data.project_id);
                     await objectBuilder(false, data.project_id)
                     console.log("Object builder has successfully runned for", data.project_id);
-                    const mongoConn = await pool.get(data.project_id)
-
-                    const App = mongoConn.models['App']
-
-                    const apps = await App.find().limit(1);
-                    console.log('apps-->', JSON.stringify(apps, null, 2))
-
-                    const clientTypeTable = (await objectBuilder(true, data.project_id))["client_type"]
-                    const clientType = await clientTypeTable.models.find()
-
-                    console.log('clientType-->', JSON.stringify(clientType, null, 2))
-
                     resolve()
                 });
 

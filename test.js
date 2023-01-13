@@ -7,6 +7,8 @@ const config = require('./config/index')
 const grpcConnection = require("./config/grpcConnection");
 const kafka = require("./config/kafka");
 const logger = require("./config/logger");
+const builder = require('./storage/mongo/object_builder');
+const { struct } = require('pb-util/build');
 
 (async function () {
     await projectStorage.reconnect({
@@ -19,5 +21,14 @@ const logger = require("./config/logger");
             password: '123JFWxq'
         }
     })
+
+    struct.decode({
+        project_id: 'abc123',
+        table_slug: 'client_types',
+        data: {
+            id: ''
+        }
+    })
+    builder.getSingle()
 
 })();

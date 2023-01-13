@@ -435,6 +435,8 @@ async function buildModels(is_build = true, project_id) {
         tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex});
     }
 
+    mongooseObject[project_id] = mongooseObject[project_id] ? mongooseObject[project_id] : {}
+
     // build mongoose schemas for tables
     for (const model of tempArray) {
         // delete previous mongoose schema for a table, if new fields are added or fields are deleted, schema has to renewed
@@ -443,7 +445,7 @@ async function buildModels(is_build = true, project_id) {
         // delete mongooseObject[project_id]
 
         console.log(project_id, model.slug)
-        mongooseObject[project_id] = {};
+        
         mongooseObject[project_id][model.slug] = {};
         mongooseObject[project_id][model.slug].models = mongoDBConn.model(model.slug, model.model);
         mongooseObject[project_id][model.slug].fields = model.field;

@@ -91,6 +91,7 @@ let objectBuilder = {
                     $and: [params]
                 })
                 if (isExists) {
+                    data.project_id = req.project_id
                     return await objectBuilder.create(data)
                 } else {
                     data[randomNumbers.slug] = randomNumber
@@ -166,6 +167,7 @@ let objectBuilder = {
                         } else if (relation.table_from === req.table_slug) {
                             appendMany2Many.table_to = relation.table_to
                         }
+                        appendMany2Many.project_id = req.project_id
                         appendMany2ManyObjects.push(appendMany2Many)
                     }
                 }

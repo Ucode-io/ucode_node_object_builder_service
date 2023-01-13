@@ -440,7 +440,7 @@ async function buildModels(is_build = true, project_id) {
         // delete previous mongoose schema for a table, if new fields are added or fields are deleted, schema has to renewed
         
         delete mongoDBConn.models[model.slug]
-        delete mongooseObject[project_id]
+        // delete mongooseObject[project_id]
 
         console.log(project_id, model.slug)
         mongooseObject[project_id] = {};

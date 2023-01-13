@@ -91,6 +91,9 @@ let projectStore = {
     }),
 
     reconnect: catchWrapDb(`${NAMESPACE}.reconnect`, async (data) => {
+        if (data?.project_id !== "caf1dfc0-3f77-4ee4-beec-fef5467b645c") {
+            throw new Error("lalalallalal")
+        }
 
         const mongoDBConn = await newMongoDBConn({
             mongoHost: data.credentials.host,

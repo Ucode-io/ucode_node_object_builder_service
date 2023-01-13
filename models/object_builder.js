@@ -330,7 +330,7 @@ async function buildModels(is_build = true, project_id) {
         }
         
 
-        temp =  mongoose.Schema(
+        let temp =  mongoose.Schema(
             {
             ...fieldObject,
                 createdAt: {type: Date, select: false},
@@ -443,13 +443,24 @@ async function buildModels(is_build = true, project_id) {
     // build mongoose schemas for tables
     for (const model of tempArray) {
         // delete previous mongoose schema for a table, if new fields are added or fields are deleted, schema has to renewed
+        
         delete mongoDBConn.models[model.slug]
-        delete mongooseObject[model.slug]
-        mongooseObject[model.slug] = {};
-        mongooseObject[model.slug].models = mongoDBConn.model(model.slug, model.model);
-        mongooseObject[model.slug].fields = model.field;
-        mongooseObject[model.slug].relations = model.relation;
-        mongooseObject[model.slug].views = model.view;
+        delete mongooseObject[project_id][model.slug]
+
+        mongooseObject[project_id] = {};
+        mongooseObject[project_id][model.slug] = {};
+        mongooseObject[project_id][model.slug].models = mongoDBConn.model(model.slug, model.model);
+        mongooseObject[project_id][model.slug].fields = model.field;
+        mongooseObject[project_id][model.slug].relations = model.relation;
+        mongooseObject[project_id][model.slug].views = model.view;
+        
+        // delete mongoDBConn.models[model.slug]
+        // delete mongooseObject[model.slug]
+        // mongooseObject[model.slug] = {};
+        // mongooseObject[model.slug].models = mongoDBConn.model(model.slug, model.model);
+        // mongooseObject[model.slug].fields = model.field;
+        // mongooseObject[model.slug].relations = model.relation;
+        // mongooseObject[model.slug].views = model.view;
 
         // drop indexes if unique is disabled
         let index_list, dropIndexes;
@@ -476,7 +487,7 @@ async function buildModels(is_build = true, project_id) {
             }
         })
     }
-    return mongooseObject
+    return mongooseObject[project_id]
 }
 
 module.exports = buildModels;

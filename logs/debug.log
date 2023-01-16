@@ -11283,3 +11283,505 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-16T07:26:31.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-16T07:26:31.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:26:31.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-16T07:26:31.288Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'Name resolution failed for target dns:go-company-service:80',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80',
+  level: 'info',
+  timestamp: '2023-01-16T07:26:31.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "abc123",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "username": "udevs_ufinance_object_builder_service",\n' +
+    '    "database": "udevs_ufinance_object_builder_service",\n' +
+    '    "password": "Lh8a3kz9"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:29:57.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-01-16T07:29:57.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'info',
+  timestamp: '2023-01-16T07:29:58.616Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "abc123",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "username": "udevs_ufinance_object_builder_service",\n' +
+    '    "database": "udevs_ufinance_object_builder_service",\n' +
+    '    "password": "Lh8a3kz9"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:31:09.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-01-16T07:31:09.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'info',
+  timestamp: '2023-01-16T07:31:10.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-16T07:32:26.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "project_id": "abc123",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "b3180a12-358d-4e2c-a2fd-fe441fa9ad19",\n' +
+    '      "default": "v4",\n' +
+    '      "type": "UUID",\n' +
+    '      "index": "true",\n' +
+    '      "label": "ID",\n' +
+    '      "slug": "guid",\n' +
+    '      "table_id": "262230f5-4492-4c6a-b172-3e0921e84832",\n' +
+    '      "is_visible": true,\n' +
+    '      "unique": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "app_id": "a28eca99-3da0-4669-98a2-9069b25288ec",\n' +
+    '  "sections": [\n' +
+    '    {\n' +
+    '      "id": "da34dc60-f6ea-4a53-9169-12e79f7a5dae",\n' +
+    '      "order": 1,\n' +
+    '      "column": "SINGLE",\n' +
+    '      "label": "Детали",\n' +
+    '      "icon": "circle-info.svg",\n' +
+    '      "fields": []\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "id": "8214ed31-20ea-4280-b093-e91bd877be97",\n' +
+    '      "order": 2,\n' +
+    '      "column": "SINGLE",\n' +
+    '      "label": "Summary",\n' +
+    '      "is_summary_section": true,\n' +
+    '      "fields": []\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "summary_section": {\n' +
+    '    "id": "8214ed31-20ea-4280-b093-e91bd877be97",\n' +
+    '    "order": 2,\n' +
+    '    "column": "SINGLE",\n' +
+    '    "label": "Summary",\n' +
+    '    "is_summary_section": true,\n' +
+    '    "fields": []\n' +
+    '  },\n' +
+    '  "view_relations": [],\n' +
+    '  "label": "Test",\n' +
+    '  "description": "Test",\n' +
+    '  "slug": "january16_table",\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "id": "262230f5-4492-4c6a-b172-3e0921e84832",\n' +
+    '  "actions": [],\n' +
+    '  "relations": [],\n' +
+    '  "relationsMap": {},\n' +
+    '  "layoutRelations": [],\n' +
+    '  "tableRelations": []\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:32:26.885Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-16T07:32:27.571Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "abc123",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "username": "udevs_ufinance_object_builder_service",\n' +
+    '    "database": "udevs_ufinance_object_builder_service",\n' +
+    '    "password": "Lh8a3kz9"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:36:37.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-01-16T07:36:37.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'info',
+  timestamp: '2023-01-16T07:36:38.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-16T07:37:54.513Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "project_id": "abc123",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "b3180a12-358d-4e2c-a2fd-fe441fa9ad19",\n' +
+    '      "default": "v4",\n' +
+    '      "type": "UUID",\n' +
+    '      "index": "true",\n' +
+    '      "label": "ID",\n' +
+    '      "slug": "guid",\n' +
+    '      "table_id": "262230f5-4492-4c6a-b172-3e0921e84832",\n' +
+    '      "is_visible": true,\n' +
+    '      "unique": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "app_id": "a28eca99-3da0-4669-98a2-9069b25288ec",\n' +
+    '  "sections": [\n' +
+    '    {\n' +
+    '      "id": "da34dc60-f6ea-4a53-9169-12e79f7a5dae",\n' +
+    '      "order": 1,\n' +
+    '      "column": "SINGLE",\n' +
+    '      "label": "Детали",\n' +
+    '      "icon": "circle-info.svg",\n' +
+    '      "fields": []\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "id": "8214ed31-20ea-4280-b093-e91bd877be97",\n' +
+    '      "order": 2,\n' +
+    '      "column": "SINGLE",\n' +
+    '      "label": "Summary",\n' +
+    '      "is_summary_section": true,\n' +
+    '      "fields": []\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "summary_section": {\n' +
+    '    "id": "8214ed31-20ea-4280-b093-e91bd877be97",\n' +
+    '    "order": 2,\n' +
+    '    "column": "SINGLE",\n' +
+    '    "label": "Summary",\n' +
+    '    "is_summary_section": true,\n' +
+    '    "fields": []\n' +
+    '  },\n' +
+    '  "view_relations": [],\n' +
+    '  "label": "Test",\n' +
+    '  "description": "Test",\n' +
+    '  "slug": "january16_table",\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "id": "262230f5-4492-4c6a-b172-3e0921e84832",\n' +
+    '  "actions": [],\n' +
+    '  "relations": [],\n' +
+    '  "relationsMap": {},\n' +
+    '  "layoutRelations": [],\n' +
+    '  "tableRelations": []\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:37:54.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-16T07:37:55.067Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "abc123",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "username": "udevs_ufinance_object_builder_service",\n' +
+    '    "database": "udevs_ufinance_object_builder_service",\n' +
+    '    "password": "Lh8a3kz9"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:38:40.112Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-01-16T07:38:40.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'info',
+  timestamp: '2023-01-16T07:38:40.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-16T07:40:00.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "project_id": "abc123",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "b3180a12-358d-4e2c-a2fd-fe441fa9ad19",\n' +
+    '      "default": "v4",\n' +
+    '      "type": "UUID",\n' +
+    '      "index": "true",\n' +
+    '      "label": "ID",\n' +
+    '      "slug": "guid",\n' +
+    '      "table_id": "262230f5-4492-4c6a-b172-3e0921e84832",\n' +
+    '      "is_visible": true,\n' +
+    '      "unique": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "app_id": "a28eca99-3da0-4669-98a2-9069b25288ec",\n' +
+    '  "sections": [\n' +
+    '    {\n' +
+    '      "id": "da34dc60-f6ea-4a53-9169-12e79f7a5dae",\n' +
+    '      "order": 1,\n' +
+    '      "column": "SINGLE",\n' +
+    '      "label": "Детали",\n' +
+    '      "icon": "circle-info.svg",\n' +
+    '      "fields": []\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "id": "8214ed31-20ea-4280-b093-e91bd877be97",\n' +
+    '      "order": 2,\n' +
+    '      "column": "SINGLE",\n' +
+    '      "label": "Summary",\n' +
+    '      "is_summary_section": true,\n' +
+    '      "fields": []\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "summary_section": {\n' +
+    '    "id": "8214ed31-20ea-4280-b093-e91bd877be97",\n' +
+    '    "order": 2,\n' +
+    '    "column": "SINGLE",\n' +
+    '    "label": "Summary",\n' +
+    '    "is_summary_section": true,\n' +
+    '    "fields": []\n' +
+    '  },\n' +
+    '  "view_relations": [],\n' +
+    '  "label": "Test",\n' +
+    '  "description": "Test",\n' +
+    '  "slug": "january16_table",\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "id": "262230f5-4492-4c6a-b172-3e0921e84832",\n' +
+    '  "actions": [],\n' +
+    '  "relations": [],\n' +
+    '  "relationsMap": {},\n' +
+    '  "layoutRelations": [],\n' +
+    '  "tableRelations": []\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:40:00.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-16T07:40:00.706Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "abc123",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "username": "udevs_ufinance_object_builder_service",\n' +
+    '    "database": "udevs_ufinance_object_builder_service",\n' +
+    '    "password": "Lh8a3kz9"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:52:08.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-01-16T07:52:08.858Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'info',
+  timestamp: '2023-01-16T07:52:09.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-16T07:53:30.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "project_id": "abc123",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "b3180a12-358d-4e2c-a2fd-fe441fa9ad19",\n' +
+    '      "default": "v4",\n' +
+    '      "type": "UUID",\n' +
+    '      "index": "true",\n' +
+    '      "label": "ID",\n' +
+    '      "slug": "guid",\n' +
+    '      "table_id": "262230f5-4492-4c6a-b172-3e0921e84832",\n' +
+    '      "is_visible": true,\n' +
+    '      "unique": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "app_id": "a28eca99-3da0-4669-98a2-9069b25288ec",\n' +
+    '  "sections": [\n' +
+    '    {\n' +
+    '      "id": "da34dc60-f6ea-4a53-9169-12e79f7a5dae",\n' +
+    '      "order": 1,\n' +
+    '      "column": "SINGLE",\n' +
+    '      "label": "Детали",\n' +
+    '      "icon": "circle-info.svg",\n' +
+    '      "fields": []\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "id": "8214ed31-20ea-4280-b093-e91bd877be97",\n' +
+    '      "order": 2,\n' +
+    '      "column": "SINGLE",\n' +
+    '      "label": "Summary",\n' +
+    '      "is_summary_section": true,\n' +
+    '      "fields": []\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "summary_section": {\n' +
+    '    "id": "8214ed31-20ea-4280-b093-e91bd877be97",\n' +
+    '    "order": 2,\n' +
+    '    "column": "SINGLE",\n' +
+    '    "label": "Summary",\n' +
+    '    "is_summary_section": true,\n' +
+    '    "fields": []\n' +
+    '  },\n' +
+    '  "view_relations": [],\n' +
+    '  "label": "Test",\n' +
+    '  "description": "Test",\n' +
+    '  "slug": "january16_table",\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "id": "262230f5-4492-4c6a-b172-3e0921e84832",\n' +
+    '  "actions": [],\n' +
+    '  "relations": [],\n' +
+    '  "relationsMap": {},\n' +
+    '  "layoutRelations": [],\n' +
+    '  "tableRelations": []\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-16T07:53:30.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-16T07:53:31.565Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

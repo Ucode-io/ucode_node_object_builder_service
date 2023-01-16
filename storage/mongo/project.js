@@ -167,8 +167,6 @@ let projectStore = {
             }
         }
 
-        console.log("pool::::::::::", [...pool.entries()])
-
         return {}
     })
 };

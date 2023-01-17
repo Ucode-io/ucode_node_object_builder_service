@@ -30,6 +30,10 @@ let viewStore = {
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
 
+            if (data.attributes) {
+                data.attributes = struct.decode(data.attributes)
+            }
+
             const view = new View(data);
 
             const response = await view.save();
@@ -58,6 +62,9 @@ let viewStore = {
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
 
+            if (data.attributes) {
+                data.attributes = struct.decode(data.attributes)
+            }
             const view = await View.updateOne(
                 {
                     id: data.id,
@@ -101,6 +108,11 @@ let viewStore = {
                     sort: { created_at: -1 }
                 }
             );
+            views.forEach(el => {
+                if (el.attributes) {
+                    el.attributes = struct.encode(el)
+                }
+            })
 
             const count = await View.countDocuments(query);
             return { views, count };
@@ -125,7 +137,10 @@ let viewStore = {
                     created_at: 0,
                     updated_at: 0,
                     __v: 0
-                });
+            });
+            if (view.attributes) {
+                view.attributes = struct.encode(view.attributes)
+            }
             return view;
 
         } catch (err) {
@@ -164,173 +179,198 @@ let viewStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
+            const Table = mongoConn.models['Table']
 
             const decodedData = struct.decode(data.data)
 
-            let filename = "document_" + Math.floor(Date.now() / 1000) + ".pdf"
-            link = "https://" + "cdn.medion.uz" + "/docs/" + filename
+        let filename = "document_" +  Math.floor(Date.now() / 1000) + ".pdf"
+        link = "https://" + cfg.minioEndpoint + "/docs/" + filename
 
-            var html = data.html
-            if (decodedData.table_slug && decodedData.object_id) {
-                data.html = data.html.replaceAll('[??', '{')
-                data.html = data.html.replaceAll('??]', '}')
-                data.html = data.html.replaceAll('&lt;', '<')
-                data.html = data.html.replaceAll('&gt;', '>')
-                data.html = data.html.replaceAll('&nbsp;', ' ')
-                data.html = data.html.replaceAll('&amp;', '&')
-                data.html = data.html.replaceAll('&quot;', '"')
-                data.html = data.html.replaceAll('&apos;', `'`)
-                const tableInfo = (await ObjectBuilder(true, data.project_id))[decodedData.table_slug]
-
-                let relations = await Relation.find({
-                    table_from: decodedData.table_slug,
-                    type: "Many2One"
-                })
-
-                const relationsM2M = await Relation.find({
-                    $or: [{
-                        table_from: decodedData.table_slug
-                    },
-                    {
-                        table_to: decodedData.table_slug
-                    }],
-                    $and: [{
-                        type: "Many2Many"
-                    }]
-                })
-
-                let relatedTable = []
-                for (const relation of relations) {
-                    const field = await Field.findOne({
-                        relation_id: relation.id
-                    })
-                    relatedTable.push(field?.slug + "_data")
-                }
-                for (const relation of relationsM2M) {
-                    if (relation.table_to === decodedData.table_slug) {
-                        relation.field_from = relation.field_to
-                    }
-                    const field = await Field.findOne({
-                        slug: relation.field_from,
-                        relation_id: relation.id
-                    })
-                    relatedTable.push(field?.slug + "_data")
-                }
-
-                let output = await tableInfo.models.findOne({
-                    guid: decodedData.object_id
-                },
-                    {
-                        created_at: 0,
-                        updated_at: 0,
-                        createdAt: 0,
-                        updatedAt: 0,
-                        _id: 0,
-                        __v: 0
-                    }).populate(relatedTable).lean();
-
-
-                relations = await Relation.find({
-                    table_to: decodedData.table_slug,
-                    type: "Many2One"
-                })
-
-                for (const relation of relations) {
-                    let relation_field = decodedData.table_slug + "_id"
-                    let m2mrelation_field = decodedData.table_slug + "_ids"
-                    let response = []
-                    if (relation.type === "Many2One") {
-                        response = await (await ObjectBuilder(true, data.project_id))[relation.table_from].models.find({
-                            [relation_field]: decodedData.object_id,
-                        })
-                    } else if (relation.type === "Many2Many") {
-                        response = await (await ObjectBuilder(true, data.project_id))[relation.table_from].models.find({
-                            [m2mrelation_field]: { $in: [decodedData.object_id] }
-                        })
-                    }
-
-                    if (response) {
-                        output[relation.table_from] = response
-                    } else {
-                        output[relation.table_from] = []
-                    }
-                }
-
-                html = Eta.render(data.html, output)
-            }
-
-
-            if (!decodedData.page_size) {
-                decodedData.page_size = "A4"
-            }
-
-
-            await new Promise((resolve, reject) => {
-                wkhtmltopdf(html, { output: filename, spawnOptions: { shell: true }, pageSize: decodedData.page_size }, () => {
-                    var minioClient = new Minio.Client({
-                        endPoint: "172.20.20.17",
-                        port: 9001,
-                        useSSL: false,
-                        accessKey: cfg.minioAccessKeyID,
-                        secretKey: cfg.minioSecretAccessKey
-                    });
-
-
-
-                    var metaData = {
-                        'Content-Type': "application/pdf",
-                        'Content-Language': 123,
-                        'X-Amz-Meta-Testing': 1234,
-                        'example': 5678
-                    }
-
-                    let filepath = "./" + filename
-
-
-                    //file exists
-                    minioClient.fPutObject("docs", filename, filepath, metaData, function (error, etag) {
-                        if (error) {
-                            return console.log(error);
-                        }
-                        console.log("uploaded successfully")
-                        fs.stat(filename, async (err, stats) => {
-                            if (err) console.log(err);
-                            else {
-                                splitedFielName = filename.split(".")
-                                let doc = {}
-                                doc.file_link = link
-                                doc[decodedData.table_slug + "_id"] = decodedData.object_id
-                                doc.size = stats.size
-                                doc.type = splitedFielName[splitedFielName.length - 1]
-                                doc.name = filename
-                                doc.date = new Date().toISOString()
-                                if (decodedData.tags) {
-                                    doc.tags = decodedData.tags.split(",")
-                                }
-                                let encodedData = struct.encode(doc)
-                                let request = {
-                                    table_slug: "file",
-                                    data: encodedData
-                                }
-                                response = objectBuilderStore.create(request)
-                            }
-                        })
-                        fs.unlink(filename, (err => {
-                            if (err) console.log(err);
-                            else {
-                                console.log("Deleted file: ", filename);
-
-                                resolve()
-
-                            }
-                        }));
-                    });
-                });
+        var html = data.html
+        let patientIdField;
+        let output;
+        if (decodedData.table_slug && decodedData.object_id) {
+            data.html = data.html.replaceAll('[??', '{')
+            data.html = data.html.replaceAll('??]', '}')
+            data.html = data.html.replaceAll('&lt;', '<')
+            data.html = data.html.replaceAll('&gt;', '>')
+            data.html = data.html.replaceAll('&nbsp;', ' ')
+            data.html = data.html.replaceAll('&amp;', '&')
+            data.html = data.html.replaceAll('&quot;', '"')
+            data.html = data.html.replaceAll('&apos;', `'`)
+            const tableInfo = (await ObjectBuilder())[decodedData.table_slug]
+            patientIdField = tableInfo.fields.find(el => el.slug === "patients_id")
+        
+            let relations = await Relation.find({
+                table_from : decodedData.table_slug,
+                type: "Many2One"
             })
+        
+            const relationsM2M = await Relation.find({
+                $or: [{
+                    table_from: decodedData.table_slug
+                },
+                {
+                    table_to: decodedData.table_slug
+                }],
+                $and: [{
+                type: "Many2Many"
+                }]
+            })
+            let relatedTable = []
+            for (const relation of relations) {
+                const field = await Field.findOne({
+                    relation_id: relation.id
+                })
+                if (field) {
+                    relatedTable.push(field?.slug+"_data")
+                }
+            }
+            for (const relation of relationsM2M) {
+                if (relation.table_to === decodedData.table_slug) {
+                    relation.field_from = relation.field_to
+                }
+                const field = await Field.findOne({
+                    slug: relation.field_from,
+                    relation_id: relation.id
+                })
+                if (field) {
+                    relatedTable.push(field?.slug+"_data")
+                }
+            }
 
+            output = await tableInfo.models.findOne({
+                guid: decodedData.object_id
+            },
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0
+            }).populate(relatedTable).lean();
+            output = await changeDateFormat(output, tableInfo.fields)
 
+            relations = await Relation.find({
+                table_to : decodedData.table_slug,
+                type: "Many2One"
+            })
+          
+            for (const relation of relations) {
+                let relationField = decodedData.table_slug + "_id"
+                let relationTableSlug = relation.table_from
+                if (relation.type === "Many2Many" && relation.table_from === decodedData.table_slug) {
+                    relationTableSlug = relation.table_from
+                }
+                let table = await Table.findOne({
+                    slug: relationTableSlug
+                })
+                if (table) {
+                    let field = await Field.findOne({
+                        relation_id: relation.id,
+                        table_id: table.id
+                    })
+                    if (field) {
+                        relationField = field.slug
+                    }
+                }
+                let req = {
+                    table_slug: relation.table_from,
+                    data: struct.encode({[relationField]: decodedData.object_id})
+                }
+                let resp = await objectBuilderStore.getList(req)
+                if (resp?.data) {
+                    let {response} = struct.decode(resp.data)
+                    output[relation.table_from] = response
+                }
+            }
 
-            return { link }
+            html = Eta.render(data.html, output)
+        }
+       
+
+        if (!decodedData.page_height && !decodedData.page_width ) {
+            decodedData.page_height = "297"
+            decodedData.page_width = "210"
+        }
+       
+        
+        await new Promise((resolve, reject) => {
+            wkhtmltopdf(html, {output: filename, spawnOptions:{shell: true}, pageHeight: decodedData.page_height, pageWidth: decodedData.page_width  }, ()=>{
+                let ssl = true
+                // if (cfg.minioSSL !== "true") {
+                //     ssl =false
+                // }
+                var minioClient = new Minio.Client({
+                    endPoint: cfg.minioEndpoint,
+                    useSSL: ssl,
+                    accessKey: cfg.minioAccessKeyID,
+                    secretKey: cfg.minioSecretAccessKey                          
+                });
+                   
+                var metaData = {
+                    'Content-Type': "application/pdf",
+                    'Content-Language': 123,
+                    'X-Amz-Meta-Testing': 1234,
+                    'example': 5678
+                }
+                  
+                let filepath = "./" + filename
+        
+                
+                //file exists
+                minioClient.fPutObject("docs", filename, filepath , metaData, function(error, etag) {
+                    if(error) {
+                        return console.log(error);
+                    }
+                    console.log("uploaded successfully")
+                    fs.stat(filename, async (err, stats) => {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            let doc = {}
+                            splitedFielName = filename.split(".")
+                            doc.file_link = link
+                            doc[decodedData.table_slug+"_id"] = decodedData.object_id
+                            doc.size = stats.size
+                            doc.type = splitedFielName[splitedFielName.length - 1]
+                            doc.name = filename
+                            doc.date = new Date().toISOString()
+                            doc.dynamic_author = {
+                                [decodedData.author_table+"_id"] : decodedData.author_id
+                            }
+                            if (patientIdField) {
+                                doc[patientIdField.slug] = output?.[patientIdField.slug]
+                            }
+                            if (decodedData.tags) {
+                                doc.tags = decodedData.tags.split(",")
+                            }
+                            let encodedData = struct.encode(doc)
+                            let request = {
+                                table_slug: "file",
+                                project_id: data.project_id,
+                                data: encodedData
+                            }
+                            await objectBuilderStore.create(request)
+                        }
+                    })
+                    fs.unlink(filename, (err => {
+                        if (err) console.log(err);
+                        else {
+                            console.log("Deleted file: ", filename);
+                        
+                            resolve()  
+    
+                        }
+                    }));
+                }); 
+            });
+        })
+
+          
+        
+        return {link}
 
         } catch (err) {
             throw err

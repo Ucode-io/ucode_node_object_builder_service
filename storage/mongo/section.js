@@ -268,7 +268,6 @@ let sectionStore = {
                             field.slug = fieldResp.slug
                             field.required = fieldResp.required
                         }
-
                         const relation = await Relation.findOne({ id: relationID })
                         let fieldAsAttribute = []
                         let view_of_relation;
@@ -301,27 +300,29 @@ let sectionStore = {
                                 let autofill = {
                                     field_from: field.autofill_field,
                                     field_to: field.slug,
+                                    automatic: field.automatic,
                                 }
                                 autofillFields.push(autofill)
                             }
                         }
+                        let originalAttributes = {}
                         let dynamicTables = [];
                         if (relation?.type === "Many2Dynamic") {
                             if (relation.dynamic_tables.length) {
                                 let dynamicTableToAttribute;
                                 for (const dynamic_table of relation.dynamic_tables) {
                                     const dynamicTableInfo = await Table.findOne(
-                                        {
+                                        {  
                                             slug: dynamic_table.table_slug
                                         },
                                         {
                                             deletedAt: 0,
                                             deleted_at: 0,
-                                            createdAt: 0,
+                                            createdAt: 0, 
                                             updatedAt: 0,
-                                            created_at: 0,
+                                            created_at: 0, 
                                             updated_at: 0,
-                                            _id: 0,
+                                            _id: 0, 
                                             __v: 0
                                         }
                                     )
@@ -349,31 +350,40 @@ let sectionStore = {
                                     }
                                     dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
                                     dynamicTables.push(dynamicTableToAttribute)
-                                }
-                                encodedAttributes = struct.encode({
-                                    default_values: view_of_relation?.default_values,
+                                }                
+                                originalAttributes = {
                                     autofill: autofillFields,
                                     view_fields: fieldAsAttribute,
                                     auto_filters: relation?.auto_filters,
                                     relation_field_slug: relation?.relation_field_slug,
                                     dynamic_tables: dynamicTables,
                                     is_user_id_default: relation?.is_user_id_default,
+                                    object_id_from_jwt: relation?.object_id_from_jwt,
                                     cascadings: relation?.cascadings,
-                                })
+                                    cascading_tree_table_slug: relation?.cascading_tree_table_slug,
+                                    cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                                }
                             }
                         } else {
-                            encodedAttributes = struct.encode({
-                                default_values: view_of_relation?.default_values,
+                             originalAttributes = {
                                 autofill: autofillFields,
                                 view_fields: fieldAsAttribute,
                                 auto_filters: relation?.auto_filters,
                                 is_user_id_default: relation?.is_user_id_default,
+                                object_id_from_jwt: relation?.object_id_from_jwt,
                                 cascadings: relation?.cascadings,
-                            })
+                                cascading_tree_table_slug: relation?.cascading_tree_table_slug,
+                                cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                            }
                         }
-
-                        field.attributes = encodedAttributes
-
+                        
+                        if (view_of_relation) {
+                            if (view_of_relation.default_values && view_of_relation.default_values.length) {
+                                originalAttributes["default_values"] = view_of_relation.default_values
+                            }
+                        }
+                        encodedAttributes = struct.encode(originalAttributes)
+                        field.attributes = encodedAttributes   
                         fieldsRes.push(field)
                     } else if (fieldReq.id.includes("@")) {
                         field.id = fieldReq.id
@@ -388,9 +398,9 @@ let sectionStore = {
                             field.id = fieldReq.id;
                             field.relation_type = fieldReq.relation_type;
                             fieldsRes.push(field);
-
+    
                         }
-                    }
+                    } 
                 }
                 // this function add field permission for each field by role id
                 fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)

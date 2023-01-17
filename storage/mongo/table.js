@@ -59,7 +59,6 @@ let tableStore = {
                 {
                     id: data.id,
                 },
-                null,
                 {
                     $set: data
                 }

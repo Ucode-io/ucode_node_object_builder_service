@@ -25,6 +25,8 @@ const { exists } = require("../../models/table");
 
 
 const mongoPool = require('../../pkg/pool');
+const PrepareFunction = require('../../helper/prepareFunctions');
+const prepareFunction = require('../../helper/prepareFunctions');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -34,148 +36,12 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleInsert function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Relation = mongoConn.models['Relation']
 
-            const data = struct.decode(req.data)
-            if (!data.guid) {
-                data.guid = v4()
-            }
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            let tableData = await table.findOne(
-                {
-                    slug: req.table_slug
-                }
-            )
-            if (req.table_slug === "template" || req.table_slug === "file") {
-                const relation = await Relation.findOne({
-                    $or: [
-                        {
-                            $and: [
-                                { table_to: req.table_slug },
-                                { table_from: data.table_slug }
-                            ]
-                        },
-                        {
-                            $and: [
-                                { table_to: data.table_slug },
-                                { table_from: req.table_slug }
-                            ]
-                        }
-                    ]
-                })
-                if (relation) {
-                    const field = await Field.findOne({
-                        relation_id: relation.id,
-                        table_id: tableData.id
-                    })
-                    if (!data[field?.slug]) {
-                        data[field?.slug] = data.object_id
-                    }
-                }
-            }
-
-            let randomNumbers = await Field.findOne({
-                table_id: tableData.id,
-                type: "RANDOM_NUMBERS"
-            })
-
-            if (randomNumbers) {
-                let attributes = struct.decode(randomNumbers.attributes)
-                let randomNumber = generators.generateRandomNumber(attributes.prefix, attributes.digit_number)
-                let params = {}
-                params[randomNumbers.slug] = randomNumber.toString()
-
-                const isExists = await tableInfo.models.findOne({
-                    $and: [params]
-                })
-                if (isExists) {
-                    return await objectBuilder.create(data)
-                } else {
-                    data[randomNumbers.slug] = randomNumber
-                }
-            }
-
-
-            let incrementField = await Field.findOne({
-                table_id: tableData.id,
-                type: "INCREMENT_ID"
-            })
-
-
-            if (incrementField) {
-                let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-                let attributes = struct.decode(incrementField.attributes)
-                let incrementLength = attributes.prefix?.length
-                if (!last || !last[incrementField.slug]) {
-                    data[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
-                } else {
-                    nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug]?.length)) + 1
-                    data[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
-                }
-            }
-
-            let incrementNum = await Field.findOne({
-                table_id: tableData.id,
-                type: "INCREMENT_NUMBER"
-            })
-            if (incrementNum) {
-                let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-                let attributes = struct.decode(incrementNum.attributes)
-                let incrementLength = attributes.prefix?.length
-                if (!last || !last[incrementNum.slug]) {
-                    data[incrementNum.slug] = attributes.prefix + '1'.padStart(attributes.digit_number, '0')
-                } else {
-                    nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug]?.length)) + 1
-                    data[incrementNum.slug] = attributes.prefix + nextIncrement.toString().padStart(attributes.digit_number, '0')
-                }
-            }
-
-
-
-            let payload = new tableInfo.models(data);
+            let {payload, data, event, appendMany2ManyObjects} = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
-
-            let fields = await Field.find(
-                {
-                    table_id: tableData.id
-                }
-            )
-            // TODO::: move kafka to service level
-            let event = {}
-            let field_types = {}
-            event.payload = {}
-            event.payload.data = data
-            event.payload.table_slug = req.table_slug
-            let appendMany2ManyObjects = []
-            for (const field of fields) {
-                let type = converter(field.type);
-                if (field.type === "LOOKUPS") {
-                    if (data[field.slug] && data[field.slug]?.length) {
-                        const relation = await Relation.findOne({
-                            id: field.relation_id
-                        })
-
-                        let appendMany2Many = {}
-                        appendMany2Many.id_from = data.guid
-                        appendMany2Many.id_to = data[field.slug]
-                        appendMany2Many.table_from = req.table_slug
-                        if (relation.table_to === req.table_slug) {
-                            appendMany2Many.table_to = relation.table_from
-                        } else if (relation.table_from === req.table_slug) {
-                            appendMany2Many.table_to = relation.table_to
-                        }
-                        appendMany2ManyObjects.push(appendMany2Many)
-                    }
-                }
-                field_types[field.slug] = type
-            }
-            field_types.guid = "String"
-            event.payload.field_types = field_types
-            event.project_id = req.project_id 
+        
+            // send topic to Analytics service
             await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
-
 
             req.current_data = data
             await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
@@ -184,6 +50,7 @@ let objectBuilder = {
                     table_slug: req.table_slug
                 }
             })
+
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
@@ -198,69 +65,17 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleUpdateV2 function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            const Relation = mongoConn.models['Relation']
-
-            const data = struct.decode(req.data)
-            if (!data.guid) {
-                data.guid = data.id
-            }
+            
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
+
+            let {data, event, appendMany2Many, deleteMany2Many} = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             const response = await tableInfo.models.updateOne({ guid: data.guid }, { $set: data });
-            let event = {}
-            let field_types = {}
-            event.payload = {}
-            event.payload.data = data
-            event.payload.table_slug = req.table_slug
-
-            for (const field of tableInfo.fields) {
-                let type = converter(field.type);
-                field_types[field.slug] = type
-                let newIds = [], deletedIds = []
-
-                // this is many2many append and delete when many2many relation field type input
-                if (field.type === "LOOKUPS") {
-                    if (data[field.slug] && objectBeforeUpdate[field.slug]) {
-                        let olderArr = objectBeforeUpdate[field.slug]
-                        newArr = data[field.slug]
-                        newIds = newArr.filter(val => !olderArr.includes(val))
-                        deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
-                    }
-
-                    const relation = await Relation.findOne({
-                        id: field.relation_id
-                    })
-
-                    if (newIds.length) {
-                        let appendMany2Many = {}
-                        appendMany2Many.id_from = data.guid
-                        appendMany2Many.id_to = newIds
-                        appendMany2Many.table_from = req.table_slug
-                        if (relation.table_to === req.table_slug) {
-                            appendMany2Many.table_to = relation.table_from
-                        } else if (relation.table_from === req.table_slug) {
-                            appendMany2Many.table_to = relation.table_to
-                        }
-                        await objectBuilder.appendManyToMany(appendMany2Many)
-                    }
-                    if (deletedIds.length) {
-                        let deleteMany2Many = {}
-                        deleteMany2Many.id_from = data.guid
-                        deleteMany2Many.id_to = deletedIds
-                        deleteMany2Many.table_from = req.table_slug
-                        if (relation.table_to === req.table_slug) {
-                            deleteMany2Many.table_to = relation.table_from
-                        } else if (relation.table_from === req.table_slug) {
-                            deleteMany2Many.table_to = relation.table_to
-                        }
-                        await objectBuilder.deleteManyToMany(deleteMany2Many)
-                    }
-
-                }
+            for (const resAppendM2M of appendMany2Many) {
+                await objectBuilder.appendManyToMany(resAppendM2M)
             }
-            field_types.guid = "String"
-            event.payload.field_types = field_types
-            event.project_id = req.project_id 
+            for (const resDeleteM2M of deleteMany2Many) {
+                await objectBuilder.deleteManyToMany(resDeleteM2M)
+            }
             await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
 
             return response;
@@ -518,7 +333,7 @@ let objectBuilder = {
             }
 
         }
-        if (params.view_fields) {
+        if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== ""){
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
@@ -549,7 +364,7 @@ let objectBuilder = {
         }
         // add regExp to params for filtering
         for (const key of keys) {
-            if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "") {
+            if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
                 params["guid"] = params[key]
             }
             if (typeof(params[key])=== "object") {
@@ -783,17 +598,18 @@ let objectBuilder = {
     
                     if (with_relations) {
                         if (relation.type === "Many2Dynamic") {
-                            for(dynamic_table of relation.dynamic_tables){
-                                deepPopulateRelations = await Relation.find({table_from:dynamic_table.table_slug})
-                                for (const deepRelation of deepPopulateRelations) {
-                                    if (deepRelation.table_to !== dynamic_table.table_slug) {
-                                        let deepPopulate = {
-                                            path: deepRelation.table_to
-                                        }
-                                        deepRelations.push(deepPopulate)
-                                    }
-                                }
-                            }
+                            // for(dynamic_table of relation.dynamic_tables){
+                            //     deepPopulateRelations = await Relation.find({table_from:dynamic_table.table_slug})
+                            //     for (const deepRelation of deepPopulateRelations) {
+                            //         if (deepRelation.table_to !== dynamic_table.table_slug) {
+                            //             let deepPopulate = {
+                            //                 path: deepRelation.table_to
+                            //             }
+                            //             deepRelations.push(deepPopulate)
+                            //         }
+                            //     }
+                            // }
+                            console.log("it's dynamic relations");
                         } else {
                             deepPopulateRelations = await Relation.find({table_from:relation.table_to})
                             for (const deepRelation of deepPopulateRelations) {
@@ -836,7 +652,7 @@ let objectBuilder = {
                         if (relation.type === "Many2Dynamic") {
                             for(dynamic_table of relation.dynamic_tables){
                                 papulateTable = {
-                                    path: dynamic_table.table_slug,
+                                    path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
                                     populate: deepRelations
                                 }
                                 populateArr.push(papulateTable)
@@ -889,7 +705,9 @@ let objectBuilder = {
                 decodedFields.push(field)
             } else {
                 let elementField = {...element}
-                elementField.attributes = struct.decode(element.attributes)
+                if (element.attributes) {
+                    elementField.attributes = struct.decode(element.attributes)
+                }
                 decodedFields.push(elementField)
             }
         };
@@ -1862,122 +1680,21 @@ let objectBuilder = {
 
             const data = struct.decode(req.data)
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            let objects = [], appendMany2ManyObjects = []
+            let objects = [], appendMany2ManyObj = []
             for (const object of data.objects) {
                 //this condition used for object.guid may be exists
                 if (!object.guid) {
                     object.guid = v4()
                 }
-                let tableData = await table.findOne(
-                    {
-                        slug: req.table_slug
-                    }
-                )
-                if (req.table_slug === "template" || req.table_slug === "file") {
-                    const relation = await Relation.findOne({
-                        $or: [
-                            {
-                                $and: [
-                                    { table_to: req.table_slug },
-                                    { table_from: object.table_slug }
-                                ]
-                            },
-                            {
-                                $and: [
-                                    { table_to: object.table_slug },
-                                    { table_from: req.table_slug }
-                                ]
-                            }
-                        ]
-                    })
-                    if (relation) {
-                        const field = await Field.findOne({
-                            relation_id: relation.id,
-                            table_id: tableData.id
-                        })
-                        if (!data[field?.slug]) {
-                            data[field?.slug] = object.object_id
-                        }
-                    }
+                let request = {
+                    data: struct.encode(object),
+                    table_slug: req.table_slug,
+                    project_id: req.project_id
                 }
-
-
-                let incrementField = await Field.findOne({
-                    table_id: tableData.id,
-                    type: "INCREMENT_ID"
-                })
-
-
-                if (incrementField) {
-                    let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-                    let attributes = struct.decode(incrementField.attributes)
-                    let incrementLength = attributes.prefix.length
-                    if (!last || !last[incrementField.slug]) {
-                        object[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
-                    } else {
-                        nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug].length)) + 1
-                        object[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
-                    }
-                }
-
-                let incrementNum = await Field.findOne({
-                    table_id: tableData.id,
-                    type: "INCREMENT_NUMBER"
-                })
-                if (incrementNum) {
-                    let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-                    let attributes = struct.decode(incrementNum.attributes)
-                    let incrementLength = attributes.prefix.length
-                    if (!last || !last[incrementNum.slug]) {
-                        object[incrementNum.slug] = attributes.prefix + '1'.padStart(attributes.digit_number, '0')
-                    } else {
-                        nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug].length)) + 1
-                        object[incrementNum.slug] = attributes.prefix + nextIncrement.toString().padStart(attributes.digit_number, '0')
-                    }
-                }
-
-
-
-                let payload = new tableInfo.models(object);
+                let {payload, data, event, appendMany2ManyObjects} = await PrepareFunction.prepareToCreateInObjectBuilder(request, mongoConn) 
+                appendMany2ManyObj = appendMany2ManyObjects
                 objects.push(payload)
 
-                let fields = await Field.find(
-                    {
-                        table_id: tableData.id
-                    }
-                )
-                // TODO::: move kafka to service level
-                let event = {}
-                let field_types = {}
-                event.payload = {}
-                event.payload.data = object
-                event.payload.table_slug = req.table_slug
-
-                for (const field of fields) {
-                    let type = converter(field.type);
-                    if (field.type === "LOOKUPS") {
-                        if (object[field.slug] && object[field.slug].length) {
-                            const relation = await Relation.findOne({
-                                id: field.relation_id
-                            })
-
-                            let appendMany2Many = {}
-                            appendMany2Many.id_from = object.guid
-                            appendMany2Many.id_to = object[field.slug]
-                            appendMany2Many.table_from = req.table_slug
-                            if (relation.table_to === req.table_slug) {
-                                appendMany2Many.table_to = relation.table_from
-                            } else if (relation.table_from === req.table_slug) {
-                                appendMany2Many.table_to = relation.table_to
-                            }
-                            appendMany2ManyObjects.push(appendMany2Many)
-                        }
-                    }
-                    field_types[field.slug] = type
-                }
-                field_types.guid = "String"
-                event.payload.field_types = field_types
-                event.project_id = req.project_id 
                 await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
 
@@ -1990,7 +1707,7 @@ let objectBuilder = {
                 })
             }
             await tableInfo.models.insertMany(objects)
-            for (const appendMany2Many of appendMany2ManyObjects) {
+            for (const appendMany2Many of appendMany2ManyObj) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
             return
@@ -2009,68 +1726,15 @@ let objectBuilder = {
             const datas = struct.decode(req.data)
             let objects = []
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            for (const data of datas.objects) {
-                if (!data.guid) {
-                    data.guid = data.id
+            for (const obj of datas.objects) {
+                let request = {
+                    data: struct.encode(obj),
+                    table_slug: req.table_slug,
+                    project_id: req.project_id,
                 }
-                const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
-
-                let event = {}
-                let field_types = {}
-                event.payload = {}
-                event.payload.data = data
-                event.payload.table_slug = req.table_slug
-
-                for (const field of tableInfo.fields) {
-                    let type = converter(field.type);
-                    field_types[field.slug] = type
-                    let newIds = [], deletedIds = []
-
-                    // this is many2many append and delete when many2many relation field type input
-                    if (field.type === "LOOKUPS") {
-                        if (data[field.slug] && objectBeforeUpdate[field.slug]) {
-                            let olderArr = objectBeforeUpdate[field.slug]
-                            newArr = data[field.slug]
-                            newIds = newArr.filter(val => !olderArr.includes(val))
-                            deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
-                        }
-
-                        const relation = await Relation.findOne({
-                            id: field.relation_id
-                        })
-
-                        if (newIds.length) {
-                            let appendMany2Many = {}
-                            appendMany2Many.id_from = data.guid
-                            appendMany2Many.id_to = newIds
-                            appendMany2Many.table_from = req.table_slug
-                            appendMany2Many.project_id = req.project_id
-                            if (relation.table_to === req.table_slug) {
-                                appendMany2Many.table_to = relation.table_from
-                            } else if (relation.table_from === req.table_slug) {
-                                appendMany2Many.table_to = relation.table_to
-                            }
-                            await objectBuilder.appendManyToMany(appendMany2Many)
-                        }
-                        if (deletedIds.length) {
-                            let deleteMany2Many = {}
-                            deleteMany2Many.id_from = data.guid
-                            deleteMany2Many.id_to = deletedIds
-                            deleteMany2Many.table_from = req.table_slug
-                            deleteMany2Many.project_id = req.project_id
-                            if (relation.table_to === req.table_slug) {
-                                deleteMany2Many.table_to = relation.table_from
-                            } else if (relation.table_from === req.table_slug) {
-                                deleteMany2Many.table_to = relation.table_to
-                            }
-                            await objectBuilder.deleteManyToMany(deleteMany2Many)
-                        }
-
-                    }
-                }
-                field_types.guid = "String"
-                event.payload.field_types = field_types
-                event.project_id = req.project_id 
+                
+                let {data, event, appendMany2Many, deleteMany2Many} = await prepareFunction.prepareToUpdateInObjectBuilder(request, mongoConn)
+                
                 await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
                 let bulk = {
                     updateOne: {
@@ -2079,9 +1743,15 @@ let objectBuilder = {
                         update: data
                     }
                 }
+                for (const resAppendM2M of appendMany2Many) {
+                    await objectBuilder.appendManyToMany(resAppendM2M)
+                }
+                for (const resDeleteM2M of deleteMany2Many) {
+                    await objectBuilder.deleteManyToMany(resDeleteM2M)
+                }
                 objects.push(bulk)
             }
-            await tableInfo.models.bulkWrite(objects);
+            await tableInfo.models.bulkWrite(objects);            
             return
         } catch (err) {
             throw err
@@ -2097,12 +1767,25 @@ let objectBuilder = {
             const view = await View.findOne({
                 id: request.view_id
             })
+            let chartOfAccounts = []
+            let groupByOptions = []
+            let field_slug = ""
+            for (const chartOfAccount of view.attributes?.chart_of_accounts) {
+                if (chartOfAccount.field_slug) {
+                    field_slug = chartOfAccount.field_slug
+                }
+                groupByOptions.push(chartOfAccount.group_by)
+                chartOfAccounts = chartOfAccounts.concat(chartOfAccount.chart_of_account)
+            }
+            if (field_slug === "") {
+                throw new Error("Укажите группу по полям")
+            }
+            request[field_slug] = groupByOptions
             let resp = await objectBuilder.getList({
                 project_id: req.project_id,
                 table_slug: req.table_slug,
-                data: req.data
+                data: struct.encode(request)
             })
-            let chartOfAccounts = view.attributes?.chart_of_accounts
             const data = struct.decode(resp.data)
             const objects = data.response
             if (objects.length) {
@@ -2120,29 +1803,44 @@ let objectBuilder = {
                     let monthlyAmount = obj.amounts.find(el => el.month === key)
                     if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
                         for (const option of chartOfAccount.options) {
+                            if (option.date_field === "") {
+                                continue
+                            }
+                            const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug]
                             let groupBy = req.table_slug + '_id'
                             let groupByWithDollorSign = '$' + req.table_slug + '_id'
                             let sumFieldWithDollowSign = '$' + option.number_field
                             let dateBy = option.date_field
                             let aggregateFunction = "$sum"
-                            const pipelines = [
-                                {
-                                    '$match': {
-                                        [groupBy]: {
-                                            '$eq': chartOfAccount.object_id
-                                        },
-                                        [dateBy]: date
+    
+                            let params = {}
+                            //adding params
+                            params[groupBy] = {'$eq': chartOfAccount.object_id}
+                            params[dateBy] = date
+    
+                            if (option.filters && option.filters.length) {
+                                for (const filter of option.filters) {
+                                    let field = optionTable.fields.find(el => el.id == filter.field_id)
+                                    if (field) {
+                                        if (filter.value?.length) {
+                                            params[field.slug] = {$in: filter.value}
+                                        }
                                     }
+                                }
+                            }
+                            const pipelines =   [
+                                {
+                                    '$match': params,
                                 }, {
                                     '$group': {
-                                        '_id': groupByWithDollorSign,
-                                        'res': {
-                                            [aggregateFunction]: sumFieldWithDollowSign
+                                        '_id': groupByWithDollorSign, 
+                                    'res': {
+                                        [aggregateFunction]: sumFieldWithDollowSign
                                         }
                                     }
                                 }
                             ];
-                            const resultOption = await (await ObjectBuilder(true, req.project_id))[option.table_slug].models.aggregate(pipelines)
+                            const resultOption = await optionTable.models.aggregate(pipelines)
                             if (resultOption.length) {
                                 if (option.type === "debet") {
                                     if (monthlyAmount) {
@@ -2182,7 +1880,6 @@ let objectBuilder = {
                     let parentObj = objects.find(el => el.guid === obj[req.table_slug + "_id"])
                     while (parentObj) {
                         let parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
-
                         if (parentMonthlyAmount && monthlyAmount) {
                             parentMonthlyAmount.amount += monthlyAmount.amount
                         } else if (monthlyAmount) {

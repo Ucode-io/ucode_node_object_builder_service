@@ -24,9 +24,9 @@ async function buildModels(is_build = true, project_id) {
     const Section = mongoDBConn.models['Section']
     const View = mongoDBConn.models['View']
 
-// hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
+    // hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
 
-// all tables should be got to build their schema
+    // all tables should be got to build their schema
     let tables = []
     if (!is_build) {
         tables = await Table.find({
@@ -38,7 +38,7 @@ async function buildModels(is_build = true, project_id) {
             is_changed: true
         });
     }
-    
+
 
     let tempArray = []
     for (const table of tables) {
@@ -52,15 +52,15 @@ async function buildModels(is_build = true, project_id) {
                 }, {
                     type: "Many2One"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
-                  table_to: table.slug
+                table_to: table.slug
                 }, {
-                  type: "One2Many"
+                type: "One2Many"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
                     $or: [{
                         table_from: table.slug
@@ -72,7 +72,7 @@ async function buildModels(is_build = true, project_id) {
                         type: "Many2Dynamic"
                     }
                 ]
-              },
+            },
             //   {
             //     $and: [{
             //         table_from: table.slug
@@ -213,13 +213,13 @@ async function buildModels(is_build = true, project_id) {
                         }
                     }
                 }
-               
+            
 
                 // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
-                if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS") {
+                if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS" && field.type != "DYNAMIC") {
                     fieldsModel.push(field._doc) 
                     fieldsIndex.push({[field.slug]: 'text'})
-                } else if ((field.type === "LOOKUP" || field.type === "LOOKUPS") && isReferenced == false){
+                } else if ((field.type === "LOOKUP" || field.type === "LOOKUPS" || field.type === "DYNAMIC") && isReferenced == false){
                     // else if we need to add all relation fields to related table fields
 
                     // sections have to be got, so that we can specify by which fields tables are related
@@ -235,59 +235,107 @@ async function buildModels(is_build = true, project_id) {
                     resField.type = field.type
                     resField.table_id = field.table_id
                     resField.relation_id = field.relation_id
+                    resField.required = field.required
                     resField.slug = field.slug
-                    let fieldAsAttribute = []
                     resField.attributes = field.attributes
+                    let fieldAsAttribute = []
+                    let autofillFields = [];
                     let relationTableSlug;
+                    let dynamicTables = []
+                    if (!resField.attributes) {
+                        resField.attributes = {}
+                    }
                     if (relation) {
-                        for (const fieldID of relation.view_fields) {
-                            let field = await Field.findOne({
-                                id:fieldID
-                            },
-                            {
-                                created_at: 0,
-                                updated_at: 0,
-                                createdAt: 0,
-                                updatedAt: 0,
-                                _id: 0,
-                                __v: 0
-                            }).lean();
-                            fieldAsAttribute.push(field)
+                        if (relation.type !== "Many2Dynamic") {
+                            for (const fieldID of relation.view_fields) {
+                                let field = await Field.findOne({
+                                    id:fieldID
+                                },
+                                {
+                                    created_at: 0,
+                                    updated_at: 0,
+                                    createdAt: 0,
+                                    updatedAt: 0,
+                                    _id: 0,
+                                    __v: 0
+                                }).lean();
+                                fieldAsAttribute.push(field)
 
-                        }
-                        if (relation?.table_from === table.slug) {
-                            relationTableSlug = relation?.table_to
-                        } else {
-                            relationTableSlug = relation?.table_from
-                        }
-                        if (!resField.attributes) {
-                            resField.attributes = {}
-                        }
-                        resField.attributes["view_fields"] = fieldAsAttribute
-                        const tableElement = await Table.findOne({
-                            slug: table.slug
-                        })
-                        const tableElementFields = await Field.find({
-                            table_id: tableElement.id
-                        })
-                        let autofillFields = []; 
-                        for (const field of tableElementFields) {
-                            if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
-                                let autofill = {
-                                    field_from : field.autofill_field,
-                                    field_to: field.slug,
-                                    automatic: field.automatic,
-                                }
-                                autofillFields.push(autofill)
                             }
+                            if (relation?.table_from === table.slug) {
+                                relationTableSlug = relation?.table_to
+                            } else {
+                                relationTableSlug = relation?.table_from
+                            }
+                            resField.attributes["view_fields"] = fieldAsAttribute
+                            const tableElement = await Table.findOne({
+                                slug: table.slug
+                            })
+                            const tableElementFields = await Field.find({
+                                table_id: tableElement.id
+                            })
+                            for (const field of tableElementFields) {
+                                if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
+                                    let autofill = {
+                                        field_from : field.autofill_field,
+                                        field_to: field.slug,
+                                        automatic: field.automatic,
+                                    }
+                                    autofillFields.push(autofill)
+                                }
+                            }
+                        } else {
+                            for (const dynamicTable of relation.dynamic_tables) {
+                                const dynamicTableInfo = await Table.findOne(
+                                    {  
+                                        slug: dynamicTable.table_slug
+                                    },
+                                    {
+                                        deletedAt: 0,
+                                        deleted_at: 0,
+                                        createdAt: 0, 
+                                        updatedAt: 0,
+                                        created_at: 0, 
+                                        updated_at: 0,
+                                        _id: 0, 
+                                        __v: 0
+                                    }
+                                )
+                                dynamicTableToAttribute = dynamicTable
+                                dynamicTableToAttribute["table"] = dynamicTableInfo._doc
+                                viewFieldsInDynamicTable = []
+                                for (const fieldId of dynamicTableToAttribute.view_fields) {
+                                    let view_field = await Field.findOne(
+                                        {
+                                            id: fieldId
+                                        },
+                                        {
+                                            created_at: 0,
+                                            updated_at: 0,
+                                            createdAt: 0,
+                                            updatedAt: 0,
+                                            _id: 0,
+                                            __v: 0
+                                        }
+                                    )
+                                    if (view_field.attributes) {
+                                        view_field.attributes = struct.decode(view_field.attributes)
+                                    }
+                                    viewFieldsInDynamicTable.push(view_field._doc)
+                                }
+                                dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
+                                dynamicTables.push(dynamicTableToAttribute)
+                            }
+                            resField.attributes["relation_field_slug"] = relation?.relation_field_slug
+                            resField.attributes["dynamic_tables"] = dynamicTables
                         }
-                        resField.attributes["autofill"] = autofillFields,
+                        resField.attributes["autofill"] = autofillFields
                         resField.attributes["cascadings"] = relation?.cascadings
                         resField.attributes["cascading_tree_table_slug"] = relation?.cascading_tree_table_slug
                         resField.attributes["cascading_tree_field_slug"] = relation?.cascading_tree_field_slug
                         resField.attributes["auto_filters"] = relation?.auto_filters
-                        resField.attributes["is_user_id_default"] = relation?.is_user_id_default,
-                        resField.attributes["object_id_from_jwt"] = relation?.object_id_from_jwt,
+                        resField.attributes["is_user_id_default"] = relation?.is_user_id_default
+                        resField.attributes["object_id_from_jwt"] = relation?.object_id_from_jwt
                         
                         resField.table_slug = relationTableSlug
                         if (view) {
@@ -328,10 +376,8 @@ async function buildModels(is_build = true, project_id) {
         temp =  mongoose.Schema(
             {
             ...fieldObject,
-                createdAt: {type: Date, select: false},
-                updatedAt: {type: Date, select: false},
-                created_at: {type: Date, select: false},
-                updated_at: {type: Date, select: false}
+            createdAt: {type: Date, select: false},
+            updatedAt: {type: Date, select: false}
         },
         {
             timestamps: true,
@@ -407,11 +453,11 @@ async function buildModels(is_build = true, project_id) {
                 for (dynamic_table of relation.dynamic_tables) {
                     populateParams = {
                         ref: dynamic_table.table_slug,
-                        localField: "dynamic." + dynamic_table.table_slug + "_id",
+                        localField: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id",
                         foreignField: 'guid',
                         justOne: true
                     }
-                    temp.virtual(dynamic_table.table_slug, populateParams);
+                    temp.virtual(populateParams.localField+"_data", populateParams);
                 }
                 continue;
             }
@@ -435,21 +481,33 @@ async function buildModels(is_build = true, project_id) {
         tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex});
     }
 
+    mongooseObject[project_id] = mongooseObject[project_id] ? mongooseObject[project_id] : {}
+
     // build mongoose schemas for tables
     for (const model of tempArray) {
         // delete previous mongoose schema for a table, if new fields are added or fields are deleted, schema has to renewed
+        
         delete mongoDBConn.models[model.slug]
-        delete mongooseObject[model.slug]
-        mongooseObject[model.slug] = {};
-        mongooseObject[model.slug].models = mongoDBConn.model(model.slug, model.model);
-        mongooseObject[model.slug].fields = model.field;
-        mongooseObject[model.slug].relations = model.relation;
-        mongooseObject[model.slug].views = model.view;
+        // delete mongooseObject[project_id]
+
+        mongooseObject[project_id][model.slug] = {};
+        mongooseObject[project_id][model.slug].models = mongoDBConn.model(model.slug, model.model);
+        mongooseObject[project_id][model.slug].fields = model.field;
+        mongooseObject[project_id][model.slug].relations = model.relation;
+        mongooseObject[project_id][model.slug].views = model.view;
+        
+        // delete mongoDBConn.models[model.slug]
+        // delete mongooseObject[model.slug]
+        // mongooseObject[model.slug] = {};
+        // mongooseObject[model.slug].models = mongoDBConn.model(model.slug, model.model);
+        // mongooseObject[model.slug].fields = model.field;
+        // mongooseObject[model.slug].relations = model.relation;
+        // mongooseObject[model.slug].views = model.view;
 
         // drop indexes if unique is disabled
         let index_list, dropIndexes;
         try {
-            index_list = await mongooseObject[model.slug].models.collection.getIndexes()
+            index_list = await mongooseObject[project_id][model.slug].models.collection.getIndexes()
             dropIndexes = model.dropIndex
             for (const index_name in dropIndexes) {
                 if (!(index_name.concat('_1') in index_list)) {
@@ -460,7 +518,7 @@ async function buildModels(is_build = true, project_id) {
             logger.info("error while get index");
         }
         if(dropIndexes && Object.keys(dropIndexes).length > 0) {
-            mongooseObject[model.slug].models.collection.dropIndex(dropIndexes);
+            mongooseObject[project_id][model.slug].models.collection.dropIndex(dropIndexes);
         }
         const resp = await Table.updateOne({
             slug: model.slug,
@@ -471,7 +529,8 @@ async function buildModels(is_build = true, project_id) {
             }
         })
     }
-    return mongooseObject
+    return mongooseObject[project_id]
+
 }
 
 module.exports = buildModels;

@@ -41,8 +41,10 @@ let relationStore = {
 
             let table = {};
             let field = {};
-            let result = {}
-            data["id"] = v4()
+            let result = {};
+            if (!data["id"]) {
+                data["id"] = v4()
+            }
             switch (data.type) {
                 case 'One2Many':
                     data.field_from = "id";
@@ -66,7 +68,7 @@ let relationStore = {
                     console.log("response from field create while creating relation", response)
                     break;
                 case 'Many2Dynamic':
-                    data.field_from = data.relation_field_slug
+                    data.field_from = data.relation_field_slug 
                     data.field_to = "id"
                     table = await Table.findOne({
                         slug: data.table_from,
@@ -145,8 +147,7 @@ let relationStore = {
                         }
                     )
                     tableRes.fields = fieldsTo
-                    eventFrom.payload = tableRes
-
+                    eventFrom.payload = tableRes               
                     await sendMessageToTopic(con.TopicRelationFromCreateV1, eventFrom)
                     break;
                 case 'Recursive':
@@ -171,7 +172,6 @@ let relationStore = {
                     });
                     let responsee = await field.save();
                     console.log("response from field create while creating recursive relation======>", responsee)
-
                     let typeRecursive = converter(field.type);
                     let tableRecursive = {}
                     let event = {}

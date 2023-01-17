@@ -387,7 +387,7 @@ let loginStore = {
 
     login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login_data`, async (req) => {
         console.log("TEST:::::::::1")
-        const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
+        const clientTypeTable = (await ObjectBuilder(true, req.resource_environment_id))["client_type"]
 
         const clientType = await clientTypeTable.models.findOne(
             {
@@ -400,7 +400,7 @@ let loginStore = {
         params["project_id"] = req.project_id
         params["client_type_id"] = req.client_type
 
-        const userTable = (await ObjectBuilder(true, req.project_id))["user"]
+        const userTable = (await ObjectBuilder(true, req.resource_environment_id))["user"]
         let user = await userTable.models.findOne(
             {
                 $and: [params]
@@ -413,7 +413,7 @@ let loginStore = {
             }
         }
         console.log("TEST:::::::::3")
-        const roleTable = (await ObjectBuilder(true, req.project_id))["role"]
+        const roleTable = (await ObjectBuilder(true, req.resource_environment_id))["role"]
 
         const role = await roleTable.models.findOne(
             {
@@ -421,7 +421,7 @@ let loginStore = {
             }
         ).lean()
         console.log("TEST:::::::::4")
-        const clientPlatfromTable = (await ObjectBuilder(true, req.project_id))["client_platform"]
+        const clientPlatfromTable = (await ObjectBuilder(true, req.resource_environment_id))["client_platform"]
 
         const clientPlatform = await clientPlatfromTable.models.findOne(
             {
@@ -430,7 +430,7 @@ let loginStore = {
         ).lean()
         console.log("TEST:::::::::5")
 
-        const connectionsTable = (await ObjectBuilder(true, req.project_id))["connections"]
+        const connectionsTable = (await ObjectBuilder(true, req.resource_environment_id))["connections"]
 
         const connections = await connectionsTable.models.find(
             {
@@ -443,7 +443,7 @@ let loginStore = {
         clientTypeResp = clientType
         clientTypeResp.tables = connections
 
-        const recordPermission = (await ObjectBuilder(true, req.project_id))["record_permission"]
+        const recordPermission = (await ObjectBuilder(true, req.resource_environment_id))["record_permission"]
 
         const permissions = await recordPermission.models.find(
             {

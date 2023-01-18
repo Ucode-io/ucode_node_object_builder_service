@@ -39,6 +39,9 @@ let relationStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
+            const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+            const roles = await roleTable?.models.find()
+
             let table = {};
             let field = {};
             let result = {};
@@ -65,6 +68,23 @@ let relationStore = {
                         relation_id: data.id
                     });
                     let response = await field.save();
+
+                    const fieldPermissionTableOne = (await ObjectBuilder(true, data.project_id))["field_permission"]
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: response.id,
+                            table_slug: data.table_to,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label: "FROM " + data.table_from + " TO " + data.table_to
+                        }
+
+                        const fieldPermissionWithModel = new fieldPermissionTableOne.models(fieldPermission)
+                        fieldPermissionWithModel.save()
+                    }
+
                     console.log("response from field create while creating relation", response)
                     break;
                 case 'Many2Dynamic':
@@ -82,6 +102,23 @@ let relationStore = {
                         relation_id: data.id
                     });
                     let output = await field.save();
+
+                    const fieldPermissionTableDynamic = (await ObjectBuilder(true, data.project_id))["field_permission"]
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: output.id,
+                            table_slug: data.table_from,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label: "FROM " + data.table_from + " TO DYNAMIC"
+                        }
+
+                        const fieldPermissionWithModel = new fieldPermissionTableDynamic.models(fieldPermission)
+                        fieldPermissionWithModel.save()
+                    }
+
                     console.log("response from field create while creating relation", output);
                     break;
                 case 'Many2Many':
@@ -104,6 +141,23 @@ let relationStore = {
                         relation_id: data.id
                     });
                     let res = await field.save();
+
+                    const fieldPermissionTableMany1 = (await ObjectBuilder(true, data.project_id))["field_permission"]
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: res.id,
+                            table_slug: data.table_to,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label: "FROM " + data.table_from + " TO " + data.table_to
+                        }
+
+                        const fieldPermissionWithModel = new fieldPermissionTableMany1.models(fieldPermission)
+                        fieldPermissionWithModel.save()
+                    }
+
                     let type = converter(field.type);
                     let eventTo = {}
                     let tableRes = {}
@@ -134,6 +188,23 @@ let relationStore = {
                         relation_id: data.id
                     });
                     res = await field.save();
+                    
+                    const fieldPermissionTableMany2 = (await ObjectBuilder(true, data.project_id))["field_permission"]
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: res.id,
+                            table_slug: data.table_to,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label: "FROM " + data.table_from + " TO " + data.table_to
+                        }
+
+                        const fieldPermissionWithModel = new fieldPermissionTableMany2.models(fieldPermission)
+                        fieldPermissionWithModel.save()
+                    }
+
                     console.log("response from field create while creating relation", res)
                     await sendMessageToTopic(con.TopicRelationToCreateV1, eventTo)
                     type = converter(field.type);
@@ -171,6 +242,23 @@ let relationStore = {
                         relation_id: data.id
                     });
                     let responsee = await field.save();
+
+                    const fieldPermissionTableRecursive = (await ObjectBuilder(true, data.project_id))["field_permission"]
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: responsee.id,
+                            table_slug: data.table_from,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label: "FROM " + data.table_from + " TO " + data.table_from
+                        }
+
+                        const fieldPermissionWithModel = new fieldPermissionTableRecursive.models(fieldPermission)
+                        fieldPermissionWithModel.save()
+                    }
+
                     console.log("response from field create while creating recursive relation======>", responsee)
                     let typeRecursive = converter(field.type);
                     let tableRecursive = {}
@@ -207,6 +295,23 @@ let relationStore = {
                         relation_id: data.id
                     });
                     let resp = await field.save();
+
+                    const fieldPermissionTableOne1 = (await ObjectBuilder(true, data.project_id))["field_permission"]
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: resp.id,
+                            table_slug: data.table_from,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label: "FROM " + data.table_from + " TO " + data.table_to
+                        }
+
+                        const fieldPermissionWithModel = new fieldPermissionTableOne1.models(fieldPermission)
+                        fieldPermissionWithModel.save()
+                    }
+
                     console.log("response from field create while creating relation", resp);
                     let typeMany2One = converter(field.type);
                     let tableMany2One = {}

@@ -18,7 +18,7 @@ const ResourceService = () => {
         });
         
     const resource_service = grpc.loadPackageDefinition(packageDefinition).company_service;
-    return new resource_service.ResourceService(`${companyServiceHost}:8092`, grpc.credentials.createInsecure());
+    return new resource_service.ResourceService(`${companyServiceHost}:80`, grpc.credentials.createInsecure());
 };
 
 const autoConn = async (k8s_namespace) => {

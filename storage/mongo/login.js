@@ -386,7 +386,7 @@ let loginStore = {
     }),
 
     login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login_data`, async (req) => {
-        console.log("TEST:::::::::1")
+        console.log("TEST:::::::::1", req.resource_environment_id)
         const clientTypeTable = (await ObjectBuilder(true, req.resource_environment_id))["client_type"]
 
         const clientType = await clientTypeTable.models.findOne(

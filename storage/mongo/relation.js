@@ -606,10 +606,12 @@ let relationStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
+            console.log('data-->', data)
             if (data.table_slug === "") {
                 let table = await Table.findOne({
                     id: data.table_id
                 });
+                console.log("table-->", JSON.stringify(table, null, 2))
                 data.table_slug = table.slug;
             }
             const relations = await Relation.find(

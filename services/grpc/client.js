@@ -1,12 +1,11 @@
-
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 const { k8s_namespace, companyServiceHost, companyServicePort } = require("../../config");
 
 const logger = require('../../config/logger')
 
-const ProjectService = () => {
-    const PROTO_PATH = __dirname + '/../../protos/company_service/projects_service.proto';
+const ResourceService = () => {
+    const PROTO_PATH = __dirname + '/../../protos/company_service/resource_service.proto';
     
     const packageDefinition = protoLoader.loadSync(
         PROTO_PATH,
@@ -18,13 +17,13 @@ const ProjectService = () => {
          oneofs: true
         });
         
-    const project_service = grpc.loadPackageDefinition(packageDefinition).company_service;
-    return new project_service.ProjectService(`${companyServiceHost}:80`, grpc.credentials.createInsecure());
+    const resource_service = grpc.loadPackageDefinition(packageDefinition).company_service;
+    return new resource_service.ResourceService(`${companyServiceHost}:8092`, grpc.credentials.createInsecure());
 };
 
 const autoConn = async (k8s_namespace) => {
     return new Promise((resolve, reject) => {
-        ProjectService().AutoConnect({k8s_namespace: k8s_namespace}, (err, res) => {
+        ResourceService().AutoConnect({k8s_namespace: k8s_namespace}, (err, res) => {
             if (err) {
                 logger.error("Error while auto connecting", {
                     function: "autoConn",

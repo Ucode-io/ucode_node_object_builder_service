@@ -25,6 +25,7 @@ message CreateApiReferenceRequest {
     bool authentification = 8;
     bool new_window = 9;
     google.protobuf.Struct attributes = 10;
+    string project_id = 11;
 }
 
 message ApiReference {
@@ -39,6 +40,7 @@ message ApiReference {
     bool authentification = 9;
     bool new_window = 10;
     google.protobuf.Struct attributes = 11;
+    string project_id = 12;
 }
 
 
@@ -50,6 +52,7 @@ message GetListApiReferenceRequest {
     int64 limit = 1;
     int64 offset = 2;
     string category_id = 3;
+    string project_id = 4;
 }
 
 message GetListApiReferenceResponse {

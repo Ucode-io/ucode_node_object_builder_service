@@ -11817,3 +11817,461 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:35:59.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:35:59.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:35:59.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources failed: Error: ProjectService(...).AutoConnect is not a function',
+  level: 'info',
+  timestamp: '2023-01-18T19:35:59.367Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:36:42.407Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:36:42.412Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:36:42.413Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources failed: Error: ProjectService(...).AutoConnect is not a function',
+  level: 'info',
+  timestamp: '2023-01-18T19:36:42.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:38:03.843Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:38:03.848Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:38:03.849Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources failed: Error: ProjectService(...).AutoConnect is not a function',
+  level: 'info',
+  timestamp: '2023-01-18T19:38:03.865Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:39:28.368Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:39:28.375Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:39:28.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources failed: Error: ProjectService(...).AutoConnect is not a function',
+  level: 'info',
+  timestamp: '2023-01-18T19:39:28.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:39:34.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:39:34.986Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:39:34.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources failed: Error: ProjectService(...).AutoConnect is not a function',
+  level: 'info',
+  timestamp: '2023-01-18T19:39:35.003Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:42:36.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:42:36.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:42:36.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:42:36.821Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'Name resolution failed for target dns:go-company-service:80',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80',
+  level: 'info',
+  timestamp: '2023-01-18T19:42:36.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:43:34.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:43:34.408Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:43:34.409Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "autoconnecting to resources failed: Error: Cannot read properties of undefined (reading 'ResourceService')",
+  level: 'info',
+  timestamp: '2023-01-18T19:43:34.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:43:54.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:43:54.426Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:43:54.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:43:54.462Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'Name resolution failed for target dns:go-company-service:80',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80',
+  level: 'info',
+  timestamp: '2023-01-18T19:43:54.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:44:48.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:44:48.792Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:44:48.792Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:44:48.836Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-01-18T19:44:48.839Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:45:15.157Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:45:15.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:45:15.163Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:45:15.396Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: err not implemented
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 2,
+      details: 'err not implemented',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 2 UNKNOWN: err not implemented',
+  level: 'info',
+  timestamp: '2023-01-18T19:45:15.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-18T19:46:23.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-18T19:46:23.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-18T19:46:23.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:46:23.783Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: err not implemented
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 2,
+      details: 'err not implemented',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 2 UNKNOWN: err not implemented',
+  level: 'info',
+  timestamp: '2023-01-18T19:46:23.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

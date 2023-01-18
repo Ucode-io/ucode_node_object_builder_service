@@ -1743,3 +1743,109 @@
     }
   }
 }
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:42:36.821Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'Name resolution failed for target dns:go-company-service:80',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:43:54.462Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'Name resolution failed for target dns:go-company-service:80',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:44:48.836Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:45:15.396Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: err not implemented
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 2,
+      details: 'err not implemented',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-01-18T19:46:23.783Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: err not implemented
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 2,
+      details: 'err not implemented',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}

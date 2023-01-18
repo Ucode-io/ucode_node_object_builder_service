@@ -18,13 +18,15 @@ message CreateCategoryRequest {
     string name = 1;
     string base_url = 2;
     google.protobuf.Struct attributes = 3; 
+    string project_id = 4;
 }
 
 message Category {
     string guid = 1;
     string name = 2;
     string base_url = 3;
-    google.protobuf.Struct attributes = 4; 
+    google.protobuf.Struct attributes = 4;
+    string project_id = 5;
 }
 
 message GetCategoryRequest {
@@ -34,6 +36,7 @@ message GetCategoryRequest {
 message GetListCategoryRequest {
     int64 limit = 1;
     int64 offset = 2;
+    string project_id = 3;
 }
 
 message GetListCategoryResponse {

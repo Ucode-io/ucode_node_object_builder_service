@@ -3,6 +3,7 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const con = require("../../config/kafkaTopics");
 const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
+const { v4 } = require("uuid");
 
 const mongoPool = require('../../pkg/pool');
 

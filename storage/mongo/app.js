@@ -49,7 +49,6 @@ let appStore = {
         try {
 
             const mongoConn = await mongoPool.get(data.project_id)
-            console.log('data.project_id', data.project_id)
 
             const App = mongoConn.models['App']
 

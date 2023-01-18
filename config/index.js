@@ -25,7 +25,7 @@ const config = {
     ucodeDefaultProjectID: "ucode_default_project_id",
     k8s_namespace: "cp-region-type-id",
 
-    companyServiceHost : getConf("COMPANY_SERVICE_HOST", "localhost"),
+    companyServiceHost : getConf("COMPANY_SERVICE_HOST", "go-company-service"),
     companyServicePort : getConf("RPC_PORT", ":8092")
 };
 

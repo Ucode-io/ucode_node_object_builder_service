@@ -88,7 +88,7 @@ let relationStore = {
                     console.log("response from field create while creating relation", response)
                     break;
                 case 'Many2Dynamic':
-                    data.field_from = data.relation_field_slug 
+                    data.field_from = data.relation_field_slug
                     data.field_to = "id"
                     table = await Table.findOne({
                         slug: data.table_from,
@@ -188,7 +188,7 @@ let relationStore = {
                         relation_id: data.id
                     });
                     res = await field.save();
-                    
+
                     const fieldPermissionTableMany2 = (await ObjectBuilder(true, data.project_id))["field_permission"]
                     for (const role of roles) {
                         let fieldPermission = {
@@ -218,7 +218,7 @@ let relationStore = {
                         }
                     )
                     tableRes.fields = fieldsTo
-                    eventFrom.payload = tableRes               
+                    eventFrom.payload = tableRes
                     await sendMessageToTopic(con.TopicRelationFromCreateV1, eventFrom)
                     break;
                 case 'Recursive':
@@ -260,6 +260,7 @@ let relationStore = {
                     }
 
                     console.log("response from field create while creating recursive relation======>", responsee)
+
                     let typeRecursive = converter(field.type);
                     let tableRecursive = {}
                     let event = {}
@@ -606,12 +607,10 @@ let relationStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
-            console.log('data-->', data)
             if (data.table_slug === "") {
                 let table = await Table.findOne({
                     id: data.table_id
                 });
-                console.log("table-->", JSON.stringify(table, null, 2))
                 data.table_slug = table.slug;
             }
             const relations = await Relation.find(

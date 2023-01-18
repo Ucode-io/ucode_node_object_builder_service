@@ -1,4 +1,4 @@
-    const pool = require("../../pkg/pool")
+const pool = require("../../pkg/pool")
 const catchWrapDb = require("../../helper/catchWrapDb");
 const insertCollections = require("../../helper/initialDatabaseSetup");
 const newMongoDBConn = require('../../config/mongoConn')
@@ -6,6 +6,7 @@ const config = require('../../config/index')
 const client = require('../../services/grpc/client');
 const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
+const logger = require("../../config/logger");
 
 
 
@@ -143,28 +144,23 @@ let projectStore = {
         }
     }),
     autoConnect: catchWrapDb(`${NAMESPACE}.autoConnect`, async (args) => {
+
         if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
-        console.log("args ==> ", args)
-        let projects = await client.autoConn(config.k8s_namespace)
-        console.log('projects', projects)
-        return projects;
+
+        let reconnect_data = await client.autoConn(config.k8s_namespace);
+
+        for (let it of reconnect_data.data) {
+            // console.log("credentials::::::", it)
+            try {
+                await projectStore.reconnect(it)
+            } catch (err) {
+                logger.info(`autoconnecting to resources failed: ${err}`);
+            }
+        }
+
+        return {}
     })
 };
-
-
-// async function AutoConn(args){
-
-//     if (!config.k8s_namespace) { throw new Error("k8s_spaceName is REQUIRED") };
-//     let query = {
-//         // query
-//         _id: config.k8s_namespace
-//     }
-
-//     let resConn = await client.ProjectService.AutoConnect(query);
-
-//     return resConn
-// }
-// module.exports = {AutoConn};
 
 module.exports = projectStore;
 

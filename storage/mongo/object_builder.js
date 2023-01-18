@@ -39,7 +39,7 @@ let objectBuilder = {
 
             let {payload, data, event, appendMany2ManyObjects} = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
-        
+
             // send topic to Analytics service
             await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
@@ -65,7 +65,7 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleUpdateV2 function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            
+
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             let {data, event, appendMany2Many, deleteMany2Many} = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
@@ -266,7 +266,7 @@ let objectBuilder = {
         }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-
+        console.log("TEST::::::1")
         const mongoConn = await mongoPool.get(req.project_id)
 
         const table = mongoConn.models['Table']
@@ -279,6 +279,7 @@ let objectBuilder = {
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
         let keys = Object.keys(params)
         let order = params.order 
         let fields = tableInfo.fields
@@ -294,7 +295,6 @@ let objectBuilder = {
                 }
             ]
         })
-        console.log(`${NAMESPACE}.getList permission`, JSON.stringify(permission, null, 2))
         if (permission?.is_have_condition) {
             const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -354,10 +354,11 @@ let objectBuilder = {
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
-            if (clientType.name === "DOCTOR" && req.table_slug === "doctors") {
+            if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
                 params["guid"] = params["user_id_from_token"]
             }
         }
+        console.log("TEST::::::3")
         let views = []
         if (params.app_id) {
             views = tableInfo.views.filter(val => (val.app_id === params.app_id))
@@ -379,6 +380,7 @@ let objectBuilder = {
                 params[key] = RegExp(params[key], "i")
             } 
         }
+        console.log("TEST::::::4")
         const relations = await Relation.find({
             $or: [{
                 $and: [{
@@ -428,6 +430,7 @@ let objectBuilder = {
             //   }
             ]
         })
+        console.log("TEST::::::5")
         let relationsFields = []
         if (with_relations) {
             for (const relation of relations) {
@@ -504,7 +507,8 @@ let objectBuilder = {
 
             }
         }
-        
+        console.log("TEST::::::6")
+
 
         let result = [], count;
         let searchByField = []
@@ -527,6 +531,7 @@ let objectBuilder = {
             let phone = `\(` + temp.substring(2,4) + `\)` + tempPhone
             params.phone = phone
         }
+        console.log("TEST::::::7")
         let populateArr = []
         if (limit !== 0) {
             if (relations.length == 0) {
@@ -577,6 +582,7 @@ let objectBuilder = {
                         }
                     }
                 }
+                console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -642,6 +648,7 @@ let objectBuilder = {
                             }
                         }
                     }
+                    console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -687,13 +694,14 @@ let objectBuilder = {
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
+        console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
         }
-        
 
+        console.log("TEST::::::11")
         // this function add field permission for each field by role id
         let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
@@ -711,7 +719,7 @@ let objectBuilder = {
                 decodedFields.push(elementField)
             }
         };
-
+        console.log("TEST::::::12")
         for (const field of decodedFields) {
             if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                 let relation = await Relation.findOne({table_from: req.table_slug, table_to: field.table_slug})
@@ -741,6 +749,7 @@ let objectBuilder = {
                     field.view_fields = viewFields
             }
         }
+        console.log("TEST::::::13")
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
             const additional_param = {};
@@ -790,6 +799,7 @@ let objectBuilder = {
             }
             result = result.concat(additional_results)
         }
+        console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         for (const res of result) {
@@ -830,6 +840,7 @@ let objectBuilder = {
                 data: struct.encode({objects: updatedObjects})
             })
         }
+        console.log("TEST::::::15")
         const response = struct.encode({
             count: count,
             response: result,
@@ -1691,7 +1702,7 @@ let objectBuilder = {
                     table_slug: req.table_slug,
                     project_id: req.project_id
                 }
-                let {payload, data, event, appendMany2ManyObjects} = await PrepareFunction.prepareToCreateInObjectBuilder(request, mongoConn) 
+                let {payload, data, event, appendMany2ManyObjects} = await PrepareFunction.prepareToCreateInObjectBuilder(request, mongoConn)
                 appendMany2ManyObj = appendMany2ManyObjects
                 objects.push(payload)
 
@@ -1732,9 +1743,9 @@ let objectBuilder = {
                     table_slug: req.table_slug,
                     project_id: req.project_id,
                 }
-                
+
                 let {data, event, appendMany2Many, deleteMany2Many} = await prepareFunction.prepareToUpdateInObjectBuilder(request, mongoConn)
-                
+
                 await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
                 let bulk = {
                     updateOne: {
@@ -1751,7 +1762,7 @@ let objectBuilder = {
                 }
                 objects.push(bulk)
             }
-            await tableInfo.models.bulkWrite(objects);            
+            await tableInfo.models.bulkWrite(objects);
             return
         } catch (err) {
             throw err
@@ -1812,12 +1823,12 @@ let objectBuilder = {
                             let sumFieldWithDollowSign = '$' + option.number_field
                             let dateBy = option.date_field
                             let aggregateFunction = "$sum"
-    
+
                             let params = {}
                             //adding params
                             params[groupBy] = {'$eq': chartOfAccount.object_id}
                             params[dateBy] = date
-    
+
                             if (option.filters && option.filters.length) {
                                 for (const filter of option.filters) {
                                     let field = optionTable.fields.find(el => el.id == filter.field_id)
@@ -1833,7 +1844,7 @@ let objectBuilder = {
                                     '$match': params,
                                 }, {
                                     '$group': {
-                                        '_id': groupByWithDollorSign, 
+                                        '_id': groupByWithDollorSign,
                                     'res': {
                                         [aggregateFunction]: sumFieldWithDollowSign
                                         }

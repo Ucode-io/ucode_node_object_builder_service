@@ -6,6 +6,7 @@ const relationStore = require("../mongo/relation");
 const AddPermission = require("../../helper/addPermission");
 
 const mongoPool = require('../../pkg/pool');
+const ObjectBuilder = require("../../models/object_builder");
 
 // const mongoConn = await mongoPool.get(data.project_id)
 // const Table = mongoConn.models['Table']
@@ -94,7 +95,7 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
 
-            const count = await ViewRelation.deleteMany(
+            await ViewRelation.deleteMany(
                 {
                     table_slug: data.table_slug,
                 }
@@ -112,7 +113,8 @@ let sectionStore = {
 
             const viewRelation = new ViewRelation(viewRelationReq);
             viewRelation.table_slug = data.table_slug;
-            var response = viewRelation.save();
+            viewRelation.save();
+
             const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             await viewRelationPermissionTable.models.deleteMany(
                 {
@@ -153,7 +155,7 @@ let sectionStore = {
                 }
             }
 
-            const resp = await Table.updateOne({
+            await Table.updateOne({
                 id: data.table_id,
             },
                 {
@@ -307,6 +309,7 @@ let sectionStore = {
                             field.slug = fieldResp.slug
                             field.required = fieldResp.required
                         }
+
                         const relation = await Relation.findOne({ id: relationID })
                         let fieldAsAttribute = []
                         let view_of_relation;
@@ -351,17 +354,17 @@ let sectionStore = {
                                 let dynamicTableToAttribute;
                                 for (const dynamic_table of relation.dynamic_tables) {
                                     const dynamicTableInfo = await Table.findOne(
-                                        {  
+                                        {
                                             slug: dynamic_table.table_slug
                                         },
                                         {
                                             deletedAt: 0,
                                             deleted_at: 0,
-                                            createdAt: 0, 
+                                            createdAt: 0,
                                             updatedAt: 0,
-                                            created_at: 0, 
+                                            created_at: 0,
                                             updated_at: 0,
-                                            _id: 0, 
+                                            _id: 0,
                                             __v: 0
                                         }
                                     )
@@ -389,7 +392,7 @@ let sectionStore = {
                                     }
                                     dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
                                     dynamicTables.push(dynamicTableToAttribute)
-                                }                
+                                }
                                 originalAttributes = {
                                     autofill: autofillFields,
                                     view_fields: fieldAsAttribute,
@@ -415,14 +418,14 @@ let sectionStore = {
                                 cascading_tree_field_slug: relation?.cascading_tree_field_slug
                             }
                         }
-                        
+
                         if (view_of_relation) {
                             if (view_of_relation.default_values && view_of_relation.default_values.length) {
                                 originalAttributes["default_values"] = view_of_relation.default_values
                             }
                         }
                         encodedAttributes = struct.encode(originalAttributes)
-                        field.attributes = encodedAttributes   
+                        field.attributes = encodedAttributes
                         fieldsRes.push(field)
                     } else if (fieldReq.id.includes("@")) {
                         field.id = fieldReq.id
@@ -437,9 +440,9 @@ let sectionStore = {
                             field.id = fieldReq.id;
                             field.relation_type = fieldReq.relation_type;
                             fieldsRes.push(field);
-    
+
                         }
-                    } 
+                    }
                 }
                 // this function add field permission for each field by role id
                 fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)

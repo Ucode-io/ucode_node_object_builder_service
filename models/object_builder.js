@@ -52,15 +52,15 @@ async function buildModels(is_build = true, project_id) {
                 }, {
                     type: "Many2One"
                 }]
-            },
-            {
+              },
+              {
                 $and: [{
-                table_to: table.slug
+                  table_to: table.slug
                 }, {
-                type: "One2Many"
+                  type: "One2Many"
                 }]
-            },
-            {
+              },
+              {
                 $and: [{
                     $or: [{
                         table_from: table.slug
@@ -213,7 +213,7 @@ async function buildModels(is_build = true, project_id) {
                         }
                     }
                 }
-            
+               
 
                 // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
                 if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS" && field.type != "DYNAMIC") {
@@ -287,17 +287,17 @@ async function buildModels(is_build = true, project_id) {
                         } else {
                             for (const dynamicTable of relation.dynamic_tables) {
                                 const dynamicTableInfo = await Table.findOne(
-                                    {  
+                                    {
                                         slug: dynamicTable.table_slug
                                     },
                                     {
                                         deletedAt: 0,
                                         deleted_at: 0,
-                                        createdAt: 0, 
+                                        createdAt: 0,
                                         updatedAt: 0,
-                                        created_at: 0, 
+                                        created_at: 0,
                                         updated_at: 0,
-                                        _id: 0, 
+                                        _id: 0,
                                         __v: 0
                                     }
                                 )
@@ -373,7 +373,7 @@ async function buildModels(is_build = true, project_id) {
         }
         
 
-        temp =  mongoose.Schema(
+        let temp =  mongoose.Schema(
             {
             ...fieldObject,
                 createdAt: {type: Date, select: false},
@@ -488,7 +488,7 @@ async function buildModels(is_build = true, project_id) {
     // build mongoose schemas for tables
     for (const model of tempArray) {
         // delete previous mongoose schema for a table, if new fields are added or fields are deleted, schema has to renewed
-        
+
         delete mongoDBConn.models[model.slug]
         // delete mongooseObject[project_id]
 
@@ -497,7 +497,7 @@ async function buildModels(is_build = true, project_id) {
         mongooseObject[project_id][model.slug].fields = model.field;
         mongooseObject[project_id][model.slug].relations = model.relation;
         mongooseObject[project_id][model.slug].views = model.view;
-        
+
         // delete mongoDBConn.models[model.slug]
         // delete mongooseObject[model.slug]
         // mongooseObject[model.slug] = {};
@@ -532,7 +532,6 @@ async function buildModels(is_build = true, project_id) {
         })
     }
     return mongooseObject[project_id]
-
 }
 
 module.exports = buildModels;

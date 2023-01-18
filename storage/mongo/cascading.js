@@ -15,7 +15,7 @@ let cascaderStore = {
             const Relation = mongoConn.models['Relation']
 
             let response;
-            let resp = await RelationStore.getAll({ table_slug: data.table_slug, relation_table_slug: data.table_slug })
+            let resp = await RelationStore.getAll({ table_slug: data.table_slug, relation_table_slug: data.table_slug, project_id: data.project_id })
             let cascadings = []
             for (const relation of resp.relations) {
                 let validObject = {};

@@ -24,26 +24,46 @@ let projectStore = {
                 throw new Error('Error project_id is required')
             }
 
-            if (!data.resource_id) {
-                throw new Error('Error resource_id is required')
-            }
-
+            // shouldCompileModels=false since we have to list
+            // existing collections in mongodb before running migrations
             const mongoDBConn = await newMongoDBConn({
                 mongoHost: data.credentials.host,
                 mongoPort: data.credentials.port,
                 mongoDatabase: data.credentials.database,
                 mongoUser: data.credentials.username,
                 mongoPassword: data.credentials.password
-            })
-
-            await insertCollections(mongoDBConn, data.user_id, data.project_id)
-
-            await pool.add(data.resource_id, mongoDBConn)
+            }, false)
 
             mongoDBConn.once("open", async function () {
-                console.log("Connected to the database, building models");
-                await objectBuilder(false, data.resource_id)
-                console.log("Object builder has successfully runned for", data.resource_id);
+                console.log("Connected to the database");
+
+                await insertCollections(mongoDBConn, data.user_id, data.project_id)
+
+                // compiling models after running migrations
+                mongoDBConn.model('App', require('../schemas/app'))
+                mongoDBConn.model('CustomEvent', require('../schemas/custom_event'))
+                mongoDBConn.model('Dashboard', require('../schemas/dashboard'))
+                mongoDBConn.model('Document', require('../schemas/document'))
+                mongoDBConn.model('EventLog', require('../schemas/event_log'))
+                mongoDBConn.model('Event', require('../schemas/event'))
+                mongoDBConn.model('Field', require('../schemas/field'))
+                mongoDBConn.model('Function', require('../schemas/function'))
+                mongoDBConn.model('HtmlTemplate', require('../schemas/html_template'))
+                mongoDBConn.model('Panel', require('../schemas/panel'))
+                mongoDBConn.model('QueryFolder', require('../schemas/query_folder'))
+                mongoDBConn.model('Query', require('../schemas/query'))
+                mongoDBConn.model('Relation', require('../schemas/relation'))
+                mongoDBConn.model('Section', require('../schemas/section'))
+                mongoDBConn.model('Table', require('../schemas/table'))
+                mongoDBConn.model('Variable', require('../schemas/variable'))
+                mongoDBConn.model('ViewRelation', require('../schemas/view_relation'))
+                mongoDBConn.model('View', require('../schemas/view'))
+                mongoDBConn.model('WebPage', require('../schemas/web_pages'))
+
+                await objectBuilder(false, data.project_id)
+                await pool.add(data.project_id, mongoDBConn)
+
+                console.log("Object builder has successfully runned for", data.project_id);
             });
 
             return {}
@@ -102,6 +122,11 @@ let projectStore = {
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });
+
+                    mongoDBConn.on('error', async function (err) {
+                        logger.error("mongo connection error", err)
+                        reject(err)
+                    })
                 } catch (err) {
                     reject(err)
                 }
@@ -117,13 +142,16 @@ let projectStore = {
 
     registerProjects: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
+
+            // shouldCompileModels=false since we have to list
+            // existing collections in mongodb before running migrations
             const mongoDBConn = await newMongoDBConn({
                 mongoHost: data.credentials.host,
                 mongoPort: data.credentials.port,
                 mongoDatabase: data.credentials.database,
                 mongoUser: data.credentials.username,
                 mongoPassword: data.credentials.password
-            })
+            }, false)
 
             await insertCollections(mongoDBConn, data.user_id, data.project_id)
 

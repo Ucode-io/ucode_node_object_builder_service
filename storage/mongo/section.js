@@ -115,16 +115,21 @@ let sectionStore = {
             viewRelation.table_slug = data.table_slug;
             viewRelation.save();
 
+            console.log("TEST::::::::1")
+
             const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             await viewRelationPermissionTable.models.deleteMany(
                 {
                     table_slug: data.table_slug,
                 }
             )
+            console.log("TEST::::::::2")
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
+            console.log("TEST::::::::3", roles)
             for (const role of roles) {
                 let view_relations = data.view_relations? data.view_relations : []
+                console.log("TEST::::::::4", view_relations)
                 for (const relation of view_relations) {
                     let is_exist_view = await viewRelationPermissionTable?.models.findOne({
                         $and: [
@@ -139,7 +144,9 @@ let sectionStore = {
                             }
                         ]
                     }).lean()
+                    console.log("TEST::::::::5", is_exist_view)
                     if (!is_exist_view) {
+                        console.log("TEST::::::::6")
                         let permissionViewRelation = {
                             table_slug: data.table_slug,
                             relation_id: relation.relation_id,

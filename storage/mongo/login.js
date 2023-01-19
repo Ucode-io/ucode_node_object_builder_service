@@ -248,6 +248,7 @@ let loginStore = {
                 name: req.client_type
             }
         )
+        console.log(`[1]-->clientType`, JSON.stringify(clientType, null, 2))
         const login = await tableInfo.models.findOne(
             {
                 $and: [{
@@ -257,17 +258,21 @@ let loginStore = {
                 }]
             }
         )
+        console.log(`[2]-->login`, JSON.stringify(login, null, 2))
         if (!login) {
             return null
         }
         let params = {}
         params[login.login_view] = req.email
         userTable = (await ObjectBuilder(true, req.project_id))[login.table_slug]
+
+        console.log(`[!!]-->params`, JSON.stringify(params, null, 2))
         user = await userTable.models.findOne(
             {
                 $and: [params]
             }
         )
+        console.log(`[3]-->user`, JSON.stringify(user, null, 2))
         if (user) {
 
             const roleTable = (await ObjectBuilder(true, req.project_id))["role"]
@@ -277,6 +282,7 @@ let loginStore = {
                     client_type_id: clientType.guid,
                 }
             )
+            console.log(`[4]-->role`, JSON.stringify(role, null, 2))
             const clientPlatfromTable = (await ObjectBuilder(true, req.project_id))["client_platform"]
 
             clientPlatform = await clientPlatfromTable.models.findOne(
@@ -284,7 +290,7 @@ let loginStore = {
                     guid: role.client_platform_id,
                 }
             )
-
+            console.log(`[4]-->clientPlatform`, JSON.stringify(clientPlatform, null, 2))
 
             const connectionsTable = (await ObjectBuilder(true, req.project_id))["connections"]
 
@@ -293,6 +299,7 @@ let loginStore = {
                     client_type_id: clientType.guid
                 }
             )
+            console.log(`[4]-->connections`, JSON.stringify(connections, null, 2))
 
             clientTypeResp = clientType
             clientTypeResp.tables = connections
@@ -308,6 +315,8 @@ let loginStore = {
                     }]
                 }
             )
+
+            console.log(`[4]-->permissions`, JSON.stringify(permissions, null, 2))
 
             user_found = true
         }

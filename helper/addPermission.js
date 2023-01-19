@@ -162,6 +162,7 @@ let permissionFunctions = {
             relations.forEach(element => {
                 relationIds.push(element.id)
             })
+            console.log(project_id, roleId, relationIds, tableSlug)
             const relationPermissionTable = (await ObjectBuilder(true, project_id))["view_relation_permission"]
             let viewRelationPermissions = await relationPermissionTable.models.find({
                 role_id: roleId,
@@ -177,6 +178,7 @@ let permissionFunctions = {
                     __v: 0
                 }
             )
+            console.log("TEST:::::::::1", viewRelationPermissions)
             for (const relation of relations) {
                 let encodedPermission = {}
                 let permission = viewRelationPermissions.find(obj => obj.relation_id === relation.id)
@@ -189,6 +191,7 @@ let permissionFunctions = {
                 }
                 relation["permission"] = encodedPermission
             }
+            console.log("relations", relations)
             return relations
 
         } catch (err) {

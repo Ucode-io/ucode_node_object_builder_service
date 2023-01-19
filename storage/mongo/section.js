@@ -143,7 +143,7 @@ let sectionStore = {
                         let permissionViewRelation = {
                             table_slug: data.table_slug,
                             relation_id: relation.relation_id,
-                            permission: true,
+                            view_permission: true,
                             guid: v4(),
                             role_id: role.guid
                         }

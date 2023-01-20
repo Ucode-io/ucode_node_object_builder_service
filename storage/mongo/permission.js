@@ -402,7 +402,10 @@ let permission = {
 
                 const view_permissions = await ViewPermission.find(
                     {
-                        //@TODO:: filter data
+                        $and: [
+                            {role_id: req.role_id},
+                            {table_slug: table.slug}
+                        ]
                     },
                     null,
                     { sort: { createdAt: -1 } }

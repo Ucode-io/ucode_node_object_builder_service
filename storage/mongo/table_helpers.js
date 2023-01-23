@@ -151,7 +151,9 @@ let tableHelpers = {
         let filename = "export_" + Math.floor(Date.now() / 1000) + ".json"
         let filepath = "./" + filename
         let jsonStr = JSON.stringify(jsonObject)
-        fs.writeFileSync(filename, jsonStr);
+        fs.writeFile(filename, jsonStr, (error) => {
+            if (error) throw error
+        });
 
         let ssl = true
         if (cfg.minioSSL != true) {
@@ -164,23 +166,12 @@ let tableHelpers = {
             secretKey: cfg.minioSecretAccessKey
         });
 
-        console.log(`cfg.minioEndpoint`, cfg.minioEndpoint)
-        console.log(`ssl`, ssl, cfg.minioSSL)
-        console.log(`cfg.minioAccessKeyID`, cfg.minioAccessKeyID)
-        console.log(`cfg.minioSecretAccessKey`, cfg.minioSecretAccessKey)
-
         var metaData = {
             'Content-Type': "application/json",
             'Content-Language': 123,
             'X-Amz-Meta-Testing': 1234,
             'example': 5678
         }
-
-        minioClient.listBuckets(function (err, buckets) {
-            if (err) return console.log(err)
-            console.log('buckets :', buckets)
-        })
-
 
         minioClient.putObject("docs", filename, jsonStr, function (error, etag) {
             if (error) {
@@ -321,7 +312,7 @@ let tableHelpers = {
                     }
                 }
             }
-            
+
             for (let relation of jsonObjects.relations) {
                 let newTable = newTables[relation.table_from]
                 if (!newTable) {

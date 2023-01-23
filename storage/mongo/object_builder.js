@@ -11,11 +11,11 @@ const con = require("../../helper/constants");
 const sendMessageToTopic = require("../../config/kafka");
 const conkafkaTopic = require("../../config/kafkaTopics");
 const converter = require("../../helper/converter");
-const Field = require("../../models/field");
+
 var fns_format = require('date-fns/format');
 var { addMonths, addDays, addYears } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
-const View = require("../../models/view");
+
 const RangeDate = require("../../helper/rangeDate");
 const generators = require("../../helper/generator")
 const ObjectBuilder = require("../../models/object_builder");
@@ -1774,6 +1774,8 @@ let objectBuilder = {
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
+            const View = mongoConn.models['View']
+           
             const request = struct.decode(req.data)
             const view = await View.findOne({
                 id: request.view_id

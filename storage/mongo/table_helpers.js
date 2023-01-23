@@ -154,7 +154,7 @@ let tableHelpers = {
         fs.writeFileSync(filename, jsonStr);
 
         let ssl = true
-        if (cfg.minioSSL !== "true") {
+        if (cfg.minioSSL != "true") {
             ssl = false
         }
         var minioClient = new Minio.Client({

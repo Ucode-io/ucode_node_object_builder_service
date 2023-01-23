@@ -20,7 +20,7 @@ const config = {
     minioSecretAccessKey: getConf("MINIO_SECRET_KEY", "minio-secret-key"),
     minioEndpoint: getConf("MINIO_ENDPOINT", "minio-endpoint"),
     minioPort: getConf("MINIO_PORT", 9001),
-    minioSSL: getConf("MINIO_SSL", true),
+    minioSSL: getConf("MINIO_SSL", false),
     
     ucodeDefaultProjectID: "ucode_default_project_id",
     k8s_namespace: "cp-region-type-id",

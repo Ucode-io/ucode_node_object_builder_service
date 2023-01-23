@@ -16,9 +16,9 @@ const config = {
     limit: getConf("DEFAULT_LIMIT", 10),
     page: getConf("DEFAULT_PAGE", 1),
 
-    minioAccessKeyID: getConf("MINIO_ACCESS_KEY", "JqEZQP7w5XJSy2K6ZQh5VJbLWZWbcESZcVkNbakGw977FCwa"),
-    minioSecretAccessKey: getConf("MINIO_SECRET_KEY", "bYTX8fnBKGLhvpvQfsp63MXkBHCuEp8gScf4wUfnGANUwHxZ"),
-    minioEndpoint: getConf("MINIO_ENDPOINT", "test.cdn.medion.uz"),
+    minioAccessKeyID: getConf("MINIO_ACCESS_KEY", "minio-access-key"),
+    minioSecretAccessKey: getConf("MINIO_SECRET_KEY", "minio-secret-key"),
+    minioEndpoint: getConf("MINIO_ENDPOINT", "minio-endpoint"),
     minioPort: getConf("MINIO_PORT", 9001),
     minioSSL: getConf("MINIO_SSL", true),
     

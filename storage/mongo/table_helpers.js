@@ -214,10 +214,12 @@ let tableHelpers = {
         const View = mongoConn.models['View']
 
         const filePath = "./" + data.file_name
+        
         let ssl = true
-        if (cfg.minioSSL !== "true") {
+        if (cfg.minioSSL !== true) {
             ssl = false
         }
+
         let minioClient = new Minio.Client({
             accessKey: cfg.minioAccessKeyID,
             secretKey: cfg.minioSecretAccessKey,
@@ -225,9 +227,11 @@ let tableHelpers = {
             useSSL: ssl,
             pathStyle: true,
         });
+
         let fileStream = fs.createWriteStream(filePath);
         let bucketName = "docs";
         let jsonObjects;
+        
         await new Promise((resolve, reject) => {
             minioClient.getObject(bucketName, data.file_name, (error, object) => {
                 if (error) {
@@ -244,6 +248,7 @@ let tableHelpers = {
                 }
             })
         })
+
         await new Promise((resolve, reject) => {
             fs.readFile(filePath, (err, dataBuffer) => {
                 if (err) console.log("errrr:", err);
@@ -254,14 +259,17 @@ let tableHelpers = {
                 })
             })
         })
+
         let changedRelations = {}
         let existImportedTables = {}
+
         if (jsonObjects) {
             let newAppId = v4()
             jsonObjects.app.id = newAppId
             const app = new App(jsonObjects.app)
             await app.save()
             let newTables = {}
+
             for (const table of jsonObjects.tables) {
                 let ownerAppOfTable;
                 const isExists = await Table.findOne({
@@ -313,6 +321,7 @@ let tableHelpers = {
                     }
                 }
             }
+            
             for (let relation of jsonObjects.relations) {
                 let newTable = newTables[relation.table_from]
                 if (!newTable) {

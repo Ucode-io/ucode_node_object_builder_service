@@ -165,6 +165,10 @@ let tableHelpers = {
             secretKey: cfg.minioSecretAccessKey                            
         });
 
+        console.log(`cfg.minioEndpoint`, cfg.minioEndpoint)
+        console.log(`cfg.minioAccessKeyID`, cfg.minioAccessKeyID)
+        console.log(`cfg.minioSecretAccessKey`, cfg.minioSecretAccessKey)
+
         var metaData = {
             'Content-Type': "application/json",
             'Content-Language': 123,
@@ -173,7 +177,8 @@ let tableHelpers = {
         }
         minioClient.putObject("docs", filename, jsonStr, function (error, etag) {
             if (error) {
-                return console.log("errr:", error);
+                console.log("errr:", error);
+                return error
             }
             console.log("uploaded successfully");
             fs.unlink(filename, (err => {

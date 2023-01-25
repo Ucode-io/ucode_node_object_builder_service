@@ -531,7 +531,7 @@ let permission = {
 
                 for (let view_permission of (table.view_permissions || [])) {
                     if (view_permission?.guid) {
-                        await FieldPermission.findOneAndUpdate(
+                        await ViewPermission.findOneAndUpdate(
                             {
                                 guid: view_permission.guid,
                             },
@@ -545,7 +545,7 @@ let permission = {
                             }
                         )
                     } else {
-                        await FieldPermission.create(
+                        await ViewPermission.create(
                             {
                                 guid: v4(),
                                 label: view_permission.label,

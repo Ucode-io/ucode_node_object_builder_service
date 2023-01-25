@@ -1,26 +1,23 @@
-const Table = require("../../models/table");
-const Field = require("../../models/field");
-const Section = require("../../models/section");
-const catchWrapDb = require("../../helper/catchWrapDb");
-const View = require("../../models/view");
-const Relation = require("../../models/relation");
 var fs = require('fs');
-const cfg = require("../../config/index");
 const Minio = require('minio');
-const ViewRelation = require("../../models/view_relation");
+const { v4 } = require("uuid");
+
+const mongoPool = require('../../pkg/pool');
+const cfg = require("../../config/index");
+const catchWrapDb = require("../../helper/catchWrapDb");
+
 const tableService = require("../../services/table");
+
 const viewStore = require("./view");
 const relationStore = require("./relation");
 const sectionStore = require("./section");
-const { v4 } = require("uuid");
-const App = require("../../models/app");
-const mongoPool = require('../../pkg/pool');
+
 
 let NAMESPACE = "storage.table_helpers";
 
 let tableHelpers = {
-    exportToJSON: catchWrapDb(`${NAMESPACE}.exportToJSON`, async(data) => {
-        
+    exportToJSON: catchWrapDb(`${NAMESPACE}.exportToJSON`, async (data) => {
+
 
         const mongoConn = await mongoPool.get(data.project_id)
 
@@ -34,8 +31,8 @@ let tableHelpers = {
         const View = mongoConn.models['View']
 
         const app = await App.findOne({
-                id: data.app_id
-            },
+            id: data.app_id
+        },
             {
                 _id: 0,
                 __v: 0,
@@ -48,22 +45,22 @@ let tableHelpers = {
             })
             const tables = await Table.find(
                 {
-                    deleted_at: "1970-01-01T18:00:00.000+00:00", 
-                    id: {$in: tableIds}
+                    deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    id: { $in: tableIds }
                 },
                 {
                     _id: 0,
                     __v: 0,
                     created_at: 0,
-                    updated_at: 0, 
+                    updated_at: 0,
                 },
                 {
-                    sort: {created_at: -1}
+                    sort: { created_at: -1 }
                 }
             )
             let tableSlugs = [], changedTables = []
             for (const table of tables) {
-                let changedTable = {...table._doc}
+                let changedTable = { ...table._doc }
                 let tableInApp = app.tables.find(elInside => elInside.table_id === table.id)
                 if (tableInApp) {
                     if (tableInApp.is_own_table) {
@@ -74,65 +71,65 @@ let tableHelpers = {
                 }
                 tableSlugs.push(table.slug)
                 changedTables.push(changedTable)
-                
+
             }
             app.tables = []
             const fields = await Field.find({
-                    table_id: {$in: tableIds},
-                    type: {$nin: ["LOOKUP", "LOOKUPS", "DYNAMIC"]},
-                    slug: {$ne: "guid"}
-                },
+                table_id: { $in: tableIds },
+                type: { $nin: ["LOOKUP", "LOOKUPS", "DYNAMIC"] },
+                slug: { $ne: "guid" }
+            },
                 {
                     _id: 0,
                     __v: 0,
                     created_at: 0,
-                    updated_at: 0, 
+                    updated_at: 0,
                 }
             )
             const sections = await Section.find({
-                    table_id: {$in: tableIds}
-                },
+                table_id: { $in: tableIds }
+            },
                 {
                     _id: 0,
                     __v: 0,
                     created_at: 0,
-                    updated_at: 0, 
+                    updated_at: 0,
                 }
             )
             const relations = await Relation.find({
-                    $or: [
-                        {table_from: {$in: tableSlugs}},
-                        {table_to: {$in: tableSlugs}}
-                    ]
-                },
+                $or: [
+                    { table_from: { $in: tableSlugs } },
+                    { table_to: { $in: tableSlugs } }
+                ]
+            },
                 {
                     _id: 0,
                     __v: 0,
                     created_at: 0,
-                    updated_at: 0, 
+                    updated_at: 0,
                 }
             )
             const views = await View.find({
-                    $or: [
-                        {table_slug: {$in: tableSlugs}},
-                        {relation_table_slug: {$in: tableSlugs}}
-                    ]
-                },
+                $or: [
+                    { table_slug: { $in: tableSlugs } },
+                    { relation_table_slug: { $in: tableSlugs } }
+                ]
+            },
                 {
                     _id: 0,
                     __v: 0,
                     created_at: 0,
-                    updated_at: 0, 
+                    updated_at: 0,
                 }
             )
             const viewRelations = await ViewRelation.find({
-                    table_slug: {$in: tableSlugs}
-                },
+                table_slug: { $in: tableSlugs }
+            },
                 {
                     _id: 0,
                     __v: 0,
                     created_at: 0,
-                    updated_at: 0, 
+                    updated_at: 0,
                 }
             )
             jsonObject = {
@@ -147,22 +144,21 @@ let tableHelpers = {
         } else {
             throw new Error("No tables")
         }
-        let filename = "export_" +  Math.floor(Date.now() / 1000) + ".json"
+
+        let filename = "export_" + Math.floor(Date.now() / 1000) + ".json"
         let filepath = "./" + filename
-        let jsonStr = JSON.stringify(jsonObject)
-        fs.writeFile(filename, jsonStr, (error) => {
-            if (error) throw error
-        });
+        let jsonStr = JSON.stringify(jsonObject, null, 2)
+        fs.writeFileSync(filename, jsonStr);
 
         let ssl = true
-        if (cfg.minioSSL !== "true") {
+        if (cfg.minioSSL != true) {
             ssl = false
         }
         var minioClient = new Minio.Client({
             endPoint: cfg.minioEndpoint,
             useSSL: ssl,
             accessKey: cfg.minioAccessKeyID,
-            secretKey: cfg.minioSecretAccessKey                            
+            secretKey: cfg.minioSecretAccessKey
         });
 
         var metaData = {
@@ -171,9 +167,11 @@ let tableHelpers = {
             'X-Amz-Meta-Testing': 1234,
             'example': 5678
         }
+
         minioClient.putObject("docs", filename, jsonStr, function (error, etag) {
             if (error) {
-                return console.log("errr:", error);
+                console.log("errr:", error);
+                return error
             }
             console.log("uploaded successfully");
             fs.unlink(filename, (err => {
@@ -184,11 +182,11 @@ let tableHelpers = {
                 }
             }));
         });
-        let link = cfg.minioEndpoint+ "/docs/" + filename
-        return {link};
+        let link = cfg.minioEndpoint + "/docs/" + filename
+        return { link };
     }
     ),
-    importFromJSON: catchWrapDb(`${NAMESPACE}.importFromJSON`, async(data)=> {
+    importFromJSON: catchWrapDb(`${NAMESPACE}.importFromJSON`, async (data) => {
 
         const mongoConn = await mongoPool.get(data.project_id)
 
@@ -201,11 +199,13 @@ let tableHelpers = {
         const Section = mongoConn.models['Section']
         const View = mongoConn.models['View']
 
-        const filePath = "./"+data.file_name
+        const filePath = "./" + data.file_name
+        
         let ssl = true
-        if (cfg.minioSSL !== "true") {
+        if (cfg.minioSSL !== true) {
             ssl = false
         }
+
         let minioClient = new Minio.Client({
             accessKey: cfg.minioAccessKeyID,
             secretKey: cfg.minioSecretAccessKey,
@@ -213,9 +213,11 @@ let tableHelpers = {
             useSSL: ssl,
             pathStyle: true,
         });
+
         let fileStream = fs.createWriteStream(filePath);
         let bucketName = "docs";
         let jsonObjects;
+        
         await new Promise((resolve, reject) => {
             minioClient.getObject(bucketName, data.file_name, (error, object) => {
                 if (error) {
@@ -226,30 +228,36 @@ let tableHelpers = {
                         object.on("data", (chunk) => fileStream.write(chunk));
                         object.on("end", () => {
                             console.log(`Reading ${data.file_name} finished`)
-                            resolve() 
+                            resolve()
                         })
                     }
                 }
             })
         })
+
         await new Promise((resolve, reject) => {
-            fs.readFile(filePath, (err, dataBuffer) => {
-                if (err) console.log("errrr:", err);
-                jsonObjects = JSON.parse(dataBuffer.toString())
-                fs.unlink(filePath, (err) => {
-                    if (err) reject()
-                    else resolve()
-                })
+            let dataString = fs.readFileSync(filePath, 'utf8')
+            
+            console.log('----->', dataString)
+            jsonObjects = JSON.parse(dataString)
+            fs.unlink(filePath, (err) => {
+                if (err) reject()
+                else resolve()
             })
+            console.log('-----> done' )
+
         })
+
         let changedRelations = {}
         let existImportedTables = {}
+
         if (jsonObjects) {
             let newAppId = v4()
             jsonObjects.app.id = newAppId
             const app = new App(jsonObjects.app)
             await app.save()
             let newTables = {}
+
             for (const table of jsonObjects.tables) {
                 let ownerAppOfTable;
                 const isExists = await Table.findOne({
@@ -258,7 +266,7 @@ let tableHelpers = {
                 })
                 if (isExists) {
                     ownerAppOfTable = await App.findOne({
-                        "tables.table_id": isExists.id, 
+                        "tables.table_id": isExists.id,
                         "tables.is_own_table": true
                     })
                 }
@@ -266,17 +274,17 @@ let tableHelpers = {
                     await App.updateOne(
                         {
                             id: newAppId
-                        }, 
-                        { 
-                            $addToSet: 
-                                { 
-                                    tables: 
-                                    {
-                                        table_id: isExists.id, 
-                                        is_visible: true,
-                                        is_own_table: false
-                                    }
-                                } 
+                        },
+                        {
+                            $addToSet:
+                            {
+                                tables:
+                                {
+                                    table_id: isExists.id,
+                                    is_visible: true,
+                                    is_own_table: false
+                                }
+                            }
                         }
                     );
                     existImportedTables[table.slug] = true
@@ -301,6 +309,7 @@ let tableHelpers = {
                     }
                 }
             }
+
             for (let relation of jsonObjects.relations) {
                 let newTable = newTables[relation.table_from]
                 if (!newTable) {
@@ -308,14 +317,14 @@ let tableHelpers = {
                     let tableFrom = existImportedTables[relation.table_from]
                     if (!tableFrom) {
                         continue
-                    } 
+                    }
                 } else {
                     let tableTo = jsonObjects.tables.find(el => el.slug === relation.table_to)
                     if (!tableTo) {
                         continue
-                    } 
+                    }
                 }
-                if (!newTable){
+                if (!newTable) {
                     continue
                 }
                 let view = jsonObjects.views.find(el => el.relation_id === relation.id)
@@ -323,7 +332,7 @@ let tableHelpers = {
                     delete view.type
                     delete view.id
                     view.title = view.name
-                    relation = {...relation, ...view}
+                    relation = { ...relation, ...view }
                 }
                 let newRelationId = v4()
                 changedRelations[relation.id] = newRelationId
@@ -346,7 +355,7 @@ let tableHelpers = {
             }
             for (const viewRelation of jsonObjects.view_relations) {
                 let newTable = newTables[viewRelation.table_slug]
-                if (!newTable){
+                if (!newTable) {
                     continue
                 }
                 viewRelation.view_relations = viewRelation.relations
@@ -387,11 +396,11 @@ let tableHelpers = {
             }
         }
 
-        
+
         minioClient.removeObject("docs", data.file_name, (error) => {
             if (error) console.log(error);
         })
-        
+
         return
     })
 

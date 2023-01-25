@@ -225,7 +225,10 @@ let tableHelpers = {
                     reject()
                 } else {
                     if (object) {
-                        object.on("data", (chunk) => fileStream.write(chunk));
+                        object.on("data", (chunk) => {
+                            console.log('READ CHUNK', chunk)
+                            fileStream.write(chunk)
+                        });
                         object.on("end", () => {
                             console.log(`Reading ${data.file_name} finished`)
                             resolve()

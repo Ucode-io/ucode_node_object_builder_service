@@ -240,11 +240,14 @@ let tableHelpers = {
         await new Promise((resolve, reject) => {
             let dataString = fs.readFileSync(filePath, 'utf-8')
             
+            console.log('----->', dataString)
             jsonObjects = JSON.parse(dataString)
             fs.unlink(filePath, (err) => {
                 if (err) reject()
                 else resolve()
             })
+            console.log('-----> done' )
+
         })
 
         let changedRelations = {}

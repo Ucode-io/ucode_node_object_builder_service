@@ -236,7 +236,7 @@ let tableHelpers = {
         })
 
         await new Promise((resolve, reject) => {
-            let dataString = fs.readFileSync(filePath, 'utf8')
+            let dataString = fs.readFileSync(filePath, {encoding:'utf8'})
             
             console.log('<<<-------BEGIN-------->>>>', dataString)
             console.log('<<<--------END--------->>>')

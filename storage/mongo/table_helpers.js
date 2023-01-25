@@ -238,7 +238,7 @@ let tableHelpers = {
         })
 
         await new Promise((resolve, reject) => {
-            let dataString = fs.readFileSync(filePath, 'utf-8')
+            let dataString = fs.readFileSync(filePath, 'utf8')
             
             console.log('----->', dataString)
             jsonObjects = JSON.parse(dataString)

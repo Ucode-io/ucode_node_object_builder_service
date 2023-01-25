@@ -174,13 +174,13 @@ let tableHelpers = {
                 return error
             }
             console.log("uploaded successfully");
-            fs.unlink(filename, (err => {
-                if (err)
-                    console.log(err);
-                else {
-                    console.log("Deleted file: ", filename);
-                }
-            }));
+            // fs.unlink(filename, (err => {
+            //     if (err)
+            //         console.log(err);
+            //     else {
+            //         console.log("Deleted file: ", filename);
+            //     }
+            // }));
         });
         let link = cfg.minioEndpoint + "/docs/" + filename
         return { link };
@@ -244,10 +244,10 @@ let tableHelpers = {
             console.log('<<<-------BEGIN-------->>>>', dataString)
             console.log('<<<--------END--------->>>')
             jsonObjects = JSON.parse(dataString)
-            fs.unlink(filePath, (err) => {
-                if (err) reject()
-                else resolve()
-            })
+            // fs.unlink(filePath, (err) => {
+            //     if (err) reject()
+            //     else resolve()
+            // })
             console.log('-----> done' )
 
         })

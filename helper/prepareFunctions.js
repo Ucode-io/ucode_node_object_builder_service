@@ -153,7 +153,9 @@ let prepareFunction = {
                         id: field.relation_id
                     })
 
-                    let appendMany2Many = {}
+                    let appendMany2Many = {
+                        project_id: req.project_id
+                    }
                     appendMany2Many.id_from = data.guid
                     appendMany2Many.id_to = data[field.slug]
                     appendMany2Many.table_from = req.table_slug
@@ -208,7 +210,9 @@ let prepareFunction = {
                 })
 
                 if (newIds.length) {
-                    let appendMany2ManyObj = {}
+                    let appendMany2ManyObj = {
+                        project_id: req.project_id
+                    }
                     appendMany2ManyObj.id_from = data.guid
                     appendMany2ManyObj.id_to = newIds
                     appendMany2ManyObj.table_from = req.table_slug
@@ -220,7 +224,9 @@ let prepareFunction = {
                     appendMany2Many.push(appendMany2ManyObj)
                 }
                 if (deletedIds.length) {
-                    let deleteMany2ManyObj = {}
+                    let deleteMany2ManyObj = {
+                        project_id: req.project_id
+                    }
                     deleteMany2ManyObj.id_from = data.guid
                     deleteMany2ManyObj.id_to = deletedIds
                     deleteMany2ManyObj.table_from = req.table_slug

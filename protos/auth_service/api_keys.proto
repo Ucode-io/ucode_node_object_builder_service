@@ -13,7 +13,6 @@ service ApiKeys {
   rpc Delete (DeleteReq) returns (DeleteRes) {}
   rpc GenerateApiToken (GenerateApiTokenReq) returns (GenerateApiTokenRes) {}
   rpc RefreshApiToken (RefreshApiTokenReq) returns (RefreshApiTokenRes) {}
-  rpc GetEnvID(GetReq) returns (GetRes) {}
 }
 
 message GenerateApiTokenReq {
@@ -37,8 +36,7 @@ message CreateReq {
   string name = 1;
   string project_id = 2;
   string role_id = 3;
-  string environment_id = 4;
-  string client_type_id = 5;
+  string resource_environment_id = 4;
 }
 
 message CreateRes {
@@ -50,9 +48,8 @@ message CreateRes {
   string role_id = 6;
   string created_at = 7;
   string updated_at = 8;
-  string environment_id = 9;
+  string resource_environment_id = 9;
   string project_id = 10;
-  string client_type_id = 11;
 }
 
 message UpdateReq {
@@ -61,7 +58,6 @@ message UpdateReq {
   string name = 3;
   string role_id = 4;
   string project_id = 5;
-  string client_type_id = 6;
 }
 
 message UpdateRes {
@@ -81,13 +77,12 @@ message GetRes {
   string created_at = 6;
   string updated_at = 7;
   string app_secret = 8;
-  string environment_id = 9;
+  string resource_environment_id = 9;
   string project_id = 10;
-  string client_type_id = 11;
 }
 
 message GetListReq {
-  string environment_id = 1;
+  string resource_environment_id = 1;
   string project_id = 2;
   int32 offset = 3;
   int32 limit = 4;

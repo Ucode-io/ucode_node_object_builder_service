@@ -20,7 +20,6 @@ message AppRequest {
     repeated string table_ids = 3;
     string icon = 4;
     string project_id = 5;
-    string commit_id = 6;
 }
 
 message CreateAppResponse {

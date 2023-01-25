@@ -169,6 +169,7 @@ message UpdateSectionsRequest {
     repeated Section sections = 1;
     string table_id = 2;
     string project_id = 3;
+    string commit_id = 4;
 }
 
 message GetAllSectionsResponse {

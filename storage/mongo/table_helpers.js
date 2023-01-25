@@ -148,9 +148,7 @@ let tableHelpers = {
         let filename = "export_" + Math.floor(Date.now() / 1000) + ".json"
         let filepath = "./" + filename
         let jsonStr = JSON.stringify(jsonObject)
-        fs.writeFileSync(filename, jsonStr, (error) => {
-            if (error) throw error
-        });
+        fs.writeFileSync(filename, jsonStr);
 
         let ssl = true
         if (cfg.minioSSL != true) {

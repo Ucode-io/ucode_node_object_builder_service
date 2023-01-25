@@ -221,9 +221,10 @@ let tableHelpers = {
         await new Promise((resolve, reject) => {
             minioClient.getObject(bucketName, data.file_name, (error, object) => {
                 if (error) {
-                    console.log(error)
+                    console.log('---ERROR---1', error)
                     reject()
                 } else {
+                    console.log('----INFO-----1', object)
                     if (object) {
                         object.on("data", (chunk) => {
                             console.log('READ CHUNK', chunk)

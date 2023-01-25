@@ -1,20 +1,17 @@
-const Table = require("../../models/table");
-const Field = require("../../models/field");
-const Section = require("../../models/section");
-const catchWrapDb = require("../../helper/catchWrapDb");
-const View = require("../../models/view");
-const Relation = require("../../models/relation");
 var fs = require('fs');
-const cfg = require("../../config/index");
 const Minio = require('minio');
-const ViewRelation = require("../../models/view_relation");
+const { v4 } = require("uuid");
+
+const mongoPool = require('../../pkg/pool');
+const cfg = require("../../config/index");
+const catchWrapDb = require("../../helper/catchWrapDb");
+
 const tableService = require("../../services/table");
+
 const viewStore = require("./view");
 const relationStore = require("./relation");
 const sectionStore = require("./section");
-const { v4 } = require("uuid");
-const App = require("../../models/app");
-const mongoPool = require('../../pkg/pool');
+
 
 let NAMESPACE = "storage.table_helpers";
 
@@ -151,7 +148,7 @@ let tableHelpers = {
         let filename = "export_" + Math.floor(Date.now() / 1000) + ".json"
         let filepath = "./" + filename
         let jsonStr = JSON.stringify(jsonObject)
-        fs.writeFile(filename, jsonStr, (error) => {
+        fs.writeFileSync(filename, jsonStr, (error) => {
             if (error) throw error
         });
 
@@ -241,13 +238,12 @@ let tableHelpers = {
         })
 
         await new Promise((resolve, reject) => {
-            fs.readFile(filePath, (err, dataBuffer) => {
-                if (err) console.log("errrr:", err);
-                jsonObjects = JSON.parse(dataBuffer.toString())
-                fs.unlink(filePath, (err) => {
-                    if (err) reject()
-                    else resolve()
-                })
+            let dataString = fs.readFileSync(filePath, 'utf-8')
+            
+            jsonObjects = JSON.parse(dataString)
+            fs.unlink(filePath, (err) => {
+                if (err) reject()
+                else resolve()
             })
         })
 

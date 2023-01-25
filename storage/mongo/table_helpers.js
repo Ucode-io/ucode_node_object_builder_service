@@ -148,7 +148,7 @@ let tableHelpers = {
         let filename = "export_" + Math.floor(Date.now() / 1000) + ".json"
         let filepath = "./" + filename
         let jsonStr = JSON.stringify(jsonObject, null, 2)
-        fs.writeFileSync(filename, jsonStr);
+        fs.writeFileSync(filename, jsonStr, { encoding: 'utf8' });
 
         let ssl = true
         if (cfg.minioSSL != true) {
@@ -225,7 +225,10 @@ let tableHelpers = {
                     reject()
                 } else {
                     if (object) {
-                        object.on("data", (chunk) => fileStream.write(chunk));
+                        object.on("data", (chunk) => {
+                            console.log('READ CHUNK', chunk)
+                            fileStream.write(chunk)
+                        });
                         object.on("end", () => {
                             console.log(`Reading ${data.file_name} finished`)
                             resolve()
@@ -236,7 +239,7 @@ let tableHelpers = {
         })
 
         await new Promise((resolve, reject) => {
-            let dataString = fs.readFileSync(filePath, 'utf8')
+            let dataString = fs.readFileSync(filePath, {encoding:'utf8'})
             
             console.log('<<<-------BEGIN-------->>>>', dataString)
             console.log('<<<--------END--------->>>')

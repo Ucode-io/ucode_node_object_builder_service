@@ -147,7 +147,7 @@ let tableHelpers = {
 
         let filename = "export_" + Math.floor(Date.now() / 1000) + ".json"
         let filepath = "./" + filename
-        let jsonStr = JSON.stringify(jsonObject)
+        let jsonStr = JSON.stringify(jsonObject, null, 2)
         fs.writeFileSync(filename, jsonStr);
 
         let ssl = true

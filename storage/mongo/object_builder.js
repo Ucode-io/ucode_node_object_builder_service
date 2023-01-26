@@ -441,7 +441,7 @@ let objectBuilder = {
                     let relationTable = await table.findOne({slug:relation.table_to})
                     let relationFields = await Field.find(
                         {
-                            table_id:relationTable.id
+                            table_id:relationTable?.id
                         },
                         {
                             createdAt: 0, 
@@ -594,7 +594,7 @@ let objectBuilder = {
                     // }
                     let table_to_slug = ""
                     let deepRelations = []
-                    const field = tableInfo.fields.find(val => (val.relation_id === relation.id))
+                    const field = tableInfo.fields.find(val => (val.relation_id === relation?.id))
                     if (field) {
                         table_to_slug = field.slug + "_data"
                     }
@@ -630,7 +630,7 @@ let objectBuilder = {
 
                                 let deep_table_to_slug = "";
                                 const field = await Field.findOne({
-                                    relation_id: deepRelation.id
+                                    relation_id: deepRelation?.id
                                 })
                                 if (field) {
                                     deep_table_to_slug = field.slug + "_data"

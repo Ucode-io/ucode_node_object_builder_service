@@ -1,0 +1,66 @@
+{
+  "app": {
+    "id": "583dce1d-2af3-41eb-ba6c-7a734bffccd6",
+    "name": "adsasd",
+    "description": "asdasd",
+    "tables": [],
+    "icon": "address-card.svg",
+    "created_at": "2023-01-26T11:30:08.128Z",
+    "updated_at": "2023-01-26T11:32:02.847Z"
+  },
+  "tables": [
+    {
+      "id": "59bd55ab-752f-4187-867c-add4c733bfa8",
+      "label": "custome",
+      "slug": "customer_table",
+      "description": "sdsdf",
+      "deleted_at": "1970-01-01T18:00:00.000Z",
+      "show_in_menu": true,
+      "is_changed": false,
+      "icon": "address-card.svg",
+      "subtitle_field_slug": "98e5f-f7f0-4975-8d38-a8b88331a334",
+      "foreign": false
+    }
+  ],
+  "fields": [],
+  "relations": [],
+  "sections": [
+    {
+      "id": "fd1d3888-f326-4cc4-8ed7-d4017ca28222",
+      "table_id": "59bd55ab-752f-4187-867c-add4c733bfa8",
+      "order": 1,
+      "column": "SINGLE",
+      "label": "Детали",
+      "icon": "circle-info.svg",
+      "fields": [],
+      "is_summary_section": false
+    },
+    {
+      "id": "f61f863e-15cf-4317-a61c-3ca9b3d37792",
+      "table_id": "59bd55ab-752f-4187-867c-add4c733bfa8",
+      "order": 2,
+      "column": "SINGLE",
+      "label": "Summary",
+      "icon": "",
+      "fields": [],
+      "is_summary_section": true
+    }
+  ],
+  "views": [
+    {
+      "table_slug": "customer_table",
+      "type": "TABLE",
+      "view_fields": [],
+      "app_id": "583dce1d-2af3-41eb-ba6c-7a734bffccd6",
+      "id": "e05d27cd-9caa-4380-99e9-498c370424a7"
+    },
+    {
+      "id": "babaa162-8334-4761-8a36-8772ce6380aa",
+      "table_slug": "customer_table",
+      "type": "TABLE",
+      "view_fields": [],
+      "app_id": "cba3fc9b-f542-4fca-b1b1-a0aedb1467ad"
+    }
+  ],
+  "view_relations": []
+}

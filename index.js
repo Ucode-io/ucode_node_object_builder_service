@@ -24,14 +24,14 @@ const logger = require("./config/logger");
     process.addListener("unhandledRejection", (e) => {
         console.error("Custom Unhandled Rejection", e);
     });
-    
+
     try {
         logger.info(`autoconnecting to resources`);
 
         await projectStorage.autoConnect(
             {
                 request: {
-                    k8s_namespace : config.k8s_namespace
+                    k8s_namespace: config.k8s_namespace
                 }
             },
             (code, result) => {
@@ -41,6 +41,6 @@ const logger = require("./config/logger");
     } catch (err) {
         logger.info(`autoconnecting to resources failed: ${err}`);
     }
-    
+
 
 })();

@@ -14,14 +14,15 @@ async function produceMessageToTopic(topic, payload) {
     await producer.connect()
 
     await producer.send({
-    topic: topic,
-    messages: [
-        {
-            key: null,
-            value: JSON.stringify(payload),
-            partition: 0
-        }
-    ]})
+        topic: topic,
+        messages: [
+            {
+                key: null,
+                value: JSON.stringify(payload),
+                partition: 0
+            }
+        ]
+    })
 
     await producer.disconnect()
     console.log("message is send to " + topic + ", and producer is closed")

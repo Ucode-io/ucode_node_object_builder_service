@@ -11,6 +11,8 @@ const tableService = require("../../services/table");
 const viewStore = require("./view");
 const relationStore = require("./relation");
 const sectionStore = require("./section");
+const { resolve } = require('path');
+const { throws } = require('assert');
 
 
 let NAMESPACE = "storage.table_helpers";
@@ -230,34 +232,35 @@ let tableHelpers = {
                 if (error) {
                     console.log('---ERROR---1', error)
                     reject()
-                } else {
-                    console.log('----INFO-----1', object)
-                    if (object) {
-                        object.on("data", (chunk) => {
-                            console.log('READ CHUNK', chunk)
-                            fileStream.write(chunk)
-                        });
-                        object.on("end", () => {
-                            console.log(`Reading ${data.file_name} finished`)
-                            resolve()
-                        })
-                    }
                 }
+
+                object.on("data", (chunk) => {
+                    fileStream.write(chunk)
+                });
+
+                object.on("end", () => {
+                    fileStream.close()
+                    console.log(`Reading ${data.file_name} finished`)
+                    resolve()
+                })
             })
         })
 
         await new Promise((resolve, reject) => {
-            let dataString = fs.readFileSync(filePath, { encoding: 'utf8' })
+            console.log('-----> FILEPATH', filePath)
 
-            console.log('<<<-------BEGIN-------->>>>', dataString)
-            console.log('<<<--------END--------->>>')
-            jsonObjects = JSON.parse(dataString)
-            fs.unlink(filePath, (err) => {
-                if (err) reject()
-                else resolve()
-            })
-            console.log('-----> done')
-            resolve()
+            fs.readFile(filePath, 'utf8', (err, data) => {
+                if (err) reject(err);
+                jsonObjects = JSON.parse(data);
+                resolve()
+                console.log(jsonObjects)
+            });
+
+        })
+
+        fs.unlink(filePath, (err) => {
+            if (err) reject()
+            else resolve()
         })
 
         let changedRelations = {}

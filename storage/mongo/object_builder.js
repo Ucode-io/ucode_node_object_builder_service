@@ -1381,10 +1381,6 @@ let objectBuilder = {
                         [data.table_from + "_ids"]: modelTo[data.table_from + "_ids"]
                     }
                 })
-
-
-
-
             return data;
         } catch (err) {
             throw err

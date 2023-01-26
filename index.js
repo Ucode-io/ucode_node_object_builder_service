@@ -1,4 +1,5 @@
 require('dotenv').config({ path: '/app/.env' });
+require("dotenv").config({ path: "./.env" })
 const projectStorage = require('./storage/mongo/project')
 const config = require('./config/index')
 // const mongooseConnection = require("./config/mongooseConnection");

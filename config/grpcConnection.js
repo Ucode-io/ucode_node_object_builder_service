@@ -31,9 +31,11 @@ const webPageService = require("../services/web_pages")
 const cascadingService = require("../services/cascading")
 const tableHelpersService = require("../services/table_helpers")
 
+
 const PROTO_URL = __dirname + "/../protos/object_builder_service/object_builder_service.proto";
 
 module.exports = async function () {
+
     await new Promise((resolve, reject) => {
         try {
             const packageDefinition = protoLoader.loadSync(PROTO_URL, {
@@ -96,5 +98,3 @@ module.exports = async function () {
         }
     })
 }
-
-

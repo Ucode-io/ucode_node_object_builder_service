@@ -154,6 +154,13 @@ let tableHelpers = {
         if (cfg.minioSSL != true) {
             ssl = false
         }
+
+        console.log(`--->MongoCredentials -->>> 
+            endpoint: ${cfg.minioEndpoint}, 
+            ssl: ${ssl},
+            accessId: ${cfg.minioAccessKeyID},
+            secretkey:  ${cfg.minioSecretAccessKey}`);
+
         var minioClient = new Minio.Client({
             endPoint: cfg.minioEndpoint,
             useSSL: ssl,
@@ -200,7 +207,7 @@ let tableHelpers = {
         const View = mongoConn.models['View']
 
         const filePath = "./" + data.file_name
-        
+
         let ssl = true
         if (cfg.minioSSL !== true) {
             ssl = false
@@ -217,7 +224,7 @@ let tableHelpers = {
         let fileStream = fs.createWriteStream(filePath);
         let bucketName = "docs";
         let jsonObjects;
-        
+
         await new Promise((resolve, reject) => {
             minioClient.getObject(bucketName, data.file_name, (error, object) => {
                 if (error) {
@@ -240,8 +247,8 @@ let tableHelpers = {
         })
 
         await new Promise((resolve, reject) => {
-            let dataString = fs.readFileSync(filePath, {encoding:'utf8'})
-            
+            let dataString = fs.readFileSync(filePath, { encoding: 'utf8' })
+
             console.log('<<<-------BEGIN-------->>>>', dataString)
             console.log('<<<--------END--------->>>')
             jsonObjects = JSON.parse(dataString)
@@ -249,7 +256,7 @@ let tableHelpers = {
             //     if (err) reject()
             //     else resolve()
             // })
-            console.log('-----> done' )
+            console.log('-----> done')
 
         })
 

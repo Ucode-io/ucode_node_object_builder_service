@@ -19,11 +19,11 @@ const FunctionSchema = mongoose.Schema(
         },
         body: {
             type: mongoose.Schema.Types.Mixed,
-        },
-        commit_id: {
-            type: String,
-            required: [true, "commit_id is required"],
         }
+        // commit_id: {
+        //            type: String,
+        //            required: [true, "commit_id is required"],
+        //        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

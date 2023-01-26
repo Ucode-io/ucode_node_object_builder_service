@@ -252,12 +252,12 @@ let tableHelpers = {
             console.log('<<<-------BEGIN-------->>>>', dataString)
             console.log('<<<--------END--------->>>')
             jsonObjects = JSON.parse(dataString)
-            // fs.unlink(filePath, (err) => {
-            //     if (err) reject()
-            //     else resolve()
-            // })
+            fs.unlink(filePath, (err) => {
+                if (err) reject()
+                else resolve()
+            })
             console.log('-----> done')
-
+            resolve()
         })
 
         let changedRelations = {}

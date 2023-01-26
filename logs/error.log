@@ -201,3 +201,2452 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.loginStore.login_data: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-01-26T15:11:57.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-01-26T15:17:22.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.create: failed with error: App validation failed: commit_id: Cast to Number failed for value "8c4b75-6dbf-4da3-82cc-7824f6e8c1bb" (type string) at path "commit_id", commit_guid: commit_guid is required',
+  level: 'error',
+  timestamp: '2023-01-26T15:31:25.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.789Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.807Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.827Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.839Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.849Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.870Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.891Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.903Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.935Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.962Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.972Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.982Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:00.992Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.001Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.013Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.024Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.033Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.047Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.066Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.075Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.084Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.095Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.104Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.112Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.125Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.167Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.179Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.189Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.199Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.211Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.219Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.228Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.240Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.249Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.256Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.267Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.275Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.283Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.291Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.300Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.309Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.319Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.329Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.337Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.344Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.356Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.378Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.387Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.394Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.402Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.409Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.417Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.428Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.438Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.471Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.485Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.492Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.501Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.510Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.518Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.527Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.536Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.544Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.580Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.621Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.639Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.646Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.654Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.661Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.671Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.679Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.686Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.694Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.703Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.711Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.719Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.730Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.741Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.752Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.764Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.772Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.779Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.788Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:01.795Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:391:12)\n' +
+      '    at _write (node:internal/streams/writable:332:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:336:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'connect EHOSTUNREACH 0.0.0.1:8880 - Local (192.168.0.159:53517)',
+  level: 'error',
+  timestamp: '2023-01-26T15:33:31.798Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '0.0.0.1:8880' => ServerDescription {
+          address: '0.0.0.1:8880',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 423950648,
+          lastWriteDate: 0,
+          error: MongoNetworkError: connect EHOSTUNREACH 0.0.0.1:8880 - Local (192.168.0.159:53517)
+              at connectionFailureError (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:387:20)
+              at Socket.<anonymous> (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:628:26)
+              at Socket.emit (node:events:513:28)
+              at emitErrorNT (node:internal/streams/destroy:157:8)
+              at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+              at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+            cause: Error: connect EHOSTUNREACH 0.0.0.1:8880 - Local (192.168.0.159:53517)
+                at internalConnect (node:net:1010:16)
+                at defaultTriggerAsyncIdScope (node:internal/async_hooks:464:18)
+                at node:net:1103:9
+                at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+              errno: -65,
+              code: 'EHOSTUNREACH',
+              syscall: 'connect',
+              address: '0.0.0.1',
+              port: 8880
+            },
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: connect EHOSTUNREACH 0.0.0.1:8880 - Local (192.168.0.159:53517)\n' +
+      '    at NativeConnection.Connection.openUri (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/config/mongoConn.js:44:33)\n' +
+      '    at /Users/fy/Udevs/ucode/ucode_node_object_builder_service/storage/mongo/project.js:106:39\n' +
+      '    at Object.reconnect (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /Users/fy/Udevs/ucode/ucode_node_object_builder_service/storage/mongo/project.js:183:36\n' +
+      '    at runMicrotasks (<anonymous>)\n' +
+      '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+      '    at async Object.autoConnect (/Users/fy/Udevs/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:24)\n' +
+      '    at async /Users/fy/Udevs/ucode/ucode_node_object_builder_service/index.js:33:9'
+  }
+}

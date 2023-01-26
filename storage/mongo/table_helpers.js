@@ -11,6 +11,8 @@ const tableService = require("../../services/table");
 const viewStore = require("./view");
 const relationStore = require("./relation");
 const sectionStore = require("./section");
+const { resolve } = require('path');
+const { throws } = require('assert');
 
 
 let NAMESPACE = "storage.table_helpers";
@@ -154,6 +156,13 @@ let tableHelpers = {
         if (cfg.minioSSL != true) {
             ssl = false
         }
+
+        console.log(`--->MongoCredentials -->>> 
+            endpoint: ${cfg.minioEndpoint}, 
+            ssl: ${ssl},
+            accessId: ${cfg.minioAccessKeyID},
+            secretkey:  ${cfg.minioSecretAccessKey}`);
+
         var minioClient = new Minio.Client({
             endPoint: cfg.minioEndpoint,
             useSSL: ssl,
@@ -200,7 +209,7 @@ let tableHelpers = {
         const View = mongoConn.models['View']
 
         const filePath = "./" + data.file_name
-        
+
         let ssl = true
         if (cfg.minioSSL !== true) {
             ssl = false
@@ -217,39 +226,41 @@ let tableHelpers = {
         let fileStream = fs.createWriteStream(filePath);
         let bucketName = "docs";
         let jsonObjects;
-        
+
         await new Promise((resolve, reject) => {
             minioClient.getObject(bucketName, data.file_name, (error, object) => {
                 if (error) {
-                    console.log(error)
+                    console.log('---ERROR---1', error)
                     reject()
-                } else {
-                    if (object) {
-                        object.on("data", (chunk) => {
-                            console.log('READ CHUNK', chunk)
-                            fileStream.write(chunk)
-                        });
-                        object.on("end", () => {
-                            console.log(`Reading ${data.file_name} finished`)
-                            resolve()
-                        })
-                    }
                 }
+
+                object.on("data", (chunk) => {
+                    fileStream.write(chunk)
+                });
+
+                object.on("end", () => {
+                    fileStream.close()
+                    console.log(`Reading ${data.file_name} finished`)
+                    resolve()
+                })
             })
         })
 
         await new Promise((resolve, reject) => {
-            let dataString = fs.readFileSync(filePath, {encoding:'utf8'})
-            
-            console.log('<<<-------BEGIN-------->>>>', dataString)
-            console.log('<<<--------END--------->>>')
-            jsonObjects = JSON.parse(dataString)
-            // fs.unlink(filePath, (err) => {
-            //     if (err) reject()
-            //     else resolve()
-            // })
-            console.log('-----> done' )
+            console.log('-----> FILEPATH', filePath)
 
+            fs.readFile(filePath, 'utf8', (err, data) => {
+                if (err) reject(err);
+                jsonObjects = JSON.parse(data);
+                resolve()
+                console.log(jsonObjects)
+            });
+
+        })
+
+        fs.unlink(filePath, (err) => {
+            if (err) reject()
+            else resolve()
         })
 
         let changedRelations = {}

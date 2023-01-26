@@ -148,7 +148,7 @@ let tableHelpers = {
         let filename = "export_" + Math.floor(Date.now() / 1000) + ".json"
         let filepath = "./" + filename
         let jsonStr = JSON.stringify(jsonObject, null, 2)
-        fs.writeFileSync(filename, jsonStr);
+        fs.writeFileSync(filename, jsonStr, { encoding: 'utf8' });
 
         let ssl = true
         if (cfg.minioSSL != true) {
@@ -174,13 +174,13 @@ let tableHelpers = {
                 return error
             }
             console.log("uploaded successfully");
-            fs.unlink(filename, (err => {
-                if (err)
-                    console.log(err);
-                else {
-                    console.log("Deleted file: ", filename);
-                }
-            }));
+            // fs.unlink(filename, (err => {
+            //     if (err)
+            //         console.log(err);
+            //     else {
+            //         console.log("Deleted file: ", filename);
+            //     }
+            // }));
         });
         let link = cfg.minioEndpoint + "/docs/" + filename
         return { link };
@@ -221,11 +221,15 @@ let tableHelpers = {
         await new Promise((resolve, reject) => {
             minioClient.getObject(bucketName, data.file_name, (error, object) => {
                 if (error) {
-                    console.log(error)
+                    console.log('---ERROR---1', error)
                     reject()
                 } else {
+                    console.log('----INFO-----1', object)
                     if (object) {
-                        object.on("data", (chunk) => fileStream.write(chunk));
+                        object.on("data", (chunk) => {
+                            console.log('READ CHUNK', chunk)
+                            fileStream.write(chunk)
+                        });
                         object.on("end", () => {
                             console.log(`Reading ${data.file_name} finished`)
                             resolve()
@@ -236,14 +240,15 @@ let tableHelpers = {
         })
 
         await new Promise((resolve, reject) => {
-            let dataString = fs.readFileSync(filePath, 'utf8')
+            let dataString = fs.readFileSync(filePath, {encoding:'utf8'})
             
-            console.log('----->', dataString)
+            console.log('<<<-------BEGIN-------->>>>', dataString)
+            console.log('<<<--------END--------->>>')
             jsonObjects = JSON.parse(dataString)
-            fs.unlink(filePath, (err) => {
-                if (err) reject()
-                else resolve()
-            })
+            // fs.unlink(filePath, (err) => {
+            //     if (err) reject()
+            //     else resolve()
+            // })
             console.log('-----> done' )
 
         })

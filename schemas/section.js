@@ -35,6 +35,10 @@ const SectionSchema = mongoose.Schema(
         is_summary_section: {
             type: Boolean,
             default: false
+        },
+        commit_id: {
+            type: String,
+            required: [true, "commit_id is required"],
         }
     },
     {

@@ -31,6 +31,10 @@ const panelSchema = mongoose.Schema(
         has_pagination: {
             type: Boolean,
             required: [true, "Panel must have a has_pagination"],
+        },
+        commit_id: {
+            type: String,
+            required: [true, "commit_id is required"],
         }
     },
     {

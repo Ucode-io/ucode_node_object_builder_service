@@ -3,15 +3,15 @@ syntax="proto3";
 package company_service;
 option go_package="genproto/company_service";
 
-import "companies_service.proto";
-import "company.proto";
+import "projects_service.proto";
+
 
 service ServiceResource {
   rpc Create(CreateServiceResourceRequest) returns (ServiceResources) {}
   rpc GetList(GetListServiceResourceRequest) returns (GetListServiceResourceResponse) {}
   rpc GetById(ServiceResourcePrimaryKey) returns (ServiceResources) {}
   rpc Update(UpdateServiceResourceRequest) returns (ServiceResources) {}
-  rpc Delete(ServiceResourcePrimaryKey) returns (Empty) {}
+  rpc Delete(ServiceResourcePrimaryKey) returns (EmptyProto) {}
 }
 
 message CreateServiceResourceRequest {

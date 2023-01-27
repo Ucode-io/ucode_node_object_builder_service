@@ -253,7 +253,6 @@ let tableHelpers = {
                 if (err) reject(err);
                 jsonObjects = JSON.parse(data);
                 resolve()
-                console.log(jsonObjects)
             });
 
         })

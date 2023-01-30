@@ -43,10 +43,10 @@ let objectBuilder = {
             // send topic to Analytics service
             await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
-            req.current_data = data
+            req.current_data = event?.payload?.data
             await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
                 payload: {
-                    current_data: data,
+                    current_data: event?.payload?.data,
                     table_slug: req.table_slug
                 }
             })
@@ -151,10 +151,34 @@ let objectBuilder = {
             let attributes = struct.decode(field.attributes)
             if (field.type === "FORMULA") {
                 if (attributes.table_from && attributes.sum_field) {
-                    let matchParams = {
-                        [req.table_slug+"_id"]: {'$eq': data.id}
+                    let filters = {}
+                    if (attributes.formula_filters) {
+                        attributes.formula_filters.forEach(el => {
+                            filters[el.key.split("#")[0]] = el.value
+                            if (Array.isArray(el.value)) {
+                                filters[el.key.split("#")[0]] = {$in: el.value}
+                            }
+                        })
                     }
-                    const resultFormula =  await FormulaFunction.calculateFormulaBackend(attributes, req.table_slug, matchParams, req.project_id)
+                    const relationFieldTable = await table.findOne({
+                        slug: attributes.table_from.split('#')[0],
+                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    })
+                    const relationField = await Field.findOne({
+                        relation_id: attributes.table_from.split('#')[1],
+                        table_id: relationFieldTable.id
+                    })
+                    console.log("rel table::", relationFieldTable)
+                    console.log("field:::", relationField);
+                    if (!relationField || !relationFieldTable) {
+                        throw Error("relation field not found")
+                    }
+                    let matchField = relationField ? relationField.slug : req.table_slug+"_id"
+                    let matchParams = {
+                        [matchField]: {'$eq': data.id},
+                        ...filters
+                    }
+                    const resultFormula =  await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                     if (resultFormula.length) {
                         if (output[field.slug] !== resultFormula[0].res ) {
                             isChanged = true
@@ -807,10 +831,34 @@ let objectBuilder = {
                 let attributes = struct.decode(field.attributes)
                 if (field.type === "FORMULA") {
                     if (attributes.table_from && attributes.sum_field) {
-                        let matchParams = {
-                            [req.table_slug+"_id"]: {'$eq': res.guid}
-                        }
-                        const resultFormula =  await FormulaFunction.calculateFormulaBackend(attributes, req.table_slug, matchParams, req.project_id)
+                        let filters = {}
+                    if (attributes.formula_filters) {
+                        attributes.formula_filters.forEach(el => {
+                            filters[el.key.split("#")[0]] = el.value
+                            if (Array.isArray(el.value)) {
+                                filters[el.key.split("#")[0]] = {$in: el.value}
+                            }
+                        })
+                    }
+                    const relationFieldTable = await table.findOne({
+                        slug: attributes.table_from.split('#')[0],
+                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    })
+                    const relationField = await Field.findOne({
+                        relation_id: attributes.table_from.split('#')[1],
+                        table_id: relationFieldTable.id
+                    })
+                    console.log("rel table::", relationFieldTable)
+                    console.log("field:::", relationField);
+                    if (!relationField || !relationFieldTable) {
+                        throw Error("relation field not found")
+                    }
+                    let matchField = relationField ? relationField.slug : req.table_slug+"_id"
+                    let matchParams = {
+                        [matchField]: {'$eq': data.id},
+                        ...filters
+                    }
+                        const resultFormula =  await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                         if (resultFormula.length) {
                             if (res[field.slug] !== resultFormula[0].res ) {
                                 isChanged = true
@@ -1704,10 +1752,10 @@ let objectBuilder = {
                 await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
 
-                req.current_data = object
+                req.current_data = event?.payload?.data
                 await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
                     payload: {
-                        current_data: object,
+                        current_data: event?.payload?.data,
                         table_slug: req.table_slug
                     }
                 })

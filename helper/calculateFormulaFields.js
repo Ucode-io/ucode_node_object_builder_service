@@ -21,7 +21,7 @@ let formulaFunction = {
     },
     calculateFormulaBackend: async (attributes, tableSlug, matchParams, project_id) => {
         console.log("attibites", attributes);
-        let groupByWithDollorSign = '$' + tableSlug + '_id'
+        let groupByWithDollorSign = '$' + matchField
         let sumFieldWithDollowSign = '$' + attributes["sum_field"]
         let aggregateFunction = '$sum';
         switch (attributes.type) {
@@ -49,7 +49,7 @@ let formulaFunction = {
         ];  
         console.log("pipe::",  pipelines);  
             
-        const resultFormula = await (await ObjectBuilder(true, project_id))[attributes.table_from].models.aggregate(pipelines)
+        const resultFormula = await (await ObjectBuilder(true, project_id))[attributes.table_from.split('#')[0]].models.aggregate(pipelines)
         console.log(resultFormula);
         return resultFormula
     }

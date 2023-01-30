@@ -2,6 +2,7 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require("../../pkg/pool");
+const AddPermission = require("../../helper/addPermission");
 
 
 let NAMESPACE = "storage.custom_event";
@@ -65,16 +66,30 @@ let customEventStore = {
         let query = {
             table_slug: data.table_slug,
         }
-        const custom_events = await CustomEvent.find(
+        if (data.method) {
+            query.method = data.method
+        }
+        const customEvents = await CustomEvent.find(
             {
-                table_slug: data.table_slug,
+                $and: [query]
             },
-            null,
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0
+            },
             {
                 sort: {created_at: -1}
-            }).populate('functions');
+        }).populate('functions');
+        customEvents.forEach(el => {
+            if (el.attributes) el.attributes = struct.encode(el.attributes)
+        })
+        let customEventWithPermission = await AddPermission.toCustomEvent(customEvents, data.role_id, data.table_slug, data.project_id)
         const count = await CustomEvent.countDocuments(query);
-        return {custom_events, count};
+        return {custom_events: customEventWithPermission, count: count};
     }
     ),
     getSingle: catchWrapDb(`${NAMESPACE}.getSingle`, async (data) => {

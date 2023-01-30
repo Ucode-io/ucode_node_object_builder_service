@@ -290,14 +290,14 @@ let objectBuilder = {
         }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        console.log("TEST::::::1")
+        console.log("\n---GetList-->req: ", req)
         const mongoConn = await mongoPool.get(req.project_id)
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
-        const params = struct.decode(req.data)
+        const params = struct.decode(req?.data)
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]

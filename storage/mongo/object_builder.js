@@ -171,7 +171,9 @@ let objectBuilder = {
                     console.log("rel table::", relationFieldTable)
                     console.log("field:::", relationField);
                     if (!relationField || !relationFieldTable) {
-                        throw Error("relation field not found")
+                        output[field.slug] = 0
+                        console.log("relation field not found")
+                        continue
                     }
                     let matchField = relationField ? relationField.slug : req.table_slug + "_id"
                     let matchParams = {
@@ -852,7 +854,9 @@ let objectBuilder = {
                         console.log("rel table::", relationFieldTable)
                         console.log("field:::", relationField);
                         if (!relationField || !relationFieldTable) {
-                            throw Error("relation field not found")
+                            console.log("relation field not found")
+                            res[field.slug] = 0
+                            continue
                         }
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
                         let matchParams = {

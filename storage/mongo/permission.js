@@ -335,10 +335,10 @@ let permission = {
                     tableCopy.record_permissions = {
                         table_slug: table.slug,
                         role_id: req.role_id,
-                        read: "Yes",
-                        write: "Yes",
-                        delete: "Yes",
-                        update: "Yes",
+                        read: "No",
+                        write: "No",
+                        delete: "No",
+                        update: "No",
                         is_have_condition: false
                     }
                 }
@@ -379,8 +379,8 @@ let permission = {
                         field_id: fieldId,
                         role_id: req.role_id,
                         table_slug: req.table_slug,
-                        view_permission: true,
-                        edit_permission: true,
+                        view_permission: false,
+                        edit_permission: false,
                         label: field.label
                     }
                     noFieldPermissions.push(fieldPermission)

@@ -343,7 +343,7 @@ let permission = {
                 }
 
                 // NEW
-                const tableInfo = await table.findOne({
+                const tableInfo = await Table.findOne({
                     slug: req.table_slug,
                     deleted_at: "1970-01-01T18:00:00.000+00:00"
                 }).lean()

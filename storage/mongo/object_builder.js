@@ -37,7 +37,7 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
 
-            let {payload, data, event, appendMany2ManyObjects} = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
+            let { payload, data, event, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
 
             // send topic to Analytics service
@@ -68,7 +68,7 @@ let objectBuilder = {
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-            let {data, event, appendMany2Many, deleteMany2Many} = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+            let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             const response = await tableInfo.models.updateOne({ guid: data.guid }, { $set: data });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
@@ -94,7 +94,7 @@ let objectBuilder = {
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
         const relations = await Relation.find({
-            table_from : req.table_slug,
+            table_from: req.table_slug,
             type: "One2One"
         })
 
@@ -117,7 +117,7 @@ let objectBuilder = {
                 relation_id: relation.id
             })
             if (field) {
-                relatedTable.push(field?.slug+"_data")
+                relatedTable.push(field?.slug + "_data")
             }
         }
         for (const relation of relationsM2M) {
@@ -129,23 +129,23 @@ let objectBuilder = {
                 relation_id: relation.id
             })
             if (field) {
-                relatedTable.push(field?.slug+"_data")
+                relatedTable.push(field?.slug + "_data")
             }
         }
 
         let output = await tableInfo.models.findOne({
             guid: data.id
         },
-        {
-            created_at: 0,
-            updated_at: 0,
-            createdAt: 0,
-            updatedAt: 0,
-            _id: 0,
-            __v: 0
-        }).populate(relatedTable).lean();
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0
+            }).populate(relatedTable).lean();
 
-        if (!output) {logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`)};
+        if (!output) { logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`) };
         let isChanged = false
         for (const field of tableInfo.fields) {
             let attributes = struct.decode(field.attributes)
@@ -156,7 +156,7 @@ let objectBuilder = {
                         attributes.formula_filters.forEach(el => {
                             filters[el.key.split("#")[0]] = el.value
                             if (Array.isArray(el.value)) {
-                                filters[el.key.split("#")[0]] = {$in: el.value}
+                                filters[el.key.split("#")[0]] = { $in: el.value }
                             }
                         })
                     }
@@ -173,22 +173,22 @@ let objectBuilder = {
                     if (!relationField || !relationFieldTable) {
                         throw Error("relation field not found")
                     }
-                    let matchField = relationField ? relationField.slug : req.table_slug+"_id"
+                    let matchField = relationField ? relationField.slug : req.table_slug + "_id"
                     let matchParams = {
-                        [matchField]: {'$eq': data.id},
+                        [matchField]: { '$eq': data.id },
                         ...filters
                     }
-                    const resultFormula =  await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
+                    const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                     if (resultFormula.length) {
-                        if (output[field.slug] !== resultFormula[0].res ) {
+                        if (output[field.slug] !== resultFormula[0].res) {
                             isChanged = true
                         }
-                        output[field.slug] = resultFormula[0].res 
+                        output[field.slug] = resultFormula[0].res
                     }
                 }
             } else if (field.type === "FORMULA_FRONTEND") {
                 if (attributes && attributes.fomula) {
-                    const resultFormula =  await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, output)
+                    const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, output)
                     if (output[field.slug] !== resultFormula) {
                         isChanged = true
                     }
@@ -203,7 +203,7 @@ let objectBuilder = {
                 data: struct.encode(output)
             })
         }
-        
+
         for (const relation of relatedTable) {
             if (relation in output) {
                 nameWithDollarSign = "$" + relation
@@ -213,13 +213,13 @@ let objectBuilder = {
         }
         let decodedFields = []
         for (const element of tableInfo.fields) {
-            if (element.attributes&&!(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
-                let field = {...element}
+            if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
+                let field = { ...element }
                 field.attributes = struct.decode(element.attributes)
                 decodedFields.push(field)
             } else {
                 let autofillFields = []
-                let elementField = {...element}
+                let elementField = { ...element }
                 const relation = relations.find(val => (val.id === elementField.relation_id))
                 let relationTableSlug;
                 if (relation) {
@@ -240,44 +240,44 @@ let objectBuilder = {
                 for (const field of tableElementFields) {
                     if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
                         let autofill = {
-                            field_from : field.autofill_field,
+                            field_from: field.autofill_field,
                             field_to: field.slug,
                         }
                         autofillFields.push(autofill)
                     }
                 }
                 elementField.attributes["autofill"] = autofillFields,
-                decodedFields.push(elementField)
+                    decodedFields.push(elementField)
             }
         };
 
         for (const field of decodedFields) {
             if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
-                let relation = await Relation.findOne({table_from:req.table_slug, table_to:field.table_slug})
+                let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
                 let viewFields = []
-                    if (relation) {
-                        for (const view_field of relation.view_fields) {
-                            let viewField = await Field.findOne(
+                if (relation) {
+                    for (const view_field of relation.view_fields) {
+                        let viewField = await Field.findOne(
                             {
-                                id:view_field
+                                id: view_field
                             },
                             {
-                                createdAt: 0, 
+                                createdAt: 0,
                                 updatedAt: 0,
-                                created_at: 0, 
+                                created_at: 0,
                                 updated_at: 0,
-                                _id: 0, 
+                                _id: 0,
                                 __v: 0
                             })
-                            if (viewField) {
-                                if (viewField.attributes) {
-                                    viewField.attributes = struct.decode(viewField.attributes)
-                                }
-                                viewFields.push(viewField._doc)
+                        if (viewField) {
+                            if (viewField.attributes) {
+                                viewField.attributes = struct.decode(viewField.attributes)
                             }
+                            viewFields.push(viewField._doc)
                         }
                     }
-                    field.view_fields = viewFields
+                }
+                field.view_fields = viewFields
             }
         }
 
@@ -305,7 +305,7 @@ let objectBuilder = {
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
         let keys = Object.keys(params)
-        let order = params.order 
+        let order = params.order
         let fields = tableInfo.fields
         let with_relations = params.with_relations
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
@@ -330,24 +330,24 @@ let objectBuilder = {
                         table_slug: req.table_slug
                     }
                 ]
-    
+
             })
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
                     if (autoFilter.custom_field === "user_id") {
                         if (autoFilter.object_field !== req.table_slug) {
-                            params[autoFilter.object_field+"_id"] = params["user_id_from_token"]
-                            params[autoFilter.object_field+"ids"] = {$in: params["user_id_from_token"]}
+                            params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+                            params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
                         } else {
                             params["guid"] = params["user_id_from_token"]
                         }
                     } else {
-                        let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length-3)
+                        let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
                         let objFromAuth = params.tables.find(obj => obj.table_slug === connectionTableSlug)
                         if (objFromAuth) {
                             if (connectionTableSlug !== req.table_slug) {
                                 params[autoFilter.custom_field] = objFromAuth.object_id
-                                params[autoFilter.custom_field+"s"] = {$in: params["user_id_from_token"]}
+                                params[autoFilter.custom_field + "s"] = { $in: params["user_id_from_token"] }
                             } else {
                                 params["guid"] = objFromAuth.object_id
                             }
@@ -357,13 +357,13 @@ let objectBuilder = {
             }
         }
         if (params.view_fields && params.search) {
-            if (params.view_fields.length && params.search !== ""){
+            if (params.view_fields.length && params.search !== "") {
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))
                     if (field.type !== "NUMBER" && field.type !== "SWITCH") {
                         let obj = {};
-                        obj[view_field] = {$regex: new RegExp(params.search.toString(), "i")}
+                        obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }
                         arrayOfViewFields.push(obj)
                     }
                 }
@@ -391,17 +391,17 @@ let objectBuilder = {
             if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
                 params["guid"] = params[key]
             }
-            if (typeof(params[key])=== "object") {
+            if (typeof (params[key]) === "object") {
 
                 if (params[key]) {
                     let is_array = Array.isArray(params[key])
                     if (is_array) {
-                        params[key] = {$in: params[key]}
+                        params[key] = { $in: params[key] }
                     }
                 }
-            } else if (!key.includes('.') && typeof(params[key]) !== "number" && key !== "search" && typeof(params[key]) !== "boolean") {
+            } else if (!key.includes('.') && typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
                 params[key] = RegExp(params[key], "i")
-            } 
+            }
         }
         console.log("TEST::::::4")
         const relations = await Relation.find({
@@ -411,28 +411,29 @@ let objectBuilder = {
                 }, {
                     type: "Many2One"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
-                  table_to: req.table_slug
+                    table_to: req.table_slug
                 }, {
-                  type: "One2Many"
+                    type: "One2Many"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
                     $or: [{
                         table_from: req.table_slug
                     },
                     {
                         "dynamic_tables.table_slug": req.table_slug
-                    }]},   
-                    {
-                        type: "Many2Dynamic"
-                    }
+                    }]
+                },
+                {
+                    type: "Many2Dynamic"
+                }
                 ]
-              },
-              {
+            },
+            {
                 $and: [{
                     $or: [{
                         table_from: req.table_slug
@@ -443,14 +444,14 @@ let objectBuilder = {
                 }, {
                     type: "Many2Many"
                 }]
-              },
-            //   {
-            //     $and: [{
-            //         table_from: req.table_slug
-            //     }, {
-            //         type: "Recursive"
-            //     }]
-            //   }
+            },
+                //   {
+                //     $and: [{
+                //         table_from: req.table_slug
+                //     }, {
+                //         type: "Recursive"
+                //     }]
+                //   }
             ]
         })
         console.log("TEST::::::5")
@@ -461,17 +462,17 @@ let objectBuilder = {
                     if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
                         relation.table_to = relation.table_from
                     }
-                    let relationTable = await table.findOne({slug:relation.table_to})
+                    let relationTable = await table.findOne({ slug: relation.table_to })
                     let relationFields = await Field.find(
                         {
-                            table_id:relationTable?.id
+                            table_id: relationTable?.id
                         },
                         {
-                            createdAt: 0, 
+                            createdAt: 0,
                             updatedAt: 0,
-                            created_at: 0, 
+                            created_at: 0,
                             updated_at: 0,
-                            _id: 0, 
+                            _id: 0,
                             __v: 0
                         })
                     for (const field of relationFields) {
@@ -484,21 +485,21 @@ let objectBuilder = {
                             } else {
                                 table_slug = field.slug.slice(0, -4)
                             }
-                            childRelation = await Relation.findOne({table_from:relationTable.slug, table_to: table_slug})
+                            childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
                             if (childRelation) {
                                 for (const view_field of childRelation.view_fields) {
                                     let viewField = await Field.findOne(
-                                    {
-                                        id:view_field
-                                    },
-                                    {
-                                        createdAt: 0, 
-                                        updatedAt: 0,
-                                        created_at: 0, 
-                                        updated_at: 0,
-                                        _id: 0, 
-                                        __v: 0
-                                    })
+                                        {
+                                            id: view_field
+                                        },
+                                        {
+                                            createdAt: 0,
+                                            updatedAt: 0,
+                                            created_at: 0,
+                                            updated_at: 0,
+                                            _id: 0,
+                                            __v: 0
+                                        })
                                     if (viewField) {
                                         if (viewField.attributes) {
                                             viewField.attributes = struct.decode(viewField.attributes)
@@ -508,12 +509,12 @@ let objectBuilder = {
                                 }
                             }
                             field._doc.view_fields = viewFields
-                            let childRelationTable = await table.findOne({slug:table_slug})
+                            let childRelationTable = await table.findOne({ slug: table_slug })
                             field._doc.table_label = relationTable?.label
                             field.label = childRelationTable?.label
                             changedField = field
                             changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
-                            changedField._doc.table_slug =  table_slug
+                            changedField._doc.table_slug = table_slug
                             relationsFields.push(changedField._doc)
                         } else {
                             if (field.attributes) {
@@ -524,7 +525,7 @@ let objectBuilder = {
                             changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
                             relationsFields.push(changedField._doc)
                         }
-                    }  
+                    }
 
                 }
 
@@ -538,20 +539,20 @@ let objectBuilder = {
         if (params.search) {
             for (const field of tableInfo.fields) {
                 if (con.STRING_TYPES.includes(field.type)) {
-                    let searchField = {[field.slug]: RegExp(params.search, "i")}
+                    let searchField = { [field.slug]: RegExp(params.search, "i") }
                     searchByField.push(searchField)
-                }     
+                }
             }
         }
         if (params.phone_number) {
             let temp = params.phone_number.toString()
             let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2,4) + `\)` + tempPhone
+            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
             params.phone_number = phone
         } else if (params.phone) {
             let temp = params.phone.toString()
             let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2,4) + `\)` + tempPhone
+            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
             params.phone = phone
         }
         console.log("TEST::::::7")
@@ -560,22 +561,22 @@ let objectBuilder = {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
                     $and: [params]
-                }, 
-                {
-                    createdAt: 0, 
-                    updatedAt: 0,
-                    created_at: 0, 
-                    updated_at: 0,
-                    _id: 0, 
-                    __v: 0
-                }, {sort: order}
+                },
+                    {
+                        createdAt: 0,
+                        updatedAt: 0,
+                        created_at: 0,
+                        updated_at: 0,
+                        _id: 0,
+                        __v: 0
+                    }, { sort: order }
                 ).skip(offset)
-                .limit(limit)
-                .lean();
+                    .limit(limit)
+                    .lean();
                 count = await tableInfo.models.countDocuments(params);
             } else {
-    
-    
+
+
                 tableParams = []
                 for (const key of Object.keys(params)) {
                     if (key.includes('.')) {
@@ -589,18 +590,18 @@ let objectBuilder = {
                                 tableParams[key.split('.')[0]][key.split('.')[1]] = interval
                             } else {
                                 tableParams[key.split('.')[0]] = {
-                                    [key.split('.')[1]]: interval, 
+                                    [key.split('.')[1]]: interval,
                                     select: '-_id'
                                 }
                             }
-                        } else if (typeof(params[key]) !== "number" && key !== "search" && typeof(params[key]) !== "boolean") {
+                        } else if (typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
                             if (tableParams[key.split('.')[0]]) {
-                                tableParams[key.split('.')[0]][key.split('.')[1]] = {$regex:  params[key]}
+                                tableParams[key.split('.')[0]][key.split('.')[1]] = { $regex: params[key] }
                             } else {
                                 tableParams[key.split('.')[0]] = {
-                                    [key.split('.')[1]]: {$regex:  params[key]}, 
+                                    [key.split('.')[1]]: { $regex: params[key] },
                                     select: '-_id'
-                                }    
+                                }
                             }
                         }
                     }
@@ -624,7 +625,7 @@ let objectBuilder = {
                     if (table_to_slug === "") {
                         continue
                     }
-    
+
                     if (with_relations) {
                         if (relation.type === "Many2Dynamic") {
                             // for(dynamic_table of relation.dynamic_tables){
@@ -640,7 +641,7 @@ let objectBuilder = {
                             // }
                             console.log("it's dynamic relations");
                         } else {
-                            deepPopulateRelations = await Relation.find({table_from:relation.table_to})
+                            deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
                             for (const deepRelation of deepPopulateRelations) {
                                 if (deepRelation.type === "One2Many") {
                                     deepRelation.table_to = deepRelation.table_from
@@ -661,8 +662,8 @@ let objectBuilder = {
                                 if (deep_table_to_slug === "") {
                                     continue
                                 }
-                
-                                if (deep_table_to_slug !== deepRelation.field_to+"_data") {
+
+                                if (deep_table_to_slug !== deepRelation.field_to + "_data") {
                                     let deepPopulate = {
                                         path: deep_table_to_slug
                                     }
@@ -680,7 +681,7 @@ let objectBuilder = {
                         }
                     } else {
                         if (relation.type === "Many2Dynamic") {
-                            for(dynamic_table of relation.dynamic_tables){
+                            for (dynamic_table of relation.dynamic_tables) {
                                 papulateTable = {
                                     path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
                                     populate: deepRelations
@@ -698,22 +699,22 @@ let objectBuilder = {
                 }
                 result = await tableInfo.models.find({
                     ...params
-                }, 
-                {
-                    createdAt: 0, 
-                    updatedAt: 0,
-                    created_at: 0, 
-                    updated_at: 0,
-                    _id: 0, 
-                    __v: 0
-                }, {sort: order}
+                },
+                    {
+                        createdAt: 0,
+                        updatedAt: 0,
+                        created_at: 0,
+                        updated_at: 0,
+                        _id: 0,
+                        __v: 0
+                    }, { sort: order }
                 )
-                .skip(offset)
-                .limit(limit)
-                .populate(populateArr)
-                .lean()
-                
-                
+                    .skip(offset)
+                    .limit(limit)
+                    .populate(populateArr)
+                    .lean()
+
+
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
@@ -730,12 +731,12 @@ let objectBuilder = {
         let decodedFields = []
         // below for loop is in order to decode FIELD.ATTRIBUTES from proto struct to normal object
         for (const element of fieldsWithPermissions) {
-            if (element.attributes&&!(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
-                let field = {...element}
+            if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
+                let field = { ...element }
                 field.attributes = struct.decode(element.attributes)
                 decodedFields.push(field)
             } else {
-                let elementField = {...element}
+                let elementField = { ...element }
                 if (element.attributes) {
                     elementField.attributes = struct.decode(element.attributes)
                 }
@@ -745,76 +746,76 @@ let objectBuilder = {
         console.log("TEST::::::12")
         for (const field of decodedFields) {
             if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
-                let relation = await Relation.findOne({table_from: req.table_slug, table_to: field.table_slug})
+                let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
                 let viewFields = []
-                    if (relation) {
-                        for (const view_field of relation.view_fields) {
-                            let viewField = await Field.findOne(
+                if (relation) {
+                    for (const view_field of relation.view_fields) {
+                        let viewField = await Field.findOne(
                             {
-                                id:view_field
+                                id: view_field
                             },
                             {
-                                createdAt: 0, 
+                                createdAt: 0,
                                 updatedAt: 0,
-                                created_at: 0, 
+                                created_at: 0,
                                 updated_at: 0,
-                                _id: 0, 
+                                _id: 0,
                                 __v: 0
                             })
-                            if (viewField) {
-                                if (viewField.attributes) {
-                                    viewField.attributes = struct.decode(viewField.attributes)
-                                }
-                                viewFields.push(viewField._doc)
+                        if (viewField) {
+                            if (viewField.attributes) {
+                                viewField.attributes = struct.decode(viewField.attributes)
                             }
+                            viewFields.push(viewField._doc)
                         }
                     }
-                    field.view_fields = viewFields
+                }
+                field.view_fields = viewFields
             }
         }
         console.log("TEST::::::13")
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
             const additional_param = {};
-            additional_param[params.additional_request.additional_field] = {$in: params.additional_request.additional_values}
-            
+            additional_param[params.additional_request.additional_field] = { $in: params.additional_request.additional_values }
+
             if (relations.length == 0) {
                 additional_results = await tableInfo.models.find({
                     ...additional_param
-                }, 
-                {
-                    createdAt: 0, 
-                    updatedAt: 0,
-                    created_at: 0, 
-                    updated_at: 0,
-                    _id: 0, 
-                    __v: 0
-                }, {sort: order}
+                },
+                    {
+                        createdAt: 0,
+                        updatedAt: 0,
+                        created_at: 0,
+                        updated_at: 0,
+                        _id: 0,
+                        __v: 0
+                    }, { sort: order }
                 )
-                .lean();
+                    .lean();
             } else {
                 for (const key of Object.keys(params)) {
                     if (key.includes('.')) {
                         tableParams[key.split('.')[0]] = {
-                            [key.split('.')[1]]: {$regex:  params[key]}, 
+                            [key.split('.')[1]]: { $regex: params[key] },
                             select: '-_id'
                         }
                     }
                 }
                 additional_results = await tableInfo.models.find({
                     ...additional_param
-                }, 
-                {
-                    createdAt: 0, 
-                    updatedAt: 0,
-                    created_at: 0, 
-                    updated_at: 0,
-                    _id: 0, 
-                    __v: 0
-                }, {sort: order}
+                },
+                    {
+                        createdAt: 0,
+                        updatedAt: 0,
+                        created_at: 0,
+                        updated_at: 0,
+                        _id: 0,
+                        __v: 0
+                    }, { sort: order }
                 )
-                .populate(populateArr)
-                .lean()
+                    .populate(populateArr)
+                    .lean()
                 additional_results = additional_results.filter(obj => Object.keys(tableParams).every(key => obj[key]))
                 let result_ids = []
                 result.forEach(el => result_ids.push(el.guid))
@@ -832,43 +833,43 @@ let objectBuilder = {
                 if (field.type === "FORMULA") {
                     if (attributes.table_from && attributes.sum_field) {
                         let filters = {}
-                    if (attributes.formula_filters) {
-                        attributes.formula_filters.forEach(el => {
-                            filters[el.key.split("#")[0]] = el.value
-                            if (Array.isArray(el.value)) {
-                                filters[el.key.split("#")[0]] = {$in: el.value}
-                            }
+                        if (attributes.formula_filters) {
+                            attributes.formula_filters.forEach(el => {
+                                filters[el.key.split("#")[0]] = el.value
+                                if (Array.isArray(el.value)) {
+                                    filters[el.key.split("#")[0]] = { $in: el.value }
+                                }
+                            })
+                        }
+                        const relationFieldTable = await table.findOne({
+                            slug: attributes.table_from.split('#')[0],
+                            deleted_at: "1970-01-01T18:00:00.000+00:00"
                         })
-                    }
-                    const relationFieldTable = await table.findOne({
-                        slug: attributes.table_from.split('#')[0],
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
-                    })
-                    const relationField = await Field.findOne({
-                        relation_id: attributes.table_from.split('#')[1],
-                        table_id: relationFieldTable.id
-                    })
-                    console.log("rel table::", relationFieldTable)
-                    console.log("field:::", relationField);
-                    if (!relationField || !relationFieldTable) {
-                        throw Error("relation field not found")
-                    }
-                    let matchField = relationField ? relationField.slug : req.table_slug+"_id"
-                    let matchParams = {
-                        [matchField]: {'$eq': data.id},
-                        ...filters
-                    }
-                        const resultFormula =  await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
+                        const relationField = await Field.findOne({
+                            relation_id: attributes.table_from.split('#')[1],
+                            table_id: relationFieldTable.id
+                        })
+                        console.log("rel table::", relationFieldTable)
+                        console.log("field:::", relationField);
+                        if (!relationField || !relationFieldTable) {
+                            throw Error("relation field not found")
+                        }
+                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                        let matchParams = {
+                            [matchField]: { '$eq': res.id },
+                            ...filters
+                        }
+                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                         if (resultFormula.length) {
-                            if (res[field.slug] !== resultFormula[0].res ) {
+                            if (res[field.slug] !== resultFormula[0].res) {
                                 isChanged = true
                             }
-                            res[field.slug] = resultFormula[0].res 
+                            res[field.slug] = resultFormula[0].res
                         }
-                    }  
+                    }
                 } else {
                     if (attributes && attributes.formula) {
-                        const resultFormula =  await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
+                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
                         if (res[field.slug] !== resultFormula) {
                             isChanged = true
                         }
@@ -884,7 +885,7 @@ let objectBuilder = {
             await objectBuilder.multipleUpdateV2({
                 table_slug: req.table_slug,
                 project_id: req.project_id,
-                data: struct.encode({objects: updatedObjects})
+                data: struct.encode({ objects: updatedObjects })
             })
         }
         console.log("TEST::::::15")
@@ -895,7 +896,7 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
-        return {table_slug: req.table_slug, data: response}
+        return { table_slug: req.table_slug, data: response }
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {
@@ -910,7 +911,7 @@ let objectBuilder = {
             table.table_slug = req.table_slug
             event.payload = table
 
-            event.project_id = req.project_id 
+            event.project_id = req.project_id
             await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
 
             return { table_slug: req.table_slug, data: response };
@@ -1745,7 +1746,7 @@ let objectBuilder = {
                     table_slug: req.table_slug,
                     project_id: req.project_id
                 }
-                let {payload, data, event, appendMany2ManyObjects} = await PrepareFunction.prepareToCreateInObjectBuilder(request, mongoConn)
+                let { payload, data, event, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(request, mongoConn)
                 appendMany2ManyObj = appendMany2ManyObjects
                 objects.push(payload)
 
@@ -1787,7 +1788,7 @@ let objectBuilder = {
                     project_id: req.project_id,
                 }
 
-                let {data, event, appendMany2Many, deleteMany2Many} = await prepareFunction.prepareToUpdateInObjectBuilder(request, mongoConn)
+                let { data, event, appendMany2Many, deleteMany2Many } = await prepareFunction.prepareToUpdateInObjectBuilder(request, mongoConn)
 
                 await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
                 let bulk = {
@@ -1818,7 +1819,7 @@ let objectBuilder = {
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
             const View = mongoConn.models['View']
-           
+
             const request = struct.decode(req.data)
             const view = await View.findOne({
                 id: request.view_id
@@ -1871,7 +1872,7 @@ let objectBuilder = {
 
                             let params = {}
                             //adding params
-                            params[groupBy] = {'$eq': chartOfAccount.object_id}
+                            params[groupBy] = { '$eq': chartOfAccount.object_id }
                             params[dateBy] = date
 
                             if (option.filters && option.filters.length) {
@@ -1879,19 +1880,19 @@ let objectBuilder = {
                                     let field = optionTable.fields.find(el => el.id == filter.field_id)
                                     if (field) {
                                         if (filter.value?.length) {
-                                            params[field.slug] = {$in: filter.value}
+                                            params[field.slug] = { $in: filter.value }
                                         }
                                     }
                                 }
                             }
-                            const pipelines =   [
+                            const pipelines = [
                                 {
                                     '$match': params,
                                 }, {
                                     '$group': {
                                         '_id': groupByWithDollorSign,
-                                    'res': {
-                                        [aggregateFunction]: sumFieldWithDollowSign
+                                        'res': {
+                                            [aggregateFunction]: sumFieldWithDollowSign
                                         }
                                     }
                                 }

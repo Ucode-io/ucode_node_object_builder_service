@@ -48,7 +48,7 @@ let appStore = {
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
 
-            const mongoConn = await mongoPool.get(data.project_id)
+            const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
 
             const App = mongoConn.models['App']
 

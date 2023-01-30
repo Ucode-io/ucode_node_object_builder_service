@@ -5350,3 +5350,582 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:38.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:38.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:38.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "admin",\n' +
+    '    "database": "asdas",\n' +
+    '    "password": "password"\n' +
+    '  },\n' +
+    '  "id": "b204a862-9563-4460-83d4-76f4d6038128",\n' +
+    '  "project_id": "b204a862-9563-4460-83d4-76f4d6038128",\n' +
+    '  "path": "k8s/ucode-test/d000b6f8-92df-48ae-bc10-107da3f46a13/3b34a40c-a186-4410-bf4e-77fab59d9bd3/4d62e2aa-5e0e-4537-9cfc-b411ccd8b888/MONGODB",\n' +
+    '  "title": "fsdfwef",\n' +
+    '  "resource_id": "a335cab8-572c-48aa-9c3e-17f300882bbd",\n' +
+    '  "environment_id": "4d62e2aa-5e0e-4537-9cfc-b411ccd8b888"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:47.940Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://admin:password@0.0.0.0:27017/asdas',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:47.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-30T06:26:48.050Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'autoconnecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:48.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "udv_new-app_object_builder_service",\n' +
+    '    "database": "udv_new-app_object_builder_service",\n' +
+    '    "password": "BaPSJGY8gA"\n' +
+    '  },\n' +
+    '  "id": "8c72b0e0-ebe8-4bb0-90d9-4583b1e58968",\n' +
+    '  "project_id": "8c72b0e0-ebe8-4bb0-90d9-4583b1e58968",\n' +
+    '  "path": "k8s/ucode-test/d000b6f8-92df-48ae-bc10-107da3f46a13/c391b191-ba94-4b71-b67f-51a632812a0a/69e913af-1ba7-4ac1-a512-054a11a175ed/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "609b5be0-ee4a-4425-9738-99c9a9711b0f",\n' +
+    '  "environment_id": "69e913af-1ba7-4ac1-a512-054a11a175ed"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:48.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udv_new-app_object_builder_service:BaPSJGY8gA@0.0.0.0:27017/udv_new-app_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:48.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-30T06:26:48.075Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'autoconnecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:48.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "admin",\n' +
+    '    "database": "asdasdasdasdasd",\n' +
+    '    "password": "password"\n' +
+    '  },\n' +
+    '  "id": "7419a6f4-387d-4c28-b111-938d4151992c",\n' +
+    '  "project_id": "7419a6f4-387d-4c28-b111-938d4151992c",\n' +
+    '  "path": "k8s/ucode-test/649bb544-705c-450a-9963-1454d05e5933/3c08863a-2986-4585-bc11-03fa34f7d8f6/09deb5f8-36c8-4424-8bbd-3c564827e457/MONGODB",\n' +
+    '  "title": "wrwerwer",\n' +
+    '  "resource_id": "2b577a8c-b411-411a-8339-19640b2ede52",\n' +
+    '  "environment_id": "09deb5f8-36c8-4424-8bbd-3c564827e457"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:48.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://admin:password@0.0.0.0:27017/asdasdasdasdasd',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:48.077Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-01-30T06:26:48.091Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/tolib/Desktop/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'autoconnecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:48.092Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "mongo",\n' +
+    '    "database": "admin",\n' +
+    '    "password": "password"\n' +
+    '  },\n' +
+    '  "id": "f50ebc6b-0fba-4aaf-959f-cd2ac0b24517",\n' +
+    '  "project_id": "f50ebc6b-0fba-4aaf-959f-cd2ac0b24517",\n' +
+    '  "path": "k8s/ucode-test/6649b716-1f94-40d9-a042-4c82d0dbf703/46da60b7-ecd6-4d23-8f48-9ff778b4824b/f63b8084-1c23-47be-8ac1-72aa232eb80b/MONGODB",\n' +
+    '  "title": "sgwesfsd",\n' +
+    '  "resource_id": "a38f8fbc-af7d-40f9-aaa0-f69272a43c64",\n' +
+    '  "environment_id": "f63b8084-1c23-47be-8ac1-72aa232eb80b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:48.092Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://mongo:password@0.0.0.0:27017/admin',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:48.093Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://mongo:password@0.0.0.0:27017/admin',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:48.120Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:48.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "admin",\n' +
+    '    "database": "admin",\n' +
+    '    "password": "password"\n' +
+    '  },\n' +
+    '  "id": "52b75ab6-c569-471c-857a-995776d433a7",\n' +
+    '  "project_id": "52b75ab6-c569-471c-857a-995776d433a7",\n' +
+    '  "path": "k8s/ucode-test/6e2b330e-89dd-4477-a87d-178a994a4ab6/6b0c7c57-8e60-4bb3-a3b2-ba1e8452b2b2/8468e770-ae14-4481-8a58-7cc671e12f39/MONGODB",\n' +
+    '  "title": "23sfsdf",\n' +
+    '  "resource_id": "c72f3978-a968-42de-8174-04bc89f67ac7",\n' +
+    '  "environment_id": "8468e770-ae14-4481-8a58-7cc671e12f39"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:48.964Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:48.964Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:48.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:49.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "admin",\n' +
+    '    "database": "admin",\n' +
+    '    "password": "password"\n' +
+    '  },\n' +
+    '  "id": "3e938c07-9a01-43a8-9e59-a6ad9699b697",\n' +
+    '  "project_id": "3e938c07-9a01-43a8-9e59-a6ad9699b697",\n' +
+    '  "path": "k8s/ucode-test/8e51737b-a783-4609-ab27-9822741336d1/67daed8c-db5c-4f66-918d-b2660f255bfd/db3f7135-d835-41cd-ae89-67c484c7caa8/MONGODB",\n' +
+    '  "title": "sdfsdf",\n' +
+    '  "resource_id": "ed66f9e5-b757-4ead-8cfb-c3cd701f1974",\n' +
+    '  "environment_id": "db3f7135-d835-41cd-ae89-67c484c7caa8"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:49.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:49.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:49.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:50.475Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "admin",\n' +
+    '    "database": "admin",\n' +
+    '    "password": "password"\n' +
+    '  },\n' +
+    '  "id": "77ae321c-b66c-4e3b-b9e1-f1ce444f6ebf",\n' +
+    '  "project_id": "77ae321c-b66c-4e3b-b9e1-f1ce444f6ebf",\n' +
+    '  "path": "k8s/ucode-test/8e51737b-a783-4609-ab27-9822741336d1/67daed8c-db5c-4f66-918d-b2660f255bfd/db3f7135-d835-41cd-ae89-67c484c7caa8/MONGODB",\n' +
+    '  "title": "sgwesfsd",\n' +
+    '  "resource_id": "f3cd4aa8-b63d-4f11-ba13-b907a4e2878b",\n' +
+    '  "environment_id": "db3f7135-d835-41cd-ae89-67c484c7caa8"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:50.476Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:50.476Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:50.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:51.180Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "admin",\n' +
+    '    "database": "admin",\n' +
+    '    "password": "password"\n' +
+    '  },\n' +
+    '  "id": "b5f0e133-a4e3-48a6-8104-6fe256f89098",\n' +
+    '  "project_id": "b5f0e133-a4e3-48a6-8104-6fe256f89098",\n' +
+    '  "path": "k8s/ucode-test/8e51737b-a783-4609-ab27-9822741336d1/67daed8c-db5c-4f66-918d-b2660f255bfd/934a2d17-ad75-4329-9c3b-8c379c2541c4/MONGODB",\n' +
+    '  "title": "erhtytkst",\n' +
+    '  "resource_id": "a51f6389-f399-4c8e-87cc-a9892e0946ac",\n' +
+    '  "environment_id": "934a2d17-ad75-4329-9c3b-8c379c2541c4"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:51.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:51.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:51.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:51.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "admin",\n' +
+    '    "database": "admin",\n' +
+    '    "password": "password"\n' +
+    '  },\n' +
+    '  "id": "0a56eab2-128a-4d39-82eb-d0157a8d4218",\n' +
+    '  "project_id": "0a56eab2-128a-4d39-82eb-d0157a8d4218",\n' +
+    '  "path": "k8s/ucode-test/8e51737b-a783-4609-ab27-9822741336d1/67daed8c-db5c-4f66-918d-b2660f255bfd/934a2d17-ad75-4329-9c3b-8c379c2541c4/MONGODB",\n' +
+    '  "title": "erhtytkst",\n' +
+    '  "resource_id": "f908bf27-0e0b-4bd2-bbb5-1de3ea584f06",\n' +
+    '  "environment_id": "934a2d17-ad75-4329-9c3b-8c379c2541c4"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:51.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:51.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:51.826Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:52.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "swerwer_new_project_object_builder_service",\n' +
+    '    "database": "swerwer_new_project_object_builder_service",\n' +
+    '    "password": "8y7Hh20t4B"\n' +
+    '  },\n' +
+    '  "id": "70701523-8bd5-468f-866d-3d4b729a2b49",\n' +
+    '  "project_id": "70701523-8bd5-468f-866d-3d4b729a2b49",\n' +
+    '  "path": "k8s/ucode-test/6649b716-1f94-40d9-a042-4c82d0dbf703/a04a83e6-ac59-44c8-8183-3c9aa89e0a5b/1613f377-7d28-4ef8-a538-8131ffb33b56/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "a64ff983-2f7b-43c9-9f04-5a2272834edd",\n' +
+    '  "environment_id": "1613f377-7d28-4ef8-a538-8131ffb33b56"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:52.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swerwer_new_project_object_builder_service:8y7Hh20t4B@0.0.0.0:27017/swerwer_new_project_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:52.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swerwer_new_project_object_builder_service:8y7Hh20t4B@0.0.0.0:27017/swerwer_new_project_object_builder_service',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:52.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:52.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "0.0.0.0",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "admin",\n' +
+    '    "database": "admin",\n' +
+    '    "password": "password"\n' +
+    '  },\n' +
+    '  "id": "b801135b-7378-4875-acca-1f8ca0216c40",\n' +
+    '  "project_id": "b801135b-7378-4875-acca-1f8ca0216c40",\n' +
+    '  "path": "k8s/ucode-test/6649b716-1f94-40d9-a042-4c82d0dbf703/a04a83e6-ac59-44c8-8183-3c9aa89e0a5b/3481799d-1289-425b-b49d-72e5176b6d1f/MONGODB",\n' +
+    '  "title": "afefadfs",\n' +
+    '  "resource_id": "48e59926-e16f-4257-bf4b-c71a48c12005",\n' +
+    '  "environment_id": "3481799d-1289-425b-b49d-72e5176b6d1f"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:52.871Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:52.871Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://admin:password@0.0.0.0:27017/admin',
+  level: 'info',
+  timestamp: '2023-01-30T06:26:52.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:53.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-01-30T06:26:53.532Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

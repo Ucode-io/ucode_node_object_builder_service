@@ -19,7 +19,7 @@ let formulaFunction = {
         newValue = error ?? result
         return newValue
     },
-    calculateFormulaBackend: async (attributes, tableSlug, matchParams, project_id) => {
+    calculateFormulaBackend: async (attributes, matchField, matchParams, project_id) => {
         console.log("attibites", attributes);
         let groupByWithDollorSign = '$' + matchField
         let sumFieldWithDollowSign = '$' + attributes["sum_field"]

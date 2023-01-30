@@ -13,7 +13,7 @@ const mongoPool = require('../../pkg/pool');
 const App = require('./app')
 const Table = require('./table');
 const { limit } = require("../../config/index");
-const { ta } = require("date-fns/locale");
+const { ta, el } = require("date-fns/locale");
 
 let permission = {
     upsertPermissionsByAppId: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertPermissionsByAppId`, async (req) => {
@@ -343,19 +343,15 @@ let permission = {
                 }
 
                 // NEW
-                const tableInfo = await Table.findOne({
-                    slug: req.table_slug,
-                    deleted_at: "1970-01-01T18:00:00.000+00:00"
-                }).lean()
                 const fields = await Field.find({
-                    table_id: tableInfo.id
+                    table_id: table.id
                 })
                 let fieldIdAndLabels = []
-                fields.forEach(field => {
-                    fieldIdAndLabels.push({field_id: field.id, label: field.label})
+                console.log("--test 0 field permission--");
+                fields.forEach(el => {
+                    fieldIdAndLabels.push({field_id: el.id, label: el.label})
                 })
-                const permissionTable = (await ObjectBuilder(true, req.project_id))["field_permission"]
-                let fieldPermissions = await permissionTable.models.find({
+                let fieldPermissions = await FieldPermission.find({
                         role_id: req.role_id,
                         table_slug: req.table_slug
                     },
@@ -364,6 +360,7 @@ let permission = {
                         __v: 0
                     }
                 )
+                console.log("--test 1 field permission--");
                 let permissionFieldIds = []
                 fieldPermissions.forEach(fieldPermission => {
                     permissionFieldIds.push(fieldPermission.field_id)

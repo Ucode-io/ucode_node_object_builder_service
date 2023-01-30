@@ -306,7 +306,7 @@ let objectBuilder = {
 
         let keys = Object.keys(params)
         let order = params.order 
-        let fields = tableInfo.fields
+        let fields = tableInfo.fieldsGetList
         let with_relations = params.with_relations
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
         const permission = await permissionTable.models.findOne({
@@ -855,7 +855,7 @@ let objectBuilder = {
                     }
                     let matchField = relationField ? relationField.slug : req.table_slug+"_id"
                     let matchParams = {
-                        [matchField]: {'$eq': data.id},
+                        [matchField]: {'$eq': res.id},
                         ...filters
                     }
                         const resultFormula =  await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)

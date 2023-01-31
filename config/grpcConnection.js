@@ -30,7 +30,6 @@ const queryService = require("../services/query")
 const webPageService = require("../services/web_pages")
 const cascadingService = require("../services/cascading")
 const tableHelpersService = require("../services/table_helpers");
-const fieldsRelations = require("../services/fields_and_relations");
 const fieldsRelationsService = require("../services/fields_and_relations");
 
 

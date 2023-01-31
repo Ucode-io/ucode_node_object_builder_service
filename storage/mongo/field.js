@@ -170,6 +170,9 @@ let fieldStore = {
             tableRes.slug = table.slug
 
             let type = converter(field.type);
+            if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
+                type = "String"
+            }
             if (field.slug !== "guid") {
                 fields.push({
                     slug: field.slug,

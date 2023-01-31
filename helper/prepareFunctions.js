@@ -142,11 +142,15 @@ let prepareFunction = {
         let event = {}
         let field_types = {}
         event.payload = {}
-        event.payload.data = data
+        let dataToAnalytics = {};
+        
         event.payload.table_slug = req.table_slug
         let appendMany2ManyObjects = []
         for (const field of fields) {
             let type = converter(field.type);
+            if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
+                type = "String"
+            }
             if (field.type === "LOOKUPS") {
                 if (data[field.slug] && data[field.slug]?.length) {
                     const relation = await Relation.findOne({
@@ -168,8 +172,10 @@ let prepareFunction = {
                 }
             }
             field_types[field.slug] = type
+            dataToAnalytics[field.slug] = data[field.slug]
         }
         field_types.guid = "String"
+        event.payload.data = dataToAnalytics
         event.payload.field_types = field_types
         event.project_id = req.project_id 
 
@@ -190,9 +196,13 @@ let prepareFunction = {
         event.payload = {}
         event.payload.data = data
         event.payload.table_slug = req.table_slug
+        let dataToAnalytics = {}
         let appendMany2Many = [], deleteMany2Many = []
         for (const field of tableInfo.fields) {
             let type = converter(field.type);
+            if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
+                type = "String"
+            }
             field_types[field.slug] = type
             let newIds = [], deletedIds = []
 
@@ -237,11 +247,12 @@ let prepareFunction = {
                     }
                     deleteMany2Many.push(deleteMany2ManyObj)
                 }
-
+                dataToAnalytics[field.slug] = data[field.slug]
             }
         }
         field_types.guid = "String"
         event.payload.field_types = field_types
+        event.payload.data = dataToAnalytics
         event.project_id = req.project_id 
         return {data, event, appendMany2Many, deleteMany2Many}
     },

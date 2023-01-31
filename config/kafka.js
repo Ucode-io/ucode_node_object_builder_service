@@ -9,23 +9,23 @@ const kafka = new Kafka({
 
 
 async function produceMessageToTopic(topic, payload) {
-    // const producer = kafka.producer()
+    const producer = kafka.producer()
 
-    // await producer.connect()
+    await producer.connect()
 
-    // await producer.send({
-    //     topic: topic,
-    //     messages: [
-    //         {
-    //             key: null,
-    //             value: JSON.stringify(payload),
-    //             partition: 0
-    //         }
-    //     ]
-    // })
+    await producer.send({
+        topic: topic,
+        messages: [
+            {
+                key: null,
+                value: JSON.stringify(payload),
+                partition: 0
+            }
+        ]
+    })
 
-    // await producer.disconnect()
-    // console.log("message is send to " + topic + ", and producer is closed")
+    await producer.disconnect()
+    console.log("message is send to " + topic + ", and producer is closed")
 }
 
 module.exports = produceMessageToTopic

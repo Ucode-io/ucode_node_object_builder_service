@@ -351,16 +351,18 @@ let permission = {
                 fields.forEach(el => {
                     fieldIdAndLabels.push({field_id: el.id, label: el.label})
                 })
+
+                console.log("table_slug", req.table_slug)
                 let fieldPermissions = await FieldPermission.find({
                         role_id: req.role_id,
-                        table_slug: req.table_slug
+                        table_slug: table.slug
                     },
                     {
                         _id: 0,
                         __v: 0
                     }
                 )
-                console.log("--test 1 field permission--");
+                console.log("--test 1 field permission--", fieldPermissions);
                 let permissionFieldIds = []
                 fieldPermissions.forEach(fieldPermission => {
                     permissionFieldIds.push(fieldPermission.field_id)
@@ -369,7 +371,6 @@ let permission = {
                 let noFieldPermissions = fieldIdAndLabels.filter(val => !permissionFieldIds.includes(val.field_id))
                 fieldPermissions = fieldPermissions.concat(noFieldPermissions)
                 for (const fieldPermission of fieldPermissions) {
-                    console.log("fieldPermission", fieldPermission)
                     if (!fieldPermission.guid) {
                         fieldPermission.role_id = req.role_id
                         fieldPermission.table_slug = req.table_slug

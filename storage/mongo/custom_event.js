@@ -38,6 +38,21 @@ let customEventStore = {
                 placeholder: ""
             }
         };
+        let fieldPermissions = []
+        const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["action_permission"]
+        const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+        const roles = await roleTable?.models.find()
+        for (const role of roles) {
+            let permission = {
+                permission: true,
+                table_slug: data.table_slug,
+                custom_event_id: custom_event.id,
+                role_id: role.guid
+            }
+            const fieldPermission = new fieldPermissionTable.models(permission)
+            fieldPermissions.push(fieldPermission)
+        }
+        await fieldPermissionTable.insertMany(fieldPermissions)
         const field = new Field(fieldRequest);
         const resp = await field.save();
 

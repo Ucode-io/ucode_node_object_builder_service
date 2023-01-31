@@ -351,9 +351,10 @@ let permission = {
                 fields.forEach(el => {
                     fieldIdAndLabels.push({field_id: el.id, label: el.label})
                 })
+
                 let fieldPermissions = await FieldPermission.find({
                         role_id: req.role_id,
-                        table_slug: req.table_slug
+                        table_slug: table.slug
                     },
                     {
                         _id: 0,
@@ -371,7 +372,7 @@ let permission = {
                 for (const fieldPermission of fieldPermissions) {
                     if (!fieldPermission.guid) {
                         fieldPermission.role_id = req.role_id
-                        fieldPermission.table_slug = req.table_slug
+                        fieldPermission.table_slug = table.slug
                         fieldPermission.view_permission = false
                         fieldPermission.edit_permission = false
                         docFieldPermissions.push(fieldPermission)

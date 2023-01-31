@@ -49,7 +49,7 @@ let customEventStore = {
                 custom_event_id: custom_event.id,
                 role_id: role.guid
             }
-            const fieldPermission = new fieldPermissionTable.models(permission)
+            const fieldPermission = new actionPermissionTable.models(permission)
             fieldPermissions.push(fieldPermission)
         }
         await actionPermissionTable.models.insertMany(fieldPermissions)

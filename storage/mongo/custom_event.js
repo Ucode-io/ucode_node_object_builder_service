@@ -3,6 +3,7 @@ const { v4 } = require("uuid");
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
+const { struct } = require('pb-util');
 
 
 let NAMESPACE = "storage.custom_event";
@@ -37,6 +38,21 @@ let customEventStore = {
                 placeholder: ""
             }
         };
+        let fieldPermissions = []
+        const actionPermissionTable = (await ObjectBuilder(true, data.project_id))["action_permission"]
+        const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+        const roles = await roleTable?.models.find()
+        for (const role of roles) {
+            let permission = {
+                permission: true,
+                table_slug: data.table_slug,
+                custom_event_id: custom_event.id,
+                role_id: role.guid
+            }
+            const fieldPermission = new actionPermissionTable.models(permission)
+            fieldPermissions.push(fieldPermission)
+        }
+        await actionPermissionTable.models.insertMany(fieldPermissions)
         const field = new Field(fieldRequest);
         const resp = await field.save();
 

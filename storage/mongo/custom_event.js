@@ -3,6 +3,7 @@ const { v4 } = require("uuid");
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
+const { struct } = require('pb-util');
 
 
 let NAMESPACE = "storage.custom_event";

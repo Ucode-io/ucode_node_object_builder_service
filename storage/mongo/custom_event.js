@@ -39,7 +39,7 @@ let customEventStore = {
             }
         };
         let fieldPermissions = []
-        const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["action_permission"]
+        const actionPermissionTable = (await ObjectBuilder(true, data.project_id))["action_permission"]
         const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
         const roles = await roleTable?.models.find()
         for (const role of roles) {
@@ -52,7 +52,7 @@ let customEventStore = {
             const fieldPermission = new fieldPermissionTable.models(permission)
             fieldPermissions.push(fieldPermission)
         }
-        await fieldPermissionTable.insertMany(fieldPermissions)
+        await actionPermissionTable.models.insertMany(fieldPermissions)
         const field = new Field(fieldRequest);
         const resp = await field.save();
 

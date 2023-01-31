@@ -369,6 +369,7 @@ let permission = {
                 let noFieldPermissions = fieldIdAndLabels.filter(val => !permissionFieldIds.includes(val.field_id))
                 fieldPermissions = fieldPermissions.concat(noFieldPermissions)
                 for (const fieldPermission of fieldPermissions) {
+                    console.log("fieldPermission", fieldPermission)
                     if (!fieldPermission.guid) {
                         fieldPermission.role_id = req.role_id
                         fieldPermission.table_slug = req.table_slug
@@ -386,6 +387,8 @@ let permission = {
 
 
                 tableCopy.field_permissions = docFieldPermissions || []
+
+                console.log("field_permission", tableCopy.field_permissions)
 
                 const view_permissions = await ViewPermission.find(
                     {

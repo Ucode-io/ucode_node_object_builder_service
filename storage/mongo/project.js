@@ -60,8 +60,8 @@ let projectStore = {
                 mongoDBConn.model('View', require('../../schemas/view'))
                 mongoDBConn.model('WebPage', require('../../schemas/web_pages'))
 
-                await objectBuilder(false, data.project_id)
                 await pool.add(data.project_id, mongoDBConn)
+                await objectBuilder(false, data.project_id)
 
                 console.log("Object builder has successfully runned for", data.project_id);
             });

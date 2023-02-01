@@ -71,6 +71,7 @@ podAnnotations:
     {{- end }}
     {{ end -}}
 
+
 podLabels:
   app: ucode-node-object-builder-service
 

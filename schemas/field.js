@@ -59,7 +59,7 @@ const FieldSchema = mongoose.Schema(
         },
         commit_id: {
             type: String,
-            required: [true, "commit_id is required"],
+            required: false,
         },
     },
     {

@@ -69,7 +69,7 @@ const RelationSchema = mongoose.Schema(
         // },
         commit_id: {
             type: String,
-            required: [true, "commit_guid is required"],
+            required: false
         }
     },
     {

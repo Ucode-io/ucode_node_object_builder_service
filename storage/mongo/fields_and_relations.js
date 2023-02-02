@@ -68,6 +68,7 @@ let fieldsRelationsStore = {
                 }
                 const field = new Field(fieldReq);
                 field.table_id = table_guid;
+                field.id = v4()
                 var responseFields = field.save();
                 const table = await Table.findOne({
                     id: table_guid
@@ -114,9 +115,10 @@ let fieldsRelationsStore = {
                 let table = {};
                 let field = {};
                 let result = {};
-                if (!relationReq["id"]) {
-                    relationReq["id"] = v4()
-                }
+                // if (!relationReq["id"]) {
+                //     relationReq["id"] = v4()
+                // }
+                relationReq["id"] = v4()
                 switch (relationReq.type) {
                     case 'One2Many':
                         relationReq.field_from = "id";

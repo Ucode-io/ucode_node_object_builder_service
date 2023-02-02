@@ -210,7 +210,7 @@ let prepareFunction = {
             if (field.type === "LOOKUPS") {
                 if (data[field.slug] && objectBeforeUpdate[field.slug]) {
                     let olderArr = objectBeforeUpdate[field.slug]
-                    newArr = data[field.slug]
+                    let newArr = data[field.slug]
                     newIds = newArr.filter(val => !olderArr.includes(val))
                     deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
                 }

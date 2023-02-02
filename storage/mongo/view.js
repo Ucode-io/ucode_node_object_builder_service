@@ -189,7 +189,7 @@ let viewStore = {
         var html = data.html
         let patientIdField;
         let output;
-        if (decodedData.table_slug && decodedData.object_id) {
+        if (decodedData.linked_table_slug && decodedData.linked_object_id) {
             data.html = data.html.replaceAll('[??', '{')
             data.html = data.html.replaceAll('??]', '}')
             data.html = data.html.replaceAll('&lt;', '<')
@@ -198,20 +198,20 @@ let viewStore = {
             data.html = data.html.replaceAll('&amp;', '&')
             data.html = data.html.replaceAll('&quot;', '"')
             data.html = data.html.replaceAll('&apos;', `'`)
-            const tableInfo = (await ObjectBuilder())[decodedData.table_slug]
+            const tableInfo = (await ObjectBuilder())[decodedData.linked_table_slug]
             patientIdField = tableInfo.fields.find(el => el.slug === "patients_id")
         
             let relations = await Relation.find({
-                table_from : decodedData.table_slug,
+                table_from : decodedData.linked_table_slug,
                 type: "Many2One"
             })
         
             const relationsM2M = await Relation.find({
                 $or: [{
-                    table_from: decodedData.table_slug
+                    table_from: decodedData.linked_table_slug
                 },
                 {
-                    table_to: decodedData.table_slug
+                    table_to: decodedData.linked_table_slug
                 }],
                 $and: [{
                 type: "Many2Many"
@@ -227,7 +227,7 @@ let viewStore = {
                 }
             }
             for (const relation of relationsM2M) {
-                if (relation.table_to === decodedData.table_slug) {
+                if (relation.table_to === decodedData.linked_table_slug) {
                     relation.field_from = relation.field_to
                 }
                 const field = await Field.findOne({
@@ -240,7 +240,7 @@ let viewStore = {
             }
 
             output = await tableInfo.models.findOne({
-                guid: decodedData.object_id
+                guid: decodedData.linked_object_id
             },
             {
                 created_at: 0,
@@ -253,14 +253,14 @@ let viewStore = {
             output = await changeDateFormat(output, tableInfo.fields)
 
             relations = await Relation.find({
-                table_to : decodedData.table_slug,
+                table_to : decodedData.linked_table_slug,
                 type: "Many2One"
             })
           
             for (const relation of relations) {
-                let relationField = decodedData.table_slug + "_id"
+                let relationField = decodedData.linked_table_slug + "_id"
                 let relationTableSlug = relation.table_from
-                if (relation.type === "Many2Many" && relation.table_from === decodedData.table_slug) {
+                if (relation.type === "Many2Many" && relation.table_from === decodedData.linked_table_slug) {
                     relationTableSlug = relation.table_from
                 }
                 let table = await Table.findOne({
@@ -277,7 +277,7 @@ let viewStore = {
                 }
                 let req = {
                     table_slug: relation.table_from,
-                    data: struct.encode({[relationField]: decodedData.object_id})
+                    data: struct.encode({[relationField]: decodedData.linked_object_id})
                 }
                 let resp = await objectBuilderStore.getList(req)
                 if (resp?.data) {
@@ -388,22 +388,22 @@ let viewStore = {
             link = "https://" + "cdn.medion.uz" + "/docs/" + filename
 
             var html = data.html
-            if (decodedData.table_slug && decodedData.object_id) {
+            if (decodedData.linked_table_slug && decodedData.linked_object_id) {
                 data.html = data.html.replace('[??', '{')
                 data.html = data.html.replace('??]', '}')
-                const tableInfo = (await ObjectBuilder(true, data.project_id))[decodedData.table_slug]
+                const tableInfo = (await ObjectBuilder(true, data.project_id))[decodedData.linked_table_slug]
 
                 let relations = await Relation.find({
-                    table_from: decodedData.table_slug,
+                    table_from: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
 
                 const relationsM2M = await Relation.find({
                     $or: [{
-                        table_from: decodedData.table_slug
+                        table_from: decodedData.linked_table_slug
                     },
                     {
-                        table_to: decodedData.table_slug
+                        table_to: decodedData.linked_table_slug
                     }],
                     $and: [{
                         type: "Many2Many"
@@ -418,7 +418,7 @@ let viewStore = {
                     relatedTable.push(field?.slug + "_data")
                 }
                 for (const relation of relationsM2M) {
-                    if (relation.table_to === decodedData.table_slug) {
+                    if (relation.table_to === decodedData.linked_table_slug) {
                         relation.field_from = relation.field_to
                     }
                     const field = await Field.findOne({
@@ -429,7 +429,7 @@ let viewStore = {
                 }
 
                 let output = await tableInfo.models.findOne({
-                    guid: decodedData.object_id
+                    guid: decodedData.linked_object_id
                 },
                     {
                         created_at: 0,
@@ -442,16 +442,16 @@ let viewStore = {
 
 
                 relations = await Relation.find({
-                    table_to: decodedData.table_slug,
+                    table_to: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
 
                 for (const relation of relations) {
-                    let relation_field = decodedData.table_slug + "_id"
-                    let m2mrelation_field = decodedData.table_slug + "_ids"
+                    let relation_field = decodedData.linked_table_slug + "_id"
+                    let m2mrelation_field = decodedData.linked_table_slug + "_ids"
                     let response = await (await ObjectBuilder(true, data.project_id))[relation.table_from].models.find({
-                        $or: [{ [relation_field]: decodedData.object_id },
-                        { [m2mrelation_field]: decodedData.object_id }
+                        $or: [{ [relation_field]: decodedData.linked_object_id },
+                        { [m2mrelation_field]: decodedData.linked_object_id }
                         ]
                     })
                     if (response) {

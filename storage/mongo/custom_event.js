@@ -11,6 +11,9 @@ let NAMESPACE = "storage.custom_event";
 let customEventStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async(data) => {
         const mongoConn = await mongoPool.get(data.project_id)
+        if (data.attributes) {
+            data.attributes = struct.decode(data.attributes)
+        }
 
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
@@ -63,6 +66,9 @@ let customEventStore = {
         const mongoConn = await mongoPool.get(data.project_id)
 
         const CustomEvent = mongoConn.models['CustomEvent']
+        if (data.attributes) {
+            data.attributes = struct.decode(data.attributes)
+        }
 
         const custom_event = await CustomEvent.updateOne(
             {

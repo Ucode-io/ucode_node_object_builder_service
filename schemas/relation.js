@@ -85,5 +85,5 @@ RelationSchema.virtual("fields", {
     foreignField: 'id',
     justOne: false
 })
-RelationSchema.RelationSchema({ id: 1, commit_id: -1 }, { unique: true })
+RelationSchema.index({ id: 1, commit_id: -1 }, { unique: true })
 module.exports = RelationSchema

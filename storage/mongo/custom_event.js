@@ -2,6 +2,8 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require("../../pkg/pool");
+const AddPermission = require("../../helper/addPermission");
+const { struct } = require('pb-util');
 
 
 let NAMESPACE = "storage.custom_event";
@@ -9,6 +11,9 @@ let NAMESPACE = "storage.custom_event";
 let customEventStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async(data) => {
         const mongoConn = await mongoPool.get(data.project_id)
+        if (data.attributes) {
+            data.attributes = struct.decode(data.attributes)
+        }
 
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
@@ -36,6 +41,21 @@ let customEventStore = {
                 placeholder: ""
             }
         };
+        let fieldPermissions = []
+        const actionPermissionTable = (await ObjectBuilder(true, data.project_id))["action_permission"]
+        const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+        const roles = await roleTable?.models.find()
+        for (const role of roles) {
+            let permission = {
+                permission: true,
+                table_slug: data.table_slug,
+                custom_event_id: custom_event.id,
+                role_id: role.guid
+            }
+            const fieldPermission = new actionPermissionTable.models(permission)
+            fieldPermissions.push(fieldPermission)
+        }
+        await actionPermissionTable.models.insertMany(fieldPermissions)
         const field = new Field(fieldRequest);
         const resp = await field.save();
 
@@ -46,6 +66,9 @@ let customEventStore = {
         const mongoConn = await mongoPool.get(data.project_id)
 
         const CustomEvent = mongoConn.models['CustomEvent']
+        if (data.attributes) {
+            data.attributes = struct.decode(data.attributes)
+        }
 
         const custom_event = await CustomEvent.updateOne(
             {
@@ -65,16 +88,30 @@ let customEventStore = {
         let query = {
             table_slug: data.table_slug,
         }
-        const custom_events = await CustomEvent.find(
+        if (data.method) {
+            query.method = data.method
+        }
+        const customEvents = await CustomEvent.find(
             {
-                table_slug: data.table_slug,
+                $and: [query]
             },
-            null,
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0
+            },
             {
                 sort: {created_at: -1}
-            }).populate('functions');
+        }).populate('functions');
+        customEvents.forEach(el => {
+            if (el.attributes) el.attributes = struct.encode(el.attributes)
+        })
+        let customEventWithPermission = await AddPermission.toCustomEvent(customEvents, data.role_id, data.table_slug, data.project_id)
         const count = await CustomEvent.countDocuments(query);
-        return {custom_events, count};
+        return {custom_events: customEventWithPermission, count: count};
     }
     ),
     getSingle: catchWrapDb(`${NAMESPACE}.getSingle`, async (data) => {

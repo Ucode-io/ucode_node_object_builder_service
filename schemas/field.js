@@ -6,7 +6,6 @@ const FieldSchema = mongoose.Schema(
         id: {
             type: String,
             default: v4,
-            unique: true
         },
         table_id: {
             type: String,
@@ -14,7 +13,7 @@ const FieldSchema = mongoose.Schema(
             sparse: true
         },
         required: {
-            type: Boolean, 
+            type: Boolean,
             default: false,
         },
         slug: {
@@ -57,7 +56,11 @@ const FieldSchema = mongoose.Schema(
         },
         automatic: {
             type: Boolean,
-        }
+        },
+        commit_id: {
+            type: String,
+            required: false,
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
@@ -65,5 +68,5 @@ const FieldSchema = mongoose.Schema(
         toJSON: { virtuals: true },
     }
 );
-
+FieldSchema.index({id: 1, commit_id: -1}, {unique: true})
 module.exports = FieldSchema

@@ -35,7 +35,15 @@ const CustomEventSchema = mongoose.Schema(
         },
         attributes: {
             type: mongoose.Schema.Types.Mixed
-        }
+        },
+        // commit_id: {
+        //     type: Number,
+        //     required: [true, "commit_id is required"],
+        // },
+        // commit_guid: {
+        //     type: String,
+        //     required: [true, "commit_guid is required"],
+        // }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -37,6 +37,14 @@ const TableSchema = mongoose.Schema(
         subtitle_field_slug: {
             type: String,
         },
+        // commit_id: {
+        //     type: Number,
+        //     required: [true, "commit_id is required"],
+        // },
+        // commit_guid: {
+        //     type: String,
+        //     required: [true, "commit_guid is required"],
+        // }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
@@ -45,5 +53,5 @@ const TableSchema = mongoose.Schema(
     }
 );
 
-TableSchema.index({'slug': 1, 'deleted_at': 1,}, {unique: true});
+TableSchema.index({ 'slug': 1, 'deleted_at': 1, }, { unique: true });
 module.exports = TableSchema

@@ -89,7 +89,7 @@ let tableStore = {
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
             for (const role of roles) {
-                let is_exist_record = recordPermissionTable.models.findOne({
+                let is_exist_record = await recordPermissionTable.models.findOne({
                     $and: [
                         { table_slug: table?.slug },
                         { role_id: role.guid }

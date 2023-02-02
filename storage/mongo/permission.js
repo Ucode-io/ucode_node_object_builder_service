@@ -13,7 +13,7 @@ const mongoPool = require('../../pkg/pool');
 const App = require('./app')
 const Table = require('./table');
 const { limit } = require("../../config/index");
-const { ta } = require("date-fns/locale");
+const { ta, el } = require("date-fns/locale");
 
 let permission = {
     upsertPermissionsByAppId: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertPermissionsByAppId`, async (req) => {
@@ -195,45 +195,44 @@ let permission = {
             const fields = await Field.find({
                 table_id: tableInfo.id
             })
-            let fieldIds = []
-            let noFieldPermissions = []
+            let fieldIdAndLabels = []
             fields.forEach(field => {
-                fieldIds.push(field.id)
+                fieldIdAndLabels.push({field_id: field.id, label: field.label})
             })
             const permissionTable = (await ObjectBuilder(true, req.project_id))["field_permission"]
             let fieldPermissions = await permissionTable.models.find({
-                role_id: req.role_id,
-                table_slug: req.table_slug
-            },
+                    role_id: req.role_id,
+                    table_slug: req.table_slug
+                },
                 {
                     _id: 0,
                     __v: 0
                 }
-            ).lean()
-
+            )
             let permissionFieldIds = []
             fieldPermissions.forEach(fieldPermission => {
                 permissionFieldIds.push(fieldPermission.field_id)
             })
-
-            let noFieldPermissionIds = fieldIds.filter(val => !permissionFieldIds.includes(val))
-
-            for (const fieldId of noFieldPermissionIds) {
-                let field = fields.find(field => (field.id === fieldId))
-                let fieldPermission = {
-                    field_id: fieldId,
-                    role_id: req.role_id,
-                    table_slug: req.table_slug,
-                    view_permission: true,
-                    edit_permission: true,
-                    label: field.label
-                }
-                noFieldPermissions.push(fieldPermission)
-            }
+            let docFieldPermissions = []
+            let noFieldPermissions = fieldIdAndLabels.filter(val => !permissionFieldIds.includes(val.field_id))
             fieldPermissions = fieldPermissions.concat(noFieldPermissions)
-
+            for (const fieldPermission of fieldPermissions) {
+                if (!fieldPermission.guid) {
+                    fieldPermission.role_id = req.role_id
+                    fieldPermission.table_slug = req.table_slug
+                    fieldPermission.view_permission = false
+                    fieldPermission.edit_permission = false
+                    docFieldPermissions.push(fieldPermission)
+                } else {
+                    let field = fields.find(obj => obj.id === fieldPermission.field_id)
+                    fieldPermission._doc.label = field?.label
+                    docFieldPermissions.push(fieldPermission._doc)
+                }
+                
+            }
+            
             const response = struct.encode({
-                field_permissions: fieldPermissions
+                field_permissions: docFieldPermissions
             })
             return { table_slug: "field_permission", data: response }
         } catch (err) {
@@ -335,10 +334,10 @@ let permission = {
                     tableCopy.record_permissions = {
                         table_slug: table.slug,
                         role_id: req.role_id,
-                        read: "Yes",
-                        write: "Yes",
-                        delete: "Yes",
-                        update: "Yes",
+                        read: "No",
+                        write: "No",
+                        delete: "No",
+                        update: "No",
                         is_have_condition: false
                     }
                 }
@@ -347,58 +346,47 @@ let permission = {
                 const fields = await Field.find({
                     table_id: table.id
                 })
-                let fieldIds = []
-                let noFieldPermissions = []
-
-                fields.forEach(field => {
-                    fieldIds.push(field.id)
+                let fieldIdAndLabels = []
+                console.log("--test 0 field permission--");
+                fields.forEach(el => {
+                    fieldIdAndLabels.push({field_id: el.id, label: el.label})
                 })
 
                 let fieldPermissions = await FieldPermission.find({
-                    $and: [
-                        {role_id: req.role_id},
-                        {table_slug: table.slug}
-                    ]
-                },
+                        role_id: req.role_id,
+                        table_slug: table.slug
+                    },
                     {
                         _id: 0,
                         __v: 0
                     }
                 )
-
+                console.log("--test 1 field permission--");
                 let permissionFieldIds = []
                 fieldPermissions.forEach(fieldPermission => {
                     permissionFieldIds.push(fieldPermission.field_id)
                 })
-
-                let noFieldPermissionIds = fieldIds.filter(val => !permissionFieldIds.includes(val))
-
-                for (const fieldId of noFieldPermissionIds) {
-                    let field = fields.find(field => (field.id == fieldId))
-                    let fieldPermission = {
-                        field_id: fieldId,
-                        role_id: req.role_id,
-                        table_slug: req.table_slug,
-                        view_permission: true,
-                        edit_permission: true,
-                        label: field.label
-                    }
-                    noFieldPermissions.push(fieldPermission)
-                }
+                let docFieldPermissions = []
+                let noFieldPermissions = fieldIdAndLabels.filter(val => !permissionFieldIds.includes(val.field_id))
                 fieldPermissions = fieldPermissions.concat(noFieldPermissions)
-
-                let docPermissions = []
-                for (const permission of fieldPermissions) {
-                    if (permission._doc) {
-                        docPermissions.push(permission._doc)
+                for (const fieldPermission of fieldPermissions) {
+                    if (!fieldPermission.guid) {
+                        fieldPermission.role_id = req.role_id
+                        fieldPermission.table_slug = table.slug
+                        fieldPermission.view_permission = false
+                        fieldPermission.edit_permission = false
+                        docFieldPermissions.push(fieldPermission)
                     } else {
-                        docPermissions.push(permission)
+                        let field = fields.find(obj => obj.id === fieldPermission.field_id)
+                        fieldPermission._doc.label = field?.label
+                        docFieldPermissions.push(fieldPermission._doc)
                     }
+                    
                 }
                 // NEW
 
 
-                tableCopy.field_permissions = docPermissions || []
+                tableCopy.field_permissions = docFieldPermissions || []
 
                 const view_permissions = await ViewPermission.find(
                     {

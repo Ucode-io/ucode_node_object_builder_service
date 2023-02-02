@@ -16,7 +16,7 @@ let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
 
-            console.log('data-->',data)
+            console.log('data-->', data)
             if (!data.user_id) {
                 throw new Error('Error user_id is required')
             }
@@ -40,28 +40,28 @@ let projectStore = {
                 await insertCollections(mongoDBConn, data.user_id, data.project_id)
 
                 // compiling models after running migrations
-                mongoDBConn.model('App', require('../schemas/app'))
-                mongoDBConn.model('CustomEvent', require('../schemas/custom_event'))
-                mongoDBConn.model('Dashboard', require('../schemas/dashboard'))
-                mongoDBConn.model('Document', require('../schemas/document'))
-                mongoDBConn.model('EventLog', require('../schemas/event_log'))
-                mongoDBConn.model('Event', require('../schemas/event'))
-                mongoDBConn.model('Field', require('../schemas/field'))
-                mongoDBConn.model('Function', require('../schemas/function'))
-                mongoDBConn.model('HtmlTemplate', require('../schemas/html_template'))
-                mongoDBConn.model('Panel', require('../schemas/panel'))
-                mongoDBConn.model('QueryFolder', require('../schemas/query_folder'))
-                mongoDBConn.model('Query', require('../schemas/query'))
-                mongoDBConn.model('Relation', require('../schemas/relation'))
-                mongoDBConn.model('Section', require('../schemas/section'))
-                mongoDBConn.model('Table', require('../schemas/table'))
-                mongoDBConn.model('Variable', require('../schemas/variable'))
-                mongoDBConn.model('ViewRelation', require('../schemas/view_relation'))
-                mongoDBConn.model('View', require('../schemas/view'))
-                mongoDBConn.model('WebPage', require('../schemas/web_pages'))
+                mongoDBConn.model('App', require('../../schemas/app'))
+                mongoDBConn.model('CustomEvent', require('../../schemas/custom_event'))
+                mongoDBConn.model('Dashboard', require('../../schemas/dashboard'))
+                mongoDBConn.model('Document', require('../../schemas/document'))
+                mongoDBConn.model('EventLog', require('../../schemas/event_log'))
+                mongoDBConn.model('Event', require('../../schemas/event'))
+                mongoDBConn.model('Field', require('../../schemas/field'))
+                mongoDBConn.model('Function', require('../../schemas/function'))
+                mongoDBConn.model('HtmlTemplate', require('../../schemas/html_template'))
+                mongoDBConn.model('Panel', require('../../schemas/panel'))
+                mongoDBConn.model('QueryFolder', require('../../schemas/query_folder'))
+                mongoDBConn.model('Query', require('../../schemas/query'))
+                mongoDBConn.model('Relation', require('../../schemas/relation'))
+                mongoDBConn.model('Section', require('../../schemas/section'))
+                mongoDBConn.model('Table', require('../../schemas/table'))
+                mongoDBConn.model('Variable', require('../../schemas/variable'))
+                mongoDBConn.model('ViewRelation', require('../../schemas/view_relation'))
+                mongoDBConn.model('View', require('../../schemas/view'))
+                mongoDBConn.model('WebPage', require('../../schemas/web_pages'))
 
-                await objectBuilder(false, data.project_id)
                 await pool.add(data.project_id, mongoDBConn)
+                await objectBuilder(false, data.project_id)
 
                 console.log("Object builder has successfully runned for", data.project_id);
             });
@@ -114,7 +114,7 @@ let projectStore = {
             await pool.override(data?.project_id, mongoDBConn)
 
 
-            await new Promise( (resolve, reject) => {
+            await new Promise((resolve, reject) => {
                 try {
                     mongoDBConn.once("open", async function () {
                         console.log("Connected to the database, building models for", data.project_id);
@@ -130,7 +130,7 @@ let projectStore = {
                 } catch (err) {
                     reject(err)
                 }
-               
+
             })
 
             return {}
@@ -145,6 +145,14 @@ let projectStore = {
 
             // shouldCompileModels=false since we have to list
             // existing collections in mongodb before running migrations
+            console.log("--->Mongo->Credentials--->", {
+                mongoHost: data.credentials.host,
+                mongoPort: data.credentials.port,
+                mongoDatabase: data.credentials.database,
+                mongoUser: data.credentials.username,
+                mongoPassword: data.credentials.password
+            })
+
             const mongoDBConn = await newMongoDBConn({
                 mongoHost: data.credentials.host,
                 mongoPort: data.credentials.port,

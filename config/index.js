@@ -18,7 +18,7 @@ const config = {
 
     minioAccessKeyID: getConf("MINIO_ACCESS_KEY", "minio-access-key"),
     minioSecretAccessKey: getConf("MINIO_SECRET_KEY", "minio-secret-key"),
-    minioEndpoint: getConf("MINIO_ENDPOINT", "minio-cdn-ucode"),
+    minioEndpoint: getConf("MINIO_ENDPOINT", "minio-endpoint"),
     minioPort: getConf("MINIO_PORT", 9001),
     minioSSL: getConf("MINIO_SSL", true),
     
@@ -26,7 +26,7 @@ const config = {
     k8s_namespace: "cp-region-type-id",
 
     companyServiceHost : getConf("COMPANY_SERVICE_HOST", "go-company-service"),
-    companyServicePort : getConf("RPC_PORT", ":8092")
+    companyServicePort : getConf("COMPANY_RPC_PORT", "80")
 };
 
 function getConf(name, def = "") {

@@ -126,23 +126,12 @@ let permissionFunctions = {
             }
             for (let customEvent of customEvents) {
                 let actionPer = actionPermissionMap.get(customEvent.id)
-                let newCustomEvent = {
-                    table_slug: customEvent.table_slug,
-                    icon: customEvent.icon,
-                    label: customEvent.label,
-                    event_path: customEvent.event_path,
-                    url: customEvent.url,
-                    disable: customEvent.disable,
-                    id: customEvent.id,
-                    functions: customEvent.functions
-                }
                 if (actionPer) {
                     let encodedActionPermission = struct.encode(actionPer._doc)
-                    newCustomEvent.action_permission = encodedActionPermission
+                    customEvent.action_permission = encodedActionPermission
                 }
-                actionWithPermissions.push(newCustomEvent)
             }
-            return actionWithPermissions
+            return customEvents
 
         } catch (err) {
             throw err

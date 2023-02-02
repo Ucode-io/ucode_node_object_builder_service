@@ -1,7 +1,7 @@
 syntax="proto3";
 
-package object_builder_service;
-option go_package="genproto/object_builder_service";
+package function_service;
+option go_package="genproto/function_service";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";

@@ -38,10 +38,10 @@ const ViewSchema = mongoose.Schema(
         columns: {
             type: mongoose.Schema.Types.Mixed,
         },
-        calendar_from_slug:{
+        calendar_from_slug: {
             type: String
         },
-        calendar_to_slug:{
+        calendar_to_slug: {
             type: String
         },
         time_interval: {
@@ -88,7 +88,15 @@ const ViewSchema = mongoose.Schema(
         },
         attributes: {
             type: mongoose.Schema.Types.Mixed
-        }
+        },
+        // commit_id: {
+        //     type: Number,
+        //     required: [true, "commit_id is required"],
+        // },
+        // commit_guid: {
+        //     type: String,
+        //     required: [true, "commit_guid is required"],
+        // }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -6,7 +6,7 @@ const RelationSchema = mongoose.Schema(
         id: {
             type: String,
             default: v4,
-            unique: true
+            // unique: true
         },
         table_from: {
             type: String,
@@ -62,6 +62,14 @@ const RelationSchema = mongoose.Schema(
         },
         cascading_tree_field_slug: {
             type: String
+        },
+        // commit_id: {
+        //     type: Number,
+        //     required: [true, "commit_id is required"],
+        // },
+        commit_id: {
+            type: String,
+            required: false
         }
     },
     {
@@ -77,5 +85,5 @@ RelationSchema.virtual("fields", {
     foreignField: 'id',
     justOne: false
 })
-
+RelationSchema.index({ id: 1, commit_id: -1 }, { unique: true })
 module.exports = RelationSchema

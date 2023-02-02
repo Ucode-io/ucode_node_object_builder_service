@@ -6,7 +6,7 @@ const RelationSchema = mongoose.Schema(
         id: {
             type: String,
             default: v4,
-            unique: true
+            // unique: true
         },
         table_from: {
             type: String,
@@ -67,10 +67,10 @@ const RelationSchema = mongoose.Schema(
         //     type: Number,
         //     required: [true, "commit_id is required"],
         // },
-        // commit_guid: {
-        //     type: String,
-        //     required: [true, "commit_guid is required"],
-        // }
+        commit_id: {
+            type: String,
+            required: [true, "commit_guid is required"],
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
@@ -85,5 +85,5 @@ RelationSchema.virtual("fields", {
     foreignField: 'id',
     justOne: false
 })
-
+RelationSchema.RelationSchema({ id: 1, commit_id: -1 }, { unique: true })
 module.exports = RelationSchema

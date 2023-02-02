@@ -6,7 +6,6 @@ const FieldSchema = mongoose.Schema(
         id: {
             type: String,
             default: v4,
-            unique: true
         },
         table_id: {
             type: String,

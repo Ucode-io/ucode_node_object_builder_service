@@ -860,7 +860,7 @@ let objectBuilder = {
                         }
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
                         let matchParams = {
-                            [matchField]: { '$eq': res.id },
+                            [matchField]: { '$eq': res.guid },
                             ...filters
                         }
                         const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)

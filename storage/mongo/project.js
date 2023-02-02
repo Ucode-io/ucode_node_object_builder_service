@@ -16,7 +16,7 @@ let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
 
-            console.log('data-->',data)
+            console.log('data-->', data)
             if (!data.user_id) {
                 throw new Error('Error user_id is required')
             }
@@ -114,7 +114,7 @@ let projectStore = {
             await pool.override(data?.project_id, mongoDBConn)
 
 
-            await new Promise( (resolve, reject) => {
+            await new Promise((resolve, reject) => {
                 try {
                     mongoDBConn.once("open", async function () {
                         console.log("Connected to the database, building models for", data.project_id);
@@ -130,7 +130,7 @@ let projectStore = {
                 } catch (err) {
                     reject(err)
                 }
-               
+
             })
 
             return {}
@@ -145,6 +145,14 @@ let projectStore = {
 
             // shouldCompileModels=false since we have to list
             // existing collections in mongodb before running migrations
+            console.log("--->Mongo->Credentials--->", {
+                mongoHost: data.credentials.host,
+                mongoPort: data.credentials.port,
+                mongoDatabase: data.credentials.database,
+                mongoUser: data.credentials.username,
+                mongoPassword: data.credentials.password
+            })
+
             const mongoDBConn = await newMongoDBConn({
                 mongoHost: data.credentials.host,
                 mongoPort: data.credentials.port,

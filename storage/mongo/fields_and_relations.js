@@ -151,7 +151,7 @@ let fieldsRelationsStore = {
                             }
 
                             const fieldPermissionWithModel = new fieldPermissionTableOne.models(fieldPermission)
-                            fieldPermissionWithModel.save()
+                            await fieldPermissionWithModel.save()
                         }
 
                         console.log("response from field create while creating relation", response)
@@ -185,7 +185,7 @@ let fieldsRelationsStore = {
                             }
 
                             const fieldPermissionWithModel = new fieldPermissionTableDynamic.models(fieldPermission)
-                            fieldPermissionWithModel.save()
+                            await fieldPermissionWithModel.save()
                         }
 
                         console.log("response from field create while creating relation", output);
@@ -224,7 +224,7 @@ let fieldsRelationsStore = {
                             }
 
                             const fieldPermissionWithModel = new fieldPermissionTableMany1.models(fieldPermission)
-                            fieldPermissionWithModel.save()
+                            await fieldPermissionWithModel.save()
                         }
 
                         let type = converter(field.type);
@@ -271,7 +271,7 @@ let fieldsRelationsStore = {
                             }
 
                             const fieldPermissionWithModel = new fieldPermissionTableMany2.models(fieldPermission)
-                            fieldPermissionWithModel.save()
+                            await fieldPermissionWithModel.save()
                         }
 
                         console.log("response from field create while creating relation", res)
@@ -325,7 +325,7 @@ let fieldsRelationsStore = {
                             }
 
                             const fieldPermissionWithModel = new fieldPermissionTableRecursive.models(fieldPermission)
-                            fieldPermissionWithModel.save()
+                            await fieldPermissionWithModel.save()
                         }
 
                         console.log("response from field create while creating recursive relation======>", responsee)
@@ -379,7 +379,7 @@ let fieldsRelationsStore = {
                             }
 
                             const fieldPermissionWithModel = new fieldPermissionTableOne1.models(fieldPermission)
-                            fieldPermissionWithModel.save()
+                            await fieldPermissionWithModel.save()
                         }
 
                         console.log("response from field create while creating relation", resp);

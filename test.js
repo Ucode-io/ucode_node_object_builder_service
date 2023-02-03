@@ -16,17 +16,17 @@ const { struct } = require('pb-util');
 
 
     await projectStorage.reconnect({
-        project_id: "medion_builder",
+        project_id: "7907ff24-655f-44eb-949f-5e06f8b447d7",
         credentials: {
-            host: "46.101.114.171",
+            host: "161.35.26.178",
             port: "27017",
-            database: "medion_node_object_builder_service",
-            username: "medion_node_object_builder_service",
-            password: "Weipheingo7aeCho",
+            database: "docmed_docmed_object_builder_service",
+            username: "docmed_docmed_object_builder_service",
+            password: "6MGoq3x7rE",      
         }
     })
     let resp = await objectBuilderStorage.update({
-        project_id: "medion_builder",
+        project_id: "7907ff24-655f-44eb-949f-5e06f8b447d7",
         table_slug: "test_import",
         data: struct.encode({
             "name": "Muhammadjon Valiyev",

@@ -1713,7 +1713,7 @@ let objectBuilder = {
                     project_id: req.project_id,
                     data: struct.encode(object)
                 }
-                if (object.is_new) {
+                if (!object.is_new) {
                     await objectBuilder.update(request)
                 } else {
                     await objectBuilder.create(request)

@@ -1823,7 +1823,6 @@ let objectBuilder = {
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
             const View = mongoConn.models['View']
-
             const request = struct.decode(req.data)
             const view = await View.findOne({
                 id: request.view_id

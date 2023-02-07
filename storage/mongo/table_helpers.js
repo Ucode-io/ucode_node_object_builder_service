@@ -183,13 +183,13 @@ let tableHelpers = {
                 return error
             }
             console.log("uploaded successfully");
-            fs.unlink(filename, (err => {
-                if (err)
-                    console.log(err);
-                else {
-                    console.log("Deleted file: ", filename);
-                }
-            }));
+            // fs.unlink(filename, (err => {
+            //     if (err)
+            //         console.log(err);
+            //     else {
+            //         console.log("Deleted file: ", filename);
+            //     }
+            // }));
         });
         let link = cfg.minioEndpoint + "/docs/" + filename
         return { link };

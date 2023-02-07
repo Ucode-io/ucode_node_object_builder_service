@@ -20,9 +20,12 @@ let prepareFunction = {
         const Relation = mongoConn.models['Relation']
 
         const data = struct.decode(req.data)
-        if (!data.guid) {
-            data.guid = v4()
+        let ownGuid;
+        if (data.guid) {
+            ownGuid = data.guid
         }
+        console.log("project id::", req.project_id);
+        console.log("project id::", data);
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
         let tableData = await table.findOne(
             {
@@ -131,7 +134,9 @@ let prepareFunction = {
         })
 
         let payload = new tableInfo.models(data);
-
+        if (ownGuid) {
+            payload.guid = ownGuid
+        }
         let fields = await Field.find(
             {
                 table_id: tableData.id
@@ -210,7 +215,7 @@ let prepareFunction = {
             if (field.type === "LOOKUPS") {
                 if (data[field.slug] && objectBeforeUpdate[field.slug]) {
                     let olderArr = objectBeforeUpdate[field.slug]
-                    newArr = data[field.slug]
+                    let newArr = data[field.slug]
                     newIds = newArr.filter(val => !olderArr.includes(val))
                     deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
                 }

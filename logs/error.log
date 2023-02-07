@@ -829,252 +829,212 @@
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'amount')",
+  message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-02-06T04:11:12.138Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'fields')",
-  level: 'error',
-  timestamp: '2023-02-06T05:31:36.075Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'fields')",
-  level: 'error',
-  timestamp: '2023-02-06T05:48:06.969Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: key is not defined',
-  level: 'error',
-  timestamp: '2023-02-06T07:02:45.099Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'expenditure_item_id')",
-  level: 'error',
-  timestamp: '2023-02-06T07:06:16.663Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'expenditure_item_id')",
-  level: 'error',
-  timestamp: '2023-02-06T07:13:48.401Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'expenditure_item_id')",
-  level: 'error',
-  timestamp: '2023-02-06T07:13:48.624Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: totalAmounts.push is not a function',
-  level: 'error',
-  timestamp: '2023-02-06T07:27:28.123Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'fields')",
-  level: 'error',
-  timestamp: '2023-02-06T08:15:57.443Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'fields')",
-  level: 'error',
-  timestamp: '2023-02-06T09:03:27.438Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'fields')",
-  level: 'error',
-  timestamp: '2023-02-06T09:05:47.421Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'fields')",
-  level: 'error',
-  timestamp: '2023-02-06T09:09:36.044Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2023-02-06T09:26:27.016Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'mongo connection error connection 1 to 161.35.26.178:27017 timed out',
-  level: 'error',
-  timestamp: '2023-02-07T06:50:12.910Z',
+  timestamp: '2023-02-02T14:19:54.620Z',
   label: 'object_builder_service',
   metadata: {
-    connectionGeneration: 0,
-    stack: 'MongoNetworkTimeoutError: connection 1 to 161.35.26.178:27017 timed out\n' +
-      '    at Timeout._onTimeout (/Users/otabekdoniyorov/projects/go/src/gitlab.com/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:151:23)\n' +
-      '    at listOnTimeout (node:internal/timers:564:17)\n' +
-      '    at process.processTimers (node:internal/timers:507:7)'
-  },
-  [Symbol(errorLabels)]: Set(1) { 'ResetPool' },
-  [Symbol(beforeHandshake)]: true
-}
-{
-  message: 'Server selection timed out after 30000 ms',
-  level: 'error',
-  timestamp: '2023-02-07T06:51:47.063Z',
-  label: 'object_builder_service',
-  metadata: {
-    reason: TopologyDescription {
-      type: 'Unknown',
-      servers: Map(1) {
-        '161.35.26.178:27017' => ServerDescription {
-          address: '161.35.26.178:27017',
-          type: 'Unknown',
-          hosts: [],
-          passives: [],
-          arbiters: [],
-          tags: {},
-          minWireVersion: 0,
-          maxWireVersion: 0,
-          roundTripTime: -1,
-          lastUpdateTime: 2067831160,
-          lastWriteDate: 0,
-          error: null,
-          topologyVersion: null,
-          setName: null,
-          setVersion: null,
-          electionId: null,
-          logicalSessionTimeoutMinutes: null,
-          primary: null,
-          me: null,
-          '$clusterTime': null
-        }
-      },
-      stale: false,
-      compatible: true,
-      heartbeatFrequencyMS: 10000,
-      localThresholdMS: 15,
-      setName: null,
-      maxElectionId: null,
-      maxSetVersion: null,
-      commonWireVersion: 0,
-      logicalSessionTimeoutMinutes: null
-    },
-    code: undefined,
-    stack: 'MongooseServerSelectionError: Server selection timed out after 30000 ms\n' +
-      '    at Connection.openUri (/Users/otabekdoniyorov/projects/go/src/gitlab.com/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
-      '    at Mongoose.createConnection (/Users/otabekdoniyorov/projects/go/src/gitlab.com/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
-      '    at newMongoConn (/Users/otabekdoniyorov/projects/go/src/gitlab.com/ucode_node_object_builder_service/config/mongoConn.js:44:33)\n' +
-      '    at /Users/otabekdoniyorov/projects/go/src/gitlab.com/ucode_node_object_builder_service/storage/mongo/project.js:106:39\n' +
-      '    at Object.reconnect (/Users/otabekdoniyorov/projects/go/src/gitlab.com/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
-      '    at /Users/otabekdoniyorov/projects/go/src/gitlab.com/ucode_node_object_builder_service/index.js:31:30\n' +
-      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'Name resolution failed for target dns:go-company-service:80',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
   }
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: View is not defined',
+  message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-02-07T06:54:17.288Z',
+  timestamp: '2023-02-02T14:22:15.532Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:8092
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'Name resolution failed for target dns:go-company-service:8092',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-02-02T14:28:03.748Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: read tcp 192.168.190.227:49774->161.35.26.178:30032: read: operation timed out
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 2,
+      details: 'read tcp 192.168.190.227:49774->161.35.26.178:30032: read: operation timed out',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-02T15:24:50.216Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: View is not defined',
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-02-07T06:54:21.892Z',
+  timestamp: '2023-02-02T17:57:16.573Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: View is not defined',
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-02-07T06:54:53.656Z',
+  timestamp: '2023-02-02T18:10:41.104Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: View is not defined',
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-02-07T06:55:10.938Z',
+  timestamp: '2023-02-02T18:13:22.247Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: View is not defined',
+  message: 'service.object_builder.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-02-07T06:55:48.628Z',
+  timestamp: '2023-02-02T18:23:17.132Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: View is not defined',
+  message: 'service.object_builder.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-02-07T06:55:50.660Z',
+  timestamp: '2023-02-02T19:18:52.395Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: View is not defined',
+  message: 'service.object_builder.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-02-07T06:57:02.445Z',
+  timestamp: '2023-02-02T19:20:31.160Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: db conn with given projectId does not exist',
+  message: 'service.object_builder.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-02-07T06:59:02.305Z',
+  timestamp: '2023-02-02T19:21:28.823Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: relation field not found',
+  message: 'service.object_builder.delete: failed with error: db conn with given projectId does not exist',
   level: 'error',
-  timestamp: '2023-02-07T07:01:40.428Z',
+  timestamp: '2023-02-02T19:22:09.493Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: db conn with given projectId does not exist',
+  message: 'service.object_builder.delete: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-02-07T07:08:07.570Z',
+  timestamp: '2023-02-02T19:23:48.749Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'fields')",
+  message: 'failed to find object in table undefined with given id: dcbb53ab-8e4f-425e-a20c-740ad2c376f4',
   level: 'error',
-  timestamp: '2023-02-07T07:50:31.770Z',
+  timestamp: '2023-02-02T19:23:55.534Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'fields')",
+  message: "service.object_builder.getSingle: failed with error: Cannot use 'in' operator to search for 'client_platform_ids_data' in null",
   level: 'error',
-  timestamp: '2023-02-07T07:50:40.653Z',
+  timestamp: '2023-02-02T19:23:55.540Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: "service.object_builder.getFinancialAnalytics: failed with error: Cannot read properties of undefined (reading 'fields')",
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-02-07T07:50:54.164Z',
+  timestamp: '2023-02-02T19:28:43.252Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-02-02T19:29:17.628Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-02-02T19:43:59.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-02T20:02:06.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-03T05:09:43.221Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-03T05:11:13.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-02-03T05:12:34.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.delete: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-02-03T05:14:07.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: f4b59225-9bd6-4371-83ea-6519ed97605d',
+  level: 'error',
+  timestamp: '2023-02-03T05:14:13.374Z',
   label: 'object_builder_service',
   metadata: {}
 }

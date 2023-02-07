@@ -28,29 +28,16 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
 
-        await projectStorage.reconnect(
+        await projectStorage.autoConnect(
             {
-                project_id: "da10fd63-707a-4bc0-ac19-923d240882d8",
-                credentials: {
-                    host: "161.35.26.178",
-                    port: 27017,
-                    database: "udevs_ufinance_object_builder_service",
-                    username: "udevs_ufinance_object_builder_service",
-                    password: "Lh8a3kz9"
+                request: {
+                    k8s_namespace: config.k8s_namespace
                 }
+            },
+            (code, result) => {
+                logger.info(`autoconnected to resources ${code} - ${result}`);
             }
         )
-
-        // await projectStorage.autoConnect(
-        //     {
-        //         request: {
-        //             k8s_namespace: config.k8s_namespace
-        //         }
-        //     },
-        //     (code, result) => {
-        //         logger.info(`autoconnected to resources ${code} - ${result}`);
-        //     }
-        // )
     } catch (err) {
         logger.info(`autoconnecting to resources failed: ${err}`);
     }

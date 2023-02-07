@@ -1869,17 +1869,6 @@ let objectBuilder = {
                             if (option.date_field === "") {
                                 continue
                             }
-                            // const relationFieldTable = await table.findOne({
-                            //     slug: option.table_slug.split('#')[0],
-                            //     deleted_at: "1970-01-01T18:00:00.000+00:00"
-                            // })
-                            // const field = await Field.findOne({
-                            //     relation_id: option.table_slug.split('#')[1],
-                            //     table_id: relationFieldTable.id
-                            // })
-                            // if (!field || relationFieldTable) {
-                            //     throw Error("relation field not found")
-                            // }
                             const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug.split('#')[0]]
                             let groupBy =  req.table_slug + '_id'
                             let groupByWithDollorSign = '$' + req.table_slug + '_id'
@@ -2004,8 +1993,7 @@ let objectBuilder = {
                     totalAmountByMonths.set(monthlyAmount.month, totalAmount)
                 }
             }
-            // const testVar = "last_parent"
-            switch ( view.percent?.type?.toLowerCase()) {
+            switch ( view.attributes?.percent?.type?.toLowerCase() ) {
                 case "parent":
                     for (const obj of objects) {
                         if (obj[req.table_slug + "_id"] == null) {

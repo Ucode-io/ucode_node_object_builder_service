@@ -1974,7 +1974,6 @@ let objectBuilder = {
                             parentObj.amounts.push(parentMonthlyAmount)
                         }
                         parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"])
-                        monthlyAmount = parentMonthlyAmount
                         if (parentObj) {
                             parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
                         }
@@ -1982,14 +1981,18 @@ let objectBuilder = {
                 }
                 // storing the object to calculate the percentage faster but consumes more memory
                 objStore.set(obj.guid, obj)
-                for (const monthlyAmount of obj.amounts) {
-                    let totalAmount = totalAmountByMonths.get(monthlyAmount.month)
-                    if (totalAmount) {
-                        totalAmount += monthlyAmount.amount
-                    } else {
-                        totalAmount = monthlyAmount.amount
+            }
+            for (const obj of objects) {
+                if (obj[req.table_slug + "_id"] == null) {
+                    for (const monthlyAmount of obj.amounts) {
+                        let totalAmount = totalAmountByMonths.get(monthlyAmount.month)
+                        if (totalAmount) {
+                            totalAmount += monthlyAmount.amount
+                        } else {
+                            totalAmount = monthlyAmount.amount
+                        }
+                        totalAmountByMonths.set(monthlyAmount.month, totalAmount)
                     }
-                    totalAmountByMonths.set(monthlyAmount.month, totalAmount)
                 }
             }
             switch ( view.attributes?.percent?.type?.toLowerCase() ) {

@@ -12,6 +12,8 @@ let formulaFunction = {
         let newValue
         sortedFields.forEach(el => {
             let value = object[el.slug] ?? 0;
+            if (typeof value === "boolean")
+            value = JSON.stringify(value).toUpperCase()
             if (typeof value === "string") value = `${value}`
             computedFormula = computedFormula.replaceAll(`${el.slug}`, value)
         })

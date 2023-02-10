@@ -251,6 +251,7 @@ let permission = {
         const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
         const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
+        const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const Field = mongoConn.models['Field']
         
         const role = await Role.findOne(
@@ -400,6 +401,11 @@ let permission = {
                 );
 
                 tableCopy.view_permissions = view_permissions || []
+                const automaticFilters = await AutomaticFilter.find({
+                    role_id: req.role_id,
+                    table_slug: tableCopy.slug,
+                })
+                tableCopy.automatic_filters = automaticFilters || []
 
                 tablesList.push(tableCopy)
             }
@@ -431,6 +437,7 @@ let permission = {
         const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
         const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
+        const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
 
         let role = await Role.findOneAndUpdate(
             {
@@ -545,6 +552,19 @@ let permission = {
                         )
                     }
                 }
+                let automaticFilters = []
+                let query = {
+                    table_slug: table.slug,
+                    role_id: req.data.guid
+                }
+                const count =  AutomaticFilter.countDocuments(query)
+                if (count) {
+                    await AutomaticFilter.deleteMany(query)
+                }
+                for (let automaticFilter of table.automatic_filters) {
+                    automaticFilters.push(new AutomaticFilter(automaticFilter))
+                }
+                await AutomaticFilter.insertMany(automaticFilters)
             }
         }
 

@@ -403,7 +403,7 @@ let permission = {
                 tableCopy.view_permissions = view_permissions || []
                 const automaticFilters = await AutomaticFilter.find({
                     role_id: req.role_id,
-                    table_slug: tableCopy.slug,
+                    table_slug: table.slug,
                 })
                 tableCopy.automatic_filters = automaticFilters || []
 

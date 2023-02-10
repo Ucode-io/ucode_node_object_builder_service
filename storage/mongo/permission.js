@@ -459,7 +459,10 @@ let permission = {
 
         for (let app of req?.data?.apps) {
             for (let table of app?.tables) {
-
+                let isHaveCondition = false
+                if (table.automatic_filters?.length) {
+                    isHaveCondition = true
+                }
                 if (table?.record_permissions?.guid) {
                     await RecordPermission.findOneAndUpdate(
                         {
@@ -471,6 +474,7 @@ let permission = {
                                 write: table.record_permissions.write,
                                 update: table.record_permissions.update,
                                 delete: table.record_permissions.delete,
+                                is_have_condition: isHaveCondition,
                             }
                         },
                         {
@@ -486,8 +490,8 @@ let permission = {
                             update: table.record_permissions.update,
                             delete: table.record_permissions.delete,
                             guid: v4(),
-                            role_id: req.data.guid,
-                            table_slug: table.record_permissions.table_slug,
+                            role_id: roleId,
+                            table_slug: table.slug,
                         }
                     )
                 }
@@ -515,8 +519,8 @@ let permission = {
                                 view_permission: field_permission.view_permission,
                                 edit_permission: field_permission.edit_permission,
                                 field_id: field_permission.field_id,
-                                table_slug: field_permission.table_slug,
-                                role_id: field_permission.role_id,
+                                table_slug: table.slug,
+                                role_id: roleId,
                                 label: field_permission.label,
                                 guid: v4()
                             }
@@ -545,8 +549,8 @@ let permission = {
                                 guid: v4(),
                                 label: view_permission.label,
                                 relation_id: view_permission.relation_id,
-                                role_id: view_permission.role_id,
-                                table_slug: view_permission.table_slug,
+                                role_id: roleId,
+                                table_slug: table.slug,
                                 view_permission: view_permission.view_permission,
                             }
                         )
@@ -562,7 +566,11 @@ let permission = {
                     await AutomaticFilter.deleteMany(query)
                 }
                 for (let automaticFilter of table.automatic_filters) {
-                    automaticFilters.push(new AutomaticFilter(automaticFilter))
+                    let payload = AutomaticFilter(automaticFilter)
+                    payload.guid = v4()
+                    payload.role_id = roleId
+                    payload.table_slug = table.slug
+                    automaticFilters.push(payload)
                 }
                 await AutomaticFilter.insertMany(automaticFilters)
             }

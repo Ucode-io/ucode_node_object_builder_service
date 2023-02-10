@@ -561,12 +561,12 @@ let permission = {
                     table_slug: table.slug,
                     role_id: req.data.guid
                 }
-                const count =  AutomaticFilter.countDocuments(query)
+                const count = await AutomaticFilter.countDocuments(query)
                 if (count) {
                     await AutomaticFilter.deleteMany(query)
                 }
-                for (let automaticFilter of table.automatic_filters) {
-                    let payload = AutomaticFilter(automaticFilter)
+                for (let af of table.automatic_filters) {
+                    let payload = new AutomaticFilter(af)
                     payload.guid = v4()
                     payload.role_id = roleId
                     payload.table_slug = table.slug

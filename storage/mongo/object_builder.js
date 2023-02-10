@@ -1823,7 +1823,6 @@ let objectBuilder = {
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
             const View = mongoConn.models['View']
-
             const request = struct.decode(req.data)
             const view = await View.findOne({
                 id: request.view_id
@@ -1854,6 +1853,8 @@ let objectBuilder = {
                     obj.amounts = []
                 }
             }
+            let objStore = new Map()
+            let totalAmountByMonths = new Map()
             let dates = await RangeDate(request.start, request.end, request.interval)
             for (const obj of objects) {
                 for (const date of dates) {
@@ -1867,8 +1868,8 @@ let objectBuilder = {
                             if (option.date_field === "") {
                                 continue
                             }
-                            const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug]
-                            let groupBy = req.table_slug + '_id'
+                            const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug.split('#')[0]]
+                            let groupBy =  req.table_slug + '_id'
                             let groupByWithDollorSign = '$' + req.table_slug + '_id'
                             let sumFieldWithDollowSign = '$' + option.number_field
                             let dateBy = option.date_field
@@ -1894,9 +1895,25 @@ let objectBuilder = {
                                     '$match': params,
                                 }, {
                                     '$group': {
+                                    '_id': groupByWithDollorSign, 
                                         '_id': groupByWithDollorSign,
-                                        'res': {
-                                            [aggregateFunction]: sumFieldWithDollowSign
+                                    '_id': groupByWithDollorSign, 
+                                        '_id': groupByWithDollorSign,
+                                    '_id': groupByWithDollorSign, 
+                                        '_id': groupByWithDollorSign,
+                                    '_id': groupByWithDollorSign, 
+                                        '_id': groupByWithDollorSign,
+                                    '_id': groupByWithDollorSign, 
+                                        '_id': groupByWithDollorSign,
+                                    '_id': groupByWithDollorSign, 
+                                        '_id': groupByWithDollorSign,
+                                    '_id': groupByWithDollorSign, 
+                                        '_id': groupByWithDollorSign,
+                                    '_id': groupByWithDollorSign, 
+                                        '_id': groupByWithDollorSign,
+                                    '_id': groupByWithDollorSign, 
+                                    'res': {
+                                        [aggregateFunction]: sumFieldWithDollowSign
                                         }
                                     }
                                 }
@@ -1957,13 +1974,95 @@ let objectBuilder = {
                             parentObj.amounts.push(parentMonthlyAmount)
                         }
                         parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"])
-                        monthlyAmount = parentMonthlyAmount
                         if (parentObj) {
                             parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
                         }
                     }
                 }
+                // storing the object to calculate the percentage faster but consumes more memory
+                objStore.set(obj.guid, obj)
             }
+            for (const obj of objects) {
+                if (obj[req.table_slug + "_id"] == null) {
+                    for (const monthlyAmount of obj.amounts) {
+                        let totalAmount = totalAmountByMonths.get(monthlyAmount.month)
+                        if (totalAmount) {
+                            totalAmount += monthlyAmount.amount
+                        } else {
+                            totalAmount = monthlyAmount.amount
+                        }
+                        totalAmountByMonths.set(monthlyAmount.month, totalAmount)
+                    }
+                }
+            }
+            switch ( view.attributes?.percent?.type?.toLowerCase() ) {
+                case "parent":
+                    for (const obj of objects) {
+                        if (obj[req.table_slug + "_id"] == null) {
+                            for (const monthlyAmount of obj.amounts) {
+                                monthlyAmount.percentage = 100
+                            }
+                            continue
+                        }
+                        let parentObj = objStore.get(obj[req.table_slug + "_id"])
+                        for (const monthlyAmount of obj.amounts) {
+                            let monthlyAmountParent = parentObj?.amounts.find(el => el.month === monthlyAmount.month)
+                            if (monthlyAmountParent && monthlyAmountParent.amount != 0) {
+                                monthlyAmount.percentage = monthlyAmount.amount / monthlyAmountParent.amount * 100
+                            } else {
+                                monthlyAmount.percentage = 0
+                            }
+                        }
+                    }
+                    break;
+                case "total":
+                    for (const obj of objects) {
+                        for (const monthlyAmount of obj.amounts) {
+                            let totalAmount = totalAmountByMonths.get(monthlyAmount.month)
+                            if (totalAmount && totalAmount != 0) {
+                                monthlyAmount.percentage = monthlyAmount.amount / totalAmount * 100
+                            } else {
+                                monthlyAmount.percentage = 0
+                            }
+                        }
+                    }
+                    break;
+                case "last_parent":
+                    for (const obj of objects) {
+                        for (const monthlyAmount of obj.amounts) {
+                            let parentObj = objStore.get(obj[req.table_slug + "_id"])
+                            if (parentObj) {
+                                while (objStore.get(parentObj[req.table_slug + "_id"])) {
+                                    parentObj = objStore.get(parentObj[req.table_slug + "_id"])
+                                }
+                                let monthlyAmountParent = parentObj?.amounts.find(el => el.month === monthlyAmount.month)
+                                if (monthlyAmountParent && monthlyAmountParent.amount != 0) {
+                                    monthlyAmount.percentage = monthlyAmount.amount / monthlyAmountParent.amount * 100
+                                }
+                            } else {
+                                monthlyAmount.percentage = 100
+                            }
+                        }
+                    }
+                    break;
+                case "field":
+                    for (const obj of objects) {
+                        for (const monthlyAmount of obj.amounts) {
+                            let monthlyAmountParent = objStore.get(obj[req.table_slug + "_id"])?.amounts.find(el => el.month === monthlyAmount.month)
+                            if (monthlyAmountParent && monthlyAmountParent.amount != 0) {
+                                monthlyAmount.percentage = monthlyAmount.amount / monthlyAmountParent.amount * 100
+                            } else {
+                                monthlyAmount.percentage = 0
+                            }
+                        }
+                    }
+                    break;
+            }
+            let totalAmounts = []
+            for (const [month, total] of totalAmountByMonths.entries()) {
+                totalAmounts.push({ month: month, amount: total })
+            }
+            data.total_amount = totalAmounts
             return { table_slug: req.table_slug, data: struct.encode(data) }
         } catch (err) {
             throw err

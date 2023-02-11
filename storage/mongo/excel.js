@@ -1,4 +1,3 @@
-const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const cfg = require('../../config/index')
 const xlsxFile = require('read-excel-file/node');
@@ -6,11 +5,10 @@ const fs = require("fs");
 const Minio = require("minio");
 const obj = require("./object_builder");
 const { struct } = require("pb-util/build");
-const Field = require("../../models/field")
 const ObjectBuilder = require("../../models/object_builder");
-const Relation = require("../../models/relation");
 const con = require("../../helper/constants");
 const logger = require("../../config/logger");
+const mongoPool = require('../../pkg/pool');
 
 let NAMESPACE = "storage.excel";
 
@@ -61,6 +59,9 @@ let excelStore = {
     ExcelToDb: catchWrapDb(`${NAMESPACE}.create`, async (req) => {
         const datas = struct.decode(req.data)
         console.log("test project id:::", req.project_id);
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Field = mongoConn.models['Field']
+        const Relation = mongoConn.models['Relation']
         let exColumnSlugs = Object.keys(datas)
         let ssl = true
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {

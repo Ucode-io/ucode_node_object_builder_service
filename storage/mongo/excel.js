@@ -19,7 +19,7 @@ let excelStore = {
         const createFilePath = "./"+data.id+".xlsx"
         let ssl = true
         console.log("ssl::", cfg.minioSSL, "typeof:::", typeof cfg.minioSSL);
-        if (cfg.minioSSL !== "true") {
+        if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
         }
         let minioClient = new Minio.Client({
@@ -62,7 +62,7 @@ let excelStore = {
         const datas = struct.decode(req.data)
         let exColumnSlugs = Object.keys(datas)
         let ssl = true
-        if (cfg.minioSSL !== "true") {
+        if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
         }
 

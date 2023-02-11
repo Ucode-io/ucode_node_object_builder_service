@@ -1126,3 +1126,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getListInExcel: failed with error: decodedFields is not defined',
+  level: 'error',
+  timestamp: '2023-02-11T07:57:23.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

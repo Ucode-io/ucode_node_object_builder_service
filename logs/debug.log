@@ -14765,3 +14765,1312 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T06:23:56.683Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T06:23:56.687Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:23:56.688Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:23:56.764Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T06:23:56.764Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T06:23:57.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T06:27:47.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T06:27:47.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:27:47.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:27:47.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T06:27:47.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T06:27:48.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T06:31:05.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T06:31:05.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:31:05.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:31:05.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T06:31:05.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T06:31:05.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T06:31:18.918Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T06:31:18.920Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:31:18.920Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:31:18.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T06:31:18.944Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T06:31:19.553Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:35:35.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:35:35.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:49.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:49.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:50.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:50.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "id": {\n' +
+    '        "stringValue": "6e4568a6-5868-4c1d-b15a-b21df997fac6",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "project_id": {\n' +
+    '        "stringValue": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:52.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "id": {\n' +
+    '        "stringValue": "6e4568a6-5868-4c1d-b15a-b21df997fac6",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "project_id": {\n' +
+    '        "stringValue": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:52.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "role",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "6e4568a6-5868-4c1d-b15a-b21df997fac6",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:52.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "role",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "6e4568a6-5868-4c1d-b15a-b21df997fac6",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:52.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:53.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:53.569Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "6e4568a6-5868-4c1d-b15a-b21df997fac6",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:53.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "6e4568a6-5868-4c1d-b15a-b21df997fac6",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:53.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:54.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:54.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:54.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:54.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "role_id": "ba59360f-db75-4fd6-aa69-84dc17814e98",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:57.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "role_id": "ba59360f-db75-4fd6-aa69-84dc17814e98",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:57.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "role",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:58.636Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "role",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:58.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: requested - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "id": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "project_id": {\n' +
+    '        "stringValue": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:46:58.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: requested, {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "id": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "project_id": {\n' +
+    '        "stringValue": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:46:58.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getSingle: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:47:00.057Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:47:00.057Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:47:00.220Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:47:00.220Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:47:00.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:47:00.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:47:01.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:47:01.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:47:01.668Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:47:01.669Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:49:17.466Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:49:17.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:49:24.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:49:24.715Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T07:17:47.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T07:17:47.652Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T07:17:47.969Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T07:17:47.969Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T07:17:52.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T07:17:52.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T07:17:52.454Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T07:17:52.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T07:20:00.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T07:20:00.841Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T07:20:01.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T07:20:01.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T07:20:06.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T07:20:06.928Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T07:20:07.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T07:20:07.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: requested - {\n' +
+    '  "table_slug": "patients",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T07:57:22.795Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListInExcel: requested, {\n' +
+    '  "table_slug": "patients",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T07:57:22.799Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "patients",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T07:57:22.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T07:57:23.801Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: failed with error: decodedFields is not defined',
+  level: 'error',
+  timestamp: '2023-02-11T07:57:23.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T07:58:31.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T07:58:31.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T07:58:31.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T07:58:31.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T07:58:31.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T07:58:32.604Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:02:50.933Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:02:50.940Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: requested - {\n' +
+    '  "table_slug": "patients",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:04:27.981Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListInExcel: requested, {\n' +
+    '  "table_slug": "patients",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:04:27.982Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "patients",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:04:27.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:04:28.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListInExcel: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:04:28.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:04:28.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T08:10:42.062Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T08:10:42.063Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:10:42.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:10:42.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T08:10:42.104Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T08:10:42.719Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T08:10:45.900Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T08:10:45.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:10:45.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:10:45.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T08:10:45.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T08:10:46.535Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:15:02.169Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:15:02.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: requested - {\n' +
+    '  "table_slug": "patients",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:19:40.186Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListInExcel: requested, {\n' +
+    '  "table_slug": "patients",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:19:40.188Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "patients",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:19:40.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:19:41.257Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListInExcel: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:19:41.280Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:19:41.280Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

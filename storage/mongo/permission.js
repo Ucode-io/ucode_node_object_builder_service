@@ -434,7 +434,7 @@ let permission = {
                  const CustomEvent = mongoConn.models['CustomEvent']
 
                 const customEvents = await CustomEvent.find({
-                    table_slug: req.table_slug
+                    table_slug: table.slug,
                 })
                 let eventObj = {}
                 customEvents.map(el => eventObj[el.id] = el.label)
@@ -460,7 +460,7 @@ let permission = {
                     table_slug: table.slug,
                 })
                 actionPermissions.forEach(el => {
-                    el.label = eventObj[el.id]
+                    el.label = eventObj[el.custom_event_id]
                 })
                 tableCopy.action_permissions = actionPermissions || []
 

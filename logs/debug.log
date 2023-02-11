@@ -14310,3 +14310,458 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T06:06:04.907Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T06:06:04.909Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:06:04.909Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-02-11T06:06:05.007Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'Name resolution failed for target dns:go-company-service:80',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80',
+  level: 'info',
+  timestamp: '2023-02-11T06:06:05.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T06:06:25.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T06:06:25.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:06:25.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:06:25.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T06:06:25.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T06:06:26.337Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "abbf1db4-8112-4fa1-8734-5f6615c07ae6"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:08:28.768Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "abbf1db4-8112-4fa1-8734-5f6615c07ae6"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:08:28.772Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-11T06:08:28.773Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "abbf1db4-8112-4fa1-8734-5f6615c07ae6"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:08:48.698Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "abbf1db4-8112-4fa1-8734-5f6615c07ae6"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:08:48.700Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-11T06:08:48.701Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "abbf1db4-8112-4fa1-8734-5f6615c07ae6"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:08:59.480Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "abbf1db4-8112-4fa1-8734-5f6615c07ae6"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:08:59.480Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-11T06:08:59.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:09:01.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:09:01.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:09:01.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:09:01.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T06:10:04.653Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T06:10:04.655Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:10:04.655Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "abbf1db4-8112-4fa1-8734-5f6615c07ae6",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:10:04.679Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T06:10:04.680Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T06:10:05.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:11:43.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:11:43.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-11T06:11:43.757Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T06:12:27.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T06:12:27.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:12:27.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:12:27.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T06:12:27.383Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T06:12:28.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T06:12:42.625Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T06:12:42.625Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:12:42.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T06:12:42.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:16:42.683Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T06:16:42.686Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

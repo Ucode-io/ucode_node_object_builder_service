@@ -18,6 +18,7 @@ let excelStore = {
     ExcelRead: catchWrapDb(`${NAMESPACE}.read`, async (data) => {
         const createFilePath = "./"+data.id+".xlsx"
         let ssl = true
+        console.log("ssl::", cfg.minioSSL, "typeof:::", typeof cfg.minioSSL);
         if (cfg.minioSSL !== "true") {
             ssl = false
         }
@@ -50,6 +51,7 @@ let excelStore = {
                     })
                 } else {
                     console.log('object not found')
+                    reject()
                 }
             });
         })
@@ -72,18 +74,20 @@ let excelStore = {
             useSSL: ssl,
             pathStyle: true,
         });
-  
+        console.log("test ", 111);
         let bucketName = "docs";
         let fileStream = fs.createWriteStream(createFilePath);
         let fileObjectKey = req.id+".xlsx";
             minioClient.getObject(bucketName, fileObjectKey, async function(err, object) {
                 if (err) {
-                    console.log(err)
+                    console.log("errrr::::", err)
+                    throw err
                 }
                 object.on("data", (chunk) => fileStream.write(chunk));
                 object.on("end", () => console.log(`Reading ${fileObjectKey} finished`))
                 xlsxFile(createFilePath).then(async (rows) => {
                     let i = 0;
+                    let objectsToDb = []
                     for (const row of rows) {
                         let appendMany2ManyArray = []
                         let relation
@@ -91,13 +95,13 @@ let excelStore = {
                             i++;
                             continue;
                         }
-                        let object = {}
+                        let objectToDb = {}
                         for (const column_slug of exColumnSlugs) {
                             let id = datas[column_slug]
-                            let splitedRelationFieldId = [], viewFieldId = ""
+                            let splitedRelationFieldId = [], viewFieldIds = []
                             if (id.includes(",")) {
                                 splitedRelationFieldId = id.split(",")
-                                viewFieldId = splitedRelationFieldId[1]
+                                viewFieldIds = splitedRelationFieldId.slice(1, splitedRelationFieldId.length)
                                 id = splitedRelationFieldId[0]
                             }
                             const field = await Field.findOne({
@@ -135,27 +139,58 @@ let excelStore = {
                                     arrayMultiSelect.push(getValueOfMultiSelect?.value)
                                 }
                                 value = arrayMultiSelect
-                            } else if ((field.type === "LOOKUP" || field.type === "LOOKUPS")) {
+                            } else if (con.BOOLEAN_TYPES.includes(field.type)) {
+                                if (row[rows[0].indexOf(column_slug)] === "ИСТИНА" || row[rows[0].indexOf(column_slug)] == "TRUE") {
+                                    value = true
+                                } else  {
+                                    value = false
+                                }
+                            } else if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                                 relation = await Relation.findOne({
                                     id: field.relation_id
                                 })
                                 if (relation && relation.type !== "Many2Many") {
-                                    const viewField = await Field.findOne({
-                                        id: viewFieldId
+                                    const viewFields = await Field.find({
+                                        id: {$in: viewFieldIds}
                                     })
                                     let params = {}
-                                    if (typeof row[rows[0].indexOf(column_slug)] === "string") {
-                                        params[viewField.slug] =  RegExp(row[rows[0].indexOf(column_slug)],"i")
-                                    } else {
-                                        params[viewField.slug] =  row[rows[0].indexOf(column_slug)]
+                                    if (viewFields.length && viewFields.length > 1) {
+                                        let values = row[rows[0].indexOf(column_slug)].split(" ")
+                                        console.log("val::", values);
+                                        for (let i = 0; i < viewFields.length; i++) {
+                                            if (typeof values[i] === "string") {
+                                                values[i] = values[i].replaceAll(")", "\)")
+                                                values[i] = values[i].replaceAll("(", "\(")
+                                                console.log("val::", values[i]);
+                                                params[viewFields[i].slug] =  RegExp(values[i],"i")
+                                            } else {
+                                                params[viewFields[i].slug] =  values[i]
+                                            }
+                                            
+                                        }
+                                    } else if (viewFields.length) {
+                                        for (const viewField of viewFields) {
+                                            if (typeof row[rows[0].indexOf(column_slug)] === "string") {
+                                                let val = row[rows[0].indexOf(column_slug)]
+                                                if (val) {
+                                                    val = val.replaceAll(")", "\\)")
+                                                    val = val.replaceAll("(", "\\(")
+                                                }
+                                                console.log("val2222::", val);
+                                                params[viewField.slug] =  RegExp(val ,"i")
+                                            } else {
+                                                params[viewField.slug] =  row[rows[0].indexOf(column_slug)]
+                                            }
+                                            
+                                        }
                                     }
-                                    
-                                    if (viewField) {
+                                    console.log(" rel params::", params);
+                                    if (params !== {}) {
                                         const tableTo = (await ObjectBuilder(true, req.project_id))[relation.table_to]
                                         const objectFromObjectBuilder = await tableTo.models.findOne({
                                             $and: [params]
                                         })
-                                        object[field?.slug] = objectFromObjectBuilder?.guid
+                                        objectToDb[field?.slug] = objectFromObjectBuilder?.guid
                                         continue
                                     }
 
@@ -174,15 +209,20 @@ let excelStore = {
                                 
                             }
                             if (value) {
-                                object[field?.slug] = value
+                                objectToDb[field?.slug] = value
                             }
+                            
                         }
-                        object = struct.encode(object)
-                        await obj.create({
-                            table_slug: req.table_slug,
-                            data: object
-                        })
+                        objectsToDb.push(objectToDb)
+                        // await obj.create({
+                            //     table_slug: req.table_slug,
+                            //     data: struct.encode(objectToDb)
+                            // })
                     }
+                    await obj.multipleInsert({
+                        table_slug: req.table_slug,
+                        data: struct.encode({objects: objectsToDb})
+                    })
                     
                     fs.unlink(createFilePath, function (err) {
                         if (err) throw err;

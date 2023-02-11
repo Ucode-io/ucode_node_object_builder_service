@@ -251,6 +251,7 @@ let permission = {
         const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
         const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
+        const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const Field = mongoConn.models['Field']
         
@@ -430,6 +431,38 @@ let permission = {
                     update: updateFilters,
                     delete: deleteFilters,
                 }
+                 const CustomEvent = mongoConn.models['CustomEvent']
+
+                const customEvents = await CustomEvent.find({
+                    table_slug: req.table_slug
+                })
+                let eventObj = {}
+                customEvents.map(el => eventObj[el.id] = el.label)
+                // let customEventIdAndLabels = []
+                // customEvents.forEach(customEvent => {
+                //     customEventIdAndLabels.push({ custom_event_id: customEvent.id, label: customEvent.label })
+                // })
+                // let actionPermissions = await ActionPermission.find({
+                //     role_id: req.role_id,
+                //     table_slug: req.table_slug
+                // },
+                //     {
+                //         created_at: 0,
+                //         updated_at: 0,
+                //         createdAt: 0,
+                //         updatedAt: 0,
+                //         _id: 0,
+                //         __v: 0
+                //     }
+                // )
+                const actionPermissions = await ActionPermission.find({
+                    role_id: req.role_id,
+                    table_slug: table.slug,
+                })
+                actionPermissions.forEach(el => {
+                    el.label = eventObj[el.custom_event_id]
+                })
+                tableCopy.action_permissions = actionPermissions || []
 
                 tablesList.push(tableCopy)
             }
@@ -462,6 +495,7 @@ let permission = {
         const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
+        const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
 
         let role = await Role.findOneAndUpdate(
             {
@@ -482,6 +516,7 @@ let permission = {
         }
 
         let automaticFilters = []
+        let actionPermissions = []
         for (let app of req?.data?.apps) {
             for (let table of app?.tables) {
                 let isHaveCondition = false
@@ -625,10 +660,43 @@ let permission = {
                     payload.method = "delete"
                     automaticFilters.push(payload)
                 }
+
+                // test new logic update action permission
+                const countActionPermission = await ActionPermission.countDocuments(query)
+                if (countActionPermission) {
+                    await ActionPermission.deleteMany(query)
+                }
+                table.action_permissions.forEach(el => {
+                    el.table_slug = table.slug
+                    el.role_id = req.data.guid
+                    let payload = new ActionPermission(el)
+                    actionPermissions.push(payload)
+                })
+                // let permissioncustomEventIds = []
+                // actionPermissions.forEach(actionPermission => {
+                //     permissioncustomEventIds.push(actionPermission.custom_event_id)
+                // })
+                // let docPermissions = []
+                // let noActionPermissions = customEventIdAndLabels.filter(val => !permissioncustomEventIds.includes(val.custom_event_id))
+                // actionPermissions = actionPermissions.concat(noActionPermissions)
+                // for (const actionPermission of actionPermissions) {
+                //     if (!actionPermission.guid) {
+                //         actionPermission.permission = false
+                //         actionPermission.g
+                //         docPermissions.push(actionPermission)
+                //     // } else {
+                //         let customEvent = customEvents.find(obj => obj.id === actionPermission.custom_event_id)
+                //         actionPermission._doc.label = customEvent?.label
+                //         docPermissions.push(actionPermission._doc)
+                //     }
+                // }
+
+
                 
             }
         }
         await AutomaticFilter.insertMany(automaticFilters)
+        await ActionPermission.insertMany(actionPermissions)
 
         return {}
 

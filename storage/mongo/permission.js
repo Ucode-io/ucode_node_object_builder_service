@@ -460,7 +460,7 @@ let permission = {
                     table_slug: table.slug,
                 })
                 actionPermissions.forEach(el => {
-                    el.label = eventObj[el.custom_event_id]
+                    el.label = eventObj[el.id]
                 })
                 tableCopy.action_permissions = actionPermissions || []
 

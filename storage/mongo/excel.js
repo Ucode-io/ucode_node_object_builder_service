@@ -65,7 +65,7 @@ let excelStore = {
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
         }
-
+        console.log("ssl::", ssl, "type::", typeof cfg.minioSSL);
         const createFilePath = "./"+req.id+".xlsx"
         let minioClient = new Minio.Client({
             accessKey: cfg.minioAccessKeyID,
@@ -219,6 +219,7 @@ let excelStore = {
                             //     data: struct.encode(objectToDb)
                             // })
                     }
+                    console.log("excel write::::", objectsToDb);
                     await obj.multipleInsert({
                         table_slug: req.table_slug,
                         data: struct.encode({objects: objectsToDb}),

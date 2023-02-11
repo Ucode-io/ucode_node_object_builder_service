@@ -16074,3 +16074,5933 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T08:36:27.944Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T08:36:27.946Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:36:27.946Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-02-11T08:36:27.960Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'Name resolution failed for target dns:go-company-service:80',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80',
+  level: 'info',
+  timestamp: '2023-02-11T08:36:27.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T08:36:45.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T08:36:45.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:36:45.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:36:45.417Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T08:36:45.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T08:36:46.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:38:07.944Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:38:07.948Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-11T08:38:08.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:41:01.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:41:01.497Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:43:42.889Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:43:42.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:43:44.237Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:43:44.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:43:49.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:43:49.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: requested - {\n' +
+    '  "user_id": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '  "client_type": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '  "project_id": "ec7410e1-4bcd-4baa-98b7-4b448ce9dc54",\n' +
+    '  "resource_environment_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:43:49.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login_data: requested, {\n' +
+    '  "user_id": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '  "client_type": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '  "project_id": "ec7410e1-4bcd-4baa-98b7-4b448ce9dc54",\n' +
+    '  "resource_environment_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:43:49.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:43:50.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:43:50.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "branches",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "project_id": {\n' +
+    '        "stringValue": "ec7410e1-4bcd-4baa-98b7-4b448ce9dc54",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:43:50.300Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "branches",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "project_id": {\n' +
+    '        "stringValue": "ec7410e1-4bcd-4baa-98b7-4b448ce9dc54",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:43:50.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:43:51.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:43:51.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login_data: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:43:51.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:43:51.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:44:24.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:44:24.165Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:44:25.490Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:44:25.491Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:44:28.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "client_type_id": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 100,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:44:28.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: requested - {\n' +
+    '  "user_id": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '  "client_type": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '  "project_id": "ec7410e1-4bcd-4baa-98b7-4b448ce9dc54",\n' +
+    '  "resource_environment_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:44:29.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login_data: requested, {\n' +
+    '  "user_id": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '  "client_type": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '  "project_id": "ec7410e1-4bcd-4baa-98b7-4b448ce9dc54",\n' +
+    '  "resource_environment_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:44:29.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:44:29.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:44:29.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "branches",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "project_id": {\n' +
+    '        "stringValue": "ec7410e1-4bcd-4baa-98b7-4b448ce9dc54",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:44:29.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "branches",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "project_id": {\n' +
+    '        "stringValue": "ec7410e1-4bcd-4baa-98b7-4b448ce9dc54",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:44:29.953Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:44:31.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:44:31.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login_data: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:44:31.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:44:31.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:30.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:30.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:30.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:30.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: requested - {\n' +
+    '  "id": "0ff58e1b-7de0-4da1-8954-296a80eddea3",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:36.482Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: requested, {\n' +
+    '  "id": "0ff58e1b-7de0-4da1-8954-296a80eddea3",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:36.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: requested - {\n' +
+    '  "id": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:41.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: requested, {\n' +
+    '  "id": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:41.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:41.323Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:41.323Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:44.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:44.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:48.884Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:48.885Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:50.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:50.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:51.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:51.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:51.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:51.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:51.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:51.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:52.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:52.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:45:59.490Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:45:59.490Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:00.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:00.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "name": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:00.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "name": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:00.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "code": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:00.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "code": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:00.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "categories",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:00.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "categories",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:00.848Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "specialities",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:01.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "specialities",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:01.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:02.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:02.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:02.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:02.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:02.456Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:02.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:02.467Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:02.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.read: requested - {\n' +
+    '  "id": "fce4ebfe-37fd-434f-940e-2e20ec070e9e_test1",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:46:09.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.read: requested, {\n' +
+    '  "id": "fce4ebfe-37fd-434f-940e-2e20ec070e9e_test1",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:46:09.856Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.excel.read: failed with error: Cannot read properties of undefined (reading 'message')",
+  level: 'error',
+  timestamp: '2023-02-11T08:46:09.921Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T08:47:41.757Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T08:47:41.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:47:41.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:47:41.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T08:47:41.810Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T08:47:42.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:51:54.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:51:54.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: requested - {\n' +
+    '  "id": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:12.819Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: requested, {\n' +
+    '  "id": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:12.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:12.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:12.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:12.853Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:12.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:13.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:13.140Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:14.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:14.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:15.142Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:15.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:15.176Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:15.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:15.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:15.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:15.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:15.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:16.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:16.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:22.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:22.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:22.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:22.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "code": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:23.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "code": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:23.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "categories",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:23.253Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "categories",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:23.254Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "specialities",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:23.257Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "specialities",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:23.257Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "name": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:23.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "name": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:23.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:24.536Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:24.536Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:24.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:24.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:25.332Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:25.332Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:25.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:25.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.read: requested - {\n' +
+    '  "id": "200b5d60-b4d2-43c9-bd54-3cb2e13d6b4c_test1",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:35.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.read: requested, {\n' +
+    '  "id": "200b5d60-b4d2-43c9-bd54-3cb2e13d6b4c_test1",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:35.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.read: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:57:36.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.read: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:57:36.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "200b5d60-b4d2-43c9-bd54-3cb2e13d6b4c_test1",\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Цена": {\n' +
+    '        "stringValue": "69e1759a-fb1e-44f2-b80d-dc6ee197cedd",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Группа услуг": {\n' +
+    '        "stringValue": "6c4858e7-34e6-456f-8813-ab9586594a59,",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Код": {\n' +
+    '        "stringValue": "07464ac2-a234-484c-b530-a2f2c4262b1a",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Направление": {\n' +
+    '        "stringValue": "cb080c2a-d805-462b-97f9-411bef54afa3,a5186e11-3a7b-4a8e-b874-9296b5faafea",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Срок выполнения": {\n' +
+    '        "stringValue": "9d1889c3-f992-4052-b86e-91f73ae620f5",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Услуги": {\n' +
+    '        "stringValue": "15578138-cb1c-4ea6-95b2-abda8ceb44e1",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:11.398Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "200b5d60-b4d2-43c9-bd54-3cb2e13d6b4c_test1",\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Цена": {\n' +
+    '        "stringValue": "69e1759a-fb1e-44f2-b80d-dc6ee197cedd",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Группа услуг": {\n' +
+    '        "stringValue": "6c4858e7-34e6-456f-8813-ab9586594a59,",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Код": {\n' +
+    '        "stringValue": "07464ac2-a234-484c-b530-a2f2c4262b1a",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Направление": {\n' +
+    '        "stringValue": "cb080c2a-d805-462b-97f9-411bef54afa3,a5186e11-3a7b-4a8e-b874-9296b5faafea",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Срок выполнения": {\n' +
+    '        "stringValue": "9d1889c3-f992-4052-b86e-91f73ae620f5",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Услуги": {\n' +
+    '        "stringValue": "15578138-cb1c-4ea6-95b2-abda8ceb44e1",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:11.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:11.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:11.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:11.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:11.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:11.738Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:11.740Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:19.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:19.467Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:19.479Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:19.479Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: requested - {\n' +
+    '  "id": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:29.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: requested, {\n' +
+    '  "id": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:29.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:29.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:29.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:29.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:29.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:29.984Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:29.984Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:31.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:31.893Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:32.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:32.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:32.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:32.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:32.309Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:32.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:32.446Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:32.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:32.682Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:32.682Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:39.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:39.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:39.970Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:39.970Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "specialities",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:40.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "specialities",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:40.456Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "categories",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:40.479Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "categories",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:40.480Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "name": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:40.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "name": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:40.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "code": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:41.005Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "code": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:41.005Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:41.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:41.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:41.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:41.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:42.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:42.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:58:43.093Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:58:43.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:59:42.221Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListInExcel: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:59:42.225Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:59:42.231Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:59:44.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListInExcel: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:59:44.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:59:44.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.read: requested - {\n' +
+    '  "id": "bfd09deb-32e0-4d08-abde-6d08b971649b_test1",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T08:59:48.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.read: requested, {\n' +
+    '  "id": "bfd09deb-32e0-4d08-abde-6d08b971649b_test1",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T08:59:48.429Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.read: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T08:59:49.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.read: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T08:59:49.057Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "bfd09deb-32e0-4d08-abde-6d08b971649b_test1",\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Срок выполнения": {\n' +
+    '        "stringValue": "9d1889c3-f992-4052-b86e-91f73ae620f5",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Услуги": {\n' +
+    '        "stringValue": "15578138-cb1c-4ea6-95b2-abda8ceb44e1",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Цена": {\n' +
+    '        "stringValue": "69e1759a-fb1e-44f2-b80d-dc6ee197cedd",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Группа услуг": {\n' +
+    '        "stringValue": "6c4858e7-34e6-456f-8813-ab9586594a59,b99277cd-ee23-47b1-8390-8ea09b6acaef",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Код": {\n' +
+    '        "stringValue": "07464ac2-a234-484c-b530-a2f2c4262b1a",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Направление": {\n' +
+    '        "stringValue": "cb080c2a-d805-462b-97f9-411bef54afa3,a5186e11-3a7b-4a8e-b874-9296b5faafea",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:00:29.794Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "bfd09deb-32e0-4d08-abde-6d08b971649b_test1",\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Срок выполнения": {\n' +
+    '        "stringValue": "9d1889c3-f992-4052-b86e-91f73ae620f5",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Услуги": {\n' +
+    '        "stringValue": "15578138-cb1c-4ea6-95b2-abda8ceb44e1",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Цена": {\n' +
+    '        "stringValue": "69e1759a-fb1e-44f2-b80d-dc6ee197cedd",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Группа услуг": {\n' +
+    '        "stringValue": "6c4858e7-34e6-456f-8813-ab9586594a59,b99277cd-ee23-47b1-8390-8ea09b6acaef",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Код": {\n' +
+    '        "stringValue": "07464ac2-a234-484c-b530-a2f2c4262b1a",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Направление": {\n' +
+    '        "stringValue": "cb080c2a-d805-462b-97f9-411bef54afa3,a5186e11-3a7b-4a8e-b874-9296b5faafea",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:00:29.795Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:00:29.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:00:29.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:00:30.111Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:00:30.111Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:00:30.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:00:30.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:00:37.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:00:37.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:00:37.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:00:37.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T09:05:15.534Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T09:05:15.536Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:05:15.536Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:05:15.569Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T09:05:15.570Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T09:05:16.188Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:09:33.896Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:09:33.903Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "5501747-f380-4a26-a014-532d184c4ec9_test1",\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Группа услуг": {\n' +
+    '        "stringValue": "6c4858e7-34e6-456f-8813-ab9586594a59,b99277cd-ee23-47b1-8390-8ea09b6acaef",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Код": {\n' +
+    '        "stringValue": "07464ac2-a234-484c-b530-a2f2c4262b1a",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Направление": {\n' +
+    '        "stringValue": "cb080c2a-d805-462b-97f9-411bef54afa3,a5186e11-3a7b-4a8e-b874-9296b5faafea",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Срок выполнения": {\n' +
+    '        "stringValue": "9d1889c3-f992-4052-b86e-91f73ae620f5",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Услуги": {\n' +
+    '        "stringValue": "15578138-cb1c-4ea6-95b2-abda8ceb44e1",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Цена": {\n' +
+    '        "stringValue": "69e1759a-fb1e-44f2-b80d-dc6ee197cedd",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:11:59.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "5501747-f380-4a26-a014-532d184c4ec9_test1",\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Группа услуг": {\n' +
+    '        "stringValue": "6c4858e7-34e6-456f-8813-ab9586594a59,b99277cd-ee23-47b1-8390-8ea09b6acaef",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Код": {\n' +
+    '        "stringValue": "07464ac2-a234-484c-b530-a2f2c4262b1a",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Направление": {\n' +
+    '        "stringValue": "cb080c2a-d805-462b-97f9-411bef54afa3,a5186e11-3a7b-4a8e-b874-9296b5faafea",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Срок выполнения": {\n' +
+    '        "stringValue": "9d1889c3-f992-4052-b86e-91f73ae620f5",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Услуги": {\n' +
+    '        "stringValue": "15578138-cb1c-4ea6-95b2-abda8ceb44e1",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Цена": {\n' +
+    '        "stringValue": "69e1759a-fb1e-44f2-b80d-dc6ee197cedd",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:11:59.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:11:59.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:11:59.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T09:13:55.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T09:13:55.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:13:55.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:13:55.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T09:13:55.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T09:13:57.042Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:18:17.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:18:17.679Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:08.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:08.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: requested - {\n' +
+    '  "id": "c57eedc3-a954-4262-a0af-376c65b5a283",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:08.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: requested, {\n' +
+    '  "id": "c57eedc3-a954-4262-a0af-376c65b5a283",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:08.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:08.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:08.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:10.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:10.065Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: requested - {\n' +
+    '  "id": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:14.536Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: requested, {\n' +
+    '  "id": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:14.537Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:17.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:17.754Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:30.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:30.810Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:32.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:32.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:33.146Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:33.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:33.187Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:33.188Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:33.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 150,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "with_relations": {\n' +
+    '        "boolValue": true,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "app_id": {\n' +
+    '        "stringValue": "08324c07-2c1a-4e77-8c5e-685fa0fda753",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:33.209Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:33.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:33.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.section.getAll: requested - {\n' +
+    '  "table_id": "",\n' +
+    '  "table_slug": "services",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:34.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "table_id": "",\n' +
+    '  "table_slug": "services",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:34.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.section.getSingleViewRelation: requested - {\n' +
+    '  "table_id": "",\n' +
+    '  "table_slug": "services",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:34.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getSingleViewRelation: requested, {\n' +
+    '  "table_id": "",\n' +
+    '  "table_slug": "services",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:34.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getAll: requested, {\n' +
+    '  "table_slug": "services",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:34.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:38.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.section.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:38.228Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:39.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getSingleViewRelation: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:39.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.section.getSingleViewRelation: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:39.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "5501747-f380-4a26-a014-532d184c4ec9_test1",\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Направление": {\n' +
+    '        "stringValue": "cb080c2a-d805-462b-97f9-411bef54afa3,a5186e11-3a7b-4a8e-b874-9296b5faafea",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Срок выполнения": {\n' +
+    '        "stringValue": "9d1889c3-f992-4052-b86e-91f73ae620f5",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Услуги": {\n' +
+    '        "stringValue": "15578138-cb1c-4ea6-95b2-abda8ceb44e1",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Цена": {\n' +
+    '        "stringValue": "69e1759a-fb1e-44f2-b80d-dc6ee197cedd",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Группа услуг": {\n' +
+    '        "stringValue": "6c4858e7-34e6-456f-8813-ab9586594a59,b99277cd-ee23-47b1-8390-8ea09b6acaef",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Код": {\n' +
+    '        "stringValue": "07464ac2-a234-484c-b530-a2f2c4262b1a",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:39.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "5501747-f380-4a26-a014-532d184c4ec9_test1",\n' +
+    '  "table_slug": "services",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Направление": {\n' +
+    '        "stringValue": "cb080c2a-d805-462b-97f9-411bef54afa3,a5186e11-3a7b-4a8e-b874-9296b5faafea",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Срок выполнения": {\n' +
+    '        "stringValue": "9d1889c3-f992-4052-b86e-91f73ae620f5",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Услуги": {\n' +
+    '        "stringValue": "15578138-cb1c-4ea6-95b2-abda8ceb44e1",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Цена": {\n' +
+    '        "stringValue": "69e1759a-fb1e-44f2-b80d-dc6ee197cedd",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Группа услуг": {\n' +
+    '        "stringValue": "6c4858e7-34e6-456f-8813-ab9586594a59,b99277cd-ee23-47b1-8390-8ea09b6acaef",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Код": {\n' +
+    '        "stringValue": "07464ac2-a234-484c-b530-a2f2c4262b1a",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:39.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:39.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:39.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "specialities",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "additional_request": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "additional_values": {\n' +
+    '              "listValue": {\n' +
+    '                "values": [\n' +
+    '                  {\n' +
+    '                    "nullValue": "NULL_VALUE",\n' +
+    '                    "kind": "nullValue"\n' +
+    '                  }\n' +
+    '                ]\n' +
+    '              },\n' +
+    '              "kind": "listValue"\n' +
+    '            },\n' +
+    '            "additional_field": {\n' +
+    '              "stringValue": "guid",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:40.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "specialities",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "additional_request": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "additional_values": {\n' +
+    '              "listValue": {\n' +
+    '                "values": [\n' +
+    '                  {\n' +
+    '                    "nullValue": "NULL_VALUE",\n' +
+    '                    "kind": "nullValue"\n' +
+    '                  }\n' +
+    '                ]\n' +
+    '              },\n' +
+    '              "kind": "listValue"\n' +
+    '            },\n' +
+    '            "additional_field": {\n' +
+    '              "stringValue": "guid",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:40.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "categories",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "additional_request": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "additional_field": {\n' +
+    '              "stringValue": "guid",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "additional_values": {\n' +
+    '              "listValue": {\n' +
+    '                "values": [\n' +
+    '                  {\n' +
+    '                    "nullValue": "NULL_VALUE",\n' +
+    '                    "kind": "nullValue"\n' +
+    '                  }\n' +
+    '                ]\n' +
+    '              },\n' +
+    '              "kind": "listValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:40.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "categories",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "additional_request": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "additional_field": {\n' +
+    '              "stringValue": "guid",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "additional_values": {\n' +
+    '              "listValue": {\n' +
+    '                "values": [\n' +
+    '                  {\n' +
+    '                    "nullValue": "NULL_VALUE",\n' +
+    '                    "kind": "nullValue"\n' +
+    '                  }\n' +
+    '                ]\n' +
+    '              },\n' +
+    '              "kind": "listValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:40.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "group_of_service",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "additional_request": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "additional_field": {\n' +
+    '              "stringValue": "guid",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "additional_values": {\n' +
+    '              "listValue": {\n' +
+    '                "values": [\n' +
+    '                  {\n' +
+    '                    "nullValue": "NULL_VALUE",\n' +
+    '                    "kind": "nullValue"\n' +
+    '                  }\n' +
+    '                ]\n' +
+    '              },\n' +
+    '              "kind": "listValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:40.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "group_of_service",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "search": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "view_fields": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "name",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "additional_request": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "additional_field": {\n' +
+    '              "stringValue": "guid",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "additional_values": {\n' +
+    '              "listValue": {\n' +
+    '                "values": [\n' +
+    '                  {\n' +
+    '                    "nullValue": "NULL_VALUE",\n' +
+    '                    "kind": "nullValue"\n' +
+    '                  }\n' +
+    '                ]\n' +
+    '              },\n' +
+    '              "kind": "listValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 10,\n' +
+    '        "kind": "numberValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:40.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "template",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "user_ids": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "services",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:40.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "template",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "user_ids": {\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "services",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:40.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.062Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.063Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.078Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.079Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.206Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.206Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "service_materials",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "service_materials",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "service_materials",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "service_materials",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.509Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "service_materials",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.532Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: requested, {\n' +
+    '  "table_slug": "service_materials",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.532Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: requested - {\n' +
+    '  "table_slug": "service_materials",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.698Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: requested, {\n' +
+    '  "table_slug": "service_materials",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "client_type_id_from_token": {\n' +
+    '        "stringValue": "3008bb40-c4d9-4efc-857f-fc1d8a346980",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "limit": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "offset": {\n' +
+    '        "numberValue": 0,\n' +
+    '        "kind": "numberValue"\n' +
+    '      },\n' +
+    '      "role_id_from_token": {\n' +
+    '        "stringValue": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "tables": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "user_id_from_token": {\n' +
+    '        "stringValue": "7b1294b5-a2e0-4d65-8cc7-e035ce82cd25",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.698Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:41.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:41.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:43.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:43.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:43.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:43.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T09:20:43.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T09:20:43.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-02-11T10:16:07.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-02-11T10:16:07.018Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T10:16:07.018Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "NOT_DECIDED",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "docmed_docmed_object_builder_service",\n' +
+    '    "database": "docmed_docmed_object_builder_service",\n' +
+    '    "password": "6MGoq3x7rE"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "abb74f1e-8263-4a14-ac58-5b7b7990d445",\n' +
+    '  "environment_id": "574fa163-7f6a-435c-a9df-2489af11848c",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T10:16:07.059Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-02-11T10:16:07.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://docmed_docmed_object_builder_service:6MGoq3x7rE@161.35.26.178:27017/docmed_docmed_object_builder_service',
+  level: 'info',
+  timestamp: '2023-02-11T10:16:07.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T10:20:19.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T10:20:19.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: requested - {\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-02-11T10:25:33.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: requested, {\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "role_id": "1f83323f-1a6d-4a85-83b4-d4278bd4ba65",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-02-11T10:25:33.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getListWithRoleAppTablePermissions: succeeded',
+  level: 'debug',
+  timestamp: '2023-02-11T10:27:45.780Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-02-11T10:27:45.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -60,6 +60,7 @@ let excelStore = {
     ),
     ExcelToDb: catchWrapDb(`${NAMESPACE}.create`, async (req) => {
         const datas = struct.decode(req.data)
+        console.log("test project id:::", req.project_id);
         let exColumnSlugs = Object.keys(datas)
         let ssl = true
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
@@ -86,6 +87,7 @@ let excelStore = {
                 object.on("data", (chunk) => fileStream.write(chunk));
                 object.on("end", () => console.log(`Reading ${fileObjectKey} finished`))
                 xlsxFile(createFilePath).then(async (rows) => {
+                    console.log("test 0");
                     let i = 0;
                     let objectsToDb = []
                     for (const row of rows) {

@@ -3623,6 +3623,51 @@ async function createField() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
+      }, {
+        "id": "eb0c1ac2-eff3-4ca2-b383-9c801a2992ff",
+        "table_id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
+        "required": false,
+        "slug": "method",
+        "label": "Метод",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "unique": false,
+        "automatic": false,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
       }]
 
     return fields

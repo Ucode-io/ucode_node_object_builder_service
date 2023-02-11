@@ -405,7 +405,31 @@ let permission = {
                     role_id: req.role_id,
                     table_slug: table.slug,
                 })
-                tableCopy.automatic_filters = automaticFilters || []
+                let readFilters = [], writeFilters = [], updateFilters = [], deleteFilters = [];
+                automaticFilters.forEach(el => {
+                    switch (el.method) {
+                        case "read":
+                            readFilters.push(el)
+                            break;
+                        case "write":
+                            writeFilters.push(el)
+                            break;
+                        case "update":
+                            updateFilters.push(el)
+                            break;
+                        case "delete":
+                            deleteFilters.push(el)
+                            break;
+                        default:
+                            break;
+                    }
+                })
+                tableCopy.automatic_filters = {
+                    read:   readFilters,
+                    write:  writeFilters,
+                    update: updateFilters,
+                    delete: deleteFilters,
+                }
 
                 tablesList.push(tableCopy)
             }
@@ -457,6 +481,7 @@ let permission = {
             throw ErrRoleNotFound
         }
 
+        let automaticFilters = []
         for (let app of req?.data?.apps) {
             for (let table of app?.tables) {
                 let isHaveCondition = false
@@ -556,7 +581,6 @@ let permission = {
                         )
                     }
                 }
-                let automaticFilters = []
                 let query = {
                     table_slug: table.slug,
                     role_id: req.data.guid
@@ -565,16 +589,46 @@ let permission = {
                 if (count) {
                     await AutomaticFilter.deleteMany(query)
                 }
-                for (let af of table.automatic_filters) {
+                let readFilters = table?.automatic_filters?.read || []
+                let writeFilters = table?.automatic_filters?.write || []
+                let updateFilters = table?.automatic_filters?.update || []
+                let deleteFilters = table?.automatic_filters?.delete || []
+                for (let af of readFilters) {
                     let payload = new AutomaticFilter(af)
                     payload.guid = v4()
                     payload.role_id = roleId
                     payload.table_slug = table.slug
+                    payload.method = "read"
                     automaticFilters.push(payload)
                 }
-                await AutomaticFilter.insertMany(automaticFilters)
+                for (let af of writeFilters) {
+                    let payload = new AutomaticFilter(af)
+                    payload.guid = v4()
+                    payload.role_id = roleId
+                    payload.table_slug = table.slug
+                    payload.method = "write"
+                    automaticFilters.push(payload)
+                }
+                for (let af of updateFilters) {
+                    let payload = new AutomaticFilter(af)
+                    payload.guid = v4()
+                    payload.role_id = roleId
+                    payload.table_slug = table.slug
+                    payload.method = "update"
+                    automaticFilters.push(payload)
+                }
+                for (let af of deleteFilters) {
+                    let payload = new AutomaticFilter(af)
+                    payload.guid = v4()
+                    payload.role_id = roleId
+                    payload.table_slug = table.slug
+                    payload.method = "delete"
+                    automaticFilters.push(payload)
+                }
+                
             }
         }
+        await AutomaticFilter.insertMany(automaticFilters)
 
         return {}
 

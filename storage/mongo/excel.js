@@ -95,6 +95,7 @@ let excelStore = {
                             i++;
                             continue;
                         }
+                        console.log("test 1");
                         let objectToDb = {}
                         for (const column_slug of exColumnSlugs) {
                             let id = datas[column_slug]
@@ -104,10 +105,12 @@ let excelStore = {
                                 viewFieldIds = splitedRelationFieldId.slice(1, splitedRelationFieldId.length)
                                 id = splitedRelationFieldId[0]
                             }
+                            console.log("test 2");
                             const field = await Field.findOne({
                                 id: id
                             })
                             if (!field) {
+                                console.log("test 3");
                                 continue;
                             }
                             let value = row[rows[0].indexOf(column_slug)]
@@ -117,6 +120,7 @@ let excelStore = {
                                 con.BOOLEAN_TYPES.includes(field.type) ? value = false : ""
                             }
                             let options = []
+                            console.log("test 4");
                             if (field.type == "MULTISELECT" && value !== null && value.length) {
                                 if (field.attributes) {
                                     field.attributes = struct.decode(field.attributes)

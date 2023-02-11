@@ -221,7 +221,8 @@ let excelStore = {
                     }
                     await obj.multipleInsert({
                         table_slug: req.table_slug,
-                        data: struct.encode({objects: objectsToDb})
+                        data: struct.encode({objects: objectsToDb}),
+                        project_id: req.project_id
                     })
                     
                     fs.unlink(createFilePath, function (err) {

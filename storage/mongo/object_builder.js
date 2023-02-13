@@ -292,7 +292,7 @@ let objectBuilder = {
         }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        console.log("\n---GetList-->req: ", req)
+        console.log("\n---GetList-->req:", req)
         const mongoConn = await mongoPool.get(req.project_id)
 
         const table = mongoConn.models['Table']

@@ -351,7 +351,7 @@ let permission = {
                     table_id: table.id
                 })
                 let fieldIdAndLabels = []
-                console.log("--test 0 field permission--");
+                // console.log("--test 0 field permission--");
                 fields.forEach(el => {
                     fieldIdAndLabels.push({field_id: el.id, label: el.label})
                 })
@@ -365,7 +365,7 @@ let permission = {
                         __v: 0
                     }
                 )
-                console.log("--test 1 field permission--");
+                // console.log("--test 1 field permission--");
                 let permissionFieldIds = []
                 fieldPermissions.forEach(fieldPermission => {
                     permissionFieldIds.push(fieldPermission.field_id)
@@ -392,6 +392,7 @@ let permission = {
 
                 tableCopy.field_permissions = docFieldPermissions || []
 
+
                 let viewRelationPermissions = await ViewPermission.find(
                     {
                         $and: [
@@ -407,13 +408,13 @@ let permission = {
                         {
                             type: "Many2Many",
                             $or: [
-                                { table_to: req.table_slug },
-                                { table_from: req.table_slug },
+                                { table_to: table.slug },
+                                { table_from: table.slug },
                             ]
                         },
                         {
                             type: { $ne: "Many2Many" },
-                            table_to: req.table_slug
+                            table_to: table.slug
                         }
                     ]
                 }).lean()
@@ -422,7 +423,8 @@ let permission = {
                     relationIdsObject.push({ relation_id: element.id })
                     relationIds.push(element.id)
                 })
-        
+                let relationObject = {};
+                relations.map(el => relationObject[el.id] = {table_from: el.table_from, table_to: el.table_to})
                 let views = []
                 if (relationIds.length) {
                     views = await View.find({
@@ -430,6 +432,8 @@ let permission = {
                         relation_id: { $in: relationIds }
                     }).lean()
                 }
+                let viewObject = {};
+                views.map(el => viewObject[el.relation_id] = el.name)
         
                 let viewRelationPermissionsIds = []
                 viewRelationPermissions.forEach(element => {
@@ -439,16 +443,16 @@ let permission = {
                 let noViewRelationPermission = relationIdsObject.filter(obj => !viewRelationPermissionsIds.includes(obj.relation_id))
                 viewRelationPermissions = viewRelationPermissions.concat(noViewRelationPermission)
                 for (const viewRelationPermission of viewRelationPermissions) {
-                    let view = views.find(obj => (obj.relation_id === viewRelationPermission['relation_id'] && obj.relation_table_slug === table.slug))
-                    let relation = relations.find(obj => obj.id === viewRelationPermission.relation_id)
+                    let view = viewObject[viewRelationPermission.relation_id]
+                    let relation = relationObject[viewRelationPermission.relation_id]
                     if (!viewRelationPermission.guid) {
                         viewRelationPermission.role_id = req.role_id
                         viewRelationPermission.table_slug = table.slug
                         viewRelationPermission.view_permission = false
-                        viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                        viewRelationPermission.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
                         docViewRelationPermissions.push(viewRelationPermission)
                     } else {
-                        viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                        viewRelationPermission._doc.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
                         docViewRelationPermissions.push(viewRelationPermission._doc)
                     }
                 }

@@ -254,6 +254,8 @@ let permission = {
         const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const Field = mongoConn.models['Field']
+        const Relation = mongoConn.models['Relation']
+        const View = mongoConn.models['View']
         
         const role = await Role.findOne(
             { guid: req.role_id },
@@ -390,7 +392,7 @@ let permission = {
 
                 tableCopy.field_permissions = docFieldPermissions || []
 
-                const view_permissions = await ViewPermission.find(
+                let viewRelationPermissions = await ViewPermission.find(
                     {
                         $and: [
                             {role_id: req.role_id},
@@ -400,8 +402,58 @@ let permission = {
                     null,
                     { sort: { createdAt: -1 } }
                 );
+                const relations = await Relation.find({
+                    $or: [
+                        {
+                            type: "Many2Many",
+                            $or: [
+                                { table_to: req.table_slug },
+                                { table_from: req.table_slug },
+                            ]
+                        },
+                        {
+                            type: { $ne: "Many2Many" },
+                            table_to: req.table_slug
+                        }
+                    ]
+                }).lean()
+                let relationIdsObject = [], relationIds = []
+                relations.forEach(element => {
+                    relationIdsObject.push({ relation_id: element.id })
+                    relationIds.push(element.id)
+                })
+        
+                let views = []
+                if (relationIds.length) {
+                    views = await View.find({
+                        relation_table_slug: table.slug,
+                        relation_id: { $in: relationIds }
+                    }).lean()
+                }
+        
+                let viewRelationPermissionsIds = []
+                viewRelationPermissions.forEach(element => {
+                    viewRelationPermissionsIds.push(element.relation_id)
+                })
+                let docViewRelationPermissions = []
+                let noViewRelationPermission = relationIdsObject.filter(obj => !viewRelationPermissionsIds.includes(obj.relation_id))
+                viewRelationPermissions = viewRelationPermissions.concat(noViewRelationPermission)
+                for (const viewRelationPermission of viewRelationPermissions) {
+                    let view = views.find(obj => (obj.relation_id === viewRelationPermission['relation_id'] && obj.relation_table_slug === table.slug))
+                    let relation = relations.find(obj => obj.id === viewRelationPermission.relation_id)
+                    if (!viewRelationPermission.guid) {
+                        viewRelationPermission.role_id = req.role_id
+                        viewRelationPermission.table_slug = table.slug
+                        viewRelationPermission.view_permission = true
+                        viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                        docViewRelationPermissions.push(viewRelationPermission)
+                    } else {
+                        viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                        docViewRelationPermissions.push(viewRelationPermission)
+                    }
+                }
 
-                tableCopy.view_permissions = view_permissions || []
+                tableCopy.view_permissions = docViewRelationPermissions || []
                 const automaticFilters = await AutomaticFilter.find({
                     role_id: req.role_id,
                     table_slug: table.slug,

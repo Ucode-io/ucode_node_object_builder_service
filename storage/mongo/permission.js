@@ -444,12 +444,12 @@ let permission = {
                     if (!viewRelationPermission.guid) {
                         viewRelationPermission.role_id = req.role_id
                         viewRelationPermission.table_slug = table.slug
-                        viewRelationPermission.view_permission = true
+                        viewRelationPermission.view_permission = false
                         viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
                         docViewRelationPermissions.push(viewRelationPermission)
                     } else {
                         viewRelationPermission.label = view ? view.name : `No label: from ${relation?.table_from} to ${relation?.table_to}`
-                        docViewRelationPermissions.push(viewRelationPermission)
+                        docViewRelationPermissions.push(viewRelationPermission._doc)
                     }
                 }
 

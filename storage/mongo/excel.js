@@ -1,4 +1,3 @@
-const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const cfg = require('../../config/index')
 const xlsxFile = require('read-excel-file/node');
@@ -6,11 +5,10 @@ const fs = require("fs");
 const Minio = require("minio");
 const obj = require("./object_builder");
 const { struct } = require("pb-util/build");
-const Field = require("../../models/field")
 const ObjectBuilder = require("../../models/object_builder");
-const Relation = require("../../models/relation");
 const con = require("../../helper/constants");
 const logger = require("../../config/logger");
+const mongoPool = require('../../pkg/pool');
 
 let NAMESPACE = "storage.excel";
 
@@ -19,7 +17,7 @@ let excelStore = {
         const createFilePath = "./"+data.id+".xlsx"
         let ssl = true
         console.log("ssl::", cfg.minioSSL, "typeof:::", typeof cfg.minioSSL);
-        if (cfg.minioSSL !== "true") {
+        if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
         }
         let minioClient = new Minio.Client({
@@ -60,12 +58,16 @@ let excelStore = {
     ),
     ExcelToDb: catchWrapDb(`${NAMESPACE}.create`, async (req) => {
         const datas = struct.decode(req.data)
+        console.log("test project id:::", req.project_id);
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Field = mongoConn.models['Field']
+        const Relation = mongoConn.models['Relation']
         let exColumnSlugs = Object.keys(datas)
         let ssl = true
-        if (cfg.minioSSL !== "true") {
+        if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
         }
-
+        console.log("ssl::", ssl, "type::", typeof cfg.minioSSL);
         const createFilePath = "./"+req.id+".xlsx"
         let minioClient = new Minio.Client({
             accessKey: cfg.minioAccessKeyID,
@@ -86,6 +88,7 @@ let excelStore = {
                 object.on("data", (chunk) => fileStream.write(chunk));
                 object.on("end", () => console.log(`Reading ${fileObjectKey} finished`))
                 xlsxFile(createFilePath).then(async (rows) => {
+                    console.log("test 0");
                     let i = 0;
                     let objectsToDb = []
                     for (const row of rows) {
@@ -95,6 +98,7 @@ let excelStore = {
                             i++;
                             continue;
                         }
+                        console.log("test 1");
                         let objectToDb = {}
                         for (const column_slug of exColumnSlugs) {
                             let id = datas[column_slug]
@@ -104,10 +108,12 @@ let excelStore = {
                                 viewFieldIds = splitedRelationFieldId.slice(1, splitedRelationFieldId.length)
                                 id = splitedRelationFieldId[0]
                             }
+                            console.log("test 2");
                             const field = await Field.findOne({
                                 id: id
                             })
                             if (!field) {
+                                console.log("test 3");
                                 continue;
                             }
                             let value = row[rows[0].indexOf(column_slug)]
@@ -117,6 +123,7 @@ let excelStore = {
                                 con.BOOLEAN_TYPES.includes(field.type) ? value = false : ""
                             }
                             let options = []
+                            console.log("test 4");
                             if (field.type == "MULTISELECT" && value !== null && value.length) {
                                 if (field.attributes) {
                                     field.attributes = struct.decode(field.attributes)
@@ -219,9 +226,11 @@ let excelStore = {
                             //     data: struct.encode(objectToDb)
                             // })
                     }
+                    console.log("excel write::::", objectsToDb);
                     await obj.multipleInsert({
                         table_slug: req.table_slug,
-                        data: struct.encode({objects: objectsToDb})
+                        data: struct.encode({objects: objectsToDb}),
+                        project_id: req.project_id
                     })
                     
                     fs.unlink(createFilePath, function (err) {

@@ -1,11 +1,11 @@
 async function createConnection(connectionID, clientTypeID) {
     let connections = [{
-        "table_slug": "branches",
+        "table_slug": "client_type",
         "icon": "address-card.svg",
         "view_slug": "name",
         "view_label": "",
         "type": "",
-        "name": "Филиал",
+        "name": "Client Type",
         "guid": connectionID,
         "client_type_id": clientTypeID,
         "created_at": new Date(),

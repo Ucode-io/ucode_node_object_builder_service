@@ -120,13 +120,13 @@ async function insertCollections(conn, userId, projectId) {
         })
     }
 
-    if (!collections['connections']) {
-        const connections = await createConnection(connectionID, clientTypeID)
-        conn.collection('connections').insertMany(connections, function (err, result) {
-            if (err) throw err;
-            console.log("Inserted Connections : ", result.insertedCount)
-        })
-    }
+    // if (!collections['connections']) {
+    //     const connections = await createConnection(connectionID, clientTypeID)
+    //     conn.collection('connections').insertMany(connections, function (err, result) {
+    //         if (err) throw err;
+    //         console.log("Inserted Connections : ", result.insertedCount)
+    //     })
+    // }
 
     if (!collections['relations']) {
         const relation = await createRelation()
@@ -152,10 +152,10 @@ async function insertCollections(conn, userId, projectId) {
         })
     }
 
-    if (!collections['view_permissions']) {
+    if (!collections['view_relation_permissions']) {
 
         const viewRelationPermissions = await createViewRelationPermissions(roleID)
-        conn.collection('view_permissions').insertMany(viewRelationPermissions, function (err, result) {
+        conn.collection('view_relation_permissions').insertMany(viewRelationPermissions, function (err, result) {
             if (err) throw err;
             console.log("Inserted View Permissions :", result.insertedCount)
         })

@@ -779,50 +779,51 @@ let objectBuilder = {
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
             const additional_param = {};
-            additional_param[params.additional_request.additional_field] = { $in: params.additional_request.additional_values }
-
+            additional_param[params.additional_request.additional_field] = {$in: params.additional_request.additional_values}
+            
             if (relations.length == 0) {
+                console.log("test 111/:::");
                 additional_results = await tableInfo.models.find({
                     ...additional_param
-                },
-                    {
-                        createdAt: 0,
-                        updatedAt: 0,
-                        created_at: 0,
-                        updated_at: 0,
-                        _id: 0,
-                        __v: 0
-                    }, { sort: order }
+                }, 
+                {
+                    createdAt: 0, 
+                    updatedAt: 0,
+                    created_at: 0, 
+                    updated_at: 0,
+                    _id: 0, 
+                    __v: 0
+                }, {sort: order}
                 )
-                    .lean();
+                .lean();
             } else {
                 for (const key of Object.keys(params)) {
                     if (key.includes('.')) {
                         tableParams[key.split('.')[0]] = {
-                            [key.split('.')[1]]: { $regex: params[key] },
+                            [key.split('.')[1]]: {$regex:  params[key]}, 
                             select: '-_id'
                         }
                     }
                 }
                 additional_results = await tableInfo.models.find({
                     ...additional_param
-                },
-                    {
-                        createdAt: 0,
-                        updatedAt: 0,
-                        created_at: 0,
-                        updated_at: 0,
-                        _id: 0,
-                        __v: 0
-                    }, { sort: order }
+                }, 
+                {
+                    createdAt: 0, 
+                    updatedAt: 0,
+                    created_at: 0, 
+                    updated_at: 0,
+                    _id: 0, 
+                    __v: 0
+                }, {sort: order}
                 )
-                    .populate(populateArr)
-                    .lean()
+                .populate(populateArr)
+                .lean()
                 additional_results = additional_results.filter(obj => Object.keys(tableParams).every(key => obj[key]))
-                let result_ids = []
-                result.forEach(el => result_ids.push(el.guid))
-                additional_results = additional_results.filter(obj => !result_ids.includes(obj.guid))
             }
+            let result_ids = []
+            result.forEach(el => result_ids.push(el.guid))
+            additional_results = additional_results.filter(obj => !result_ids.includes(obj.guid))
             result = result.concat(additional_results)
         }
         console.log("TEST::::::14")

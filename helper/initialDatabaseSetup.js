@@ -120,13 +120,13 @@ async function insertCollections(conn, userId, projectId) {
         })
     }
 
-    if (!collections['connections']) {
-        const connections = await createConnection(connectionID, clientTypeID)
-        conn.collection('connections').insertMany(connections, function (err, result) {
-            if (err) throw err;
-            console.log("Inserted Connections : ", result.insertedCount)
-        })
-    }
+    // if (!collections['connections']) {
+    //     const connections = await createConnection(connectionID, clientTypeID)
+    //     conn.collection('connections').insertMany(connections, function (err, result) {
+    //         if (err) throw err;
+    //         console.log("Inserted Connections : ", result.insertedCount)
+    //     })
+    // }
 
     if (!collections['relations']) {
         const relation = await createRelation()

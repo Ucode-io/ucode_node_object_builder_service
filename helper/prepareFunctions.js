@@ -187,7 +187,6 @@ let prepareFunction = {
         return {payload, data, event, appendMany2ManyObjects}
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {
-        //if you will be change this function, you need to change multipleUpdateV2 function
         const Relation = mongoConn.models['Relation']
 
         const data = struct.decode(req.data)

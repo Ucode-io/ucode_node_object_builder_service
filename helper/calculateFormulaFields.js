@@ -36,6 +36,8 @@ let formulaFunction = {
             case 'MAX':
                 aggregateFunction = '$max'
                 break;
+            case 'LAST': 
+                aggregateFunction = '$last'
         }
         const pipelines =   [
             {

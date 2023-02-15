@@ -69,7 +69,7 @@ let objectBuilder = {
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
-            const response = await tableInfo.models.updateOne({ guid: data.guid }, { $set: data });
+            const response = await tableInfo.models.updateOne({ guid: data.id}, { $set: data });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
             }
@@ -1492,7 +1492,7 @@ let objectBuilder = {
                 let bulk = {
                     updateOne: {
                         filter:
-                            { guid: data.guid },
+                            { guid: data.id },
                         update: data
                     }
                 }

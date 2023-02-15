@@ -194,6 +194,10 @@ let prepareFunction = {
         if (!data.guid) {
             data.guid = data.id
         }
+        data.id = data.guid
+        if (data.auth_guid) {
+            data.guid = data.auth_guid
+        }
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
         const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
         let event = {}

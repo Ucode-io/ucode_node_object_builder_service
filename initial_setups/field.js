@@ -3668,6 +3668,52 @@ async function createField() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
+      },{
+        "id": "7ae7cc2b-d0eb-4e76-9a9f-8b72c8dc9a71",
+        "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+        "required": false,
+        "slug": "is_public",
+        "label": "Общедоступ",
+        "default": "",
+        "type": "SWITCH",
+        "index": "string",
+        "attributes": {
+          "fields": {
+            "icon": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "placeholder": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "showTooltip": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "creatable": {
+              "boolValue": false,
+              "kind": "boolValue"
+            },
+            "defaultValue": {
+              "stringValue": "",
+              "kind": "stringValue"
+            },
+            "disabled": {
+              "boolValue": false,
+              "kind": "boolValue"
+            }
+          }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "unique": false,
+        "automatic": false,
+        "commit_id": "5ed7c5af-9433-441d-ad45-5fc6bdf2bbd9",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
       }]
 
     return fields

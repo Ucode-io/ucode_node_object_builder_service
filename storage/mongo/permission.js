@@ -342,7 +342,8 @@ let permission = {
                         write: "No",
                         delete: "No",
                         update: "No",
-                        is_have_condition: false
+                        is_have_condition: false,
+                        is_public: false
                     }
                 }
 
@@ -591,6 +592,7 @@ let permission = {
                                 update: table.record_permissions.update,
                                 delete: table.record_permissions.delete,
                                 is_have_condition: isHaveCondition,
+                                is_public: table.record_permissions.is_public
                             }
                         },
                         {
@@ -608,6 +610,8 @@ let permission = {
                             guid: v4(),
                             role_id: roleId,
                             table_slug: table.slug,
+                            is_have_condition: isHaveCondition,
+                            is_public: table.record_permissions.is_public
                         }
                     )
                 }

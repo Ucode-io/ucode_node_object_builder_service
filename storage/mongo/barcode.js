@@ -41,7 +41,7 @@ let barcodeStore = {
             const attributes = struct.decode(field.attributes)
             if (attributes) {
                 if (attributes.prefix && attributes.digit_number) {
-                    let randomNumber = generator.generateRandomNumber(attributes.prefix, attributes.digit_number)
+                    let randomNumber = generator.generateRandomNumberWithOutDash(attributes.prefix, attributes.digit_number)
                     const tableInfo = (await ObjectBuilder(true, data.project_id))[data.table_slug]
                     const isExist = await tableInfo.models.findOne({
                         [field.slug]: randomNumber

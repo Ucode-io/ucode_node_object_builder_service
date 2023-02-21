@@ -1,6 +1,9 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const generateBarcode = require("../../helper/generator");
 const ObjectBuilder = require("../../models/object_builder");
+const Field = require("../../models/field");
+const { struct } = require("pb-util");
+const generator = require("../../helper/generator");
 
 
 
@@ -27,6 +30,29 @@ let barcodeStore = {
             }
         }
 
+    }),
+    generateCodebar: catchWrapDb(`${NAMESPACE}.generateCodebar`, async (data) => {
+        const field = await Field.findOne({
+            id: data.field_id
+        })
+        if (field && field.attributes) {
+            const attributes = struct.decode(field.attributes)
+            if (attributes) {
+                if (attributes.prefix && attributes.digit_number) {
+                    let randomNumber = generator.generateRandomNumber(attributes.prefix, attributes.digit_number)
+                    const tableInfo = (await ObjectBuilder(true, data.project_id))[data.table_slug]
+                    const isExist = await tableInfo.models.findOne({
+                        [field.slug]: randomNumber
+                    })
+
+                    if (isExist) {
+                        return await barcodeStore.generateCodebar(data)
+                    } else {
+                        return { number: barcode }
+                    }
+                }
+            }
+        }
     })
 }
 

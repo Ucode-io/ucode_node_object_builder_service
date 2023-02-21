@@ -1,9 +1,9 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const generateBarcode = require("../../helper/generator");
 const ObjectBuilder = require("../../models/object_builder");
-const Field = require("../../models/field");
 const { struct } = require("pb-util");
 const generator = require("../../helper/generator");
+const mongoPool = require('../../pkg/pool');
 
 
 
@@ -32,6 +32,8 @@ let barcodeStore = {
 
     }),
     generateCodebar: catchWrapDb(`${NAMESPACE}.generateCodebar`, async (data) => {
+        const mongoConn = await mongoPool.get(data.project_id)
+        const Field = mongoConn.models['Field']
         const field = await Field.findOne({
             id: data.field_id
         })

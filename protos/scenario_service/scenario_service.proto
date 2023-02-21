@@ -8,3 +8,5 @@ import "common.proto";
 import "dag.proto";
 import "dag_step.proto";
 import "run_service.proto";
+import "category.proto";
+import "scenario_commit.proto";

@@ -6,6 +6,8 @@ option go_package = "genproto/scenario_service";
 
 import "common.proto";
 import "google/protobuf/empty.proto";
+import "dag_step.proto";
+import "scenario_commit.proto";
 
 service DAGService {
     rpc Create(CreateDAGRequest) returns (DAG);
@@ -13,6 +15,7 @@ service DAGService {
     rpc GetAll(GetAllDAGRequest) returns (DAGList);
     rpc Delete(DeleteDAGRequest) returns (google.protobuf.Empty);
     rpc Update(UpdateDAGRequest) returns (DAG);
+    rpc CreateScenario(CreateScenarioRequest) returns (DAG);
 }
 
 
@@ -22,6 +25,7 @@ message DAG {
     string slug = 3;
     string type = 4;
     string status = 5;
+    string category_id = 6;
 }
 
 message CreateDAGRequest {
@@ -35,6 +39,7 @@ message GetDAGRequest {
 
 message GetAllDAGRequest {
     Filters filter = 1;
+    string category_id = 2;
 }
 
 message DAGList {
@@ -48,5 +53,12 @@ message DeleteDAGRequest {
 
 message UpdateDAGRequest {
     DAG dag = 1;
-    
+}
+
+message CreateScenarioRequest {
+    DAG dag = 1;
+    repeated DAGStep steps = 2;
+    CommitInfo commit_info = 3;
+    string project_id = 4;
+    string environment_id = 5;
 }

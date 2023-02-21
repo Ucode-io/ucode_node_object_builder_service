@@ -20,6 +20,7 @@ service DAGStepService {
 message ConnectInfo {
     string method = 1;
     string url = 2;
+    map<string,string> header = 3;
 }
 
 message DAGStep {
@@ -32,6 +33,9 @@ message DAGStep {
     google.protobuf.Struct request_info = 7;
     repeated google.protobuf.Struct condition_action = 8; 
     bool is_parallel = 9;
+    google.protobuf.Struct ui_component = 10;
+    string title = 11;
+    string description = 12;
 }
 
 message CreateDAGStepRequest {
@@ -43,6 +47,8 @@ message CreateDAGStepRequest {
     google.protobuf.Struct request_info = 6;
     repeated google.protobuf.Struct condition_action = 7; 
     bool is_parallel = 8;
+    string title = 9;
+    string description = 10;
 }
 
 message GetDAGStepRequest {

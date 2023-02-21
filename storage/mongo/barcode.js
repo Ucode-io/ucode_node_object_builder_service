@@ -50,7 +50,7 @@ let barcodeStore = {
                     if (isExist) {
                         return await barcodeStore.generateCodebar(data)
                     } else {
-                        return { number: randomNumber }
+                        return { code: randomNumber }
                     }
                 }
             }

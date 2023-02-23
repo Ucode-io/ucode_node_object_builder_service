@@ -279,7 +279,7 @@ let loginStore = {
 
             role = await roleTable.models.findOne(
                 {
-                    client_type_id: clientType.guid,
+                    client_type_id: clientType?.guid,
                 }
             )
             console.log(`[4]-->role`, JSON.stringify(role, null, 2))
@@ -296,7 +296,7 @@ let loginStore = {
 
             const connections = await connectionsTable.models.find(
                 {
-                    client_type_id: clientType.guid
+                    client_type_id: clientType?.guid
                 }
             )
             console.log(`[4]-->connections`, JSON.stringify(connections, null, 2))
@@ -309,7 +309,7 @@ let loginStore = {
             permissions = await recordPermission.models.find(
                 {
                     $and: [{
-                        client_type_id: clientType.guid
+                        client_type_id: clientType?.guid
                     }, {
                         role_id: role.guid
                     }]
@@ -323,7 +323,7 @@ let loginStore = {
         if (!user) {
             userId = ""
         } else {
-            userId = user.guid
+            userId = user?.guid
         }
         return {
             user_found: user_found,

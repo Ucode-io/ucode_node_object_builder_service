@@ -254,7 +254,7 @@ let loginStore = {
                 $and: [{
                     login_strategy: "Email OTP"
                 }, {
-                    client_type_id: clientType.guid
+                    client_type_id: clientType?.guid
                 }]
             }
         )

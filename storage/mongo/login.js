@@ -260,7 +260,7 @@ let loginStore = {
         )
         console.log(`[2]-->login`, JSON.stringify(login, null, 2))
         if (!login) {
-            return null
+            return {}
         }
         let params = {}
         params[login.login_view] = req.email

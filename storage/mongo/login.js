@@ -241,7 +241,7 @@ let loginStore = {
 
         let clientType, clientPlatform, role, permissions, user, clientTypeResp, userTable, userId;
         let user_found = false
-        const tableInfo = (await ObjectBuilder(true, req.project_id))["test_login"]
+        const tableInfo = (await ObjectBuilder(true, req.project_id))["user"]
         const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
         clientType = await clientTypeTable.models.findOne(
             {

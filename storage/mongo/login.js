@@ -263,7 +263,7 @@ let loginStore = {
             return {}
         }
         let params = {}
-        params[login.login_view] = req.email
+        params["email"] = req.email
         userTable = (await ObjectBuilder(true, req.project_id))[login.table_slug]
 
         console.log(`[!!]-->params`, JSON.stringify(params, null, 2))

@@ -250,7 +250,7 @@ let loginStore = {
         console.log(`[1]-->clientType`, JSON.stringify(clientType, null, 2))
         let params = {}
         params["email"] = req.email
-        userTable = (await ObjectBuilder(true, req.project_id))["users"]
+        userTable = (await ObjectBuilder(true, req.project_id))["user"]
 
         console.log(`[!!]-->params`, JSON.stringify(params, null, 2))
         user = await userTable.models.findOne(
@@ -318,7 +318,7 @@ let loginStore = {
             user_id: userId,
             role: role,
             permissions: permissions,
-            login_table_slug: "users"
+            login_table_slug: "user"
         }
     }),
     getUserUpdatedPermission: catchWrapDbObjectBuilder(`${NAMESPACE}.getUserUpdatedPermission`, async (req) => {

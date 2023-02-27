@@ -241,7 +241,6 @@ let loginStore = {
 
         let clientType, clientPlatform, role, permissions, user, clientTypeResp, userTable, userId;
         let user_found = false
-        const tableInfo = (await ObjectBuilder(true, req.project_id))["user"]
         const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
         clientType = await clientTypeTable.models.findOne(
             {
@@ -249,22 +248,9 @@ let loginStore = {
             }
         )
         console.log(`[1]-->clientType`, JSON.stringify(clientType, null, 2))
-        const login = await tableInfo.models.findOne(
-            {
-                $and: [{
-                    login_strategy: "Email OTP"
-                }, {
-                    client_type_id: clientType?.guid
-                }]
-            }
-        )
-        console.log(`[2]-->login`, JSON.stringify(login, null, 2))
-        if (!login) {
-            return {}
-        }
         let params = {}
         params["email"] = req.email
-        userTable = (await ObjectBuilder(true, req.project_id))[login.table_slug]
+        userTable = (await ObjectBuilder(true, req.project_id))["user"]
 
         console.log(`[!!]-->params`, JSON.stringify(params, null, 2))
         user = await userTable.models.findOne(
@@ -417,7 +403,7 @@ let loginStore = {
         ).lean()
 
         let user_found = false
-        console.log("TEST:::::::::3",  JSON.stringify(user, null, 2))
+        console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
 
         if (!user) {
             return {
@@ -460,7 +446,7 @@ let loginStore = {
 
         const permissions = await recordPermission.models.find(
             {
-                        role_id: role.guid
+                role_id: role.guid
             }
         ).lean()
         console.log("TEST:::::::::7", JSON.stringify(permissions, null, 2))
@@ -495,7 +481,7 @@ let loginStore = {
         // console.log('permissions', JSON.stringify(permissions))
 
         //@TODO:: check user can login with this login strategy
-        let response =  {
+        let response = {
             user_found: user_found,
             client_platform: clientPlatform,
             client_type: clientTypeResp,

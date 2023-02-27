@@ -318,7 +318,7 @@ let loginStore = {
             user_id: userId,
             role: role,
             permissions: permissions,
-            login_table_slug: login.table_slug
+            login_table_slug: "user"
         }
     }),
     getUserUpdatedPermission: catchWrapDbObjectBuilder(`${NAMESPACE}.getUserUpdatedPermission`, async (req) => {

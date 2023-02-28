@@ -1512,7 +1512,7 @@ let objectBuilder = {
     }),
     getFinancialAnalytics: catchWrapDbObjectBuilder(`${NAMESPACE}.getFinancialAnalytics`, async (req) => {
         try {
-            /* const mongoConn = await mongoPool.get(req.project_id)
+            const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
@@ -1941,8 +1941,8 @@ let objectBuilder = {
                 totalAmounts.push({ month: month, amount: total })
             }
             data.total_amount = totalAmounts
-            data.balance = balance */
-            return { table_slug: req.table_slug, data: struct.encode({}) }
+            data.balance = balance
+            return { table_slug: req.table_slug, data: struct.encode(data) }
         } catch (err) {
             throw err
         }

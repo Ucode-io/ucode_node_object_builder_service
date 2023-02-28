@@ -14,12 +14,9 @@ service QueryService {
   rpc GetSingleQuery(GetSingleQueryReq) returns (Query) {}
   rpc UpdateQuery(UpdateQueryReq) returns (Query) {}
   rpc DeleteQuery(DeleteQueryReq) returns (google.protobuf.Empty) {}
-<<<<<<< HEAD
-=======
   rpc GetQueryHistory (GetQueryHistoryReq) returns (GetQueryHistoryRes) {}
   rpc RevertQuery (RevertQueryReq) returns (Query) {}
   rpc CreateManyQuery(ManyVersions) returns (google.protobuf.Empty) {}
->>>>>>> c1e5e51d82a7d13d8c25d2dc83c2fc0cb1e5fe05
 
   rpc RunQuery(Query) returns (RunQueryRes) {}
 }
@@ -112,8 +109,6 @@ message DeleteQueryReq {
 
 message RunQueryRes {
   string res = 1;
-<<<<<<< HEAD
-=======
 }
 
 message GetQueryHistoryReq {
@@ -159,5 +154,10 @@ message ManyVersions {
   string old_commit_id = 6;
   CommitInfo commit_info = 7;
   string version_id = 8;
->>>>>>> c1e5e51d82a7d13d8c25d2dc83c2fc0cb1e5fe05
+}
+
+message QueryManyVersions {
+  repeated string version_ids = 1;
+  string project_id = 2;
+  string oldcommit_id = 3;
 }

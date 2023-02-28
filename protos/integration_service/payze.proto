@@ -6,14 +6,13 @@ import "google/protobuf/struct.proto";
 
 service PayzeService {
     rpc GeneratePayzeLink(PayzeLinkRequest) returns (PayzeLinkResponse){}
-    rpc GeneratePayzeLinkSvod(PayzeLinkRequestSvod) returns (PayzeLinkResponseSvod){}
     rpc PayzeSaveCard(PayzeLinkRequest) returns (PayzeLinkResponseSaveCard){}
 }
 
 message PayzeLinkRequest {
     string method = 1;
-    string apiKey = 2;
-    string apiSecret = 3;
+    string project_id = 2;
+    string environment = 3;
     PayzeLinkRequestData data = 4;
 }
 
@@ -46,10 +45,6 @@ message PayzeLinkResponse{
     string resp_id = 15;
 }
 
-message PayzeLinkResponseSvod {
-    string link = 1;
-}
-
 message PayzeLinkResponseSaveCard { 
     string id = 1;
     string order_id = 2;
@@ -67,11 +62,4 @@ message PayzeLinkResponseSaveCard {
     int32 amount = 14;
     string resp_id = 15;
     string card_id = 16;
-}
-
-message PayzeLinkRequestSvod {
-   string method = 1;
-    string apiKey = 2;
-    string apiSecret = 3;
-    PayzeLinkRequestData data = 4;
 }

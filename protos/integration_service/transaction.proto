@@ -12,11 +12,6 @@ service TransactionService {
     rpc Get (GetTransactionRequest) returns (Transaction) {};
 }
 
-service PaymentService{
-    rpc GenLink(GenLinkRequest) returns (GenLinkResponse) {};
-    rpc SaveCard(SaveCardRequest) returns (SaveCardResponse) {};
-}
-
 message Transaction {
     string id = 1;
     string order_id = 2;

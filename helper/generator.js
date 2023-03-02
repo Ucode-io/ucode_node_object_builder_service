@@ -19,4 +19,13 @@ function generateRandomNumber(prefix, digitNumber) {
     return result
 }
 
-module.exports = {generateBarcode, generateRandomNumber}
+function generateRandomNumberWithOutDash(prefix, digitNumber) {
+    let result
+    let generateRandomNumber = Math.floor(10 ** digitNumber + Math.random() * 9 * 10 ** digitNumber)
+
+    result = prefix + generateRandomNumber
+
+    return result
+}
+
+module.exports = {generateBarcode, generateRandomNumber, generateRandomNumberWithOutDash}

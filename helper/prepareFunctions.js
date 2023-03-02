@@ -187,12 +187,15 @@ let prepareFunction = {
         return {payload, data, event, appendMany2ManyObjects}
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {
-        //if you will be change this function, you need to change multipleUpdateV2 function
         const Relation = mongoConn.models['Relation']
 
         const data = struct.decode(req.data)
         if (!data.guid) {
             data.guid = data.id
+        }
+        data.id = data.guid
+        if (data.auth_guid) {
+            data.guid = data.auth_guid
         }
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
         const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });

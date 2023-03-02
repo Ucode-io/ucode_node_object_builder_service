@@ -251,8 +251,11 @@ let permission = {
         const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
         const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
+        const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const Field = mongoConn.models['Field']
+        const Relation = mongoConn.models['Relation']
+        const View = mongoConn.models['View']
         
         const role = await Role.findOne(
             { guid: req.role_id },
@@ -339,7 +342,8 @@ let permission = {
                         write: "No",
                         delete: "No",
                         update: "No",
-                        is_have_condition: false
+                        is_have_condition: false,
+                        is_public: false
                     }
                 }
 
@@ -348,7 +352,7 @@ let permission = {
                     table_id: table.id
                 })
                 let fieldIdAndLabels = []
-                console.log("--test 0 field permission--");
+                // console.log("--test 0 field permission--");
                 fields.forEach(el => {
                     fieldIdAndLabels.push({field_id: el.id, label: el.label})
                 })
@@ -362,7 +366,7 @@ let permission = {
                         __v: 0
                     }
                 )
-                console.log("--test 1 field permission--");
+                // console.log("--test 1 field permission--");
                 let permissionFieldIds = []
                 fieldPermissions.forEach(fieldPermission => {
                     permissionFieldIds.push(fieldPermission.field_id)
@@ -389,7 +393,8 @@ let permission = {
 
                 tableCopy.field_permissions = docFieldPermissions || []
 
-                const view_permissions = await ViewPermission.find(
+
+                let viewRelationPermissions = await ViewPermission.find(
                     {
                         $and: [
                             {role_id: req.role_id},
@@ -399,8 +404,61 @@ let permission = {
                     null,
                     { sort: { createdAt: -1 } }
                 );
+                const relations = await Relation.find({
+                    $or: [
+                        {
+                            type: "Many2Many",
+                            $or: [
+                                { table_to: table.slug },
+                                { table_from: table.slug },
+                            ]
+                        },
+                        {
+                            type: { $ne: "Many2Many" },
+                            table_to: table.slug
+                        }
+                    ]
+                }).lean()
+                let relationIdsObject = [], relationIds = []
+                relations.forEach(element => {
+                    relationIdsObject.push({ relation_id: element.id })
+                    relationIds.push(element.id)
+                })
+                let relationObject = {};
+                relations.map(el => relationObject[el.id] = {table_from: el.table_from, table_to: el.table_to})
+                let views = []
+                if (relationIds.length) {
+                    views = await View.find({
+                        relation_table_slug: table.slug,
+                        relation_id: { $in: relationIds }
+                    }).lean()
+                }
+                let viewObject = {};
+                views.map(el => viewObject[el.relation_id] = el.name)
+        
+                let viewRelationPermissionsIds = []
+                viewRelationPermissions.forEach(element => {
+                    viewRelationPermissionsIds.push(element.relation_id)
+                })
+                let docViewRelationPermissions = []
+                let noViewRelationPermission = relationIdsObject.filter(obj => !viewRelationPermissionsIds.includes(obj.relation_id))
+                viewRelationPermissions = viewRelationPermissions.concat(noViewRelationPermission)
+                for (const viewRelationPermission of viewRelationPermissions) {
+                    let view = viewObject[viewRelationPermission.relation_id]
+                    let relation = relationObject[viewRelationPermission.relation_id]
+                    if (!viewRelationPermission.guid) {
+                        viewRelationPermission.role_id = req.role_id
+                        viewRelationPermission.table_slug = table.slug
+                        viewRelationPermission.view_permission = false
+                        viewRelationPermission.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                        docViewRelationPermissions.push(viewRelationPermission)
+                    } else {
+                        viewRelationPermission._doc.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                        docViewRelationPermissions.push(viewRelationPermission._doc)
+                    }
+                }
 
-                tableCopy.view_permissions = view_permissions || []
+                tableCopy.view_permissions = docViewRelationPermissions || []
                 const automaticFilters = await AutomaticFilter.find({
                     role_id: req.role_id,
                     table_slug: table.slug,
@@ -430,6 +488,38 @@ let permission = {
                     update: updateFilters,
                     delete: deleteFilters,
                 }
+                 const CustomEvent = mongoConn.models['CustomEvent']
+
+                const customEvents = await CustomEvent.find({
+                    table_slug: table.slug,
+                })
+                let eventObj = {}
+                customEvents.map(el => eventObj[el.id] = el.label)
+                // let customEventIdAndLabels = []
+                // customEvents.forEach(customEvent => {
+                //     customEventIdAndLabels.push({ custom_event_id: customEvent.id, label: customEvent.label })
+                // })
+                // let actionPermissions = await ActionPermission.find({
+                //     role_id: req.role_id,
+                //     table_slug: req.table_slug
+                // },
+                //     {
+                //         created_at: 0,
+                //         updated_at: 0,
+                //         createdAt: 0,
+                //         updatedAt: 0,
+                //         _id: 0,
+                //         __v: 0
+                //     }
+                // )
+                const actionPermissions = await ActionPermission.find({
+                    role_id: req.role_id,
+                    table_slug: table.slug,
+                })
+                actionPermissions.forEach(el => {
+                    el.label = eventObj[el.custom_event_id]
+                })
+                tableCopy.action_permissions = actionPermissions || []
 
                 tablesList.push(tableCopy)
             }
@@ -462,6 +552,7 @@ let permission = {
         const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
+        const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
 
         let role = await Role.findOneAndUpdate(
             {
@@ -482,6 +573,7 @@ let permission = {
         }
 
         let automaticFilters = []
+        let actionPermissions = []
         for (let app of req?.data?.apps) {
             for (let table of app?.tables) {
                 let isHaveCondition = false
@@ -500,6 +592,7 @@ let permission = {
                                 update: table.record_permissions.update,
                                 delete: table.record_permissions.delete,
                                 is_have_condition: isHaveCondition,
+                                is_public: table.record_permissions.is_public
                             }
                         },
                         {
@@ -517,6 +610,8 @@ let permission = {
                             guid: v4(),
                             role_id: roleId,
                             table_slug: table.slug,
+                            is_have_condition: isHaveCondition,
+                            is_public: table.record_permissions.is_public
                         }
                     )
                 }
@@ -625,10 +720,43 @@ let permission = {
                     payload.method = "delete"
                     automaticFilters.push(payload)
                 }
+
+                // test new logic update action permission
+                const countActionPermission = await ActionPermission.countDocuments(query)
+                if (countActionPermission) {
+                    await ActionPermission.deleteMany(query)
+                }
+                table.action_permissions.forEach(el => {
+                    el.table_slug = table.slug
+                    el.role_id = req.data.guid
+                    let payload = new ActionPermission(el)
+                    actionPermissions.push(payload)
+                })
+                // let permissioncustomEventIds = []
+                // actionPermissions.forEach(actionPermission => {
+                //     permissioncustomEventIds.push(actionPermission.custom_event_id)
+                // })
+                // let docPermissions = []
+                // let noActionPermissions = customEventIdAndLabels.filter(val => !permissioncustomEventIds.includes(val.custom_event_id))
+                // actionPermissions = actionPermissions.concat(noActionPermissions)
+                // for (const actionPermission of actionPermissions) {
+                //     if (!actionPermission.guid) {
+                //         actionPermission.permission = false
+                //         actionPermission.g
+                //         docPermissions.push(actionPermission)
+                //     // } else {
+                //         let customEvent = customEvents.find(obj => obj.id === actionPermission.custom_event_id)
+                //         actionPermission._doc.label = customEvent?.label
+                //         docPermissions.push(actionPermission._doc)
+                //     }
+                // }
+
+
                 
             }
         }
         await AutomaticFilter.insertMany(automaticFilters)
+        await ActionPermission.insertMany(actionPermissions)
 
         return {}
 

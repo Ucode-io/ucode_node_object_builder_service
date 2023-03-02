@@ -233,6 +233,7 @@ let fieldStore = {
                     data.attributes = autoFillField.attributes
                 }
             }
+            console.log("DATA::::::::::", data)
             const field = await Field.updateOne(
                 {
                     id: data.id,

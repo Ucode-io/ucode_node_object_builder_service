@@ -720,7 +720,7 @@ let objectBuilder = {
                     .populate(populateArr)
                     .lean()
 
-
+                console.log("\n\n-----> T3\n\n", tableParams)
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }

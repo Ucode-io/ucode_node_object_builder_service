@@ -313,6 +313,7 @@ let objectBuilder = {
         let order = params.order
         let fields = tableInfo.fields
         let with_relations = params.with_relations
+        console.log("\n\n---> T2\n\n")
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
         const permission = await permissionTable.models.findOne({
             $and: [

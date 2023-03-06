@@ -186,7 +186,7 @@ let projectStore = {
         let reconnect_data = await client.autoConn(config.k8s_namespace);
         console.log("PROJECT-CRED::::::::", reconnect_data.res.length, reconnect_data.res)
         for (let it of reconnect_data.res) {
-            console.log("credentials::::::", it)
+            console.log("credentials:::", it)
             try {
                 await projectStore.reconnect(it)
             } catch (err) {

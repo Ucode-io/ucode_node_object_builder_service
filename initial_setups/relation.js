@@ -1,466 +1,471 @@
 async function createRelation() {
-    let relation = [{
-        "id": "426a0cd6-958d-4317-bf23-3b4ea4720e53",
-        "table_from": "client_type",
-        "field_from": "client_platform_ids",
-        "table_to": "client_platform",
-        "field_to": "client_type_ids",
-        "type": "Many2Many",
-        "view_fields": [
-          "c818bc89-c2e9-4181-9db4-06fdf837d6e2"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0,
-        "auto_filters": []
-      },{
-        "id": "ca008469-cfe2-4227-86db-efdf69680310",
-        "table_from": "role",
-        "field_from": "client_platform_id",
-        "table_to": "client_platform",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "c818bc89-c2e9-4181-9db4-06fdf837d6e2"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "e03071ed-a3e1-417d-a654-c0998a7c74bc",
-        "table_from": "user",
-        "field_from": "client_platform_id",
-        "table_to": "client_platform",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "c818bc89-c2e9-4181-9db4-06fdf837d6e2"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "8ab28259-800d-4079-8572-a0f033d70e35",
-        "table_from": "role",
-        "field_from": "client_type_id",
-        "table_to": "client_type",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "04d0889a-b9ba-4f5c-8473-c8447aab350d"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "8f123dec-dfe4-4b89-956c-f607c84a84bd",
-        "table_from": "user",
-        "field_from": "client_type_id",
-        "table_to": "client_type",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "04d0889a-b9ba-4f5c-8473-c8447aab350d"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "65a2d42f-5479-422f-84db-1a98547dfa04",
-        "table_from": "connections",
-        "field_from": "client_type_id",
-        "table_to": "client_type",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "04d0889a-b9ba-4f5c-8473-c8447aab350d"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "79bdd075-eef0-48d1-b763-db8dfd819043",
-        "table_from": "test_login",
-        "field_from": "client_type_id",
-        "table_to": "client_type",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "04d0889a-b9ba-4f5c-8473-c8447aab350d"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "c1492b03-8e76-4a09-9961-f61d413dbe68",
-        "table_from": "client_platform",
-        "field_from": "project_id",
-        "table_to": "project",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "37137f5f-ef9b-4710-a6df-fb920750fdfb"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "094c33df-5556-45f3-a74c-7f589412bcc8",
-        "table_from": "client_type",
-        "field_from": "project_id",
-        "table_to": "project",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "37137f5f-ef9b-4710-a6df-fb920750fdfb"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "a56d0ad8-4645-42d8-9fbb-77e22526bd17",
-        "table_from": "role",
-        "field_from": "project_id",
-        "table_to": "project",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "37137f5f-ef9b-4710-a6df-fb920750fdfb"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "6d2f94cb-0de4-455e-8dfc-97800eac7579",
-        "table_from": "user",
-        "field_from": "project_id",
-        "table_to": "project",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "37137f5f-ef9b-4710-a6df-fb920750fdfb"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "63b54109-5476-43c1-bf26-24e2266a33f0",
-        "table_from": "user",
-        "field_from": "role_id",
-        "table_to": "role",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "82e93baf-2e02-432a-942b-2c93cbe26b89",
-        "table_from": "record_permission",
-        "field_from": "role_id",
-        "table_to": "role",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "697fbd16-97d8-4233-ab21-4ce12dd6c5c6",
-        "table_from": "automatic_filter",
-        "field_from": "role_id",
-        "table_to": "role",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "8283449e-7978-4e75-83d6-1b6f3a194683",
-        "table_from": "field_permission",
-        "field_from": "role_id",
-        "table_to": "role",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "d522a2ac-7fb4-413d-b5bb-8d1d34b65b98",
-        "table_from": "action_permission",
-        "field_from": "role_id",
-        "table_to": "role",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "158213ef-f38d-4c0d-b9ec-815e4d27db7e",
-        "table_from": "view_relation_permission",
-        "field_from": "role_id",
-        "table_to": "role",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "is_user_id_default": false,
-        "cascadings": [],
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
-        "id": "0ab05a13-d077-4086-9b7e-a4029d451acd",
-        "table_from": "cashbox",
-        "field_from": "user_id",
-        "table_to": "user",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "22144ff4-7c1c-4102-9697-80f3ccaf3941",
-          "ad070af0-aca3-41ff-9f6a-a5e8b52f8f5a"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0,
-        "cascadings": [],
-        "is_user_id_default": true,
-        "cascading_tree_field_slug": "",
-        "cascading_tree_table_slug": "",
-        "object_id_from_jwt": false
-      },{
-        "id": "4d5f933c-3d46-4303-95aa-31daccef96cf",
-        "table_from": "doctors",
-        "field_from": "template_ids",
-        "table_to": "template",
-        "field_to": "doctors_ids",
-        "type": "Many2Many",
-        "view_fields": [
-          "9772b679-33ec-4004-b527-317a1165575e"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0,
-        "cascading_tree_field_slug": "",
-        "cascading_tree_table_slug": "",
-        "cascadings": [],
-        "is_user_id_default": false,
-        "object_id_from_jwt": false
-      },
-      {
-        "id": "37f23a8e-2820-4759-a4b5-dfae0fb073e2",
-        "table_from": "branches",
-        "field_from": "template_id",
-        "table_to": "template",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [
-          "9772b679-33ec-4004-b527-317a1165575e"
-        ],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "is_user_id_default": false,
-        "cascadings": [],
-        "object_id_from_jwt": false,
-        "cascading_tree_table_slug": "",
-        "cascading_tree_field_slug": "",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },
-      {
-        "id": "ccc39e6d-f3f6-43b0-82f3-eee3044d25f8",
-        "table_from": "file",
-        "field_from": "patients_id",
-        "table_to": "patients",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },
-      {
-        "id": "c257fe1d-488b-4d0f-a657-b0b729811a56",
-        "table_from": "file",
-        "field_from": "doctors_id",
-        "table_to": "doctors",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },
-      {
-        "id": "dae09c03-247a-4353-8f17-fc35e545a44e",
-        "table_from": "file",
-        "field_from": "cashbox_id",
-        "table_to": "cashbox",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0,
-        "cascadings": [],
-        "is_user_id_default": false
-      },
-      {
-        "id": "e7604b67-027f-4314-a270-86db31e33887",
-        "table_from": "file",
-        "field_from": "branches_id",
-        "table_to": "branches",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "is_user_id_default": false,
-        "cascadings": [],
-        "object_id_from_jwt": false,
-        "cascading_tree_table_slug": "",
-        "cascading_tree_field_slug": "",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },
-      {
-        "id": "df8b1c3b-7f1a-43f4-8368-b37f191c888d",
-        "table_from": "file",
-        "field_from": "specialities_id",
-        "table_to": "specialities",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "is_user_id_default": false,
-        "cascadings": [],
-        "object_id_from_jwt": false,
-        "cascading_tree_table_slug": "",
-        "cascading_tree_field_slug": "",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },
-      {
-        "id": "89afc0b2-431b-4243-a22f-53539f50deff",
-        "table_from": "file",
-        "field_from": "news_id",
-        "table_to": "news",
-        "field_to": "id",
-        "type": "Many2One",
-        "view_fields": [],
-        "relation_field_slug": "",
-        "dynamic_tables": [],
-        "editable": false,
-        "auto_filters": [],
-        "is_user_id_default": false,
-        "cascadings": [],
-        "object_id_from_jwt": false,
-        "cascading_tree_table_slug": "",
-        "cascading_tree_field_slug": "",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      }]
+  let relation = [{
+    "id": "426a0cd6-958d-4317-bf23-3b4ea4720e53",
+    "table_from": "client_type",
+    "field_from": "client_platform_ids",
+    "table_to": "client_platform",
+    "field_to": "client_type_ids",
+    "type": "Many2Many",
+    "view_fields": [
+      "c818bc89-c2e9-4181-9db4-06fdf837d6e2"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0,
+    "auto_filters": []
+  }, {
+    "id": "ca008469-cfe2-4227-86db-efdf69680310",
+    "table_from": "role",
+    "field_from": "client_platform_id",
+    "table_to": "client_platform",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c818bc89-c2e9-4181-9db4-06fdf837d6e2"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "e03071ed-a3e1-417d-a654-c0998a7c74bc",
+    "table_from": "user",
+    "field_from": "client_platform_id",
+    "table_to": "client_platform",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c818bc89-c2e9-4181-9db4-06fdf837d6e2"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "8ab28259-800d-4079-8572-a0f033d70e35",
+    "table_from": "role",
+    "field_from": "client_type_id",
+    "table_to": "client_type",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "04d0889a-b9ba-4f5c-8473-c8447aab350d"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "8f123dec-dfe4-4b89-956c-f607c84a84bd",
+    "table_from": "user",
+    "field_from": "client_type_id",
+    "table_to": "client_type",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "04d0889a-b9ba-4f5c-8473-c8447aab350d"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "65a2d42f-5479-422f-84db-1a98547dfa04",
+    "table_from": "connections",
+    "field_from": "client_type_id",
+    "table_to": "client_type",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "04d0889a-b9ba-4f5c-8473-c8447aab350d"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "79bdd075-eef0-48d1-b763-db8dfd819043",
+    "table_from": "test_login",
+    "field_from": "client_type_id",
+    "table_to": "client_type",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "04d0889a-b9ba-4f5c-8473-c8447aab350d"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  },
+  //  {
+  //   "id": "c1492b03-8e76-4a09-9961-f61d413dbe68",
+  //   "table_from": "client_platform",
+  //   "field_from": "project_id",
+  //   "table_to": "project",
+  //   "field_to": "id",
+  //   "type": "Many2One",
+  //   "view_fields": [
+  //     "37137f5f-ef9b-4710-a6df-fb920750fdfb"
+  //   ],
+  //   "relation_field_slug": "",
+  //   "dynamic_tables": [],
+  //   "editable": false,
+  //   "created_at": new Date(),
+  //   "updated_at": new Date(),
+  //   "__v": 0
+  // },
+  // {
+  //   "id": "094c33df-5556-45f3-a74c-7f589412bcc8",
+  //   "table_from": "client_type",
+  //   "field_from": "project_id",
+  //   "table_to": "project",
+  //   "field_to": "id",
+  //   "type": "Many2One",
+  //   "view_fields": [
+  //     "37137f5f-ef9b-4710-a6df-fb920750fdfb"
+  //   ],
+  //   "relation_field_slug": "",
+  //   "dynamic_tables": [],
+  //   "editable": false,
+  //   "created_at": new Date(),
+  //   "updated_at": new Date(),
+  //   "__v": 0
+  // },
+  // {
+  //   "id": "a56d0ad8-4645-42d8-9fbb-77e22526bd17",
+  //   "table_from": "role",
+  //   "field_from": "project_id",
+  //   "table_to": "project",
+  //   "field_to": "id",
+  //   "type": "Many2One",
+  //   "view_fields": [
+  //     "37137f5f-ef9b-4710-a6df-fb920750fdfb"
+  //   ],
+  //   "relation_field_slug": "",
+  //   "dynamic_tables": [],
+  //   "editable": false,
+  //   "created_at": new Date(),
+  //   "updated_at": new Date(),
+  //   "__v": 0
+  // }, 
+  // {
+  //   "id": "6d2f94cb-0de4-455e-8dfc-97800eac7579",
+  //   "table_from": "user",
+  //   "field_from": "project_id",
+  //   "table_to": "project",
+  //   "field_to": "id",
+  //   "type": "Many2One",
+  //   "view_fields": [
+  //     "37137f5f-ef9b-4710-a6df-fb920750fdfb"
+  //   ],
+  //   "relation_field_slug": "",
+  //   "dynamic_tables": [],
+  //   "editable": false,
+  //   "created_at": new Date(),
+  //   "updated_at": new Date(),
+  //   "__v": 0
+  // },
+  {
+    "id": "63b54109-5476-43c1-bf26-24e2266a33f0",
+    "table_from": "user",
+    "field_from": "role_id",
+    "table_to": "role",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "82e93baf-2e02-432a-942b-2c93cbe26b89",
+    "table_from": "record_permission",
+    "field_from": "role_id",
+    "table_to": "role",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "697fbd16-97d8-4233-ab21-4ce12dd6c5c6",
+    "table_from": "automatic_filter",
+    "field_from": "role_id",
+    "table_to": "role",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "8283449e-7978-4e75-83d6-1b6f3a194683",
+    "table_from": "field_permission",
+    "field_from": "role_id",
+    "table_to": "role",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "d522a2ac-7fb4-413d-b5bb-8d1d34b65b98",
+    "table_from": "action_permission",
+    "field_from": "role_id",
+    "table_to": "role",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "158213ef-f38d-4c0d-b9ec-815e4d27db7e",
+    "table_from": "view_relation_permission",
+    "field_from": "role_id",
+    "table_to": "role",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "is_user_id_default": false,
+    "cascadings": [],
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }, {
+    "id": "0ab05a13-d077-4086-9b7e-a4029d451acd",
+    "table_from": "cashbox",
+    "field_from": "user_id",
+    "table_to": "user",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "22144ff4-7c1c-4102-9697-80f3ccaf3941",
+      "ad070af0-aca3-41ff-9f6a-a5e8b52f8f5a"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0,
+    "cascadings": [],
+    "is_user_id_default": true,
+    "cascading_tree_field_slug": "",
+    "cascading_tree_table_slug": "",
+    "object_id_from_jwt": false
+  }, {
+    "id": "4d5f933c-3d46-4303-95aa-31daccef96cf",
+    "table_from": "doctors",
+    "field_from": "template_ids",
+    "table_to": "template",
+    "field_to": "doctors_ids",
+    "type": "Many2Many",
+    "view_fields": [
+      "9772b679-33ec-4004-b527-317a1165575e"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0,
+    "cascading_tree_field_slug": "",
+    "cascading_tree_table_slug": "",
+    "cascadings": [],
+    "is_user_id_default": false,
+    "object_id_from_jwt": false
+  },
+  {
+    "id": "37f23a8e-2820-4759-a4b5-dfae0fb073e2",
+    "table_from": "branches",
+    "field_from": "template_id",
+    "table_to": "template",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "9772b679-33ec-4004-b527-317a1165575e"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "is_user_id_default": false,
+    "cascadings": [],
+    "object_id_from_jwt": false,
+    "cascading_tree_table_slug": "",
+    "cascading_tree_field_slug": "",
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  },
+  {
+    "id": "ccc39e6d-f3f6-43b0-82f3-eee3044d25f8",
+    "table_from": "file",
+    "field_from": "patients_id",
+    "table_to": "patients",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  },
+  {
+    "id": "c257fe1d-488b-4d0f-a657-b0b729811a56",
+    "table_from": "file",
+    "field_from": "doctors_id",
+    "table_to": "doctors",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  },
+  {
+    "id": "dae09c03-247a-4353-8f17-fc35e545a44e",
+    "table_from": "file",
+    "field_from": "cashbox_id",
+    "table_to": "cashbox",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0,
+    "cascadings": [],
+    "is_user_id_default": false
+  },
+  {
+    "id": "e7604b67-027f-4314-a270-86db31e33887",
+    "table_from": "file",
+    "field_from": "branches_id",
+    "table_to": "branches",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "is_user_id_default": false,
+    "cascadings": [],
+    "object_id_from_jwt": false,
+    "cascading_tree_table_slug": "",
+    "cascading_tree_field_slug": "",
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  },
+  {
+    "id": "df8b1c3b-7f1a-43f4-8368-b37f191c888d",
+    "table_from": "file",
+    "field_from": "specialities_id",
+    "table_to": "specialities",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "is_user_id_default": false,
+    "cascadings": [],
+    "object_id_from_jwt": false,
+    "cascading_tree_table_slug": "",
+    "cascading_tree_field_slug": "",
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  },
+  {
+    "id": "89afc0b2-431b-4243-a22f-53539f50deff",
+    "table_from": "file",
+    "field_from": "news_id",
+    "table_to": "news",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "is_user_id_default": false,
+    "cascadings": [],
+    "object_id_from_jwt": false,
+    "cascading_tree_table_slug": "",
+    "cascading_tree_field_slug": "",
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0
+  }]
 
-    return relation
+  return relation
 }
 
 module.exports = createRelation

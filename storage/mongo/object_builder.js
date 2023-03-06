@@ -69,7 +69,7 @@ let objectBuilder = {
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
-            const response = await tableInfo.models.updateOne({ guid: data.id}, { $set: data });
+            const response = await tableInfo.models.updateOne({ guid: data.id }, { $set: data });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
             }
@@ -292,8 +292,9 @@ let objectBuilder = {
         }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        console.log("\n---GetList-->req: ", req)
+        console.log("\n---GetList-->req:", req)
         const mongoConn = await mongoPool.get(req.project_id)
+        console.log("test prod obj builder");
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -304,12 +305,15 @@ let objectBuilder = {
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
+
+        console.log("\n\n---> T1\n\n", req.table_slug)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields
         let with_relations = params.with_relations
+        console.log("\n\n---> T2\n\n")
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
         const permission = await permissionTable.models.findOne({
             $and: [
@@ -699,6 +703,7 @@ let objectBuilder = {
                     }
                     populateArr.push(papulateTable)
                 }
+                console.log("\n\n-----> T3\n\n", tableInfo, params)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -716,7 +721,7 @@ let objectBuilder = {
                     .populate(populateArr)
                     .lean()
 
-
+                console.log("\n\n-----> T4\n\n", tableParams)
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
@@ -779,46 +784,46 @@ let objectBuilder = {
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
             const additional_param = {};
-            additional_param[params.additional_request.additional_field] = {$in: params.additional_request.additional_values}
-            
+            additional_param[params.additional_request.additional_field] = { $in: params.additional_request.additional_values }
+
             if (relations.length == 0) {
                 console.log("test 111/:::");
                 additional_results = await tableInfo.models.find({
                     ...additional_param
-                }, 
-                {
-                    createdAt: 0, 
-                    updatedAt: 0,
-                    created_at: 0, 
-                    updated_at: 0,
-                    _id: 0, 
-                    __v: 0
-                }, {sort: order}
+                },
+                    {
+                        createdAt: 0,
+                        updatedAt: 0,
+                        created_at: 0,
+                        updated_at: 0,
+                        _id: 0,
+                        __v: 0
+                    }, { sort: order }
                 )
-                .lean();
+                    .lean();
             } else {
                 for (const key of Object.keys(params)) {
                     if (key.includes('.')) {
                         tableParams[key.split('.')[0]] = {
-                            [key.split('.')[1]]: {$regex:  params[key]}, 
+                            [key.split('.')[1]]: { $regex: params[key] },
                             select: '-_id'
                         }
                     }
                 }
                 additional_results = await tableInfo.models.find({
                     ...additional_param
-                }, 
-                {
-                    createdAt: 0, 
-                    updatedAt: 0,
-                    created_at: 0, 
-                    updated_at: 0,
-                    _id: 0, 
-                    __v: 0
-                }, {sort: order}
+                },
+                    {
+                        createdAt: 0,
+                        updatedAt: 0,
+                        created_at: 0,
+                        updated_at: 0,
+                        _id: 0,
+                        __v: 0
+                    }, { sort: order }
                 )
-                .populate(populateArr)
-                .lean()
+                    .populate(populateArr)
+                    .lean()
                 additional_results = additional_results.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
             let result_ids = []
@@ -927,7 +932,7 @@ let objectBuilder = {
     getListInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListInExcel`, async (req) => {
         try {
             const res = await objectBuilder.getList(req)
-            const response = struct.decode(res.data)            
+            const response = struct.decode(res.data)
             const result = response.response
             const decodedFields = response.fields
             console.log("Ress::", result);
@@ -1048,14 +1053,14 @@ let objectBuilder = {
             const workSheet = XLSX.utils.json_to_sheet(excelArr);
             const workBook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
-            let filename = "report_" +  Math.floor(Date.now() / 1000) + ".xlsx"
+            let filename = "report_" + Math.floor(Date.now() / 1000) + ".xlsx"
             XLSX.writeFile(workBook, "./" + filename);
 
             let ssl = true
             if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
                 ssl = false
             }
-            console.log("ssl" , ssl);
+            console.log("ssl", ssl);
 
 
             let filepath = "./" + filename
@@ -1063,7 +1068,7 @@ let objectBuilder = {
                 endPoint: cfg.minioEndpoint,
                 useSSL: ssl,
                 accessKey: cfg.minioAccessKeyID,
-                secretKey: cfg.minioSecretAccessKey                            
+                secretKey: cfg.minioSecretAccessKey
             });
 
             var metaData = {
@@ -1074,23 +1079,23 @@ let objectBuilder = {
             }
 
 
-            minioClient.fPutObject("reports", filename, filepath , metaData, function(error, etag) {
-                if(error) {
+            minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
+                if (error) {
                     return console.log(error);
                 }
                 console.log("uploaded successfully")
                 fs.unlink(filename, (err => {
                     if (err) console.log(err);
                     else {
-                    console.log("Deleted file: ", filename);
+                        console.log("Deleted file: ", filename);
                     }
                 }));
             });
-        
+
             const respExcel = struct.encode({
-                link: cfg.minioEndpoint+ "/reports/" + filename,
+                link: cfg.minioEndpoint + "/reports/" + filename,
             });
-            return {table_slug: req.table_slug, data: respExcel}
+            return { table_slug: req.table_slug, data: respExcel }
         } catch (err) {
             throw err
         }
@@ -1566,147 +1571,147 @@ let objectBuilder = {
 
             let balance = {
                 items: [],
-                total:[]
+                total: []
             }
 
 
-            if(view.attributes?.balance) {
+            if (view.attributes?.balance) {
                 const number_field = await Field.findOne({
                     id: view.attributes?.balance.field_id
                 })
-    
+
                 let map_accounts = {}, map_total_accounts = {}
-                for(let acc of accounts) {
+                for (let acc of accounts) {
                     map_total_accounts[acc.guid] = {
                         name: acc.name,
                         total: acc[number_field.slug]
                     }
                     map_accounts[acc.guid] = 0
                 }
-    
+
                 let map_accounts_by_date = {}
-                for(let date of dates) {
+                for (let date of dates) {
                     let keyDate = new Date(date.$gte)
                     keyDate = addDays(keyDate, 1)
                     let key = keyDate.toISOString()
-                    map_accounts_by_date[key] = {...map_accounts}
+                    map_accounts_by_date[key] = { ...map_accounts }
                 }
-    
+
                 const copy_objects = JSON.parse(JSON.stringify(objects))
                 for (const obj of copy_objects) {
                     for (const date of dates) {
-                            let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
-                            let keyDate = new Date(date.$gte)
-                            keyDate = addDays(keyDate, 1)
-                            let key = keyDate.toISOString()
-                            let monthlyAmount = obj.amounts.find(el => el.month === key)
-                            
-                            for(const acc of accounts) {
-                                if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
-                                    for (const option of chartOfAccount.options) {
-                                        if (option.date_field === "") {
-                                            continue
-                                        }
-                                        const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug.split('#')[0]]
-                                        let groupBy =  req.table_slug + '_id'
-                                        let groupByWithDollorSign = '$' + req.table_slug + '_id'
-                                        let sumFieldWithDollowSign = '$' + option.number_field
-                                        let dateBy = option.date_field
-                                        let aggregateFunction = "$sum"
-                                        let accaunt_id = view.attributes?.balance.table_slug ? view.attributes.balance.table_slug + "_id" : ""
-    
-                                        let params = {}
-                                        //adding params
-                                        params[groupBy] = { '$eq': chartOfAccount.object_id }
-                                        params[dateBy] = date
-                                        accaunt_id ? params[accaunt_id] = acc.guid : null
-    
-                                        if (option.filters && option.filters.length) {
-                                            for (const filter of option.filters) {
-                                                let field = optionTable.fields.find(el => el.id == filter.field_id)
-                                                if (field) {
-                                                    if (filter.value?.length) {
-                                                        params[field.slug] = { $in: filter.value }
-                                                    }
+                        let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
+                        let keyDate = new Date(date.$gte)
+                        keyDate = addDays(keyDate, 1)
+                        let key = keyDate.toISOString()
+                        let monthlyAmount = obj.amounts.find(el => el.month === key)
+
+                        for (const acc of accounts) {
+                            if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
+                                for (const option of chartOfAccount.options) {
+                                    if (option.date_field === "") {
+                                        continue
+                                    }
+                                    const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug.split('#')[0]]
+                                    let groupBy = req.table_slug + '_id'
+                                    let groupByWithDollorSign = '$' + req.table_slug + '_id'
+                                    let sumFieldWithDollowSign = '$' + option.number_field
+                                    let dateBy = option.date_field
+                                    let aggregateFunction = "$sum"
+                                    let accaunt_id = view.attributes?.balance.table_slug ? view.attributes.balance.table_slug + "_id" : ""
+
+                                    let params = {}
+                                    //adding params
+                                    params[groupBy] = { '$eq': chartOfAccount.object_id }
+                                    params[dateBy] = date
+                                    accaunt_id ? params[accaunt_id] = acc.guid : null
+
+                                    if (option.filters && option.filters.length) {
+                                        for (const filter of option.filters) {
+                                            let field = optionTable.fields.find(el => el.id == filter.field_id)
+                                            if (field) {
+                                                if (filter.value?.length) {
+                                                    params[field.slug] = { $in: filter.value }
                                                 }
                                             }
                                         }
-                                        const pipelines = [
-                                            {
-                                                '$match': params,
-                                            }, {
-                                                '$group': {
+                                    }
+                                    const pipelines = [
+                                        {
+                                            '$match': params,
+                                        }, {
+                                            '$group': {
                                                 '_id': groupByWithDollorSign,
                                                 'res': {
                                                     [aggregateFunction]: sumFieldWithDollowSign
-                                                    }
                                                 }
                                             }
-                                        ];
-                                        const resultOption = await optionTable.models.aggregate(pipelines)
-                                       
-                                        if (resultOption.length) {
-                                            if (option.type === "debet") {
-                                                map_accounts_by_date[key][acc.guid] += resultOption[0].res
-                                            } else if (option.type === "credit") {
-                                                map_accounts_by_date[key][acc.guid] -= resultOption[0].res
-                                            }
+                                        }
+                                    ];
+                                    const resultOption = await optionTable.models.aggregate(pipelines)
+
+                                    if (resultOption.length) {
+                                        if (option.type === "debet") {
+                                            map_accounts_by_date[key][acc.guid] += resultOption[0].res
+                                        } else if (option.type === "credit") {
+                                            map_accounts_by_date[key][acc.guid] -= resultOption[0].res
                                         }
                                     }
-                                    if (!monthlyAmount) {
-                                        monthlyAmount = {
-                                            amount: 0,
-                                            month: key
-                                        }
-                                    }
-                                } else {
+                                }
+                                if (!monthlyAmount) {
                                     monthlyAmount = {
                                         amount: 0,
                                         month: key
                                     }
                                 }
+                            } else {
+                                monthlyAmount = {
+                                    amount: 0,
+                                    month: key
+                                }
                             }
-    
-    
-                            obj.amounts.push(monthlyAmount)
-                            let parentObj = copy_objects.find(el => el.guid === obj[req.table_slug + "_id"])
-    
+                        }
+
+
+                        obj.amounts.push(monthlyAmount)
+                        let parentObj = copy_objects.find(el => el.guid === obj[req.table_slug + "_id"])
+
                         // storing the object to calculate the percentage faster but consumes more memory
                         cObjStore.set(obj.guid, obj)
                     }
-                }  
-    
+                }
+
                 let arr = []
-                for(let key in map_accounts_by_date) {
+                for (let key in map_accounts_by_date) {
                     arr.push({
                         [key]: map_accounts_by_date[key]
                     })
                 }
-    
+
                 let items = []
-                for(let key in map_total_accounts) {
+                for (let key in map_total_accounts) {
                     items.push({
                         name: map_total_accounts[key].name,
                         id: key
                     })
                 }
-    
-    
-                let total_arr = []
-                for(let i = 0; i < arr.length; i++) {
 
-                    for(let key in arr[i]) { // [0]
+
+                let total_arr = []
+                for (let i = 0; i < arr.length; i++) {
+
+                    for (let key in arr[i]) { // [0]
 
                         let monthlyCount = 0
-                        for(let keyJ in arr[i][key]) {  //  account id keys
+                        for (let keyJ in arr[i][key]) {  //  account id keys
 
                             let count = 0
-                            for(let j = i + 1; j < arr.length; j++) { // to next steps
-                                
-                                for(let keyK in arr[j]) { // [0]
+                            for (let j = i + 1; j < arr.length; j++) { // to next steps
 
-                                    for(let keyH in arr[j][keyK]) {  //  account id keys
-                                        if(keyH == keyJ) {
+                                for (let keyK in arr[j]) { // [0]
+
+                                    for (let keyH in arr[j][keyK]) {  //  account id keys
+                                        if (keyH == keyJ) {
                                             count += arr[j][keyK][keyH]
                                         }
                                     }
@@ -1715,21 +1720,21 @@ let objectBuilder = {
                             monthlyCount += map_total_accounts[keyJ]['total'] - count
                             let account = null
 
-                            for(let acc of items) {
-                                if(acc.id === keyJ) {
+                            for (let acc of items) {
+                                if (acc.id === keyJ) {
                                     account = acc
                                 }
                             }
 
-                            if(account) {
-                                if(!account.amounts) {
-                                    account.amounts = [ { month: key, amount: map_total_accounts[keyJ]['total'] - count } ]
+                            if (account) {
+                                if (!account.amounts) {
+                                    account.amounts = [{ month: key, amount: map_total_accounts[keyJ]['total'] - count }]
                                 } else {
                                     account.amounts.push({ month: key, amount: map_total_accounts[keyJ]['total'] - count })
                                 }
                             }
                         }
-                        total_arr.push({month: key, amount: monthlyCount})
+                        total_arr.push({ month: key, amount: monthlyCount })
                     }
                 }
 
@@ -1737,7 +1742,7 @@ let objectBuilder = {
                 balance.total = total_arr
             }
 
-            for(let el of balance.items) {
+            for (let el of balance.items) {
                 console.log(el);
             }
 
@@ -1759,7 +1764,7 @@ let objectBuilder = {
                                 continue
                             }
                             const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug.split('#')[0]]
-                            let groupBy =  req.table_slug + '_id'
+                            let groupBy = req.table_slug + '_id'
                             let groupByWithDollorSign = '$' + req.table_slug + '_id'
                             let sumFieldWithDollowSign = '$' + option.number_field
                             let dateBy = option.date_field
@@ -1785,9 +1790,9 @@ let objectBuilder = {
                                     '$match': params,
                                 }, {
                                     '$group': {
-                                    '_id': groupByWithDollorSign,
-                                    'res': {
-                                        [aggregateFunction]: sumFieldWithDollowSign
+                                        '_id': groupByWithDollorSign,
+                                        'res': {
+                                            [aggregateFunction]: sumFieldWithDollowSign
                                         }
                                     }
                                 }
@@ -1873,7 +1878,7 @@ let objectBuilder = {
                 }
             }
 
-            switch ( view.attributes?.percent?.type?.toLowerCase() ) {
+            switch (view.attributes?.percent?.type?.toLowerCase()) {
                 case "parent":
                     for (const obj of objects) {
                         if (obj[req.table_slug + "_id"] == null) {
@@ -1947,7 +1952,6 @@ let objectBuilder = {
             throw err
         }
     })
-
 }
 
 module.exports = objectBuilder;

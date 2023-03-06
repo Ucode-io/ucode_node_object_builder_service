@@ -1378,6 +1378,16 @@
   metadata: {}
 }
 {
+<<<<<<< HEAD
+<<<<<<< HEAD
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-02-27T05:21:30.273Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: Name resolution failed for target dns:go-company-service:80
+=======
   message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-02-18T10:23:36.086Z',
@@ -1490,6 +1500,7 @@
   metadata: {
     function: 'autoConn',
     error: Error: 14 UNAVAILABLE: No connection established
+>>>>>>> 7710a408562a8605dcae3f5300ff0542ae82a86f
         at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
         at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
         at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
@@ -1497,6 +1508,16 @@
         at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
         at processTicksAndRejections (node:internal/process/task_queues:78:11) {
       code: 14,
+<<<<<<< HEAD
+      details: 'Name resolution failed for target dns:go-company-service:80',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+=======
+  message: "service.app.getByID: failed with error: Cannot read properties of null (reading 'tables')",
+  level: 'error',
+  timestamp: '2023-02-27T05:52:42.323Z',
+=======
       details: 'No connection established',
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
     }
@@ -1526,20 +1547,157 @@
   message: 'service.loginStore.login_data: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-02-21T09:53:51.673Z',
+>>>>>>> 7710a408562a8605dcae3f5300ff0542ae82a86f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-27T05:53:16.883Z',
+=======
   message: 'service.loginStore.login_data: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-02-21T09:54:50.134Z',
+>>>>>>> 7710a408562a8605dcae3f5300ff0542ae82a86f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-02-27T05:53:38.331Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T05:54:55.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> c1e5e51d82a7d13d8c25d2dc83c2fc0cb1e5fe05
+}
+{
+  message: "service.app.getByID: failed with error: Cannot read properties of null (reading 'tables')",
+  level: 'error',
+<<<<<<< HEAD
+  timestamp: '2023-02-27T05:25:07.938Z',
+=======
+  timestamp: '2023-02-27T05:56:07.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:00:43.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:00:44.145Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:00:44.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:00:48.104Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:00:48.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:00:48.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:01:07.454Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:01:07.895Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:01:07.897Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:01:08.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:01:08.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:01:08.971Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:01:09.281Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:01:09.719Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-02-27T06:01:09.726Z',
+>>>>>>> c1e5e51d82a7d13d8c25d2dc83c2fc0cb1e5fe05
+=======
   message: 'service.loginStore.login_data: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-02-21T09:57:40.549Z',
+>>>>>>> 7710a408562a8605dcae3f5300ff0542ae82a86f
   label: 'object_builder_service',
   metadata: {}
 }

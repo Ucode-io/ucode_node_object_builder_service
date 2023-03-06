@@ -13,6 +13,8 @@ service FunctionServiceV2 {
     rpc GetSingle(FunctionPrimaryKey) returns (Function) {}
     rpc Update(Function) returns (google.protobuf.Empty) {}
     rpc Delete(FunctionPrimaryKey) returns (google.protobuf.Empty) {}
+    rpc GetListByRequestTime(google.protobuf.Empty) returns (GetAllFunctionsResponse) {}
+    rpc UpdateManyByRequestTime(UpdateManyUrlAndPassword) returns (google.protobuf.Empty) {}
 }
 
 message CreateFunctionRequest {
@@ -25,6 +27,8 @@ message CreateFunctionRequest {
     string commit_guid = 7;
     string environment_id = 8;
     string function_folder_id = 9;
+    string url = 10;
+    string password = 11;
 }
 
 message Function {
@@ -35,6 +39,8 @@ message Function {
     string project_id = 5;
     string function_folder_id = 7;
     string environment_id = 8;
+    string url = 9;
+    string password = 10;
 }
 
 message GetAllFunctionsRequest {
@@ -53,4 +59,8 @@ message GetAllFunctionsResponse {
 message FunctionPrimaryKey {
     string id = 1;
     string environment_id = 2;
+}
+
+message UpdateManyUrlAndPassword {
+    repeated string ids = 1;
 }

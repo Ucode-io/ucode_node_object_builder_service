@@ -148,7 +148,7 @@ let prepareFunction = {
         let field_types = {}
         event.payload = {}
         let dataToAnalytics = {};
-        
+
         event.payload.table_slug = req.table_slug
         let appendMany2ManyObjects = []
         for (const field of fields) {
@@ -184,7 +184,7 @@ let prepareFunction = {
         event.payload.field_types = field_types
         event.project_id = req.project_id 
 
-        return {payload, data, event, appendMany2ManyObjects}
+        return { payload, data, event, appendMany2ManyObjects }
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {
         const Relation = mongoConn.models['Relation']
@@ -261,8 +261,8 @@ let prepareFunction = {
         field_types.guid = "String"
         event.payload.field_types = field_types
         event.payload.data = dataToAnalytics
-        event.project_id = req.project_id 
-        return {data, event, appendMany2Many, deleteMany2Many}
+        event.project_id = req.project_id
+        return { data, event, appendMany2Many, deleteMany2Many }
     },
 }
 

@@ -703,6 +703,7 @@ let objectBuilder = {
                     }
                     populateArr.push(papulateTable)
                 }
+                console.log("\n\n-----> T3\n\n", tableInfo, params)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -720,7 +721,7 @@ let objectBuilder = {
                     .populate(populateArr)
                     .lean()
 
-                console.log("\n\n-----> T3\n\n", tableParams)
+                console.log("\n\n-----> T4\n\n", tableParams)
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }

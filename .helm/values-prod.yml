@@ -111,7 +111,7 @@ service:
   annotations: {}
   specs:
     - port: 80
-      targetPort: 3000
+      targetPort: 80
       name: http
 
 ingress:

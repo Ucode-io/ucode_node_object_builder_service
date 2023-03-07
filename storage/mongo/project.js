@@ -180,7 +180,7 @@ let projectStore = {
         }
     }),
     autoConnect: catchWrapDb(`${NAMESPACE}.autoConnect`, async (args) => {
-        console.log("TEST:::::::::::::::::::")
+        // console.log("TEST:::::::::::::::::::")
         if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
 
         let reconnect_data = await client.autoConn(config.k8s_namespace);

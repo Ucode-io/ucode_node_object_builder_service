@@ -10,20 +10,20 @@ const kafka = require("./config/kafka");
 const logger = require("./config/logger");
 
 (async function () {
-    try {
-        await grpcConnection()
+    // try {
+    //     await grpcConnection()
 
-    } catch (err) {
-        throw err
-    }
+    // } catch (err) {
+    //     throw err
+    // }
 
-    process.addListener("uncaughtException", (e) => {
-        console.error("Custom Unhandled Exception", e);
-    });
+    // process.addListener("uncaughtException", (e) => {
+    //     console.error("Custom Unhandled Exception", e);
+    // });
 
-    process.addListener("unhandledRejection", (e) => {
-        console.error("Custom Unhandled Rejection", e);
-    });
+    // process.addListener("unhandledRejection", (e) => {
+    //     console.error("Custom Unhandled Rejection", e);
+    // });
 
     try {
         logger.info(`autoconnecting to resources`);

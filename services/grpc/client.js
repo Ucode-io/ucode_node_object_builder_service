@@ -18,6 +18,7 @@ const ResourceService = () => {
         });
         
     const resource_service = grpc.loadPackageDefinition(packageDefinition).company_service;
+    console.log(companyServiceHost, companyServicePort)
     return new resource_service.ResourceService(`${companyServiceHost}:${companyServicePort}`, grpc.credentials.createInsecure());
 };
 

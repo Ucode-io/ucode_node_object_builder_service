@@ -43704,3 +43704,3426 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T11:39:16.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T11:39:16.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T11:39:16.367Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T11:39:34.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T11:39:34.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T11:39:35.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T11:40:31.151Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T11:40:31.167Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T11:55:03.820Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T11:55:03.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T11:55:03.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T11:55:21.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T11:55:21.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T11:55:22.256Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T11:56:18.994Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T11:56:19.012Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T11:58:49.014Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T11:58:49.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T11:58:49.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T11:59:07.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T11:59:07.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T11:59:08.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:00:08.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:00:09.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:02:25.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:02:25.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:02:26.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:02:26.687Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:04:05.490Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:04:05.495Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:04:05.496Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:04:23.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:04:23.512Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:04:24.417Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:05:26.622Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:05:26.666Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:07:36.087Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:07:36.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:07:37.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:07:37.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:11:20.766Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:11:20.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:11:20.770Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:11:38.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:11:38.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:11:39.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:12:36.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:12:36.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:15:33.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:15:33.169Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:15:34.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:15:34.588Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:16:13.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:16:13.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:16:13.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:16:29.194Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:16:29.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:16:29.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:17:24.528Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:17:24.540Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:30:52.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:30:52.390Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:30:53.805Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:30:53.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:33:24.946Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:33:24.949Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:33:24.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:33:40.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:33:40.911Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:33:41.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:34:35.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:34:35.839Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:34:40.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:34:40.140Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:34:41.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:34:41.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:37:55.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:37:55.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:37:55.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:38:10.375Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:38:10.377Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:38:11.080Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:39:04.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:39:04.446Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:39:09.845Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:39:09.846Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: failed with error: tableInfo is not iterable',
+  level: 'error',
+  timestamp: '2023-03-09T12:39:10.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:39:53.850Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:39:53.854Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:39:53.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:40:09.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:40:09.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:40:10.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:41:06.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:41:06.535Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:41:10.889Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:41:10.889Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:41:12.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:41:12.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:45:29.279Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:45:29.284Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:45:29.285Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:45:44.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:45:44.565Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:45:45.221Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:46:38.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:46:38.700Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:50:37.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:50:37.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:50:38.696Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:50:38.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:51:44.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:51:44.592Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:51:44.593Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:51:59.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:51:59.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:52:00.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:52:53.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:52:54.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:53:04.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:53:04.194Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:53:05.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:53:05.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:53:42.078Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:53:42.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:53:42.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:53:57.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:53:57.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:53:57.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:54:51.454Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:54:51.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:54:55.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:54:55.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:54:56.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:54:56.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:55:50.441Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:55:50.444Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:55:50.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:56:05.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:56:05.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:56:06.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:56:59.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:56:59.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:57:06.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:57:06.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:57:06.974Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T12:57:06.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:57:43.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:57:43.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:57:43.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:57:58.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:57:58.120Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:57:58.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:58:52.819Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T12:58:52.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T12:58:57.131Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:58:57.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.view.convertTemplateToHtml: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-03-09T12:58:58.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T12:59:28.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T12:59:28.252Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:59:28.253Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T12:59:43.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T12:59:43.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T12:59:43.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T13:00:36.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T13:00:36.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T13:01:08.101Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T13:01:08.101Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.view.convertTemplateToHtml: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-03-09T13:01:09.112Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T13:02:05.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T13:02:05.120Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T13:02:05.120Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T13:02:20.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T13:02:20.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T13:02:21.323Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T13:03:14.259Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T13:03:14.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T13:03:18.606Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T13:03:18.607Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T13:03:19.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T13:03:19.515Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T13:03:36.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T13:03:36.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T13:03:36.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T13:03:51.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T13:03:51.407Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T13:03:52.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T13:04:45.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T13:04:45.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T13:38:27.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T13:38:27.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T13:38:27.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T13:38:28.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T14:28:32.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T14:28:32.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:28:32.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T14:30:57.335Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T14:30:57.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:30:57.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-09T14:32:02.244Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 4,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+  level: 'info',
+  timestamp: '2023-03-09T14:32:02.254Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T14:32:18.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T14:32:18.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:32:18.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-09T14:33:18.720Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 4,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+  level: 'info',
+  timestamp: '2023-03-09T14:33:18.731Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T14:33:38.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T14:33:38.873Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:33:38.873Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-09T14:34:39.157Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 4,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+  level: 'info',
+  timestamp: '2023-03-09T14:34:39.167Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T14:36:14.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T14:36:14.871Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:36:14.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-09T14:37:15.122Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 4,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+  level: 'info',
+  timestamp: '2023-03-09T14:37:15.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T14:39:52.865Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T14:39:52.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:39:52.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:40:21.237Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T14:40:21.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T14:40:22.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T14:41:22.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T14:41:22.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T14:41:28.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:41:28.306Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T14:41:30.167Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T14:41:30.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T14:48:52.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T14:48:52.320Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:48:52.321Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:49:07.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T14:49:07.671Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T14:49:08.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T14:50:01.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T14:50:01.658Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T14:50:06.864Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T14:50:06.864Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T14:50:08.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T14:50:08.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T15:24:07.475Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T15:24:07.480Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:24:07.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:24:22.932Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T15:24:22.933Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T15:24:23.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:25:16.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:25:16.532Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T15:25:34.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:25:34.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:25:35.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T15:25:35.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T15:27:12.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T15:27:12.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:27:12.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:27:27.248Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T15:27:27.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T15:27:27.890Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:28:19.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:28:19.929Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T15:28:24.948Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:28:24.948Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:28:26.311Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T15:28:26.311Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T15:29:33.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T15:29:33.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:29:33.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:29:48.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T15:29:48.383Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T15:29:49.085Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:30:41.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:30:41.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T15:30:44.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:30:44.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:30:46.126Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T15:30:46.127Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-09T15:32:48.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-09T15:32:48.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:32:48.622Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "shippo_shippo_object_builder_service",\n' +
+    '    "database": "shippo_shippo_object_builder_service",\n' +
+    '    "password": "xHwdMr2Ai0"\n' +
+    '  },\n' +
+    '  "id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "path": "k8s/ucode-test/eae1bd1c-4139-4477-ba46-a6e42178ab0e/28f45c3c-690b-497a-9115-0e030ac1d450/206a61ee-3700-4b56-82d8-7049b80d4b12/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4b0f25fa-f44f-4dc7-a890-0517f5f55aad",\n' +
+    '  "environment_id": "206a61ee-3700-4b56-82d8-7049b80d4b12",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:33:03.467Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-09T15:33:03.469Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://shippo_shippo_object_builder_service:xHwdMr2Ai0@161.35.26.178:27017/shippo_shippo_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-09T15:33:04.121Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:33:56.446Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:33:56.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: requested - {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-03-09T15:34:00.571Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: requested, {\n' +
+    '  "html": "<head><meta http-equiv=\\"content-type\\" content=\\"text/html; charset=utf-8\\"></head><p>client: <%= it.user_id_data.name %></p><p>barcode: <%= it.barcode %></p>",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_table_slug": {\n' +
+    '        "stringValue": "package",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "linked_object_id": {\n' +
+    '        "stringValue": "bfdce09b-0215-4df0-b907-a0a577301529",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "ec18ef77-2c66-412c-b464-0bffe3ac7030",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-09T15:34:00.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.convertTemplateToHtml: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-09T15:34:02.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.convertTemplateToHtml: succeeded',
+  level: 'info',
+  timestamp: '2023-03-09T15:34:02.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

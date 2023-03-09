@@ -187,6 +187,7 @@ let projectStore = {
         console.log("PROJECT-CRED::::::::", reconnect_data.res.length, reconnect_data.res)
         for (let it of reconnect_data.res) {
             console.log("credentials:::", it)
+            // if (it.credentials.database != "shippo_shippo_object_builder_service") continue 
             try {
                 await projectStore.reconnect(it)
             } catch (err) {

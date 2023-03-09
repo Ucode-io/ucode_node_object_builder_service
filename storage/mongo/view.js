@@ -10,6 +10,13 @@ const objectBuilderStore = require("./object_builder");
 
 const mongoPool = require('../../pkg/pool');
 
+var JsBarcode = require('jsbarcode');
+
+const { DOMImplementation, XMLSerializer } = require('xmldom');
+const xmlSerializer = new XMLSerializer();
+const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
+const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
 // const mongoConn = await mongoPool.get(data.project_id)
 // const Table = mongoConn.models['Table']
 // const Field = mongoConn.models['Field']
@@ -389,8 +396,8 @@ let viewStore = {
 
             var html = data.html
             if (decodedData.linked_table_slug && decodedData.linked_object_id) {
-                data.html = data.html.replace('[??', '{')
-                data.html = data.html.replace('??]', '}')
+                // data.html = data.html.replace('[??', '{')
+                // data.html = data.html.replace('??]', '}')
                 const tableInfo = (await ObjectBuilder(true, data.project_id))[decodedData.linked_table_slug]
 
                 let relations = await Relation.find({
@@ -421,7 +428,7 @@ let viewStore = {
                     if (relation.table_to === decodedData.linked_table_slug) {
                         relation.field_from = relation.field_to
                     }
-                    const field = await Field.findOne({
+                    const field = await Field.find({
                         slug: relation.field_from,
                         relation_id: relation.id
                     })
@@ -440,6 +447,17 @@ let viewStore = {
                         __v: 0
                     }).populate(relatedTable).lean();
 
+                // console.log("output:::::::", output)
+
+                for (const it of tableInfo.fields) {
+                    if (it.type === "CODABAR") {
+                        JsBarcode(svgNode, output[it.slug], {
+                            xmlDocument: document,
+                        });
+                        output[it.slug] = xmlSerializer.serializeToString(svgNode);
+                        // console.log(output[it.slug])
+                    }
+                }
 
                 relations = await Relation.find({
                     table_to: decodedData.linked_table_slug,
@@ -462,6 +480,16 @@ let viewStore = {
                 }
 
                 html = Eta.render(data.html, output)
+
+                html = html.replaceAll('[??', '{')
+                html = html.replaceAll('??]', '}')
+                html = html.replaceAll('&lt;', '<')
+                html = html.replaceAll('&gt;', '>')
+                html = html.replaceAll('&nbsp;', ' ')
+                html = html.replaceAll('&amp;', '&')
+                html = html.replaceAll('&quot;', '"')
+                html = html.replaceAll('&apos;', `'`)
+                html = html.replaceAll('&apos;', `'`)
             }
             return { html }
 

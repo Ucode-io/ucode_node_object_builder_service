@@ -454,8 +454,11 @@ let viewStore = {
                         JsBarcode(svgNode, output[it.slug], {
                             xmlDocument: document,
                         });
-                        output[it.slug] = xmlSerializer.serializeToString(svgNode);
-                        // console.log(output[it.slug])
+                        const base64_barcode = Buffer.from(xmlSerializer.serializeToString(svgNode)).toString('base64');
+                        output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 100%\"><img src=\"data:image/svg+xml;base64," + 
+                        base64_barcode + 
+                        "\"/></figure>"
+                         // console.log(output[it.slug])
                     }
                 }
 

@@ -186,7 +186,8 @@ let projectStore = {
         let reconnect_data = await client.autoConn(config.k8s_namespace);
         console.log("PROJECT-CRED::::::::", reconnect_data.res.length, reconnect_data.res)
         for (let it of reconnect_data.res) {
-            console.log("credentials:::", it)
+            console.log("credentials:::", it.resource_type)
+            if (it.resource_type !== "MONGODB") continue
             // if (it.credentials.database != "shippo_shippo_object_builder_service") continue 
             try {
                 await projectStore.reconnect(it)

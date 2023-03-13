@@ -1701,3 +1701,185 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.view.convertTemplateToHtml: failed with error: tableInfo is not iterable',
+  level: 'error',
+  timestamp: '2023-03-09T12:39:10.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.view.convertTemplateToHtml: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-03-09T12:58:58.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.view.convertTemplateToHtml: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-03-09T13:01:09.112Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-09T14:32:02.244Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 4,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-09T14:33:18.720Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 4,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-09T14:34:39.157Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 4,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-09T14:37:15.122Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 4 DEADLINE_EXCEEDED: error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 4,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/aac3f893-04b0-4c2c-8510-23d135f51496/ffac2919-6094-4ad2-8935-9d944775db2a/2ac56dd3-74a7-43d1-830c-6788bbd2a9ff/MONGODB: context deadline exceeded',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-11T07:48:14.758Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: expected 1 arguments, got 2
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 2,
+      details: 'expected 1 arguments, got 2',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-11T07:52:04.100Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: expected 1 arguments, got 2
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 2,
+      details: 'expected 1 arguments, got 2',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-11T07:52:55.226Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: expected 1 arguments, got 2
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 2,
+      details: 'expected 1 arguments, got 2',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}

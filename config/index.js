@@ -26,7 +26,7 @@ const config = {
     k8s_namespace: "cp-region-type-id",
 
     companyServiceHost : getConf("COMPANY_SERVICE_HOST", "localhost"),
-    companyServicePort : getConf("COMPANY_RPC_PORT", "8092")
+    companyServicePort : getConf("COMPANY_GRPC_PORT", ":8092")
 };
 
 function getConf(name, def = "") {

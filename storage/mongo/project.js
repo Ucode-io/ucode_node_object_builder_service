@@ -132,7 +132,7 @@ let projectStore = {
                 }
 
             })
-            console.log("pool::::::::::::", pool)
+            console.log("pool::::::::::::", pool.get(data?.project_id))
             return {}
 
         } catch (err) {

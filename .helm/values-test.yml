@@ -8,7 +8,7 @@ global:
   # GLOBAL1: value
 labels:
   app: ucode-node-object-builder-service
-replicaCount: 6
+replicaCount: 1
 
 image:
   registry: gitlab.udevs.io:5050

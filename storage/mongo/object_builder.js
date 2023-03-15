@@ -42,19 +42,6 @@ let objectBuilder = {
             await payload.save();
             console.timeEnd("TIME_MANAGEMENT_LOGGING:::PrepareFunction.prepareToCreateInObjectBuilder")
 
-            console.time("TIME_MANAGEMENT_LOGGING:::sendMessageToTopic")
-            // send topic to Analytics service
-            await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
-
-            req.current_data = event?.payload?.data
-            await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
-                payload: {
-                    current_data: event?.payload?.data,
-                    table_slug: req.table_slug
-                }
-            })
-            console.timeEnd("TIME_MANAGEMENT_LOGGING:::sendMessageToTopic")
-
             console.time("TIME_MANAGEMENT_LOGGING:::appendMany2ManyObjects")
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)

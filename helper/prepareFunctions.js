@@ -26,17 +26,12 @@ let prepareFunction = {
         }
         console.log("project id::", req.project_id);
         console.log("project id::", data);
-        console.time("TIME_MANAGEMENT_LOGGING:::prepareToCreateInObjectBuilder")
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::prepareToCreateInObjectBuilder")
-        console.time("TIME_MANAGEMENT_LOGGING:::table.findOne")
         let tableData = await table.findOne(
             {
                 slug: req.table_slug
             }
         )
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::table.findOne")
-        console.time("TIME_MANAGEMENT_LOGGING:::template or file")
         if (req.table_slug === "template" || req.table_slug === "file") {
             const relation = await Relation.findOne({
                 $or: [
@@ -64,16 +59,12 @@ let prepareFunction = {
                 }
             }
         }
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::template or file")
 
-        console.time("TIME_MANAGEMENT_LOGGING:::Field.findOne RANDOM_NUMBERS")
         let randomNumbers = await Field.findOne({
             table_id: tableData.id,
             type: "RANDOM_NUMBERS"
         })
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::Field.findOne RANDOM_NUMBERS")
 
-        console.time("TIME_MANAGEMENT_LOGGING:::RANDOM_NUMBERS BRANCH")
         if (randomNumbers) {
             let attributes = struct.decode(randomNumbers.attributes)
             let randomNumber = generators.generateRandomNumber(attributes.prefix, attributes.digit_number)
@@ -89,10 +80,8 @@ let prepareFunction = {
                 data[randomNumbers.slug] = randomNumber
             }
         }
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::RANDOM_NUMBERS BRANCH")
 
 
-        console.time("TIME_MANAGEMENT_LOGGING:::Field.findOne INCREMENT_ID")
         let incrementField = await Field.findOne({
             table_id: tableData.id,
             type: "INCREMENT_ID"
@@ -109,9 +98,7 @@ let prepareFunction = {
                 data[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
             }
         }
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::Field.findOne INCREMENT_ID")
 
-        console.time("TIME_MANAGEMENT_LOGGING:::Field.findOne INCREMENT_NUMBER")
         let incrementNum = await Field.findOne({
             table_id: tableData.id,
             type: "INCREMENT_NUMBER"
@@ -127,7 +114,6 @@ let prepareFunction = {
                 data[incrementNum.slug] = attributes.prefix + nextIncrement.toString().padStart(attributes.digit_number, '0')
             }
         }
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::Field.findOne INCREMENT_NUMBER")
 
         tableInfo.fields.forEach(el => {
             if (el.attributes) {
@@ -147,19 +133,15 @@ let prepareFunction = {
             }
         })
 
-        console.time("TIME_MANAGEMENT_LOGGING:::createModels")
         let payload = new tableInfo.models(data);
         if (ownGuid) {
             payload.guid = ownGuid
         }
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::createModels")
-        console.time("TIME_MANAGEMENT_LOGGING:::Fields.find")
         let fields = await Field.find(
             {
                 table_id: tableData.id
             }
         )
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::Fields.find")
 
         // TODO::: move kafka to service level
         let event = {}
@@ -170,7 +152,6 @@ let prepareFunction = {
         event.payload.table_slug = req.table_slug
         let appendMany2ManyObjects = []
 
-        console.time("TIME_MANAGEMENT_LOGGING:::Lookups")
         for (const field of fields) {
             let type = converter(field.type);
             if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
@@ -199,7 +180,6 @@ let prepareFunction = {
             field_types[field.slug] = type
             dataToAnalytics[field.slug] = data[field.slug]
         }
-        console.timeEnd("TIME_MANAGEMENT_LOGGING:::Lookups")
         field_types.guid = "String"
         event.payload.data = dataToAnalytics
         event.payload.field_types = field_types

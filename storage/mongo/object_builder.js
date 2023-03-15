@@ -37,9 +37,12 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
 
+            console.time("TIME_MANAGEMENT_LOGGING:::PrepareFunction.prepareToCreateInObjectBuilder")
             let { payload, data, event, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
+            console.timeEnd("TIME_MANAGEMENT_LOGGING:::PrepareFunction.prepareToCreateInObjectBuilder")
 
+            console.time("TIME_MANAGEMENT_LOGGING:::sendMessageToTopic")
             // send topic to Analytics service
             await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
@@ -50,10 +53,13 @@ let objectBuilder = {
                     table_slug: req.table_slug
                 }
             })
+            console.timeEnd("TIME_MANAGEMENT_LOGGING:::sendMessageToTopic")
 
+            console.time("TIME_MANAGEMENT_LOGGING:::appendMany2ManyObjects")
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
+            console.timeEnd("TIME_MANAGEMENT_LOGGING:::appendMany2ManyObjects")
             const object = struct.encode({ data });
             return { table_slug: req.table_slug, data: object };
 

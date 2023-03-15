@@ -1949,6 +1949,7 @@ let objectBuilder = {
             data.balance = balance
             return { table_slug: req.table_slug, data: struct.encode(data) }
         } catch (err) {
+            
             throw err
         }
     })

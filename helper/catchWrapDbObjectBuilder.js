@@ -3,7 +3,7 @@ const cfg = require("../config/index");
 
 module.exports = (namespace, fn) => {
     return async (arg) => {
-        logger.debug(`${namespace}: requested, ${JSON.stringify(arg, null, 2)}`);
+        // logger.debug(`${namespace}: requested, ${JSON.stringify(arg, null, 2)}`);
 
         try {
             let resp = await fn(arg);

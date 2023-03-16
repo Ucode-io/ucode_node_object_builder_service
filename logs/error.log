@@ -2131,3 +2131,65 @@
       '    at async /home/euler/Documents/ucode/ucode_node_object_builder_service/index.js:31:9'
   }
 }
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-16T19:15:28.171Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:42.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:50.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:51.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:52.230Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:52.849Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:23:03.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

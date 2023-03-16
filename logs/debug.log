@@ -50591,3 +50591,461 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-16T19:15:28.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-16T19:15:28.135Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-16T19:15:28.136Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-16T19:15:28.171Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-03-16T19:15:28.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-16T19:15:57.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-16T19:15:57.437Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-16T19:15:57.437Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "paragraf_paragraf_object_builder_service",\n' +
+    '    "database": "paragraf_paragraf_object_builder_service",\n' +
+    '    "password": "eeQripjWUZ"\n' +
+    '  },\n' +
+    '  "id": "84542d7f-db46-47b4-aef2-5323e162ea1e",\n' +
+    '  "project_id": "84542d7f-db46-47b4-aef2-5323e162ea1e",\n' +
+    '  "path": "k8s/ucode-test/125175fd-a007-4c26-807c-1526ac63a833/aad204ee-4e8e-4bf6-bccd-8fddb92dbf94/55d251d7-3eed-4177-925a-7d0df97570be/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "c1d870d0-76ef-4c67-b15a-108d686c6045",\n' +
+    '  "environment_id": "55d251d7-3eed-4177-925a-7d0df97570be",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-16T19:16:29.899Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://paragraf_paragraf_object_builder_service:eeQripjWUZ@161.35.26.178:27017/paragraf_paragraf_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-16T19:16:29.900Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://paragraf_paragraf_object_builder_service:eeQripjWUZ@161.35.26.178:27017/paragraf_paragraf_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-16T19:16:31.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:19:49.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-03-16T19:19:49.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:19:54.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:19:54.408Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-16T19:22:15.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-16T19:22:15.292Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-16T19:22:15.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "paragraf_paragraf_object_builder_service",\n' +
+    '    "database": "paragraf_paragraf_object_builder_service",\n' +
+    '    "password": "eeQripjWUZ"\n' +
+    '  },\n' +
+    '  "id": "84542d7f-db46-47b4-aef2-5323e162ea1e",\n' +
+    '  "project_id": "84542d7f-db46-47b4-aef2-5323e162ea1e",\n' +
+    '  "path": "k8s/ucode-test/125175fd-a007-4c26-807c-1526ac63a833/aad204ee-4e8e-4bf6-bccd-8fddb92dbf94/55d251d7-3eed-4177-925a-7d0df97570be/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "c1d870d0-76ef-4c67-b15a-108d686c6045",\n' +
+    '  "environment_id": "55d251d7-3eed-4177-925a-7d0df97570be",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-16T19:22:36.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://paragraf_paragraf_object_builder_service:eeQripjWUZ@161.35.26.178:27017/paragraf_paragraf_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-16T19:22:36.044Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://paragraf_paragraf_object_builder_service:eeQripjWUZ@161.35.26.178:27017/paragraf_paragraf_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-16T19:22:36.795Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:42.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:50.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:51.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:52.230Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:22:52.849Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-16T19:23:03.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:24:49.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:24:49.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:26:03.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-03-16T19:26:03.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-16T19:28:55.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-16T19:28:55.916Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-16T19:28:55.917Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "paragraf_paragraf_object_builder_service",\n' +
+    '    "database": "paragraf_paragraf_object_builder_service",\n' +
+    '    "password": "eeQripjWUZ"\n' +
+    '  },\n' +
+    '  "id": "84542d7f-db46-47b4-aef2-5323e162ea1e",\n' +
+    '  "project_id": "84542d7f-db46-47b4-aef2-5323e162ea1e",\n' +
+    '  "path": "k8s/ucode-test/125175fd-a007-4c26-807c-1526ac63a833/aad204ee-4e8e-4bf6-bccd-8fddb92dbf94/55d251d7-3eed-4177-925a-7d0df97570be/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "c1d870d0-76ef-4c67-b15a-108d686c6045",\n' +
+    '  "environment_id": "55d251d7-3eed-4177-925a-7d0df97570be",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-16T19:29:16.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://paragraf_paragraf_object_builder_service:eeQripjWUZ@161.35.26.178:27017/paragraf_paragraf_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-16T19:29:16.927Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://paragraf_paragraf_object_builder_service:eeQripjWUZ@161.35.26.178:27017/paragraf_paragraf_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-16T19:29:17.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:32:52.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:32:52.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:33:10.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-03-16T19:33:10.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-03-16T19:34:15.708Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-03-16T19:34:15.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-16T19:34:15.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "paragraf_paragraf_object_builder_service",\n' +
+    '    "database": "paragraf_paragraf_object_builder_service",\n' +
+    '    "password": "eeQripjWUZ"\n' +
+    '  },\n' +
+    '  "id": "84542d7f-db46-47b4-aef2-5323e162ea1e",\n' +
+    '  "project_id": "84542d7f-db46-47b4-aef2-5323e162ea1e",\n' +
+    '  "path": "k8s/ucode-test/125175fd-a007-4c26-807c-1526ac63a833/aad204ee-4e8e-4bf6-bccd-8fddb92dbf94/55d251d7-3eed-4177-925a-7d0df97570be/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "c1d870d0-76ef-4c67-b15a-108d686c6045",\n' +
+    '  "environment_id": "55d251d7-3eed-4177-925a-7d0df97570be",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-03-16T19:34:40.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://paragraf_paragraf_object_builder_service:eeQripjWUZ@161.35.26.178:27017/paragraf_paragraf_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-03-16T19:34:40.041Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://paragraf_paragraf_object_builder_service:eeQripjWUZ@161.35.26.178:27017/paragraf_paragraf_object_builder_service',
+  level: 'info',
+  timestamp: '2023-03-16T19:34:40.878Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:38:14.862Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:38:14.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-03-16T19:38:28.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-03-16T19:38:28.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

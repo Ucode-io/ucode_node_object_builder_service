@@ -132,7 +132,7 @@ let projectStore = {
                 }
 
             })
-            console.log("pool::::::::::::", pool.get(data?.project_id))
+            // console.log("pool::::::::::::", pool.get(data?.project_id))
             return {}
 
         } catch (err) {
@@ -188,7 +188,7 @@ let projectStore = {
         for (let it of reconnect_data.res) {
             console.log("credentials:::", it.resource_type)
             if (it.resource_type !== "MONGODB") continue
-            // if (it.credentials.database != "shippo_shippo_object_builder_service") continue 
+            // if (it.credentials.database != "paragraf_paragraf_object_builder_service") continue 
             try {
                 await projectStore.reconnect(it)
             } catch (err) {

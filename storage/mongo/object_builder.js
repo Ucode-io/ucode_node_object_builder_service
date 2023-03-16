@@ -413,10 +413,15 @@ let objectBuilder = {
         // console.time("TIME_LOGGING:::relation")
         const relations = await Relation.find({
             $or: [{
-                table_from: req.table_slug,
-                table_to: req.table_slug,
-                "dynamic_tables.table_slug": req.table_slug
-            }]
+                    table_from: req.table_slug,
+                },
+                {
+                    table_to: req.table_slug,
+                },
+                {
+                    "dynamic_tables.table_slug": req.table_slug
+                }
+            ]
         })
 
             //     $and: [{

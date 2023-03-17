@@ -646,7 +646,7 @@ let objectBuilder = {
                     let deepRelations = []
                     const field = tableInfo.fields.find(val => (val.relation_id === relation?.id))
                     if (field) {
-                        table_to_slug = field.slug + "_data"
+                        table_to_slug = field.slug
                     }
                     if (table_to_slug === "") {
                         continue
@@ -724,6 +724,7 @@ let objectBuilder = {
                     populateArr.push(papulateTable)
                 }
                 // console.log("\n\n-----> T3\n\n", tableInfo, params)
+                console.log("::::::::::::::::::: POPULATE ARR", populateArr)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -939,6 +940,7 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
+        console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response }
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {

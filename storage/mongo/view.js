@@ -391,20 +391,22 @@ let viewStore = {
 
             const decodedData = struct.decode(data.data)
 
+            const object_builder = await ObjectBuilder(true, data.project_id)
+
             let filename = "document_" + Math.floor(Date.now() / 1000) + ".pdf"
             link = "https://" + "cdn.medion.uz" + "/docs/" + filename
-
+            console.log("TEST::::::::1")
             var html = data.html
             if (decodedData.linked_table_slug && decodedData.linked_object_id) {
                 // data.html = data.html.replace('[??', '{')
                 // data.html = data.html.replace('??]', '}')
-                const tableInfo = (await ObjectBuilder(true, data.project_id))[decodedData.linked_table_slug]
-
+                const tableInfo = object_builder[decodedData.linked_table_slug]
+                console.log("TEST::::::::2")
                 let relations = await Relation.find({
                     table_from: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
-
+                console.log("TEST::::::::3")
                 const relationsM2M = await Relation.find({
                     $or: [{
                         table_from: decodedData.linked_table_slug
@@ -416,25 +418,28 @@ let viewStore = {
                         type: "Many2Many"
                     }]
                 })
-
+                console.log("TEST::::::::4")
                 let relatedTable = []
                 for (const relation of relations) {
+                    // console.log("m2o:::::", relation)
                     const field = await Field.findOne({
                         relation_id: relation.id
                     })
                     relatedTable.push(field?.slug + "_data")
                 }
                 for (const relation of relationsM2M) {
+                    console.log("m2m:::::", relation)
                     if (relation.table_to === decodedData.linked_table_slug) {
                         relation.field_from = relation.field_to
                     }
-                    const field = await Field.find({
+                    const field = await Field.findOne({
                         slug: relation.field_from,
                         relation_id: relation.id
                     })
+                    console.log(field, relation.field_from, relation.id)
                     relatedTable.push(field?.slug + "_data")
                 }
-
+                console.log("TEST::::::::5", relatedTable)
                 let output = await tableInfo.models.findOne({
                     guid: decodedData.linked_object_id
                 },
@@ -448,7 +453,7 @@ let viewStore = {
                     }).populate(relatedTable).lean();
 
                 // console.log("output:::::::", output)
-
+                console.log("TEST::::::::6")
                 for (const it of tableInfo.fields) {
                     if (it.type === "CODABAR") {
                         JsBarcode(svgNode, output[it.slug], {
@@ -461,27 +466,29 @@ let viewStore = {
                          // console.log(output[it.slug])
                     }
                 }
-
+                console.log("TEST::::::::7")
                 relations = await Relation.find({
                     table_to: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
 
                 for (const relation of relations) {
+                    console.log("relation::::", relation)
                     let relation_field = decodedData.linked_table_slug + "_id"
                     let m2mrelation_field = decodedData.linked_table_slug + "_ids"
-                    let response = await (await ObjectBuilder(true, data.project_id))[relation.table_from].models.find({
+                    let response = await object_builder[relation.table_from].models.find({
                         $or: [{ [relation_field]: decodedData.linked_object_id },
                         { [m2mrelation_field]: decodedData.linked_object_id }
                         ]
                     })
+                    console.log(response)
                     if (response) {
                         output[relation.table_from] = response
                     } else {
                         output[relation.table_from] = []
                     }
                 }
-
+                console.log("TEST::::::::8")
                 html = Eta.render(data.html, output)
 
                 html = html.replaceAll('[??', '{')

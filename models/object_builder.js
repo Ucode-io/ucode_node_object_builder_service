@@ -72,14 +72,14 @@ async function buildModels(is_build = true, project_id) {
                         type: "Many2Dynamic"
                     }
                 ]
-            },
-            //   {
-            //     $and: [{
-            //         table_from: table.slug
-            //     }, {
-            //         type: "Recursive"
-            //     }]
-            //   }
+              },
+              {
+                $and: [{
+                    table_from: table.slug
+                }, {
+                    type: "Recursive"
+                }]
+              }
             ]
         });
         let relationsM2M = await Relation.find({

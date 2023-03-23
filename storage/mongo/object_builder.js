@@ -8,8 +8,8 @@ const logger = require("../../config/logger");
 const catchWrapDbObjectBuilder = require("../../helper/catchWrapDbObjectBuilder")
 const { v4 } = require("uuid");
 const con = require("../../helper/constants");
-const sendMessageToTopic = require("../../config/kafka");
-const conkafkaTopic = require("../../config/kafkaTopics");
+// const sendMessageToTopic = require("../../config/kafka");
+// const conkafkaTopic = require("../../config/kafkaTopics");
 const converter = require("../../helper/converter");
 
 var fns_format = require('date-fns/format');
@@ -409,71 +409,71 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::key_of_keys")
-        // console.log("TEST::::::4")
+        console.log("TEST::::::4")
         // console.time("TIME_LOGGING:::relation")
         const relations = await Relation.find({
             $or: [{
-                    table_from: req.table_slug,
-                },
-                {
-                    table_to: req.table_slug,
-                },
-                {
-                    "dynamic_tables.table_slug": req.table_slug
-                }
-            ]
-        })
-
-            //     $and: [{
-            //         table_from: req.table_slug
-            //     }, {
-            //         type: "Many2One"
-            //     }]
-            // },
-            // {
-            //     $and: [{
-            //         table_to: req.table_slug
-            //     }, {
-            //         type: "One2Many"
-            //     }]
-            // },
-            // {
-            //     $and: [{
-            //         $or: [{
-            //             table_from: req.table_slug
-            //         },
-            //         {
-            //             "dynamic_tables.table_slug": req.table_slug
-            //         }]
+            //         table_from: req.table_slug,
             //     },
             //     {
-            //         type: "Many2Dynamic"
+            //         table_to: req.table_slug,
+            //     },
+            //     {
+            //         "dynamic_tables.table_slug": req.table_slug
             //     }
-            //     ]
-            // },
-            // {
-            //     $and: [{
-            //         $or: [{
-            //             table_from: req.table_slug
-            //         },
-            //         {
-            //             table_to: req.table_slug
-            //         }]
-            //     }, {
-            //         type: "Many2Many"
-            //     }]
-            // },
-                //   {
-                //     $and: [{
-                //         table_from: req.table_slug
-                //     }, {
-                //         type: "Recursive"
-                //     }]
-                //   }
-        //     ]
+            // ]
         // })
+
+                $and: [{
+                    table_from: req.table_slug
+                }, {
+                    type: "Many2One"
+                }]
+            },
+            {
+                $and: [{
+                    table_to: req.table_slug
+                }, {
+                    type: "One2Many"
+                }]
+            },
+            {
+                $and: [{
+                    $or: [{
+                        table_from: req.table_slug
+                    },
+                    {
+                        "dynamic_tables.table_slug": req.table_slug
+                    }]
+                },
+                {
+                    type: "Many2Dynamic"
+                }
+                ]
+            },
+            {
+                $and: [{
+                    $or: [{
+                        table_from: req.table_slug
+                    },
+                    {
+                        table_to: req.table_slug
+                    }]
+                }, {
+                    type: "Many2Many"
+                }]
+            },
+                  {
+                    $and: [{
+                        table_from: req.table_slug
+                    }, {
+                        type: "Recursive"
+                    }]
+                  }
+            ]
+        })
         // console.timeEnd("TIME_LOGGING:::relation")
-        // console.log("TEST::::::5")
+        console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
         if (with_relations) {
@@ -552,7 +552,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::with_relations")
-        // console.log("TEST::::::6")
+        console.log("TEST::::::6")
 
 
         let result = [], count;
@@ -580,7 +580,7 @@ let objectBuilder = {
             params.phone = phone
         }
         // console.timeEnd("TIME_LOGGING:::phone")
-        // console.log("TEST::::::7")
+        console.log("TEST::::::7")
         let populateArr = []
         // console.time("TIME_LOGGING:::limit")
         if (limit !== 0) {
@@ -632,7 +632,7 @@ let objectBuilder = {
                         }
                     }
                 }
-                // console.log("TEST::::::8")
+                console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -698,7 +698,7 @@ let objectBuilder = {
                             }
                         }
                     }
-                    // console.log("TEST::::::9")
+                    console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -747,7 +747,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::limit")
-        // console.log("TEST::::::10")
+        console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
         // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
@@ -756,7 +756,7 @@ let objectBuilder = {
         }
         // console.timeEnd("TIME_LOGGING:::result")
 
-        // console.log("TEST::::::11")
+        console.log("TEST::::::11")
         // console.time("TIME_LOGGING:::toField")
         // this function add field permission for each field by role id
         let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
@@ -776,7 +776,7 @@ let objectBuilder = {
             }
         };
         // console.timeEnd("TIME_LOGGING:::toField")
-        // console.log("TEST::::::12")
+        console.log("TEST::::::12")
         // console.time("TIME_LOGGING:::decodedFields")
         for (const field of decodedFields) {
             if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
@@ -808,7 +808,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::decodedFields")
-        // console.log("TEST::::::13")
+        console.log("TEST::::::13")
         // console.time("TIME_LOGGING:::additional_request")
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
@@ -957,7 +957,7 @@ let objectBuilder = {
             event.payload = table
 
             event.project_id = req.project_id
-            await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
+            // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
 
             return { table_slug: req.table_slug, data: response };
         } catch (err) {
@@ -1488,16 +1488,16 @@ let objectBuilder = {
                 appendMany2ManyObj = appendMany2ManyObjects
                 objects.push(payload)
 
-                await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
+                // await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
 
 
                 req.current_data = event?.payload?.data
-                await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
-                    payload: {
-                        current_data: event?.payload?.data,
-                        table_slug: req.table_slug
-                    }
-                })
+                // await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
+                //     payload: {
+                //         current_data: event?.payload?.data,
+                //         table_slug: req.table_slug
+                //     }
+                // })
             }
             await tableInfo.models.insertMany(objects)
             for (const appendMany2Many of appendMany2ManyObj) {
@@ -1528,7 +1528,7 @@ let objectBuilder = {
 
                 let { data, event, appendMany2Many, deleteMany2Many } = await prepareFunction.prepareToUpdateInObjectBuilder(request, mongoConn)
 
-                await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
+                // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
                 let bulk = {
                     updateOne: {
                         filter:

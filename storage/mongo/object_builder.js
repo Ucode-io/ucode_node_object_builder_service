@@ -65,7 +65,7 @@ let objectBuilder = {
             for (const resDeleteM2M of deleteMany2Many) {
                 await objectBuilder.deleteManyToMany(resDeleteM2M)
             }
-            await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
+            // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
 
             return response;
         } catch (err) {

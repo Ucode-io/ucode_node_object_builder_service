@@ -409,69 +409,69 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::key_of_keys")
-        console.log("TEST::::::4")
+        // console.log("TEST::::::4")
         // console.time("TIME_LOGGING:::relation")
         const relations = await Relation.find({
             $or: [{
-            //         table_from: req.table_slug,
-            //     },
-            //     {
-            //         table_to: req.table_slug,
-            //     },
-            //     {
-            //         "dynamic_tables.table_slug": req.table_slug
-            //     }
-            // ]
-        // })
-
-                $and: [{
-                    table_from: req.table_slug
-                }, {
-                    type: "Many2One"
-                }]
+                    table_from: req.table_slug,
             },
             {
-                $and: [{
-                    table_to: req.table_slug
-                }, {
-                    type: "One2Many"
-                }]
-            },
-            {
-                $and: [{
-                    $or: [{
-                        table_from: req.table_slug
+                    table_to: req.table_slug,
                     },
                     {
                         "dynamic_tables.table_slug": req.table_slug
-                    }]
-                },
-                {
-                    type: "Many2Dynamic"
-                }
-                ]
-            },
-            {
-                $and: [{
-                    $or: [{
-                        table_from: req.table_slug
-                    },
-                    {
-                        table_to: req.table_slug
-                    }]
-                }, {
-                    type: "Many2Many"
-                }]
-            },
-                  {
-                    $and: [{
-                        table_from: req.table_slug
-                    }, {
-                        type: "Recursive"
-                    }]
                   }
             ]
         })
+
+            //     $and: [{
+            //         table_from: req.table_slug
+            //     }, {
+            //         type: "Many2One"
+            //     }]
+            // },
+            // {
+            //     $and: [{
+            //         table_to: req.table_slug
+            //     }, {
+            //         type: "One2Many"
+            //     }]
+            // },
+            // {
+            //     $and: [{
+            //         $or: [{
+            //             table_from: req.table_slug
+            //         },
+            //         {
+            //             "dynamic_tables.table_slug": req.table_slug
+            //         }]
+            //     },
+            //     {
+            //         type: "Many2Dynamic"
+            //     }
+            //     ]
+            // },
+            // {
+            //     $and: [{
+            //         $or: [{
+            //             table_from: req.table_slug
+            //         },
+            //         {
+            //             table_to: req.table_slug
+            //         }]
+            //     }, {
+            //         type: "Many2Many"
+            //     }]
+            // },
+                //   {
+                //     $and: [{
+                //         table_from: req.table_slug
+                //     }, {
+                //         type: "Recursive"
+                //     }]
+                //   }
+        //     ]
+        // })
         // console.timeEnd("TIME_LOGGING:::relation")
         console.log("TEST::::::5")
         let relationsFields = []

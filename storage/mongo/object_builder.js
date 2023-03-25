@@ -58,7 +58,7 @@ let objectBuilder = {
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
-            const response = await tableInfo.models.updateOne({ guid: data.id }, { $set: data });
+            const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, {new: true});
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
             }

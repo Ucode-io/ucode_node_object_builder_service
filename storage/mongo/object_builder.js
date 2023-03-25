@@ -645,7 +645,7 @@ let objectBuilder = {
                     let table_to_slug = ""
                     let deepRelations = []
                     const field = tableInfo.fields.find(val => (val.relation_id === relation?.id))
-                    if (field) {
+                    if (field) {    
                         table_to_slug = field.slug + "_data"
                     }
                     if (table_to_slug === "") {

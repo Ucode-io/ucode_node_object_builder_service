@@ -1448,14 +1448,14 @@ let objectBuilder = {
                     data: struct.encode(object)
                 }
                 if (!object.is_new) {
-                    await objectBuilder.update(request)
+                    resp = await objectBuilder.update(request)
                 } else {
-                    await objectBuilder.create(request)
+                    resp = await objectBuilder.create(request)
                 }
             }
 
-            return;
-
+            const object = struct.encode({ resp });
+            return { table_slug: req.table_slug, data: object };
         } catch (err) {
             throw err
         }

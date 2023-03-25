@@ -1429,7 +1429,7 @@ let objectBuilder = {
 
             const data = struct.decode(req.data)
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            let resp, allSum = 0
+            let response = [], allSum = 0
 
             for (const object of data.objects) {
                 const keys = Object.keys(object)
@@ -1448,13 +1448,15 @@ let objectBuilder = {
                     data: struct.encode(object)
                 }
                 if (!object.is_new) {
-                    resp = await objectBuilder.update(request)
+                    let resp = await objectBuilder.update(request)
+                    response.push(resp)
                 } else {
-                    resp = await objectBuilder.create(request)
+                    let resp = await objectBuilder.create(request)
+                    response.push(resp)
                 }
             }
-
-            const object = struct.encode({ resp });
+            console.log("RESPONSE>>>>>>", response);
+            const object = struct.encode({response});
             return { table_slug: req.table_slug, data: object };
         } catch (err) {
             throw err

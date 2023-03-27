@@ -464,7 +464,7 @@ let viewStore = {
                         __v: 0
                     }).populate(relatedTable).lean();
 
-                console.log("output:::::::", output)
+                // console.log("output:::::::", output)
                 console.log("TEST::::::::6")
                 for (const it of tableInfo.fields) {
                     if (it.type === "CODABAR") {
@@ -485,7 +485,7 @@ let viewStore = {
                 })
 
                 for (const relation of relations) {
-                    // console.log("relation::::", relation)
+                    console.log("relation::::", relation)
                     let relation_field = decodedData.linked_table_slug + "_id"
                     let m2mrelation_field = decodedData.linked_table_slug + "_ids"
                     let response = await object_builder[relation.table_from].models.find({
@@ -504,15 +504,15 @@ let viewStore = {
                 console.log("TEST::::::::8")
                 html = Eta.render(data.html, output)
                 console.log("TEST::::::::9")
-                // html = html.replaceAll('[??', '{')
-                // html = html.replaceAll('??]', '}')
-                // html = html.replaceAll('&lt;', '<')
-                // html = html.replaceAll('&gt;', '>')
-                // html = html.replaceAll('&nbsp;', ' ')
-                // html = html.replaceAll('&amp;', '&')
-                // html = html.replaceAll('&quot;', '"')
-                // html = html.replaceAll('&apos;', `'`)
-                // html = html.replaceAll('&apos;', `'`)
+                html = html.replaceAll('[??', '{')
+                html = html.replaceAll('??]', '}')
+                html = html.replaceAll('&lt;', '<')
+                html = html.replaceAll('&gt;', '>')
+                html = html.replaceAll('&nbsp;', ' ')
+                html = html.replaceAll('&amp;', '&')
+                html = html.replaceAll('&quot;', '"')
+                html = html.replaceAll('&apos;', `'`)
+                html = html.replaceAll('&apos;', `'`)
             }
             return { html }
 

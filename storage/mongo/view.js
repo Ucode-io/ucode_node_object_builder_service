@@ -192,13 +192,14 @@ let viewStore = {
             const Table = mongoConn.models['Table']
 
             const decodedData = struct.decode(data.data)
-
+            console.log("TEST:::::::::::::1")
         let filename = "document_" +  Math.floor(Date.now() / 1000) + ".pdf"
         link = "https://" + cfg.minioEndpoint + "/docs/" + filename
 
         var html = data.html
         let patientIdField;
         let output;
+        console.log("TEST:::::::::::::2")
         if (decodedData.linked_table_slug && decodedData.linked_object_id) {
             data.html = data.html.replaceAll('[??', '{')
             data.html = data.html.replaceAll('??]', '}')
@@ -227,6 +228,7 @@ let viewStore = {
                 type: "Many2Many"
                 }]
             })
+            console.log("TEST:::::::::::::3")
             let relatedTable = []
             for (const relation of relations) {
                 const field = await Field.findOne({
@@ -248,7 +250,7 @@ let viewStore = {
                     relatedTable.push(field?.slug+"_data")
                 }
             }
-
+            console.log("TEST:::::::::::::4")
             output = await tableInfo.models.findOne({
                 guid: decodedData.linked_object_id
             },
@@ -266,7 +268,7 @@ let viewStore = {
                 table_to : decodedData.linked_table_slug,
                 type: "Many2One"
             })
-          
+            console.log("TEST:::::::::::::5")
             for (const relation of relations) {
                 let relationField = decodedData.linked_table_slug + "_id"
                 let relationTableSlug = relation.table_from
@@ -305,7 +307,7 @@ let viewStore = {
             decodedData.page_width = "210"
         }
        
-        
+        console.log("TEST:::::::::::::6")
         await new Promise((resolve, reject) => {
             wkhtmltopdf(html, {output: filename, spawnOptions:{shell: true}, pageHeight: decodedData.page_height, pageWidth: decodedData.page_width  }, ()=>{
                 let ssl = true
@@ -318,7 +320,7 @@ let viewStore = {
                     accessKey: cfg.minioAccessKeyID,
                     secretKey: cfg.minioSecretAccessKey                          
                 });
-                   
+                console.log("TEST:::::::::::::7")
                 var metaData = {
                     'Content-Type': "application/pdf",
                     'Content-Language': 123,
@@ -334,6 +336,7 @@ let viewStore = {
                     if(error) {
                         return console.log(error);
                     }
+                    console.log("TEST:::::::::::::8")
                     console.log("uploaded successfully")
                     fs.stat(filename, async (err, stats) => {
                         if (err) {
@@ -365,6 +368,7 @@ let viewStore = {
                             await objectBuilderStore.create(request)
                         }
                     })
+                    console.log("TEST:::::::::::::9")
                     fs.unlink(filename, (err => {
                         if (err) console.log(err);
                         else {

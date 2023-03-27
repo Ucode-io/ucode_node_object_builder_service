@@ -397,6 +397,18 @@ let viewStore = {
             link = "https://" + "cdn.medion.uz" + "/docs/" + filename
             console.log("TEST::::::::1")
             var html = data.html
+
+            data.html = data.html.replaceAll('[??', '{')
+            data.html = data.html.replaceAll('??]', '}')
+            data.html = data.html.replaceAll('&lt;', '<')
+            data.html = data.html.replaceAll('&gt;', '>')
+            data.html = data.html.replaceAll('&nbsp;', ' ')
+            data.html = data.html.replaceAll('&amp;', '&')
+            data.html = data.html.replaceAll('&quot;', '"')
+            data.html = data.html.replaceAll('&apos;', `'`)
+            data.html = data.html.replaceAll('&apos;', `'`)
+            // console.log(data.html)
+
             if (decodedData.linked_table_slug && decodedData.linked_object_id) {
                 // data.html = data.html.replace('[??', '{')
                 // data.html = data.html.replace('??]', '}')
@@ -452,7 +464,7 @@ let viewStore = {
                         __v: 0
                     }).populate(relatedTable).lean();
 
-                // console.log("output:::::::", output)
+                console.log("output:::::::", output)
                 console.log("TEST::::::::6")
                 for (const it of tableInfo.fields) {
                     if (it.type === "CODABAR") {
@@ -473,7 +485,7 @@ let viewStore = {
                 })
 
                 for (const relation of relations) {
-                    console.log("relation::::", relation)
+                    // console.log("relation::::", relation)
                     let relation_field = decodedData.linked_table_slug + "_id"
                     let m2mrelation_field = decodedData.linked_table_slug + "_ids"
                     let response = await object_builder[relation.table_from].models.find({
@@ -481,25 +493,26 @@ let viewStore = {
                         { [m2mrelation_field]: decodedData.linked_object_id }
                         ]
                     })
-                    console.log(response)
+                    // console.log(response)
                     if (response) {
                         output[relation.table_from] = response
                     } else {
                         output[relation.table_from] = []
                     }
                 }
+                // console.log("output:::::", output)
                 console.log("TEST::::::::8")
                 html = Eta.render(data.html, output)
-
-                html = html.replaceAll('[??', '{')
-                html = html.replaceAll('??]', '}')
-                html = html.replaceAll('&lt;', '<')
-                html = html.replaceAll('&gt;', '>')
-                html = html.replaceAll('&nbsp;', ' ')
-                html = html.replaceAll('&amp;', '&')
-                html = html.replaceAll('&quot;', '"')
-                html = html.replaceAll('&apos;', `'`)
-                html = html.replaceAll('&apos;', `'`)
+                console.log("TEST::::::::9")
+                // html = html.replaceAll('[??', '{')
+                // html = html.replaceAll('??]', '}')
+                // html = html.replaceAll('&lt;', '<')
+                // html = html.replaceAll('&gt;', '>')
+                // html = html.replaceAll('&nbsp;', ' ')
+                // html = html.replaceAll('&amp;', '&')
+                // html = html.replaceAll('&quot;', '"')
+                // html = html.replaceAll('&apos;', `'`)
+                // html = html.replaceAll('&apos;', `'`)
             }
             return { html }
 

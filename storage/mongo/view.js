@@ -265,7 +265,7 @@ let viewStore = {
                 _id: 0,
                 __v: 0
             }).populate(relatedTable).lean();
-            output = await changeDateFormat(output, tableInfo.fields)
+            // output = await changeDateFormat(output, tableInfo.fields)
 
             for (const it of tableInfo.fields) {
                 if (it.type === "CODABAR") {

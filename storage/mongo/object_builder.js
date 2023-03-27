@@ -58,7 +58,7 @@ let objectBuilder = {
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
-            const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, {new: true});
+            const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
             }
@@ -413,63 +413,63 @@ let objectBuilder = {
         // console.time("TIME_LOGGING:::relation")
         const relations = await Relation.find({
             $or: [{
-                    table_from: req.table_slug,
+                table_from: req.table_slug,
             },
             {
-                    table_to: req.table_slug,
-                    },
-                    {
-                        "dynamic_tables.table_slug": req.table_slug
-                  }
+                table_to: req.table_slug,
+            },
+            {
+                "dynamic_tables.table_slug": req.table_slug
+            }
             ]
         })
 
-            //     $and: [{
-            //         table_from: req.table_slug
-            //     }, {
-            //         type: "Many2One"
-            //     }]
-            // },
-            // {
-            //     $and: [{
-            //         table_to: req.table_slug
-            //     }, {
-            //         type: "One2Many"
-            //     }]
-            // },
-            // {
-            //     $and: [{
-            //         $or: [{
-            //             table_from: req.table_slug
-            //         },
-            //         {
-            //             "dynamic_tables.table_slug": req.table_slug
-            //         }]
-            //     },
-            //     {
-            //         type: "Many2Dynamic"
-            //     }
-            //     ]
-            // },
-            // {
-            //     $and: [{
-            //         $or: [{
-            //             table_from: req.table_slug
-            //         },
-            //         {
-            //             table_to: req.table_slug
-            //         }]
-            //     }, {
-            //         type: "Many2Many"
-            //     }]
-            // },
-                //   {
-                //     $and: [{
-                //         table_from: req.table_slug
-                //     }, {
-                //         type: "Recursive"
-                //     }]
-                //   }
+        //     $and: [{
+        //         table_from: req.table_slug
+        //     }, {
+        //         type: "Many2One"
+        //     }]
+        // },
+        // {
+        //     $and: [{
+        //         table_to: req.table_slug
+        //     }, {
+        //         type: "One2Many"
+        //     }]
+        // },
+        // {
+        //     $and: [{
+        //         $or: [{
+        //             table_from: req.table_slug
+        //         },
+        //         {
+        //             "dynamic_tables.table_slug": req.table_slug
+        //         }]
+        //     },
+        //     {
+        //         type: "Many2Dynamic"
+        //     }
+        //     ]
+        // },
+        // {
+        //     $and: [{
+        //         $or: [{
+        //             table_from: req.table_slug
+        //         },
+        //         {
+        //             table_to: req.table_slug
+        //         }]
+        //     }, {
+        //         type: "Many2Many"
+        //     }]
+        // },
+        //   {
+        //     $and: [{
+        //         table_from: req.table_slug
+        //     }, {
+        //         type: "Recursive"
+        //     }]
+        //   }
         //     ]
         // })
         // console.timeEnd("TIME_LOGGING:::relation")
@@ -645,7 +645,7 @@ let objectBuilder = {
                     let table_to_slug = ""
                     let deepRelations = []
                     const field = tableInfo.fields.find(val => (val.relation_id === relation?.id))
-                    if (field) {    
+                    if (field) {
                         table_to_slug = field.slug + "_data"
                     }
                     if (table_to_slug === "") {
@@ -1429,7 +1429,8 @@ let objectBuilder = {
 
             const data = struct.decode(req.data)
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            let response = [], allSum = 0
+            let response = []
+            let allSum = 0
 
             for (const object of data.objects) {
                 const keys = Object.keys(object)
@@ -1455,13 +1456,14 @@ let objectBuilder = {
                     response.push(resp)
                 }
             }
-            console.log("RESPONSE>>>>>>", JSON.stringify(response, null, 2));
-            return { table_slug: req.table_slug, data: response };
+            return {
+                table_slug: data.table_slug, data: struct.encode({
+                    objects: response,
+                })
+            };
         } catch (err) {
             throw err
         }
-
-
     }),
 
     multipleInsert: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {

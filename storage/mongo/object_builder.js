@@ -1453,7 +1453,7 @@ let objectBuilder = {
                     response.push(resp)
                 } else {
                     let resp = await objectBuilder.create(request)
-                    response.push(resp.data)
+                    response.push(struct.decode(resp.data))
                 }
             }
             return {

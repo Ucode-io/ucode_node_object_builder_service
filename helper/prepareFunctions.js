@@ -181,7 +181,7 @@ let prepareFunction = {
             dataToAnalytics[field.slug] = data[field.slug]
         }
         field_types.guid = "String"
-        event.payload.data = dataToAnalytics
+        event.payload.data = dataToAnalytics    
         event.payload.field_types = field_types
         event.project_id = req.project_id 
 

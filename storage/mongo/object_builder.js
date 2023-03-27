@@ -1450,10 +1450,10 @@ let objectBuilder = {
                 }
                 if (!object.is_new) {
                     let resp = await objectBuilder.update(request)
-                    response.push(resp)
+                    response.push(struct.encode(resp))
                 } else {
                     let resp = await objectBuilder.create(request)
-                    response.push(resp.data)
+                    response.push(struct.encode(resp.data.data))
                 }
             }
             return {

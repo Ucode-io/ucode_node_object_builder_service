@@ -183,6 +183,9 @@ let viewStore = {
     ),
     convertHtmlToPdf: catchWrapDb(`${NAMESPACE}.convertHtmlToPdf`, async (data) => {
         try {
+            console.log("project id::::::::::", data.project_id)
+
+
             const mongoConn = await mongoPool.get(data.project_id)
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']

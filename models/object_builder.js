@@ -374,7 +374,7 @@ async function buildModels(is_build = true, project_id) {
             isReferenced = true
         }
         
-        console.log("TEST:::::::::::9")
+        console.log("TEST:::::::::::9", fieldObject)
         let temp =  mongoose.Schema(
             {
             ...fieldObject,

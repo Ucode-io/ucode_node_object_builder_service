@@ -1455,7 +1455,7 @@ let objectBuilder = {
                     response.push(resp)
                 }
             }
-            console.log("RESPONSE>>>>>>", response);
+            console.log("RESPONSE>>>>>>", JSON.stringify(response, null, 2));
             return { table_slug: req.table_slug, data: response };
         } catch (err) {
             throw err

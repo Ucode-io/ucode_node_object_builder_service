@@ -1456,8 +1456,7 @@ let objectBuilder = {
                 }
             }
             console.log("RESPONSE>>>>>>", response);
-            const object = struct.encode({response});
-            return { table_slug: req.table_slug, data: object };
+            return { table_slug: req.table_slug, data: response };
         } catch (err) {
             throw err
         }

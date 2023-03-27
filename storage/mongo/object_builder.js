@@ -1457,9 +1457,9 @@ let objectBuilder = {
                 }
             }
             return {
-                table_slug: data.table_slug, data: struct.encode({
+                table_slug: data.table_slug, data: {
                     objects: response,
-                })
+                }
             };
         } catch (err) {
             throw err

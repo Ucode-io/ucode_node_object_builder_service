@@ -487,8 +487,9 @@ let viewStore = {
                         __v: 0
                     }).populate(relatedTable).lean();
 
-                // console.log("output:::::::", output)
+                console.log("output:::::::", output)
                 console.log("TEST::::::::6")
+                // console.log("tableInfo::::", tableInfo)
                 for (const it of tableInfo.fields) {
                     if (it.type === "CODABAR") {
                         JsBarcode(svgNode, output[it.slug], {
@@ -510,13 +511,16 @@ let viewStore = {
                 for (const relation of relations) {
                     console.log("relation::::", relation)
                     let relation_field = decodedData.linked_table_slug + "_id"
-                    let m2mrelation_field = decodedData.linked_table_slug + "_ids"
+                    // let m2mrelation_field = decodedData.linked_table_slug + "_ids"
+
                     let response = await object_builder[relation.table_from].models.find({
-                        $or: [{ [relation_field]: decodedData.linked_object_id },
-                        { [m2mrelation_field]: decodedData.linked_object_id }
-                        ]
+                        // '$or': [
+                        //     { [relation_field]: decodedData.linked_object_id },
+                        //     { [m2mrelation_field]: decodedData.linked_object_id }
+                        // ]
+                        [relation_field]: decodedData.linked_object_id
                     })
-                    // console.log(response)
+                    
                     if (response) {
                         output[relation.table_from] = response
                     } else {

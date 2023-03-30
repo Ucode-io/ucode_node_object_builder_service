@@ -487,7 +487,7 @@ let viewStore = {
                         __v: 0
                     }).populate(relatedTable).lean();
 
-                console.log("output:::::::", output)
+                // console.log("output:::::::", output)
                 console.log("TEST::::::::6")
                 // console.log("tableInfo::::", tableInfo)
                 for (const it of tableInfo.fields) {
@@ -509,7 +509,7 @@ let viewStore = {
                 })
 
                 for (const relation of relations) {
-                    console.log("relation::::", relation)
+                    // console.log("relation::::", relation)
                     let relation_field = decodedData.linked_table_slug + "_id"
                     // let m2mrelation_field = decodedData.linked_table_slug + "_ids"
 

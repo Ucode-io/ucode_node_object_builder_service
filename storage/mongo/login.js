@@ -131,7 +131,7 @@ let loginStore = {
         }
     }),
     loginWithOtp: catchWrapDbObjectBuilder(`${NAMESPACE}.loginWithOtp`, async (req) => {
-
+        console.log("::::::::::; login with otp")
         let clientType,
             clientPlatform,
             role,
@@ -139,43 +139,31 @@ let loginStore = {
             user,
             clientTypeResp,
             userTable,
-            userId;
+            userId,
+            phone_number = req.phone_number
 
         let user_found = false
-        const tableInfo = (await ObjectBuilder(true, req.project_id))["test_login"]
+        const tableInfo = (await ObjectBuilder(true, req.project_id))["user"]
         const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
         clientType = await clientTypeTable.models.findOne(
             {
                 name: req.client_type
             }
         )
-        const login = await tableInfo.models.findOne(
-            {
-                $and: [
-                    {
-                        login_strategy: "Phone OTP"
-                    },
-                    {
-                        client_type_id: clientType.guid
-                    }
-                ]
-            }
-        )
-        if (!login) {
-            return null
-        }
 
         let temp = req.phone_number.toString()
         let tempPhone = temp.substring(5, temp.length)
         let phone = `\(` + temp.substring(1, 3) + `\) ` + tempPhone
         let params = {}
-        params[login.login_view] = phone
-        userTable = (await ObjectBuilder(true, req.project_id))[login.table_slug]
-        user = await userTable.models.findOne(
-            {
-                $and: [params]
-            }
-        )
+        params["phone"] = phone
+
+        userTable = (await ObjectBuilder(true, req.project_id))["user"]
+        
+        user = await userTable.models.findOne(params)
+        if(!user) {
+            user = await userTable.models.findOne({"phone": phone_number})
+            
+        }
         if (user) {
 
             const roleTable = (await ObjectBuilder(true, req.project_id))["role"]
@@ -227,6 +215,7 @@ let loginStore = {
         } else {
             userId = user.guid
         }
+        console.log(">>>.", clientPlatform, clientTypeResp, role, permissions)
         return {
             user_found: user_found,
             client_platform: clientPlatform,
@@ -234,7 +223,7 @@ let loginStore = {
             user_id: userId,
             role: role,
             permissions: permissions,
-            login_table_slug: login.table_slug
+            login_table_slug: "user"
         }
     }),
     loginWithEmailOtp: catchWrapDbObjectBuilder(`${NAMESPACE}.loginWithEmailOtp`, async (req) => {
@@ -379,14 +368,16 @@ let loginStore = {
             permissions: permissions,
         }
     }),
-
     login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login_data`, async (req) => {
         console.log("TEST:::::::::1", req.resource_environment_id)
         const clientTypeTable = (await ObjectBuilder(true, req.resource_environment_id))["client_type"]
 
         const clientType = await clientTypeTable.models.findOne(
             {
-                guid: req.client_type,
+                $or: [
+                    { guid: req.client_type },
+                    { name: req.client_type }
+                ]
             }
         ).lean()
         console.log("TEST:::::::::2", JSON.stringify(clientType, null, 2))
@@ -396,11 +387,7 @@ let loginStore = {
         params["client_type_id"] = req.client_type
 
         const userTable = (await ObjectBuilder(true, req.resource_environment_id))["user"]
-        let user = await userTable.models.findOne(
-            {
-                $and: [params]
-            }
-        ).lean()
+        let user = await userTable.models.findOne(params).lean()
 
         let user_found = false
         console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
@@ -469,16 +456,6 @@ let loginStore = {
                 ]
             }
         ).lean()
-        console.log("TEST:::::::::9", JSON.stringify(appPermissions, null, 2))
-        // console.log('user_found', user_found)
-        // console.log('user_id', userId)
-        // console.log('user', JSON.stringify(user, null, 2))
-        // console.log('clientPlatform', JSON.stringify(clientPlatform))
-        // console.log('clientTypeResp', JSON.stringify(clientTypeResp))
-        // console.log('appPermissions', JSON.stringify(appPermissions[0]._doc))
-        // console.log('appPermissions', appPermissions)
-        // console.log('role', JSON.stringify(role))
-        // console.log('permissions', JSON.stringify(permissions))
 
         //@TODO:: check user can login with this login strategy
         let response = {
@@ -492,7 +469,6 @@ let loginStore = {
             login_table_slug: 'user'
         }
         console.log("TEST:::::::::10", JSON.stringify(response, null, 2))
-        // console.log('/login/loginData', JSON.stringify(response, null, 2))
 
         return response
     }),

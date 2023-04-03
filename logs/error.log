@@ -2193,3 +2193,268 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-03-29T10:06:31.836Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-03-30T04:05:50.726Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-03-30T04:09:08.021Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-03-30T04:11:26.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-03-30T04:12:21.658Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-03-30T04:14:34.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Connection pool for 161.35.26.178:27017 was cleared because another operation failed with: "connect ECONNREFUSED 161.35.26.178:27017"',
+  level: 'error',
+  timestamp: '2023-03-30T04:26:28.131Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: connect ECONNREFUSED 161.35.26.178:27017',
+  level: 'error',
+  timestamp: '2023-03-30T04:26:28.550Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: connect ECONNREFUSED 161.35.26.178:27017',
+  level: 'error',
+  timestamp: '2023-03-30T04:26:29.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: connect ECONNREFUSED 161.35.26.178:27017',
+  level: 'error',
+  timestamp: '2023-03-30T04:26:29.772Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: connect ECONNREFUSED 161.35.26.178:27017',
+  level: 'error',
+  timestamp: '2023-03-30T04:28:12.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_event.getList: failed with error: Cannot read properties of undefined (reading 'find')",
+  level: 'error',
+  timestamp: '2023-03-30T04:50:35.497Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_event.getList: failed with error: Cannot read properties of undefined (reading 'find')",
+  level: 'error',
+  timestamp: '2023-03-30T04:54:24.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-03-30T09:04:15.868Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-03-30T09:06:28.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.section.getAll: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-03-30T11:39:25.190Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.section.getSingleViewRelation: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-03-30T11:39:25.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.getListWithRoleAppTablePermissions: failed with error: Cannot read properties of undefined (reading 'find')",
+  level: 'error',
+  timestamp: '2023-03-30T11:41:45.272Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-03-30T11:42:37.821Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.getListWithRoleAppTablePermissions: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-03-30T11:42:42.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.getListWithRoleAppTablePermissions: failed with error: Cannot read properties of undefined (reading 'find')",
+  level: 'error',
+  timestamp: '2023-03-30T11:44:16.379Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.getListWithRoleAppTablePermissions: failed with error: Cannot read properties of undefined (reading 'find')",
+  level: 'error',
+  timestamp: '2023-03-30T11:44:38.006Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_event.create: failed with error: Cannot read properties of null (reading 'path')",
+  level: 'error',
+  timestamp: '2023-03-30T11:57:50.244Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_event.create: failed with error: Cannot read properties of undefined (reading 'findOne')",
+  level: 'error',
+  timestamp: '2023-03-30T11:59:21.947Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_event.getList: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-03-30T11:59:56.160Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.section.getAll: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-03-30T11:59:56.262Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.section.getSingleViewRelation: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-03-30T11:59:56.543Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_event.delete: failed with error: Cannot read properties of null (reading 'path')",
+  level: 'error',
+  timestamp: '2023-03-30T12:00:59.845Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_event.delete: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-03-30T12:01:05.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_event.getList: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-03-30T12:03:26.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.section.getAll: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-03-30T12:03:26.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.section.getSingleViewRelation: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-03-30T12:03:27.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_event.delete: failed with error: Cannot read properties of null (reading 'path')",
+  level: 'error',
+  timestamp: '2023-03-30T12:07:50.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

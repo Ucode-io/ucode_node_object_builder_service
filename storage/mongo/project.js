@@ -119,7 +119,7 @@ let projectStore = {
             await new Promise((resolve, reject) => {
                 try {
                     mongoDBConn.once("open", async function () {
-                        await insertCollections(mongoDBConn, "", data.project_id)
+                        // await insertCollections(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
                         await objectBuilder(false, data.project_id)
                         console.log("Object builder has successfully runned for", data.project_id);

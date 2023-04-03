@@ -53,7 +53,7 @@ const CustomEventSchema = mongoose.Schema(
 );
 
 CustomEventSchema.virtual("functions", {
-    ref: "Function",
+    ref: "function_service.function",
     localField: "event_path",
     foreignField: "id",
     justOne: false,

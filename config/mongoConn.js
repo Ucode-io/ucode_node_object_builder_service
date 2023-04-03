@@ -1,9 +1,8 @@
-const Logger = require('./logger')
-const mongoose = require('mongoose')
-const fs = require('fs');
+const Logger = require("./logger");
+const mongoose = require("mongoose");
+const fs = require("fs");
 
-async function newMongoConn(Config, shouldCompileModels=true) {
-
+async function newMongoConn(Config, shouldCompileModels = true) {
     let mongoDBUrl =
         //`mongodb://medion_node_object_builder_service:Weipheingo7aeCho@46.101.114.171:27017/medion_node_object_builder_service`
         "mongodb://" +
@@ -23,12 +22,12 @@ async function newMongoConn(Config, shouldCompileModels=true) {
         useUnifiedTopology: true,
         // useCreateIndex: true,
         // useFindAndModify: false
-    }
+    };
 
-    if (Config.mongoHost == 'localhost') {
-        mongoDBUrl = `mongodb://${Config.mongoUser}:${Config.mongoPassword}@${Config.mongoHost}:${Config.mongoPort}/${Config.mongoDatabase}`
+    if (Config.mongoHost == "localhost") {
+        mongoDBUrl = `mongodb://${Config.mongoUser}:${Config.mongoPassword}@${Config.mongoHost}:${Config.mongoPort}/${Config.mongoDatabase}`;
         options = {
-           // poolSize: 10,
+            // poolSize: 10,
             authSource: "admin",
             user: Config.mongoUser,
             pass: Config.mongoPassword,
@@ -36,19 +35,19 @@ async function newMongoConn(Config, shouldCompileModels=true) {
             useUnifiedTopology: true,
             // useCreateIndex: true,
             // useFindAndModify: false
-        }
+        };
     }
 
     Logger.debug("connecting to mongodb: " + mongoDBUrl);
 
-    const conn = await mongoose.createConnection(mongoDBUrl, options)
+    const conn = await mongoose.createConnection(mongoDBUrl, options);
     conn.once("open", async function () {
         Logger.info("connected to the database: " + mongoDBUrl);
     });
 
-    conn.on('error', async function (err) {
-        console.log(`Error while connecting to ${Config.mongoHost}: ${err}`)
-    })
+    conn.on("error", async function (err) {
+        console.log(`Error while connecting to ${Config.mongoHost}: ${err}`);
+    });
 
     if (shouldCompileModels) {
         conn.model('App', require('../schemas/app'))
@@ -73,9 +72,12 @@ async function newMongoConn(Config, shouldCompileModels=true) {
         conn.model('Setting.Languages', require('../schemas/setting_language'))
         conn.model('Setting.Currencies', require('../schemas/setting_currency'))
         conn.model('Setting.Timezones', require('../schemas/setting_timezone'))
+        conn.model(
+            "function_service.function",
+            require("../schemas/function_service.function")
+        );
     }
-
-    return conn
+    return conn;
 }
 
-module.exports = newMongoConn
+module.exports = newMongoConn;

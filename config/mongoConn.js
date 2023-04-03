@@ -70,6 +70,9 @@ async function newMongoConn(Config, shouldCompileModels=true) {
         conn.model('ViewRelation', require('../schemas/view_relation'))
         conn.model('View', require('../schemas/view'))
         conn.model('WebPage', require('../schemas/web_pages'))
+        conn.model('Setting.Languages', require('../schemas/setting_language'))
+        conn.model('Setting.Currencies', require('../schemas/setting_currency'))
+        conn.model('Setting.Timezones', require('../schemas/setting_timezone'))
     }
 
     return conn

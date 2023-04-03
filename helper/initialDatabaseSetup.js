@@ -14,6 +14,9 @@ const createFieldPermission = require("../initial_setups/fieldPermission");
 const createSection = require("../initial_setups/section");
 const createViewRelationPermissions = require("../initial_setups/viewRelationPermission");
 const createRelation = require("../initial_setups/relation");
+const createSettingLanguage = require("../initial_setups/setting_language");
+const createSettingCurrency = require("../initial_setups/setting_currency");
+const createSettingTimezone = require("../initial_setups/setting_timezone");
 
 async function insertCollections(conn, userId, projectId) {
 
@@ -160,7 +163,33 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted View Permissions :", result.insertedCount)
         })
     }
+    console.log("TEST::::::1")
+    if (!collections['setting.languages']) {
+        console.log("TEST::::::3")
+        const settingLanguages = await createSettingLanguage()
+        conn.collection('setting.languages').insertMany(settingLanguages, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted Languages :", result.insertedCount)
+        })
+    }
+    console.log("TEST::::::2")
+    if (!collections['setting.currencies']) {
 
+        const settingCurrencies = await createSettingCurrency()
+        conn.collection('setting.currencies').insertMany(settingCurrencies, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted Currencies :", result.insertedCount)
+        })
+    }
+
+    if (!collections['setting.timezones']) {
+
+        const settingTimezones = await createSettingTimezone()
+        conn.collection('setting.timezones').insertMany(settingTimezones, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted Timezone :", result.insertedCount)
+        })
+    }
 }
 
 module.exports = insertCollections

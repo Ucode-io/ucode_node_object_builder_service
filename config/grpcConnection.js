@@ -31,6 +31,7 @@ const webPageService = require("../services/web_pages")
 const cascadingService = require("../services/cascading")
 const tableHelpersService = require("../services/table_helpers");
 const fieldsRelationsService = require("../services/fields_and_relations");
+const settingService = require("../services/setting")
 
 
 const PROTO_URL = __dirname + "/../protos/object_builder_service/object_builder_service.proto";
@@ -79,6 +80,7 @@ module.exports = async function () {
             server.addService(objectBuilderProto.CascadingService.service, cascadingService);
             server.addService(objectBuilderProto.TableHelpersService.service, tableHelpersService);
             server.addService(objectBuilderProto.FieldAndRelationService.service, fieldsRelationsService);
+            server.addService(objectBuilderProto.SettingService.service, settingService);
 
             server.bindAsync(
                 "0.0.0.0:" + cfg.RPCPort,

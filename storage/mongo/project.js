@@ -59,6 +59,9 @@ let projectStore = {
                 mongoDBConn.model('ViewRelation', require('../../schemas/view_relation'))
                 mongoDBConn.model('View', require('../../schemas/view'))
                 mongoDBConn.model('WebPage', require('../../schemas/web_pages'))
+                mongoDBConn.model('Setting.Languages', require('../../schemas/setting_language'))
+                mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
+                mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)
@@ -113,10 +116,10 @@ let projectStore = {
 
             await pool.override(data?.project_id, mongoDBConn)
 
-
             await new Promise((resolve, reject) => {
                 try {
                     mongoDBConn.once("open", async function () {
+                        await insertCollections(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
                         await objectBuilder(false, data.project_id)
                         console.log("Object builder has successfully runned for", data.project_id);
@@ -188,7 +191,7 @@ let projectStore = {
         for (let it of reconnect_data.res) {
             console.log("credentials:::", it.resource_type)
             if (it.resource_type !== "MONGODB") continue
-            // if (it.credentials.database != "paragraf_paragraf_object_builder_service") continue 
+            // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
             try {
                 await projectStore.reconnect(it)
             } catch (err) {

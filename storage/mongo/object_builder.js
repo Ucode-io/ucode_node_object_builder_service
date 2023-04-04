@@ -281,9 +281,9 @@ let objectBuilder = {
         }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        console.log("\n---GetList-->req:", req)
+        // console.log("\n---GetList-->req:", req)
         const mongoConn = await mongoPool.get(req.project_id)
-        console.log("test prod obj builder");
+        // console.log("test prod obj builder");
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -295,14 +295,14 @@ let objectBuilder = {
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
 
-        console.log("\n\n---> T1\n\n", req.table_slug)
+        // console.log("\n\n---> T1\n\n", req.table_slug)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields
         let with_relations = params.with_relations
-        console.log("\n\n---> T2\n\n")
+        // console.log("\n\n---> T2\n\n")
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
         const permission = await permissionTable.models.findOne({
@@ -383,7 +383,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::client_type_id")
-        console.log("TEST::::::3")
+        // console.log("TEST::::::3")
         let views = []
         // console.time("TIME_LOGGING:::app_id")
         if (params.app_id) {
@@ -409,7 +409,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::key_of_keys")
-        console.log("TEST::::::4")
+        // console.log("TEST::::::4")
         // console.time("TIME_LOGGING:::relation")
         const relations = await Relation.find({
             $or: [{
@@ -473,7 +473,7 @@ let objectBuilder = {
         //     ]
         // })
         // console.timeEnd("TIME_LOGGING:::relation")
-        // console.log("TEST::::::5")
+        console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
         if (with_relations) {
@@ -552,7 +552,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::with_relations")
-        // console.log("TEST::::::6")
+        console.log("TEST::::::6")
 
 
         let result = [], count;
@@ -580,7 +580,7 @@ let objectBuilder = {
             params.phone = phone
         }
         // console.timeEnd("TIME_LOGGING:::phone")
-        // console.log("TEST::::::7")
+        console.log("TEST::::::7")
         let populateArr = []
         // console.time("TIME_LOGGING:::limit")
         if (limit !== 0) {
@@ -632,7 +632,7 @@ let objectBuilder = {
                         }
                     }
                 }
-                // console.log("TEST::::::8")
+                console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -665,7 +665,7 @@ let objectBuilder = {
                             //         }
                             //     }
                             // }
-                            console.log("it's dynamic relations");
+                            // console.log("it's dynamic relations");
                         } else {
                             deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
                             for (const deepRelation of deepPopulateRelations) {
@@ -698,7 +698,7 @@ let objectBuilder = {
                             }
                         }
                     }
-                    // console.log("TEST::::::9")
+                    console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -723,8 +723,8 @@ let objectBuilder = {
                     }
                     populateArr.push(papulateTable)
                 }
-                console.log("\n\n-----> T3\n\n", tableInfo, params)
-                // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
+                // console.log("\n\n-----> T3\n\n", tableInfo, params)
+                console.log("::::::::::::::::::: POPULATE ARR", populateArr)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -742,7 +742,7 @@ let objectBuilder = {
                     .populate(populateArr)
                     .lean()
 
-                console.log("\n\n-----> T4\n\n", tableParams)
+                // console.log("\n\n-----> T4\n\n", tableParams)
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }

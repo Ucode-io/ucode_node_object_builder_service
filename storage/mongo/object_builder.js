@@ -157,11 +157,11 @@ let objectBuilder = {
                         relation_id: attributes.table_from.split('#')[1],
                         table_id: relationFieldTable.id
                     })
-                    console.log("rel table::", relationFieldTable)
-                    console.log("field:::", relationField);
+                    // console.log("rel table::", relationFieldTable)
+                    // console.log("field:::", relationField);
                     if (!relationField || !relationFieldTable) {
                         output[field.slug] = 0
-                        console.log("relation field not found")
+                        // console.log("relation field not found")
                         continue
                     }
                     let matchField = relationField ? relationField.slug : req.table_slug + "_id"
@@ -281,9 +281,9 @@ let objectBuilder = {
         }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        // console.log("\n---GetList-->req:", req)
+        console.log("\n---GetList-->req:", req)
         const mongoConn = await mongoPool.get(req.project_id)
-        // console.log("test prod obj builder");
+        console.log("test prod obj builder");
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -295,14 +295,14 @@ let objectBuilder = {
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
 
-        // console.log("\n\n---> T1\n\n", req.table_slug)
+        console.log("\n\n---> T1\n\n", req.table_slug)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields
         let with_relations = params.with_relations
-        // console.log("\n\n---> T2\n\n")
+        console.log("\n\n---> T2\n\n")
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
         const permission = await permissionTable.models.findOne({
@@ -383,7 +383,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::client_type_id")
-        // console.log("TEST::::::3")
+        console.log("TEST::::::3")
         let views = []
         // console.time("TIME_LOGGING:::app_id")
         if (params.app_id) {
@@ -409,7 +409,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::key_of_keys")
-        // console.log("TEST::::::4")
+        console.log("TEST::::::4")
         // console.time("TIME_LOGGING:::relation")
         const relations = await Relation.find({
             $or: [{
@@ -473,7 +473,7 @@ let objectBuilder = {
         //     ]
         // })
         // console.timeEnd("TIME_LOGGING:::relation")
-        console.log("TEST::::::5")
+        // console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
         if (with_relations) {
@@ -552,7 +552,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::with_relations")
-        console.log("TEST::::::6")
+        // console.log("TEST::::::6")
 
 
         let result = [], count;
@@ -580,7 +580,7 @@ let objectBuilder = {
             params.phone = phone
         }
         // console.timeEnd("TIME_LOGGING:::phone")
-        console.log("TEST::::::7")
+        // console.log("TEST::::::7")
         let populateArr = []
         // console.time("TIME_LOGGING:::limit")
         if (limit !== 0) {
@@ -632,7 +632,7 @@ let objectBuilder = {
                         }
                     }
                 }
-                console.log("TEST::::::8")
+                // console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -665,7 +665,7 @@ let objectBuilder = {
                             //         }
                             //     }
                             // }
-                            // console.log("it's dynamic relations");
+                            console.log("it's dynamic relations");
                         } else {
                             deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
                             for (const deepRelation of deepPopulateRelations) {
@@ -698,7 +698,7 @@ let objectBuilder = {
                             }
                         }
                     }
-                    console.log("TEST::::::9")
+                    // console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -723,8 +723,8 @@ let objectBuilder = {
                     }
                     populateArr.push(papulateTable)
                 }
-                // console.log("\n\n-----> T3\n\n", tableInfo, params)
-                console.log("::::::::::::::::::: POPULATE ARR", populateArr)
+                console.log("\n\n-----> T3\n\n", tableInfo, params)
+                // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -742,12 +742,12 @@ let objectBuilder = {
                     .populate(populateArr)
                     .lean()
 
-                // console.log("\n\n-----> T4\n\n", tableParams)
+                console.log("\n\n-----> T4\n\n", tableParams)
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
         // console.timeEnd("TIME_LOGGING:::limit")
-        console.log("TEST::::::10")
+        // console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
         // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
@@ -756,7 +756,7 @@ let objectBuilder = {
         }
         // console.timeEnd("TIME_LOGGING:::result")
 
-        console.log("TEST::::::11")
+        // console.log("TEST::::::11")
         // console.time("TIME_LOGGING:::toField")
         // this function add field permission for each field by role id
         let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
@@ -776,7 +776,7 @@ let objectBuilder = {
             }
         };
         // console.timeEnd("TIME_LOGGING:::toField")
-        console.log("TEST::::::12")
+        // console.log("TEST::::::12")
         // console.time("TIME_LOGGING:::decodedFields")
         for (const field of decodedFields) {
             if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
@@ -808,7 +808,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::decodedFields")
-        console.log("TEST::::::13")
+        // console.log("TEST::::::13")
         // console.time("TIME_LOGGING:::additional_request")
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
@@ -816,7 +816,7 @@ let objectBuilder = {
             additional_param[params.additional_request.additional_field] = { $in: params.additional_request.additional_values }
 
             if (relations.length == 0) {
-                // console.log("test 111/:::");
+                console.log("test 111/:::");
                 additional_results = await tableInfo.models.find({
                     ...additional_param
                 },
@@ -861,7 +861,7 @@ let objectBuilder = {
             result = result.concat(additional_results)
         }
         // console.timeEnd("TIME_LOGGING:::additional_request")
-        // console.log("TEST::::::14")
+        console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         // console.time("TIME_LOGGING:::res_of_result")
@@ -888,10 +888,10 @@ let objectBuilder = {
                             relation_id: attributes.table_from.split('#')[1],
                             table_id: relationFieldTable.id
                         })
-                        // console.log("rel table::", relationFieldTable)
-                        // console.log("field:::", relationField);
+                        console.log("rel table::", relationFieldTable)
+                        console.log("field:::", relationField);
                         if (!relationField || !relationFieldTable) {
-                            // console.log("relation field not found")
+                            console.log("relation field not found")
                             res[field.slug] = 0
                             continue
                         }
@@ -932,7 +932,7 @@ let objectBuilder = {
             })
         }
         // console.timeEnd("TIME_LOGGING:::length")
-        // console.log("TEST::::::15")
+        console.log("TEST::::::15")
         const response = struct.encode({
             count: count,
             response: result,
@@ -940,7 +940,7 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
-        console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
+        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response }
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
@@ -970,7 +970,7 @@ let objectBuilder = {
             const response = struct.decode(res.data)
             const result = response.response
             const decodedFields = response.fields
-            console.log("Ress::", result);
+            // console.log("Ress::", result);
             excelArr = []
             for (const obj of result) {
                 excelObj = {}
@@ -1095,7 +1095,7 @@ let objectBuilder = {
             if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
                 ssl = false
             }
-            console.log("ssl", ssl);
+            // console.log("ssl", ssl);
 
 
             let filepath = "./" + filename
@@ -1118,11 +1118,11 @@ let objectBuilder = {
                 if (error) {
                     return console.log(error);
                 }
-                console.log("uploaded successfully")
+                // console.log("uploaded successfully")
                 fs.unlink(filename, (err => {
                     if (err) console.log(err);
                     else {
-                        console.log("Deleted file: ", filename);
+                        // console.log("Deleted file: ", filename);
                     }
                 }));
             });
@@ -1555,449 +1555,449 @@ let objectBuilder = {
     }),
     getFinancialAnalytics: catchWrapDbObjectBuilder(`${NAMESPACE}.getFinancialAnalytics`, async (req) => {
         try {
-            // const startTime = new Date()
-            // const mongoConn = await mongoPool.get(req.project_id)
-            // const table = mongoConn.models['Table']
-            // const Field = mongoConn.models['Field']
-            // const Relation = mongoConn.models['Relation']
-            // const View = mongoConn.models['View']
-            // const request = struct.decode(req.data)
+            const startTime = new Date()
+            const mongoConn = await mongoPool.get(req.project_id)
+            const table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+            const Relation = mongoConn.models['Relation']
+            const View = mongoConn.models['View']
+            const request = struct.decode(req.data)
            
             // console.log(":::::::: request ", request)
-            // const view = await View.findOne({
-            //     id: request.view_id
-            // })
-            // if (!view) {
-            //     throw new Error("No view with given id")
-            // }
+            const view = await View.findOne({
+                id: request.view_id
+            })
+            if (!view) {
+                throw new Error("No view with given id")
+            }
 
-            // let chartOfAccounts = []
-            // let groupByOptions = []
-            // let field_slug = ""
-            // for (const chartOfAccount of view.attributes?.chart_of_accounts) {
-            //     if (chartOfAccount.field_slug) {
-            //         field_slug = chartOfAccount.field_slug
-            //     }
-            //     groupByOptions.push(chartOfAccount.group_by)
-            //     chartOfAccounts = chartOfAccounts.concat(chartOfAccount.chart_of_account)
-            // }
+            let chartOfAccounts = []
+            let groupByOptions = []
+            let field_slug = ""
+            for (const chartOfAccount of view.attributes?.chart_of_accounts) {
+                if (chartOfAccount.field_slug) {
+                    field_slug = chartOfAccount.field_slug
+                }
+                groupByOptions.push(chartOfAccount.group_by)
+                chartOfAccounts = chartOfAccounts.concat(chartOfAccount.chart_of_account)
+            }
             // console.log(":::::::::::::::::: test 1")
-            // if (field_slug === "") {
-            //     throw new Error("Укажите группу по полям")
-            // }
-            // request[field_slug] = groupByOptions
+            if (field_slug === "") {
+                throw new Error("Укажите группу по полям")
+            }
+            request[field_slug] = groupByOptions
             // console.log(":::::::::::::::::: test 2")
-            // let resp = await objectBuilder.getList({
-            //     project_id: req.project_id,
-            //     table_slug: req.table_slug,
-            //     data: struct.encode(request)
-            // })
+            let resp = await objectBuilder.getList({
+                project_id: req.project_id,
+                table_slug: req.table_slug,
+                data: struct.encode(request)
+            })
             // console.log(":::::::::::::::::: test 3")
-            // const data = struct.decode(resp.data)
-            // const objects = data.response
-            // if (objects.length) {
-            //     for (const obj of objects) {
-            //         obj.amounts = []
-            //     }
-            // }
+            const data = struct.decode(resp.data)
+            const objects = data.response
+            if (objects.length) {
+                for (const obj of objects) {
+                    obj.amounts = []
+                }
+            }
             // console.log(":::::::::::::::::: test 4")
-            // let objStore = new Map()
-            // let cObjStore = new Map()
-            // let totalAmountByMonths = new Map()
-            // let dates = await RangeDate(request.start, request.end, request.interval)
+            let objStore = new Map()
+            let cObjStore = new Map()
+            let totalAmountByMonths = new Map()
+            let dates = await RangeDate(request.start, request.end, request.interval)
             // console.log("::::::::::::::::;; Dates", dates);
 
 
-            // let balance = {
-            //     items: [],
-            //     total: []
-            // }
+            let balance = {
+                items: [],
+                total: []
+            }
 
             // console.log("::::::::::::::::; View ", view )
-            // if (view && view.attributes?.balance && view.attributes.balance?.table_slug && view.attributes.balance?.field_id) {
-            //     // get selected accaunts table
-            //     const req_accaunts_table = {
-            //         table_slug: view.attributes?.balance?.table_slug || "",
-            //         project_id: req.project_id,
-            //         data: struct.encode({})
-            //     }
-            //     let table_accaunts = await objectBuilder.getList(req_accaunts_table)
-            //     table_accaunts = struct.decode(table_accaunts.data)
-            //     const accounts = table_accaunts.response
+            if (view && view.attributes?.balance && view.attributes.balance?.table_slug && view.attributes.balance?.field_id) {
+                // get selected accaunts table
+                const req_accaunts_table = {
+                    table_slug: view.attributes?.balance?.table_slug || "",
+                    project_id: req.project_id,
+                    data: struct.encode({})
+                }
+                let table_accaunts = await objectBuilder.getList(req_accaunts_table)
+                table_accaunts = struct.decode(table_accaunts.data)
+                const accounts = table_accaunts.response
 
-            //     const number_field = await Field.findOne({
-            //         id: view.attributes?.balance.field_id
-            //     })
+                const number_field = await Field.findOne({
+                    id: view.attributes?.balance.field_id
+                })
 
-            //     let map_accounts = {}, map_total_accounts = {}
-            //     for (let acc of accounts) {
-            //         map_total_accounts[acc.guid] = {
-            //             name: acc.name,
-            //             total: acc[number_field.slug]
-            //         }
-            //         map_accounts[acc.guid] = 0
-            //     }
+                let map_accounts = {}, map_total_accounts = {}
+                for (let acc of accounts) {
+                    map_total_accounts[acc.guid] = {
+                        name: acc.name,
+                        total: acc[number_field.slug]
+                    }
+                    map_accounts[acc.guid] = 0
+                }
 
-            //     let map_accounts_by_date = {}
-            //     for (let date of dates) {
-            //         let keyDate = new Date(date.$gte)
-            //         keyDate = addDays(keyDate, 1)
-            //         let key = keyDate.toISOString()
-            //         map_accounts_by_date[key] = { ...map_accounts }
-            //     }
+                let map_accounts_by_date = {}
+                for (let date of dates) {
+                    let keyDate = new Date(date.$gte)
+                    keyDate = addDays(keyDate, 1)
+                    let key = keyDate.toISOString()
+                    map_accounts_by_date[key] = { ...map_accounts }
+                }
 
-            //     const copy_objects = JSON.parse(JSON.stringify(objects))
-            //     for (const obj of copy_objects) {
-            //         console.log("######## TEST 1")
-            //         for (const date of dates) {
-            //             console.log(">>>>>>>>> test 2")
-            //             let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
-            //             let keyDate = new Date(date.$gte)
-            //             keyDate = addDays(keyDate, 1)
-            //             let key = keyDate.toISOString()
-            //             let monthlyAmount = obj.amounts.find(el => el.month === key)
+                const copy_objects = JSON.parse(JSON.stringify(objects))
+                for (const obj of copy_objects) {
+                    // console.log("######## TEST 1")
+                    for (const date of dates) {
+                        // console.log(">>>>>>>>> test 2")
+                        let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
+                        let keyDate = new Date(date.$gte)
+                        keyDate = addDays(keyDate, 1)
+                        let key = keyDate.toISOString()
+                        let monthlyAmount = obj.amounts.find(el => el.month === key)
 
-            //             for (const acc of accounts) {
-            //                 console.log("@@@@@@@@@@@@@@@ test 3")
-            //                 if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
-            //                     for (const option of chartOfAccount.options) {
-            //                         if (option.date_field === "") {
-            //                             continue
-            //                         }
-            //                         const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug.split('#')[0]]
-            //                         let groupBy = req.table_slug + '_id'
-            //                         let groupByWithDollorSign = '$' + req.table_slug + '_id'
-            //                         let sumFieldWithDollowSign = '$' + option.number_field
-            //                         let dateBy = option.date_field
-            //                         let aggregateFunction = "$sum"
-            //                         let accaunt_id = view.attributes?.balance.table_slug ? view.attributes.balance.table_slug + "_id" : ""
+                        for (const acc of accounts) {
+                            // console.log("@@@@@@@@@@@@@@@ test 3")
+                            if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
+                                for (const option of chartOfAccount.options) {
+                                    if (option.date_field === "") {
+                                        continue
+                                    }
+                                    const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug.split('#')[0]]
+                                    let groupBy = req.table_slug + '_id'
+                                    let groupByWithDollorSign = '$' + req.table_slug + '_id'
+                                    let sumFieldWithDollowSign = '$' + option.number_field
+                                    let dateBy = option.date_field
+                                    let aggregateFunction = "$sum"
+                                    let accaunt_id = view.attributes?.balance.table_slug ? view.attributes.balance.table_slug + "_id" : ""
 
-            //                         let params = {}
-            //                         //adding params
-            //                         params[groupBy] = { '$eq': chartOfAccount.object_id }
-            //                         params[dateBy] = date
-            //                         accaunt_id ? params[accaunt_id] = acc.guid : null
+                                    let params = {}
+                                    //adding params
+                                    params[groupBy] = { '$eq': chartOfAccount.object_id }
+                                    params[dateBy] = date
+                                    accaunt_id ? params[accaunt_id] = acc.guid : null
 
-            //                         if (option.filters && option.filters.length) {
-            //                             for (const filter of option.filters) {
-            //                                 let field = optionTable?.fields.find(el => el.id == filter.field_id)
-            //                                 if (field) {
-            //                                     if (filter.value?.length) {
-            //                                         params[field.slug] = { $in: filter.value }
-            //                                     }
-            //                                 }
-            //                             }
-            //                         }
-            //                         const pipelines = [
-            //                             {
-            //                                 '$match': params,
-            //                             }, {
-            //                                 '$group': {
-            //                                     '_id': groupByWithDollorSign,
-            //                                     'res': {
-            //                                         [aggregateFunction]: sumFieldWithDollowSign
-            //                                     }
-            //                                 }
-            //                             }
-            //                         ];
-            //                         const resultOption = await optionTable.models.aggregate(pipelines)
+                                    if (option.filters && option.filters.length) {
+                                        for (const filter of option.filters) {
+                                            let field = optionTable?.fields.find(el => el.id == filter.field_id)
+                                            if (field) {
+                                                if (filter.value?.length) {
+                                                    params[field.slug] = { $in: filter.value }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    const pipelines = [
+                                        {
+                                            '$match': params,
+                                        }, {
+                                            '$group': {
+                                                '_id': groupByWithDollorSign,
+                                                'res': {
+                                                    [aggregateFunction]: sumFieldWithDollowSign
+                                                }
+                                            }
+                                        }
+                                    ];
+                                    const resultOption = await optionTable.models.aggregate(pipelines)
 
-            //                         if (resultOption.length) {
-            //                             if (option.type === "debet") {
-            //                                 map_accounts_by_date[key][acc.guid] += resultOption[0].res
-            //                             } else if (option.type === "credit") {
-            //                                 map_accounts_by_date[key][acc.guid] -= resultOption[0].res
-            //                             }
-            //                         }
-            //                     }
-            //                     if (!monthlyAmount) {
-            //                         monthlyAmount = {
-            //                             amount: 0,
-            //                             month: key
-            //                         }
-            //                     }
-            //                 } else {
-            //                     monthlyAmount = {
-            //                         amount: 0,
-            //                         month: key
-            //                     }
-            //                 }
-            //             }
-
-
-            //             obj.amounts.push(monthlyAmount)
-            //             let parentObj = copy_objects.find(el => el.guid === obj[req.table_slug + "_id"])
-
-            //             // storing the object to calculate the percentage faster but consumes more memory
-            //             cObjStore.set(obj.guid, obj)
-            //         }
-            //     }
-
-            //     let arr = []
-            //     for (let key in map_accounts_by_date) {
-            //         arr.push({
-            //             [key]: map_accounts_by_date[key]
-            //         })
-            //     }
-
-            //     let items = []
-            //     for (let key in map_total_accounts) {
-            //         items.push({
-            //             name: map_total_accounts[key].name,
-            //             id: key
-            //         })
-            //     }
+                                    if (resultOption.length) {
+                                        if (option.type === "debet") {
+                                            map_accounts_by_date[key][acc.guid] += resultOption[0].res
+                                        } else if (option.type === "credit") {
+                                            map_accounts_by_date[key][acc.guid] -= resultOption[0].res
+                                        }
+                                    }
+                                }
+                                if (!monthlyAmount) {
+                                    monthlyAmount = {
+                                        amount: 0,
+                                        month: key
+                                    }
+                                }
+                            } else {
+                                monthlyAmount = {
+                                    amount: 0,
+                                    month: key
+                                }
+                            }
+                        }
 
 
-            //     let total_arr = []
-            //     for (let i = 0; i < arr.length; i++) {
+                        obj.amounts.push(monthlyAmount)
+                        let parentObj = copy_objects.find(el => el.guid === obj[req.table_slug + "_id"])
 
-            //         for (let key in arr[i]) { // [0]
+                        // storing the object to calculate the percentage faster but consumes more memory
+                        cObjStore.set(obj.guid, obj)
+                    }
+                }
 
-            //             let monthlyCount = 0
-            //             for (let keyJ in arr[i][key]) {  //  account id keys
+                let arr = []
+                for (let key in map_accounts_by_date) {
+                    arr.push({
+                        [key]: map_accounts_by_date[key]
+                    })
+                }
 
-            //                 let count = 0
-            //                 for (let j = i + 1; j < arr.length; j++) { // to next steps
+                let items = []
+                for (let key in map_total_accounts) {
+                    items.push({
+                        name: map_total_accounts[key].name,
+                        id: key
+                    })
+                }
 
-            //                     for (let keyK in arr[j]) { // [0]
 
-            //                         for (let keyH in arr[j][keyK]) {  //  account id keys
-            //                             if (keyH == keyJ) {
-            //                                 count += arr[j][keyK][keyH]
-            //                             }
-            //                         }
-            //                     }
-            //                 }
-            //                 monthlyCount += map_total_accounts[keyJ]['total'] - count
-            //                 let account = null
+                let total_arr = []
+                for (let i = 0; i < arr.length; i++) {
 
-            //                 for (let acc of items) {
-            //                     if (acc.id === keyJ) {
-            //                         account = acc
-            //                     }
-            //                 }
+                    for (let key in arr[i]) { // [0]
 
-            //                 if (account) {
-            //                     if (!account.amounts) {
-            //                         account.amounts = [{ month: key, amount: map_total_accounts[keyJ]['total'] - count }]
-            //                     } else {
-            //                         account.amounts.push({ month: key, amount: map_total_accounts[keyJ]['total'] - count })
-            //                     }
-            //                 }
-            //             }
-            //             total_arr.push({ month: key, amount: monthlyCount })
-            //         }
-            //     }
+                        let monthlyCount = 0
+                        for (let keyJ in arr[i][key]) {  //  account id keys
 
-            //     balance.items = items
-            //     balance.total = total_arr
-            // }
+                            let count = 0
+                            for (let j = i + 1; j < arr.length; j++) { // to next steps
 
-            // for (let el of balance.items) {
-            //     console.log(el);
-            // }
+                                for (let keyK in arr[j]) { // [0]
 
-            // for (const obj of objects) {
-            //     for (const date of dates) {
-            //         let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
-            //         let keyDate = new Date(date.$gte)
-            //         keyDate = addDays(keyDate, 1)
-            //         let key = keyDate.toISOString()
-            //         let monthlyAmount = obj.amounts.find(el => el.month === key)
-            //         if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
-            //             for (const option of chartOfAccount.options) {
-            //                 if (option.date_field === "") {
-            //                     continue
-            //                 }
-            //                 const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug.split('#')[0]]
-            //                 let groupBy = req.table_slug + '_id'
-            //                 let groupByWithDollorSign = '$' + req.table_slug + '_id'
-            //                 let sumFieldWithDollowSign = '$' + option.number_field
-            //                 let dateBy = option.date_field
-            //                 let aggregateFunction = "$sum"
+                                    for (let keyH in arr[j][keyK]) {  //  account id keys
+                                        if (keyH == keyJ) {
+                                            count += arr[j][keyK][keyH]
+                                        }
+                                    }
+                                }
+                            }
+                            monthlyCount += map_total_accounts[keyJ]['total'] - count
+                            let account = null
 
-            //                 let params = {}
-            //                 //adding params
-            //                 params[groupBy] = { '$eq': chartOfAccount.object_id }
-            //                 params[dateBy] = date
+                            for (let acc of items) {
+                                if (acc.id === keyJ) {
+                                    account = acc
+                                }
+                            }
 
-            //                 if (option.filters && option.filters.length) {
-            //                     for (const filter of option.filters) {
-            //                         let field = optionTable?.fields.find(el => el.id == filter.field_id)
-            //                         if (field) {
-            //                             if (filter.value?.length) {
-            //                                 params[field.slug] = { $in: filter.value }
-            //                             }
-            //                         }
-            //                     }
-            //                 }
-            //                 const pipelines = [
-            //                     {
-            //                         '$match': params,
-            //                     }, {
-            //                         '$group': {
-            //                             '_id': groupByWithDollorSign,
-            //                             'res': {
-            //                                 [aggregateFunction]: sumFieldWithDollowSign
-            //                             }
-            //                         }
-            //                     }
-            //                 ];
-            //                 const resultOption = await optionTable.models.aggregate(pipelines)
-            //                 if (resultOption.length) {
-            //                     if (option.type === "debet") {
-            //                         if (monthlyAmount) {
-            //                             monthlyAmount.amount += resultOption[0].res
-            //                         } else {
-            //                             monthlyAmount = {
-            //                                 amount: resultOption[0].res,
-            //                                 month: key
-            //                             }
-            //                         }
+                            if (account) {
+                                if (!account.amounts) {
+                                    account.amounts = [{ month: key, amount: map_total_accounts[keyJ]['total'] - count }]
+                                } else {
+                                    account.amounts.push({ month: key, amount: map_total_accounts[keyJ]['total'] - count })
+                                }
+                            }
+                        }
+                        total_arr.push({ month: key, amount: monthlyCount })
+                    }
+                }
 
-            //                     } else if (option.type === "credit") {
-            //                         if (monthlyAmount) {
-            //                             monthlyAmount.amount -= resultOption[0].res
-            //                         } else {
-            //                             monthlyAmount = {
-            //                                 amount: -resultOption[0].res,
-            //                                 month: key
-            //                             }
-            //                         }
-            //                     }
-            //                 }
-            //             }
-            //             if (!monthlyAmount) {
-            //                 monthlyAmount = {
-            //                     amount: 0,
-            //                     month: key
-            //                 }
-            //             }
-            //         } else {
-            //             monthlyAmount = {
-            //                 amount: 0,
-            //                 month: key
-            //             }
-            //         }
-            //         obj.amounts.push(monthlyAmount)
-            //         let parentObj = objects.find(el => el.guid === obj[req.table_slug + "_id"])
-            //         while (parentObj) {
-            //             let parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
-            //             if (parentMonthlyAmount && monthlyAmount) {
-            //                 parentMonthlyAmount.amount += monthlyAmount.amount
-            //             } else if (monthlyAmount) {
-            //                 parentMonthlyAmount = {
-            //                     amount: monthlyAmount.amount,
-            //                     month: monthlyAmount.month
-            //                 }
-            //                 parentObj.amounts.push(parentMonthlyAmount)
-            //             } else {
-            //                 parentMonthlyAmount = {
-            //                     amount: 0,
-            //                     month: key
-            //                 }
-            //                 parentObj.amounts.push(parentMonthlyAmount)
-            //             }
-            //             parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"])
-            //             if (parentObj) {
-            //                 parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
-            //             }
-            //         }
-            //     }
-            //     // storing the object to calculate the percentage faster but consumes more memory
-            //     objStore.set(obj.guid, obj)
-            // }
+                balance.items = items
+                balance.total = total_arr
+            }
 
-            // for (const obj of objects) {
-            //     if (obj[req.table_slug + "_id"] == null) {
-            //         for (const monthlyAmount of obj.amounts) {
-            //             let totalAmount = totalAmountByMonths.get(monthlyAmount.month)
-            //             if (totalAmount) {
-            //                 totalAmount += monthlyAmount.amount
-            //             } else {
-            //                 totalAmount = monthlyAmount.amount
-            //             }
-            //             totalAmountByMonths.set(monthlyAmount.month, totalAmount)
-            //         }
-            //     }
-            // }
+            for (let el of balance.items) {
+                console.log(el);
+            }
 
-            // switch (view.attributes?.percent?.type?.toLowerCase()) {
-            //     case "parent":
-            //         for (const obj of objects) {
-            //             if (obj[req.table_slug + "_id"] == null) {
-            //                 for (const monthlyAmount of obj.amounts) {
-            //                     monthlyAmount.percentage = 100
-            //                 }
-            //                 continue
-            //             }
-            //             let parentObj = objStore.get(obj[req.table_slug + "_id"])
-            //             for (const monthlyAmount of obj.amounts) {
-            //                 let monthlyAmountParent = parentObj?.amounts.find(el => el.month === monthlyAmount.month)
-            //                 if (monthlyAmountParent && monthlyAmountParent.amount != 0) {
-            //                     monthlyAmount.percentage = monthlyAmount.amount / monthlyAmountParent.amount * 100
-            //                 } else {
-            //                     monthlyAmount.percentage = 0
-            //                 }
-            //             }
-            //         }
-            //         break;
-            //     case "total":
-            //         for (const obj of objects) {
-            //             for (const monthlyAmount of obj.amounts) {
-            //                 let totalAmount = totalAmountByMonths.get(monthlyAmount.month)
-            //                 if (totalAmount && totalAmount != 0) {
-            //                     monthlyAmount.percentage = monthlyAmount.amount / totalAmount * 100
-            //                 } else {
-            //                     monthlyAmount.percentage = 0
-            //                 }
-            //             }
-            //         }
-            //         break;
-            //     case "last_parent":
-            //         for (const obj of objects) {
-            //             for (const monthlyAmount of obj.amounts) {
-            //                 let parentObj = objStore.get(obj[req.table_slug + "_id"])
-            //                 if (parentObj) {
-            //                     while (objStore.get(parentObj[req.table_slug + "_id"])) {
-            //                         parentObj = objStore.get(parentObj[req.table_slug + "_id"])
-            //                     }
-            //                     let monthlyAmountParent = parentObj?.amounts.find(el => el.month === monthlyAmount.month)
-            //                     if (monthlyAmountParent && monthlyAmountParent.amount != 0) {
-            //                         monthlyAmount.percentage = monthlyAmount.amount / monthlyAmountParent.amount * 100
-            //                     }
-            //                 } else {
-            //                     monthlyAmount.percentage = 100
-            //                 }
-            //             }
-            //         }
-            //         break;
-            //     case "field":
-            //         for (const obj of objects) {
-            //             for (const monthlyAmount of obj.amounts) {
-            //                 let monthlyAmountParent = objStore.get(obj[req.table_slug + "_id"])?.amounts.find(el => el.month === monthlyAmount.month)
-            //                 if (monthlyAmountParent && monthlyAmountParent.amount != 0) {
-            //                     monthlyAmount.percentage = monthlyAmount.amount / monthlyAmountParent.amount * 100
-            //                 } else {
-            //                     monthlyAmount.percentage = 0
-            //                 }
-            //             }
-            //         }
-            //         break;
-            // }
+            for (const obj of objects) {
+                for (const date of dates) {
+                    let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
+                    let keyDate = new Date(date.$gte)
+                    keyDate = addDays(keyDate, 1)
+                    let key = keyDate.toISOString()
+                    let monthlyAmount = obj.amounts.find(el => el.month === key)
+                    if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
+                        for (const option of chartOfAccount.options) {
+                            if (option.date_field === "") {
+                                continue
+                            }
+                            const optionTable = (await ObjectBuilder(true, req.project_id))[option.table_slug.split('#')[0]]
+                            let groupBy = req.table_slug + '_id'
+                            let groupByWithDollorSign = '$' + req.table_slug + '_id'
+                            let sumFieldWithDollowSign = '$' + option.number_field
+                            let dateBy = option.date_field
+                            let aggregateFunction = "$sum"
 
-            // let totalAmounts = []
-            // for (const [month, total] of totalAmountByMonths.entries()) {
-            //     totalAmounts.push({ month: month, amount: total })
-            // }
-            // data.total_amount = totalAmounts
-            // data.balance = balance
-            // const endTime = new Date()
+                            let params = {}
+                            //adding params
+                            params[groupBy] = { '$eq': chartOfAccount.object_id }
+                            params[dateBy] = date
+
+                            if (option.filters && option.filters.length) {
+                                for (const filter of option.filters) {
+                                    let field = optionTable?.fields.find(el => el.id == filter.field_id)
+                                    if (field) {
+                                        if (filter.value?.length) {
+                                            params[field.slug] = { $in: filter.value }
+                                        }
+                                    }
+                                }
+                            }
+                            const pipelines = [
+                                {
+                                    '$match': params,
+                                }, {
+                                    '$group': {
+                                        '_id': groupByWithDollorSign,
+                                        'res': {
+                                            [aggregateFunction]: sumFieldWithDollowSign
+                                        }
+                                    }
+                                }
+                            ];
+                            const resultOption = await optionTable.models.aggregate(pipelines)
+                            if (resultOption.length) {
+                                if (option.type === "debet") {
+                                    if (monthlyAmount) {
+                                        monthlyAmount.amount += resultOption[0].res
+                                    } else {
+                                        monthlyAmount = {
+                                            amount: resultOption[0].res,
+                                            month: key
+                                        }
+                                    }
+
+                                } else if (option.type === "credit") {
+                                    if (monthlyAmount) {
+                                        monthlyAmount.amount -= resultOption[0].res
+                                    } else {
+                                        monthlyAmount = {
+                                            amount: -resultOption[0].res,
+                                            month: key
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (!monthlyAmount) {
+                            monthlyAmount = {
+                                amount: 0,
+                                month: key
+                            }
+                        }
+                    } else {
+                        monthlyAmount = {
+                            amount: 0,
+                            month: key
+                        }
+                    }
+                    obj.amounts.push(monthlyAmount)
+                    let parentObj = objects.find(el => el.guid === obj[req.table_slug + "_id"])
+                    while (parentObj) {
+                        let parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
+                        if (parentMonthlyAmount && monthlyAmount) {
+                            parentMonthlyAmount.amount += monthlyAmount.amount
+                        } else if (monthlyAmount) {
+                            parentMonthlyAmount = {
+                                amount: monthlyAmount.amount,
+                                month: monthlyAmount.month
+                            }
+                            parentObj.amounts.push(parentMonthlyAmount)
+                        } else {
+                            parentMonthlyAmount = {
+                                amount: 0,
+                                month: key
+                            }
+                            parentObj.amounts.push(parentMonthlyAmount)
+                        }
+                        parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"])
+                        if (parentObj) {
+                            parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
+                        }
+                    }
+                }
+                // storing the object to calculate the percentage faster but consumes more memory
+                objStore.set(obj.guid, obj)
+            }
+
+            for (const obj of objects) {
+                if (obj[req.table_slug + "_id"] == null) {
+                    for (const monthlyAmount of obj.amounts) {
+                        let totalAmount = totalAmountByMonths.get(monthlyAmount.month)
+                        if (totalAmount) {
+                            totalAmount += monthlyAmount.amount
+                        } else {
+                            totalAmount = monthlyAmount.amount
+                        }
+                        totalAmountByMonths.set(monthlyAmount.month, totalAmount)
+                    }
+                }
+            }
+
+            switch (view.attributes?.percent?.type?.toLowerCase()) {
+                case "parent":
+                    for (const obj of objects) {
+                        if (obj[req.table_slug + "_id"] == null) {
+                            for (const monthlyAmount of obj.amounts) {
+                                monthlyAmount.percentage = 100
+                            }
+                            continue
+                        }
+                        let parentObj = objStore.get(obj[req.table_slug + "_id"])
+                        for (const monthlyAmount of obj.amounts) {
+                            let monthlyAmountParent = parentObj?.amounts.find(el => el.month === monthlyAmount.month)
+                            if (monthlyAmountParent && monthlyAmountParent.amount != 0) {
+                                monthlyAmount.percentage = monthlyAmount.amount / monthlyAmountParent.amount * 100
+                            } else {
+                                monthlyAmount.percentage = 0
+                            }
+                        }
+                    }
+                    break;
+                case "total":
+                    for (const obj of objects) {
+                        for (const monthlyAmount of obj.amounts) {
+                            let totalAmount = totalAmountByMonths.get(monthlyAmount.month)
+                            if (totalAmount && totalAmount != 0) {
+                                monthlyAmount.percentage = monthlyAmount.amount / totalAmount * 100
+                            } else {
+                                monthlyAmount.percentage = 0
+                            }
+                        }
+                    }
+                    break;
+                case "last_parent":
+                    for (const obj of objects) {
+                        for (const monthlyAmount of obj.amounts) {
+                            let parentObj = objStore.get(obj[req.table_slug + "_id"])
+                            if (parentObj) {
+                                while (objStore.get(parentObj[req.table_slug + "_id"])) {
+                                    parentObj = objStore.get(parentObj[req.table_slug + "_id"])
+                                }
+                                let monthlyAmountParent = parentObj?.amounts.find(el => el.month === monthlyAmount.month)
+                                if (monthlyAmountParent && monthlyAmountParent.amount != 0) {
+                                    monthlyAmount.percentage = monthlyAmount.amount / monthlyAmountParent.amount * 100
+                                }
+                            } else {
+                                monthlyAmount.percentage = 100
+                            }
+                        }
+                    }
+                    break;
+                case "field":
+                    for (const obj of objects) {
+                        for (const monthlyAmount of obj.amounts) {
+                            let monthlyAmountParent = objStore.get(obj[req.table_slug + "_id"])?.amounts.find(el => el.month === monthlyAmount.month)
+                            if (monthlyAmountParent && monthlyAmountParent.amount != 0) {
+                                monthlyAmount.percentage = monthlyAmount.amount / monthlyAmountParent.amount * 100
+                            } else {
+                                monthlyAmount.percentage = 0
+                            }
+                        }
+                    }
+                    break;
+            }
+
+            let totalAmounts = []
+            for (const [month, total] of totalAmountByMonths.entries()) {
+                totalAmounts.push({ month: month, amount: total })
+            }
+            data.total_amount = totalAmounts
+            data.balance = balance
+            const endTime = new Date()
 
             // console.log(":::::::::::::::::::::::::::: TIME ", endTime - startTime)
-            // return { table_slug: req.table_slug, data: struct.encode(data) }
-            return { table_slug: "ok", data: struct.encode({}) }
+            return { table_slug: req.table_slug, data: struct.encode(data) }
+            // return { table_slug: "ok", data: struct.encode({}) }
             // return {}
         } catch (err) {
 

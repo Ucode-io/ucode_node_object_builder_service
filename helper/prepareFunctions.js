@@ -25,7 +25,7 @@ let prepareFunction = {
             ownGuid = data.guid
         }
         console.log("project id::", req.project_id);
-        console.log("project id::", data);
+        // console.log("project id::", data);
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
         let tableData = await table.findOne(
             {

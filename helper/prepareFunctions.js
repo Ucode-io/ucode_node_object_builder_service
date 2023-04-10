@@ -25,7 +25,7 @@ let prepareFunction = {
             ownGuid = data.guid
         }
         console.log("project id::", req.project_id);
-        console.log("project id::", data);
+        // console.log("project id::", data);
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
         let tableData = await table.findOne(
             {
@@ -105,13 +105,25 @@ let prepareFunction = {
         })
         if (incrementNum) {
             let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+            console.log(">>>>>>>>>>>>>>> last ", last)
+            console.log(">>>>>>>>>>>>>>> increment field ", incrementNum)
+
             let attributes = struct.decode(incrementNum.attributes)
             let incrementLength = attributes.prefix?.length
             if (!last || !last[incrementNum.slug]) {
-                data[incrementNum.slug] = attributes.prefix + '1'.padStart(attributes.digit_number, '0')
+                data[incrementNum.slug] = (attributes.prefix ? attributes.prefix : "") + '1'.padStart(attributes.digit_number, '0')
             } else {
-                nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug]?.length)) + 1
-                data[incrementNum.slug] = attributes.prefix + nextIncrement.toString().padStart(attributes.digit_number, '0')
+                if(incrementLength) {
+                    nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug]?.length)) + 1
+                    console.log("@@@@@@@@@@  ", nextIncrement)
+                    data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
+    
+                } else {
+                    nextIncrement = parseInt(last[incrementNum.slug]) + 1
+                    console.log("!!!!!!!! ", nextIncrement)
+                    data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
+                }
+                
             }
         }
 

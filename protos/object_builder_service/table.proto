@@ -15,7 +15,7 @@ service TableService {
     rpc Delete(TablePrimaryKey) returns (google.protobuf.Empty) {}
 
     rpc GetListTableHistory(GetTableHistoryRequest) returns (GetTableHistoryResponse) {}
-    rpc GetTableHistoryById(TableHistoryPrimaryKey) returns (TableHistory) {}
+    rpc GetTableHistoryById(TableHistoryPrimaryKey) returns (Table) {}
     rpc RevertTableHistory(TableHistoryPrimaryKey) returns (TableHistory) {}
     rpc InsertVersionsToCommit(InsertVersionsToCommitRequest) returns (TableHistory) {}
 }

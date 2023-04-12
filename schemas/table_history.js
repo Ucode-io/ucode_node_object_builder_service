@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 
-const TableSchema = mongoose.Schema(
+const TableHistorySchema = mongoose.Schema(
     {
+        guid: {
+            type: String,
+            default: v4
+        },
         id: {
             type: String,
-            default: v4,
-            // unique: true
+            default: v4
         },
         label: {
             type: String,
@@ -40,13 +43,12 @@ const TableSchema = mongoose.Schema(
         version_ids: [{
             type: String
         }],
-        // commit_id: {
-        //     type: Number,
-        //     required: [true, "commit_id is required"],
-        // },
-        commit_guid: {
+        action_time: {
+            type: Date
+        },
+        action_type: {
             type: String,
-            // required: [true, "commit_guid is required"],
+            enum: ["CREATE", "UPDATE", "DELETE", "INITIAL"]
         }
     },
     {
@@ -56,5 +58,5 @@ const TableSchema = mongoose.Schema(
     }
 );
 
-TableSchema.index({ 'slug': 1, 'deleted_at': 1, }, { unique: true });
-module.exports = TableSchema
+TableHistorySchema.index({ 'slug': 1, 'guid': 1, }, { unique: true });
+module.exports = TableHistorySchema

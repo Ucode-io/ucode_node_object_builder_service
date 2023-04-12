@@ -19,10 +19,23 @@ let tableStore = {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
+            const TableHistory = mongoConn.models['Table_history']
             const App = mongoConn.models['App']
 
             const table = new Table(data);
             const response = await table.save();
+            if(response) {
+                let payload = {}
+                
+                payload = Object.assign(payload, response._doc)
+                delete payload._id
+                payload.action_type = "CREATE",
+                payload.action_time = new Date()
+                const history_resp = await TableHistory.create(payload)
+                
+                response.commit_guid = history_resp.guid
+                await response.save()
+            }
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -68,19 +81,30 @@ let tableStore = {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
+            const TableHistory = mongoConn.models['Table_history']
 
             data.is_changed = true
-            const tableBeforeUpdate = await Table.findOne({
+            let del_payload = {id: data.id, version_ids: []}
+            if(data.version_id) {
+                del_payload.version_ids = { $in: [data.version_id] }
+            }
+            const tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id
-            })
-            const table = await Table.updateOne(
-                {
-                    id: data.id,
-                },
-                {
-                    $set: data
-                }
-            )
+            }, {new: true})
+            const table = await Table.create(data)
+            if(table) {
+                let payload = {}
+                
+                payload = Object.assign(payload, table._doc)
+                delete payload._id
+                payload.action_type = "UPDATE",
+                payload.action_time = new Date()
+                const history_resp = await TableHistory.create(payload)
+                
+                table.commit_guid = history_resp.guid
+
+                await table.save()
+            }
             data["older_slug"] = tableBeforeUpdate.slug
             let event = {}
             event.payload = data
@@ -118,21 +142,6 @@ let tableStore = {
             throw err
         }
     }),
-    getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
-        try {
-            const mongoConn = await mongoPool.get(data.project_id)
-            const Table = mongoConn.models['Table']
-            const table = await Table.findOne({
-                id: req.id,
-                deleted_at: "1970-01-01T18:00:00.000+00:00",
-            });
-
-            return table;
-        } catch (err) {
-            throw err
-        }
-
-    }),
     get: catchWrapDb(`${NAMESPACE}.find`, async (data) => {
         try {
 
@@ -158,19 +167,22 @@ let tableStore = {
                 deleted_at: "1970-01-01T18:00:00.000+00:00",
                 name: RegExp(data.search, "i")
             }
+
+            let params = {version_ids: [], deleted_at: "1970-01-01T18:00:00.000+00:00",}
+            if(data.version_id) {
+                params.version_ids = { $in: [data.version_id] }
+            }
             const tables = await Table.find(
-                {
-                    deleted_at: "1970-01-01T18:00:00.000+00:00",
-                    name: RegExp(data.search, "i")
-                },
+                params,
                 null,
                 {
                     sort: { created_at: -1 }
                 }
-            ).skip(data.offset)
-                .limit(data.limit);
+            )
+            .skip(data.offset)
+            .limit(data.limit);
 
-            const count = await Table.countDocuments(query);
+            const count = await Table.countDocuments(params);
             return { tables, count };
         } catch (err) {
             throw err
@@ -182,7 +194,12 @@ let tableStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
 
-            const table = await Table.findOne({ id: data.id });
+            let params = {id: data.id, version_ids: []}
+            if(data.version_id) {
+                params.version_ids = { $in: [data.version_id] }
+            }
+
+            const table = await Table.findOne(params, {}, { sort: { created_at: -1 }});
 
             return table;
 
@@ -190,22 +207,36 @@ let tableStore = {
             throw err
         }
     }),
-
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
+            const TableHistory = mongoConn.models['Table_history']
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
 
-            const table = await Table.findOne({
-                id: data.id
-            })
+            let payload = {id: data.id, version_ids: []}
+            if(data.version_id) {
+                payload.version_ids = { $in: [data.version_id] }
+            }
+            const table = await Table.findOne(payload)
+            if(!table) throw new Error("Table not found with given parameters")
+            if(table) {
+                let payload = {}
+                
+                payload = Object.assign(payload, table._doc)
+                delete payload._id
+                payload.action_type = "DELETE",
+                payload.action_time = new Date()
+                const history_resp = await TableHistory.create(payload)
+                
+                table.commit_guid = history_resp.guid
+
+                await table.save()
+            }
             const resp = await Table.updateOne(
-                {
-                    id: data.id
-                },
+                payload,
                 {
                     $set: {
                         deleted_at: Date.now(),

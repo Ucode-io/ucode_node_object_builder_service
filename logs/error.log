@@ -18,3 +18,164 @@
     }
   }
 }
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T05:26:28.930Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-12T05:26:28.930Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T05:27:17.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: table.save(...).lean is not a function',
+  level: 'error',
+  timestamp: '2023-04-12T05:27:17.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T05:31:21.929Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "[services.table].create - error: Cannot read property 'create' of undefined",
+  level: 'error',
+  timestamp: '2023-04-12T05:31:21.930Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T05:33:36.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "[services.table].create - error: Cannot read property 'create' of undefined",
+  level: 'error',
+  timestamp: '2023-04-12T05:33:36.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T05:37:17.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: No _id found on document!',
+  level: 'error',
+  timestamp: '2023-04-12T05:37:17.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T05:41:25.932Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: No _id found on document!',
+  level: 'error',
+  timestamp: '2023-04-12T05:41:25.933Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T05:47:14.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: No _id found on document!',
+  level: 'error',
+  timestamp: '2023-04-12T05:47:14.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T05:52:43.399Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Table_history validation failed: slug: Table must have slug, label: Table must have label',
+  level: 'error',
+  timestamp: '2023-04-12T05:52:43.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T05:56:45.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-04-12T05:56:45.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-12T06:00:34.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-04-12T06:00:34.291Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-04-12T06:10:16.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.table.delete: failed with error: Cannot read property 'slug' of null",
+  level: 'error',
+  timestamp: '2023-04-12T09:07:52.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.delete: failed with error: Table not found with given parameters',
+  level: 'error',
+  timestamp: '2023-04-12T09:14:35.138Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

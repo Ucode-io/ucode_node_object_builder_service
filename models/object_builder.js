@@ -10,7 +10,7 @@ let mongooseObject = {};
 
 async function buildModels(is_build = true, project_id) {
 
-    console.log('REQUEST CAME TO MODELS BUILDER FOR', project_id)
+    // console.log('REQUEST CAME TO MODELS BUILDER FOR', project_id)
 
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')

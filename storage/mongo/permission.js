@@ -577,7 +577,8 @@ let permission = {
         for (let app of req?.data?.apps) {
             for (let table of app?.tables) {
                 let isHaveCondition = false
-                if (table.automatic_filters?.length) {
+                let lengthKeys = Object.keys(table.automatic_filters) ? Object.keys(table.automatic_filters).length : false
+                if (lengthKeys) {
                     isHaveCondition = true
                 }
                 if (table?.record_permissions?.guid) {
@@ -596,9 +597,9 @@ let permission = {
                             }
                         },
                         {
-                            upsert: false
+                            upsert: false,
                         }
-                    )
+                    )                  
                     
                 } else {
                     await RecordPermission.create(

@@ -228,7 +228,7 @@ let viewStore = {
                     table_to: decodedData.linked_table_slug
                 }],
                 $and: [{
-                type: "Many2Many"
+                    type: "Many2Many"
                 }]
             })
             console.log("TEST:::::::::::::3")
@@ -286,15 +286,18 @@ let viewStore = {
             })
             console.log("TEST:::::::::::::5")
             for (const relation of relations) {
-                console.log("relation::::", relation)
+                // console.log("relation::::", relation)
                 let relation_field = decodedData.linked_table_slug + "_id"
-                let m2mrelation_field = decodedData.linked_table_slug + "_ids"
+                // let m2mrelation_field = decodedData.linked_table_slug + "_ids"
+
                 let response = await object_builder[relation.table_from].models.find({
-                    $or: [{ [relation_field]: decodedData.linked_object_id },
-                    { [m2mrelation_field]: decodedData.linked_object_id }
-                    ]
+                    // '$or': [
+                    //     { [relation_field]: decodedData.linked_object_id },
+                    //     { [m2mrelation_field]: decodedData.linked_object_id }
+                    // ]
+                    [relation_field]: decodedData.linked_object_id
                 })
-                // console.log(response)
+                
                 if (response) {
                     output[relation.table_from] = response
                 } else {
@@ -458,7 +461,9 @@ let viewStore = {
                     const field = await Field.findOne({
                         relation_id: relation.id
                     })
-                    relatedTable.push(field?.slug + "_data")
+                    if (field) {
+                        relatedTable.push(field?.slug + "_data")
+                    }
                 }
                 for (const relation of relationsM2M) {
                     console.log("m2m:::::", relation)

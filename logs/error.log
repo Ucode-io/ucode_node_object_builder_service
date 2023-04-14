@@ -18,3 +18,10 @@
     }
   }
 }
+{
+  message: 'service.object_builder.getFinancialAnalytics: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-14T04:10:42.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

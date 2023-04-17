@@ -3725,3 +3725,98 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T04:39:45.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T04:39:45.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T04:39:45.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T04:39:45.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T04:39:53.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T04:41:23.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T04:51:30.323Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T04:51:30.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T04:51:30.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T04:51:30.327Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T04:51:30.993Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

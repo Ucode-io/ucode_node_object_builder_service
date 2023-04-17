@@ -179,3 +179,45 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.table.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-04-17T05:11:03.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-17T05:17:30.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-04-17T05:17:30.660Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: failed with error: req is not defined',
+  level: 'error',
+  timestamp: '2023-04-17T06:04:17.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: failed with error: TableHistory.find(...).map is not a function',
+  level: 'error',
+  timestamp: '2023-04-17T07:09:21.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: failed with error: Table not found with given parameters',
+  level: 'error',
+  timestamp: '2023-04-17T07:24:41.388Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

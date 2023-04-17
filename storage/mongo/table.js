@@ -297,6 +297,44 @@ let tableStore = {
         }
 
     }),
+    GetListTableHistory: catchWrapDb(`${NAMESPACE}.GetListTableHistory`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+            const TableHistory = mongoConn.models['Table_history']
+
+            const histories = (await TableHistory.find({id: data.table_id}).sort({created_at: -1})).map(el => {
+                return {
+                    ...el,
+                    id: el.guid,
+                    created_at: el.created_at
+                }
+            })
+            
+            return { items: histories };
+        } catch (err) {
+            throw err
+        }
+
+    }),
+    GetTableHistoryById: catchWrapDb(`${NAMESPACE}.GetTableHistoryById`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+            const TableHistory = mongoConn.models['Table_history']
+
+            const table = await TableHistory.findOne({guid: data.id})
+            if(!table) {
+                throw new Error("Table not found with given parameters")
+            }
+            
+            console.log("::::: >>>" , table)
+            return table
+        } catch (err) {
+            throw err
+        }
+
+    }),
 };
 
 module.exports = tableStore;

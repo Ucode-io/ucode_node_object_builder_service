@@ -75,6 +75,10 @@ const tableService = {
     GetByID: catchWrapService(`service.table.getByID`, tableStore.getByID),
     GetAll: catchWrapService(`service.table.getAll`, tableStore.getAll),
     Delete: catchWrapService(`service.table.delete`, tableStore.delete),
+    GetListTableHistory: catchWrapService(`service.table.GetListTableHistory`, tableStore.GetListTableHistory),
+    GetTableHistoryById: catchWrapService(`service.table.GetTableHistoryById`, tableStore.GetTableHistoryById),
+    RevertTableHistory: catchWrapService(`service.table.RevertTableHistory`, tableStore.RevertTableHistory),
+    InsertVersionsToCommit: catchWrapService(`service.table.InsertVersionsToCommit`, tableStore.InsertVersionsToCommit),
 };
 
 module.exports = tableService;

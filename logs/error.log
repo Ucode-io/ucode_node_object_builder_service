@@ -221,3 +221,52 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.table.RevertTableHistory: failed with error: E11000 duplicate key error collection: ufin_test_ufin_test_object_builder_service.table_histories index: slug_1_id_1 dup key: { slug: "Hello", id: "6452507f-1620-4c1c-a345-ac2a56ebfe18" }',
+  level: 'error',
+  timestamp: '2023-04-17T08:10:19.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: failed with error: Table not deleted with given parameters',
+  level: 'error',
+  timestamp: '2023-04-17T08:29:17.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: failed with error: Table not deleted with given parameters',
+  level: 'error',
+  timestamp: '2023-04-17T09:04:27.146Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: failed with error: Table_history validation failed: action_type: `REVERT` is not a valid enum value for path `action_type`.',
+  level: 'error',
+  timestamp: '2023-04-17T10:30:44.686Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: failed with error: h is not defined',
+  level: 'error',
+  timestamp: '2023-04-18T05:23:03.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: failed with error: Table validation failed: slug: Table must have slug, label: Table must have label',
+  level: 'error',
+  timestamp: '2023-04-18T06:31:11.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2023-04-18T06:44:39.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

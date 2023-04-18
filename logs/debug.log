@@ -5627,3 +5627,2334 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T07:57:53.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T07:57:53.014Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T07:57:53.014Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T07:57:53.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T07:57:53.830Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T07:59:19.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T08:00:30.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:00:30.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T08:00:31.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T08:00:31.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T08:00:39.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:00:39.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T08:00:39.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T08:00:39.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T08:03:35.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T08:03:35.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:03:35.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T08:03:35.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T08:03:36.568Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T08:08:24.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T08:08:24.622Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:08:24.622Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T08:08:24.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T08:08:25.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T08:09:54.949Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T08:10:19.087Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:10:19.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: failed with error: E11000 duplicate key error collection: ufin_test_ufin_test_object_builder_service.table_histories index: slug_1_id_1 dup key: { slug: "Hello", id: "6452507f-1620-4c1c-a345-ac2a56ebfe18" }',
+  level: 'error',
+  timestamp: '2023-04-17T08:10:19.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T08:11:50.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:11:50.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T08:11:50.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T08:11:50.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T08:22:35.432Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T08:22:35.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:22:35.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T08:22:35.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T08:22:36.089Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T08:24:03.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T08:29:16.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:29:16.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: failed with error: Table not deleted with given parameters',
+  level: 'error',
+  timestamp: '2023-04-17T08:29:17.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T08:30:57.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T08:30:57.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:30:57.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T08:30:57.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T08:30:58.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T08:32:22.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T08:36:05.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T08:36:05.363Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T08:36:05.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T08:36:05.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T08:36:06.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T08:37:33.446Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T09:04:26.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T09:04:26.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: failed with error: Table not deleted with given parameters',
+  level: 'error',
+  timestamp: '2023-04-17T09:04:27.146Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T09:05:15.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T09:05:15.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T09:05:15.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T09:05:15.316Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T09:05:15.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T09:06:43.831Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T09:56:37.798Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T09:56:37.801Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T09:56:37.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T09:56:37.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T09:56:38.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T09:58:10.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T09:58:40.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T09:58:40.425Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T09:58:40.848Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T09:58:40.849Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T10:02:12.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T10:02:12.408Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:02:12.409Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T10:02:12.409Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T10:02:13.063Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:03:37.412Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:03:47.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:03:47.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:03:47.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:03:47.375Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:03.234Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:03.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:03.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:03.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:04.079Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:04.080Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:04.190Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:04.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:04.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:04.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:04.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:04.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:04.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:04.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:04.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:04.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:04.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "332a243f-dc60-4fd6-ae10-02fc445bb31e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:04.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:05.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:05.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:10.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:10.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:10.506Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:10.506Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:23.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:23.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:04:23.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:04:23.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:44.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:44.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:44.592Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:44.592Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:45.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:45.196Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:45.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:45.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:45.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:45.422Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:45.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:45.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:45.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "157ac7eb-197b-4650-84e7-9b7a31444cbe",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:45.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:45.909Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:45.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:53.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:53.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:05:53.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:05:53.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "2151a313-ba78-46d1-a75c-adb1efd47375",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:06:05.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "2151a313-ba78-46d1-a75c-adb1efd47375",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:06:05.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:06:05.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:06:05.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "d52a9710-1c0a-43e2-95e2-9df0d662ce58",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:30:02.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "d52a9710-1c0a-43e2-95e2-9df0d662ce58",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:30:02.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:30:19.703Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:30:19.703Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "d52a9710-1c0a-43e2-95e2-9df0d662ce58",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:30:44.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "d52a9710-1c0a-43e2-95e2-9df0d662ce58",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:30:44.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: failed with error: Table_history validation failed: action_type: `REVERT` is not a valid enum value for path `action_type`.',
+  level: 'error',
+  timestamp: '2023-04-17T10:30:44.686Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-17T10:31:28.880Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-17T10:31:28.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:31:28.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-17T10:31:28.884Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-17T10:31:29.568Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:33:02.660Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "d52a9710-1c0a-43e2-95e2-9df0d662ce58",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-17T10:34:12.789Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "d52a9710-1c0a-43e2-95e2-9df0d662ce58",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-17T10:34:12.790Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-17T10:34:13.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-17T10:34:13.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T04:53:56.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T04:53:56.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T04:53:56.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T04:53:56.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T04:53:57.006Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T04:55:19.379Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T04:56:21.794Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T04:56:21.795Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T04:56:21.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T04:56:21.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T04:56:23.016Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T04:56:23.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T04:56:23.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T04:56:23.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T04:56:23.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "6452507f-1620-4c1c-a345-ac2a56ebfe18",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T04:56:23.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T04:56:23.887Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T04:56:23.887Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "2151a313-ba78-46d1-a75c-adb1efd47375",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T04:57:27.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "2151a313-ba78-46d1-a75c-adb1efd47375",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T04:57:27.443Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T04:57:27.852Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T04:57:27.853Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "2151a313-ba78-46d1-a75c-adb1efd47375",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T05:00:42.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "2151a313-ba78-46d1-a75c-adb1efd47375",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T05:00:42.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T05:00:42.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T05:00:42.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T05:01:24.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T05:01:24.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T05:01:24.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T05:01:24.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T05:01:24.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T05:02:52.863Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "2151a313-ba78-46d1-a75c-adb1efd47375",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T05:03:21.320Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "2151a313-ba78-46d1-a75c-adb1efd47375",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T05:03:21.321Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T05:03:21.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T05:03:21.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T05:13:16.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T05:13:16.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T05:13:16.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T05:13:16.966Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T05:13:17.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T05:14:40.157Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "a5c127df-8cff-4ede-9c91-72280eb08b8e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T05:23:03.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "a5c127df-8cff-4ede-9c91-72280eb08b8e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T05:23:03.070Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: failed with error: h is not defined',
+  level: 'error',
+  timestamp: '2023-04-18T05:23:03.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T06:02:50.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T06:02:50.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:02:50.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T06:02:50.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T06:02:51.092Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T06:03:59.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T06:03:59.696Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:03:59.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T06:03:59.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T06:04:00.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:05:23.707Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "a5c127df-8cff-4ede-9c91-72280eb08b8e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T06:08:00.095Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "a5c127df-8cff-4ede-9c91-72280eb08b8e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:08:00.095Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:08:00.703Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T06:08:00.704Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T06:28:05.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T06:28:05.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:28:05.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T06:28:05.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T06:28:06.324Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:29:29.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "a5c127df-8cff-4ede-9c91-72280eb08b8e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T06:31:11.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "a5c127df-8cff-4ede-9c91-72280eb08b8e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:31:11.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: failed with error: Table validation failed: slug: Table must have slug, label: Table must have label',
+  level: 'error',
+  timestamp: '2023-04-18T06:31:11.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T06:37:23.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T06:37:23.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:37:23.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T06:37:23.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T06:37:24.568Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:39:04.325Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "a5c127df-8cff-4ede-9c91-72280eb08b8e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T06:40:50.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "a5c127df-8cff-4ede-9c91-72280eb08b8e",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:40:50.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:40:51.638Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T06:40:51.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T06:43:10.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T06:43:10.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:43:10.990Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T06:43:10.990Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T06:43:11.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [\n' +
+    '    "v2"\n' +
+    '  ],\n' +
+    '  "id": "621bb38f-638c-4e9e-a094-0ba5abc143ff",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T06:44:39.307Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [\n' +
+    '    "v2"\n' +
+    '  ],\n' +
+    '  "id": "621bb38f-638c-4e9e-a094-0ba5abc143ff",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:44:39.311Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2023-04-18T06:44:39.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:44:46.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T06:46:20.171Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T06:46:20.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:46:20.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T06:46:20.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T06:46:20.841Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:47:47.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [\n' +
+    '    "v2",\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "621bb38f-638c-4e9e-a094-0ba5abc143ff",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T06:49:00.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [\n' +
+    '    "v2",\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "621bb38f-638c-4e9e-a094-0ba5abc143ff",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:49:00.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:49:01.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T06:49:01.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [],\n' +
+    '  "id": "94206b10-ac22-4b23-9202-f9e45229bfa3",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T06:51:07.280Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [],\n' +
+    '  "id": "94206b10-ac22-4b23-9202-f9e45229bfa3",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:51:07.280Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:51:08.077Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T06:51:08.077Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T06:55:10.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T06:55:10.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:55:10.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T06:55:10.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T06:55:11.166Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:56:37.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [],\n' +
+    '  "id": "94206b10-ac22-4b23-9202-f9e45229bfa3",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T06:59:28.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [],\n' +
+    '  "id": "94206b10-ac22-4b23-9202-f9e45229bfa3",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T06:59:28.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T06:59:29.093Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T06:59:29.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "94206b10-ac22-4b23-9202-f9e45229bfa3",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-18T07:02:46.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [\n' +
+    '    "v1"\n' +
+    '  ],\n' +
+    '  "id": "94206b10-ac22-4b23-9202-f9e45229bfa3",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T07:02:46.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T07:02:47.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: succeeded',
+  level: 'info',
+  timestamp: '2023-04-18T07:02:47.274Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

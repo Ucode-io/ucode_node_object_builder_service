@@ -134,6 +134,13 @@ let objectBuilder = {
                 __v: 0
             }).populate(relatedTable).lean();
 
+
+        let params = {version_ids: []}
+        if(data.version_id) {
+            data.version_ids = { $in: [version_id] }
+        }
+
+
         if (!output) { logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`) };
         let isChanged = false
         for (const field of tableInfo.fields) {
@@ -151,7 +158,8 @@ let objectBuilder = {
                     }
                     const relationFieldTable = await table.findOne({
                         slug: attributes.table_from.split('#')[0],
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        ...params
                     })
                     const relationField = await Field.findOne({
                         relation_id: attributes.table_from.split('#')[1],
@@ -223,7 +231,8 @@ let objectBuilder = {
                 }
                 elementField.attributes = struct.decode(element.attributes)
                 const tableElement = await table.findOne({
-                    slug: req.table_slug
+                    slug: req.table_slug,
+                    ...params
                 })
                 const tableElementFields = await Field.find({
                     table_id: tableElement.id
@@ -288,6 +297,12 @@ let objectBuilder = {
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
+
+        let paramsT = {version_ids: []}
+        if(data.version_id) {
+            data.version_ids = { $in: [version_id] }
+        }
+
 
         const params = struct.decode(req?.data)
         const limit = params.limit
@@ -486,7 +501,7 @@ let objectBuilder = {
                     if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
                         relation.table_to = relation.table_from
                     }
-                    let relationTable = await table.findOne({ slug: relation.table_to })
+                    let relationTable = await table.findOne({ slug: relation.table_to, ...paramsT })
                     let relationFields = await Field.find(
                         {
                             table_id: relationTable?.id
@@ -533,7 +548,7 @@ let objectBuilder = {
                                 }
                             }
                             field._doc.view_fields = viewFields
-                            let childRelationTable = await table.findOne({ slug: table_slug })
+                            let childRelationTable = await table.findOne({ slug: table_slug, ...paramsT })
                             field._doc.table_label = relationTable?.label
                             field.label = childRelationTable?.label
                             changedField = field
@@ -886,7 +901,8 @@ let objectBuilder = {
                         }
                         const relationFieldTable = await table.findOne({
                             slug: attributes.table_from.split('#')[0],
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                            deleted_at: "1970-01-01T18:00:00.000+00:00",
+                            ...paramsT
                         })
                         const relationField = await Field.findOne({
                             relation_id: attributes.table_from.split('#')[1],
@@ -1241,6 +1257,12 @@ let objectBuilder = {
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
 
+            let paramsT = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
+
             const params = struct.decode(req.data)
             const limit = params.limit
             const offset = params.offset
@@ -1281,7 +1303,7 @@ let objectBuilder = {
             let relationsFields = []
             if (with_relations) {
                 for (const relation of relations) {
-                    let relationTable = await table.findOne({ slug: relation.table_to })
+                    let relationTable = await table.findOne({ slug: relation.table_to, ...paramsT })
 
                     let relationFields = await Field.find(
                         {
@@ -1321,7 +1343,7 @@ let objectBuilder = {
                                 }
                             }
                             field._doc.view_fields = viewFields
-                            let childRelationTable = await table.findOne({ slug: field.slug.slice(0, -3) })
+                            let childRelationTable = await table.findOne({ slug: field.slug.slice(0, -3), ...paramsT })
                             field._doc.table_label = relationTable.label
                             field.label = childRelationTable.label
                             changedField = field

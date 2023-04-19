@@ -112,6 +112,12 @@ let fieldsRelationsStore = {
                 const roleTable = (await ObjectBuilder(true, resource_guid))["role"]
                 const roles = await roleTable?.models.find()
 
+                let params = {version_ids: []}
+                if(data.version_id) {
+                    data.version_ids = { $in: [version_id] }
+                }
+
+
                 let table = {};
                 let field = {};
                 let result = {};
@@ -125,7 +131,8 @@ let fieldsRelationsStore = {
                         relationReq.field_to = relationReq.table_from + "_id";
                         table = await Table.findOne({
                             slug: relationReq.table_to,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                            deleted_at: "1970-01-01T18:00:00.000+00:00",
+                            ...params
                         });
                         result = await relationFieldChecker(relationReq.field_to, table.id, resource_guid)
                         if (result.exists) {
@@ -163,7 +170,8 @@ let fieldsRelationsStore = {
                         relationReq.field_to = "id"
                         table = await Table.findOne({
                             slug: relationReq.table_from,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                            deleted_at: "1970-01-01T18:00:00.000+00:00",
+                            ...params
                         });
                         field = new Field({
                             table_id: table.id,
@@ -197,7 +205,8 @@ let fieldsRelationsStore = {
                         relationReq.field_to = relationReq.table_from + "_ids";
                         let tableTo = await Table.findOne({
                             slug: relationReq.table_to,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                            deleted_at: "1970-01-01T18:00:00.000+00:00",
+                            ...params
                         });
                         result = await relationFieldChecker(relationReq.field_to, tableTo.id, resource_guid)
                         if (result.exists) {
@@ -244,7 +253,8 @@ let fieldsRelationsStore = {
                         eventTo.payload = tableRes
                         tableFrom = await Table.findOne({
                             slug: relationReq.table_from,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                            deleted_at: "1970-01-01T18:00:00.000+00:00",
+                            ...params
                         });
                         result = await relationFieldChecker(relationReq.field_from, tableFrom.id, resource_guid)
                         if (result.exists) {
@@ -298,7 +308,8 @@ let fieldsRelationsStore = {
                         relationReq.field_to = relationReq.table_from + "_id";
                         table = await Table.findOne({
                             slug: relationReq.table_from,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                            deleted_at: "1970-01-01T18:00:00.000+00:00",
+                            ...params
                         });
                         result = await relationFieldChecker(relationReq.recursive_field, table.id, resource_guid)
                         if (result.exists) {
@@ -353,7 +364,8 @@ let fieldsRelationsStore = {
                         relationReq.field_to = "id";
                         table = await Table.findOne({
                             slug: relationReq.table_from,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                            deleted_at: "1970-01-01T18:00:00.000+00:00",
+                            ...params
                         });
                         result = await relationFieldChecker(relationReq.field_from, table.id, resource_guid)
                         if (result.exists) {

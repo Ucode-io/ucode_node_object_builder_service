@@ -37,6 +37,11 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const Section = mongoConn.models['Section']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             for (const sectionReq of data.sections) {
                 const section = new Section(sectionReq);
                 section.table_id = data.id;
@@ -45,6 +50,7 @@ let sectionStore = {
 
             const resp = await Table.updateOne({
                 id: data.id,
+                ...params
             },
                 {
                     $set: {
@@ -63,6 +69,11 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const Section = mongoConn.models['Section']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             const count = await Section.deleteMany(
                 {
                     table_id: data.table_id,
@@ -76,7 +87,8 @@ let sectionStore = {
 
             const resp = await Table.updateOne({
                 id: data.table_id,
-            },
+                ...params
+                },
                 {
                     $set: {
                         is_changed: true
@@ -95,6 +107,11 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             await ViewRelation.deleteMany(
                 {
                     table_slug: data.table_slug,
@@ -102,7 +119,8 @@ let sectionStore = {
             )
             if (data.table_slug === "") {
                 const table = await Table.findOne({
-                    id: data.table_id
+                    id: data.table_id,
+                    ...params
                 })
                 data.table_slug = table.slug
             }
@@ -183,10 +201,16 @@ let sectionStore = {
             const Relation = mongoConn.models['Relation']
             const ViewRelation = mongoConn.models['ViewRelation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             let table = {};
             if (data.table_slug === "") {
                 table = await Table.findOne({
-                    slug: data.table_id
+                    slug: data.table_id,
+                    ...params
                 });
                 data.table_slug = table.slug;
             }
@@ -224,10 +248,16 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             let table = {};
             if (data.table_slug === "") {
                 table = await Table.findOne({
-                    id: data.table_id
+                    id: data.table_id,
+                    ...params
                 });
                 data.table_slug = table.slug;
             }
@@ -278,10 +308,16 @@ let sectionStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             let table = {};
             if (data.table_id === "") {
                 table = await Table.findOne({
-                    slug: data.table_slug
+                    slug: data.table_slug,
+                    ...params
                 });
                 data.table_id = table.id;
             }
@@ -362,7 +398,8 @@ let sectionStore = {
                                 for (const dynamic_table of relation.dynamic_tables) {
                                     const dynamicTableInfo = await Table.findOne(
                                         {
-                                            slug: dynamic_table.table_slug
+                                            slug: dynamic_table.table_slug,
+                                            ...params
                                         },
                                         {
                                             deletedAt: 0,

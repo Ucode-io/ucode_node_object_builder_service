@@ -82,10 +82,16 @@ let appStore = {
 
             const app = await App.findOne({ id: data.id });
             let tables = []
+            let params = {
+                deleted_at: "1970-01-01T18:00:00.000+00:00", version_ids: []
+            }
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
             if (app.tables) {
                 for (const single_table of app.tables) {
                     let table = {}
-                    table = await Table.findOne({ id: single_table.table_id, deleted_at: "1970-01-01T18:00:00.000+00:00" })
+                    table = await Table.findOne({ id: single_table.table_id, ...params })
                     if (table) {
                         tables.push({
                             ...table._doc,

@@ -22,6 +22,11 @@ let tableStore = {
             const TableHistory = mongoConn.models['Table_history']
             const App = mongoConn.models['App']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             const table = new Table(data);
             const response = await table.save();
             if(response) {
@@ -83,14 +88,19 @@ let tableStore = {
             const Table = mongoConn.models['Table']
             const TableHistory = mongoConn.models['Table_history']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             data.is_changed = true
             let del_payload = {id: data.id, version_ids: []}
             if(data.version_id) {
                 del_payload.version_ids = { $in: [data.version_id] }
             }
-            const tableBeforeUpdate = await Table.findOneAndDelete({
-                id: data.id
-            }, {new: true})
+            const tableBeforeUpdate = await Table.findOne({
+                id: data.id, ...params
+            })
             const table = await Table.create(data)
             if(table) {
                 let payload = {}

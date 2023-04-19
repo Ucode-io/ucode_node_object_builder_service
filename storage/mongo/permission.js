@@ -29,12 +29,18 @@ let permission = {
 
             const data = struct.decode(req.data)
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
+
             const app = await App.findOne({ id: req.app_id })
             let response = []
             if (app) {
                 if (app.tables.length) {
                     for (const tableFromApp of app.tables) {
-                        const tableInfo = await table.findOne({ id: tableFromApp.table_id })
+                        const tableInfo = await table.findOne({ id: tableFromApp.table_id, ...params })
                         let res;
                         if (tableInfo) {
                             const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
@@ -124,8 +130,15 @@ let permission = {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
+
             const tables = await table.find({
-                deleted_at: "1970-01-01T18:00:00.000+00:00"
+                deleted_at: "1970-01-01T18:00:00.000+00:00",
+                ...params
             })
             let tableSlugs = []
             let noPermissions = []
@@ -188,9 +201,16 @@ let permission = {
             // const Relation = mongoConn.models['Relation']
             // const ViewRelation = mongoConn.models['ViewRelation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
+
             const tableInfo = await table.findOne({
                 slug: req.table_slug,
-                deleted_at: "1970-01-01T18:00:00.000+00:00"
+                deleted_at: "1970-01-01T18:00:00.000+00:00",
+                ...params
             }).lean()
             const fields = await Field.find({
                 table_id: tableInfo.id
@@ -256,6 +276,12 @@ let permission = {
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         const View = mongoConn.models['View']
+
+        let params = {version_ids: []}
+        if(data.version_id) {
+            data.version_ids = { $in: [version_id] }
+        }
+
         
         const role = await Role.findOne(
             { guid: req.role_id },
@@ -302,6 +328,7 @@ let permission = {
                 {
                     id: { $in: tableIds },
                     deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    ...params
                 },
                 null,
                 {

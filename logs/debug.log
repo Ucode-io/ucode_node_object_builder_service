@@ -7958,3 +7958,1077 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T10:11:06.791Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T10:11:06.795Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T10:11:06.796Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T10:11:06.797Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T10:11:07.574Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T10:19:36.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T10:19:36.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T10:19:36.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T10:19:36.367Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T10:19:37.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-18T10:21:03.379Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-18T12:49:00.633Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-18T12:49:00.636Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-18T12:49:00.636Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-18T12:49:00.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-18T12:49:01.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-19T05:48:27.291Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-19T05:48:27.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-19T05:48:27.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-19T05:48:27.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-19T05:48:27.971Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-19T05:49:52.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-19T05:57:21.679Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2023-04-19T05:57:21.680Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: response - {\n' +
+    '  "table_slug": "user",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "data": {\n' +
+    '        "kind": "structValue",\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "project_id": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "731dbf07-9e3c-4902-9a52-be9a690ffd25"\n' +
+    '            },\n' +
+    '            "client_type_id": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "WEB_USER"\n' +
+    '            },\n' +
+    '            "guid": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "a8fae460-7a11-4c6a-b363-5027a6e52e15"\n' +
+    '            },\n' +
+    '            "name": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "name_test_2"\n' +
+    '            },\n' +
+    '            "phone": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "(99) 999-77-22"\n' +
+    '            },\n' +
+    '            "role_id": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": ""\n' +
+    '            },\n' +
+    '            "active": {\n' +
+    '              "kind": "numberValue",\n' +
+    '              "numberValue": 0\n' +
+    '            },\n' +
+    '            "email": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "logintest2@gmail.com"\n' +
+    '            },\n' +
+    '            "expires_at": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": ""\n' +
+    '            },\n' +
+    '            "login": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "login_test_2"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        }\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-19T05:57:21.680Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.loginWithEmailOtp: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-19T05:57:41.070Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.loginWithEmailOtp: succeeded',
+  level: 'info',
+  timestamp: '2023-04-19T05:57:41.070Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.loginWithEmailOtp: response - {\n' +
+    '  "user_found": true,\n' +
+    '  "client_platform": {\n' +
+    '    "_id": "63fc680d2a6925ff997f60ef",\n' +
+    '    "name": "Ucode",\n' +
+    '    "subdomain": "ucode",\n' +
+    '    "guid": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092",\n' +
+    '    "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
+    '    "__v": 0,\n' +
+    '    "client_type_ids": [\n' +
+    '      "88ef13a4-79a0-4b53-ba82-e5f7578da7b7",\n' +
+    '      "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75"\n' +
+    '    ],\n' +
+    '    "id": "63fc680d2a6925ff997f60ef"\n' +
+    '  },\n' +
+    '  "client_type": {\n' +
+    '    "_id": "642114de9feb4193f6267d27",\n' +
+    '    "name": "WEB_USER",\n' +
+    '    "confirm_by": "EMAIL",\n' +
+    '    "self_register": false,\n' +
+    '    "guid": "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75",\n' +
+    '    "self_recover": false,\n' +
+    '    "project_id": null,\n' +
+    '    "client_platform_ids": [\n' +
+    '      "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '    ],\n' +
+    '    "__v": 0,\n' +
+    '    "id": "642114de9feb4193f6267d27"\n' +
+    '  },\n' +
+    '  "user_id": "a8fae460-7a11-4c6a-b363-5027a6e52e15",\n' +
+    '  "role": {\n' +
+    '    "_id": "64254fd88f457a87d917ad99",\n' +
+    '    "name": "WEB_USER",\n' +
+    '    "guid": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '    "project_id": null,\n' +
+    '    "client_platform_id": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092",\n' +
+    '    "client_type_id": "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75",\n' +
+    '    "__v": 0,\n' +
+    '    "id": "64254fd88f457a87d917ad99"\n' +
+    '  },\n' +
+    '  "permissions": [\n' +
+    '    {\n' +
+    '      "_id": "642550a98f457a87d917dd64",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "4c5b446a-1f2e-4b31-9e3c-e2519f0d808e",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642550a98f457a87d917dd64"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642551048f457a87d917f7b9",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "05a7c089-f7f4-4b77-8638-3606d903a2fc",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642551048f457a87d917f7b9"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642551058f457a87d917f89d",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "feb0f5a9-a740-4603-a726-51e6b9e18ad2",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642551058f457a87d917f89d"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642578f98f457a87d919c4c1",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "33783949-a848-415c-8b58-e07de979cec5",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642578f98f457a87d919c4c1"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642fdf216846c29380d1c0e5",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "bd1a1e2c-fc98-4f8a-88cc-0be6ed172ac6",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642fdf216846c29380d1c0e5"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642fe80d6846c29380d2b0c6",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "c3bfaade-0438-467a-b4a4-c54ef77cbcb0",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642fe80d6846c29380d2b0c6"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642fe9526846c29380d2dd61",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "10564787-ce0f-455c-ba9e-b389844c8158",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642fe9526846c29380d2dd61"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642fea6108bb216efb9bab1a",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "718401f1-b6c4-441e-b53a-483a2267c706",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642fea6108bb216efb9bab1a"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642ff07208bb216efb9ccb68",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "50148068-29e8-4c0a-a51e-517b2e824a0a",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642ff07208bb216efb9ccb68"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f95da21dc242dec595c8",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "orders_test",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "d7791fec-be2e-4d15-990c-388d95821a97",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f95da21dc242dec595c8"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f95ea21dc242dec59752",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "operation_type",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "02337352-5c88-465d-9003-6bbb955d8cc2",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f95ea21dc242dec59752"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f95fa21dc242dec59839",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "conversion",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "aa808d96-74ae-423b-8fff-46329167ce55",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f95fa21dc242dec59839"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f960a21dc242dec5999b",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "requisites",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "2c123721-16f5-4491-8bdb-a995fb620d92",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f960a21dc242dec5999b"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f961a21dc242dec59b59",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "my_accounts",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "ef18e623-d2ee-4898-9b48-972ccdce2b88",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f961a21dc242dec59b59"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f962a21dc242dec59c6c",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "contacts",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "b97271c5-f6da-4672-af06-f3b2b3e940ff",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f962a21dc242dec59c6c"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f963a21dc242dec59da7",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "factura",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "c033d4d8-fd15-4e8d-b6e1-f6ae3c1c67b5",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f963a21dc242dec59da7"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f964a21dc242dec59f8f",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "expenditure_item",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "ebc5ff72-17fa-4f1b-82a0-d18df950dd5f",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f964a21dc242dec59f8f"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f965a21dc242dec5a0a2",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "coming",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "6dd69ba9-050d-4898-937e-70f2170a806a",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f965a21dc242dec5a0a2"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f966a21dc242dec5a2b4",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "legal_client",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "3bb8950c-f13f-4028-9bde-37e3b63242e6",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f966a21dc242dec5a2b4"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f967a21dc242dec5a4cc",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "contract",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "51c8ff1d-0be6-40ef-b4ab-d089586be2c7",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f967a21dc242dec5a4cc"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f968a21dc242dec5a6b6",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "legal_company",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "8d392937-b970-4d84-816a-fed561a75087",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f968a21dc242dec5a6b6"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f96aa21dc242dec5a8cc",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "projects",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "09ad79ad-f7a0-4405-a8b1-502b0b29c703",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id":'... 7732 more characters,
+  level: 'info',
+  timestamp: '2023-04-19T05:57:41.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-19T07:43:49.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2023-04-19T07:43:49.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: response - {\n' +
+    '  "table_slug": "user",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "data": {\n' +
+    '        "kind": "structValue",\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "active": {\n' +
+    '              "kind": "numberValue",\n' +
+    '              "numberValue": 0\n' +
+    '            },\n' +
+    '            "name": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "name_test_3"\n' +
+    '            },\n' +
+    '            "phone": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "(99) 999-77-43"\n' +
+    '            },\n' +
+    '            "login": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "login_test_3"\n' +
+    '            },\n' +
+    '            "project_id": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "731dbf07-9e3c-4902-9a52-be9a690ffd25"\n' +
+    '            },\n' +
+    '            "role_id": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": ""\n' +
+    '            },\n' +
+    '            "client_type_id": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "WEB_USER"\n' +
+    '            },\n' +
+    '            "email": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "logintest3@gmail.com"\n' +
+    '            },\n' +
+    '            "expires_at": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": ""\n' +
+    '            },\n' +
+    '            "guid": {\n' +
+    '              "kind": "stringValue",\n' +
+    '              "stringValue": "42bbd135-cebd-4fc4-983d-3a89b398712e"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        }\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-04-19T07:43:49.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.loginWithEmailOtp: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-19T07:44:10.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.loginWithEmailOtp: succeeded',
+  level: 'info',
+  timestamp: '2023-04-19T07:44:10.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.loginWithEmailOtp: response - {\n' +
+    '  "user_found": true,\n' +
+    '  "client_platform": {\n' +
+    '    "_id": "63fc680d2a6925ff997f60ef",\n' +
+    '    "name": "Ucode",\n' +
+    '    "subdomain": "ucode",\n' +
+    '    "guid": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092",\n' +
+    '    "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
+    '    "__v": 0,\n' +
+    '    "client_type_ids": [\n' +
+    '      "88ef13a4-79a0-4b53-ba82-e5f7578da7b7",\n' +
+    '      "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75"\n' +
+    '    ],\n' +
+    '    "id": "63fc680d2a6925ff997f60ef"\n' +
+    '  },\n' +
+    '  "client_type": {\n' +
+    '    "_id": "642114de9feb4193f6267d27",\n' +
+    '    "name": "WEB_USER",\n' +
+    '    "confirm_by": "EMAIL",\n' +
+    '    "self_register": false,\n' +
+    '    "guid": "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75",\n' +
+    '    "self_recover": false,\n' +
+    '    "project_id": null,\n' +
+    '    "client_platform_ids": [\n' +
+    '      "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '    ],\n' +
+    '    "__v": 0,\n' +
+    '    "id": "642114de9feb4193f6267d27"\n' +
+    '  },\n' +
+    '  "user_id": "42bbd135-cebd-4fc4-983d-3a89b398712e",\n' +
+    '  "role": {\n' +
+    '    "_id": "64254fd88f457a87d917ad99",\n' +
+    '    "name": "WEB_USER",\n' +
+    '    "guid": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '    "project_id": null,\n' +
+    '    "client_platform_id": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092",\n' +
+    '    "client_type_id": "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75",\n' +
+    '    "__v": 0,\n' +
+    '    "id": "64254fd88f457a87d917ad99"\n' +
+    '  },\n' +
+    '  "permissions": [\n' +
+    '    {\n' +
+    '      "_id": "642550a98f457a87d917dd64",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "4c5b446a-1f2e-4b31-9e3c-e2519f0d808e",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642550a98f457a87d917dd64"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642551048f457a87d917f7b9",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "05a7c089-f7f4-4b77-8638-3606d903a2fc",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642551048f457a87d917f7b9"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642551058f457a87d917f89d",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "feb0f5a9-a740-4603-a726-51e6b9e18ad2",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642551058f457a87d917f89d"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642578f98f457a87d919c4c1",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "33783949-a848-415c-8b58-e07de979cec5",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642578f98f457a87d919c4c1"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642fdf216846c29380d1c0e5",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "bd1a1e2c-fc98-4f8a-88cc-0be6ed172ac6",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642fdf216846c29380d1c0e5"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642fe80d6846c29380d2b0c6",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "c3bfaade-0438-467a-b4a4-c54ef77cbcb0",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642fe80d6846c29380d2b0c6"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642fe9526846c29380d2dd61",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "10564787-ce0f-455c-ba9e-b389844c8158",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642fe9526846c29380d2dd61"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642fea6108bb216efb9bab1a",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "718401f1-b6c4-441e-b53a-483a2267c706",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642fea6108bb216efb9bab1a"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "642ff07208bb216efb9ccb68",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "50148068-29e8-4c0a-a51e-517b2e824a0a",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "642ff07208bb216efb9ccb68"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f95da21dc242dec595c8",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "orders_test",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "d7791fec-be2e-4d15-990c-388d95821a97",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f95da21dc242dec595c8"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f95ea21dc242dec59752",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "operation_type",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "02337352-5c88-465d-9003-6bbb955d8cc2",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f95ea21dc242dec59752"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f95fa21dc242dec59839",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "conversion",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "aa808d96-74ae-423b-8fff-46329167ce55",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f95fa21dc242dec59839"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f960a21dc242dec5999b",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "requisites",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "2c123721-16f5-4491-8bdb-a995fb620d92",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f960a21dc242dec5999b"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f961a21dc242dec59b59",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "my_accounts",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "ef18e623-d2ee-4898-9b48-972ccdce2b88",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f961a21dc242dec59b59"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f962a21dc242dec59c6c",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "contacts",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "b97271c5-f6da-4672-af06-f3b2b3e940ff",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f962a21dc242dec59c6c"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f963a21dc242dec59da7",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "factura",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "c033d4d8-fd15-4e8d-b6e1-f6ae3c1c67b5",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f963a21dc242dec59da7"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f964a21dc242dec59f8f",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "expenditure_item",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "ebc5ff72-17fa-4f1b-82a0-d18df950dd5f",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f964a21dc242dec59f8f"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f965a21dc242dec5a0a2",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "coming",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "6dd69ba9-050d-4898-937e-70f2170a806a",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f965a21dc242dec5a0a2"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f966a21dc242dec5a2b4",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "legal_client",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "3bb8950c-f13f-4028-9bde-37e3b63242e6",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f966a21dc242dec5a2b4"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f967a21dc242dec5a4cc",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "contract",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "51c8ff1d-0be6-40ef-b4ab-d089586be2c7",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f967a21dc242dec5a4cc"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f968a21dc242dec5a6b6",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "legal_company",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "8d392937-b970-4d84-816a-fed561a75087",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id": "6434f968a21dc242dec5a6b6"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "6434f96aa21dc242dec5a8cc",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "projects",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "09ad79ad-f7a0-4405-a8b1-502b0b29c703",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "5b8e7d6d-a57e-4a15-b314-6b2123a9c26e",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0,\n' +
+    '      "id":'... 7732 more characters,
+  level: 'info',
+  timestamp: '2023-04-19T07:44:10.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -32,6 +32,11 @@ let tableHelpers = {
         const Section = mongoConn.models['Section']
         const View = mongoConn.models['View']
 
+        let params = {version_ids: []}
+        if(data.version_id) {
+            data.version_ids = { $in: [version_id] }
+        }
+
         const app = await App.findOne({
             id: data.app_id
         },
@@ -48,7 +53,8 @@ let tableHelpers = {
             const tables = await Table.find(
                 {
                     deleted_at: "1970-01-01T18:00:00.000+00:00",
-                    id: { $in: tableIds }
+                    id: { $in: tableIds },
+                    ...params
                 },
                 {
                     _id: 0,
@@ -208,6 +214,11 @@ let tableHelpers = {
         const Section = mongoConn.models['Section']
         const View = mongoConn.models['View']
 
+        let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
         const filePath = "./" + data.file_name
 
         let ssl = true
@@ -276,7 +287,8 @@ let tableHelpers = {
                 let ownerAppOfTable;
                 const isExists = await Table.findOne({
                     slug: table.slug,
-                    deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    ...params
                 })
                 if (isExists) {
                     ownerAppOfTable = await App.findOne({

@@ -39,6 +39,12 @@ let relationStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
+
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
 
@@ -54,7 +60,8 @@ let relationStore = {
                     data.field_to = data.table_from + "_id";
                     table = await Table.findOne({
                         slug: data.table_to,
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        ...params
                     });
                     result = await relationFieldChecker(data.field_to, table.id, data.project_id)
                     if (result.exists) {
@@ -92,7 +99,8 @@ let relationStore = {
                     data.field_to = "id"
                     table = await Table.findOne({
                         slug: data.table_from,
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        ...params
                     });
                     field = new Field({
                         table_id: table.id,
@@ -126,7 +134,8 @@ let relationStore = {
                     data.field_to = data.table_from + "_ids";
                     let tableTo = await Table.findOne({
                         slug: data.table_to,
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        ...params
                     });
                     result = await relationFieldChecker(data.field_to, tableTo.id, data.project_id)
                     if (result.exists) {
@@ -173,7 +182,8 @@ let relationStore = {
                     eventTo.payload = tableRes
                     tableFrom = await Table.findOne({
                         slug: data.table_from,
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        ...params
                     });
                     result = await relationFieldChecker(data.field_from, tableFrom.id, data.project_id)
                     if (result.exists) {
@@ -227,7 +237,8 @@ let relationStore = {
                     data.field_to = data.table_from + "_id";
                     table = await Table.findOne({
                         slug: data.table_from,
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        ...params
                     });
                     result = await relationFieldChecker(data.recursive_field, table.id, data.project_id)
                     if (result.exists) {
@@ -282,7 +293,8 @@ let relationStore = {
                     data.field_to = "id";
                     table = await Table.findOne({
                         slug: data.table_from,
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        ...params
                     });
                     result = await relationFieldChecker(data.field_from, table.id, data.project_id)
                     if (result.exists) {
@@ -360,6 +372,12 @@ let relationStore = {
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
+
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
 
             const relation = await Relation.updateOne(
                 {
@@ -439,9 +457,15 @@ let relationStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             if (data.table_slug === "") {
                 let table = await Table.findOne({
-                    id: data.table_id
+                    id: data.table_id,
+                    ...params
                 });
                 data.table_slug = table.slug;
             }
@@ -470,13 +494,15 @@ let relationStore = {
             let responseRelations = []
             for (let i = 0; i < relations.length; i++) {
                 let tableFrom = await Table.findOne({
-                    slug: relations[i].table_from
+                    slug: relations[i].table_from,
+                    ...params
                 })
                 if (relations[i].type === "Many2Dynamic") {
                     for (const dynamic_table of relations[i].dynamic_tables) {
                         if (dynamic_table.table_slug === data.table_slug || tableFrom.slug === data.table_slug) {
                             let tableTo = await Table.findOne({
-                                slug: dynamic_table.table_slug
+                                slug: dynamic_table.table_slug,
+                                ...params
                             })
                             let view = await View.findOne({
                                 "$and": [
@@ -546,7 +572,8 @@ let relationStore = {
                     continue;
                 }
                 let tableTo = await Table.findOne({
-                    slug: relations[i].table_to
+                    slug: relations[i].table_to,
+                    ...params
                 })
                 let view = await View.findOne({
                     "$and": [
@@ -607,9 +634,15 @@ let relationStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             if (data.table_slug === "") {
                 let table = await Table.findOne({
-                    id: data.table_id
+                    id: data.table_id,
+                    ...params
                 });
                 data.table_slug = table.slug;
             }
@@ -638,14 +671,16 @@ let relationStore = {
             let responseRelations = []
             for (let i = 0; i < relations.length; i++) {
                 let tableFrom = await Table.findOne({
-                    slug: relations[i].table_from
+                    slug: relations[i].table_from,
+                    ...params
                 })
                 if (relations[i].type === "Many2Dynamic") {
                     let tableTo
                     for (const dynamic_table of relations[i].dynamic_tables) {
                         if (dynamic_table.table_slug === data.table_slug) {
                             tableTo = await Table.findOne({
-                                slug: dynamic_table.table_slug
+                                slug: dynamic_table.table_slug,
+                                ...params
                             })
                         }
                     }
@@ -696,7 +731,8 @@ let relationStore = {
                     continue;
                 }
                 let tableTo = await Table.findOne({
-                    slug: relations[i].table_to
+                    slug: relations[i].table_to,
+                    ...params
                 })
                 let view = await View.findOne({
                     "$and": [
@@ -759,6 +795,11 @@ let relationStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             const relation = await Relation.findOne({ id: data.id });
             let table, resp, field = {}
             let tableResp = {}
@@ -767,7 +808,8 @@ let relationStore = {
             if (relation.type === 'One2Many') {
                 table = await Table.findOne({
                     slug: relation.table_to,
-                    deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    ...params
                 });
                 // resp = await Field.deleteOne({
                 //     table_id: table.id,
@@ -783,7 +825,8 @@ let relationStore = {
             } else if (relation.type === 'Many2Many') {
                 table = await Table.findOne({
                     slug: relation.table_to,
-                    deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    ...params
                 });
                 resp = await Field.deleteOne({
                     table_id: table.id,
@@ -798,7 +841,8 @@ let relationStore = {
                 await sendMessageToTopic(con.TopicRelationDeleteV1, event)
                 table = await Table.findOne({
                     slug: relation.table_from,
-                    deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    ...params
                 });
                 resp = await Field.deleteOne({
                     table_id: table.id,
@@ -814,7 +858,8 @@ let relationStore = {
             } else if (relation.type === "Recursive") {
                 table = await Table.findOne({
                     slug: relation.table_from,
-                    deleted_at: '1970-01-01T18:00:00.000+00:00'
+                    deleted_at: '1970-01-01T18:00:00.000+00:00',
+                    ...params
                 });
                 resp = await Field.deleteOne({
                     table_id: table.id,
@@ -830,7 +875,8 @@ let relationStore = {
             } else {
                 table = await Table.findOne({
                     slug: relation.table_from,
-                    deleted_at: '1970-01-01T18:00:00.000+00:00'
+                    deleted_at: '1970-01-01T18:00:00.000+00:00',
+                    ...params
                 });
                 resp = await Field.deleteOne({
                     table_id: table.id,

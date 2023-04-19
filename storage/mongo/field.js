@@ -19,6 +19,11 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             data.fields.push({
                 slug: "guid",
                 label: "ID",
@@ -32,13 +37,15 @@ let fieldStore = {
             for (const fieldReq of data.fields) {
                 if (con.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
                     let autoFillTable = await Table.findOne({
-                        slug: fieldReq.autofill_table
+                        slug: fieldReq.autofill_table,
+                        ...params
                     })
                     let autoFillFieldSlug = "", autoFillField = {}
                     if (fieldReq.autofill_field.includes(".")) {
                         let splitedAutofillField = fieldReq.autofill_field.split(".")
                         autoFillTable = await Table.findOne({
-                            slug: splitedAutofillField[0]
+                            slug: splitedAutofillField[0],
+                            ...params
                         })
                         let splitedTable = splitedAutofillField[0].split("_")
                         let tableSlug = ""
@@ -47,7 +54,8 @@ let fieldStore = {
                         }
                         tableSlug = tableSlug.slice(1, tableSlug.length)
                         autoFillTable = await Table.findOne({
-                            slug: tableSlug
+                            slug: tableSlug,
+                            ...params
                         })
                         autoFillFieldSlug = splitedAutofillField[1]
                     } else {
@@ -69,7 +77,8 @@ let fieldStore = {
                 }
                 var response = field.save();
                 const table = await Table.findOne({
-                    id: data.id
+                    id: data.id,
+                    ...params
                 })
                 const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
                 const roles = await roleTable?.models.find()
@@ -107,9 +116,15 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 let autoFillTable = await Table.findOne({
-                    slug: data.autofill_table
+                    slug: data.autofill_table,
+                    ...params
                 })
                 let autoFillFieldSlug = "", autoFillField = {}
                 if (data.autofill_field.includes(".")) {
@@ -121,7 +136,8 @@ let fieldStore = {
                     }
                     tableSlug = tableSlug.slice(1, tableSlug.length)
                     autoFillTable = await Table.findOne({
-                        slug: tableSlug
+                        slug: tableSlug,
+                        ...params
                     })
                     autoFillFieldSlug = splitedAutofillField[1]
                 } else {
@@ -140,6 +156,7 @@ let fieldStore = {
             const response = await field.save();
             const resp = await Table.updateOne({
                 id: data.table_id,
+                ...params
             },
             {
                 $set: {
@@ -147,7 +164,8 @@ let fieldStore = {
                 }
             })
             const table = await Table.findOne({
-                id: data.table_id
+                id: data.table_id,
+                ...params
             });
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
@@ -199,6 +217,11 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             const fieldBeforUpdate = await Field.findOne(
                 {
                     id: data.id,
@@ -206,7 +229,8 @@ let fieldStore = {
             )
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 let autoFillTable = await Table.findOne({
-                    slug: data.autofill_table
+                    slug: data.autofill_table,
+                    ...params
                 })
                 let autoFillFieldSlug = "", autoFillField = {}
                 if (data.autofill_field.includes(".")) {
@@ -218,7 +242,8 @@ let fieldStore = {
                     }
                     tableSlug = tableSlug.slice(1, tableSlug.length)
                     autoFillTable = await Table.findOne({
-                        slug: tableSlug
+                        slug: tableSlug,
+                        ...params
                     })
                     autoFillFieldSlug = splitedAutofillField[1]
                 } else {
@@ -252,7 +277,8 @@ let fieldStore = {
                     }
                 })
             const table = await Table.findOne({
-                id: data.table_id
+                id: data.table_id,
+                ...params
             });
             let event = {}
             let fieldRes = {}
@@ -286,10 +312,16 @@ let fieldStore = {
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
             let table = {};
             if (data.table_id === "") {
                 table = await Table.findOne({
-                    slug: data.table_slug
+                    slug: data.table_slug,
+                    ...params
                 });
                 data.table_id = table.id;
             }
@@ -334,7 +366,7 @@ let fieldStore = {
                 })
 
                 for (const relation of relations) {
-                    let relationTable = await Table.findOne({ slug: relation.table_from })
+                    let relationTable = await Table.findOne({ slug: relation.table_from, ...params })
 
                     let relationFields = await Field.find(
                         {
@@ -375,7 +407,7 @@ let fieldStore = {
                             }
 
                             field._doc.view_fields = viewFields
-                            let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3) })
+                            let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3), ...params })
                             field._doc.table_label = relationTable.label
                             field.label = childRelationTable.label
                             changedField = field
@@ -417,7 +449,7 @@ let fieldStore = {
                 })
 
                 for (const relation of relations) {
-                    let relationTable = await Table.findOne({ slug: relation.table_to })
+                    let relationTable = await Table.findOne({ slug: relation.table_to, ...params })
                     let relationFields = await Field.find(
                         {
                             table_id: relationTable.id
@@ -457,7 +489,7 @@ let fieldStore = {
                             }
 
                             field._doc.view_fields = viewFields
-                            let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3) })
+                            let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3), ...params })
                             field._doc.table_label = relationTable.label
                             field.label = childRelationTable.label
                             changedField = field
@@ -498,8 +530,14 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
 
+            let params = {version_ids: []}
+            if(data.version_id) {
+                data.version_ids = { $in: [version_id] }
+            }
+
+
             const deletedField = await Field.findOne({ id: data.id })
-            const table = await Table.findOne({ id: deletedField.table_id })
+            const table = await Table.findOne({ id: deletedField.table_id, ...params })
             const field = await Field.deleteOne({ id: data.id });
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const response = await fieldPermissionTable?.models.deleteMany({

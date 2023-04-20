@@ -34,7 +34,7 @@ let tableHelpers = {
 
         let params = {version_ids: []}
         if(data.version_id) {
-            data.version_ids = { $in: [version_id] }
+            params.version_ids = { $in: [version_id] }
         }
 
         const app = await App.findOne({
@@ -215,9 +215,9 @@ let tableHelpers = {
         const View = mongoConn.models['View']
 
         let params = {version_ids: []}
-            if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
-            }
+        if(data.version_id) {
+            params.version_ids = { $in: [version_id] }
+        }
 
         const filePath = "./" + data.file_name
 

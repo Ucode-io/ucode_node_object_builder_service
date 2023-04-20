@@ -86,7 +86,7 @@ let appStore = {
                 deleted_at: "1970-01-01T18:00:00.000+00:00", version_ids: []
             }
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
             if (app.tables) {
                 for (const single_table of app.tables) {

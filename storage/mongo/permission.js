@@ -31,7 +31,7 @@ let permission = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
 
@@ -131,8 +131,8 @@ let permission = {
             const table = mongoConn.models['Table']
 
             let params = {version_ids: []}
-            if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+            if(req.version_id) {
+                params.version_ids = { $in: [version_id] }
             }
 
 
@@ -202,10 +202,9 @@ let permission = {
             // const ViewRelation = mongoConn.models['ViewRelation']
 
             let params = {version_ids: []}
-            if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+            if(req.version_id) {
+                params.version_ids = { $in: [version_id] }
             }
-
 
             const tableInfo = await table.findOne({
                 slug: req.table_slug,
@@ -278,8 +277,8 @@ let permission = {
         const View = mongoConn.models['View']
 
         let params = {version_ids: []}
-        if(data.version_id) {
-            data.version_ids = { $in: [version_id] }
+        if(req.version_id) {
+            params.version_ids = { $in: [version_id] }
         }
 
         

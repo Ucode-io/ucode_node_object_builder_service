@@ -9083,3 +9083,2837 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-20T05:54:41.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-20T05:54:41.346Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-20T05:54:41.346Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-20T05:54:41.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-20T05:54:42.061Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-20T05:54:56.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-20T05:54:56.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-20T05:54:56.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-20T05:54:56.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-20T05:54:57.324Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T05:56:45.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-04-20T06:22:02.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-04-20T06:22:32.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-20T06:35:27.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-20T06:35:27.918Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-20T06:35:27.918Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-20T06:35:27.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-20T06:35:28.947Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T06:37:23.704Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T06:40:08.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-04-20T06:40:08.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: response - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "count": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 2\n' +
+    '      },\n' +
+    '      "response": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "name": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ADMIN"\n' +
+    '                  },\n' +
+    '                  "confirm_by": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "PHONE"\n' +
+    '                  },\n' +
+    '                  "self_register": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "guid": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "88ef13a4-79a0-4b53-ba82-e5f7578da7b7"\n' +
+    '                  },\n' +
+    '                  "self_recover": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "project_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "731dbf07-9e3c-4902-9a52-be9a690ffd25"\n' +
+    '                  },\n' +
+    '                  "client_platform_ids": {\n' +
+    '                    "kind": "listValue",\n' +
+    '                    "listValue": {\n' +
+    '                      "values": [\n' +
+    '                        {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '                        }\n' +
+    '                      ]\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "project_id_data": {\n' +
+    '                    "kind": "nullValue",\n' +
+    '                    "nullValue": 0\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "name": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "WEB_USER"\n' +
+    '                  },\n' +
+    '                  "confirm_by": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "EMAIL"\n' +
+    '                  },\n' +
+    '                  "self_register": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "guid": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75"\n' +
+    '                  },\n' +
+    '                  "self_recover": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "project_id": {\n' +
+    '                    "kind": "nullValue",\n' +
+    '                    "nullValue": 0\n' +
+    '                  },\n' +
+    '                  "client_platform_ids": {\n' +
+    '                    "kind": "listValue",\n' +
+    '                    "listValue": {\n' +
+    '                      "values": [\n' +
+    '                        {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '                        }\n' +
+    '                      ]\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "project_id_data": {\n' +
+    '                    "kind": "nullValue",\n' +
+    '                    "nullValue": 0\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        }\n' +
+    '      },\n' +
+    '      "fields": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "04d0889a-b9ba-4f5c-8473-c8447aab350d"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "name"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Название типа"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SINGLE_LINE"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "d99ac785-1d1a-49d8-af23-4d92774d15b6"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "confirm_by"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Подтверждено"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "PICK_LIST"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        },\n' +
+    '                        "options": {\n' +
+    '                          "kind": "listValue",\n' +
+    '                          "listValue": {\n' +
+    '                            "values": [\n' +
+    '                              {\n' +
+    '                                "kind": "stringValue",\n' +
+    '                                "stringValue": "UNDECIDED"\n' +
+    '                              },\n' +
+    '                              {\n' +
+    '                                "kind": "stringValue",\n' +
+    '                                "stringValue": "PHONE"\n' +
+    '                              },\n' +
+    '                              {\n' +
+    '                                "kind": "stringValue",\n' +
+    '                                "stringValue": "EMAIL"\n' +
+    '                              }\n' +
+    '                            ]\n' +
+    '                          }\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "763a0625-59d7-4fd1-ad4b-7ef303c3aadf"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "self_register"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Саморегистрация"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "false"\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SWITCH"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '    '... 24768 more characters,
+  level: 'info',
+  timestamp: '2023-04-20T06:40:08.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T06:40:29.731Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-04-20T06:40:29.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: response - {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "count": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 0\n' +
+    '      },\n' +
+    '      "response": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": []\n' +
+    '        }\n' +
+    '      },\n' +
+    '      "fields": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "9d53673d-4df3-4679-91be-8a787bdff724"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "table_slug"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Table Slug"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SINGLE_LINE"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        },\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "0ade55f8-c84d-42b7-867f-6418e1314e28"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "546320ae-8d9f-43cb-afde-3df5701e4b49"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "icon"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Icon"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ICON"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "0ade55f8-c84d-42b7-867f-6418e1314e28"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "a9767595-8863-414e-9220-f6499def0276"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "view_slug"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "View Slug"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SINGLE_LINE"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        },\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "0ade55f8-c84d-42b7-867f-6418e1314e28"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "b73c268c-9b91-47e4-9cb8-4f1d4ad14605"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "view_label"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "View label"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SINGLE_LINE"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "0ade55f8-c84d-42b7-867f-6418e1314e28"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "71a33f28-002e-42a9-95fe-934a1f04b789"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "type"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Тип"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "MULTISELECT"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "str'... 14638 more characters,
+  level: 'info',
+  timestamp: '2023-04-20T06:40:29.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login_data: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T06:40:44.041Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: succeeded',
+  level: 'info',
+  timestamp: '2023-04-20T06:40:44.041Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: response - {\n' +
+    '  "user_found": true,\n' +
+    '  "client_platform": {\n' +
+    '    "_id": "63fc680d2a6925ff997f60ef",\n' +
+    '    "name": "Ucode",\n' +
+    '    "subdomain": "ucode",\n' +
+    '    "guid": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092",\n' +
+    '    "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
+    '    "__v": 0,\n' +
+    '    "client_type_ids": [\n' +
+    '      "88ef13a4-79a0-4b53-ba82-e5f7578da7b7",\n' +
+    '      "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  "client_type": {\n' +
+    '    "_id": "63fc680d2a6925ff997f60f1",\n' +
+    '    "name": "ADMIN",\n' +
+    '    "confirm_by": "PHONE",\n' +
+    '    "self_register": false,\n' +
+    '    "guid": "88ef13a4-79a0-4b53-ba82-e5f7578da7b7",\n' +
+    '    "self_recover": false,\n' +
+    '    "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
+    '    "__v": 0,\n' +
+    '    "client_platform_ids": [\n' +
+    '      "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '    ],\n' +
+    '    "tables": []\n' +
+    '  },\n' +
+    '  "user_id": "a6b89511-1855-4597-b790-32150690ee1f",\n' +
+    '  "app_permissions": [\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6114",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "app",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "b0c3bc25-8439-4e5a-84db-cd36a456aaef",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0,\n' +
+    '      "is_have_condition": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "role": {\n' +
+    '    "_id": "63fc680d2a6925ff997f60f3",\n' +
+    '    "name": "DEFAULT ADMIN",\n' +
+    '    "guid": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '    "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
+    '    "client_platform_id": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092",\n' +
+    '    "client_type_id": "88ef13a4-79a0-4b53-ba82-e5f7578da7b7"\n' +
+    '  },\n' +
+    '  "permissions": [\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6114",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "app",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "b0c3bc25-8439-4e5a-84db-cd36a456aaef",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0,\n' +
+    '      "is_have_condition": false\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6115",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "record_permission",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "75e835f6-06ab-46d1-88ca-76ed10bf2f06",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6116",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "connections",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "55243b6e-63fb-4e28-ba07-8625b3e43738",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6117",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "role",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "380e14ab-71bc-4558-a3b4-537dbd4d57f4",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6118",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "client_type",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "42fb56bf-bfbc-4f8f-96fb-1c2567d91b79",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6119",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "client_platform",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "3b850c28-deff-4e2d-8a3c-f6e47e5c4d26",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f611a",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "project",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "1c04479e-f549-48f8-b5cb-5fa7e929e296",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f611b",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "test_login",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "2953079b-0bcd-4b32-8322-751720d4db78",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f611c",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "user",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "9389ed9e-6cf4-442d-9268-d46820b721b2",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f611d",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "automatic_filter",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "e40b13da-f913-45c9-a3d2-83e1212192c7",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f6485",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_operation_type",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "c4c0591f-0532-4e93-ac4b-e89080c1b236",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f64ab",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_t_balanse",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "a791dea3-cfb9-4a31-a487-4af8344f9e51",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f64cc",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_conversion",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "4cac40be-17e3-4ebb-82df-425788c63096",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f650a",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_legal_client",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "5b588a34-dd65-458c-a7bb-eca5947fe273",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f6544",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_legal_company",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "4ce2d1c3-4b8b-4e1f-b62b-d19b502fa428",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f658e",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_balances",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "1eb6e19e-6d1c-47a7-9b5e-c1f96e5c6583",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687b2a6925ff997f65bc",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_operation",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "69172fb0-1a45-458a-a549-0c40c2ff5fce",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687b2a6925ff997f660b",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_invoice",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "3a194733-4923-4681-b5d3-6ac857bcf997",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687b2a6925ff997f6651",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "accounts",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "fba758d4-c7de-4326-9d4c-03fc36ccfda4",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687b2a6925ff997f6685",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_projects",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "b9430d39-27b6-4d82-8994-6a18cab9c237",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc6c862a6925ff997f84da",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "budget",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "717af219-9892-4b40-9e3d-a06fefe15cc9",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc83815901db8040fcfdc7",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "68ef563f-0b82-40ab-a602-d9d3efadddc1",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc91e65901db8040fda347",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "28fc782e-439b-4e7f-89bf-7abde27d1529",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fdc625ccecb6b7b27e9e98",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "93589cb7-dc0f-4af7-8a8d-db86bc74be59",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fdc64accecb6b7b27ea0a3",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "d623488e-32cf-437c-8f35-0af22ccf9b12",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_h'... 30889 more characters,
+  level: 'info',
+  timestamp: '2023-04-20T06:40:44.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:40:45.821Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:40:46.408Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:42:00.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:42:00.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:50:55.889Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:50:55.903Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:51:09.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:51:09.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:54:28.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:54:28.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:55:54.259Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:55:54.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:56:08.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:56:08.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:57:12.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:57:12.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:04:11.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:04:11.379Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:13:00.216Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:13:00.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:14:45.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:14:45.677Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-20T07:18:37.327Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-20T07:18:37.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-20T07:18:37.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-20T07:18:37.331Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-20T07:18:38.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getUserUpdatedPermission: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-04-20T07:19:42.300Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getUserUpdatedPermission: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-04-20T07:19:42.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T07:20:12.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:33:12.209Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-20T07:33:40.660Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-20T07:33:40.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-20T07:33:40.663Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-20T07:33:40.663Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-20T07:33:41.426Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T07:35:09.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T07:39:21.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-04-20T07:39:21.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: response - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "count": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 2\n' +
+    '      },\n' +
+    '      "response": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "name": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ADMIN"\n' +
+    '                  },\n' +
+    '                  "confirm_by": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "PHONE"\n' +
+    '                  },\n' +
+    '                  "self_register": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "guid": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "88ef13a4-79a0-4b53-ba82-e5f7578da7b7"\n' +
+    '                  },\n' +
+    '                  "self_recover": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "project_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "731dbf07-9e3c-4902-9a52-be9a690ffd25"\n' +
+    '                  },\n' +
+    '                  "client_platform_ids": {\n' +
+    '                    "kind": "listValue",\n' +
+    '                    "listValue": {\n' +
+    '                      "values": [\n' +
+    '                        {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '                        }\n' +
+    '                      ]\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "project_id_data": {\n' +
+    '                    "kind": "nullValue",\n' +
+    '                    "nullValue": 0\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "name": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "WEB_USER"\n' +
+    '                  },\n' +
+    '                  "confirm_by": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "EMAIL"\n' +
+    '                  },\n' +
+    '                  "self_register": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "guid": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75"\n' +
+    '                  },\n' +
+    '                  "self_recover": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "project_id": {\n' +
+    '                    "kind": "nullValue",\n' +
+    '                    "nullValue": 0\n' +
+    '                  },\n' +
+    '                  "client_platform_ids": {\n' +
+    '                    "kind": "listValue",\n' +
+    '                    "listValue": {\n' +
+    '                      "values": [\n' +
+    '                        {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '                        }\n' +
+    '                      ]\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "project_id_data": {\n' +
+    '                    "kind": "nullValue",\n' +
+    '                    "nullValue": 0\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        }\n' +
+    '      },\n' +
+    '      "fields": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "04d0889a-b9ba-4f5c-8473-c8447aab350d"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "name"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Название типа"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SINGLE_LINE"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "d99ac785-1d1a-49d8-af23-4d92774d15b6"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "confirm_by"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Подтверждено"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "PICK_LIST"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        },\n' +
+    '                        "options": {\n' +
+    '                          "kind": "listValue",\n' +
+    '                          "listValue": {\n' +
+    '                            "values": [\n' +
+    '                              {\n' +
+    '                                "kind": "stringValue",\n' +
+    '                                "stringValue": "UNDECIDED"\n' +
+    '                              },\n' +
+    '                              {\n' +
+    '                                "kind": "stringValue",\n' +
+    '                                "stringValue": "PHONE"\n' +
+    '                              },\n' +
+    '                              {\n' +
+    '                                "kind": "stringValue",\n' +
+    '                                "stringValue": "EMAIL"\n' +
+    '                              }\n' +
+    '                            ]\n' +
+    '                          }\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "763a0625-59d7-4fd1-ad4b-7ef303c3aadf"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "self_register"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Саморегистрация"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "false"\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SWITCH"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '    '... 24768 more characters,
+  level: 'info',
+  timestamp: '2023-04-20T07:39:21.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T07:39:31.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-04-20T07:39:31.652Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: response - {\n' +
+    '  "table_slug": "connections",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "count": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 0\n' +
+    '      },\n' +
+    '      "response": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": []\n' +
+    '        }\n' +
+    '      },\n' +
+    '      "fields": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "9d53673d-4df3-4679-91be-8a787bdff724"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "table_slug"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Table Slug"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SINGLE_LINE"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        },\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "0ade55f8-c84d-42b7-867f-6418e1314e28"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "546320ae-8d9f-43cb-afde-3df5701e4b49"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "icon"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Icon"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ICON"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "0ade55f8-c84d-42b7-867f-6418e1314e28"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "a9767595-8863-414e-9220-f6499def0276"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "view_slug"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "View Slug"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SINGLE_LINE"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        },\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "0ade55f8-c84d-42b7-867f-6418e1314e28"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "b73c268c-9b91-47e4-9cb8-4f1d4ad14605"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "view_label"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "View label"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SINGLE_LINE"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "0ade55f8-c84d-42b7-867f-6418e1314e28"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "71a33f28-002e-42a9-95fe-934a1f04b789"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "type"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Тип"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "MULTISELECT"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "str'... 14638 more characters,
+  level: 'info',
+  timestamp: '2023-04-20T07:39:31.653Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.login.login_data: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T07:39:40.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: succeeded',
+  level: 'info',
+  timestamp: '2023-04-20T07:39:40.785Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: response - {\n' +
+    '  "user_found": true,\n' +
+    '  "client_platform": {\n' +
+    '    "_id": "63fc680d2a6925ff997f60ef",\n' +
+    '    "name": "Ucode",\n' +
+    '    "subdomain": "ucode",\n' +
+    '    "guid": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092",\n' +
+    '    "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
+    '    "__v": 0,\n' +
+    '    "client_type_ids": [\n' +
+    '      "88ef13a4-79a0-4b53-ba82-e5f7578da7b7",\n' +
+    '      "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  "client_type": {\n' +
+    '    "_id": "63fc680d2a6925ff997f60f1",\n' +
+    '    "name": "ADMIN",\n' +
+    '    "confirm_by": "PHONE",\n' +
+    '    "self_register": false,\n' +
+    '    "guid": "88ef13a4-79a0-4b53-ba82-e5f7578da7b7",\n' +
+    '    "self_recover": false,\n' +
+    '    "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
+    '    "__v": 0,\n' +
+    '    "client_platform_ids": [\n' +
+    '      "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '    ],\n' +
+    '    "tables": []\n' +
+    '  },\n' +
+    '  "user_id": "a6b89511-1855-4597-b790-32150690ee1f",\n' +
+    '  "app_permissions": [\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6114",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "app",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "b0c3bc25-8439-4e5a-84db-cd36a456aaef",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0,\n' +
+    '      "is_have_condition": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "role": {\n' +
+    '    "_id": "63fc680d2a6925ff997f60f3",\n' +
+    '    "name": "DEFAULT ADMIN",\n' +
+    '    "guid": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '    "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
+    '    "client_platform_id": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092",\n' +
+    '    "client_type_id": "88ef13a4-79a0-4b53-ba82-e5f7578da7b7"\n' +
+    '  },\n' +
+    '  "permissions": [\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6114",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "app",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "b0c3bc25-8439-4e5a-84db-cd36a456aaef",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0,\n' +
+    '      "is_have_condition": false\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6115",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "record_permission",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "75e835f6-06ab-46d1-88ca-76ed10bf2f06",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6116",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "connections",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "55243b6e-63fb-4e28-ba07-8625b3e43738",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6117",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "role",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "380e14ab-71bc-4558-a3b4-537dbd4d57f4",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6118",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "client_type",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "42fb56bf-bfbc-4f8f-96fb-1c2567d91b79",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f6119",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "client_platform",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "3b850c28-deff-4e2d-8a3c-f6e47e5c4d26",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f611a",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "project",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "1c04479e-f549-48f8-b5cb-5fa7e929e296",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f611b",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "test_login",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "2953079b-0bcd-4b32-8322-751720d4db78",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f611c",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "user",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "9389ed9e-6cf4-442d-9268-d46820b721b2",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc680d2a6925ff997f611d",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "automatic_filter",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "e40b13da-f913-45c9-a3d2-83e1212192c7",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f6485",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_operation_type",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "c4c0591f-0532-4e93-ac4b-e89080c1b236",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f64ab",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_t_balanse",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "a791dea3-cfb9-4a31-a487-4af8344f9e51",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f64cc",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_conversion",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "4cac40be-17e3-4ebb-82df-425788c63096",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f650a",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_legal_client",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "5b588a34-dd65-458c-a7bb-eca5947fe273",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f6544",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_legal_company",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "4ce2d1c3-4b8b-4e1f-b62b-d19b502fa428",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687a2a6925ff997f658e",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_balances",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "1eb6e19e-6d1c-47a7-9b5e-c1f96e5c6583",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687b2a6925ff997f65bc",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_operation",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "69172fb0-1a45-458a-a549-0c40c2ff5fce",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687b2a6925ff997f660b",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_invoice",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "3a194733-4923-4681-b5d3-6ac857bcf997",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687b2a6925ff997f6651",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "accounts",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "fba758d4-c7de-4326-9d4c-03fc36ccfda4",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc687b2a6925ff997f6685",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "boom_projects",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "b9430d39-27b6-4d82-8994-6a18cab9c237",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc6c862a6925ff997f84da",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "budget",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "717af219-9892-4b40-9e3d-a06fefe15cc9",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc83815901db8040fcfdc7",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "68ef563f-0b82-40ab-a602-d9d3efadddc1",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fc91e65901db8040fda347",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "28fc782e-439b-4e7f-89bf-7abde27d1529",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fdc625ccecb6b7b27e9e98",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "93589cb7-dc0f-4af7-8a8d-db86bc74be59",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_have_condition": false,\n' +
+    '      "is_public": false,\n' +
+    '      "__v": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "_id": "63fdc64accecb6b7b27ea0a3",\n' +
+    '      "update": "Yes",\n' +
+    '      "table_slug": "",\n' +
+    '      "write": "Yes",\n' +
+    '      "guid": "d623488e-32cf-437c-8f35-0af22ccf9b12",\n' +
+    '      "read": "Yes",\n' +
+    '      "delete": "Yes",\n' +
+    '      "role_id": "1617e421-4ec9-43d5-b080-95b617f2cc94",\n' +
+    '      "is_h'... 30889 more characters,
+  level: 'info',
+  timestamp: '2023-04-20T07:39:40.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:39:42.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:39:43.211Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T07:45:50.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-04-20T07:45:50.202Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: response - {\n' +
+    '  "table_slug": "client_type",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "count": {\n' +
+    '        "kind": "numberValue",\n' +
+    '        "numberValue": 2\n' +
+    '      },\n' +
+    '      "response": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "name": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ADMIN"\n' +
+    '                  },\n' +
+    '                  "confirm_by": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "PHONE"\n' +
+    '                  },\n' +
+    '                  "self_register": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "guid": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "88ef13a4-79a0-4b53-ba82-e5f7578da7b7"\n' +
+    '                  },\n' +
+    '                  "self_recover": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "project_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "731dbf07-9e3c-4902-9a52-be9a690ffd25"\n' +
+    '                  },\n' +
+    '                  "client_platform_ids": {\n' +
+    '                    "kind": "listValue",\n' +
+    '                    "listValue": {\n' +
+    '                      "values": [\n' +
+    '                        {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '                        }\n' +
+    '                      ]\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "project_id_data": {\n' +
+    '                    "kind": "nullValue",\n' +
+    '                    "nullValue": 0\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "name": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "WEB_USER"\n' +
+    '                  },\n' +
+    '                  "confirm_by": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "EMAIL"\n' +
+    '                  },\n' +
+    '                  "self_register": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "guid": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "dbbd762f-cb5f-4862-af5a-2a8de0bb4c75"\n' +
+    '                  },\n' +
+    '                  "self_recover": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "project_id": {\n' +
+    '                    "kind": "nullValue",\n' +
+    '                    "nullValue": 0\n' +
+    '                  },\n' +
+    '                  "client_platform_ids": {\n' +
+    '                    "kind": "listValue",\n' +
+    '                    "listValue": {\n' +
+    '                      "values": [\n' +
+    '                        {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": "d195fa36-c1bd-45f3-9e73-ad7cfbfb4092"\n' +
+    '                        }\n' +
+    '                      ]\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "project_id_data": {\n' +
+    '                    "kind": "nullValue",\n' +
+    '                    "nullValue": 0\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            }\n' +
+    '          ]\n' +
+    '        }\n' +
+    '      },\n' +
+    '      "fields": {\n' +
+    '        "kind": "listValue",\n' +
+    '        "listValue": {\n' +
+    '          "values": [\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "04d0889a-b9ba-4f5c-8473-c8447aab350d"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "name"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Название типа"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SINGLE_LINE"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "maxLength": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "d99ac785-1d1a-49d8-af23-4d92774d15b6"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "confirm_by"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Подтверждено"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": ""\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "PICK_LIST"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "placeholder": {\n' +
+    '                          "kind": "stringValue",\n' +
+    '                          "stringValue": ""\n' +
+    '                        },\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        },\n' +
+    '                        "options": {\n' +
+    '                          "kind": "listValue",\n' +
+    '                          "listValue": {\n' +
+    '                            "values": [\n' +
+    '                              {\n' +
+    '                                "kind": "stringValue",\n' +
+    '                                "stringValue": "UNDECIDED"\n' +
+    '                              },\n' +
+    '                              {\n' +
+    '                                "kind": "stringValue",\n' +
+    '                                "stringValue": "PHONE"\n' +
+    '                              },\n' +
+    '                              {\n' +
+    '                                "kind": "stringValue",\n' +
+    '                                "stringValue": "EMAIL"\n' +
+    '                              }\n' +
+    '                            ]\n' +
+    '                          }\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "table_id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              }\n' +
+    '            },\n' +
+    '            {\n' +
+    '              "kind": "structValue",\n' +
+    '              "structValue": {\n' +
+    '                "fields": {\n' +
+    '                  "id": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "763a0625-59d7-4fd1-ad4b-7ef303c3aadf"\n' +
+    '                  },\n' +
+    '                  "required": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '                    "boolValue": false\n' +
+    '                  },\n' +
+    '                  "slug": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "self_register"\n' +
+    '                  },\n' +
+    '                  "label": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "Саморегистрация"\n' +
+    '                  },\n' +
+    '                  "default": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "false"\n' +
+    '                  },\n' +
+    '                  "type": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "SWITCH"\n' +
+    '                  },\n' +
+    '                  "index": {\n' +
+    '                    "kind": "stringValue",\n' +
+    '                    "stringValue": "string"\n' +
+    '                  },\n' +
+    '                  "attributes": {\n' +
+    '                    "kind": "structValue",\n' +
+    '                    "structValue": {\n' +
+    '                      "fields": {\n' +
+    '                        "showTooltip": {\n' +
+    '                          "kind": "boolValue",\n' +
+    '                          "boolValue": false\n' +
+    '                        }\n' +
+    '                      }\n' +
+    '                    }\n' +
+    '                  },\n' +
+    '                  "is_visible": {\n' +
+    '                    "kind": "boolValue",\n' +
+    '    '... 24768 more characters,
+  level: 'info',
+  timestamp: '2023-04-20T07:45:50.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-20T07:47:24.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-20T07:47:24.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-20T07:47:24.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-20T07:47:24.698Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-20T07:47:25.616Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-20T07:50:00.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

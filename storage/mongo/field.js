@@ -21,7 +21,7 @@ let fieldStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             data.fields.push({
@@ -118,7 +118,7 @@ let fieldStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
@@ -219,7 +219,7 @@ let fieldStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             const fieldBeforUpdate = await Field.findOne(
@@ -314,7 +314,7 @@ let fieldStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             let table = {};
@@ -532,7 +532,7 @@ let fieldStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
 

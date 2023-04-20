@@ -41,7 +41,7 @@ let relationStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
 
@@ -375,7 +375,7 @@ let relationStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
 
@@ -459,7 +459,7 @@ let relationStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             if (data.table_slug === "") {
@@ -636,7 +636,7 @@ let relationStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             if (data.table_slug === "") {
@@ -797,7 +797,7 @@ let relationStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             const relation = await Relation.findOne({ id: data.id });

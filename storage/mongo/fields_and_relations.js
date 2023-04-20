@@ -114,9 +114,8 @@ let fieldsRelationsStore = {
 
                 let params = {version_ids: []}
                 if(data.version_id) {
-                    data.version_ids = { $in: [version_id] }
+                    params.version_ids = { $in: [version_id] }
                 }
-
 
                 let table = {};
                 let field = {};

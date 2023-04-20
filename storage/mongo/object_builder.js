@@ -137,7 +137,7 @@ let objectBuilder = {
 
         let params = {version_ids: []}
         if(data.version_id) {
-            data.version_ids = { $in: [version_id] }
+            params.version_ids = { $in: [version_id] }
         }
 
 
@@ -298,13 +298,11 @@ let objectBuilder = {
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
-        let paramsT = {version_ids: []}
-        if(data.version_id) {
-            data.version_ids = { $in: [version_id] }
-        }
-
-
         const params = struct.decode(req?.data)
+        let paramsT = {version_ids: []}
+        if(params.version_id) {
+            paramsT.version_ids = { $in: [version_id] }
+        }
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -1257,13 +1255,11 @@ let objectBuilder = {
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
 
-            let paramsT = {version_ids: []}
-            if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
-            }
-
-
             const params = struct.decode(req.data)
+            let paramsT = {version_ids: []}
+            if(params.version_id) {
+                paramsT.version_ids = { $in: [version_id] }
+            }
             const limit = params.limit
             const offset = params.offset
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]

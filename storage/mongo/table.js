@@ -24,7 +24,7 @@ let tableStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             const table = new Table(data);
@@ -90,7 +90,7 @@ let tableStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             data.is_changed = true

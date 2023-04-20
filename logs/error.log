@@ -270,3 +270,206 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getList: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-04-20T06:22:02.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-04-20T06:22:32.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:40:45.821Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:40:46.408Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:42:00.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:42:00.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:50:55.889Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:50:55.903Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:51:09.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:51:09.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:54:28.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:54:28.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:55:54.259Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:55:54.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:56:08.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:56:08.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:57:12.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T06:57:12.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:04:11.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:04:11.379Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:13:00.216Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:13:00.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:14:45.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:14:45.677Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getUserUpdatedPermission: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-04-20T07:19:42.300Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getUserUpdatedPermission: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-04-20T07:19:42.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:33:12.209Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:39:42.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-20T07:39:43.211Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

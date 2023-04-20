@@ -39,7 +39,7 @@ let sectionStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             for (const sectionReq of data.sections) {
@@ -71,7 +71,7 @@ let sectionStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             const count = await Section.deleteMany(
@@ -109,7 +109,7 @@ let sectionStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             await ViewRelation.deleteMany(
@@ -203,7 +203,7 @@ let sectionStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             let table = {};
@@ -250,7 +250,7 @@ let sectionStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             let table = {};
@@ -310,7 +310,7 @@ let sectionStore = {
 
             let params = {version_ids: []}
             if(data.version_id) {
-                data.version_ids = { $in: [version_id] }
+                params.version_ids = { $in: [version_id] }
             }
 
             let table = {};

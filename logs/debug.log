@@ -692,3 +692,693 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-19T07:21:47.858Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-19T07:21:47.860Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-19T07:21:47.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-19T07:21:47.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T04:47:11.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T04:47:11.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T04:47:11.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-04-24T04:47:11.433Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-04-24T04:47:11.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T04:47:40.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T04:47:40.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T04:47:40.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T04:47:40.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T04:48:16.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T04:48:16.373Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T04:48:16.373Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T04:48:16.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T04:48:16.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T04:48:17.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:08:33.128Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:08:33.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:08:33.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:08:33.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:08:33.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:08:33.770Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-04-24T05:10:03.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:10:30.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:10:30.349Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:10:30.349Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:10:30.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:10:30.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:10:31.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-04-24T05:10:37.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:10:46.307Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:10:46.309Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:10:46.309Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:10:46.329Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:10:46.329Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:10:46.945Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:13:43.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:13:43.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:13:43.202Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:13:43.220Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:13:43.221Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:13:43.831Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:15:12.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:15:12.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:15:12.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:15:12.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:15:12.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:15:13.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:18:01.899Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:18:01.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:18:01.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:18:01.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:18:01.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:18:02.542Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:20:03.745Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:20:03.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:20:09.873Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-04-24T05:20:09.874Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:30:10.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:30:10.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:30:10.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:30:10.032Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:30:10.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:30:10.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:32:18.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:32:18.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:32:24.231Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-04-24T05:32:24.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

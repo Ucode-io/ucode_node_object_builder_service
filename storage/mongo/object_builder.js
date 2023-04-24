@@ -477,7 +477,7 @@ let objectBuilder = {
         //     ]
         // })
         // console.timeEnd("TIME_LOGGING:::relation")
-        console.log("TEST::::::5")
+        // console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
         if (with_relations) {
@@ -584,7 +584,7 @@ let objectBuilder = {
             params.phone = phone
         }
         // console.timeEnd("TIME_LOGGING:::phone")
-        console.log("TEST::::::7")
+        // console.log("TEST::::::7")
         let populateArr = []
         // console.time("TIME_LOGGING:::limit")
         if (limit !== 0) {
@@ -636,7 +636,7 @@ let objectBuilder = {
                         }
                     }
                 }
-                console.log("TEST::::::8")
+                // console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -865,7 +865,7 @@ let objectBuilder = {
             result = result.concat(additional_results)
         }
         // console.timeEnd("TIME_LOGGING:::additional_request")
-        console.log("TEST::::::14")
+        // console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         // console.time("TIME_LOGGING:::res_of_result")
@@ -936,7 +936,7 @@ let objectBuilder = {
             })
         }
         // console.timeEnd("TIME_LOGGING:::length")
-        console.log("TEST::::::15")
+        // console.log("TEST::::::15")
         const response = struct.encode({
             count: count,
             response: result,

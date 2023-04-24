@@ -392,10 +392,12 @@ let sectionStore = {
                                                 __v: 0
                                             }
                                         )
-                                        if (view_field.attributes) {
-                                            view_field.attributes = struct.decode(view_field.attributes)
+                                        if (view_field) {
+                                            if (view_field.attributes) {
+                                                view_field.attributes = struct.decode(view_field.attributes)
+                                            }
+                                            viewFieldsInDynamicTable.push(view_field._doc)
                                         }
-                                        viewFieldsInDynamicTable.push(view_field._doc)
                                     }
                                     dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
                                     dynamicTables.push(dynamicTableToAttribute)

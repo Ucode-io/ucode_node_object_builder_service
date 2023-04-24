@@ -675,30 +675,34 @@ let objectBuilder = {
                             for (const deepRelation of deepPopulateRelations) {
                                 if (deepRelation.type === "One2Many") {
                                     deepRelation.table_to = deepRelation.table_from
-                                } else if (relation.type === "Many2Many") {
+                                } else if (deepRelation.type === "Many2Many") {
                                     continue
+                                } else if (deepRelation.type === "Many2Dynamic") {
+                                   continue
+                                } else {
+                                    let deep_table_to_slug = "";
+                                    const field = await Field.findOne({
+                                        relation_id: deepRelation?.id
+                                    })
+                                    if (field) {
+                                        deep_table_to_slug = field.slug + "_data"
+                                    }
+                                    if (deep_table_to_slug === "") {
+                                        continue
+                                    }
+    
+                                    if (deep_table_to_slug !== deepRelation.field_to + "_data") {
+                                        let deepPopulate = {
+                                            path: deep_table_to_slug
+                                        }
+                                        deepRelations.push(deepPopulate)
+                                    }
                                 }
                                 // else if (deepRelation.type === "Many2Many" && deepRelation.table_to === relation.table_to) {
                                 //     deepRelation.field_to = deepRelation.field_from
                                 // }
 
-                                let deep_table_to_slug = "";
-                                const field = await Field.findOne({
-                                    relation_id: deepRelation?.id
-                                })
-                                if (field) {
-                                    deep_table_to_slug = field.slug + "_data"
-                                }
-                                if (deep_table_to_slug === "") {
-                                    continue
-                                }
-
-                                if (deep_table_to_slug !== deepRelation.field_to + "_data") {
-                                    let deepPopulate = {
-                                        path: deep_table_to_slug
-                                    }
-                                    deepRelations.push(deepPopulate)
-                                }
+                                
                             }
                         }
                     }
@@ -715,7 +719,7 @@ let objectBuilder = {
                                 papulateTable = {
                                     path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
                                     populate: deepRelations
-                                }
+                                }           
                                 populateArr.push(papulateTable)
                             }
                             continue
@@ -728,7 +732,7 @@ let objectBuilder = {
                     populateArr.push(papulateTable)
                 }
                 // console.log("\n\n-----> T3\n\n", tableInfo, params)
-                // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
+                console.log("::::::::::::::::::: POPULATE ARR", populateArr)
                 result = await tableInfo.models.find({
                     ...params
                 },

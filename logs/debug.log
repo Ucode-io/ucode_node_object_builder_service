@@ -1382,3 +1382,927 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:40:06.484Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:40:06.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:40:06.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:40:06.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:40:06.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:40:07.156Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:42:18.324Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:42:18.331Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:45:33.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-04-24T05:45:33.337Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-04-24T05:46:00.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:48:08.868Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:48:08.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:48:08.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:48:08.890Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:48:08.890Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:48:09.463Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:50:03.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:50:03.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-04-24T05:50:09.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:51:24.074Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:51:24.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:51:24.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:51:24.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:51:24.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:51:24.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:53:16.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:53:16.945Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-04-24T05:53:44.764Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T05:56:26.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T05:56:26.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:56:26.927Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T05:56:26.946Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T05:56:26.947Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T05:56:27.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:58:19.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T05:58:19.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-04-24T06:01:24.880Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T06:02:57.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T06:02:57.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:02:57.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:02:57.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T06:02:57.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T06:02:57.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:04:50.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:04:50.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-04-24T06:05:16.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T06:07:29.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T06:07:29.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:07:29.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:07:29.316Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T06:07:29.316Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T06:07:29.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:09:22.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:09:22.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-04-24T06:09:36.197Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T06:10:23.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T06:10:23.755Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:10:23.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:10:23.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T06:10:23.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T06:10:24.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:12:22.820Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:12:22.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-04-24T06:12:34.491Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T06:18:56.611Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T06:18:56.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:18:56.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:18:56.633Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T06:18:56.633Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T06:18:57.206Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T06:19:16.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T06:19:16.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:19:16.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:19:16.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T06:19:16.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T06:19:17.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:21:12.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:21:12.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-04-24T06:21:36.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T06:23:27.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T06:23:27.715Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:23:27.715Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:23:27.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T06:23:27.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T06:23:28.337Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:25:26.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:25:26.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-04-24T06:25:32.540Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-04-24T06:27:57.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-04-24T06:27:57.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:27:57.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-04-24T06:27:57.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-04-24T06:27:57.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-04-24T06:27:57.604Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:29:50.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:29:50.250Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.object_builder.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-04-24T06:32:58.479Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-04-24T06:32:58.480Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

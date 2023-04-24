@@ -98,7 +98,7 @@ let tableStore = {
             if(data.version_id) {
                 del_payload.version_ids = { $in: [data.version_id] }
             }
-            const tableBeforeUpdate = await Table.findOne({
+            const tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id, ...params
             })
             const table = await Table.create(data)

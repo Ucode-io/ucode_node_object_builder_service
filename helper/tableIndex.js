@@ -19,12 +19,19 @@ module.exports = async function (data) {
         console.log(">>> ID_1 INDEX DELETE FROM TABLE COLLECTION")
     }
 
-    const tables = await Table.find()
+    const tables = await Table.find({})
     for(let t of tables) {
         if(!t.version_ids) {
-            t.version_ids = []
-            await t.save()
-            console.log("Version_ids set to tables")
+            const a = await Table.findOneAndUpdate(
+                {
+                    _id: t._id
+                },
+                {
+                    $set: {
+                        version_ids: []
+                    }
+                }
+            )
         }
     }
 }

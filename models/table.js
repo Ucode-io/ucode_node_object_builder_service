@@ -37,6 +37,13 @@ const TableSchema = mongoose.Schema(
         subtitle_field_slug: {
             type: String,
         },
+        version_ids: [{
+            type: String
+        }],
+        commit_guid: {
+            type: String,
+            // required: [true, "commit_guid is required"],
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

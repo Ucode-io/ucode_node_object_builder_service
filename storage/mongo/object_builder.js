@@ -164,7 +164,11 @@ let objectBuilder = {
                         // console.log("relation field not found")
                         continue
                     }
+                    const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
                     let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                    if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                        matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                    }
                     let matchParams = {
                         [matchField]: { '$eq': data.id },
                         ...filters
@@ -903,7 +907,11 @@ let objectBuilder = {
                             res[field.slug] = 0
                             continue
                         }
+                        const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                        }
                         let matchParams = {
                             [matchField]: { '$eq': res.guid },
                             ...filters

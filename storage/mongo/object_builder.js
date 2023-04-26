@@ -179,6 +179,9 @@ let objectBuilder = {
                             isChanged = true
                         }
                         output[field.slug] = resultFormula[0].res
+                    } else {
+                        output[field.slug] = 0
+                        isChanged = true
                     }
                 }
             } else if (field.type === "FORMULA_FRONTEND") {
@@ -922,6 +925,9 @@ let objectBuilder = {
                                 isChanged = true
                             }
                             res[field.slug] = resultFormula[0].res
+                        } else {
+                            res[field.slug] = 0
+                            isChanged = true
                         }
                     }
                 } else {

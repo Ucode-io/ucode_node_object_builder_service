@@ -115,17 +115,31 @@ let objectBuilder = {
         }
         console.timeEnd("TIME_LOGGING:::Field.findOne")
         console.time("TIME_LOGGING:::Field.findOneInRelation") // can be optimized
+        let relationQueries = []
         for (const relation of relationsM2M) {
             if (relation.table_to === req.table_slug) {
                 relation.field_from = relation.field_to
             }
-            const field = await Field.findOne({
+            relationQueries.push({
                 slug: relation.field_from,
                 relation_id: relation.id
             })
-            if (field) {
-                relatedTable.push(field?.slug + "_data")
+            // const field = await Field.findOne({
+            //     slug: relation.field_from,
+            //     relation_id: relation.id
+            // })
+            // if (field) {
+            //     relatedTable.push(field?.slug + "_data")
+            // }
+        }
+        const fields = await Field.find(
+            {
+                $or: relationQueries
             }
+        )
+        for (const field of fields) {
+            if (field)
+                relatedTable.push(field?.slug + "_data")
         }
         console.timeEnd("TIME_LOGGING:::Field.findOneInRelation")
 
@@ -259,7 +273,7 @@ let objectBuilder = {
                     }
                 }
                 elementField.attributes["autofill"] = autofillFields,
-                    decodedFields.push(elementField)
+                decodedFields.push(elementField)
             }
         };
         console.timeEnd("TIME_LOGGING:::miniForLoop")

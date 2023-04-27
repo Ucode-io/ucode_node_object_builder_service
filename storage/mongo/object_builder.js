@@ -1482,70 +1482,75 @@ let objectBuilder = {
             //
         }
 
-        let output = await tableInfo.models.findOne(
+        let output = await tableInfo.models.findOne({
+            guid: data.id
+        },
             {
-                guid: data.id
-            },
-        )
-        .populate(relatedTable).lean();
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0
+            }).populate(relatedTable).lean();
 
         if (!output) { logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`) };
-        // for (const field of tableInfo.fields) {
-        //     let attributes = struct.decode(field.attributes)
-        //     if (field.type === "FORMULA") {
-        //         if (attributes.table_from && attributes.sum_field) {
-        //             let filters = {}
-        //             if (attributes.formula_filters) {
-        //                 attributes.formula_filters.forEach(el => {
-        //                     filters[el.key.split("#")[0]] = el.value
-        //                     if (Array.isArray(el.value)) {
-        //                         filters[el.key.split("#")[0]] = { $in: el.value }
-        //                     }
-        //                 })
-        //             }
-        //             const relationFieldTable = await table.findOne({
-        //                 slug: attributes.table_from.split('#')[0],
-        //                 deleted_at: "1970-01-01T18:00:00.000+00:00"
-        //             })
-        //             const relationField = await Field.findOne({
-        //                 relation_id: attributes.table_from.split('#')[1],
-        //                 table_id: relationFieldTable.id
-        //             })
-        //             if (!relationField || !relationFieldTable) {
-        //                 output[field.slug] = 0
-        //                 continue
-        //             }
-        //             const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
-        //             let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-        //             if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-        //                 matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-        //             }
-        //             let matchParams = {
-        //                 [matchField]: { '$eq': data.id },
-        //                 ...filters
-        //             }
-        //             const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
-        //             if (resultFormula.length) {
-        //                 output[field.slug] = resultFormula[0].res
-        //             } else {
-        //                 output[field.slug] = 0
-        //             }
-        //         }
-        //     } else if (field.type === "FORMULA_FRONTEND") {
-        //         if (attributes && attributes.fomula) {
-        //             const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, output)
-        //             output[field.slug] = resultFormula
-        //         }
-        //     }
-        // }
+        for (const field of tableInfo.fields) {
+            let attributes = struct.decode(field.attributes)
+            if (field.type === "FORMULA") {
+                if (attributes.table_from && attributes.sum_field) {
+                    let filters = {}
+                    if (attributes.formula_filters) {
+                        attributes.formula_filters.forEach(el => {
+                            filters[el.key.split("#")[0]] = el.value
+                            if (Array.isArray(el.value)) {
+                                filters[el.key.split("#")[0]] = { $in: el.value }
+                            }
+                        })
+                    }
+                    const relationFieldTable = await table.findOne({
+                        slug: attributes.table_from.split('#')[0],
+                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    })
+                    const relationField = await Field.findOne({
+                        relation_id: attributes.table_from.split('#')[1],
+                        table_id: relationFieldTable.id
+                    })
+                    if (!relationField || !relationFieldTable) {
+                        output[field.slug] = 0
+                        continue
+                    }
+                    const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
+                    let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                    if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                        matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                    }
+                    let matchParams = {
+                        [matchField]: { '$eq': data.id },
+                        ...filters
+                    }
+                    const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
+                    if (resultFormula.length) {
+                        output[field.slug] = resultFormula[0].res
+                    } else {
+                        output[field.slug] = 0
+                    }
+                }
+            } else if (field.type === "FORMULA_FRONTEND") {
+                if (attributes && attributes.fomula) {
+                    const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, output)
+                    output[field.slug] = resultFormula
+                }
+            }
+        }
 
-        // for (const relation of relatedTable) {
-        //     if (relation in output) {
-        //         nameWithDollarSign = "$" + relation
-        //         output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
-        //         delete output[relation]
-        //     }
-        // }
+        for (const relation of relatedTable) {
+            if (relation in output) {
+                nameWithDollarSign = "$" + relation
+                output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
+                delete output[relation]
+            }
+        }
 
         return {
             table_slug: data.table_slug,

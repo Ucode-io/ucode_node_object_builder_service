@@ -318,6 +318,430 @@ let objectBuilder = {
             })
         }
     }),
+    getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id)
+        const table = mongoConn.models['Table']
+        const Field = mongoConn.models['Field']
+        const Relation = mongoConn.models['Relation']
+        const params = struct.decode(req?.data)
+        const limit = params.limit
+        const offset = params.offset
+        let clientTypeId = params["client_type_id_from_token"]
+        delete params["client_type_id_from_token"]
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
+        let keys = Object.keys(params)
+        let order = params.order
+        let fields = tableInfo.fields
+        let with_relations = params.with_relations
+        const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
+
+        const permission = await permissionTable.models.findOne({
+            $and: [
+                {
+                    role_id: params["role_id_from_token"]
+                },
+                {
+                    table_slug: req.table_slug
+                }
+            ]
+        })
+        if (permission?.is_have_condition) {
+            const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
+            const automatic_filters = await automaticFilterTable.models.find({
+                $and: [
+                    {
+                        role_id: params["role_id_from_token"]
+                    },
+                    {
+                        table_slug: req.table_slug
+                    }
+                ]
+
+            })
+            if (automatic_filters.length) {
+                for (const autoFilter of automatic_filters) {
+                    if (autoFilter.custom_field === "user_id") {
+                        if (autoFilter.object_field !== req.table_slug) {
+                            params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+                            params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+                        } else {
+                            params["guid"] = params["user_id_from_token"]
+                        }
+                    } else {
+                        let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                        let objFromAuth = params.tables.find(obj => obj.table_slug === connectionTableSlug)
+                        if (objFromAuth) {
+                            if (connectionTableSlug !== req.table_slug) {
+                                params[autoFilter.custom_field] = objFromAuth.object_id
+                                params[autoFilter.custom_field + "s"] = { $in: params["user_id_from_token"] }
+                            } else {
+                                params["guid"] = objFromAuth.object_id
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        for (const key of keys) {
+            if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
+                params["guid"] = params[key]
+            }
+            if (typeof (params[key]) === "object") {
+
+                if (params[key]) {
+                    let is_array = Array.isArray(params[key])
+                    if (is_array) {
+                        params[key] = { $in: params[key] }
+                    }
+                }
+            } else if (!key.includes('.') && typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
+                params[key] = RegExp(params[key], "i")
+            }
+        }
+
+        const relations = await Relation.find({
+            $or: [{
+                table_from: req.table_slug,
+            },
+            {
+                table_to: req.table_slug,
+            },
+            {
+                "dynamic_tables.table_slug": req.table_slug
+            }
+            ]
+        })
+
+        let relationsFields = []
+        if (with_relations) {
+            for (const relation of relations) {
+                if (relation.type !== "Many2Dynamic") {
+                    if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
+                        relation.table_to = relation.table_from
+                    }
+                    let relationTable = await table.findOne({ slug: relation.table_to })
+                    let relationFields = await Field.find(
+                        {
+                            table_id: relationTable?.id
+                        },
+                        {
+                            createdAt: 0,
+                            updatedAt: 0,
+                            created_at: 0,
+                            updated_at: 0,
+                            _id: 0,
+                            __v: 0
+                        })
+                    for (const field of relationFields) {
+                        let changedField = {}
+                        if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
+                            let viewFields = []
+                            let table_slug
+                            if (field.type === "LOOKUP") {
+                                table_slug = field.slug.slice(0, -3)
+                            } else {
+                                table_slug = field.slug.slice(0, -4)
+                            }
+                            childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
+                            if (childRelation) {
+                                for (const view_field of childRelation.view_fields) {
+                                    let viewField = await Field.findOne(
+                                        {
+                                            id: view_field
+                                        },
+                                        {
+                                            createdAt: 0,
+                                            updatedAt: 0,
+                                            created_at: 0,
+                                            updated_at: 0,
+                                            _id: 0,
+                                            __v: 0
+                                        })
+                                    if (viewField) {
+                                        if (viewField.attributes) {
+                                            viewField.attributes = struct.decode(viewField.attributes)
+                                        }
+                                        viewFields.push(viewField._doc)
+                                    }
+                                }
+                            }
+                            field._doc.view_fields = viewFields
+                            let childRelationTable = await table.findOne({ slug: table_slug })
+                            field._doc.table_label = relationTable?.label
+                            field.label = childRelationTable?.label
+                            changedField = field
+                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
+                            changedField._doc.table_slug = table_slug
+                            relationsFields.push(changedField._doc)
+                        } else {
+                            if (field.attributes) {
+                                field.attributes = struct.decode(field.attributes)
+                            }
+                            field._doc.table_label = relationTable?.label
+                            changedField = field
+                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
+                            relationsFields.push(changedField._doc)
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        let result = [], count;
+        let searchByField = []
+        // console.time("TIME_LOGGING:::search")
+        if (params.search) {
+            for (const field of tableInfo.fields) {
+                if (con.STRING_TYPES.includes(field.type)) {
+                    let searchField = { [field.slug]: RegExp(params.search, "i") }
+                    searchByField.push(searchField)
+                }
+            }
+        }
+
+        if (params.phone_number) {
+            let temp = params.phone_number.toString()
+            let tempPhone = temp.substring(5, temp.length - 2)
+            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
+            params.phone_number = phone
+        } else if (params.phone) {
+            let temp = params.phone.toString()
+            let tempPhone = temp.substring(5, temp.length - 2)
+            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
+            params.phone = phone
+        }
+        let populateArr = []
+        if (limit !== 0) {
+            if (relations.length == 0) {
+                result = await tableInfo.models.find({
+                    $and: [params]
+                },
+                    {
+                        createdAt: 0,
+                        updatedAt: 0,
+                        created_at: 0,
+                        updated_at: 0,
+                        _id: 0,
+                        __v: 0
+                    }, { sort: order }
+                ).skip(offset)
+                    .limit(limit)
+                    .lean();
+            } else {
+                tableParams = []
+                for (const key of Object.keys(params)) {
+                    if (key.includes('.')) {
+                        if (typeof params[key] === "object") {
+                            let objectKeys = Object.keys(params[key])
+                            let interval = {}
+                            for (const objectKey of objectKeys) {
+                                interval[objectKey] = params[key][objectKey]
+                            }
+                            if (tableParams[key.split('.')[0]]) {
+                                tableParams[key.split('.')[0]][key.split('.')[1]] = interval
+                            } else {
+                                tableParams[key.split('.')[0]] = {
+                                    [key.split('.')[1]]: interval,
+                                    select: '-_id'
+                                }
+                            }
+                        } else if (typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
+                            if (tableParams[key.split('.')[0]]) {
+                                tableParams[key.split('.')[0]][key.split('.')[1]] = { $regex: params[key] }
+                            } else {
+                                tableParams[key.split('.')[0]] = {
+                                    [key.split('.')[1]]: { $regex: params[key] },
+                                    select: '-_id'
+                                }
+                            }
+                        }
+                    }
+                }
+                for (const relation of relations) {
+                    if (relation.type === "One2Many") {
+                        relation.table_to = relation.table_from
+                    } else if (relation.type === "Many2Many") {
+                        continue
+                    }
+                    // else if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
+                    //     relation.field_to = relation.field_from
+                    // }
+                    let table_to_slug = ""
+                    let deepRelations = []
+                    const field = tableInfo.fields.find(val => (val.relation_id === relation?.id))
+                    if (field) {
+                        table_to_slug = field.slug + "_data"
+                    }
+                    if (table_to_slug === "") {
+                        continue
+                    }
+
+                    if (with_relations) {
+                        if (relation.type === "Many2Dynamic") {
+                            // for(dynamic_table of relation.dynamic_tables){
+                            //     deepPopulateRelations = await Relation.find({table_from:dynamic_table.table_slug})
+                            //     for (const deepRelation of deepPopulateRelations) {
+                            //         if (deepRelation.table_to !== dynamic_table.table_slug) {
+                            //             let deepPopulate = {
+                            //                 path: deepRelation.table_to
+                            //             }
+                            //             deepRelations.push(deepPopulate)
+                            //         }
+                            //     }
+                            // }
+                            // console.log("it's dynamic relations");
+                        } else {
+                            deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
+                            for (const deepRelation of deepPopulateRelations) {
+                                if (deepRelation.type === "One2Many") {
+                                    deepRelation.table_to = deepRelation.table_from
+                                } else if (deepRelation.type === "Many2Many") {
+                                    continue
+                                } else if (deepRelation.type === "Many2Dynamic") {
+                                   continue
+                                } else {
+                                    let deep_table_to_slug = "";
+                                    const field = await Field.findOne({
+                                        relation_id: deepRelation?.id
+                                    })
+                                    if (field) {
+                                        deep_table_to_slug = field.slug + "_data"
+                                    }
+                                    if (deep_table_to_slug === "") {
+                                        continue
+                                    }
+    
+                                    if (deep_table_to_slug !== deepRelation.field_to + "_data") {
+                                        let deepPopulate = {
+                                            path: deep_table_to_slug
+                                        }
+                                        deepRelations.push(deepPopulate)
+                                    }
+                                }
+                                // else if (deepRelation.type === "Many2Many" && deepRelation.table_to === relation.table_to) {
+                                //     deepRelation.field_to = deepRelation.field_from
+                                // }
+
+                                
+                            }
+                        }
+                    }
+                    if (tableParams[table_to_slug]) {
+                        papulateTable = {
+                            path: table_to_slug,
+                            match: tableParams[table_to_slug],
+                            populate: deepRelations,
+                        }
+                    } else {
+                        if (relation.type === "Many2Dynamic") {
+                            for (dynamic_table of relation.dynamic_tables) {
+                                papulateTable = {
+                                    path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
+                                    populate: deepRelations
+                                }           
+                                populateArr.push(papulateTable)
+                            }
+                            continue
+                        }
+                        papulateTable = {
+                            path: table_to_slug,
+                            populate: deepRelations
+                        }
+                    }
+                    populateArr.push(papulateTable)
+                }
+                result = await tableInfo.models.find({
+                    ...params
+                },
+                    {
+                        createdAt: 0,
+                        updatedAt: 0,
+                        created_at: 0,
+                        updated_at: 0,
+                        _id: 0,
+                        __v: 0
+                    }, { sort: order }
+                )
+                    .skip(offset)
+                    .limit(limit)
+                    .populate(populateArr)
+                    .lean()
+
+                result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
+            }
+        }
+        count = await tableInfo.models.count(params);
+
+        if (result && result.length) {
+            let prev = result.length
+            count = count - (prev - result.length)
+        }
+
+        let updatedObjects = []
+        let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
+        for (const res of result) {
+            for (const field of formulaFields) {
+                let attributes = struct.decode(field.attributes)
+                if (field.type === "FORMULA") {
+                    if (attributes.table_from && attributes.sum_field) {
+                        let filters = {}
+                        if (attributes.formula_filters) {
+                            attributes.formula_filters.forEach(el => {
+                                filters[el.key.split("#")[0]] = el.value
+                                if (Array.isArray(el.value)) {
+                                    filters[el.key.split("#")[0]] = { $in: el.value }
+                                }
+                            })
+                        }
+                        const relationFieldTable = await table.findOne({
+                            slug: attributes.table_from.split('#')[0],
+                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        })
+                        const relationField = await Field.findOne({
+                            relation_id: attributes.table_from.split('#')[1],
+                            table_id: relationFieldTable.id
+                        })
+                        if (!relationField || !relationFieldTable) {
+                            console.log("relation field not found")
+                            res[field.slug] = 0
+                            continue
+                        }
+                        const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
+                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                        }
+                        let matchParams = {
+                            [matchField]: { '$eq': res.guid },
+                            ...filters
+                        }
+                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
+                        if (resultFormula.length) {
+                            res[field.slug] = resultFormula[0].res
+                        } else {
+                            res[field.slug] = 0
+                        }
+                    }
+                } else {
+                    if (attributes && attributes.formula) {
+                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
+                        res[field.slug] = resultFormula
+                    }
+                }
+            }
+        }
+
+        const response = struct.encode({
+            count: count,
+            response: result,
+        });
+        return { table_slug: req.table_slug, data: response }
+
+    }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
         // console.log("\n---GetList-->req:", req)
         const mongoConn = await mongoPool.get(req.project_id)
@@ -1138,8 +1562,6 @@ let objectBuilder = {
                 response: output,
             })
         }
-    }),
-    getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {

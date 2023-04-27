@@ -493,7 +493,6 @@ let objectBuilder = {
 
         let result = [], count;
         let searchByField = []
-        // console.time("TIME_LOGGING:::search")
         if (params.search) {
             for (const field of tableInfo.fields) {
                 if (con.STRING_TYPES.includes(field.type)) {
@@ -681,7 +680,6 @@ let objectBuilder = {
             count = count - (prev - result.length)
         }
 
-        let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         for (const res of result) {
             for (const field of formulaFields) {
@@ -706,7 +704,6 @@ let objectBuilder = {
                             table_id: relationFieldTable.id
                         })
                         if (!relationField || !relationFieldTable) {
-                            console.log("relation field not found")
                             res[field.slug] = 0
                             continue
                         }

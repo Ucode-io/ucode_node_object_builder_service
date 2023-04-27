@@ -113,7 +113,7 @@ let objectBuilder = {
             }
         }
         console.timeEnd("TIME_LOGGING:::Field.findOne")
-        console.time("TIME_LOGGING:::Field.findOneInRelation")
+        console.time("TIME_LOGGING:::Field.findOneInRelation") // can be optimized
         for (const relation of relationsM2M) {
             if (relation.table_to === req.table_slug) {
                 relation.field_from = relation.field_to
@@ -269,26 +269,46 @@ let objectBuilder = {
                 let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
                 let viewFields = []
                 if (relation) {
-                    for (const view_field of relation.view_fields) {
-                        let viewField = await Field.findOne(
-                            {
-                                id: view_field
-                            },
-                            {
-                                createdAt: 0,
-                                updatedAt: 0,
-                                created_at: 0,
-                                updated_at: 0,
-                                _id: 0,
-                                __v: 0
-                            })
-                        if (viewField) {
-                            if (viewField.attributes) {
-                                viewField.attributes = struct.decode(viewField.attributes)
-                            }
-                            viewFields.push(viewField._doc)
+                    let viewFieldsResp = await Field.find(
+                        {
+                            id: { $in: relation.view_fields }
+                        },
+                        {
+                            createdAt: 0,
+                            updatedAt: 0,
+                            created_at: 0,
+                            updated_at: 0,
+                            _id: 0,
+                            __v: 0
+                        })
+                    
+                    for (let i = 0; i < viewFieldsResp.length; i++) {
+                        if (viewFieldsResp[i].attributes) {
+                            viewFieldsResp[i].attributes = struct.decode(viewFieldsResp[i].attributes)
                         }
+                        viewFields.push(viewFieldsResp[i]._doc)
                     }
+
+                    // for (const view_field of relation.view_fields) {
+                    //     let viewField = await Field.findOne(
+                    //         {
+                    //             id: view_field
+                    //         },
+                    //         {
+                    //             createdAt: 0,
+                    //             updatedAt: 0,
+                    //             created_at: 0,
+                    //             updated_at: 0,
+                    //             _id: 0,
+                    //             __v: 0
+                    //         })
+                    //     if (viewField) {
+                    //         if (viewField.attributes) {
+                    //             viewField.attributes = struct.decode(viewField.attributes)
+                    //         }
+                    //         viewFields.push(viewField._doc)
+                    //     }
+                    // }
                 }
                 field.view_fields = viewFields
             }

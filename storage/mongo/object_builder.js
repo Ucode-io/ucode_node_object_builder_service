@@ -1492,7 +1492,7 @@ let objectBuilder = {
                 updatedAt: 0,
                 _id: 0,
                 __v: 0
-            }).populate(relatedTable).lean();
+            }).populate(relatedTable)//.lean();
 
         if (!output) { logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`) };
         // for (const field of tableInfo.fields) {

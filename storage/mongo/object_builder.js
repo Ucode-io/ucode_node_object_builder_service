@@ -73,37 +73,40 @@ let objectBuilder = {
         }
     }),
     getSingle: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingle`, async (req) => {
-        console.time("TIME_LOGGING:::mongoPool.Get")
-        const mongoConn = await mongoPool.get(req.project_id)
-        const Field = mongoConn.models['Field']
-        const Relation = mongoConn.models['Relation']
-        const table = mongoConn.models['Table']
-        const data = struct.decode(req.data)
-        console.timeEnd("TIME_LOGGING:::mongoPool.Get")
+        // Prepare Stage
+            const mongoConn = await mongoPool.get(req.project_id)
+            const Field = mongoConn.models['Field']
+            const Relation = mongoConn.models['Relation']
+            const table = mongoConn.models['Table']
+            const data = struct.decode(req.data)
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        // Get Relations
+            const relations = await Relation.find({
+                table_from: req.table_slug,
+                type: "One2One"
+            })
+            const relationsM2M = await Relation.find({
+                $or: [{
+                    table_from: req.table_slug
+                },
+                {
+                    table_to: req.table_slug
+                }],
+                $and: [{
+                    type: "Many2Many"
+                }]
+            })
 
-        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        let relatedTableTest = (await Field.find(
+                            {
+                                relation_id: relations.map(elem => elem.id)
+                            }))
+                            .map(elem => {
+                                if (elem) {
+                                    return elem.slug + "_data";
+                                }
+                            })
 
-        console.time("TIME_LOGGING:::Relation.Find")
-
-        const relations = await Relation.find({
-            table_from: req.table_slug,
-            type: "One2One"
-        })
-
-        const relationsM2M = await Relation.find({
-            $or: [{
-                table_from: req.table_slug
-            },
-            {
-                table_to: req.table_slug
-            }],
-            $and: [{
-                type: "Many2Many"
-            }]
-        })
-        console.timeEnd("TIME_LOGGING:::Relation.Find")
-
-        console.time("TIME_LOGGING:::Field.findOne")
         let relatedTable = []
         for (const relation of relations) {
             const field = await Field.findOne({
@@ -113,8 +116,9 @@ let objectBuilder = {
                 relatedTable.push(field?.slug + "_data")
             }
         }
-        console.timeEnd("TIME_LOGGING:::Field.findOne")
-        console.time("TIME_LOGGING:::Field.findOneInRelation") // can be optimized
+        console.log("relatedTable", relatedTable)
+        console.log("relatedTableTest", relatedTableTest)
+
         let relationQueries = []
         for (const relation of relationsM2M) {
             if (relation.table_to === req.table_slug) {
@@ -246,6 +250,7 @@ let objectBuilder = {
             } else {
                 let autofillFields = []
                 let elementField = { ...element }
+                // optimize for O(1)
                 const relation = relations.find(val => (val.id === elementField.relation_id))
                 let relationTableSlug;
                 if (relation) {

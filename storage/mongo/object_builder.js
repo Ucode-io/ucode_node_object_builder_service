@@ -1552,12 +1552,12 @@ let objectBuilder = {
         // //     }
         // // }
 
-        // return {
-        //     table_slug: data.table_slug,
-        //     data: struct.encode({
-        //         response: output,
-        //     })
-        // }
+        return {
+            table_slug: "",
+            data: struct.encode({
+                response: {},
+            })
+        }
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {

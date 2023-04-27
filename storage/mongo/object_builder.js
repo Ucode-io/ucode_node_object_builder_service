@@ -116,25 +116,31 @@ let objectBuilder = {
         console.timeEnd("TIME_LOGGING:::Field.findOne")
         console.time("TIME_LOGGING:::Field.findOneInRelation") // can be optimized
         let relationQueries = []
-        let relationSlugs = {}
         for (const relation of relationsM2M) {
             if (relation.table_to === req.table_slug) {
                 relation.field_from = relation.field_to
             }
-            relationQueries.push(relation.id)
-            relationSlugs[relation.field_from] = relation.id
+            relationQueries.push({
+                slug: relation.field_from,
+                relation_id: relation.id
+            })
+            // const field = await Field.findOne({
+            //     slug: relation.field_from,
+            //     relation_id: relation.id
+            // })
+            // if (field) {
+            //     relatedTable.push(field?.slug + "_data")
+            // }
         }
         const fields = await Field.find(
             {
-                relation_id: {$in: relationQueries}
+                $or: relationQueries
             }
         )
-        fields.filter(elem => elem.relation_id == relationsSlugs[elem.slug])
         for (const field of fields) {
             if (field)
                 relatedTable.push(field?.slug + "_data")
         }
-        
         console.timeEnd("TIME_LOGGING:::Field.findOneInRelation")
 
         console.time("TIME_LOGGING:::models.FindOne")

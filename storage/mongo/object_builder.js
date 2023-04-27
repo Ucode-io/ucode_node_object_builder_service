@@ -1553,9 +1553,9 @@ let objectBuilder = {
         // }
 
         return {
-            table_slug: "",
+            table_slug: data.table_slug,
             data: struct.encode({
-                response: {},
+                response: output,
             })
         }
     }),

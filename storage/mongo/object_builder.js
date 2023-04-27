@@ -73,12 +73,13 @@ let objectBuilder = {
         }
     }),
     getSingle: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingle`, async (req) => {
-
+        console.time("TIME_LOGGING:::mongoPool.Get")
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         const table = mongoConn.models['Table']
         const data = struct.decode(req.data)
+        console.timeEnd("TIME_LOGGING:::mongoPool.Get")
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 

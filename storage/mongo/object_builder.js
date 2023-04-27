@@ -1482,17 +1482,12 @@ let objectBuilder = {
             //
         }
 
-        let output = await tableInfo.models.findOne({
-            guid: data.id
-        },
+        let output = await tableInfo.models.findOne(
             {
-                created_at: 0,
-                updated_at: 0,
-                createdAt: 0,
-                updatedAt: 0,
-                _id: 0,
-                __v: 0
-            }).populate(relatedTable)//.lean();
+                guid: data.id
+            },
+        )
+        .populate(relatedTable).lean();
 
         if (!output) { logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`) };
         // for (const field of tableInfo.fields) {

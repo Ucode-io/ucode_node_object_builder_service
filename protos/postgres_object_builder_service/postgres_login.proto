@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package object_builder_service;
+package postgres_object_builder_service;
 
-option go_package="genproto/object_builder_service";
+option go_package="genproto/postgres_object_builder_service";
 
 import "google/protobuf/struct.proto";
 
@@ -138,5 +138,4 @@ message V2LoginResponse {
     repeated RecordPermission permissions = 6;
     string login_table_slug = 7;
     repeated RecordPermission app_permissions = 8;
-    google.protobuf.Struct addational_table = 9;
 }

@@ -1,7 +1,7 @@
 syntax="proto3";
 
-package query_service;
-option go_package="genproto/query_service";
+package web_page_service;
+option go_package="genproto/web_page_service";
 
 import "google/protobuf/empty.proto";
 

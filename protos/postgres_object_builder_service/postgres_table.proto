@@ -1,11 +1,11 @@
 syntax="proto3";
 
-package object_builder_service;
-option go_package="genproto/object_builder_service";
+package postgres_object_builder_service;
+option go_package="genproto/postgres_object_builder_service";
 
 import "google/protobuf/empty.proto";
-import "field.proto";
-import "section.proto";
+import "postgres_field.proto";
+import "postgres_section.proto";
 
 service TableService {
     rpc Create(CreateTableRequest) returns (CreateTableResponse) {}
@@ -15,7 +15,7 @@ service TableService {
     rpc Delete(TablePrimaryKey) returns (google.protobuf.Empty) {}
 
     rpc GetListTableHistory(GetTableHistoryRequest) returns (GetTableHistoryResponse) {}
-    rpc GetTableHistoryById(TableHistoryPrimaryKey) returns (Table) {}
+    rpc GetTableHistoryById(TableHistoryPrimaryKey) returns (TableHistory) {}
     rpc RevertTableHistory(TableHistoryPrimaryKey) returns (TableHistory) {}
     rpc InsertVersionsToCommit(InsertVersionsToCommitRequest) returns (TableHistory) {}
 }
@@ -23,17 +23,14 @@ service TableService {
 message InsertVersionsToCommitRequest {
     string id = 1;
     repeated string version_ids = 2;
-    string project_id = 3;
 }
 
 message GetTableHistoryRequest {
     string table_id = 1;
-    string project_id = 2;
 }
 
 message TableHistoryPrimaryKey {
     string id = 1;
-    string project_id = 2;
 }
 
 message TableHistory {

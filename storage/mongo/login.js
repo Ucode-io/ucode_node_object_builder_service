@@ -158,11 +158,11 @@ let loginStore = {
         params["phone"] = phone
 
         userTable = (await ObjectBuilder(true, req.project_id))["user"]
-        
+
         user = await userTable.models.findOne(params)
-        if(!user) {
-            user = await userTable.models.findOne({"phone": phone_number})
-            
+        if (!user) {
+            user = await userTable.models.findOne({ "phone": phone_number })
+
         }
         if (user) {
 
@@ -370,6 +370,7 @@ let loginStore = {
     }),
     login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login_data`, async (req) => {
         console.log("TEST:::::::::1", req.resource_environment_id)
+        console.log("req", JSON.stringify(req, null, 2))
         const clientTypeTable = (await ObjectBuilder(true, req.resource_environment_id))["client_type"]
 
         const clientType = await clientTypeTable.models.findOne(

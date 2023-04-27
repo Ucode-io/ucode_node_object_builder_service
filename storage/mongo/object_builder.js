@@ -173,7 +173,11 @@ let objectBuilder = {
                         // console.log("relation field not found")
                         continue
                     }
+                    const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
                     let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                    if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                        matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                    }
                     let matchParams = {
                         [matchField]: { '$eq': data.id },
                         ...filters
@@ -184,6 +188,9 @@ let objectBuilder = {
                             isChanged = true
                         }
                         output[field.slug] = resultFormula[0].res
+                    } else {
+                        output[field.slug] = 0
+                        isChanged = true
                     }
                 }
             } else if (field.type === "FORMULA_FRONTEND") {
@@ -321,6 +328,7 @@ let objectBuilder = {
         // console.log("\n\n---> T2\n\n")
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
+        console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -332,6 +340,7 @@ let objectBuilder = {
             ]
         })
         // console.time("TIME_LOGGING:::is_have_condition")
+        console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
         if (permission?.is_have_condition) {
             const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -345,6 +354,7 @@ let objectBuilder = {
                 ]
 
             })
+            console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
                     if (autoFilter.custom_field === "user_id") {
@@ -371,6 +381,7 @@ let objectBuilder = {
         }
         // console.timeEnd("TIME_LOGGING:::is_have_condition")
         // console.time("TIME_LOGGING:::view_fields")
+        console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
                 let arrayOfViewFields = [];
@@ -489,7 +500,7 @@ let objectBuilder = {
         //     ]
         // })
         // console.timeEnd("TIME_LOGGING:::relation")
-        console.log("TEST::::::5")
+        // console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
         if (with_relations) {
@@ -596,7 +607,7 @@ let objectBuilder = {
             params.phone = phone
         }
         // console.timeEnd("TIME_LOGGING:::phone")
-        console.log("TEST::::::7")
+        // console.log("TEST::::::7")
         let populateArr = []
         // console.time("TIME_LOGGING:::limit")
         if (limit !== 0) {
@@ -648,7 +659,7 @@ let objectBuilder = {
                         }
                     }
                 }
-                console.log("TEST::::::8")
+                // console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -687,30 +698,34 @@ let objectBuilder = {
                             for (const deepRelation of deepPopulateRelations) {
                                 if (deepRelation.type === "One2Many") {
                                     deepRelation.table_to = deepRelation.table_from
-                                } else if (relation.type === "Many2Many") {
+                                } else if (deepRelation.type === "Many2Many") {
                                     continue
+                                } else if (deepRelation.type === "Many2Dynamic") {
+                                   continue
+                                } else {
+                                    let deep_table_to_slug = "";
+                                    const field = await Field.findOne({
+                                        relation_id: deepRelation?.id
+                                    })
+                                    if (field) {
+                                        deep_table_to_slug = field.slug + "_data"
+                                    }
+                                    if (deep_table_to_slug === "") {
+                                        continue
+                                    }
+    
+                                    if (deep_table_to_slug !== deepRelation.field_to + "_data") {
+                                        let deepPopulate = {
+                                            path: deep_table_to_slug
+                                        }
+                                        deepRelations.push(deepPopulate)
+                                    }
                                 }
                                 // else if (deepRelation.type === "Many2Many" && deepRelation.table_to === relation.table_to) {
                                 //     deepRelation.field_to = deepRelation.field_from
                                 // }
 
-                                let deep_table_to_slug = "";
-                                const field = await Field.findOne({
-                                    relation_id: deepRelation?.id
-                                })
-                                if (field) {
-                                    deep_table_to_slug = field.slug + "_data"
-                                }
-                                if (deep_table_to_slug === "") {
-                                    continue
-                                }
-
-                                if (deep_table_to_slug !== deepRelation.field_to + "_data") {
-                                    let deepPopulate = {
-                                        path: deep_table_to_slug
-                                    }
-                                    deepRelations.push(deepPopulate)
-                                }
+                                
                             }
                         }
                     }
@@ -727,7 +742,7 @@ let objectBuilder = {
                                 papulateTable = {
                                     path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
                                     populate: deepRelations
-                                }
+                                }           
                                 populateArr.push(papulateTable)
                             }
                             continue
@@ -877,7 +892,7 @@ let objectBuilder = {
             result = result.concat(additional_results)
         }
         // console.timeEnd("TIME_LOGGING:::additional_request")
-        console.log("TEST::::::14")
+        // console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         // console.time("TIME_LOGGING:::res_of_result")
@@ -911,7 +926,11 @@ let objectBuilder = {
                             res[field.slug] = 0
                             continue
                         }
+                        const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                        }
                         let matchParams = {
                             [matchField]: { '$eq': res.guid },
                             ...filters
@@ -922,6 +941,9 @@ let objectBuilder = {
                                 isChanged = true
                             }
                             res[field.slug] = resultFormula[0].res
+                        } else {
+                            res[field.slug] = 0
+                            isChanged = true
                         }
                     }
                 } else {
@@ -948,7 +970,7 @@ let objectBuilder = {
             })
         }
         // console.timeEnd("TIME_LOGGING:::length")
-        console.log("TEST::::::15")
+        // console.log("TEST::::::15")
         const response = struct.encode({
             count: count,
             response: result,
@@ -1914,8 +1936,8 @@ let objectBuilder = {
                                 month: key
                             }
                             parentObj.amounts.push(parentMonthlyAmount)
-                        }
-                        parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"])
+                        }  
+                        parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"] && parentObj[req.table_slug + "_id"] != parentObj["guid"])
                         if (parentObj) {
                             parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
                         }

@@ -82,6 +82,8 @@ let objectBuilder = {
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
+        console.time("TIME_LOGGING:::Relation.Find")
+
         const relations = await Relation.find({
             table_from: req.table_slug,
             type: "One2One"
@@ -98,8 +100,9 @@ let objectBuilder = {
                 type: "Many2Many"
             }]
         })
+        console.timeEnd("TIME_LOGGING:::Relation.Find")
 
-
+        console.time("TIME_LOGGING:::Field.findOne")
         let relatedTable = []
         for (const relation of relations) {
             const field = await Field.findOne({
@@ -109,6 +112,8 @@ let objectBuilder = {
                 relatedTable.push(field?.slug + "_data")
             }
         }
+        console.timeEnd("TIME_LOGGING:::Field.findOne")
+        console.time("TIME_LOGGING:::Field.findOneInRelation")
         for (const relation of relationsM2M) {
             if (relation.table_to === req.table_slug) {
                 relation.field_from = relation.field_to
@@ -121,7 +126,9 @@ let objectBuilder = {
                 relatedTable.push(field?.slug + "_data")
             }
         }
+        console.timeEnd("TIME_LOGGING:::Field.findOneInRelation")
 
+        console.time("TIME_LOGGING:::models.FindOne")
         let output = await tableInfo.models.findOne({
             guid: data.id
         },
@@ -133,9 +140,11 @@ let objectBuilder = {
                 _id: 0,
                 __v: 0
             }).populate(relatedTable).lean();
+        console.timeEnd("TIME_LOGGING:::models.FindOne")
 
         if (!output) { logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`) };
         let isChanged = false
+        console.time("TIME_LOGGING:::BigForLoop")
         for (const field of tableInfo.fields) {
             let attributes = struct.decode(field.attributes)
             if (field.type === "FORMULA") {
@@ -187,6 +196,8 @@ let objectBuilder = {
                 }
             }
         }
+        console.timeEnd("TIME_LOGGING:::BigForLoop")
+        console.time("TIME_LOGGING:::update")
         if (isChanged) {
             await objectBuilder.update({
                 table_slug: req.table_slug,
@@ -194,6 +205,7 @@ let objectBuilder = {
                 data: struct.encode(output)
             })
         }
+        console.timeEnd("TIME_LOGGING:::update")
 
         for (const relation of relatedTable) {
             if (relation in output) {
@@ -203,6 +215,7 @@ let objectBuilder = {
             }
         }
         let decodedFields = []
+        console.time("TIME_LOGGING:::miniForLoop")
         for (const element of tableInfo.fields) {
             if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
                 let field = { ...element }
@@ -241,7 +254,9 @@ let objectBuilder = {
                     decodedFields.push(elementField)
             }
         };
+        console.timeEnd("TIME_LOGGING:::miniForLoop")
 
+        console.time("TIME_LOGGING:::secondMiniForLoop")
         for (const field of decodedFields) {
             if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                 let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
@@ -271,6 +286,7 @@ let objectBuilder = {
                 field.view_fields = viewFields
             }
         }
+        console.timeEnd("TIME_LOGGING:::secondMiniForLoop")
 
         return {
             table_slug: data.table_slug,

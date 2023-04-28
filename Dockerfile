@@ -21,9 +21,10 @@ RUN apk add --no-cache \
         ;
 
 RUN apk update && apk add --no-cache xvfb ttf-dejavu
+RUN npm install pm2 -g
 
 COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/libwkhtmltox.so /bin/
 
 COPY . .
 EXPOSE 3000
-CMD ["node", "index.js"]
+CMD ["pm2", "start", "index.js"]

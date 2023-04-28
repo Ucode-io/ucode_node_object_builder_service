@@ -20,7 +20,7 @@ RUN apk add --no-cache \
         ttf-liberation \
         ;
 
-RUN apk update && apk add --no-cache wkhtmltopdf xvfb ttf-dejavu
+RUN apk update && apk add --no-cache xvfb ttf-dejavu
 
 RUN ln -s /usr/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf;
 RUN chmod +x /usr/local/bin/wkhtmltopdf;

@@ -400,21 +400,22 @@ let objectBuilder = {
             }
         }
 
-        const relations = await Relation.find({
-            $or: [{
-                table_from: req.table_slug,
-            },
-            {
-                table_to: req.table_slug,
-            },
-            {
-                "dynamic_tables.table_slug": req.table_slug
-            }
-            ]
-        })
-
+        const relations = []
         let relationsFields = []
         if (with_relations) {
+            const relationsResp = await Relation.find({
+                $or: [{
+                    table_from: req.table_slug,
+                },
+                {
+                    table_to: req.table_slug,
+                },
+                {
+                    "dynamic_tables.table_slug": req.table_slug
+                }
+                ]
+            })
+            relations = relationsResp
             for (const relation of relations) {
                 if (relation.type !== "Many2Dynamic") {
                     if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {

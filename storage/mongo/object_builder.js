@@ -335,53 +335,53 @@ let objectBuilder = {
         let with_relations = params.with_relations
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
-        const permission = await permissionTable.models.findOne({
-            $and: [
-                {
-                    role_id: params["role_id_from_token"]
-                },
-                {
-                    table_slug: req.table_slug
-                }
-            ]
-        })
-        if (permission?.is_have_condition) {
-            const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
-            const automatic_filters = await automaticFilterTable.models.find({
-                $and: [
-                    {
-                        role_id: params["role_id_from_token"]
-                    },
-                    {
-                        table_slug: req.table_slug
-                    }
-                ]
+        // const permission = await permissionTable.models.findOne({
+        //     $and: [
+        //         {
+        //             role_id: params["role_id_from_token"]
+        //         },
+        //         {
+        //             table_slug: req.table_slug
+        //         }
+        //     ]
+        // })
+        // if (permission?.is_have_condition) {
+        //     const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
+        //     const automatic_filters = await automaticFilterTable.models.find({
+        //         $and: [
+        //             {
+        //                 role_id: params["role_id_from_token"]
+        //             },
+        //             {
+        //                 table_slug: req.table_slug
+        //             }
+        //         ]
 
-            })
-            if (automatic_filters.length) {
-                for (const autoFilter of automatic_filters) {
-                    if (autoFilter.custom_field === "user_id") {
-                        if (autoFilter.object_field !== req.table_slug) {
-                            params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
-                            params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
-                        } else {
-                            params["guid"] = params["user_id_from_token"]
-                        }
-                    } else {
-                        let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
-                        let objFromAuth = params.tables.find(obj => obj.table_slug === connectionTableSlug)
-                        if (objFromAuth) {
-                            if (connectionTableSlug !== req.table_slug) {
-                                params[autoFilter.custom_field] = objFromAuth.object_id
-                                params[autoFilter.custom_field + "s"] = { $in: params["user_id_from_token"] }
-                            } else {
-                                params["guid"] = objFromAuth.object_id
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //     })
+        //     if (automatic_filters.length) {
+        //         for (const autoFilter of automatic_filters) {
+        //             if (autoFilter.custom_field === "user_id") {
+        //                 if (autoFilter.object_field !== req.table_slug) {
+        //                     params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+        //                     params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+        //                 } else {
+        //                     params["guid"] = params["user_id_from_token"]
+        //                 }
+        //             } else {
+        //                 let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+        //                 let objFromAuth = params.tables.find(obj => obj.table_slug === connectionTableSlug)
+        //                 if (objFromAuth) {
+        //                     if (connectionTableSlug !== req.table_slug) {
+        //                         params[autoFilter.custom_field] = objFromAuth.object_id
+        //                         params[autoFilter.custom_field + "s"] = { $in: params["user_id_from_token"] }
+        //                     } else {
+        //                         params["guid"] = objFromAuth.object_id
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
         for (const key of keys) {
             if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {

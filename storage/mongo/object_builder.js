@@ -679,57 +679,57 @@ let objectBuilder = {
             count = count - (prev - result.length)
         }
 
-        let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
-        for (const res of result) {
-            for (const field of formulaFields) {
-                let attributes = struct.decode(field.attributes)
-                if (field.type === "FORMULA") {
-                    if (attributes.table_from && attributes.sum_field) {
-                        let filters = {}
-                        if (attributes.formula_filters) {
-                            attributes.formula_filters.forEach(el => {
-                                filters[el.key.split("#")[0]] = el.value
-                                if (Array.isArray(el.value)) {
-                                    filters[el.key.split("#")[0]] = { $in: el.value }
-                                }
-                            })
-                        }
-                        const relationFieldTable = await table.findOne({
-                            slug: attributes.table_from.split('#')[0],
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        })
-                        const relationField = await Field.findOne({
-                            relation_id: attributes.table_from.split('#')[1],
-                            table_id: relationFieldTable.id
-                        })
-                        if (!relationField || !relationFieldTable) {
-                            res[field.slug] = 0
-                            continue
-                        }
-                        const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
-                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                        }
-                        let matchParams = {
-                            [matchField]: { '$eq': res.guid },
-                            ...filters
-                        }
-                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
-                        if (resultFormula.length) {
-                            res[field.slug] = resultFormula[0].res
-                        } else {
-                            res[field.slug] = 0
-                        }
-                    }
-                } else {
-                    if (attributes && attributes.formula) {
-                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-                        res[field.slug] = resultFormula
-                    }
-                }
-            }
-        }
+        // let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
+        // for (const res of result) {
+        //     for (const field of formulaFields) {
+        //         let attributes = struct.decode(field.attributes)
+        //         if (field.type === "FORMULA") {
+        //             if (attributes.table_from && attributes.sum_field) {
+        //                 let filters = {}
+        //                 if (attributes.formula_filters) {
+        //                     attributes.formula_filters.forEach(el => {
+        //                         filters[el.key.split("#")[0]] = el.value
+        //                         if (Array.isArray(el.value)) {
+        //                             filters[el.key.split("#")[0]] = { $in: el.value }
+        //                         }
+        //                     })
+        //                 }
+        //                 const relationFieldTable = await table.findOne({
+        //                     slug: attributes.table_from.split('#')[0],
+        //                     deleted_at: "1970-01-01T18:00:00.000+00:00"
+        //                 })
+        //                 const relationField = await Field.findOne({
+        //                     relation_id: attributes.table_from.split('#')[1],
+        //                     table_id: relationFieldTable.id
+        //                 })
+        //                 if (!relationField || !relationFieldTable) {
+        //                     res[field.slug] = 0
+        //                     continue
+        //                 }
+        //                 const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
+        //                 let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+        //                 if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+        //                     matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+        //                 }
+        //                 let matchParams = {
+        //                     [matchField]: { '$eq': res.guid },
+        //                     ...filters
+        //                 }
+        //                 const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
+        //                 if (resultFormula.length) {
+        //                     res[field.slug] = resultFormula[0].res
+        //                 } else {
+        //                     res[field.slug] = 0
+        //                 }
+        //             }
+        //         } else {
+        //             if (attributes && attributes.formula) {
+        //                 const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
+        //                 res[field.slug] = resultFormula
+        //             }
+        //         }
+        //     }
+        // }
 
         const response = struct.encode({
             count: count,

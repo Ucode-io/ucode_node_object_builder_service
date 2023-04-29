@@ -10,7 +10,6 @@ module.exports = async function (data) {
     
     if(indexes["slug_1_deleted_at_1"]) {
         await Table.collection.dropIndex("slug_1_deleted_at_1")
-        await Table.collection.dropIndex("id_1")
         console.log(">>> SLUG_1_DELETED_AT_1 INDEX DELETE FROM TABLE COLLECTION")
     }
 
@@ -21,7 +20,7 @@ module.exports = async function (data) {
 
     const tables = await Table.find({})
     for(let t of tables) {
-        if(!t.version_ids) {
+        if(!t.version_ids || !t.version_ids.length) {
             const a = await Table.findOneAndUpdate(
                 {
                     _id: t._id

@@ -40,9 +40,6 @@ const TableHistorySchema = mongoose.Schema(
         subtitle_field_slug: {
             type: String,
         },
-        version_ids: [{
-            type: String
-        }],
         action_time: {
             type: Date
         },

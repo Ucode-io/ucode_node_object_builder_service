@@ -473,3 +473,52 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-04-29T03:46:52.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-04-29T03:46:52.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getAll: failed with error: params is not defined',
+  level: 'error',
+  timestamp: '2023-04-29T03:51:33.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getAll: failed with error: params is not defined',
+  level: 'error',
+  timestamp: '2023-04-29T03:54:46.263Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getAll: failed with error: params is not defined',
+  level: 'error',
+  timestamp: '2023-04-29T03:54:47.738Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getAll: failed with error: params is not defined',
+  level: 'error',
+  timestamp: '2023-04-29T03:54:48.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-29T04:09:14.219Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -6,7 +6,7 @@ const TableSchema = mongoose.Schema(
         id: {
             type: String,
             default: v4,
-            unique: true
+            // unique: true
         },
         label: {
             type: String,
@@ -36,6 +36,12 @@ const TableSchema = mongoose.Schema(
         },
         subtitle_field_slug: {
             type: String,
+        },
+        version_id: {
+            type: String,
+        },
+        commit_guid: {
+            type: String,
         }
     },
     {
@@ -45,5 +51,5 @@ const TableSchema = mongoose.Schema(
     }
 );
 
-TableSchema.index({'slug': 1, 'deleted_at': 1,}, {unique: true});
-module.exports = mongoose.model("Table", TableSchema);
+TableSchema.index({ 'version_id': 1 }, { unique: true });
+module.exports = TableSchema

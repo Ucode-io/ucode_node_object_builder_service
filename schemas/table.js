@@ -36,17 +36,6 @@ const TableSchema = mongoose.Schema(
         },
         subtitle_field_slug: {
             type: String,
-        },
-        version_ids: [{
-            type: String
-        }],
-        // commit_id: {
-        //     type: Number,
-        //     required: [true, "commit_id is required"],
-        // },
-        commit_guid: {
-            type: String,
-            // required: [true, "commit_guid is required"],
         }
     },
     {

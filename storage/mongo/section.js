@@ -4,7 +4,7 @@ const { struct } = require('pb-util');
 const { v4 } = require("uuid");
 const relationStore = require("../mongo/relation");
 const AddPermission = require("../../helper/addPermission");
-
+const tableVersion = require("../../helper/table_version")
 const mongoPool = require('../../pkg/pool');
 const ObjectBuilder = require("../../models/object_builder");
 
@@ -37,11 +37,6 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const Section = mongoConn.models['Section']
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
             for (const sectionReq of data.sections) {
                 const section = new Section(sectionReq);
                 section.table_id = data.id;
@@ -50,7 +45,6 @@ let sectionStore = {
 
             const resp = await Table.updateOne({
                 id: data.id,
-                ...params
             },
                 {
                     $set: {
@@ -69,11 +63,6 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const Section = mongoConn.models['Section']
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
             const count = await Section.deleteMany(
                 {
                     table_id: data.table_id,
@@ -86,8 +75,7 @@ let sectionStore = {
             }
 
             const resp = await Table.updateOne({
-                id: data.table_id,
-                ...params
+                    id: data.table_id,
                 },
                 {
                     $set: {
@@ -107,21 +95,16 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
             await ViewRelation.deleteMany(
                 {
                     table_slug: data.table_slug,
                 }
             )
             if (data.table_slug === "") {
-                const table = await Table.findOne({
-                    id: data.table_id,
-                    ...params
-                })
+                // const table = await Table.findOne({
+                //     id: data.table_id,
+                // })
+                const table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true)
                 data.table_slug = table.slug
             }
             let viewRelationReq = {}
@@ -201,17 +184,12 @@ let sectionStore = {
             const Relation = mongoConn.models['Relation']
             const ViewRelation = mongoConn.models['ViewRelation']
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
             let table = {};
             if (data.table_slug === "") {
-                table = await Table.findOne({
-                    slug: data.table_id,
-                    ...params
-                });
+                // table = await Table.findOne({
+                //     slug: data.table_id
+                // });
+                table = await tableVersion(mongoConn, {slug: data.table_id}, data.version_id, true)
                 data.table_slug = table.slug;
             }
             let query = {
@@ -248,17 +226,12 @@ let sectionStore = {
             const Table = mongoConn.models['Table']
             const ViewRelation = mongoConn.models['ViewRelation']
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
             let table = {};
             if (data.table_slug === "") {
-                table = await Table.findOne({
-                    id: data.table_id,
-                    ...params
-                });
+                // table = await Table.findOne({
+                //     id: data.table_id
+                // });
+                table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true);
                 data.table_slug = table.slug;
             }
             let resp = {}
@@ -308,17 +281,12 @@ let sectionStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
             let table = {};
             if (data.table_id === "") {
-                table = await Table.findOne({
-                    slug: data.table_slug,
-                    ...params
-                });
+                // table = await Table.findOne({
+                //     slug: data.table_slug,
+                // });
+                table = await tableVersion(mongoConn, {slug: data.table_slug}, data.version_id, true);
                 data.table_id = table.id;
             }
 
@@ -396,22 +364,22 @@ let sectionStore = {
                             if (relation.dynamic_tables.length) {
                                 let dynamicTableToAttribute;
                                 for (const dynamic_table of relation.dynamic_tables) {
-                                    const dynamicTableInfo = await Table.findOne(
-                                        {
-                                            slug: dynamic_table.table_slug,
-                                            ...params
-                                        },
-                                        {
-                                            deletedAt: 0,
-                                            deleted_at: 0,
-                                            createdAt: 0,
-                                            updatedAt: 0,
-                                            created_at: 0,
-                                            updated_at: 0,
-                                            _id: 0,
-                                            __v: 0
-                                        }
-                                    )
+                                    // const dynamicTableInfo = await Table.findOne(
+                                    //     {
+                                    //         slug: dynamic_table.table_slug,
+                                    //     },
+                                    //     {
+                                    //         deletedAt: 0,
+                                    //         deleted_at: 0,
+                                    //         createdAt: 0,
+                                    //         updatedAt: 0,
+                                    //         created_at: 0,
+                                    //         updated_at: 0,
+                                    //         _id: 0,
+                                    //         __v: 0
+                                    //     }
+                                    // )
+                                    const dynamicTableInfo = await tableVersion(mongoConn, {slug: dynamic_table.table_slug}, data.version_id, true)
                                     dynamicTableToAttribute = dynamic_table
                                     dynamicTableToAttribute["table"] = dynamicTableInfo._doc
                                     viewFieldsInDynamicTable = []
@@ -488,7 +456,7 @@ let sectionStore = {
                         }
                     }
                 }
-                // this function add field permission for each field by role id
+                // this function add field permission for each field by role iddynamicTableInfo
                 fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)

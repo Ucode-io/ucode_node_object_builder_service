@@ -7,6 +7,7 @@ const con = require("../../config/kafkaTopics");
 
 const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
+const tableVersion = require('../../helper/table_version');
 const cfg = require('../../config/index')
 const mongoPool = require('../../pkg/pool');
 
@@ -29,18 +30,14 @@ let permission = {
 
             const data = struct.decode(req.data)
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
 
             const app = await App.findOne({ id: req.app_id })
             let response = []
             if (app) {
                 if (app.tables.length) {
                     for (const tableFromApp of app.tables) {
-                        const tableInfo = await table.findOne({ id: tableFromApp.table_id, ...params })
+                        // const tableInfo = await table.findOne({ id: tableFromApp.table_id })
+                        const tableInfo = await tableVersion(mongoConn, {id: tableFromApp.table_id}, data.version_id, true)
                         let res;
                         if (tableInfo) {
                             const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
@@ -130,16 +127,11 @@ let permission = {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
 
-            let params = {version_ids: []}
-            if(req.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
 
-
-            const tables = await table.find({
-                deleted_at: "1970-01-01T18:00:00.000+00:00",
-                ...params
-            })
+            // const tables = await table.find({
+            //     deleted_at: "1970-01-01T18:00:00.000+00:00",
+            // })
+            const tables = await tableVersion(mongoConn, {delete_at: "1970-01-01T18:00:00.000+00:00"}, req.version_id, false)
             let tableSlugs = []
             let noPermissions = []
             tables.forEach(table => {
@@ -201,16 +193,11 @@ let permission = {
             // const Relation = mongoConn.models['Relation']
             // const ViewRelation = mongoConn.models['ViewRelation']
 
-            let params = {version_ids: []}
-            if(req.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
-            const tableInfo = await table.findOne({
-                slug: req.table_slug,
-                deleted_at: "1970-01-01T18:00:00.000+00:00",
-                ...params
-            }).lean()
+            // const tableInfo = await table.findOne({
+            //     slug: req.table_slug,
+            //     deleted_at: "1970-01-01T18:00:00.000+00:00",
+            // }).lean()
+            const tableInfo = await tableVersion(mongoConn, {slug: req.table_slug}, req.version_id, true)
             const fields = await Field.find({
                 table_id: tableInfo.id
             })
@@ -276,11 +263,6 @@ let permission = {
         const Relation = mongoConn.models['Relation']
         const View = mongoConn.models['View']
 
-        let params = {version_ids: []}
-        if(req.version_id) {
-            params.version_ids = { $in: [version_id] }
-        }
-
         
         const role = await Role.findOne(
             { guid: req.role_id },
@@ -323,17 +305,18 @@ let permission = {
                 tableIds.push(table.table_id)
             }
 
-            const tables = await Table.find(
-                {
-                    id: { $in: tableIds },
-                    deleted_at: "1970-01-01T18:00:00.000+00:00",
-                    ...params
-                },
-                null,
-                {
-                    sort: { created_at: -1 }
-                }
-            );
+            // const tables = await Table.find(
+            //     {
+            //         id: { $in: tableIds },
+            //         deleted_at: "1970-01-01T18:00:00.000+00:00",
+            //     },
+            //     null,
+            //     {
+            //         sort: { created_at: -1 }
+            //     }
+            // );
+
+            const tables = await tableVersion(mongoConn, {id: {$in: tableIds}, deleted_at: "970-01-01T18:00:00.000+00:00"}, false)
 
             if (!tables) {
                 console.log('WARNING tables not found')

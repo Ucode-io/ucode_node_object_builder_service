@@ -522,3 +522,38 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.field.getAll: failed with error: version_id is not defined',
+  level: 'error',
+  timestamp: '2023-04-29T07:07:40.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getAll: failed with error: version_id is not defined',
+  level: 'error',
+  timestamp: '2023-04-29T07:07:42.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-04-29T07:14:35.237Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-04-29T07:17:34.822Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getByID: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-04-29T07:20:27.931Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -37,11 +37,6 @@ let viewStore = {
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
             }
@@ -51,8 +46,7 @@ let viewStore = {
             const response = await view.save();
 
             const resp = await Table.updateOne({
-                slug: data.table_slug,
-                ...params
+                slug: data.table_slug
             },
                 {
                     $set: {
@@ -75,11 +69,6 @@ let viewStore = {
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
             }
@@ -94,7 +83,6 @@ let viewStore = {
 
             const resp = await Table.updateOne({
                 slug: data.table_slug,
-                ...params
             },
                 {
                     $set: {
@@ -173,16 +161,10 @@ let viewStore = {
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
 
-            let params = {version_ids: []}
-            if(data.version_id) {
-                params.version_ids = { $in: [version_id] }
-            }
-
             const vieww = await View.findOne({ id: data.id })
 
             await Table.updateOne({
                 slug: vieww.table_slug,
-                ...params
             },
                 {
                     $set: {

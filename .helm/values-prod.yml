@@ -157,7 +157,7 @@ affinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
         - matchExpressions:
-            - key: kubernetes.io/ucode-prod
+            - key: kubernetes.io/ucode-node
               operator: In
               values:
                 - "true"

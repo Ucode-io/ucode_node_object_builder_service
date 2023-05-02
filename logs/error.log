@@ -557,3 +557,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.table_folder.create: failed with error: mongoPool is not defined',
+  level: 'error',
+  timestamp: '2023-05-02T09:53:12.133Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.create: failed with error: Table.folder validation failed: title: Query Folder must have a title',
+  level: 'error',
+  timestamp: '2023-05-02T09:57:22.841Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

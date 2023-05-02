@@ -15527,3 +15527,1116 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-02T10:08:04.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-02T10:08:04.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:08:04.377Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-02T10:08:04.378Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-02T10:08:05.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-02T10:08:23.949Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-02T10:08:23.954Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:08:23.955Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-02T10:08:23.956Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-02T10:08:24.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:09:45.278Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request',
+  level: 'info',
+  timestamp: '2023-05-02T10:13:47.693Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestLabel1",\n' +
+    '  "description": "TestDescription1",\n' +
+    '  "slug": "testSlug1",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:13:47.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'error while get index',
+  level: 'info',
+  timestamp: '2023-05-02T10:13:50.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:13:53.731Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create table request finished with OK',
+  level: 'info',
+  timestamp: '2023-05-02T10:13:53.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestLabel1",\n' +
+    '  "description": "TestDescription1",\n' +
+    '  "slug": "testSlug1",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63",\n' +
+    '  "id": "a6431b67-99f9-4964-8e97-23aaa6943e8a"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:13:53.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:13:59.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: requested, {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "slug": "guid",\n' +
+    '      "label": "ID",\n' +
+    '      "default": "v4",\n' +
+    '      "index": true,\n' +
+    '      "unique": true,\n' +
+    '      "type": "UUID"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestLabel1",\n' +
+    '  "description": "TestDescription1",\n' +
+    '  "slug": "testSlug1",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63",\n' +
+    '  "id": "a6431b67-99f9-4964-8e97-23aaa6943e8a"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:13:59.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:13:59.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: requested, {\n' +
+    '  "table_slug": "testSlug1",\n' +
+    '  "type": "TABLE",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:13:59.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:13:59.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request',
+  level: 'info',
+  timestamp: '2023-05-02T10:24:15.058Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestLabel1",\n' +
+    '  "description": "TestDescription1",\n' +
+    '  "slug": "testSlug1",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:24:15.058Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:24:20.900Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create table request finished with OK',
+  level: 'info',
+  timestamp: '2023-05-02T10:24:20.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestLabel1",\n' +
+    '  "description": "TestDescription1",\n' +
+    '  "slug": "testSlug1",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63",\n' +
+    '  "id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:24:20.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:24:26.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: requested, {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "slug": "guid",\n' +
+    '      "label": "ID",\n' +
+    '      "default": "v4",\n' +
+    '      "index": true,\n' +
+    '      "unique": true,\n' +
+    '      "type": "UUID"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestLabel1",\n' +
+    '  "description": "TestDescription1",\n' +
+    '  "slug": "testSlug1",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63",\n' +
+    '  "id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:24:26.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:24:26.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: requested, {\n' +
+    '  "table_slug": "testSlug1",\n' +
+    '  "type": "TABLE",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:24:26.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:24:26.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "label": "UpdateLabel2",\n' +
+    '  "description": "UpdateDescription2",\n' +
+    '  "slug": "UpdateSlug2",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": true,\n' +
+    '  "is_own_table": true,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:25:41.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "label": "UpdateLabel2",\n' +
+    '  "description": "UpdateDescription2",\n' +
+    '  "slug": "UpdateSlug2",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": true,\n' +
+    '  "is_own_table": true,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:25:41.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'error while get index',
+  level: 'info',
+  timestamp: '2023-05-02T10:25:44.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:25:48.087Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:25:48.087Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "label": "UpdateLabel2",\n' +
+    '  "description": "UpdateDescription2",\n' +
+    '  "slug": "UpdateSlug2",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": true,\n' +
+    '  "is_own_table": true,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "folder_id": "c9f76e0c-79d0-469f-94bd-304895ac833f"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:26:27.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "label": "UpdateLabel2",\n' +
+    '  "description": "UpdateDescription2",\n' +
+    '  "slug": "UpdateSlug2",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": true,\n' +
+    '  "is_own_table": true,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "folder_id": "c9f76e0c-79d0-469f-94bd-304895ac833f"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:26:27.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:26:34.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:26:34.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:26:54.716Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:26:54.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:26:54.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:26:54.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:27:42.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:27:42.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:27:42.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:27:42.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:28:04.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:28:04.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:28:05.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:28:05.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:28:35.491Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:28:35.491Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:28:35.689Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:28:35.689Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: requested - {\n' +
+    '  "id": "56a2b439-92cb-4239-90e2-ad6b93c8a0de",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:29:06.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: requested, {\n' +
+    '  "id": "56a2b439-92cb-4239-90e2-ad6b93c8a0de",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:29:06.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetTableHistoryById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:29:06.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetTableHistoryById: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:29:06.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "4316a18b-cca9-4d5e-89cf-f7ed6fa9a7e6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:30:57.036Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "4316a18b-cca9-4d5e-89cf-f7ed6fa9a7e6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:30:57.037Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:30:57.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:30:57.761Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: requested - {\n' +
+    '  "version_ids": [\n' +
+    '    "v1",\n' +
+    '    "v2",\n' +
+    '    "v3"\n' +
+    '  ],\n' +
+    '  "id": "56a2b439-92cb-4239-90e2-ad6b93c8a0de",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:31:49.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: requested, {\n' +
+    '  "version_ids": [\n' +
+    '    "v1",\n' +
+    '    "v2",\n' +
+    '    "v3"\n' +
+    '  ],\n' +
+    '  "id": "56a2b439-92cb-4239-90e2-ad6b93c8a0de",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:31:49.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.InsertVersionsToCommit: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:31:49.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.InsertVersionsToCommit: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:31:49.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:32:00.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:32:00.020Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:32:00.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:32:00.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-02T10:32:46.368Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-02T10:32:46.370Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:32:46.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-02T10:32:46.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-02T10:32:47.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:34:07.220Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:37.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:37.542Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:37.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:37.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:38.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:38.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:38.953Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:38.953Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:39.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:39.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:40.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:40.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:40.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:40.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:40.585Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:40.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:40.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:40.848Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:35:41.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:35:41.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-02T10:36:11.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-02T10:36:11.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:36:11.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-02T10:36:11.565Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-02T10:36:12.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:37:34.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:37:54.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "d0167d7a-e59d-4eac-a235-8e40eb8a8959",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:37:54.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:37:54.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:37:54.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

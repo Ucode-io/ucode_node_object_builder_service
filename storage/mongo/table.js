@@ -301,7 +301,7 @@ let tableStore = {
             const TableHistory = mongoConn.models['Table.history']
             const TableVersion = mongoConn.models['Table.version']
 
-            const histories = await TableHistory.find({id: data.table_id}, {}, {created_at: -1})
+            const histories = await TableHistory.find({id: data.table_id}).sort({created_at:-1})
             const versions = await TableVersion.aggregate([
                 {
                     $match: {

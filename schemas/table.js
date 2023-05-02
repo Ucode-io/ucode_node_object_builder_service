@@ -37,7 +37,7 @@ const TableSchema = mongoose.Schema(
         subtitle_field_slug: {
             type: String,
         },
-        table_folder_id: {
+        folder_id: {
             type: String
         }
     },

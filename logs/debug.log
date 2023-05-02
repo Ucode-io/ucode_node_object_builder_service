@@ -14495,3 +14495,1035 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-02T10:00:15.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-02T10:00:15.954Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:00:15.954Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-02T10:00:15.955Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-02T10:00:16.604Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:01:38.062Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.create: requested - {\n' +
+    '  "title": "Test table folder",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "parent_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:01:50.018Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: requested, {\n' +
+    '  "title": "Test table folder",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "parent_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:01:50.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:01:50.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.create: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:01:50.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.create: requested - {\n' +
+    '  "title": "2 Test table folder",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "parent_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:02:04.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: requested, {\n' +
+    '  "title": "2 Test table folder",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "parent_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:02:04.638Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:02:04.743Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.create: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:02:04.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.create: requested - {\n' +
+    '  "title": "2.1 Test table folder",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "parent_id": "fe68e29c-e848-4644-ac33-d1a0fe7e72d1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:02:25.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: requested, {\n' +
+    '  "title": "2.1 Test table folder",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "parent_id": "fe68e29c-e848-4644-ac33-d1a0fe7e72d1"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:02:25.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:02:25.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.create: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:02:25.916Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:02:55.743Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:02:55.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:02:55.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:02:55.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:56.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:56.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:56.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:56.482Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:57.133Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:57.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:57.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:57.330Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:57.972Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:57.972Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:58.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:58.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:58.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:58.613Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:58.805Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:58.805Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:59.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 1,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:59.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:03:59.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:03:59.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:07.467Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:07.467Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:07.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:07.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:13.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:13.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:13.616Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:13.616Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:13.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:13.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:14.157Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:14.157Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:14.332Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:14.333Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:14.540Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:14.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:14.678Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:14.679Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:14.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:14.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:15.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:15.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:15.286Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:15.287Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:15.496Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:15.497Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:15.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:15.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:16.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:16.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:16.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:16.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:16.545Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:16.545Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:16.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:16.770Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:17.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:17.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:17.252Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:17.252Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:17.668Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:17.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:17.866Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:17.866Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:18.414Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 10,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:18.414Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:18.609Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:18.609Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:58.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:58.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:58.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-02T10:04:58.075Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-02T10:04:58.730Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:06:19.563Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getById: requested - {\n' +
+    '  "id": "fe68e29c-e848-4644-ac33-d1a0fe7e72d1",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:06:25.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getById: requested, {\n' +
+    '  "id": "fe68e29c-e848-4644-ac33-d1a0fe7e72d1",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:06:25.194Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:06:25.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getById: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:06:25.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getById: requested - {\n' +
+    '  "id": "c9f76e0c-79d0-469f-94bd-304895ac833f",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:06:50.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getById: requested, {\n' +
+    '  "id": "c9f76e0c-79d0-469f-94bd-304895ac833f",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:06:50.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:06:50.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getById: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:06:50.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.create: requested - {\n' +
+    '  "title": "3 Test table folder",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "parent_id": "fe68e29c-e848-4644-ac33-d1a0fe7e72d1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:06:58.968Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: requested, {\n' +
+    '  "title": "3 Test table folder",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "parent_id": "fe68e29c-e848-4644-ac33-d1a0fe7e72d1"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:06:58.969Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:06:59.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.create: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:06:59.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.delete: requested - {\n' +
+    '  "id": "90d302cb-56c1-4dda-9d99-d2fafa8544f4",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-02T10:07:24.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.delete: requested, {\n' +
+    '  "id": "90d302cb-56c1-4dda-9d99-d2fafa8544f4",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-02T10:07:24.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.delete: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-02T10:07:24.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.delete: succeeded',
+  level: 'info',
+  timestamp: '2023-05-02T10:07:24.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

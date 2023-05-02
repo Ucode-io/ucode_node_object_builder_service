@@ -4,7 +4,7 @@ const catchWrapService = require("../helper/catchWrapService");
 const tableFolderService = {
     Create: catchWrapService(`service.table_folder.create`, folderFolderStore.create),
     Update: catchWrapService(`service.table_folder.update`, folderFolderStore.update),
-    GetById: catchWrapService(`service.table_folder.getById`, folderFolderStore.getById),
+    GetByID: catchWrapService(`service.table_folder.getById`, folderFolderStore.getById),
     GetAll: catchWrapService(`service.table_folder.getAll`, folderFolderStore.getAll),
     Delete: catchWrapService(`service.table_folder.delete`, folderFolderStore.delete),
 };

@@ -273,7 +273,7 @@ let viewStore = {
                         xmlDocument: document,
                     });
                     const base64_barcode = Buffer.from(xmlSerializer.serializeToString(svgNode)).toString('base64');
-                    output[it.slug] = "<figure class=\"image image_resized\" style=\"height: 50pt\"><img src=\"data:image/svg+xml;base64," +
+                    output[it.slug] = "<figure class=\"image image_resized\" style=\"height: 50px\"><img src=\"data:image/svg+xml;base64," +
                     base64_barcode + 
                     "\"/></figure>"
                      // console.log(output[it.slug])
@@ -501,7 +501,7 @@ let viewStore = {
                             xmlDocument: document,
                         });
                         const base64_barcode = Buffer.from(xmlSerializer.serializeToString(svgNode)).toString('base64');
-                        output[it.slug] = "<figure class=\"image image_resized\" style=\"height: 50pt\"><img src=\"data:image/svg+xml;base64," +
+                        output[it.slug] = "<figure class=\"image image_resized\" style=\"height: 50px\"><img src=\"data:image/svg+xml;base64," +
                         base64_barcode + 
                         "\"/></figure>"
                          // console.log(output[it.slug])

@@ -19,7 +19,7 @@ let tableStore = {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table_history']
+            const TableHistory = mongoConn.models['Table.history']
             const App = mongoConn.models['App']
 
             const table = new Table(data);
@@ -78,7 +78,7 @@ let tableStore = {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table_history']
+            const TableHistory = mongoConn.models['Table.history']
 
             data.is_changed = true
 
@@ -153,7 +153,7 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableVersion = mongoConn.models['Table_version']
+            const TableVersion = mongoConn.models['Table.version']
 
             let query = {
                 deleted_at: "1970-01-01T18:00:00.000+00:00",
@@ -188,7 +188,7 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableVersion = mongoConn.models['Table_version']
+            const TableVersion = mongoConn.models['Table.version']
 
             let params = {id: data.id}
 
@@ -210,7 +210,7 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table_history']
+            const TableHistory = mongoConn.models['Table.history']
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
@@ -298,24 +298,54 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table_history']
-            const TableVersion = mongoConn.models['Table_version']
+            const TableHistory = mongoConn.models['Table.history']
+            const TableVersion = mongoConn.models['Table.version']
 
-            const histories = (await TableHistory.find({id: data.table_id}).sort({created_at: -1}))
+            const histories = await TableHistory.find({id: data.table_id}, {}, {created_at: -1})
+            const versions = await TableVersion.aggregate([
+                {
+                    $match: {
+                        id: data.table_id
+                    }
+                },
+                {
+                    $group: {
+                        _id: "$commit_guid",
+                        itemSold: {
+                            $push: {
+                                // id: "$date",
+                                // label: "$label",
+                                // slug: "$slug",
+                                // description: "$description",
+                                // deleted_at: "$deleted_at",
+                                // show_in_menu: "$show_in_menu",
+                                // is_changed: "$is_changed",
+                                // icon: "$icon",
+                                // subtitle_field_slug: "$subtitle_field_slug",
+                                version_id: "$version_id",
+                                // commit_guid: "$commit_guid"
+                            }
+                        }
+                    },
+                }
+            ])
+        
+            let map_versions = {}
+            for(let el of versions) {
+                map_versions[el._id] = el.itemSold.map(el => el.version_id)
+            }
             let result = []
             for(let el of histories) {
-                const version_ids = await TableVersion.find({commit_guid: el.guid})
-                el.version_ids = []
-                for(let el2 of version_ids) {
-                    el.version_ids.push(el2.version_id)
-                }
+                
+                el.version_ids = map_versions[el.guid]
+
                 result.push({
                     ...el,
                     id: el.guid,
                     created_at: el.created_at
                 })
             }
-            
+
             return { items: result };
         } catch (err) {
             throw err
@@ -326,8 +356,8 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table_history']
-            const TableVersion = mongoConn.models['Table_version']
+            const TableHistory = mongoConn.models['Table.history']
+            const TableVersion = mongoConn.models['Table.version']
 
             const table = await TableHistory.findOne({guid: data.id}).lean()
             if(!table) {
@@ -335,6 +365,7 @@ let tableStore = {
             }
             const version_ids = await TableVersion.find({commit_guid: table.guid}, {version_id: 1})
             table.version_ids = []
+            table.id = table.guid
             for(let el of version_ids) {
                 table.version_ids.push(el.version_id)
             }
@@ -348,7 +379,7 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table_history']
+            const TableHistory = mongoConn.models['Table.history']
 
             let table = await TableHistory.findOne({guid: data.id}).lean()
             if(!table) {
@@ -394,8 +425,8 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table_history']
-            const TableVersion = mongoConn.models['Table_version']
+            const TableHistory = mongoConn.models['Table.history']
+            const TableVersion = mongoConn.models['Table.version']
 
             const history = await TableHistory.findOne({guid: data.id}).lean()
 

@@ -55,8 +55,8 @@ let projectStore = {
                 mongoDBConn.model('Relation', require('../../schemas/relation'))
                 mongoDBConn.model('Section', require('../../schemas/section'))
                 mongoDBConn.model('Table', require('../../schemas/table'))
-                mongoDBConn.model('Table_history', require('../../schemas/table_history'))
-                mongoDBConn.model('Table_version', require('../../schemas/table_version'))
+                mongoDBConn.model('Table.history', require('../../schemas/table_history'))
+                mongoDBConn.model('Table.version', require('../../schemas/table_version'))
                 mongoDBConn.model('Variable', require('../../schemas/variable'))
                 mongoDBConn.model('ViewRelation', require('../../schemas/view_relation'))
                 mongoDBConn.model('View', require('../../schemas/view'))
@@ -123,8 +123,8 @@ let projectStore = {
                     mongoDBConn.once("open", async function () {
                         // await insertCollections(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
-                        mongoDBConn.model('Table_history', require('../../schemas/table_history'))
-                        mongoDBConn.model('Table_version', require('../../schemas/table_version'))
+                        mongoDBConn.model('Table.history', require('../../schemas/table_history'))
+                        mongoDBConn.model('Table.version', require('../../schemas/table_version'))
                         await objectBuilder(false, data.project_id)
                         // await indexHelper({project_id: data.project_id})
                         console.log("Object builder has successfully runned for", data.project_id);

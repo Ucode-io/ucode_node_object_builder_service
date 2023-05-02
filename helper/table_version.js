@@ -1,7 +1,7 @@
 module.exports = async function (mongoConn, payload = {}, version_id = "", row = true, offset = 0, limit = 1000) {
     try {   
         const Table = mongoConn.models['Table']
-        const TableVersion = mongoConn.models['Table_version']
+        const TableVersion = mongoConn.models['Table.version']
 
         let resp = []
         if(version_id) {

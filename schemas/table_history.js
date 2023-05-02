@@ -46,6 +46,9 @@ const TableHistorySchema = mongoose.Schema(
         action_type: {
             type: String,
             enum: ["CREATE", "UPDATE", "DELETE", "INITIAL", "REVERT"]
+        },
+        table_folder_id: {
+            type: String
         }
     },
     {

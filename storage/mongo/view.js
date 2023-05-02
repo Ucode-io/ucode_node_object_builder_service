@@ -273,7 +273,7 @@ let viewStore = {
                         xmlDocument: document,
                     });
                     const base64_barcode = Buffer.from(xmlSerializer.serializeToString(svgNode)).toString('base64');
-                    output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 30%\"><img src=\"data:image/svg+xml;base64," + 
+                    output[it.slug] = "<figure class=\"image image_resized\" style=\"height: 50pt\"><img src=\"data:image/svg+xml;base64," +
                     base64_barcode + 
                     "\"/></figure>"
                      // console.log(output[it.slug])
@@ -314,7 +314,6 @@ let viewStore = {
                 html = html.replaceAll('&nbsp;', ' ')
                 html = html.replaceAll('&amp;', '&')
                 html = html.replaceAll('&quot;', '"')
-                html = html.replaceAll('&apos;', `'`)
                 html = html.replaceAll('&apos;', `'`)
         }
        
@@ -430,7 +429,6 @@ let viewStore = {
             data.html = data.html.replaceAll('&amp;', '&')
             data.html = data.html.replaceAll('&quot;', '"')
             data.html = data.html.replaceAll('&apos;', `'`)
-            data.html = data.html.replaceAll('&apos;', `'`)
             // console.log(data.html)
 
             if (decodedData.linked_table_slug && decodedData.linked_object_id) {
@@ -501,7 +499,7 @@ let viewStore = {
                             xmlDocument: document,
                         });
                         const base64_barcode = Buffer.from(xmlSerializer.serializeToString(svgNode)).toString('base64');
-                        output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 30%\"><img src=\"data:image/svg+xml;base64," + 
+                        output[it.slug] = "<figure class=\"image image_resized\" style=\"height: 50pt\"><img src=\"data:image/svg+xml;base64," +
                         base64_barcode + 
                         "\"/></figure>"
                          // console.log(output[it.slug])
@@ -543,7 +541,6 @@ let viewStore = {
                 html = html.replaceAll('&nbsp;', ' ')
                 html = html.replaceAll('&amp;', '&')
                 html = html.replaceAll('&quot;', '"')
-                html = html.replaceAll('&apos;', `'`)
                 html = html.replaceAll('&apos;', `'`)
             }
             return { html }

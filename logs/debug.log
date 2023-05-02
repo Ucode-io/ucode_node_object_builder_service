@@ -2436,3 +2436,549 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-01T09:26:46.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-01T09:26:46.169Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-01T09:26:46.170Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "facebook_facebook_object_builder_service",\n' +
+    '    "database": "facebook_facebook_object_builder_service",\n' +
+    '    "password": "Drn5XhlezX"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-01T09:26:46.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://facebook_facebook_object_builder_service:Drn5XhlezX@161.35.26.178:27017/facebook_facebook_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-01T09:26:46.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://facebook_facebook_object_builder_service:Drn5XhlezX@161.35.26.178:27017/facebook_facebook_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-01T09:26:46.838Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-01T09:27:25.166Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-01T09:27:25.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "a0ebc653-b30e-4350-bacd-9ad97064c7fa"\n' +
+    '      ],\n' +
+    '      "table_slug": "developer"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "595bd68a-40be-4b40-a34c-2eb64613d891"\n' +
+    '      ],\n' +
+    '      "table_slug": "name"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "developer",\n' +
+    '  "table_to": "",\n' +
+    '  "type": "Many2Dynamic",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "developer",\n' +
+    '  "relation_field_slug": "dynamic_test_1",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-01T09:34:12.956Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "a0ebc653-b30e-4350-bacd-9ad97064c7fa"\n' +
+    '      ],\n' +
+    '      "table_slug": "developer"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "595bd68a-40be-4b40-a34c-2eb64613d891"\n' +
+    '      ],\n' +
+    '      "table_slug": "name"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "developer",\n' +
+    '  "table_to": "",\n' +
+    '  "type": "Many2Dynamic",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "developer",\n' +
+    '  "relation_field_slug": "dynamic_test_1",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-01T09:34:12.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-01T09:34:15.707Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-05-01T09:34:15.708Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "968690db-7868-4a14-b04e-040bdbb2ba04"\n' +
+    '      ],\n' +
+    '      "table_slug": "test_connection"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "595bd68a-40be-4b40-a34c-2eb64613d891"\n' +
+    '      ],\n' +
+    '      "table_slug": "name"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "developer",\n' +
+    '  "table_to": "",\n' +
+    '  "type": "Many2Dynamic",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "many2dynamic test",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "developer",\n' +
+    '  "relation_field_slug": "dynamic_test_1",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-01T09:37:24.800Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "968690db-7868-4a14-b04e-040bdbb2ba04"\n' +
+    '      ],\n' +
+    '      "table_slug": "test_connection"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "595bd68a-40be-4b40-a34c-2eb64613d891"\n' +
+    '      ],\n' +
+    '      "table_slug": "name"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "developer",\n' +
+    '  "table_to": "",\n' +
+    '  "type": "Many2Dynamic",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "many2dynamic test",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "developer",\n' +
+    '  "relation_field_slug": "dynamic_test_1",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-01T09:37:24.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-01T09:37:27.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-05-01T09:37:27.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.getAll: requested - {\n' +
+    '  "table_slug": "name",\n' +
+    '  "limit": 100,\n' +
+    '  "offset": 0,\n' +
+    '  "table_id": "",\n' +
+    '  "relation_table_slug": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-01T09:50:08.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getAll: requested, {\n' +
+    '  "table_slug": "name",\n' +
+    '  "limit": 100,\n' +
+    '  "offset": 0,\n' +
+    '  "table_id": "",\n' +
+    '  "relation_table_slug": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-01T09:50:08.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-01T09:50:09.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-01T09:50:09.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-01T10:02:04.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-01T10:02:04.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-01T10:02:04.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "NOT_SPECIFIED",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "facebook_facebook_object_builder_service",\n' +
+    '    "database": "facebook_facebook_object_builder_service",\n' +
+    '    "password": "Drn5XhlezX"\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "path": "",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "",\n' +
+    '  "environment_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-01T10:02:04.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://facebook_facebook_object_builder_service:Drn5XhlezX@161.35.26.178:27017/facebook_facebook_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-01T10:02:04.508Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://facebook_facebook_object_builder_service:Drn5XhlezX@161.35.26.178:27017/facebook_facebook_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-01T10:02:05.173Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-01T10:02:43.325Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-01T10:02:43.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "968690db-7868-4a14-b04e-040bdbb2ba04"\n' +
+    '      ],\n' +
+    '      "table_slug": "test_connection"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "595bd68a-40be-4b40-a34c-2eb64613d891"\n' +
+    '      ],\n' +
+    '      "table_slug": "name"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "developer",\n' +
+    '  "table_to": "",\n' +
+    '  "type": "Many2Dynamic",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "many2dynamic test",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "developer",\n' +
+    '  "relation_field_slug": "dynamic_test_1",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-01T10:02:59.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "968690db-7868-4a14-b04e-040bdbb2ba04"\n' +
+    '      ],\n' +
+    '      "table_slug": "test_connection"\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "view_fields": [\n' +
+    '        "595bd68a-40be-4b40-a34c-2eb64613d891"\n' +
+    '      ],\n' +
+    '      "table_slug": "name"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "developer",\n' +
+    '  "table_to": "",\n' +
+    '  "type": "Many2Dynamic",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "many2dynamic test",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "developer",\n' +
+    '  "relation_field_slug": "dynamic_test_1",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-01T10:02:59.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-01T10:03:01.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-05-01T10:03:01.407Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -232,8 +232,10 @@ let prepareFunction = {
                 if (data[field.slug] && objectBeforeUpdate[field.slug]) {
                     let olderArr = objectBeforeUpdate[field.slug]
                     let newArr = data[field.slug]
-                    newIds = newArr.filter(val => !olderArr.includes(val))
-                    deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
+                    if (Array.isArray(newArr)) {
+                        newIds = newArr.filter(val => !olderArr.includes(val))
+                        deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
+                    }
                 }
 
                 const relation = await Relation.findOne({

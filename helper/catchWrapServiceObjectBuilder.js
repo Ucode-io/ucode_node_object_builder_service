@@ -11,7 +11,7 @@ module.exports = (namespace, fn) => {
             const resp = await fn(call.request);
 
             logger.info(`${namespace}: succeeded`);
-            logger.info(`${namespace}: response - ${JSON.stringify(resp, null, 2)}`);
+            // logger.info(`${namespace}: response - ${JSON.stringify(resp, null, 2)}`);
             callback(null, resp);
         } catch (error) {
             logger.error(`${namespace}: failed with error: ${error.message}`);

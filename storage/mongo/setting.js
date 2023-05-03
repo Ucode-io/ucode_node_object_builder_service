@@ -144,7 +144,7 @@ let settingStore = {
                     }
                 }
             )
-            console.log("TEST::::::4")
+            // console.log("TEST::::::4")
             await collection.updateMany(
                 {
                     id: {
@@ -158,7 +158,7 @@ let settingStore = {
                     }
                 }
             )
-            console.log("TEST::::::5")
+            // console.log("TEST::::::5")
             const res = await collection.findOne({id: data.id}).lean()
 
             if (!res) {
@@ -168,13 +168,13 @@ let settingStore = {
                 }
             }
 
-            console.log("TEST::::::6", res)
+            // console.log("TEST::::::6", res)
             return {
                 data: struct.encode(res),
                 count: 1
             }
         } catch (err) {
-            console.log("TEST::::::7", err)
+            // console.log("TEST::::::7", err)
             throw err
         }
     }),

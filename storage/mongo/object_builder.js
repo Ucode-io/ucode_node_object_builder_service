@@ -162,10 +162,14 @@ let objectBuilder = {
                     // console.log("field:::", relationField);
                     if (!relationField || !relationFieldTable) {
                         output[field.slug] = 0
-                        console.log("relation field not found")
+                        // console.log("relation field not found")
                         continue
                     }
+                    const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
                     let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                    if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                        matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                    }
                     let matchParams = {
                         [matchField]: { '$eq': data.id },
                         ...filters
@@ -176,6 +180,9 @@ let objectBuilder = {
                             isChanged = true
                         }
                         output[field.slug] = resultFormula[0].res
+                    } else {
+                        output[field.slug] = 0
+                        isChanged = true
                     }
                 }
             } else if (field.type === "FORMULA_FRONTEND") {
@@ -480,7 +487,7 @@ let objectBuilder = {
         //     ]
         // })
         // console.timeEnd("TIME_LOGGING:::relation")
-        console.log("TEST::::::5")
+        // console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
         if (with_relations) {
@@ -589,7 +596,7 @@ let objectBuilder = {
             params.phone = phone
         }
         // console.timeEnd("TIME_LOGGING:::phone")
-        console.log("TEST::::::7")
+        // console.log("TEST::::::7")
         let populateArr = []
         // console.time("TIME_LOGGING:::limit")
         if (limit !== 0) {
@@ -641,7 +648,7 @@ let objectBuilder = {
                         }
                     }
                 }
-                console.log("TEST::::::8")
+                // console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -680,30 +687,34 @@ let objectBuilder = {
                             for (const deepRelation of deepPopulateRelations) {
                                 if (deepRelation.type === "One2Many") {
                                     deepRelation.table_to = deepRelation.table_from
-                                } else if (relation.type === "Many2Many") {
+                                } else if (deepRelation.type === "Many2Many") {
                                     continue
+                                } else if (deepRelation.type === "Many2Dynamic") {
+                                   continue
+                                } else {
+                                    let deep_table_to_slug = "";
+                                    const field = await Field.findOne({
+                                        relation_id: deepRelation?.id
+                                    })
+                                    if (field) {
+                                        deep_table_to_slug = field.slug + "_data"
+                                    }
+                                    if (deep_table_to_slug === "") {
+                                        continue
+                                    }
+    
+                                    if (deep_table_to_slug !== deepRelation.field_to + "_data") {
+                                        let deepPopulate = {
+                                            path: deep_table_to_slug
+                                        }
+                                        deepRelations.push(deepPopulate)
+                                    }
                                 }
                                 // else if (deepRelation.type === "Many2Many" && deepRelation.table_to === relation.table_to) {
                                 //     deepRelation.field_to = deepRelation.field_from
                                 // }
 
-                                let deep_table_to_slug = "";
-                                const field = await Field.findOne({
-                                    relation_id: deepRelation?.id
-                                })
-                                if (field) {
-                                    deep_table_to_slug = field.slug + "_data"
-                                }
-                                if (deep_table_to_slug === "") {
-                                    continue
-                                }
-
-                                if (deep_table_to_slug !== deepRelation.field_to + "_data") {
-                                    let deepPopulate = {
-                                        path: deep_table_to_slug
-                                    }
-                                    deepRelations.push(deepPopulate)
-                                }
+                                
                             }
                         }
                     }
@@ -720,7 +731,7 @@ let objectBuilder = {
                                 papulateTable = {
                                     path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
                                     populate: deepRelations
-                                }
+                                }           
                                 populateArr.push(papulateTable)
                             }
                             continue
@@ -733,7 +744,7 @@ let objectBuilder = {
                     populateArr.push(papulateTable)
                 }
                 // console.log("\n\n-----> T3\n\n", tableInfo, params)
-                // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
+                console.log("::::::::::::::::::: POPULATE ARR", populateArr)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -756,7 +767,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::limit")
-        console.log("TEST::::::10")
+        // console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
         // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
@@ -765,7 +776,7 @@ let objectBuilder = {
         }
         // console.timeEnd("TIME_LOGGING:::result")
 
-        console.log("TEST::::::11")
+        // console.log("TEST::::::11")
         // console.time("TIME_LOGGING:::toField")
         // this function add field permission for each field by role id
         let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
@@ -785,7 +796,7 @@ let objectBuilder = {
             }
         };
         // console.timeEnd("TIME_LOGGING:::toField")
-        console.log("TEST::::::12")
+        // console.log("TEST::::::12")
         // console.time("TIME_LOGGING:::decodedFields")
         for (const field of decodedFields) {
             if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
@@ -817,7 +828,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::decodedFields")
-        console.log("TEST::::::13")
+        // console.log("TEST::::::13")
         // console.time("TIME_LOGGING:::additional_request")
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
@@ -825,7 +836,7 @@ let objectBuilder = {
             additional_param[params.additional_request.additional_field] = { $in: params.additional_request.additional_values }
 
             if (relations.length == 0) {
-                // console.log("test 111/:::");
+                console.log("test 111/:::");
                 additional_results = await tableInfo.models.find({
                     ...additional_param
                 },
@@ -898,14 +909,18 @@ let objectBuilder = {
                             relation_id: attributes.table_from.split('#')[1],
                             table_id: relationFieldTable.id
                         })
-                        // console.log("rel table::", relationFieldTable)
-                        // console.log("field:::", relationField);
+                        console.log("rel table::", relationFieldTable)
+                        console.log("field:::", relationField);
                         if (!relationField || !relationFieldTable) {
-                            // console.log("relation field not found")
+                            console.log("relation field not found")
                             res[field.slug] = 0
                             continue
                         }
+                        const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                        }
                         let matchParams = {
                             [matchField]: { '$eq': res.guid },
                             ...filters
@@ -916,6 +931,9 @@ let objectBuilder = {
                                 isChanged = true
                             }
                             res[field.slug] = resultFormula[0].res
+                        } else {
+                            res[field.slug] = 0
+                            isChanged = true
                         }
                     }
                 } else {
@@ -980,7 +998,7 @@ let objectBuilder = {
             const response = struct.decode(res.data)
             const result = response.response
             const decodedFields = response.fields
-            console.log("Ress::", result);
+            // console.log("Ress::", result);
             excelArr = []
             for (const obj of result) {
                 excelObj = {}
@@ -1105,7 +1123,7 @@ let objectBuilder = {
             if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
                 ssl = false
             }
-            console.log("ssl", ssl);
+            // console.log("ssl", ssl);
 
 
             let filepath = "./" + filename
@@ -1128,11 +1146,11 @@ let objectBuilder = {
                 if (error) {
                     return console.log(error);
                 }
-                console.log("uploaded successfully")
+                // console.log("uploaded successfully")
                 fs.unlink(filename, (err => {
                     if (err) console.log(err);
                     else {
-                        console.log("Deleted file: ", filename);
+                        // console.log("Deleted file: ", filename);
                     }
                 }));
             });
@@ -1576,7 +1594,7 @@ let objectBuilder = {
             const View = mongoConn.models['View']
             const request = struct.decode(req.data)
            
-            console.log(":::::::: request ", request)
+            // console.log(":::::::: request ", request)
             const view = await View.findOne({
                 id: request.view_id
             })
@@ -1594,18 +1612,18 @@ let objectBuilder = {
                 groupByOptions.push(chartOfAccount.group_by)
                 chartOfAccounts = chartOfAccounts.concat(chartOfAccount.chart_of_account)
             }
-            console.log(":::::::::::::::::: test 1")
+            // console.log(":::::::::::::::::: test 1")
             if (field_slug === "") {
                 throw new Error("Укажите группу по полям")
             }
             request[field_slug] = groupByOptions
-            console.log(":::::::::::::::::: test 2")
+            // console.log(":::::::::::::::::: test 2")
             let resp = await objectBuilder.getList({
                 project_id: req.project_id,
                 table_slug: req.table_slug,
                 data: struct.encode(request)
             })
-            console.log(":::::::::::::::::: test 3")
+            // console.log(":::::::::::::::::: test 3")
             const data = struct.decode(resp.data)
             const objects = data.response
             if (objects.length) {
@@ -1613,12 +1631,12 @@ let objectBuilder = {
                     obj.amounts = []
                 }
             }
-            console.log(":::::::::::::::::: test 4")
+            // console.log(":::::::::::::::::: test 4")
             let objStore = new Map()
             let cObjStore = new Map()
             let totalAmountByMonths = new Map()
             let dates = await RangeDate(request.start, request.end, request.interval)
-            console.log("::::::::::::::::;; Dates", dates);
+            // console.log("::::::::::::::::;; Dates", dates);
 
 
             let balance = {
@@ -1626,7 +1644,7 @@ let objectBuilder = {
                 total: []
             }
 
-            console.log("::::::::::::::::; View ", view )
+            // console.log("::::::::::::::::; View ", view )
             if (view && view.attributes?.balance && view.attributes.balance?.table_slug && view.attributes.balance?.field_id) {
                 // get selected accaunts table
                 const req_accaunts_table = {
@@ -1661,9 +1679,9 @@ let objectBuilder = {
 
                 const copy_objects = JSON.parse(JSON.stringify(objects))
                 for (const obj of copy_objects) {
-                    console.log("######## TEST 1")
+                    // console.log("######## TEST 1")
                     for (const date of dates) {
-                        console.log(">>>>>>>>> test 2")
+                        // console.log(">>>>>>>>> test 2")
                         let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
                         let keyDate = new Date(date.$gte)
                         keyDate = addDays(keyDate, 1)
@@ -1671,7 +1689,7 @@ let objectBuilder = {
                         let monthlyAmount = obj.amounts.find(el => el.month === key)
 
                         for (const acc of accounts) {
-                            console.log("@@@@@@@@@@@@@@@ test 3")
+                            // console.log("@@@@@@@@@@@@@@@ test 3")
                             if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
                                 for (const option of chartOfAccount.options) {
                                     if (option.date_field === "") {
@@ -1911,8 +1929,8 @@ let objectBuilder = {
                                 month: key
                             }
                             parentObj.amounts.push(parentMonthlyAmount)
-                        }
-                        parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"])
+                        }  
+                        parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"] && parentObj[req.table_slug + "_id"] != parentObj["guid"])
                         if (parentObj) {
                             parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
                         }
@@ -2008,8 +2026,9 @@ let objectBuilder = {
             data.balance = balance
             const endTime = new Date()
 
-            console.log(":::::::::::::::::::::::::::: TIME ", endTime - startTime)
+            // console.log(":::::::::::::::::::::::::::: TIME ", endTime - startTime)
             return { table_slug: req.table_slug, data: struct.encode(data) }
+            // return { table_slug: "ok", data: struct.encode({}) }
             // return {}
         } catch (err) {
 

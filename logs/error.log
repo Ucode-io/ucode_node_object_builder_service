@@ -19,555 +19,215 @@
   }
 }
 {
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T05:26:28.930Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-12T05:26:28.930Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T05:27:17.729Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: table.save(...).lean is not a function',
-  level: 'error',
-  timestamp: '2023-04-12T05:27:17.729Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T05:31:21.929Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "[services.table].create - error: Cannot read property 'create' of undefined",
-  level: 'error',
-  timestamp: '2023-04-12T05:31:21.930Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T05:33:36.158Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "[services.table].create - error: Cannot read property 'create' of undefined",
-  level: 'error',
-  timestamp: '2023-04-12T05:33:36.159Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T05:37:17.710Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: No _id found on document!',
-  level: 'error',
-  timestamp: '2023-04-12T05:37:17.710Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T05:41:25.932Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: No _id found on document!',
-  level: 'error',
-  timestamp: '2023-04-12T05:41:25.933Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T05:47:14.775Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: No _id found on document!',
-  level: 'error',
-  timestamp: '2023-04-12T05:47:14.776Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T05:52:43.399Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: Table_history validation failed: slug: Table must have slug, label: Table must have label',
-  level: 'error',
-  timestamp: '2023-04-12T05:52:43.400Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T05:56:45.360Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2023-04-12T05:56:45.361Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-12T06:00:34.290Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2023-04-12T06:00:34.291Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2023-04-12T06:10:16.756Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.table.delete: failed with error: Cannot read property 'slug' of null",
-  level: 'error',
-  timestamp: '2023-04-12T09:07:52.312Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.delete: failed with error: Table not found with given parameters',
-  level: 'error',
-  timestamp: '2023-04-12T09:14:35.138Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.table.update: failed with error: Cannot read properties of null (reading 'slug')",
-  level: 'error',
-  timestamp: '2023-04-17T05:11:03.103Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-04-17T05:17:30.659Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2023-04-17T05:17:30.660Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.GetListTableHistory: failed with error: req is not defined',
-  level: 'error',
-  timestamp: '2023-04-17T06:04:17.267Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.GetListTableHistory: failed with error: TableHistory.find(...).map is not a function',
-  level: 'error',
-  timestamp: '2023-04-17T07:09:21.139Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.GetTableHistoryById: failed with error: Table not found with given parameters',
-  level: 'error',
-  timestamp: '2023-04-17T07:24:41.388Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.RevertTableHistory: failed with error: E11000 duplicate key error collection: ufin_test_ufin_test_object_builder_service.table_histories index: slug_1_id_1 dup key: { slug: "Hello", id: "6452507f-1620-4c1c-a345-ac2a56ebfe18" }',
-  level: 'error',
-  timestamp: '2023-04-17T08:10:19.403Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.RevertTableHistory: failed with error: Table not deleted with given parameters',
-  level: 'error',
-  timestamp: '2023-04-17T08:29:17.282Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.RevertTableHistory: failed with error: Table not deleted with given parameters',
-  level: 'error',
-  timestamp: '2023-04-17T09:04:27.146Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.RevertTableHistory: failed with error: Table_history validation failed: action_type: `REVERT` is not a valid enum value for path `action_type`.',
-  level: 'error',
-  timestamp: '2023-04-17T10:30:44.686Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.InsertVersionsToCommit: failed with error: h is not defined',
-  level: 'error',
-  timestamp: '2023-04-18T05:23:03.599Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.InsertVersionsToCommit: failed with error: Table validation failed: slug: Table must have slug, label: Table must have label',
-  level: 'error',
-  timestamp: '2023-04-18T06:31:11.913Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.InsertVersionsToCommit: failed with error: Assignment to constant variable.',
-  level: 'error',
-  timestamp: '2023-04-18T06:44:39.923Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: data is not defined',
-  level: 'error',
-  timestamp: '2023-04-20T06:22:02.595Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: data is not defined',
-  level: 'error',
-  timestamp: '2023-04-20T06:22:32.488Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:40:45.821Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:40:46.408Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:42:00.717Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:42:00.737Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:50:55.889Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:50:55.903Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:51:09.033Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:51:09.046Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:54:28.572Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:54:28.586Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:55:54.259Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:55:54.269Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:56:08.366Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:56:08.389Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:57:12.902Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T06:57:12.910Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T07:04:11.372Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T07:04:11.379Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T07:13:00.216Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T07:13:00.229Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T07:14:45.662Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T07:14:45.677Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.getUserUpdatedPermission: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2023-04-20T07:19:42.300Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.loginStore.getUserUpdatedPermission: failed with error: Cannot read properties of undefined (reading 'models')",
-  level: 'error',
-  timestamp: '2023-04-20T07:19:42.634Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T07:33:12.209Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-20T07:39:42.741Z',
-  label: 'object_builder_service',
-  metadata: {}
+  message: 'service.object_builder.getFinancialAnalytics: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-04-14T04:10:42.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-04-17T03:40:44.893Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-04-17T03:47:03.985Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 2,
+      details: 'ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
 }
 {
-  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-04-20T07:39:43.211Z',
+  timestamp: '2023-04-17T03:48:42.662Z',
   label: 'object_builder_service',
-  metadata: {}
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 2,
+      details: 'ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
 }
 {
-  message: '[services.table].create request finished with FAILURE',
+  message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-04-29T03:46:52.430Z',
+  timestamp: '2023-04-17T04:10:11.331Z',
   label: 'object_builder_service',
-  metadata: {}
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
 }
 {
-  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-04-29T03:46:52.430Z',
+  timestamp: '2023-04-17T04:15:59.784Z',
   label: 'object_builder_service',
-  metadata: {}
+  metadata: {
+    function: 'autoConn',
+    error: Error: 2 UNKNOWN: ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 2,
+      details: 'ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
 }
 {
-  message: 'service.table.getAll: failed with error: params is not defined',
+  message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-04-29T03:51:33.233Z',
+  timestamp: '2023-04-24T04:47:11.433Z',
   label: 'object_builder_service',
-  metadata: {}
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
 }
 {
-  message: 'service.table.getAll: failed with error: params is not defined',
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
   level: 'error',
-  timestamp: '2023-04-29T03:54:46.263Z',
+  timestamp: '2023-04-24T05:10:03.039Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.table.getAll: failed with error: params is not defined',
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
   level: 'error',
-  timestamp: '2023-04-29T03:54:47.738Z',
+  timestamp: '2023-04-24T05:10:37.299Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.table.getAll: failed with error: params is not defined',
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
-  timestamp: '2023-04-29T03:54:48.758Z',
+  timestamp: '2023-04-24T05:46:00.980Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.table.getByID: failed with error: db conn with given projectId does not exist',
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
-  timestamp: '2023-04-29T04:09:14.219Z',
+  timestamp: '2023-04-24T05:50:09.345Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.field.getAll: failed with error: version_id is not defined',
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
-  timestamp: '2023-04-29T07:07:40.914Z',
+  timestamp: '2023-04-24T05:53:44.764Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.field.getAll: failed with error: version_id is not defined',
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
-  timestamp: '2023-04-29T07:07:42.847Z',
+  timestamp: '2023-04-24T06:01:24.880Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getByID: failed with error: data is not defined',
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
-  timestamp: '2023-04-29T07:14:35.237Z',
+  timestamp: '2023-04-24T06:05:16.499Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getByID: failed with error: data is not defined',
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
-  timestamp: '2023-04-29T07:17:34.822Z',
+  timestamp: '2023-04-24T06:09:36.197Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.app.getByID: failed with error: data is not defined',
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
-  timestamp: '2023-04-29T07:20:27.931Z',
+  timestamp: '2023-04-24T06:12:34.491Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.table_folder.create: failed with error: mongoPool is not defined',
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
-  timestamp: '2023-05-02T09:53:12.133Z',
+  timestamp: '2023-04-24T06:21:36.218Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.table_folder.create: failed with error: Table.folder validation failed: title: Query Folder must have a title',
+  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
-  timestamp: '2023-05-02T09:57:22.841Z',
+  timestamp: '2023-04-24T06:25:32.540Z',
   label: 'object_builder_service',
   metadata: {}
 }

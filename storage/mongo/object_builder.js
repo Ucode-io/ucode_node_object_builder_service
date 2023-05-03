@@ -11,7 +11,7 @@ const con = require("../../helper/constants");
 // const sendMessageToTopic = require("../../config/kafka");
 // const conkafkaTopic = require("../../config/kafkaTopics");
 const converter = require("../../helper/converter");
-
+const tableVersion = require('../../helper/table_version')
 var fns_format = require('date-fns/format');
 var { addMonths, addDays, addYears } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
@@ -149,10 +149,11 @@ let objectBuilder = {
                             }
                         })
                     }
-                    const relationFieldTable = await table.findOne({
-                        slug: attributes.table_from.split('#')[0],
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
-                    })
+                    // const relationFieldTable = await table.findOne({
+                    //     slug: attributes.table_from.split('#')[0],
+                    //     deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    // })
+                    const relationFieldTable =  await tableVersion(mongoConn, {slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
                     const relationField = await Field.findOne({
                         relation_id: attributes.table_from.split('#')[1],
                         table_id: relationFieldTable.id
@@ -229,9 +230,10 @@ let objectBuilder = {
                     elementField.table_slug = relationTableSlug
                 }
                 elementField.attributes = struct.decode(element.attributes)
-                const tableElement = await table.findOne({
-                    slug: req.table_slug
-                })
+                // const tableElement = await table.findOne({
+                //     slug: req.table_slug
+                // })
+                const tableElement = await tableVersion(mongoConn, {slug: req.table_slug}, data.version_id, true)
                 const tableElementFields = await Field.find({
                     table_id: tableElement.id
                 })
@@ -297,6 +299,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
 
         const params = struct.decode(req?.data)
+
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -493,7 +496,8 @@ let objectBuilder = {
                     if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
                         relation.table_to = relation.table_from
                     }
-                    let relationTable = await table.findOne({ slug: relation.table_to })
+                    // let relationTable = await table.findOne({ slug: relation.table_to })
+                    let relationTable = await tableVersion(mongoConn, {slug: relation.table_to}, params.version_id, true)
                     let relationFields = await Field.find(
                         {
                             table_id: relationTable?.id
@@ -540,7 +544,8 @@ let objectBuilder = {
                                 }
                             }
                             field._doc.view_fields = viewFields
-                            let childRelationTable = await table.findOne({ slug: table_slug })
+                            // let childRelationTable = await table.findOne({ slug: table_slug })
+                            let childRelationTable = await tableVersion(mongoConn, {slug: table_slug}, params.version_id, true)
                             field._doc.table_label = relationTable?.label
                             field.label = childRelationTable?.label
                             changedField = field
@@ -895,10 +900,11 @@ let objectBuilder = {
                                 }
                             })
                         }
-                        const relationFieldTable = await table.findOne({
-                            slug: attributes.table_from.split('#')[0],
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        })
+                        // const relationFieldTable = await table.findOne({
+                        //     slug: attributes.table_from.split('#')[0],
+                        //     deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        // })
+                        const relationFieldTable = await tableVersion(mongoConn, {slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00"}, params.version_id, true)
                         const relationField = await Field.findOne({
                             relation_id: attributes.table_from.split('#')[1],
                             table_id: relationFieldTable.id
@@ -1260,6 +1266,7 @@ let objectBuilder = {
             const Relation = mongoConn.models['Relation']
 
             const params = struct.decode(req.data)
+ 
             const limit = params.limit
             const offset = params.offset
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
@@ -1299,7 +1306,8 @@ let objectBuilder = {
             let relationsFields = []
             if (with_relations) {
                 for (const relation of relations) {
-                    let relationTable = await table.findOne({ slug: relation.table_to })
+                    // let relationTable = await table.findOne({ slug: relation.table_to })
+                    let relatedTable = await tableVersion(mongoConn, {slug: relation.table_to}, params.version_id, true)
 
                     let relationFields = await Field.find(
                         {
@@ -1339,7 +1347,8 @@ let objectBuilder = {
                                 }
                             }
                             field._doc.view_fields = viewFields
-                            let childRelationTable = await table.findOne({ slug: field.slug.slice(0, -3) })
+                            // let childRelationTable = await table.findOne({ slug: field.slug.slice(0, -3) })
+                            let childRelationTable = await tableVersion(mongoConn, {slug: field.slug.slice(0, -3)}, params.version_id, true)
                             field._doc.table_label = relationTable.label
                             field.label = childRelationTable.label
                             changedField = field

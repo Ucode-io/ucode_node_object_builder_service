@@ -37,6 +37,9 @@ const TableSchema = mongoose.Schema(
         subtitle_field_slug: {
             type: String,
         },
+        folder_id: {
+            type: String
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -46,7 +46,7 @@ let viewStore = {
             const response = await view.save();
 
             const resp = await Table.updateOne({
-                slug: data.table_slug,
+                slug: data.table_slug
             },
                 {
                     $set: {

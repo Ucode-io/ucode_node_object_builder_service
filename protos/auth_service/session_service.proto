@@ -5,6 +5,7 @@ option go_package="genproto/auth_service";
  
 import "auth.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
 
 service SessionService {
     rpc Login(LoginRequest) returns (LoginResponse) {}
@@ -22,6 +23,47 @@ service SessionService {
     rpc UpdateSessionsByRoleId (UpdateSessionByRoleIdRequest) returns (google.protobuf.Empty) {}
     rpc MultiCompanyLogin(MultiCompanyLoginRequest) returns (MultiCompanyLoginResponse) {}
     rpc V2MultiCompanyLogin(V2MultiCompanyLoginReq) returns (V2MultiCompanyLoginRes) {}
+    rpc V2MultiCompanyOneLogin(V2MultiCompanyLoginReq) returns (V2MultiCompanyOneLoginRes) {}
+}
+
+message ResourceEnvironmentV2MultiCompany {
+    string id = 1;
+    string project_id = 2;
+    string resource_id = 3;
+    string environment_id = 4;
+    bool is_configured = 5;
+    int32 resource_type = 6;
+    int32 service_type = 7;
+    string name = 8;
+    string display_color = 9;
+    string description = 10;
+}
+
+message Project2 {
+    string id = 1;
+    string company_id = 2;
+    string name = 3;
+    string domain = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    repeated ResourceEnvironmentV2MultiCompany resource_environments = 7;
+    google.protobuf.Struct client_types = 8;
+}
+
+message Company2 {
+    string id = 1;
+    string name = 2;
+    string logo = 3;
+    string description = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string owner_id = 7;
+    repeated Project2 projects = 8;
+}
+
+message V2MultiCompanyOneLoginRes {
+    
+    repeated Company2 companies = 1;
 }
 
 message V2HasAccessUserReq {
@@ -204,6 +246,8 @@ message V2LoginResponse {
     string resource_id = 11;
     string environment_id = 12;
     User user = 13;
+    repeated Object tables = 14;
+    google.protobuf.Struct addational_table = 15;
 }
 message V2LoginRequest {
     string username = 1;
@@ -287,7 +331,6 @@ message V2MultiCompanyLoginRes {
         string owner_id = 7;
         repeated Project projects = 8;
     }
-
     repeated Company companies = 1;
 }
 

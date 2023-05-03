@@ -6,7 +6,7 @@ const TableSchema = mongoose.Schema(
         id: {
             type: String,
             default: v4,
-            unique: true
+            // unique: true
         },
         label: {
             type: String,
@@ -37,14 +37,9 @@ const TableSchema = mongoose.Schema(
         subtitle_field_slug: {
             type: String,
         },
-        // commit_id: {
-        //     type: Number,
-        //     required: [true, "commit_id is required"],
-        // },
-        // commit_guid: {
-        //     type: String,
-        //     required: [true, "commit_guid is required"],
-        // }
+        folder_id: {
+            type: String
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

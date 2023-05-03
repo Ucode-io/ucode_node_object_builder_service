@@ -13,8 +13,38 @@ service TableService {
     rpc GetAll(GetAllTablesRequest) returns (GetAllTablesResponse) {}
     rpc Update(Table) returns (google.protobuf.Empty) {}
     rpc Delete(TablePrimaryKey) returns (google.protobuf.Empty) {}
+
+    rpc GetListTableHistory(GetTableHistoryRequest) returns (GetTableHistoryResponse) {}
+    rpc GetTableHistoryById(TableHistoryPrimaryKey) returns (Table) {}
+    rpc RevertTableHistory(TableHistoryPrimaryKey) returns (TableHistory) {}
+    rpc InsertVersionsToCommit(InsertVersionsToCommitRequest) returns (TableHistory) {}
 }
 
+message InsertVersionsToCommitRequest {
+    string id = 1;
+    repeated string version_ids = 2;
+    string project_id = 3;
+}
+
+message GetTableHistoryRequest {
+    string table_id = 1;
+    string project_id = 2;
+}
+
+message TableHistoryPrimaryKey {
+    string id = 1;
+    string project_id = 2;
+}
+
+message TableHistory {
+    string id = 1;
+    string created_at = 2;
+    repeated string version_ids = 3;
+}
+
+message GetTableHistoryResponse {
+    repeated TableHistory items = 1;
+}
 
 message CreateTableRequest {
     string label = 1;
@@ -30,6 +60,7 @@ message CreateTableRequest {
     string project_id = 11;
     string commit_id = 12;
     string version_id = 13;
+    string folder_id = 14;
 }
 
 message IncrementID {
@@ -63,6 +94,7 @@ message Table {
     bool is_own_table = 9;
     IncrementID increment_id = 10;
     string project_id = 11;
+    string folder_id = 12;
 }
 
 message GetAllTablesResponse {
@@ -81,4 +113,5 @@ message GetAllTablesRequest {
     int32 limit = 2;
     string search = 3;
     string project_id = 4;
+    string version_id = 5;
 }

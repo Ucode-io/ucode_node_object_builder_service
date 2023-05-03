@@ -32,6 +32,7 @@ const cascadingService = require("../services/cascading")
 const tableHelpersService = require("../services/table_helpers");
 const fieldsRelationsService = require("../services/fields_and_relations");
 const settingService = require("../services/setting")
+const tableFolderService = require("../services/table_folder");
 
 
 const PROTO_URL = __dirname + "/../protos/object_builder_service/object_builder_service.proto";
@@ -53,7 +54,9 @@ module.exports = async function () {
 
             var server = new grpc.Server();
 
+
             server.addService(objectBuilderProto.TableService.service, tableService);
+            server.addService(objectBuilderProto.TableFolderService.service, tableFolderService);
             server.addService(objectBuilderProto.FieldService.service, fieldService);
             server.addService(objectBuilderProto.ObjectBuilderService.service, objectBuilderService);
             server.addService(objectBuilderProto.SectionService.service, sectionService);

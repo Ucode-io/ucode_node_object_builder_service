@@ -333,12 +333,30 @@ let relationStore = {
             }
             const relation = new Relation(data);
             const response = await relation.save();
-            data.id = v4()
-            data.type = data.view_type
-            data["relation_id"] = relation.id
-            data["name"] = data.title
-            const view = new View(data);
-            const responseView = await view.save();
+            let tableSlugs = [data.table_slug];
+            if (relation.type === "Many2Dynamic") {
+                for (const dynamicTable of relation.dynamic_tables) {
+                    data.id = v4();
+                    data.type = data.view_type;
+                    data["relation_id"] = relation.id;
+                    data["name"] = data.title;
+                    data["relation_table_slug"] = dynamicTable.table_slug;
+                    if (!data.columns || !data.columns.length) {
+                        data.columns = [];
+                    }
+                    const view = new View(data);
+                    const responseView = await view.save();
+                    tableSlugs.push(dynamicTable.table_slug);
+                }
+            } else {
+                data.id = v4();
+                data.type = data.view_type;
+                data["relation_id"] = relation.id;
+                data["name"] = data.title;
+                const view = new View(data);
+                const responseView = await view.save();
+                tableSlugs.push(data.table_to);
+            }
             const resp = await Table.updateMany({
                 slug: { $in: [data.table_from, data.table_to] },
             },

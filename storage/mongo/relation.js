@@ -576,7 +576,6 @@ let relationStore = {
             for (let i = 0; i < relations.length; i++) {
                 let tableFrom = await Table.findOne({
                     slug: relations[i].table_from,
-                    ...params
                 })
                 if (relations[i].type === "Many2Dynamic") {
                     for (const dynamic_table of relations[i].dynamic_tables) {

@@ -160,6 +160,10 @@ let tableStore = {
                 name: RegExp(data.search, "i")
             }
 
+            if(data.folder_id) {
+                query.folder_id = data.folder_id
+            }
+
             let tables = []
 
             if(data.version_id) {

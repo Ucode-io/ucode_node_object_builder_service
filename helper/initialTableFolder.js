@@ -19,7 +19,7 @@ module.exports = async function (data) {
         })
     }
 
-    const tables = await TableFolder.find()
+    const tables = await Table.find()
     for(let table of tables) {
         if(!table.folder_id) {
             table.folder_id = tableFolder.id

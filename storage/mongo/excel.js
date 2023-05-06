@@ -120,7 +120,7 @@ let excelStore = {
                             if (value === null) {
                                 con.NUMBER_TYPES.includes(field.type) ? value = 0 :
                                 con.STRING_TYPES.includes(field.type) ? value = "" :
-                                con.BOOLEAN_TYPES.includes(field.type) ? value = false : ""
+                                con.BOOLEAN_TYPES.includes(field.type) ? value = "false" : ""
                             }
                             let options = []
                             console.log("test 4");
@@ -147,7 +147,7 @@ let excelStore = {
                                 }
                                 value = arrayMultiSelect
                             } else if (con.BOOLEAN_TYPES.includes(field.type)) {
-                                if (row[rows[0].indexOf(column_slug)] === "ИСТИНА" || row[rows[0].indexOf(column_slug)] == "TRUE") {
+                                if (value.toUpperCase() === "ИСТИНА" || value.toUpperCase() == "TRUE") {
                                     value = true
                                 } else  {
                                     value = false
@@ -214,6 +214,29 @@ let excelStore = {
                                 }
                                 value=i
                                 
+                            } else if (con.STRING_TYPES.includes(field.type)) {
+                                if (field.type === "DATE_TIME") {
+                                    let toDate = new Date(value)
+                                    let date = ""
+                                    try {
+                                        date = fns_format(toDate, 'dd.MM.yyyy HH:mm')
+                                    } catch (error) {
+                                        logger.error("value: ", value, "error: ", error);
+                                        date = ""
+                                    }
+                                    value = date
+                                }
+                                if (field.type === "DATE") {
+                                    let toDate = new Date(value)
+                                    let date = ""
+                                    try {
+                                        date = fns_format(toDate, 'dd.MM.yyyy')
+                                    } catch (error) {
+                                        logger.error("value: ", value, "error: ", error);
+                                        date = ""
+                                    }
+                                    value = date
+                                }
                             }
                             if (value) {
                                 objectToDb[field?.slug] = value

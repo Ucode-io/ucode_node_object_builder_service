@@ -214,6 +214,29 @@ let excelStore = {
                                 }
                                 value=i
                                 
+                            } else if (con.STRING_TYPES.includes(field.type)) {
+                                if (field.type === "DATE_TIME") {
+                                    let toDate = new Date(value)
+                                    let date = ""
+                                    try {
+                                        date = fns_format(toDate, 'dd.MM.yyyy HH:mm')
+                                    } catch (error) {
+                                        logger.error("value: ", value, "error: ", error);
+                                        date = ""
+                                    }
+                                    value = date
+                                }
+                                if (field.type === "DATE") {
+                                    let toDate = new Date(value)
+                                    let date = ""
+                                    try {
+                                        date = fns_format(toDate, 'dd.MM.yyyy')
+                                    } catch (error) {
+                                        logger.error("value: ", value, "error: ", error);
+                                        date = ""
+                                    }
+                                    value = date
+                                }
                             }
                             if (value) {
                                 objectToDb[field?.slug] = value

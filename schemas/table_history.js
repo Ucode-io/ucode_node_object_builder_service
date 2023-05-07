@@ -49,6 +49,9 @@ const TableHistorySchema = mongoose.Schema(
         },
         folder_id: {
             type: String
+        },
+        author_id: {
+            type: String
         }
     },
     {

@@ -31,6 +31,7 @@ let tableStore = {
                 delete payload._id
                 payload.action_type = "CREATE",
                 payload.action_time = new Date()
+                payload.author_id = data.author_id
                 await TableHistory.create(payload)
             }
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
@@ -94,6 +95,7 @@ let tableStore = {
                 delete payload._id
                 payload.action_type = "UPDATE",
                 payload.action_time = new Date()
+                payload.author_id = data.author_id
                 await TableHistory.create(payload)
             }
             data["older_slug"] = tableBeforeUpdate.slug
@@ -232,6 +234,7 @@ let tableStore = {
                 delete payload._id
                 payload.action_type = "DELETE",
                 payload.action_time = new Date()
+                payload.author_id = data.author_id
                 const history_resp = await TableHistory.create(payload)
                 
                 await table.save()

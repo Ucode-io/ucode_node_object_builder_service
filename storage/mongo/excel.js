@@ -218,33 +218,18 @@ let excelStore = {
                                 
                             } else if (con.STRING_TYPES.includes(field.type)) {
                                 console.log("EXCEL::::::::::::::::::::::::::::::::::::::", value)
-                                if (field.type === "DATE_TIME") {
-                                    let toDate = new Date(value)
-                                    console.log("TODATE::::::::::::", toDate)
-                                    let date = ""
+                                if (field.type === "DATE_TIME" || field.type === "DATE") {
+                                    let i = ""
                                     try {
-                                        date = fns_format(toDate, 'dd.MM.yyyy HH:mm')
-                                        console.log(date)
-                                    } catch (error) {
-                                        logger.error("value: ", value, "error: ", error);
-                                        date = ""
+                                        let toDate = new Date(value).toISOString()
+                                        console.log("TODATE::::::::::::", toDate)
+                                        i = toDate
+                                        console.log("DATE_TIME::::::::::::::::::", value)
+                                    } catch(error) {
+                                        logger.error("value: ", strNumber, "error: ", error);
+                                        i = ""
                                     }
-                                    value = date
-                                    console.log("DATE_TIME::::::::::::::::::", value)
-                                }
-                                if (field.type === "DATE") {
-                                    let toDate = new Date(value)
-                                    console.log("TODATE::::::::::::", toDate)
-                                    let date = ""
-                                    try {
-                                        date = fns_format(toDate, 'dd.MM.yyyy')
-                                        console.log(date)
-                                    } catch (error) {
-                                        logger.error("value: ", value, "error: ", error);
-                                        date = ""
-                                    }
-                                    value = date
-                                    console.log("DATE::::::::::::::::::", value)
+                                    value = i
                                 }
                             }
                             if (value) {

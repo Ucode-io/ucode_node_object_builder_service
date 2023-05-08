@@ -219,6 +219,7 @@ let excelStore = {
                                 console.log("EXCEL::::::::::::::::::::::::::::::::::::::", value)
                                 if (field.type === "DATE_TIME") {
                                     let toDate = new Date(value)
+                                    console.log("TODATE::::::::::::", toDate)
                                     let date = ""
                                     try {
                                         date = fns_format(toDate, 'dd.MM.yyyy HH:mm')

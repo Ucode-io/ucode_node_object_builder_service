@@ -243,6 +243,7 @@ let excelStore = {
                                 //     value = date
                                 //     console.log("DATE::::::::::::::::::", value)
                                 // }
+                                value = value.toString()
                             }
                             if (value) {
                                 objectToDb[field?.slug] = value

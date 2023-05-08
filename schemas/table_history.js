@@ -43,14 +43,17 @@ const TableHistorySchema = mongoose.Schema(
         action_time: {
             type: Date
         },
-        action_type: {
+        commit_type: {
             type: String,
-            enum: ["CREATE", "UPDATE", "DELETE", "INITIAL", "REVERT"]
+            // enum: ["CREATE", "UPDATE", "DELETE", "INITIAL", "REVERT"]
         },
         folder_id: {
             type: String
         },
         author_id: {
+            type: String
+        },
+        name: {
             type: String
         }
     },

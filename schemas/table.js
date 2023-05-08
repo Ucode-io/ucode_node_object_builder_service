@@ -39,6 +39,9 @@ const TableSchema = mongoose.Schema(
         },
         folder_id: {
             type: String
+        },
+        commit_guid: {
+            type: String
         }
     },
     {

@@ -9,6 +9,7 @@ const ObjectBuilder = require("../../models/object_builder");
 const con = require("../../helper/constants");
 const logger = require("../../config/logger");
 const mongoPool = require('../../pkg/pool');
+var fns_format = require('date-fns/format');
 
 let NAMESPACE = "storage.excel";
 
@@ -236,16 +237,15 @@ let excelStore = {
                                     console.log("TODATE::::::::::::", toDate)
                                     let date = ""
                                     try {
-                                        // date = fns_format(toDate, 'dd.MM.yyyy')
+                                        date = fns_format(toDate, 'dd.MM.yyyy')
                                         console.log(date)
                                     } catch (error) {
                                         logger.error("value: ", value, "error: ", error);
                                         date = ""
                                     }
-                                    // value = date
+                                    value = date
                                     console.log("DATE::::::::::::::::::", value)
                                 }
-                                value = value.toString()
                             }
                             if (value) {
                                 objectToDb[field?.slug] = value

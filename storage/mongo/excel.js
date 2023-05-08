@@ -231,19 +231,20 @@ let excelStore = {
                                     value = date
                                     console.log("DATE_TIME::::::::::::::::::", value)
                                 }
-                                // if (field.type === "DATE") {
-                                //     let toDate = new Date(value)
-                                //     let date = ""
-                                //     try {
-                                //         date = fns_format(toDate, 'dd.MM.yyyy')
-                                //         console.log(date)
-                                //     } catch (error) {
-                                //         logger.error("value: ", value, "error: ", error);
-                                //         date = ""
-                                //     }
-                                //     value = date
-                                //     console.log("DATE::::::::::::::::::", value)
-                                // }
+                                if (field.type === "DATE") {
+                                    let toDate = new Date(value)
+                                    console.log("TODATE::::::::::::", toDate)
+                                    let date = ""
+                                    try {
+                                        // date = fns_format(toDate, 'dd.MM.yyyy')
+                                        console.log(date)
+                                    } catch (error) {
+                                        logger.error("value: ", value, "error: ", error);
+                                        date = ""
+                                    }
+                                    // value = date
+                                    console.log("DATE::::::::::::::::::", value)
+                                }
                                 value = value.toString()
                             }
                             if (value) {

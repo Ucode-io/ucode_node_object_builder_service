@@ -215,27 +215,32 @@ let excelStore = {
                                 value=i
                                 
                             } else if (con.STRING_TYPES.includes(field.type)) {
+                                console.log("EXCEL::::::::::::::::::::::::::::::::::::::", value)
                                 if (field.type === "DATE_TIME") {
                                     let toDate = new Date(value)
                                     let date = ""
                                     try {
                                         date = fns_format(toDate, 'dd.MM.yyyy HH:mm')
+                                        console.log(date)
                                     } catch (error) {
                                         logger.error("value: ", value, "error: ", error);
                                         date = ""
                                     }
                                     value = date
+                                    console.log("DATE_TIME::::::::::::::::::", value)
                                 }
                                 if (field.type === "DATE") {
                                     let toDate = new Date(value)
                                     let date = ""
                                     try {
                                         date = fns_format(toDate, 'dd.MM.yyyy')
+                                        console.log(date)
                                     } catch (error) {
                                         logger.error("value: ", value, "error: ", error);
                                         date = ""
                                     }
                                     value = date
+                                    console.log("DATE::::::::::::::::::", value)
                                 }
                             }
                             if (value) {

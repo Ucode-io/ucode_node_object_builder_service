@@ -117,6 +117,7 @@ let excelStore = {
                                 continue;
                             }
                             let value = row[rows[0].indexOf(column_slug)]
+                            console.log("VALUE:::::::::::::", value)
                             if (value === null) {
                                 con.NUMBER_TYPES.includes(field.type) ? value = 0 :
                                 con.STRING_TYPES.includes(field.type) ? value = "" :
@@ -229,19 +230,19 @@ let excelStore = {
                                     value = date
                                     console.log("DATE_TIME::::::::::::::::::", value)
                                 }
-                                if (field.type === "DATE") {
-                                    let toDate = new Date(value)
-                                    let date = ""
-                                    try {
-                                        date = fns_format(toDate, 'dd.MM.yyyy')
-                                        console.log(date)
-                                    } catch (error) {
-                                        logger.error("value: ", value, "error: ", error);
-                                        date = ""
-                                    }
-                                    value = date
-                                    console.log("DATE::::::::::::::::::", value)
-                                }
+                                // if (field.type === "DATE") {
+                                //     let toDate = new Date(value)
+                                //     let date = ""
+                                //     try {
+                                //         date = fns_format(toDate, 'dd.MM.yyyy')
+                                //         console.log(date)
+                                //     } catch (error) {
+                                //         logger.error("value: ", value, "error: ", error);
+                                //         date = ""
+                                //     }
+                                //     value = date
+                                //     console.log("DATE::::::::::::::::::", value)
+                                // }
                             }
                             if (value) {
                                 objectToDb[field?.slug] = value

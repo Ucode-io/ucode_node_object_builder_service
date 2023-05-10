@@ -147,11 +147,16 @@ let excelStore = {
                                 }
                                 value = arrayMultiSelect
                             } else if (con.BOOLEAN_TYPES.includes(field.type)) {
-                                if (value.toUpperCase() === "ИСТИНА" || value.toUpperCase() == "TRUE") {
-                                    value = true
-                                } else  {
-                                    value = false
+                                if (typeof(value) == "string") {
+                                    if (value.toUpperCase() === "ИСТИНА" || value.toUpperCase() == "TRUE") {
+                                        value = true
+                                    } else  {
+                                        value = false
+                                    }
+                                } else {
+                                    value = value
                                 }
+                                
                             } else if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                                 relation = await Relation.findOne({
                                     id: field.relation_id

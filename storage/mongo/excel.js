@@ -122,7 +122,7 @@ let excelStore = {
                             if (value === null) {
                                 con.NUMBER_TYPES.includes(field.type) ? value = 0 :
                                 con.STRING_TYPES.includes(field.type) ? value = "" :
-                                con.BOOLEAN_TYPES.includes(field.type) ? value = false : ""
+                                con.BOOLEAN_TYPES.includes(field.type) ? value = "false" : ""
                             }
                             let options = []
                             console.log("test 4");
@@ -149,11 +149,16 @@ let excelStore = {
                                 }
                                 value = arrayMultiSelect
                             } else if (con.BOOLEAN_TYPES.includes(field.type)) {
-                                if (row[rows[0].indexOf(column_slug)] === "ИСТИНА" || row[rows[0].indexOf(column_slug)] == "TRUE") {
-                                    value = true
-                                } else  {
-                                    value = false
+                                if (typeof(value) == "string") {
+                                    if (value.toUpperCase() === "ИСТИНА" || value.toUpperCase() == "TRUE") {
+                                        value = true
+                                    } else  {
+                                        value = false
+                                    }
+                                } else {
+                                    value = value
                                 }
+                                
                             } else if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                                 relation = await Relation.findOne({
                                     id: field.relation_id

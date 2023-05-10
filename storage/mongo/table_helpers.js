@@ -5,7 +5,7 @@ const { v4 } = require("uuid");
 const mongoPool = require('../../pkg/pool');
 const cfg = require("../../config/index");
 const catchWrapDb = require("../../helper/catchWrapDb");
-
+const tableVersion = require("../../helper/table_version")
 const tableService = require("../../services/table");
 
 const viewStore = require("./view");
@@ -45,21 +45,22 @@ let tableHelpers = {
             app.tables.forEach(el => {
                 tableIds.push(el.table_id)
             })
-            const tables = await Table.find(
-                {
-                    deleted_at: "1970-01-01T18:00:00.000+00:00",
-                    id: { $in: tableIds }
-                },
-                {
-                    _id: 0,
-                    __v: 0,
-                    created_at: 0,
-                    updated_at: 0,
-                },
-                {
-                    sort: { created_at: -1 }
-                }
-            )
+            // const tables = await Table.find(
+            //     {
+            //         deleted_at: "1970-01-01T18:00:00.000+00:00",
+            //         id: { $in: tableIds }
+            //     },
+            //     {
+            //         _id: 0,
+            //         __v: 0,
+            //         created_at: 0,
+            //         updated_at: 0,
+            //     },
+            //     {
+            //         sort: { created_at: -1 }
+            //     }
+            // )
+            const tables = await tableVersion(mongoConn, {id: {$in: tableIds, deleted_at: "1970-01-01T18:00:00.000+00:00"}}, data.version_id, false)
             let tableSlugs = [], changedTables = []
             for (const table of tables) {
                 let changedTable = { ...table._doc }
@@ -274,10 +275,11 @@ let tableHelpers = {
 
             for (const table of jsonObjects.tables) {
                 let ownerAppOfTable;
-                const isExists = await Table.findOne({
-                    slug: table.slug,
-                    deleted_at: "1970-01-01T18:00:00.000+00:00"
-                })
+                // const isExists = await Table.findOne({
+                //     slug: table.slug,
+                //     deleted_at: "1970-01-01T18:00:00.000+00:00"
+                // })
+                const isExists = await tableVersion(mongoConn, {slug: table.slug, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
                 if (isExists) {
                     ownerAppOfTable = await App.findOne({
                         "tables.table_id": isExists.id,

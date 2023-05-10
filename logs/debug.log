@@ -1,14 +1,14 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
-  timestamp: '2023-04-03T09:55:56.281Z',
+  timestamp: '2023-05-03T08:03:01.401Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
-  timestamp: '2023-04-03T09:55:56.285Z',
+  timestamp: '2023-05-03T08:03:01.404Z',
   label: 'object_builder_service',
   metadata: {}
 }
@@ -19,458 +19,7 @@
     '  }\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-03T09:55:56.286Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2023-04-03T09:55:56.322Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: No connection established
-        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
-        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
-        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
-        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
-        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
-        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
-      code: 14,
-      details: 'No connection established',
-      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
-    }
-  }
-}
-{
-  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
-  level: 'info',
-  timestamp: '2023-04-03T09:55:56.324Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-14T04:04:25.771Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-14T04:04:25.779Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "project_id": "7df00d27-65d7-44db-9c27-0b4be0d3e253",\n' +
-    '  "credentials": {\n' +
-    '    "host": "161.35.26.178",\n' +
-    '    "port": 27017,\n' +
-    '    "database": "udevs_ufinance_object_builder_service",\n' +
-    '    "username": "udevs_ufinance_object_builder_service",\n' +
-    '    "password": "Lh8a3kz9"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-14T04:04:25.780Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-14T04:04:25.782Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-14T04:04:28.404Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-14T04:10:16.382Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getFinancialAnalytics: failed with error: db conn with given projectId does not exist',
-  level: 'error',
-  timestamp: '2023-04-14T04:10:42.786Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-14T04:11:18.275Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-14T04:11:18.283Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "project_id": "731dbf07-9e3c-4902-9a52-be9a690ffd25",\n' +
-    '  "credentials": {\n' +
-    '    "host": "161.35.26.178",\n' +
-    '    "port": 27017,\n' +
-    '    "database": "udevs_ufinance_object_builder_service",\n' +
-    '    "username": "udevs_ufinance_object_builder_service",\n' +
-    '    "password": "Lh8a3kz9"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-14T04:11:18.284Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-14T04:11:18.286Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-14T04:11:19.823Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-14T04:15:13.670Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.object_builder.getList: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-14T04:15:49.582Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.object_builder.getFinancialAnalytics: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-14T04:16:10.235Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getFinancialAnalytics: succeeded',
-  level: 'info',
-  timestamp: '2023-04-14T04:16:10.236Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-17T03:40:44.875Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-17T03:40:44.877Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T03:40:44.877Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2023-04-17T03:40:44.893Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: No connection established
-        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
-        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
-      code: 14,
-      details: 'No connection established',
-      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
-    }
-  }
-}
-{
-  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
-  level: 'info',
-  timestamp: '2023-04-17T03:40:44.894Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-17T03:47:03.555Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-17T03:47:03.557Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T03:47:03.557Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2023-04-17T03:47:03.985Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)
-        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
-        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
-      code: 2,
-      details: 'ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      }
-    }
-  }
-}
-{
-  message: 'autoconnecting to resources failed: Error: 2 UNKNOWN: ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)',
-  level: 'info',
-  timestamp: '2023-04-17T03:47:03.988Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-17T03:48:42.248Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-17T03:48:42.249Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T03:48:42.250Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2023-04-17T03:48:42.662Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)
-        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
-        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
-      code: 2,
-      details: 'ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      }
-    }
-  }
-}
-{
-  message: 'autoconnecting to resources failed: Error: 2 UNKNOWN: ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)',
-  level: 'info',
-  timestamp: '2023-04-17T03:48:42.667Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-17T04:10:11.313Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-17T04:10:11.315Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T04:10:11.315Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2023-04-17T04:10:11.331Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: No connection established
-        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
-        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
-      code: 14,
-      details: 'No connection established',
-      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
-    }
-  }
-}
-{
-  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
-  level: 'info',
-  timestamp: '2023-04-17T04:10:11.332Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-17T04:15:59.020Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-17T04:15:59.022Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T04:15:59.022Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'Error while auto connecting',
-  level: 'error',
-  timestamp: '2023-04-17T04:15:59.784Z',
-  label: 'object_builder_service',
-  metadata: {
-    function: 'autoConn',
-    error: Error: 2 UNKNOWN: ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)
-        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
-        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
-      code: 2,
-      details: 'ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)',
-      metadata: Metadata {
-        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
-        options: {}
-      }
-    }
-  }
-}
-{
-  message: 'autoconnecting to resources failed: Error: 2 UNKNOWN: ERROR: column reference "vault_path" is ambiguous (SQLSTATE 42702)',
-  level: 'info',
-  timestamp: '2023-04-17T04:15:59.788Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-17T04:16:57.727Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-17T04:16:57.729Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T04:16:57.729Z',
+  timestamp: '2023-05-03T08:03:01.404Z',
   label: 'object_builder_service',
   metadata: {}
 }
@@ -494,215 +43,35 @@
     '  "version_id": ""\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-17T04:17:23.127Z',
+  timestamp: '2023-05-03T08:03:03.709Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://udevs_udevs_object_builder_service:2kJ3jHZOrj@161.35.26.178:27017/udevs_udevs_object_builder_service',
   level: 'debug',
-  timestamp: '2023-04-17T04:17:23.128Z',
+  timestamp: '2023-05-03T08:03:03.709Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://udevs_udevs_object_builder_service:2kJ3jHZOrj@161.35.26.178:27017/udevs_udevs_object_builder_service',
   level: 'info',
-  timestamp: '2023-04-17T04:17:23.799Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-17T04:17:51.703Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "BUILDER_SERVICE",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "161.35.26.178",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "team19devs_team19devs_object_builder_service",\n' +
-    '    "database": "team19devs_team19devs_object_builder_service",\n' +
-    '    "password": "Mi2Oj5WP4A"\n' +
-    '  },\n' +
-    '  "id": "1f3aa9f7-285a-4c34-b8c0-4c87d52f7e5a",\n' +
-    '  "project_id": "1f3aa9f7-285a-4c34-b8c0-4c87d52f7e5a",\n' +
-    '  "path": "k8s/ucode-test/cd06c86e-e369-4b41-b766-0abc5fe61b6c/c72924e2-602a-431b-81a6-a814d4994425/5a2fbd29-8e5a-44bf-b373-a63304f81049/MONGODB",\n' +
-    '  "title": "Ucode Resource",\n' +
-    '  "resource_id": "03120b65-fd91-40e0-8d6f-aacae6802b30",\n' +
-    '  "environment_id": "5a2fbd29-8e5a-44bf-b373-a63304f81049",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T04:17:51.705Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://team19devs_team19devs_object_builder_service:Mi2Oj5WP4A@161.35.26.178:27017/team19devs_team19devs_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-17T04:17:51.706Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://team19devs_team19devs_object_builder_service:Mi2Oj5WP4A@161.35.26.178:27017/team19devs_team19devs_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-17T04:17:52.368Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-17T04:18:19.674Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "BUILDER_SERVICE",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "161.35.26.178",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "team19devs_team21devs_object_builder_service",\n' +
-    '    "database": "team19devs_team21devs_object_builder_service",\n' +
-    '    "password": "HtMJjfntky"\n' +
-    '  },\n' +
-    '  "id": "a8bd067b-8ac4-4e8a-9bf6-0c1991f5f12c",\n' +
-    '  "project_id": "a8bd067b-8ac4-4e8a-9bf6-0c1991f5f12c",\n' +
-    '  "path": "k8s/ucode-test/cd06c86e-e369-4b41-b766-0abc5fe61b6c/9a6d804f-9b26-46a8-b29d-78b4db6d524e/2f4b3b0f-d455-4c82-9c84-05b225974074/MONGODB",\n' +
-    '  "title": "Ucode Resource",\n' +
-    '  "resource_id": "80fe5c9b-31b7-49c7-817f-e563d76e9724",\n' +
-    '  "environment_id": "2f4b3b0f-d455-4c82-9c84-05b225974074",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T04:18:19.675Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://team19devs_team21devs_object_builder_service:HtMJjfntky@161.35.26.178:27017/team19devs_team21devs_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-17T04:18:19.676Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://team19devs_team21devs_object_builder_service:HtMJjfntky@161.35.26.178:27017/team19devs_team21devs_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-17T04:18:20.306Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-17T04:18:52.626Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "BUILDER_SERVICE",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "161.35.26.178",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "asdasd_asdasd_object_builder_service",\n' +
-    '    "database": "asdasd_asdasd_object_builder_service",\n' +
-    '    "password": "LHPu1cRsJw"\n' +
-    '  },\n' +
-    '  "id": "9a3c6394-4673-4958-b965-9e43c2aa5664",\n' +
-    '  "project_id": "9a3c6394-4673-4958-b965-9e43c2aa5664",\n' +
-    '  "path": "k8s/ucode-test/6a05be07-83bb-420c-9303-2bbe0177f454/7ef6a945-b29a-4a10-9e2f-8cc296315bcc/56ba5db3-4125-486e-b928-4148f363e5b8/MONGODB",\n' +
-    '  "title": "Ucode Resource",\n' +
-    '  "resource_id": "433fffff-14ee-4ead-b9e7-fbff3bc66f9a",\n' +
-    '  "environment_id": "56ba5db3-4125-486e-b928-4148f363e5b8",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T04:18:52.628Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://asdasd_asdasd_object_builder_service:LHPu1cRsJw@161.35.26.178:27017/asdasd_asdasd_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-17T04:18:52.628Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://asdasd_asdasd_object_builder_service:LHPu1cRsJw@161.35.26.178:27017/asdasd_asdasd_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-17T04:18:53.278Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-17T04:21:43.404Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "BUILDER_SERVICE",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "161.35.26.178",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "dev_company_dev_company_object_builder_service",\n' +
-    '    "database": "dev_company_dev_company_object_builder_service",\n' +
-    '    "password": "rE5Ga8PnMF"\n' +
-    '  },\n' +
-    '  "id": "e95496a7-e903-4fa3-a029-2d27c37893e1",\n' +
-    '  "project_id": "e95496a7-e903-4fa3-a029-2d27c37893e1",\n' +
-    '  "path": "k8s/ucode-test/ce367a17-34ff-485d-bc25-420c03ed48ed/158fe831-2cf6-43bb-9ede-3a54f99d4f1b/87603256-57df-4ab9-99c9-591a6d4066d0/MONGODB",\n' +
-    '  "title": "Ucode Resource",\n' +
-    '  "resource_id": "00429bb7-e0ed-4888-aec5-6d335d7b2fd9",\n' +
-    '  "environment_id": "87603256-57df-4ab9-99c9-591a6d4066d0",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-17T04:21:43.406Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://dev_company_dev_company_object_builder_service:rE5Ga8PnMF@161.35.26.178:27017/dev_company_dev_company_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-17T04:21:43.406Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://dev_company_dev_company_object_builder_service:rE5Ga8PnMF@161.35.26.178:27017/dev_company_dev_company_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-17T04:21:44.129Z',
+  timestamp: '2023-05-03T08:03:04.342Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
-  timestamp: '2023-04-19T07:21:47.858Z',
+  timestamp: '2023-05-04T05:54:13.773Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
-  timestamp: '2023-04-19T07:21:47.860Z',
+  timestamp: '2023-05-04T05:54:13.777Z',
   label: 'object_builder_service',
   metadata: {}
 }
@@ -713,56 +82,24 @@
     '  }\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-19T07:21:47.861Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-19T07:21:47.892Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T04:47:11.416Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T04:47:11.418Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T04:47:11.418Z',
+  timestamp: '2023-05-04T05:54:13.777Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-04-24T04:47:11.433Z',
+  timestamp: '2023-05-04T05:54:13.814Z',
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',
     error: Error: 14 UNAVAILABLE: No connection established
-        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
-        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
-        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
-        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
       code: 14,
       details: 'No connection established',
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
@@ -772,21 +109,21 @@
 {
   message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
   level: 'info',
-  timestamp: '2023-04-24T04:47:11.434Z',
+  timestamp: '2023-05-04T05:54:13.815Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
-  timestamp: '2023-04-24T04:47:40.064Z',
+  timestamp: '2023-05-06T09:23:38.056Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
-  timestamp: '2023-04-24T04:47:40.066Z',
+  timestamp: '2023-05-06T09:23:38.059Z',
   label: 'object_builder_service',
   metadata: {}
 }
@@ -797,1351 +134,1604 @@
     '  }\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-24T04:47:40.066Z',
+  timestamp: '2023-05-06T09:23:38.060Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T04:47:40.088Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T04:48:16.371Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T04:48:16.373Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T04:48:16.373Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "7907ff24-655f-44eb-949f-5e06f8b447d7",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T04:48:16.405Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T04:48:16.406Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T04:48:17.195Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T05:08:33.128Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T05:08:33.130Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:08:33.130Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:08:33.153Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T05:08:33.154Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T05:08:33.770Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-04-24T05:10:03.039Z',
+  timestamp: '2023-05-06T09:23:38.099Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-05-06T09:23:38.103Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
-  timestamp: '2023-04-24T05:10:30.347Z',
+  timestamp: '2023-05-08T06:24:43.005Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
-  timestamp: '2023-04-24T05:10:30.349Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:10:30.349Z',
+  timestamp: '2023-05-08T06:24:43.007Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
     '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-24T05:10:30.381Z',
+  timestamp: '2023-05-08T06:24:43.008Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
   level: 'debug',
-  timestamp: '2023-04-24T05:10:30.381Z',
+  timestamp: '2023-05-08T06:24:43.009Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
   level: 'info',
-  timestamp: '2023-04-24T05:10:31.027Z',
+  timestamp: '2023-05-08T06:24:43.650Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T06:26:10.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request',
+  level: 'info',
+  timestamp: '2023-05-08T09:45:32.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestLabel1",\n' +
+    '  "description": "TestDescription1",\n' +
+    '  "slug": "testSlug1",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T09:45:32.024Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:45:38.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create table request finished with OK',
+  level: 'info',
+  timestamp: '2023-05-08T09:45:38.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestLabel1",\n' +
+    '  "description": "TestDescription1",\n' +
+    '  "slug": "testSlug1",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63",\n' +
+    '  "author_id": "",\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T09:45:38.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:45:43.540Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: requested, {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "slug": "guid",\n' +
+    '      "label": "ID",\n' +
+    '      "default": "v4",\n' +
+    '      "index": true,\n' +
+    '      "unique": true,\n' +
+    '      "type": "UUID"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestLabel1",\n' +
+    '  "description": "TestDescription1",\n' +
+    '  "slug": "testSlug1",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "0f8eb169-0800-41d2-88ca-e0d0ce018b63",\n' +
+    '  "author_id": "",\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T09:45:43.543Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:45:43.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: requested, {\n' +
+    '  "table_slug": "testSlug1",\n' +
+    '  "type": "TABLE",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T09:45:43.638Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:45:43.834Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
   level: 'error',
-  timestamp: '2023-04-24T05:10:37.299Z',
+  timestamp: '2023-05-08T09:45:54.283Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T05:10:46.307Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T05:10:46.309Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:10:46.309Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:10:46.329Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T05:10:46.329Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T05:10:46.945Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T05:13:43.199Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T05:13:43.201Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:13:43.202Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:13:43.220Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T05:13:43.221Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T05:13:43.831Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T05:15:12.450Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T05:15:12.452Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:15:12.452Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:15:12.472Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T05:15:12.472Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T05:15:13.294Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T05:18:01.899Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T05:18:01.901Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:18:01.901Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:18:01.926Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T05:18:01.926Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T05:18:02.542Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:20:03.745Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:20:03.749Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.object_builder.getList: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:20:09.873Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: succeeded',
-  level: 'info',
-  timestamp: '2023-04-24T05:20:09.874Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T05:30:10.011Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T05:30:10.013Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:30:10.013Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:30:10.032Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T05:30:10.033Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T05:30:10.654Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:32:18.421Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:32:18.423Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.object_builder.getList: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:32:24.231Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: succeeded',
-  level: 'info',
-  timestamp: '2023-04-24T05:32:24.232Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T05:40:06.484Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T05:40:06.486Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:40:06.486Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:40:06.516Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T05:40:06.517Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T05:40:07.156Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:42:18.324Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:42:18.331Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.object_builder.getList: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:45:33.336Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: succeeded',
-  level: 'info',
-  timestamp: '2023-04-24T05:45:33.337Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-04-24T05:46:00.980Z',
+  timestamp: '2023-05-08T09:45:54.284Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T05:48:08.868Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T05:48:08.870Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:48:08.870Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "label": "UpdateLabel2",\n' +
+    '  "description": "UpdateDescription2",\n' +
+    '  "slug": "UpdateSlug2",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": true,\n' +
+    '  "is_own_table": true,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
     '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "folder_id": "c9f76e0c-79d0-469f-94bd-304895ac833f",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T09:48:00.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "label": "UpdateLabel2",\n' +
+    '  "description": "UpdateDescription2",\n' +
+    '  "slug": "UpdateSlug2",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": true,\n' +
+    '  "is_own_table": true,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "folder_id": "c9f76e0c-79d0-469f-94bd-304895ac833f",\n' +
+    '  "author_id": ""\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-24T05:48:08.890Z',
+  timestamp: '2023-05-08T09:48:00.030Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T05:48:08.890Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T05:48:09.463Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:50:03.634Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:50:03.639Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-04-24T05:50:09.345Z',
+  timestamp: '2023-05-08T09:48:13.279Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T09:48:45.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T09:48:45.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:48:45.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T09:48:45.452Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
-  timestamp: '2023-04-24T05:51:24.074Z',
+  timestamp: '2023-05-08T09:50:01.083Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
-  timestamp: '2023-04-24T05:51:24.076Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:51:24.076Z',
+  timestamp: '2023-05-08T09:50:01.087Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
     '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-24T05:51:24.096Z',
+  timestamp: '2023-05-08T09:50:01.087Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
   level: 'debug',
-  timestamp: '2023-04-24T05:51:24.096Z',
+  timestamp: '2023-05-08T09:50:01.088Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
   level: 'info',
-  timestamp: '2023-04-24T05:51:24.672Z',
+  timestamp: '2023-05-08T09:50:01.728Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
-  timestamp: '2023-04-24T05:53:16.939Z',
+  timestamp: '2023-05-08T09:51:23.710Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'storage.project.autoConnect: succeeded',
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T09:51:40.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
   level: 'debug',
-  timestamp: '2023-04-24T05:53:16.945Z',
+  timestamp: '2023-05-08T09:51:40.751Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:51:41.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T09:51:41.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T09:52:46.510Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T09:52:46.511Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:52:46.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T09:52:46.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-08T09:53:20.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-08T09:53:20.843Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T09:53:20.843Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-08T09:53:20.844Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-08T09:53:21.490Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:54:41.971Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T09:54:49.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T09:54:49.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:54:49.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T09:54:49.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T09:54:50.878Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "128b55b3-5137-416c-965c-ef78b79677f6",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T09:54:50.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T09:54:51.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T09:54:51.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request',
+  level: 'info',
+  timestamp: '2023-05-08T10:00:43.609Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestHello",\n' +
+    '  "description": "TestHello",\n' +
+    '  "slug": "test_hello",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "Hello",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "",\n' +
+    '  "author_id": "author_id"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:00:43.609Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'error while get index',
+  level: 'info',
+  timestamp: '2023-05-08T10:00:46.897Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:00:49.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create table request finished with OK',
+  level: 'info',
+  timestamp: '2023-05-08T10:00:49.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestHello",\n' +
+    '  "description": "TestHello",\n' +
+    '  "slug": "test_hello",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "Hello",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "",\n' +
+    '  "author_id": "author_id",\n' +
+    '  "id": "41455e88-6ef2-40ad-9274-88bc7e9e7f20"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:00:49.603Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:00:54.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: requested, {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "slug": "guid",\n' +
+    '      "label": "ID",\n' +
+    '      "default": "v4",\n' +
+    '      "index": true,\n' +
+    '      "unique": true,\n' +
+    '      "type": "UUID"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestHello",\n' +
+    '  "description": "TestHello",\n' +
+    '  "slug": "test_hello",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "Hello",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "",\n' +
+    '  "author_id": "author_id",\n' +
+    '  "id": "41455e88-6ef2-40ad-9274-88bc7e9e7f20"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:00:54.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:00:54.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: requested, {\n' +
+    '  "table_slug": "test_hello",\n' +
+    '  "type": "TABLE",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:00:54.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:00:55.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
   level: 'error',
-  timestamp: '2023-04-24T05:53:44.764Z',
+  timestamp: '2023-05-08T10:01:04.487Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T05:56:26.925Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T05:56:26.926Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:56:26.927Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T05:56:26.946Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T05:56:26.947Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T05:56:27.525Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:58:19.288Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T05:58:19.294Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-04-24T06:01:24.880Z',
+  timestamp: '2023-05-08T10:01:04.487Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
-  timestamp: '2023-04-24T06:02:57.021Z',
+  timestamp: '2023-05-08T10:01:45.504Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
-  timestamp: '2023-04-24T06:02:57.023Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:02:57.023Z',
+  timestamp: '2023-05-08T10:01:45.507Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
     '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-24T06:02:57.047Z',
+  timestamp: '2023-05-08T10:01:45.507Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
   level: 'debug',
-  timestamp: '2023-04-24T06:02:57.048Z',
+  timestamp: '2023-05-08T10:01:45.508Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
   level: 'info',
-  timestamp: '2023-04-24T06:02:57.656Z',
+  timestamp: '2023-05-08T10:01:46.141Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
-  timestamp: '2023-04-24T06:04:50.069Z',
+  timestamp: '2023-05-08T10:03:06.514Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'storage.project.autoConnect: succeeded',
+  message: '[services.table].create request',
+  level: 'info',
+  timestamp: '2023-05-08T10:03:10.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestHello",\n' +
+    '  "description": "TestHello",\n' +
+    '  "slug": "test_hello",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "Hello",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "",\n' +
+    '  "author_id": "author_id",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": "Auto Created Commit Create table"\n' +
+    '}',
   level: 'debug',
-  timestamp: '2023-04-24T06:04:50.072Z',
+  timestamp: '2023-05-08T10:03:10.558Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  message: 'storage.table.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:03:17.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create table request finished with OK',
+  level: 'info',
+  timestamp: '2023-05-08T10:03:17.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "fields": [],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestHello",\n' +
+    '  "description": "TestHello",\n' +
+    '  "slug": "test_hello",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "Hello",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "",\n' +
+    '  "author_id": "author_id",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": "Auto Created Commit Create table",\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:03:17.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:03:23.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: requested, {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "slug": "guid",\n' +
+    '      "label": "ID",\n' +
+    '      "default": "v4",\n' +
+    '      "index": true,\n' +
+    '      "unique": true,\n' +
+    '      "type": "UUID"\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "sections": [],\n' +
+    '  "label": "TestHello",\n' +
+    '  "description": "TestHello",\n' +
+    '  "slug": "test_hello",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "",\n' +
+    '  "subtitle_field_slug": "Hello",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": "",\n' +
+    '  "author_id": "author_id",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": "Auto Created Commit Create table",\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:03:23.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:03:23.395Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: requested, {\n' +
+    '  "table_slug": "test_hello",\n' +
+    '  "type": "TABLE",\n' +
+    '  "app_id": "a5e01bef-39bb-4e01-9c96-0b7d99ad3489",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:03:23.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.view.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:03:23.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
   level: 'error',
-  timestamp: '2023-04-24T06:05:16.499Z',
+  timestamp: '2023-05-08T10:03:37.666Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T06:07:29.295Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T06:07:29.297Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:07:29.297Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:07:29.316Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T06:07:29.316Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T06:07:29.914Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:09:22.501Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:09:22.505Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-04-24T06:09:36.197Z',
+  timestamp: '2023-05-08T10:03:37.667Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T06:10:23.753Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T06:10:23.755Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:10:23.756Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "label": "Hello",\n' +
+    '  "description": "Hello",\n' +
+    '  "slug": "Hello",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "Hello",\n' +
+    '  "subtitle_field_slug": "Hello",\n' +
+    '  "is_visible": true,\n' +
+    '  "is_own_table": true,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
     '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "folder_id": "",\n' +
+    '  "author_id": "author_id",\n' +
+    '  "commit_type": "updated table",\n' +
+    '  "name": "Hello"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T10:05:19.811Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "label": "Hello",\n' +
+    '  "description": "Hello",\n' +
+    '  "slug": "Hello",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "Hello",\n' +
+    '  "subtitle_field_slug": "Hello",\n' +
+    '  "is_visible": true,\n' +
+    '  "is_own_table": true,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "folder_id": "",\n' +
+    '  "author_id": "author_id",\n' +
+    '  "commit_type": "updated table",\n' +
+    '  "name": "Hello"\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-24T06:10:23.774Z',
+  timestamp: '2023-05-08T10:05:19.812Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T06:10:23.774Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T06:10:24.519Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:12:22.820Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:12:22.824Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
-  timestamp: '2023-04-24T06:12:34.491Z',
+  timestamp: '2023-05-08T10:05:34.931Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'grpc server is running at 9102',
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "as",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
   level: 'info',
-  timestamp: '2023-04-24T06:18:56.611Z',
+  timestamp: '2023-05-08T10:06:52.264Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T06:18:56.613Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "as",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-24T06:18:56.614Z',
+  timestamp: '2023-05-08T10:06:52.265Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:18:56.633Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T06:18:56.633Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T06:18:57.206Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-24T06:19:16.649Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T06:19:16.651Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:19:16.651Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:19:16.670Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T06:19:16.670Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T06:19:17.372Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:21:12.353Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:21:12.359Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  message: "service.table.getByID: failed with error: Cannot set properties of null (setting 'commit_info')",
   level: 'error',
-  timestamp: '2023-04-24T06:21:36.218Z',
+  timestamp: '2023-05-08T10:06:52.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T10:08:02.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:08:02.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:08:02.877Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T10:08:02.877Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
-  timestamp: '2023-04-24T06:23:27.713Z',
+  timestamp: '2023-05-08T10:11:29.391Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
-  timestamp: '2023-04-24T06:23:27.715Z',
+  timestamp: '2023-05-08T10:11:29.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:11:29.395Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-08T10:11:29.396Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-08T10:11:30.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:12:51.142Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T10:13:18.789Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:13:18.790Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:13:19.079Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T10:13:19.079Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-08T10:14:35.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-08T10:14:35.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:14:35.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-08T10:14:35.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-08T10:14:35.829Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:15:58.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T10:16:13.493Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:16:13.493Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:16:13.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T10:16:13.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-08T10:18:47.829Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-08T10:18:47.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:18:47.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-08T10:18:47.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-08T10:18:48.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:20:11.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: requested - {\n' +
+    '  "id": "d9e701c6-8dbd-4740-8de2-a91aa6c30c85",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "author_id": "author_id",\n' +
+    '  "commit_type": "Hello",\n' +
+    '  "name": "Hello"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T10:22:35.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: requested, {\n' +
+    '  "id": "d9e701c6-8dbd-4740-8de2-a91aa6c30c85",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "author_id": "author_id",\n' +
+    '  "commit_type": "Hello",\n' +
+    '  "name": "Hello"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:22:35.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.RevertTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:22:35.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.RevertTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T10:22:35.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T10:23:17.221Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:23:17.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:23:17.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T10:23:17.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-08T10:27:58.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-08T10:27:58.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:27:58.944Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-08T10:27:58.944Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-08T10:27:59.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T10:28:23.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:28:23.363Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:28:23.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T10:28:23.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-08T10:29:03.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-08T10:29:03.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "username": "ufin_test_ufin_test_object_builder_service",\n' +
+    '    "password": "vZhq2e2w9u"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:29:03.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-08T10:29:03.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ufin_test_ufin_test_object_builder_service:vZhq2e2w9u@161.35.26.178:27017/ufin_test_ufin_test_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-08T10:29:03.692Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:30:27.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: requested - {\n' +
+    '  "table_id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-08T10:30:34.037Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: requested, {\n' +
+    '  "table_id": "ffe1e1f8-b3c3-47f5-a7a7-86372d731397",\n' +
+    '  "project_id": "5df4baeb-293e-4728-a857-e961220554f5"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-08T10:30:34.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.GetListTableHistory: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-08T10:30:34.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.GetListTableHistory: succeeded',
+  level: 'info',
+  timestamp: '2023-05-08T10:30:34.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-10T09:15:27.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-10T09:15:27.113Z',
   label: 'object_builder_service',
   metadata: {}
 }
@@ -2152,287 +1742,34 @@
     '  }\n' +
     '}',
   level: 'debug',
-  timestamp: '2023-04-24T06:23:27.715Z',
+  timestamp: '2023-05-10T09:15:27.113Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:23:27.736Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T06:23:27.736Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T06:23:28.337Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:25:26.282Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:25:26.289Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: failed with error: Cannot populate path `forums_id_data.owners_forum_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-04-24T06:25:32.540Z',
+  timestamp: '2023-05-10T09:15:27.164Z',
   label: 'object_builder_service',
-  metadata: {}
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
 }
 {
-  message: 'grpc server is running at 9102',
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
   level: 'info',
-  timestamp: '2023-04-24T06:27:57.019Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-24T06:27:57.021Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:27:57.021Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-24T06:27:57.040Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-24T06:27:57.040Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-24T06:27:57.604Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:29:50.243Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:29:50.250Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.object_builder.getList: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-24T06:32:58.479Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getList: succeeded',
-  level: 'info',
-  timestamp: '2023-04-24T06:32:58.480Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-25T05:23:58.025Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-25T05:23:58.027Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-25T05:23:58.027Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "service_type": "NOT_SPECIFIED",\n' +
-    '  "resource_type": "MONGODB",\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "username": "alldental_alldental_object_builder_service",\n' +
-    '    "database": "alldental_alldental_object_builder_service",\n' +
-    '    "password": "jGH7CPOSpY"\n' +
-    '  },\n' +
-    '  "id": "",\n' +
-    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
-    '  "path": "",\n' +
-    '  "title": "",\n' +
-    '  "resource_id": "",\n' +
-    '  "environment_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-25T05:23:58.050Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-04-25T05:23:58.051Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
-  level: 'info',
-  timestamp: '2023-04-25T05:23:58.686Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-25T05:26:12.285Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-25T05:26:12.302Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.object_builder.update: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-25T05:26:48.289Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.object_builder.getSingle: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-25T05:26:48.684Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.object_builder.getSingle: succeeded',
-  level: 'info',
-  timestamp: '2023-04-25T05:26:48.684Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-04-25T10:40:25.546Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-04-25T10:40:25.548Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: requested, {\n' +
-    '  "request": {\n' +
-    '    "k8s_namespace": "cp-region-type-id"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-04-25T10:40:25.548Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.autoConnect: succeeded',
-  level: 'debug',
-  timestamp: '2023-04-25T10:40:25.600Z',
+  timestamp: '2023-05-10T09:15:27.166Z',
   label: 'object_builder_service',
   metadata: {}
 }
@@ -2537,6 +1874,58 @@
   message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
   level: 'info',
   timestamp: '2023-04-27T21:57:33.244Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-10T09:25:25.411Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-10T09:25:25.417Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-10T09:25:25.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-05-10T09:25:25.481Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-05-10T09:25:25.484Z',
   label: 'object_builder_service',
   metadata: {}
 }

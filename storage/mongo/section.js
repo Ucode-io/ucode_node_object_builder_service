@@ -4,7 +4,7 @@ const { struct } = require('pb-util');
 const { v4 } = require("uuid");
 const relationStore = require("../mongo/relation");
 const AddPermission = require("../../helper/addPermission");
-
+const tableVersion = require("../../helper/table_version")
 const mongoPool = require('../../pkg/pool');
 const ObjectBuilder = require("../../models/object_builder");
 
@@ -75,8 +75,8 @@ let sectionStore = {
             }
 
             const resp = await Table.updateOne({
-                id: data.table_id,
-            },
+                    id: data.table_id,
+                },
                 {
                     $set: {
                         is_changed: true
@@ -101,9 +101,10 @@ let sectionStore = {
                 }
             )
             if (data.table_slug === "") {
-                const table = await Table.findOne({
-                    id: data.table_id
-                })
+                // const table = await Table.findOne({
+                //     id: data.table_id,
+                // })
+                const table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true)
                 data.table_slug = table.slug
             }
             let viewRelationReq = {}
@@ -185,9 +186,10 @@ let sectionStore = {
 
             let table = {};
             if (data.table_slug === "") {
-                table = await Table.findOne({
-                    slug: data.table_id
-                });
+                // table = await Table.findOne({
+                //     slug: data.table_id
+                // });
+                table = await tableVersion(mongoConn, {slug: data.table_id}, data.version_id, true)
                 data.table_slug = table.slug;
             }
             let query = {
@@ -226,9 +228,10 @@ let sectionStore = {
 
             let table = {};
             if (data.table_slug === "") {
-                table = await Table.findOne({
-                    id: data.table_id
-                });
+                // table = await Table.findOne({
+                //     id: data.table_id
+                // });
+                table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true);
                 data.table_slug = table.slug;
             }
             let resp = {}
@@ -280,9 +283,10 @@ let sectionStore = {
 
             let table = {};
             if (data.table_id === "") {
-                table = await Table.findOne({
-                    slug: data.table_slug
-                });
+                // table = await Table.findOne({
+                //     slug: data.table_slug,
+                // });
+                table = await tableVersion(mongoConn, {slug: data.table_slug}, data.version_id, true);
                 data.table_id = table.id;
             }
 
@@ -360,21 +364,22 @@ let sectionStore = {
                             if (relation.dynamic_tables.length) {
                                 let dynamicTableToAttribute;
                                 for (const dynamic_table of relation.dynamic_tables) {
-                                    const dynamicTableInfo = await Table.findOne(
-                                        {
-                                            slug: dynamic_table.table_slug
-                                        },
-                                        {
-                                            deletedAt: 0,
-                                            deleted_at: 0,
-                                            createdAt: 0,
-                                            updatedAt: 0,
-                                            created_at: 0,
-                                            updated_at: 0,
-                                            _id: 0,
-                                            __v: 0
-                                        }
-                                    )
+                                    // const dynamicTableInfo = await Table.findOne(
+                                    //     {
+                                    //         slug: dynamic_table.table_slug,
+                                    //     },
+                                    //     {
+                                    //         deletedAt: 0,
+                                    //         deleted_at: 0,
+                                    //         createdAt: 0,
+                                    //         updatedAt: 0,
+                                    //         created_at: 0,
+                                    //         updated_at: 0,
+                                    //         _id: 0,
+                                    //         __v: 0
+                                    //     }
+                                    // )
+                                    const dynamicTableInfo = await tableVersion(mongoConn, {slug: dynamic_table.table_slug}, data.version_id, true)
                                     dynamicTableToAttribute = dynamic_table
                                     dynamicTableToAttribute["table"] = dynamicTableInfo._doc
                                     viewFieldsInDynamicTable = []
@@ -453,7 +458,7 @@ let sectionStore = {
                         }
                     }
                 }
-                // this function add field permission for each field by role id
+                // this function add field permission for each field by role iddynamicTableInfo
                 fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)

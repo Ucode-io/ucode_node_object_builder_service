@@ -1,7 +1,7 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
 const mongoPool = require('../../pkg/pool')
-
+const tableVersion = require('../../helper/table_version')
 let NAMESPACE = "storage.app";
 
 
@@ -84,8 +84,8 @@ let appStore = {
             let tables = []
             if (app.tables) {
                 for (const single_table of app.tables) {
-                    let table = {}
-                    table = await Table.findOne({ id: single_table.table_id, deleted_at: "1970-01-01T18:00:00.000+00:00" })
+                    // table = await Table.findOne({ id: single_table.table_id})
+                    let table = await tableVersion(mongoConn, { id: single_table.table_id }, data.version_id, true)
                     if (table) {
                         tables.push({
                             ...table._doc,

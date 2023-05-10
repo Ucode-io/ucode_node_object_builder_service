@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 
-const TableSchema = mongoose.Schema(
+const TableHistorySchema = mongoose.Schema(
     {
+        guid: {
+            type: String,
+            default: v4
+        },
         id: {
             type: String,
-            default: v4,
-            // unique: true
+            default: v4
         },
         label: {
             type: String,
@@ -37,16 +40,22 @@ const TableSchema = mongoose.Schema(
         subtitle_field_slug: {
             type: String,
         },
+        action_time: {
+            type: Date
+        },
+        commit_type: {
+            type: String,
+            // enum: ["CREATE", "UPDATE", "DELETE", "INITIAL", "REVERT"]
+        },
         folder_id: {
             type: String
         },
-        commit_guid: {
+        author_id: {
             type: String
         },
-        is_cached: {
-            type: Boolean,
-            default: false
-        },
+        name: {
+            type: String
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
@@ -55,5 +64,5 @@ const TableSchema = mongoose.Schema(
     }
 );
 
-TableSchema.index({ 'slug': 1, 'deleted_at': 1, }, { unique: true });
-module.exports = TableSchema
+TableHistorySchema.index({ 'slug': 1, 'guid': 1, }, { unique: true });
+module.exports = TableHistorySchema

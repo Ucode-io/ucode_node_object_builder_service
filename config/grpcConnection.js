@@ -31,7 +31,8 @@ const webPageService = require("../services/web_pages");
 const cascadingService = require("../services/cascading");
 const tableHelpersService = require("../services/table_helpers");
 const fieldsRelationsService = require("../services/fields_and_relations");
-const settingService = require("../services/setting");
+const settingService = require("../services/setting")
+const tableFolderService = require("../services/table_folder");
 
 const PROTO_URL =
     __dirname +
@@ -58,118 +59,35 @@ module.exports = async function () {
                 "grpc.max_send_message_length": 10 * 1024 * 1024,
             });
 
-            server.addService(
-                objectBuilderProto.TableService.service,
-                tableService
-            );
-            server.addService(
-                objectBuilderProto.FieldService.service,
-                fieldService
-            );
-            server.addService(
-                objectBuilderProto.ObjectBuilderService.service,
-                objectBuilderService
-            );
-            server.addService(
-                objectBuilderProto.SectionService.service,
-                sectionService
-            );
-            server.addService(
-                objectBuilderProto.RelationService.service,
-                relationService
-            );
-            server.addService(
-                objectBuilderProto.ViewService.service,
-                viewService
-            );
-            server.addService(
-                objectBuilderProto.AppService.service,
-                appService
-            );
-            server.addService(
-                objectBuilderProto.DashboardService.service,
-                dashboardService
-            );
-            server.addService(
-                objectBuilderProto.VariableService.service,
-                variableService
-            );
-            server.addService(
-                objectBuilderProto.PanelService.service,
-                panelService
-            );
-            server.addService(
-                objectBuilderProto.HtmlTemplateService.service,
-                htmlTemplateService
-            );
-            server.addService(
-                objectBuilderProto.LoginService.service,
-                loginService
-            );
-            server.addService(
-                objectBuilderProto.DocumentService.service,
-                documentService
-            );
-            server.addService(
-                objectBuilderProto.EventService.service,
-                eventService
-            );
-            server.addService(
-                objectBuilderProto.EventLogsService.service,
-                eventLogsService
-            );
-            server.addService(
-                objectBuilderProto.ExcelService.service,
-                excelService
-            );
-            server.addService(
-                objectBuilderProto.PermissionService.service,
-                permissionService
-            );
-            server.addService(
-                objectBuilderProto.CustomEventService.service,
-                customEventService
-            );
-            server.addService(
-                objectBuilderProto.FunctionService.service,
-                functionService
-            );
-            server.addService(
-                objectBuilderProto.BarcodeService.service,
-                barcodeService
-            );
-            server.addService(
-                objectBuilderProto.BuilderProjectService.service,
-                projectService
-            );
-            server.addService(
-                objectBuilderProto.QueryFolderService.service,
-                queryFolderService
-            );
-            server.addService(
-                objectBuilderProto.QueryService.service,
-                queryService
-            );
-            server.addService(
-                objectBuilderProto.WebPageService.service,
-                webPageService
-            );
-            server.addService(
-                objectBuilderProto.CascadingService.service,
-                cascadingService
-            );
-            server.addService(
-                objectBuilderProto.TableHelpersService.service,
-                tableHelpersService
-            );
-            server.addService(
-                objectBuilderProto.FieldAndRelationService.service,
-                fieldsRelationsService
-            );
-            server.addService(
-                objectBuilderProto.SettingService.service,
-                settingService
-            );
+            server.addService(objectBuilderProto.TableService.service, tableService);
+            server.addService(objectBuilderProto.TableFolderService.service, tableFolderService);
+            server.addService(objectBuilderProto.FieldService.service, fieldService);
+            server.addService(objectBuilderProto.ObjectBuilderService.service, objectBuilderService);
+            server.addService(objectBuilderProto.SectionService.service, sectionService);
+            server.addService(objectBuilderProto.RelationService.service, relationService);
+            server.addService(objectBuilderProto.ViewService.service, viewService);
+            server.addService(objectBuilderProto.AppService.service, appService);
+            server.addService(objectBuilderProto.DashboardService.service, dashboardService);
+            server.addService(objectBuilderProto.VariableService.service, variableService);
+            server.addService(objectBuilderProto.PanelService.service, panelService);
+            server.addService(objectBuilderProto.HtmlTemplateService.service, htmlTemplateService);
+            server.addService(objectBuilderProto.LoginService.service, loginService);
+            server.addService(objectBuilderProto.DocumentService.service, documentService);
+            server.addService(objectBuilderProto.EventService.service, eventService);
+            server.addService(objectBuilderProto.EventLogsService.service, eventLogsService);
+            server.addService(objectBuilderProto.ExcelService.service, excelService);
+            server.addService(objectBuilderProto.PermissionService.service, permissionService);
+            server.addService(objectBuilderProto.CustomEventService.service, customEventService);
+            server.addService(objectBuilderProto.FunctionService.service, functionService);
+            server.addService(objectBuilderProto.BarcodeService.service, barcodeService);
+            server.addService(objectBuilderProto.BuilderProjectService.service, projectService);
+            server.addService(objectBuilderProto.QueryFolderService.service, queryFolderService);
+            server.addService(objectBuilderProto.QueryService.service, queryService);
+            server.addService(objectBuilderProto.WebPageService.service, webPageService);
+            server.addService(objectBuilderProto.CascadingService.service, cascadingService);
+            server.addService(objectBuilderProto.TableHelpersService.service, tableHelpersService);
+            server.addService(objectBuilderProto.FieldAndRelationService.service, fieldsRelationsService);
+            server.addService(objectBuilderProto.SettingService.service, settingService);
 
             server.bindAsync(
                 "0.0.0.0:" + cfg.RPCPort,

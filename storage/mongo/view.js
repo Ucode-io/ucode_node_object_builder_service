@@ -46,7 +46,7 @@ let viewStore = {
             const response = await view.save();
 
             const resp = await Table.updateOne({
-                slug: data.table_slug,
+                slug: data.table_slug
             },
                 {
                     $set: {
@@ -315,7 +315,6 @@ let viewStore = {
                 html = html.replaceAll('&amp;', '&')
                 html = html.replaceAll('&quot;', '"')
                 html = html.replaceAll('&apos;', `'`)
-                html = html.replaceAll('&apos;', `'`)
         }
        
 
@@ -430,7 +429,6 @@ let viewStore = {
             data.html = data.html.replaceAll('&amp;', '&')
             data.html = data.html.replaceAll('&quot;', '"')
             data.html = data.html.replaceAll('&apos;', `'`)
-            data.html = data.html.replaceAll('&apos;', `'`)
             // console.log(data.html)
 
             if (decodedData.linked_table_slug && decodedData.linked_object_id) {
@@ -543,7 +541,6 @@ let viewStore = {
                 html = html.replaceAll('&nbsp;', ' ')
                 html = html.replaceAll('&amp;', '&')
                 html = html.replaceAll('&quot;', '"')
-                html = html.replaceAll('&apos;', `'`)
                 html = html.replaceAll('&apos;', `'`)
             }
             return { html }

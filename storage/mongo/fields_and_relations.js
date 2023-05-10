@@ -7,6 +7,7 @@ const { v4 } = require("uuid");
 const relationFieldChecker = require("../../helper/relationFieldChecker");
 const converter = require("../../helper/converter");
 const sendMessageToTopic = require("../../config/kafka");
+const tableVersion = require('../../helper/table_version');
 
 let fieldsRelationsStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
@@ -35,24 +36,27 @@ let fieldsRelationsStore = {
             let fieldPermissions = []
             for (const fieldReq of data.fields) {
                 if (con.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
-                    let autoFillTable = await Table.findOne({
-                        slug: fieldReq.autofill_table
-                    })
+                    // let autoFillTable = await Table.findOne({
+                    //     slug: fieldReq.autofill_table
+                    // })
+                    let autoFillTable = await tableVersion(mongoConn, {slug: fieldReq.autofill_table}, data.version_id, true)
                     let autoFillFieldSlug = "", autoFillField = {}
                     if (fieldReq.autofill_field.includes(".")) {
                         let splitedAutofillField = fieldReq.autofill_field.split(".")
-                        autoFillTable = await Table.findOne({
-                            slug: splitedAutofillField[0]
-                        })
+                        // autoFillTable = await Table.findOne({
+                        //     slug: splitedAutofillField[0]
+                        // })
+                        autoFillTable = await tableVersion(mongoConn, {slug: splitedAutofillField[0]}, data.version_id, true)
                         let splitedTable = splitedAutofillField[0].split("_")
                         let tableSlug = ""
                         for (let i = 0; i < splitedTable.length - 2; i++) {
                             tableSlug = tableSlug + "_" + splitedTable[i]
                         }
                         tableSlug = tableSlug.slice(1, tableSlug.length)
-                        autoFillTable = await Table.findOne({
-                            slug: tableSlug
-                        })
+                        // autoFillTable = await Table.findOne({
+                        //     slug: tableSlug
+                        // })
+                        autoFillTable = await tableVersion(mongoConn, {slug: tableSlug}, data.version_id, true)
                         autoFillFieldSlug = splitedAutofillField[1]
                     } else {
                         autoFillFieldSlug = fieldReq.autofill_field
@@ -70,10 +74,10 @@ let fieldsRelationsStore = {
                 field.table_id = table_guid;
                 field.id = v4()
                 var responseFields = field.save();
-                const table = await Table.findOne({
-                    id: table_guid
-                })
-
+                // const table = await Table.findOne({
+                //     id: table_guid
+                // })
+                const table = await tableVersion(mongoConn, {id: table_guid}, data.version_id, true)
                 const roleTable = (await ObjectBuilder(true, resource_guid))["role"]
                 const roles = await roleTable?.models.find()
                 for (const role of roles) {
@@ -123,10 +127,11 @@ let fieldsRelationsStore = {
                     case 'One2Many':
                         relationReq.field_from = "id";
                         relationReq.field_to = relationReq.table_from + "_id";
-                        table = await Table.findOne({
-                            slug: relationReq.table_to,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        });
+                        // table = await Table.findOne({
+                        //     slug: relationReq.table_to,
+                        //     deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        // });
+                        table = await tableVersion(mongoConn, {slug: relationReq.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
                         result = await relationFieldChecker(relationReq.field_to, table.id, resource_guid)
                         if (result.exists) {
                             relationReq.field_to = result.lastField
@@ -161,10 +166,11 @@ let fieldsRelationsStore = {
                     case 'Many2Dynamic':
                         relationReq.field_from = relationReq.relation_field_slug
                         relationReq.field_to = "id"
-                        table = await Table.findOne({
-                            slug: relationReq.table_from,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        });
+                        // table = await Table.findOne({
+                        //     slug: relationReq.table_from,
+                        //     deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        // });
+                        table = await tableVersion(mongoConn, {slug: relationReq.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
                         field = new Field({
                             table_id: table.id,
                             slug: relationReq.relation_field_slug,
@@ -195,10 +201,11 @@ let fieldsRelationsStore = {
                     case 'Many2Many':
                         relationReq.field_from = relationReq.table_to + "_ids";
                         relationReq.field_to = relationReq.table_from + "_ids";
-                        let tableTo = await Table.findOne({
-                            slug: relationReq.table_to,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        });
+                        // let tableTo = await Table.findOne({
+                        //     slug: relationReq.table_to,
+                        //     deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        // });
+                        let tableTo =  await tableVersion(mongoConn, {slug: relationReq.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
                         result = await relationFieldChecker(relationReq.field_to, tableTo.id, resource_guid)
                         if (result.exists) {
                             relationReq.field_to = result.lastField
@@ -242,10 +249,11 @@ let fieldsRelationsStore = {
                         )
                         tableRes.fields = fieldsFrom
                         eventTo.payload = tableRes
-                        tableFrom = await Table.findOne({
-                            slug: relationReq.table_from,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        });
+                        // tableFrom = await Table.findOne({
+                        //     slug: relationReq.table_from,
+                        //     deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        // });
+                        tableFrom =  await tableVersion(mongoConn, {slug: relationReq.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
                         result = await relationFieldChecker(relationReq.field_from, tableFrom.id, resource_guid)
                         if (result.exists) {
                             relationReq.field_from = result.lastField
@@ -296,10 +304,11 @@ let fieldsRelationsStore = {
                         relationReq.recursive_field = relationReq.table_from + "_id";
                         relationReq.field_from = "id";
                         relationReq.field_to = relationReq.table_from + "_id";
-                        table = await Table.findOne({
-                            slug: relationReq.table_from,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        });
+                        // table = await Table.findOne({
+                        //     slug: relationReq.table_from,
+                        //     deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        // });
+                        table =  await tableVersion(mongoConn, {slug: relationReq.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
                         result = await relationFieldChecker(relationReq.recursive_field, table.id, resource_guid)
                         if (result.exists) {
                             relationReq.recursive_field = result.lastField
@@ -351,10 +360,11 @@ let fieldsRelationsStore = {
                     case 'One2One':
                         relationReq.field_from = relationReq.table_to + "_id";
                         relationReq.field_to = "id";
-                        table = await Table.findOne({
-                            slug: relationReq.table_from,
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        });
+                        // table = await Table.findOne({
+                        //     slug: relationReq.table_from,
+                        //     deleted_at: "1970-01-01T18:00:00.000+00:00",
+                        // });
+                        table =  await tableVersion(mongoConn, {slug: relationReq.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
                         result = await relationFieldChecker(relationReq.field_from, table.id, resource_guid)
                         if (result.exists) {
                             relationReq.field_from = result.lastField

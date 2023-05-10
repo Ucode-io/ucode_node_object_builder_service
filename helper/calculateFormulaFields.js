@@ -51,7 +51,7 @@ let formulaFunction = {
                 }
             }
         ];  
-        console.log("pipe::",  pipelines);  
+        // console.log("pipe::",  pipelines);  
             
         const resultFormula = await (await ObjectBuilder(true, project_id))[attributes.table_from.split('#')[0]].models.aggregate(pipelines)
         console.log(resultFormula);

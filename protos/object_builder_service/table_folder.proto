@@ -21,15 +21,24 @@ message TableFolderRequest {
 
 message CreateTableFolderResponse {
     string id = 1;
+<<<<<<< HEAD
     string title = 2;
+=======
+    string name = 2;
+>>>>>>> 9bc13e2fde92b3d4c7cfa8943566bf6306c1696e
     string project_id = 3;
 }
 
 message TableFolder {
     string id = 1;
+<<<<<<< HEAD
     string title = 2;
     string project_id = 3;
     string parent_id = 4;
+=======
+    string name = 2;
+    string project_id = 3;
+>>>>>>> 9bc13e2fde92b3d4c7cfa8943566bf6306c1696e
 }
 
 

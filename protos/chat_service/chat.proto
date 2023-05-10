@@ -15,6 +15,7 @@ service ChatService {
     rpc UpdateChatProfielPhotoUrl(UpdateProfilePhotoUrlRequest) returns (google.protobuf.Empty) {}
     rpc UpdateChatMessage(UpdateChatMessageRequest) returns (google.protobuf.Empty) {}
     rpc UpdateChatMessageCount(UpdateChatMessageCountRequest) returns (google.protobuf.Empty) {}
+  
     rpc CreateBot (CreateBotRequest) returns (CreateBotResponse) {}
     rpc UpdateBotStatus(UpdateBotStatusRequest) returns (google.protobuf.Empty) {}
     rpc UpdateBotToken(UpdateBotTokenRequest) returns (google.protobuf.Empty) {}

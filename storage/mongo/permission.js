@@ -315,8 +315,8 @@ let permission = {
             //         sort: { created_at: -1 }
             //     }
             // );
-
-            const tables = await tableVersion(mongoConn, {id: {$in: tableIds}, deleted_at: "970-01-01T18:00:00.000+00:00"}, false)
+            
+            const tables = await tableVersion(mongoConn, {id: {$in: tableIds}, deleted_at: "1970-01-01T18:00:00.000+00:00"}, req.version_id, false)
 
             if (!tables) {
                 console.log('WARNING tables not found')

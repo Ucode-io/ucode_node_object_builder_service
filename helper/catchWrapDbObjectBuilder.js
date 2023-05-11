@@ -7,7 +7,7 @@ module.exports = (namespace, fn) => {
 
         try {
             let resp = await fn(arg);
-            logger.debug(`${namespace}: succeeded`);
+            // logger.debug(`${namespace}: succeeded`);
 
             return resp;
         } catch (error) {

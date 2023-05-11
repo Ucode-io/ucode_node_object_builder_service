@@ -39,7 +39,14 @@ const TableSchema = mongoose.Schema(
         },
         folder_id: {
             type: String
-        }
+        },
+        commit_guid: {
+            type: String
+        },
+        is_cached: {
+            type: Boolean,
+            default: false
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -9,6 +9,7 @@ const ObjectBuilder = require("../../models/object_builder");
 const con = require("../../helper/constants");
 const logger = require("../../config/logger");
 const mongoPool = require('../../pkg/pool');
+var fns_format = require('date-fns/format');
 
 let NAMESPACE = "storage.excel";
 
@@ -117,10 +118,11 @@ let excelStore = {
                                 continue;
                             }
                             let value = row[rows[0].indexOf(column_slug)]
+                            console.log("VALUE:::::::::::::", value)
                             if (value === null) {
                                 con.NUMBER_TYPES.includes(field.type) ? value = 0 :
                                 con.STRING_TYPES.includes(field.type) ? value = "" :
-                                con.BOOLEAN_TYPES.includes(field.type) ? value = false : ""
+                                con.BOOLEAN_TYPES.includes(field.type) ? value = "false" : ""
                             }
                             let options = []
                             console.log("test 4");
@@ -147,11 +149,16 @@ let excelStore = {
                                 }
                                 value = arrayMultiSelect
                             } else if (con.BOOLEAN_TYPES.includes(field.type)) {
-                                if (row[rows[0].indexOf(column_slug)] === "ИСТИНА" || row[rows[0].indexOf(column_slug)] == "TRUE") {
-                                    value = true
-                                } else  {
-                                    value = false
+                                if (typeof(value) == "string") {
+                                    if (value.toUpperCase() === "ИСТИНА" || value.toUpperCase() == "TRUE") {
+                                        value = true
+                                    } else  {
+                                        value = false
+                                    }
+                                } else {
+                                    value = value
                                 }
+                                
                             } else if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                                 relation = await Relation.findOne({
                                     id: field.relation_id
@@ -214,6 +221,21 @@ let excelStore = {
                                 }
                                 value=i
                                 
+                            } else if (con.STRING_TYPES.includes(field.type)) {
+                                console.log("EXCEL::::::::::::::::::::::::::::::::::::::", value)
+                                if (field.type === "DATE_TIME" || field.type === "DATE") {
+                                    let i = ""
+                                    try {
+                                        let toDate = new Date(value).toISOString()
+                                        console.log("TODATE::::::::::::", toDate)
+                                        i = toDate
+                                        console.log("DATE_TIME::::::::::::::::::", value)
+                                    } catch(error) {
+                                        logger.error("value: ", strNumber, "error: ", error);
+                                        i = ""
+                                    }
+                                    value = i
+                                }
                             }
                             if (value) {
                                 objectToDb[field?.slug] = value

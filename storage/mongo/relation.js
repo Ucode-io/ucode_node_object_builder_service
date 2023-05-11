@@ -439,6 +439,7 @@ let relationStore = {
                 const responseView = await view.save();
                 tableSlugs.push(data.table_to);
             }
+
             const resp = await Table.updateMany(
                 {
                     slug: { $in: tableSlugs },

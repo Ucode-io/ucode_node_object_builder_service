@@ -29,9 +29,14 @@ let tableStore = {
                 
                 payload = Object.assign(payload, response._doc)
                 delete payload._id
-                payload.action_type = "CREATE",
+                payload.commit_type = data.commit_type,
+                payload.name = data.name,
                 payload.action_time = new Date()
-                await TableHistory.create(payload)
+                payload.author_id = data.author_id
+                const tableHistory = await TableHistory.create(payload)
+
+                table.commit_guid = tableHistory.guid
+                await table.save()
             }
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
@@ -92,9 +97,13 @@ let tableStore = {
                 
                 payload = Object.assign(payload, table._doc)
                 delete payload._id
-                payload.action_type = "UPDATE",
+                payload.commit_type = data.commit_type,
+                payload.name = data.name,
                 payload.action_time = new Date()
-                await TableHistory.create(payload)
+                payload.author_id = data.author_id
+                const tableHistory =  await TableHistory.create(payload)
+                table.commit_guid = tableHistory.guid
+                await table.save()
             }
             data["older_slug"] = tableBeforeUpdate.slug
             let event = {}
@@ -193,19 +202,40 @@ let tableStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const TableVersion = mongoConn.models['Table.version']
+            const TableHistory = mongoConn.models['Table.history']
 
             let params = {id: data.id}
-
+            let table = null
             if(data.version_id) {
                 params.version_id = data.version_id
-                const table = await TableVersion.findOne(params)
+                table = await TableVersion.findOne(params).lean()
 
-                return table
             } else {
-                const table = await Table.findOne(params);
+                table = await Table.findOne(params).lean()
 
-                return table
             }
+
+            if(table) {         
+                const history = await TableHistory.findOne({guid: table.commit_guid}).lean()
+                if(history) {
+                    history.id = history.guid
+                    history.version_ids = []
+                    let version_ids = await TableVersion.find({commit_guid: history.guid})
+                    for(let el of version_ids) {
+                        history.version_ids.push(el.version_id)
+                    }
+
+                    table.commit_info = {
+                        id: history.guid,
+                        version_ids: version_ids,
+                        commit_type: history.commit_type,
+                        created_at: history.created_at,
+                        name: history.name
+                    }
+                }
+            }
+            console.log(":::::::::::::::::::: test 1", table)
+            return table
         } catch (err) {
             throw err
         }
@@ -230,10 +260,13 @@ let tableStore = {
                 
                 payload = Object.assign(payload, table._doc)
                 delete payload._id
-                payload.action_type = "DELETE",
+                payload.commit_type = data.commit_type,
+                payload.name = data.name,
                 payload.action_time = new Date()
+                payload.author_id = data.author_id
                 const history_resp = await TableHistory.create(payload)
-                
+
+                table.commit_guid = history_resp.guid
                 await table.save()
             }
             const resp = await Table.updateOne(
@@ -317,17 +350,7 @@ let tableStore = {
                         _id: "$commit_guid",
                         itemSold: {
                             $push: {
-                                // id: "$date",
-                                // label: "$label",
-                                // slug: "$slug",
-                                // description: "$description",
-                                // deleted_at: "$deleted_at",
-                                // show_in_menu: "$show_in_menu",
-                                // is_changed: "$is_changed",
-                                // icon: "$icon",
-                                // subtitle_field_slug: "$subtitle_field_slug",
                                 version_id: "$version_id",
-                                // commit_guid: "$commit_guid"
                             }
                         }
                     },
@@ -341,12 +364,12 @@ let tableStore = {
             let result = []
             for(let el of histories) {
                 
-                el.version_ids = map_versions[el.guid]
-
                 result.push({
-                    ...el,
+                    name: el.name,
+                    version_ids: map_versions[el.guid],
                     id: el.guid,
-                    created_at: el.created_at
+                    created_at: el.created_at,
+                    commit_type: el.commit_type
                 })
             }
 
@@ -393,7 +416,8 @@ let tableStore = {
             delete table._id,
             delete table.guid
             table.version_ids = []
-            table.action_type = "REVERT"
+            table.commit_type = data.commit_type
+            table.name = data.name
             table.action_time = new Date()
             table.created_at = new Date()
             let reverted = await TableHistory.create(table)

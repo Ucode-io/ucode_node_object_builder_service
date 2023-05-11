@@ -10,7 +10,7 @@ module.exports = (namespace, fn) => {
         try {
             const resp = await fn(call.request);
 
-            logger.info(`${namespace}: succeeded`);
+            // logger.info(`${namespace}: succeeded`);
             // logger.info(`${namespace}: response - ${JSON.stringify(resp, null, 2)}`);
             callback(null, resp);
         } catch (error) {

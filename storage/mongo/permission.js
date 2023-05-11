@@ -318,7 +318,7 @@ let permission = {
 
             const tables = await tableVersion(mongoConn, {id: {$in: tableIds}}, false)
 
-            if (!tables) {
+            if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
                 return roleCopy
             }

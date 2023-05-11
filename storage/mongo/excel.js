@@ -9,6 +9,7 @@ const ObjectBuilder = require("../../models/object_builder");
 const con = require("../../helper/constants");
 const logger = require("../../config/logger");
 const mongoPool = require('../../pkg/pool');
+var fns_format = require('date-fns/format');
 
 let NAMESPACE = "storage.excel";
 
@@ -117,6 +118,7 @@ let excelStore = {
                                 continue;
                             }
                             let value = row[rows[0].indexOf(column_slug)]
+                            console.log("VALUE:::::::::::::", value)
                             if (value === null) {
                                 con.NUMBER_TYPES.includes(field.type) ? value = 0 :
                                 con.STRING_TYPES.includes(field.type) ? value = "" :
@@ -220,27 +222,19 @@ let excelStore = {
                                 value=i
                                 
                             } else if (con.STRING_TYPES.includes(field.type)) {
-                                if (field.type === "DATE_TIME") {
-                                    let toDate = new Date(value)
-                                    let date = ""
+                                console.log("EXCEL::::::::::::::::::::::::::::::::::::::", value)
+                                if (field.type === "DATE_TIME" || field.type === "DATE") {
+                                    let i = ""
                                     try {
-                                        date = fns_format(toDate, 'dd.MM.yyyy HH:mm')
-                                    } catch (error) {
-                                        logger.error("value: ", value, "error: ", error);
-                                        date = ""
+                                        let toDate = new Date(value).toISOString()
+                                        console.log("TODATE::::::::::::", toDate)
+                                        i = toDate
+                                        console.log("DATE_TIME::::::::::::::::::", value)
+                                    } catch(error) {
+                                        logger.error("value: ", strNumber, "error: ", error);
+                                        i = ""
                                     }
-                                    value = date
-                                }
-                                if (field.type === "DATE") {
-                                    let toDate = new Date(value)
-                                    let date = ""
-                                    try {
-                                        date = fns_format(toDate, 'dd.MM.yyyy')
-                                    } catch (error) {
-                                        logger.error("value: ", value, "error: ", error);
-                                        date = ""
-                                    }
-                                    value = date
+                                    value = i
                                 }
                             }
                             if (value) {

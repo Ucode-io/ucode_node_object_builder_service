@@ -1,44 +1,44 @@
 const protoLoader = require("@grpc/proto-loader");
 const grpc = require("@grpc/grpc-js");
 
-const cfg = require('./index')
-const logger = require('./logger')
+const cfg = require("./index");
+const logger = require("./logger");
 
 const tableService = require("../services/table");
 const fieldService = require("../services/field");
-const objectBuilderService = require("../services/object_builder")
-const sectionService = require("../services/section")
-const relationService = require("../services/relation")
-const viewService = require("../services/view")
-const appService = require("../services/app")
-const dashboardService = require("../services/dashboard")
-const variableService = require("../services/variable")
-const panelService = require("../services/panel")
-const htmlTemplateService = require("../services/html_template")
-const loginService = require("../services/login")
-const documentService = require("../services/document")
-const eventService = require("../services/event")
-const eventLogsService = require("../services/event_logs")
-const excelService = require("../services/excel")
-const permissionService = require("../services/permission")
-const customEventService = require("../services/custom_event")
-const functionService = require("../services/function")
-const barcodeService = require("../services/barcode")
-const projectService = require("../services/project")
-const queryFolderService = require("../services/query_folder")
-const queryService = require("../services/query")
-const webPageService = require("../services/web_pages")
-const cascadingService = require("../services/cascading")
+const objectBuilderService = require("../services/object_builder");
+const sectionService = require("../services/section");
+const relationService = require("../services/relation");
+const viewService = require("../services/view");
+const appService = require("../services/app");
+const dashboardService = require("../services/dashboard");
+const variableService = require("../services/variable");
+const panelService = require("../services/panel");
+const htmlTemplateService = require("../services/html_template");
+const loginService = require("../services/login");
+const documentService = require("../services/document");
+const eventService = require("../services/event");
+const eventLogsService = require("../services/event_logs");
+const excelService = require("../services/excel");
+const permissionService = require("../services/permission");
+const customEventService = require("../services/custom_event");
+const functionService = require("../services/function");
+const barcodeService = require("../services/barcode");
+const projectService = require("../services/project");
+const queryFolderService = require("../services/query_folder");
+const queryService = require("../services/query");
+const webPageService = require("../services/web_pages");
+const cascadingService = require("../services/cascading");
 const tableHelpersService = require("../services/table_helpers");
 const fieldsRelationsService = require("../services/fields_and_relations");
 const settingService = require("../services/setting")
 const tableFolderService = require("../services/table_folder");
 
-
-const PROTO_URL = __dirname + "/../protos/object_builder_service/object_builder_service.proto";
+const PROTO_URL =
+    __dirname +
+    "/../protos/object_builder_service/object_builder_service.proto";
 
 module.exports = async function () {
-
     await new Promise((resolve, reject) => {
         try {
             const packageDefinition = protoLoader.loadSync(PROTO_URL, {
@@ -46,14 +46,18 @@ module.exports = async function () {
                 longs: String,
                 enums: String,
                 defaults: true,
-                oneofs: true
+                oneofs: true,
             });
 
             const objectBuilderProto =
-                grpc.loadPackageDefinition(packageDefinition).object_builder_service;
+                grpc.loadPackageDefinition(
+                    packageDefinition
+                ).object_builder_service;
 
-            var server = new grpc.Server();
-
+            var server = new grpc.Server({
+                "grpc.max_receive_message_length": 10 * 1024 * 1024,
+                "grpc.max_send_message_length": 10 * 1024 * 1024,
+            });
 
             server.addService(objectBuilderProto.TableService.service, tableService);
             server.addService(objectBuilderProto.TableFolderService.service, tableFolderService);
@@ -90,17 +94,18 @@ module.exports = async function () {
                 grpc.ServerCredentials.createInsecure(),
                 (err, bindPort) => {
                     if (err) {
-                        throw new Error("Error while binding grpc server to the port");
+                        throw new Error(
+                            "Error while binding grpc server to the port"
+                        );
                     }
 
                     logger.info("grpc server is running at %s", bindPort);
                     server.start();
-                    resolve('connected')
+                    resolve("connected");
                 }
             );
-
         } catch (err) {
-            reject(err)
+            reject(err);
         }
-    })
-}
+    });
+};

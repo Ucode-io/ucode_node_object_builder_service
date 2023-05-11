@@ -1,7 +1,7 @@
 {
   message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-04-03T09:55:56.322Z',
+  timestamp: '2023-05-10T09:25:25.481Z',
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',
@@ -252,85 +252,86 @@
   }
 }
 {
-  message: 'Error while auto connecting',
+  message: 'mongo connection error Authentication failed.',
   level: 'error',
-  timestamp: '2023-05-06T09:23:38.099Z',
+  timestamp: '2023-05-11T03:42:45.539Z',
   label: 'object_builder_service',
   metadata: {
-    function: 'autoConn',
-    error: Error: 14 UNAVAILABLE: No connection established
-        at Object.callErrorFromStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
-        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
-        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
-        at Object.onReceiveStatus (/home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
-        at /home/euler/Documents/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
-        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
-      code: 14,
-      details: 'No connection established',
-      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
-    }
-  }
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
-  message: '[services.table].create request finished with FAILURE',
+  message: 'mongo connection error Authentication failed.',
   level: 'error',
-  timestamp: '2023-05-08T09:45:54.283Z',
+  timestamp: '2023-05-11T04:04:22.905Z',
   label: 'object_builder_service',
-  metadata: {}
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
-  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  message: 'mongo connection error Authentication failed.',
   level: 'error',
-  timestamp: '2023-05-08T09:45:54.284Z',
+  timestamp: '2023-05-11T04:23:47.533Z',
   label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2023-05-08T09:48:13.279Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-05-08T10:01:04.487Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2023-05-08T10:01:04.487Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create request finished with FAILURE',
-  level: 'error',
-  timestamp: '2023-05-08T10:03:37.666Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: '[services.table].create - error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2023-05-08T10:03:37.667Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
-  level: 'error',
-  timestamp: '2023-05-08T10:05:34.931Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.table.getByID: failed with error: Cannot set properties of null (setting 'commit_info')",
-  level: 'error',
-  timestamp: '2023-05-08T10:06:52.560Z',
-  label: 'object_builder_service',
-  metadata: {}
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }

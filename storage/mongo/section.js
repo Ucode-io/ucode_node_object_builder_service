@@ -438,6 +438,9 @@ let sectionStore = {
                                 originalAttributes["default_values"] = view_of_relation.default_values
                             }
                         }
+                        originalAttributes = JSON.stringify(originalAttributes)
+                        originalAttributes = JSON.parse(originalAttributes)
+                        
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)

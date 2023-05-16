@@ -280,7 +280,7 @@ let sectionStore = {
             const Section = mongoConn.models['Section']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-
+            
             let table = {};
             if (data.table_id === "") {
                 // table = await Table.findOne({
@@ -438,6 +438,9 @@ let sectionStore = {
                                 originalAttributes["default_values"] = view_of_relation.default_values
                             }
                         }
+                        originalAttributes = JSON.stringify(originalAttributes)
+                        originalAttributes = JSON.parse(originalAttributes)
+
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)
@@ -470,6 +473,7 @@ let sectionStore = {
         }
 
     })
+    
 };
 
 module.exports = sectionStore;

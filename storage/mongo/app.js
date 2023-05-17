@@ -76,11 +76,12 @@ let appStore = {
     getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-
+            
             const App = mongoConn.models['App']
             const Table = mongoConn.models['Table']
 
             const app = await App.findOne({ id: data.id });
+            console.log("::: app tables", app.tables.length, JSON.stringify(app.tables))
             let tables = []
             if (app.tables) {
                 for (const single_table of app.tables) {

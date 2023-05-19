@@ -81,7 +81,7 @@ let appStore = {
             const Table = mongoConn.models['Table']
 
             const app = await App.findOne({ id: data.id });
-            console.log("::: app tables", app.tables.length, JSON.stringify(app.tables))
+            console.log("::: app tables", app.tables?.length, JSON.stringify(app.tables))
             let tables = []
             if (app.tables) {
                 for (const single_table of app.tables) {

@@ -14,6 +14,9 @@ const TableFolderSchema = mongoose.Schema(
         },
         parent_id: {
             type: String,
+        },
+        icon: {
+            tpye: String
         }
     },
     {

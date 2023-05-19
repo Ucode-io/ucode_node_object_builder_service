@@ -38,3 +38,10 @@
     }
   }
 }
+{
+  message: 'service.table_folder.create: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-05-19T10:44:33.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

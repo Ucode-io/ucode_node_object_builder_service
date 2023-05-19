@@ -8,11 +8,10 @@ let queryFolder = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id)
         const TableFolder = mongoConn.models["Table.folder"]
+        
+        const tableFolder = await TableFolder.create(data);
 
-        const tableFolder = new TableFolder(data);
-        var response = await tableFolder.save();
-
-        return response;
+        return tableFolder;
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id)

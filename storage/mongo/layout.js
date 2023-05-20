@@ -19,8 +19,9 @@ let layoutStore = {
 
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
-                const layout = new Layout(layoutReq);
+                let layout = new Layout(layoutReq);
                 layout.table_id = data.id;
+                layout = await layout.save()
                 console.log(".>>> layout ", layout)
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
@@ -51,7 +52,7 @@ let layoutStore = {
                     }
                 }
             }
-            await Layout.insertMany(layouts)
+            // await Layout.insertMany(layouts)
             await Tab.insertMany(tabs)
             await Section.insertMany(sections)
 

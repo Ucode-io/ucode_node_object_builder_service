@@ -1,4 +1,6 @@
 const catchWrapDb = require('../../helper/catchWrapDb');
+const tableVersion = require('../../helper/table_version')
+const sectionStorage = require('./section')
 
 
 let NAMESPACE = 'layout'
@@ -55,12 +57,12 @@ let layoutStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
             let layoutIds = [], tabIds = [];
-            for (const layout of data.layout) {
-                for (const tab of layout.tabs) {
-                    tabIds.push(tab.id)
-                }
-                layoutIds.push(layout.id)
+
+            for (const tab of data.tabs) {
+                tabIds.push(tab.id)
             }
+            layoutIds.push(data.id)
+
             if (tabIds.length) {
                 await Section.deleteMany(
                     {
@@ -82,19 +84,17 @@ let layoutStore = {
                 }
             )
             let layouts = [], sections = [], tabs = [];
-            for (const layoutReq of data.layouts) {
-                const layout = new Layout(layoutReq);
-                layout.table_id = data.table_id;
-                layouts.push(layout);
-                for (const tabReq of layoutReq.tabs) {
-                    const tab = new Tab(tabReq);
-                    tab.layout_id = layout.id;
-                    tabs.push(tab);
-                    for (const sectionReq of tabReq.sections) {
-                        const section = new Section(sectionReq);
-                        section.tab_id = tab.id;
-                        sections.push(section);
-                    }
+            const layout = new Layout(data);
+            layout.table_id = data.table_id;
+            layouts.push(layout);
+            for (const tabReq of data.tabs) {
+                const tab = new Tab(tabReq);
+                tab.layout_id = layout.id;
+                tabs.push(tab);
+                for (const sectionReq of tabReq.sections) {
+                    const section = new Section(sectionReq);
+                    section.tab_id = tab.id;
+                    sections.push(section);
                 }
             }
             await Layout.insertMany(layouts)
@@ -119,7 +119,6 @@ let layoutStore = {
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async function (data) {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Layout = mongoConn.models['Layout']
             const View = mongoConn.models['View']
@@ -127,9 +126,6 @@ let layoutStore = {
 
             let table = {};
             if (data.table_id === "") {
-                // table = await Table.findOne({
-                //     slug: data.table_slug,
-                // });
                 table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
                 data.table_id = table.id;
             }
@@ -342,6 +338,70 @@ let layoutStore = {
                 sectionsResponse.push(section)
             }
             return { sections: sectionsResponse };
+        } catch (error) {
+
+        }
+    }),
+    getAll: catchWrapDb(`${NAMESPACE}.getAll`, async function (data) {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Field = mongoConn.models['Field']
+            const Layout = mongoConn.models['Layout']
+            const Tab = mongoConn.models['Tab']
+            const Section = mongoConn.models['Section']
+            const View = mongoConn.models['View']
+            const Relation = mongoConn.models['Relation']
+
+            let table = {};
+            if (!data.table_id) {
+                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+                data.table_id = table.id;
+            }
+
+            const layouts = await Layout.find(
+                {
+                    table_id: data.table_id,
+                },
+                null,
+                {
+                    sort: { created_at: -1 }
+                }
+            ).lean();
+
+            const layout_ids = []
+            for(let layout of layouts) {
+                layout_ids.push(layout.id);
+            }
+
+            const tabs = await Tab.find({layout_id: {$in: layout_ids}}).lean()
+            
+            const map_tab = {}, tab_ids = []
+            for(let tab of tabs) {
+                if(tab.type === "section") {
+                    if(map_tab[tab.layout_id]) {
+                        map_tab[tab.layout_id].push(tab)
+                    } else {
+                        map_tab[tab.layout_id] = [ tab ]
+                    }
+                    tab_ids = []
+
+                    const {sections} = await sectionStorage.getAll({
+                        project_id: data.project_id,
+                        tab_id: tab.id
+                    })
+
+                    tab.sections = sections
+                } else if(tab.type === "relation") {
+
+                }
+            }
+
+            for(let layout of layouts) {
+                layout.tabs = map_tab[layout.id]
+            }
+
+            return {layouts: layouts}
+
         } catch (error) {
 
         }

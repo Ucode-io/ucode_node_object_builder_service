@@ -2822,3 +2822,156 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-20T11:53:02.678Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-20T11:53:02.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "04090b83-90bf-4117-82d4-8413f80f655e",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs",\n' +
+    '    "username": "abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs",\n' +
+    '    "password": "39Ezx84S0c"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-20T11:53:02.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs:39Ezx84S0c@65.109.239.69:27017/abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-05-20T11:53:02.682Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs:39Ezx84S0c@65.109.239.69:27017/abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-05-20T11:53:03.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-20T11:53:04.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-20T12:00:29.120Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-20T12:00:29.122Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "04090b83-90bf-4117-82d4-8413f80f655e",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs",\n' +
+    '    "username": "abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs",\n' +
+    '    "password": "39Ezx84S0c"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-20T12:00:29.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs:39Ezx84S0c@65.109.239.69:27017/abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-05-20T12:00:29.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs:39Ezx84S0c@65.109.239.69:27017/abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-05-20T12:00:29.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-20T12:00:30.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-20T12:04:38.695Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-20T12:04:38.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "04090b83-90bf-4117-82d4-8413f80f655e",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs",\n' +
+    '    "username": "abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs",\n' +
+    '    "password": "39Ezx84S0c"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-20T12:04:38.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs:39Ezx84S0c@65.109.239.69:27017/abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-05-20T12:04:38.698Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs:39Ezx84S0c@65.109.239.69:27017/abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-05-20T12:04:39.138Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-20T12:04:40.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

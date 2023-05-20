@@ -19,15 +19,31 @@ let layoutStore = {
 
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
-                console.log(".>>> layout ", layoutReq)
                 const layout = new Layout(layoutReq);
                 layout.table_id = data.id;
+                console.log(".>>> layout ", layout)
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
                     const tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
-                    tab.table_id = data.id
-                    tabs.push(tab);
+                    console.log(">>>>>>>>>>>>>", {
+                        id: tab.id,
+                        order: tab.order,
+                        label: tab.label,
+                        icon: tab.icon,
+                        type: tab.type,
+                        layout_id: layout.id,
+                        relation_id: tab.relation_id
+                    })
+                    tabs.push({
+                        id: tab.id,
+                        order: tab.order,
+                        label: tab.label,
+                        icon: tab.icon,
+                        type: tab.type,
+                        layout_id: layout.id,
+                        relation_id: tab.relation_id
+                    });
                     for (const sectionReq of tabReq.sections) {
                         const section = new Section(sectionReq);
                         section.tab_id = tab.id;

@@ -1,26 +1,21 @@
 const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 
-const SectionSchema = mongoose.Schema(
+const LayoutSchema = mongoose.Schema(
     {
         id: {
             type: String,
             default: v4,
             unique: true
         },
-        tab_id: {
+        table_id: {
             type: String,
-            required: [true, "Section must have tab_id"],
+            required: [true, "Layout must have table_id"],
             sparse: true
         },
         order: {
-            type: Number, 
-            required: [true, "Section must have order"],
-        },
-        column: {
-            type: String,
-            // required: [true, "Field must have column"],
-            index: true
+            type: Number,
+            required: [true, "Layout must have order"],
         },
         label: {
             type: String,
@@ -29,13 +24,10 @@ const SectionSchema = mongoose.Schema(
         icon: {
             type: String
         },
-        fields: {
-            type: mongoose.Schema.Types.Mixed,
-        },
-        is_summary_section: {
-            type: Boolean,
-            default: false
-        },
+        type: {
+            type: String,
+            enum: ['SimpleLayout', 'PopupLayout']
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
@@ -44,4 +36,11 @@ const SectionSchema = mongoose.Schema(
     }
 );
 
-module.exports = SectionSchema
+LayoutSchema.virtual("tabs", {
+    ref: "Tab",
+    localField: "id",
+    foreignField: 'layout_id',
+    justOne: false
+})
+
+module.exports = LayoutSchema;

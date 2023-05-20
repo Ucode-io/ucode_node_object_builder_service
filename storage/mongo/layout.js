@@ -25,8 +25,9 @@ let layoutStore = {
                 console.log(".>>> layout ", layout)
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
-                    const tab = new Tab(tabReq);
+                    let tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
+                    tab = await tab.save()
                     console.log(">>>>>>>>>>>>>", {
                         id: tab.id,
                         order: tab.order,
@@ -36,15 +37,15 @@ let layoutStore = {
                         layout_id: layout.id,
                         relation_id: tab.relation_id
                     })
-                    tabs.push({
-                        id: tab.id,
-                        order: tab.order,
-                        label: tab.label,
-                        icon: tab.icon,
-                        type: tab.type,
-                        layout_id: layout.id,
-                        relation_id: tab.relation_id
-                    });
+                    // tabs.push({
+                    //     id: tab.id,
+                    //     order: tab.order,
+                    //     label: tab.label,
+                    //     icon: tab.icon,
+                    //     type: tab.type,
+                    //     layout_id: layout.id,
+                    //     relation_id: tab.relation_id
+                    // });
                     for (const sectionReq of tabReq.sections) {
                         const section = new Section(sectionReq);
                         section.tab_id = tab.id;
@@ -53,7 +54,7 @@ let layoutStore = {
                 }
             }
             // await Layout.insertMany(layouts)
-            await Tab.insertMany(tabs)
+            // await Tab.insertMany(tabs)
             await Section.insertMany(sections)
 
             const resp = await Table.updateOne({

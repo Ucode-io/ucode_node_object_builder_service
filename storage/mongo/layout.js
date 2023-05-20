@@ -26,6 +26,7 @@ let layoutStore = {
                 for (const tabReq of layoutReq.tabs) {
                     const tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
+                    tab.table_id = data.id
                     tabs.push(tab);
                     for (const sectionReq of tabReq.sections) {
                         const section = new Section(sectionReq);

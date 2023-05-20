@@ -751,7 +751,6 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
 
         const params = struct.decode(req?.data)
-
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -767,7 +766,7 @@ let objectBuilder = {
         // console.log("\n\n---> T2\n\n")
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
-        // console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
+        console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -779,7 +778,7 @@ let objectBuilder = {
             ]
         })
         // console.time("TIME_LOGGING:::is_have_condition")
-        // console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
+        console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
         if (permission?.is_have_condition) {
             const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -793,7 +792,7 @@ let objectBuilder = {
                 ]
 
             })
-            // console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
+            console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
                     if (autoFilter.custom_field === "user_id") {
@@ -820,7 +819,7 @@ let objectBuilder = {
         }
         // console.timeEnd("TIME_LOGGING:::is_have_condition")
         // console.time("TIME_LOGGING:::view_fields")
-        // console.log(":::::::::::: TEST 11")
+        console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
                 let arrayOfViewFields = [];
@@ -948,8 +947,7 @@ let objectBuilder = {
                     if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
                         relation.table_to = relation.table_from
                     }
-                    // let relationTable = await table.findOne({ slug: relation.table_to })
-                    let relationTable = await tableVersion(mongoConn, {slug: relation.table_to}, params.version_id, true)
+                    let relationTable = await table.findOne({ slug: relation.table_to })
                     let relationFields = await Field.find(
                         {
                             table_id: relationTable?.id
@@ -996,8 +994,7 @@ let objectBuilder = {
                                 }
                             }
                             field._doc.view_fields = viewFields
-                            // let childRelationTable = await table.findOne({ slug: table_slug })
-                            let childRelationTable = await tableVersion(mongoConn, {slug: table_slug}, params.version_id, true)
+                            let childRelationTable = await table.findOne({ slug: table_slug })
                             field._doc.table_label = relationTable?.label
                             field.label = childRelationTable?.label
                             changedField = field
@@ -1020,7 +1017,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::with_relations")
-        // console.log("TEST::::::6")
+        console.log("TEST::::::6")
 
 
         let result = [], count;
@@ -1170,7 +1167,7 @@ let objectBuilder = {
                             }
                         }
                     }
-                    // console.log("TEST::::::9")
+                    console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -1196,7 +1193,7 @@ let objectBuilder = {
                     populateArr.push(papulateTable)
                 }
                 // console.log("\n\n-----> T3\n\n", tableInfo, params)
-                // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
+                console.log("::::::::::::::::::: POPULATE ARR", populateArr)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -1288,7 +1285,7 @@ let objectBuilder = {
             additional_param[params.additional_request.additional_field] = { $in: params.additional_request.additional_values }
 
             if (relations.length == 0) {
-                // console.log("test 111/:::");
+                console.log("test 111/:::");
                 additional_results = await tableInfo.models.find({
                     ...additional_param
                 },
@@ -1352,19 +1349,18 @@ let objectBuilder = {
                                 }
                             })
                         }
-                        // const relationFieldTable = await table.findOne({
-                        //     slug: attributes.table_from.split('#')[0],
-                        //     deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        // })
-                        const relationFieldTable = await tableVersion(mongoConn, {slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00"}, params.version_id, true)
+                        const relationFieldTable = await table.findOne({
+                            slug: attributes.table_from.split('#')[0],
+                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        })
                         const relationField = await Field.findOne({
                             relation_id: attributes.table_from.split('#')[1],
                             table_id: relationFieldTable.id
                         })
-                        // console.log("rel table::", relationFieldTable)
-                        // console.log("field:::", relationField);
+                        console.log("rel table::", relationFieldTable)
+                        console.log("field:::", relationField);
                         if (!relationField || !relationFieldTable) {
-                            // console.log("relation field not found")
+                            console.log("relation field not found")
                             res[field.slug] = 0
                             continue
                         }

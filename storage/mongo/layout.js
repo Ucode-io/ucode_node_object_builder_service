@@ -1,9 +1,11 @@
 const catchWrapDb = require('../../helper/catchWrapDb');
 const tableVersion = require('../../helper/table_version')
 const sectionStorage = require('./section')
+const relationStorage = require('./relation')
+const mongoPool = require('../../pkg/pool');
 
 
-let NAMESPACE = 'layout'
+let NAMESPACE = 'storage.layout'
 
 
 let layoutStore = {
@@ -57,12 +59,12 @@ let layoutStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
             let layoutIds = [], tabIds = [];
-
-            for (const tab of data.tabs) {
-                tabIds.push(tab.id)
+            for (const layout of data.layout) {
+                for (const tab of layout.tabs) {
+                    tabIds.push(tab.id)
+                }
+                layoutIds.push(layout.id)
             }
-            layoutIds.push(data.id)
-
             if (tabIds.length) {
                 await Section.deleteMany(
                     {
@@ -84,17 +86,19 @@ let layoutStore = {
                 }
             )
             let layouts = [], sections = [], tabs = [];
-            const layout = new Layout(data);
-            layout.table_id = data.table_id;
-            layouts.push(layout);
-            for (const tabReq of data.tabs) {
-                const tab = new Tab(tabReq);
-                tab.layout_id = layout.id;
-                tabs.push(tab);
-                for (const sectionReq of tabReq.sections) {
-                    const section = new Section(sectionReq);
-                    section.tab_id = tab.id;
-                    sections.push(section);
+            for (const layoutReq of data.layouts) {
+                const layout = new Layout(layoutReq);
+                layout.table_id = data.table_id;
+                layouts.push(layout);
+                for (const tabReq of layoutReq.tabs) {
+                    const tab = new Tab(tabReq);
+                    tab.layout_id = layout.id;
+                    tabs.push(tab);
+                    for (const sectionReq of tabReq.sections) {
+                        const section = new Section(sectionReq);
+                        section.tab_id = tab.id;
+                        sections.push(section);
+                    }
                 }
             }
             await Layout.insertMany(layouts)
@@ -345,18 +349,14 @@ let layoutStore = {
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async function (data) {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            const Field = mongoConn.models['Field']
             const Layout = mongoConn.models['Layout']
             const Tab = mongoConn.models['Tab']
-            const Section = mongoConn.models['Section']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
 
             let table = {};
-            if (!data.table_id) {
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                data.table_id = table.id;
-            }
+            table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+            if(!table) throw new Error("Couldn't find table")
+
+            data.table_id = table.id;
 
             const layouts = await Layout.find(
                 {
@@ -378,11 +378,6 @@ let layoutStore = {
             const map_tab = {}, tab_ids = []
             for(let tab of tabs) {
                 if(tab.type === "section") {
-                    if(map_tab[tab.layout_id]) {
-                        map_tab[tab.layout_id].push(tab)
-                    } else {
-                        map_tab[tab.layout_id] = [ tab ]
-                    }
                     tab_ids = []
 
                     const {sections} = await sectionStorage.getAll({
@@ -391,19 +386,29 @@ let layoutStore = {
                     })
 
                     tab.sections = sections
-                } else if(tab.type === "relation") {
+                } else if(tab.type === "relation" && tab.relation_id) {
+                    const {relations} = await relationStorage.getSingleViewForRelation({id: tab.relation_id, project_id: data.project_id})
+                    tab.relations = relations
+                }
 
+                if(map_tab[tab.layout_id]) {
+                    map_tab[tab.layout_id].push(tab)
+                } else {
+                    map_tab[tab.layout_id] = [ tab ]
                 }
             }
 
-            for(let layout of layouts) {
-                layout.tabs = map_tab[layout.id]
+            if(Object.keys(map_tab).length > 0) {
+                for(let layout of layouts) {
+                    layout.tabs = map_tab[layout.id]
+                }
             }
 
-            return {layouts: layouts}
+            return { layouts: layouts }
 
         } catch (error) {
-
+            console.error(error)
+            throw error
         }
     })
 }

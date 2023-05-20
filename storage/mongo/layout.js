@@ -19,6 +19,7 @@ let layoutStore = {
 
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
+                console.log(".>>> layout ", layoutReq)
                 const layout = new Layout(layoutReq);
                 layout.table_id = data.id;
                 layouts.push(layout);

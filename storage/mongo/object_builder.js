@@ -742,9 +742,9 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        // console.log("\n---GetList-->req:", req)
+        console.log("\n---GetList-->req:", req)
         const mongoConn = await mongoPool.get(req.project_id)
-        // console.log("test prod obj builder");
+        console.log("test prod obj builder");
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -757,17 +757,17 @@ let objectBuilder = {
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
 
-        // console.log("\n\n---> T1\n\n", req.table_slug)
+        console.log("\n\n---> T1\n\n", req.table_slug)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields
         let with_relations = params.with_relations
-        // console.log("\n\n---> T2\n\n")
+        console.log("\n\n---> T2\n\n")
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
-        // console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
+        console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -778,8 +778,8 @@ let objectBuilder = {
                 }
             ]
         })
-        // console.time("TIME_LOGGING:::is_have_condition")
-        // console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
+        console.time("TIME_LOGGING:::is_have_condition")
+        console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
         if (permission?.is_have_condition) {
             const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -793,7 +793,7 @@ let objectBuilder = {
                 ]
 
             })
-            // console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
+            console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
                     if (autoFilter.custom_field === "user_id") {
@@ -818,9 +818,9 @@ let objectBuilder = {
                 }
             }
         }
-        // console.timeEnd("TIME_LOGGING:::is_have_condition")
-        // console.time("TIME_LOGGING:::view_fields")
-        // console.log(":::::::::::: TEST 11")
+        console.timeEnd("TIME_LOGGING:::is_have_condition")
+        console.time("TIME_LOGGING:::view_fields")
+        console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
                 let arrayOfViewFields = [];
@@ -837,8 +837,8 @@ let objectBuilder = {
                 }
             }
         }
-        // console.timeEnd("TIME_LOGGING:::view_fields")
-        // console.time("TIME_LOGGING:::client_type_id")
+        console.timeEnd("TIME_LOGGING:::view_fields")
+        console.time("TIME_LOGGING:::client_type_id")
         if (clientTypeId) {
             const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
             const clientType = await clientTypeTable?.models.findOne({
@@ -848,16 +848,16 @@ let objectBuilder = {
                 params["guid"] = params["user_id_from_token"]
             }
         }
-        // console.timeEnd("TIME_LOGGING:::client_type_id")
-        // console.log("TEST::::::3")
+        console.timeEnd("TIME_LOGGING:::client_type_id")
+        console.log("TEST::::::3")
         let views = []
-        // console.time("TIME_LOGGING:::app_id")
+        console.time("TIME_LOGGING:::app_id")
         if (params.app_id) {
             views = tableInfo.views.filter(val => (val.app_id === params.app_id))
         }
-        // console.timeEnd("TIME_LOGGING:::app_id")
-        // add regExp to params for filtering
-        // console.time("TIME_LOGGING:::key_of_keys")
+        console.timeEnd("TIME_LOGGING:::app_id")
+        //add regExp to params for filtering
+        console.time("TIME_LOGGING:::key_of_keys")
         for (const key of keys) {
             if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
                 params["guid"] = params[key]
@@ -874,9 +874,9 @@ let objectBuilder = {
                 params[key] = RegExp(params[key], "i")
             }
         }
-        // console.timeEnd("TIME_LOGGING:::key_of_keys")
-        // console.log("TEST::::::4")
-        // console.time("TIME_LOGGING:::relation")
+        console.timeEnd("TIME_LOGGING:::key_of_keys")
+        console.log("TEST::::::4")
+        console.time("TIME_LOGGING:::relation")
         const relations = await Relation.find({
             $or: [{
                 table_from: req.table_slug,
@@ -938,10 +938,10 @@ let objectBuilder = {
         //   }
         //     ]
         // })
-        // console.timeEnd("TIME_LOGGING:::relation")
-        // console.log("TEST::::::5")
+        console.timeEnd("TIME_LOGGING:::relation")
+        console.log("TEST::::::5")
         let relationsFields = []
-        // console.time("TIME_LOGGING:::with_relations")
+        console.time("TIME_LOGGING:::with_relations")
         if (with_relations) {
             for (const relation of relations) {
                 if (relation.type !== "Many2Dynamic") {
@@ -1019,13 +1019,13 @@ let objectBuilder = {
 
             }
         }
-        // console.timeEnd("TIME_LOGGING:::with_relations")
-        // console.log("TEST::::::6")
+        console.timeEnd("TIME_LOGGING:::with_relations")
+        console.log("TEST::::::6")
 
 
         let result = [], count;
         let searchByField = []
-        // console.time("TIME_LOGGING:::search")
+        console.time("TIME_LOGGING:::search")
         if (params.search) {
             for (const field of tableInfo.fields) {
                 if (con.STRING_TYPES.includes(field.type)) {
@@ -1034,8 +1034,8 @@ let objectBuilder = {
                 }
             }
         }
-        // console.timeEnd("TIME_LOGGING:::search")
-        // console.time("TIME_LOGGING:::phone")
+        console.timeEnd("TIME_LOGGING:::search")
+        console.time("TIME_LOGGING:::phone")
         if (params.phone_number) {
             let temp = params.phone_number.toString()
             let tempPhone = temp.substring(5, temp.length - 2)
@@ -1047,10 +1047,10 @@ let objectBuilder = {
             let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
             params.phone = phone
         }
-        // console.timeEnd("TIME_LOGGING:::phone")
-        // console.log("TEST::::::7")
+        console.timeEnd("TIME_LOGGING:::phone")
+        console.log("TEST::::::7")
         let populateArr = []
-        // console.time("TIME_LOGGING:::limit")
+        console.time("TIME_LOGGING:::limit")
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -1218,8 +1218,8 @@ let objectBuilder = {
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
-        // console.timeEnd("TIME_LOGGING:::limit")
-        // console.log("TEST::::::10")
+        console.timeEnd("TIME_LOGGING:::limit")
+        console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
         // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
@@ -1228,8 +1228,8 @@ let objectBuilder = {
         }
         // console.timeEnd("TIME_LOGGING:::result")
 
-        // console.log("TEST::::::11")
-        // console.time("TIME_LOGGING:::toField")
+        console.log("TEST::::::11")
+        console.time("TIME_LOGGING:::toField")
         // this function add field permission for each field by role id
         let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
@@ -1420,7 +1420,7 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
-        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
+        console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {

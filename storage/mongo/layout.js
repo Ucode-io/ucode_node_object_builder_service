@@ -40,6 +40,7 @@ let layoutStore = {
                         relation_id: tab.relation_id
                     });
                     for (const sectionReq of tabReq.sections) {
+                        sectionReq.id = v4()
                         const section = new Section(sectionReq);
                         section.tab_id = tab.id;
                         console.log("\n>>>>> section", section)

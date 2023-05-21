@@ -3,6 +3,7 @@ const tableVersion = require('../../helper/table_version')
 const sectionStorage = require('./section')
 const relationStorage = require('./relation')
 const mongoPool = require('../../pkg/pool');
+const { v4 } = require("uuid");
 
 
 let NAMESPACE = 'storage.layout'
@@ -19,36 +20,35 @@ let layoutStore = {
 
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
-                delete layoutReq.id
+                layoutReq.id = v4()
                 let layout = new Layout(layoutReq);
                 layout.table_id = data.id;
-                layout = await layout.save()
-                console.log(".>>> layout ", layout)
+                console.log("\n.>>> layout ", layout)
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
-                    delete tabReq.id
+                    tabReq.id = v4()
                     let tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
-                    tab = await tab.save()
-                    console.log(">>>>>>>>>>>>>", tab)
-                    // tabs.push({
-                    //     id: tab.id,
-                    //     order: tab.order,
-                    //     label: tab.label,
-                    //     icon: tab.icon,
-                    //     type: tab.type,
-                    //     layout_id: layout.id,
-                    //     relation_id: tab.relation_id
-                    // });
+                    console.log("\n>>>>> tab", tab)
+                    tabs.push({
+                        id: tab.id,
+                        order: tab.order,
+                        label: tab.label,
+                        icon: tab.icon,
+                        type: tab.type,
+                        layout_id: layout.id,
+                        relation_id: tab.relation_id
+                    });
                     for (const sectionReq of tabReq.sections) {
                         const section = new Section(sectionReq);
                         section.tab_id = tab.id;
+                        console.log("\n>>>>> section", section)
                         sections.push(section);
                     }
                 }
             }
-            // await Layout.insertMany(layouts)
-            // await Tab.insertMany(tabs)
+            await Layout.insertMany(layouts)
+            await Tab.insertMany(tabs)
             await Section.insertMany(sections)
 
             const resp = await Table.updateOne({

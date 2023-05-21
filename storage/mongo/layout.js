@@ -74,12 +74,13 @@ let layoutStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
             let layoutIds = [], tabIds = [];
-            for (const layout of data.layout) {
+            for (const layout of data.layouts) {
                 for (const tab of layout.tabs) {
                     tabIds.push(tab.id)
                 }
                 layoutIds.push(layout.id)
             }
+            console.log(tabIds, layoutIds)
             if (tabIds.length) {
                 await Section.deleteMany(
                     {
@@ -102,14 +103,16 @@ let layoutStore = {
             )
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
+                layoutReq.id = v4()
                 const layout = new Layout(layoutReq);
-                layout.table_id = data.table_id;
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
+                    tabReq.id = v4()
                     const tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
                     tabs.push(tab);
                     for (const sectionReq of tabReq.sections) {
+                        sectionReq.id = v4()
                         const section = new Section(sectionReq);
                         section.tab_id = tab.id;
                         sections.push(section);
@@ -368,7 +371,7 @@ let layoutStore = {
             const Tab = mongoConn.models['Tab']
 
             let table = {};
-            table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+            table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true);
             if(!table) throw new Error("Couldn't find table")
 
             data.table_id = table.id;
@@ -390,10 +393,9 @@ let layoutStore = {
 
             const tabs = await Tab.find({layout_id: {$in: layout_ids}}).lean()
             
-            const map_tab = {}, tab_ids = []
+            const map_tab = {}
             for(let tab of tabs) {
                 if(tab.type === "section") {
-                    tab_ids = []
 
                     const {sections} = await sectionStorage.getAll({
                         project_id: data.project_id,

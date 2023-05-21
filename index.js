@@ -27,7 +27,7 @@ const logger = require("./config/logger");
 
     try {
         logger.info(`autoconnecting to resources`);
-
+        
         await projectStorage.autoConnect(
             {
                 request: {

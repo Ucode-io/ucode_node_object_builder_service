@@ -17,6 +17,9 @@ const TableFolderSchema = mongoose.Schema(
         },
         icon: {
             type: String
+        },
+        app_id: {
+            type: String,
         }
     },
     {

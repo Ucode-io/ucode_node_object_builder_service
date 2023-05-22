@@ -742,7 +742,7 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        // console.log("\n---GetList-->req:", req)
+        console.log("\n---GetList-->req: >>> ", req)
         const mongoConn = await mongoPool.get(req.project_id)
         // console.log("test prod obj builder");
 
@@ -751,6 +751,11 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
 
         const params = struct.decode(req?.data)
+
+        if(data.project_id == "4ef62259-adf8-4066-b0e6-16e3cb47241b") {
+
+            console.log("\n Initial params", params)
+        }
 
         const limit = params.limit
         const offset = params.offset
@@ -801,6 +806,7 @@ let objectBuilder = {
                             params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
                             params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
                         } else {
+                            console.log("\n\n>>>>> inside else")
                             params["guid"] = params["user_id_from_token"]
                         }
                     } else {
@@ -840,11 +846,13 @@ let objectBuilder = {
         // console.timeEnd("TIME_LOGGING:::view_fields")
         // console.time("TIME_LOGGING:::client_type_id")
         if (clientTypeId) {
+            console.log("\n\n>>>> client type ", clientTypeId);
             const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
             if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
+                console.log(">>>>>>>>>>. indside if");
                 params["guid"] = params["user_id_from_token"]
             }
         }
@@ -890,55 +898,6 @@ let objectBuilder = {
             ]
         })
 
-        //     $and: [{
-        //         table_from: req.table_slug
-        //     }, {
-        //         type: "Many2One"
-        //     }]
-        // },
-        // {
-        //     $and: [{
-        //         table_to: req.table_slug
-        //     }, {
-        //         type: "One2Many"
-        //     }]
-        // },
-        // {
-        //     $and: [{
-        //         $or: [{
-        //             table_from: req.table_slug
-        //         },
-        //         {
-        //             "dynamic_tables.table_slug": req.table_slug
-        //         }]
-        //     },
-        //     {
-        //         type: "Many2Dynamic"
-        //     }
-        //     ]
-        // },
-        // {
-        //     $and: [{
-        //         $or: [{
-        //             table_from: req.table_slug
-        //         },
-        //         {
-        //             table_to: req.table_slug
-        //         }]
-        //     }, {
-        //         type: "Many2Many"
-        //     }]
-        // },
-        //   {
-        //     $and: [{
-        //         table_from: req.table_slug
-        //     }, {
-        //         type: "Recursive"
-        //     }]
-        //   }
-        //     ]
-        // })
-        // console.timeEnd("TIME_LOGGING:::relation")
         // console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
@@ -1054,8 +1013,8 @@ let objectBuilder = {
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
-                    $and: [params]
-                },
+                        $and: [params]
+                    },
                     {
                         createdAt: 0,
                         updatedAt: 0,
@@ -1402,7 +1361,11 @@ let objectBuilder = {
                 updatedObjects.push(res)
             }
         }
-        // console.timeEnd("TIME_LOGGING:::res_of_result")
+        if(data.project_id == "4ef62259-adf8-4066-b0e6-16e3cb47241b") {
+            console.log("\n\n last result", result)
+            console.log("\n\n > PARAMS > ", params)
+        }
+        
         // console.time("TIME_LOGGING:::length")
         if (updatedObjects.length) {
             await objectBuilder.multipleUpdateV2({

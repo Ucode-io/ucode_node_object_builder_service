@@ -44,7 +44,12 @@ let queryFolder = {
         const mongoConn = await mongoPool.get(data.project_id)
         const TableFolder = mongoConn.models["Table.folder"]
 
-        const queryFolders = await TableFolder.find({}).skip(data.offset).limit(data.limit);
+        let query = {}
+        if(data.app_id) {
+            query.app_id = data.app_id
+        }
+
+        const queryFolders = await TableFolder.find(query).skip(data.offset).limit(data.limit);
     
         const count = await TableFolder.countDocuments();
         return {folders: queryFolders, count: count};

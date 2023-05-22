@@ -3114,3 +3114,47 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-22T09:26:54.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-22T09:26:54.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "alldental_alldental_object_builder_service",\n' +
+    '    "username": "alldental_alldental_object_builder_service",\n' +
+    '    "password": "jGH7CPOSpY"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-22T09:26:54.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-22T09:26:54.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://alldental_alldental_object_builder_service:jGH7CPOSpY@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-22T09:26:55.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

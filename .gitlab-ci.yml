@@ -40,7 +40,7 @@ deploy-staging:
   variables:
     NAMESPACE: test
     VALUES_FILE: .helm/values-test.yml
-    K8SCONFIGJSON: $UCODE_KUBECONFIG
+    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
   only:
     - staging
 
@@ -59,7 +59,7 @@ rollback-staging:
   extends: .rollback_template
   variables:
     NAMESPACE: test
-    K8SCONFIGJSON: $UCODE_KUBECONFIG
+    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
   when: manual
 
 rollback-prod:

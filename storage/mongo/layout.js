@@ -111,11 +111,15 @@ let layoutStore = {
                     const tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
                     tabs.push(tab);
-                    for (const sectionReq of tabReq.sections) {
-                        sectionReq.id = v4()
-                        const section = new Section(sectionReq);
-                        section.tab_id = tab.id;
-                        sections.push(section);
+                    if (tab.type === 'relation') {
+                        await relationStorage.update(tab.relation)
+                    } else if (tab.type === 'section') {
+                        for (const sectionReq of tabReq.sections) {
+                            sectionReq.id = v4()
+                            const section = new Section(sectionReq);
+                            section.tab_id = tab.id;
+                            sections.push(section);
+                        }
                     }
                 }
             }
@@ -372,7 +376,7 @@ let layoutStore = {
 
             let table = {};
             table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true);
-            if(!table) throw new Error("Couldn't find table")
+            if (!table) throw new Error("Couldn't find table")
 
             data.table_id = table.id;
 
@@ -387,36 +391,36 @@ let layoutStore = {
             ).lean();
 
             const layout_ids = []
-            for(let layout of layouts) {
+            for (let layout of layouts) {
                 layout_ids.push(layout.id);
             }
 
-            const tabs = await Tab.find({layout_id: {$in: layout_ids}}).lean()
-            
-            const map_tab = {}
-            for(let tab of tabs) {
-                if(tab.type === "section") {
+            const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()
 
-                    const {sections} = await sectionStorage.getAll({
+            const map_tab = {}
+            for (let tab of tabs) {
+                if (tab.type === "section") {
+
+                    const { sections } = await sectionStorage.getAll({
                         project_id: data.project_id,
                         tab_id: tab.id
                     })
 
                     tab.sections = sections
-                } else if(tab.type === "relation" && tab.relation_id) {
-                    const {relations} = await relationStorage.getSingleViewForRelation({id: tab.relation_id, project_id: data.project_id})
+                } else if (tab.type === "relation" && tab.relation_id) {
+                    const { relations } = await relationStorage.getSingleViewForRelation({ id: tab.relation_id, project_id: data.project_id })
                     tab.relations = relations
                 }
 
-                if(map_tab[tab.layout_id]) {
+                if (map_tab[tab.layout_id]) {
                     map_tab[tab.layout_id].push(tab)
                 } else {
-                    map_tab[tab.layout_id] = [ tab ]
+                    map_tab[tab.layout_id] = [tab]
                 }
             }
 
-            if(Object.keys(map_tab).length > 0) {
-                for(let layout of layouts) {
+            if (Object.keys(map_tab).length > 0) {
+                for (let layout of layouts) {
                     layout.tabs = map_tab[layout.id]
                 }
             }

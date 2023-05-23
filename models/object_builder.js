@@ -15,7 +15,7 @@ async function buildModels(is_build = true, project_id) {
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }
-    // console.log("TEST:::::::::::1")
+    console.log("TEST:::::::::::1")
     const mongoDBConn = await mongoPool.get(project_id)
    
     const Table = mongoDBConn.models['Table']
@@ -23,7 +23,7 @@ async function buildModels(is_build = true, project_id) {
     const Relation = mongoDBConn.models['Relation']
     const Section = mongoDBConn.models['Section']
     const View = mongoDBConn.models['View']
-    // console.log("TEST:::::::::::2")
+    console.log("TEST:::::::::::2")
     // hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
 
     // all tables should be got to build their schema
@@ -39,7 +39,7 @@ async function buildModels(is_build = true, project_id) {
         });
     }
 
-    // console.log("TEST:::::::::::3")
+    console.log("TEST:::::::::::3")
     let tempArray = []
     for (const table of tables) {
         // declare isReferences var to indicate that fields related to a table were added to schema
@@ -162,7 +162,7 @@ async function buildModels(is_build = true, project_id) {
                 } else {
                     fieldType = "String";
                 }
-                // console.log("TEST:::::::::::5")
+                console.log("TEST:::::::::::5")
                 // we need to call v4 func if default is equal to "v4", it is in the case of UUID
                 let _default = {};
                 if (field.default === "v4") {
@@ -216,7 +216,7 @@ async function buildModels(is_build = true, project_id) {
                     }
                 }
                
-                // console.log("TEST:::::::::::8")
+                console.log("TEST:::::::::::8")
                 // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
                 if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS" && field.type != "DYNAMIC") {
                     fieldsModel.push(field._doc) 
@@ -376,7 +376,7 @@ async function buildModels(is_build = true, project_id) {
             isReferenced = true
         }
         
-        // console.log("TEST:::::::::::9", fieldObject)
+        console.log("TEST:::::::::::9", fieldObject)
         let temp =  mongoose.Schema(
             {
             ...fieldObject,
@@ -399,7 +399,7 @@ async function buildModels(is_build = true, project_id) {
                 temp[arrayOfMiddlewares[i].type](arrayOfMiddlewares[i].method, arrayOfMiddlewares[i]._function)
             }
         }
-        // console.log("TEST:::::::::::10")
+        console.log("TEST:::::::::::10")
         // create populate virtual for relation tables
         let populateParams;
         for (const relation of relations) {
@@ -470,7 +470,7 @@ async function buildModels(is_build = true, project_id) {
             
             temp.virtual(slug, populateParams);
         }
-        // console.log("TEST:::::::::::11")
+        console.log("TEST:::::::::::11")
 
         for (const index of fieldsIndex) {
             temp.index(index);
@@ -485,7 +485,7 @@ async function buildModels(is_build = true, project_id) {
             _id: 0,
             __v: 0,
         }).lean()
-        // console.log("TEST:::::::::::12")
+        console.log("TEST:::::::::::12")
         tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex});
     }
 

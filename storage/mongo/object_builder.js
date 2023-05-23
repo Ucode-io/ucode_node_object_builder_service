@@ -745,6 +745,7 @@ let objectBuilder = {
         console.log("\n---GetList-->req: >>> ", req)
         const mongoConn = await mongoPool.get(req.project_id)
         // console.log("test prod obj builder");
+        console.log("TEST::::::::::1")
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -756,7 +757,7 @@ let objectBuilder = {
 
             console.log("\n Initial params", params)
         }
-
+        console.log("TEST::::::::::2")
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -764,7 +765,7 @@ let objectBuilder = {
 
         // console.log("\n\n---> T1\n\n", req.table_slug)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-
+        console.log("TEST::::::::::3")
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields
@@ -783,6 +784,7 @@ let objectBuilder = {
                 }
             ]
         })
+        console.log("TEST::::::::::4")
         // console.time("TIME_LOGGING:::is_have_condition")
         // console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
         if (permission?.is_have_condition) {
@@ -798,6 +800,7 @@ let objectBuilder = {
                 ]
 
             })
+            console.log("TEST::::::::::5")
             // console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
@@ -824,6 +827,7 @@ let objectBuilder = {
                 }
             }
         }
+        console.log("TEST::::::::::6")
         // console.timeEnd("TIME_LOGGING:::is_have_condition")
         // console.time("TIME_LOGGING:::view_fields")
         // console.log(":::::::::::: TEST 11")
@@ -856,6 +860,7 @@ let objectBuilder = {
                 params["guid"] = params["user_id_from_token"]
             }
         }
+        console.log("TEST::::::::::7")
         // console.timeEnd("TIME_LOGGING:::client_type_id")
         // console.log("TEST::::::3")
         let views = []
@@ -882,6 +887,7 @@ let objectBuilder = {
                 params[key] = RegExp(params[key], "i")
             }
         }
+        console.log("TEST::::::::::8")
         // console.timeEnd("TIME_LOGGING:::key_of_keys")
         // console.log("TEST::::::4")
         // console.time("TIME_LOGGING:::relation")
@@ -897,7 +903,7 @@ let objectBuilder = {
             }
             ]
         })
-
+        console.log("TEST::::::::::9")
         // console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
@@ -980,7 +986,7 @@ let objectBuilder = {
         }
         // console.timeEnd("TIME_LOGGING:::with_relations")
         // console.log("TEST::::::6")
-
+        console.log("TEST::::::::::10")
 
         let result = [], count;
         let searchByField = []
@@ -1006,6 +1012,7 @@ let objectBuilder = {
             let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
             params.phone = phone
         }
+        console.log("TEST::::::::::11")
         // console.timeEnd("TIME_LOGGING:::phone")
         // console.log("TEST::::::7")
         let populateArr = []
@@ -1177,6 +1184,7 @@ let objectBuilder = {
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
+        console.log("TEST::::::::::12")
         // console.timeEnd("TIME_LOGGING:::limit")
         // console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
@@ -1186,7 +1194,7 @@ let objectBuilder = {
             count = count - (prev - result.length)
         }
         // console.timeEnd("TIME_LOGGING:::result")
-
+        console.log("TEST::::::::::13")
         // console.log("TEST::::::11")
         // console.time("TIME_LOGGING:::toField")
         // this function add field permission for each field by role id
@@ -1238,6 +1246,7 @@ let objectBuilder = {
                 field.view_fields = viewFields
             }
         }
+        console.log("TEST::::::::::14")
         // console.timeEnd("TIME_LOGGING:::decodedFields")
         // console.log("TEST::::::13")
         // console.time("TIME_LOGGING:::additional_request")
@@ -1291,6 +1300,7 @@ let objectBuilder = {
             additional_results = additional_results.filter(obj => !result_ids.includes(obj.guid))
             result = result.concat(additional_results)
         }
+        console.log("TEST::::::::::15")
         // console.timeEnd("TIME_LOGGING:::additional_request")
         // console.log("TEST::::::14")
         let updatedObjects = []
@@ -1361,6 +1371,7 @@ let objectBuilder = {
                 updatedObjects.push(res)
             }
         }
+        console.log("TEST::::::::::16")
         if(req.project_id == "4ef62259-adf8-4066-b0e6-16e3cb47241b") {
             console.log("\n\n last result", result)
             console.log("\n\n > PARAMS > ", params)

@@ -39,7 +39,7 @@ async function buildModels(is_build = true, project_id) {
         });
     }
 
-    console.log("TEST:::::::::::3")
+    console.log("TEST:::::::::::3", tables)
     let tempArray = []
     for (const table of tables) {
         // declare isReferences var to indicate that fields related to a table were added to schema
@@ -111,7 +111,7 @@ async function buildModels(is_build = true, project_id) {
         let hashPasswordOnUpdateMiddleware = {};
         let arrayOfMiddlewares = []
         let hasPasswordField = false;
-        // console.log("TEST:::::::::::4")
+        console.log("TEST:::::::::::4", fields)
         if (fields) {
             for (const field of fields) {
                 let fieldType;
@@ -203,7 +203,7 @@ async function buildModels(is_build = true, project_id) {
                         default:
                             break;
                     }
-                    // console.log("TEST:::::::::::7")
+                    console.log("TEST:::::::::::7")
                 } else {
                     fieldObject = {
                         ...fieldObject,

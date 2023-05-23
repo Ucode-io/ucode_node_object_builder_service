@@ -409,7 +409,7 @@ let layoutStore = {
                     tab.sections = sections
                 } else if (tab.type === "relation" && tab.relation_id) {
                     const { relations } = await relationStorage.getSingleViewForRelation({ id: tab.relation_id, project_id: data.project_id })
-                    tab.relations = relations
+                    tab.relation = relations.length ? relations[0] : {}
                 }
 
                 if (map_tab[tab.layout_id]) {

@@ -28,17 +28,6 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
 
-        // await projectStorage.reconnect({
-        //     project_id: "4ef62259-adf8-4066-b0e6-16e3cb47241b", // alldental
-        //     credentials: {
-        //         host: "142.93.164.37",
-        //         port: 27017,
-        //         database: "alldental_alldental_object_builder_service",
-        //         username: "alldental_alldental_object_builder_service",
-        //         password: "jGH7CPOSpY"
-        //     }
-        // })
-
         await projectStorage.autoConnect(
             {
                 request: {

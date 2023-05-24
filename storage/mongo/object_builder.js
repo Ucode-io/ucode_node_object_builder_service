@@ -1372,10 +1372,7 @@ let objectBuilder = {
             }
         }
         console.log("TEST::::::::::16")
-        if(req.project_id == "4ef62259-adf8-4066-b0e6-16e3cb47241b") {
-            console.log("\n\n last result", result)
-            console.log("\n\n > PARAMS > ", params)
-        }
+
         
         // console.time("TIME_LOGGING:::length")
         if (updatedObjects.length) {

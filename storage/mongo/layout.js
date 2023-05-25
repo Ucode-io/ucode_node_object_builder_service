@@ -379,11 +379,15 @@ let layoutStore = {
             if (!table) throw new Error("Couldn't find table")
 
             data.table_id = table.id;
+            let payload = {
+                table_id: data.table_id,
+            }
+            if (data.is_default) {
+                payload.is_default = true;
+            }
 
             const layouts = await Layout.find(
-                {
-                    table_id: data.table_id,
-                },
+                payload,
                 null,
                 {
                     sort: { created_at: -1 }

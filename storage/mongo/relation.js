@@ -251,10 +251,10 @@ let relationStore = {
                         "response from field create while creating relation",
                         res
                     );
-                    await sendMessageToTopic(
-                        con.TopicRelationToCreateV1,
-                        eventTo
-                    );
+                    // await sendMessageToTopic(
+                    //     con.TopicRelationToCreateV1,
+                    //     eventTo
+                    // );
                     type = converter(field.type);
                     let fieldsTo = [];
                     let eventFrom = {};
@@ -265,10 +265,10 @@ let relationStore = {
                     });
                     tableRes.fields = fieldsTo;
                     eventFrom.payload = tableRes;
-                    await sendMessageToTopic(
-                        con.TopicRelationFromCreateV1,
-                        eventFrom
-                    );
+                    // await sendMessageToTopic(
+                    //     con.TopicRelationFromCreateV1,
+                    //     eventFrom
+                    // );
                     break;
                 case "Recursive":
                     data.recursive_field = data.table_from + "_id";
@@ -338,10 +338,10 @@ let relationStore = {
                     });
                     tableRecursive.fields = fields;
                     event.payload = tableRecursive;
-                    await sendMessageToTopic(
-                        con.TopicRecursiveRelationCreateV1,
-                        event
-                    );
+                    // await sendMessageToTopic(
+                    //     con.TopicRecursiveRelationCreateV1,
+                    //     event
+                    // );
                     break;
                 case "Many2One":
                 case "One2One":
@@ -406,10 +406,10 @@ let relationStore = {
                     });
                     tableMany2One.fields = fieldsMany2One;
                     eventMany2One.payload = tableMany2One;
-                    await sendMessageToTopic(
-                        con.TopicMany2OneRelationCreateV1,
-                        eventMany2One
-                    );
+                    // await sendMessageToTopic(
+                    //     con.TopicMany2OneRelationCreateV1,
+                    //     eventMany2One
+                    // );
                     break;
                 default:
             }
@@ -929,7 +929,7 @@ let relationStore = {
                 tableResp.slug = table.slug
                 tableResp.fields = fields
                 event.payload = tableResp
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event)
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event)
             } else if (relation.type === 'Many2Many') {
                 // table = await Table.findOne({
                 //     slug: relation.table_to,
@@ -946,7 +946,7 @@ let relationStore = {
                 tableResp.slug = table.slug
                 tableResp.fields = fields
                 event.payload = tableResp
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event)
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event)
                 // table = await Table.findOne({
                 //     slug: relation.table_from,
                 //     deleted_at: "1970-01-01T18:00:00.000+00:00"
@@ -962,7 +962,7 @@ let relationStore = {
                 tableResp.slug = table.slug;
                 tableResp.fields = fields;
                 event.payload = tableResp;
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event);
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event);
             } else if (relation.type === "Recursive") {
                 // table = await Table.findOne({
                 //     slug: relation.table_from,
@@ -979,7 +979,7 @@ let relationStore = {
                 tableResp.slug = table.slug;
                 tableResp.fields = fields;
                 event.payload = tableResp;
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event);
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event);
             } else {
                 // table = await Table.findOne({
                 //     slug: relation.table_from,
@@ -996,7 +996,7 @@ let relationStore = {
                 tableResp.slug = table.slug;
                 tableResp.fields = fields;
                 event.payload = tableResp;
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event);
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event);
             }
             const res = await Table.updateOne(
                 {
@@ -1013,6 +1013,187 @@ let relationStore = {
             });
             resp = await Relation.deleteOne({ id: data.id });
             return resp;
+        } catch (err) {
+            throw err;
+        }
+    }),
+    getSingleViewForRelation: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id);
+            const Field = mongoConn.models["Field"];
+            const View = mongoConn.models["View"];
+            const Relation = mongoConn.models["Relation"];
+
+            if (data.table_slug === "") {
+                // let table = await Table.findOne({
+                //     id: data.table_id
+                // });
+                let table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true)
+                data.table_slug = table.slug;
+            }
+            const relations = await Relation.findOne(
+                {
+                    id: data.id
+                },
+                null,
+                {
+                    sort: { created_at: -1 },
+                }
+            )
+            .populate("fields")
+            .lean();
+
+            let responseRelations = [];
+            for (let i = 0; i < relations.length; i++) {
+                // let tableFrom = await Table.findOne({
+                //     slug: relations[i].table_from,
+                // })
+                let tableFrom = await tableVersion(mongoConn, {slug: relations[i].table_from}, data.version_id, true)
+                if (relations[i].type === "Many2Dynamic") {
+                    for (const dynamic_table of relations[i].dynamic_tables) {
+                        if (dynamic_table.table_slug === data.table_slug || tableFrom.slug === data.table_slug) {
+                            // let tableTo = await Table.findOne({
+                            //     slug: dynamic_table.table_slug,
+                            // })
+                            let tableTo = await tableVersion(mongoConn, {slug: dynamic_table.table_slug}, data.version_id, true)
+                            let view = await View.findOne({
+                                $and: [
+                                    { relation_table_slug: data.table_slug },
+                                    { relation_id: relations[i].id },
+                                ],
+                            });
+                            viewFieldsInDynamicTable = [];
+                            for (const fieldId of dynamic_table.view_fields) {
+                                let view_field = await Field.findOne(
+                                    {
+                                        id: fieldId,
+                                    },
+                                    {
+                                        created_at: 0,
+                                        updated_at: 0,
+                                        createdAt: 0,
+                                        updatedAt: 0,
+                                        _id: 0,
+                                        __v: 0,
+                                    }
+                                );
+                                if (view_field) {
+                                    if (view_field.attributes) {
+                                        view_field.attributes = struct.decode(
+                                            view_field.attributes
+                                        );
+                                    }
+                                    viewFieldsInDynamicTable.push(
+                                        view_field._doc
+                                    );
+                                }
+                            }
+                            let responseRelation = {
+                                id: relations[i].id,
+                                table_from: tableFrom,
+                                table_to: tableTo,
+                                type: relations[i].type,
+                                view_fields: viewFieldsInDynamicTable,
+                                editable: relations[i].editable,
+                                dynamic_tables: relations[i].dynamic_tables,
+                                relation_field_slug:
+                                    relations[i].relation_field_slug,
+                                auto_filters: relations[i].auto_filters,
+                                is_user_id_default:
+                                    relations[i].is_user_id_default,
+                                cascadings: relations[i].cascadings,
+                                object_id_from_jwt:
+                                    relations[i].object_id_from_jwt,
+                                cascading_tree_table_slug:
+                                    relations[i].cascading_tree_table_slug,
+                                cascading_tree_field_slug:
+                                    relations[i].cascading_tree_field_slug,
+                            };
+                            if (view) {
+                                responseRelation["title"] = view.name;
+                                responseRelation["columns"] = view.columns;
+                                responseRelation["quick_filters"] =
+                                    view.quick_filters;
+                                responseRelation["group_fields"] =
+                                    view.group_fields;
+                                responseRelation["is_editable"] =
+                                    view.is_editable;
+                                responseRelation["relation_table_slug"] =
+                                    view.relation_table_slug;
+                                responseRelation["view_type"] = view.type;
+                                responseRelation["summaries"] = view.summaries;
+                                responseRelation["relation_id"] =
+                                    view.relation_id;
+                                responseRelation["default_values"] =
+                                    view.default_values;
+                                responseRelation["action_relations"] =
+                                    view.action_relations;
+                                responseRelation["default_limit"] =
+                                    view.default_limit;
+                                responseRelation["multiple_insert"] =
+                                    view.multiple_insert;
+                                responseRelation["multiple_insert_field"] =
+                                    view.multiple_insert_field;
+                                responseRelation["updated_fields"] =
+                                    view.updated_fields;
+                            }
+                            responseRelations.push(responseRelation);
+                        }
+                    }
+                    continue;
+                }
+                // let tableTo = await Table.findOne({
+                //     slug: relations[i].table_to
+                // })
+                let tableTo = await tableVersion(mongoConn, {slug: relations[i].table_to}, data.version_id, true)
+                let view = await View.findOne({
+                    $and: [
+                        { relation_table_slug: data.table_slug },
+                        { relation_id: relations[i].id },
+                    ],
+                });
+                let responseRelation = {
+                    id: relations[i].id,
+                    table_from: tableFrom,
+                    table_to: tableTo,
+                    type: relations[i].type,
+                    view_fields: relations[i].fields,
+                    editable: relations[i].editable,
+                    dynamic_tables: relations[i].dynamic_tables,
+                    relation_field_slug: relations[i].relation_field_slug,
+                    auto_filters: relations[i].auto_filters,
+                    is_user_id_default: relations[i].is_user_id_default,
+                    cascadings: relations[i].cascadings,
+                    object_id_from_jwt: relations[i].object_id_from_jwt,
+                    cascading_tree_table_slug:
+                        relations[i].cascading_tree_table_slug,
+                    cascading_tree_field_slug:
+                        relations[i].cascading_tree_field_slug,
+                };
+                if (view) {
+                    responseRelation["title"] = view.name;
+                    responseRelation["columns"] = view.columns;
+                    responseRelation["quick_filters"] = view.quick_filters;
+                    responseRelation["group_fields"] = view.group_fields;
+                    responseRelation["is_editable"] = view.is_editable;
+                    responseRelation["relation_table_slug"] =
+                        view.relation_table_slug;
+                    responseRelation["view_type"] = view.type;
+                    responseRelation["summaries"] = view.summaries;
+                    responseRelation["relation_id"] = view.relation_id;
+                    responseRelation["default_values"] = view.default_values;
+                    responseRelation["action_relations"] =
+                        view.action_relations;
+                    responseRelation["default_limit"] = view.default_limit;
+                    responseRelation["multiple_insert"] = view.multiple_insert;
+                    responseRelation["multiple_insert_field"] =
+                        view.multiple_insert_field;
+                    responseRelation["updated_fields"] = view.updated_fields;
+                }
+                responseRelations.push(responseRelation);
+            }
+
+            return { relations: responseRelations};
         } catch (err) {
             throw err;
         }

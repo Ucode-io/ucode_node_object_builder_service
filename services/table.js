@@ -8,7 +8,8 @@ const catchWrapService = require("../helper/catchWrapService");
 const con = require("../config/kafkaTopics");
 const sendMessageToTopic = require("../config/kafka");
 const converter = require("../helper/converter");
-const cfg = require('../config/index')
+const cfg = require('../config/index');
+const layoutStore = require("../storage/mongo/layout");
 
 const NAMESPACE = `services.table`;
 
@@ -25,7 +26,7 @@ const tableService = {
             console.log("it is createAllFields response", resp)
 
 
-            const sectionResp = await sectionStore.createAll(call.request);
+            const sectionResp = await layoutStore.createAll(call.request);
             console.log("it is createAllsections response", sectionResp)
 
             let viewData = {}
@@ -38,10 +39,10 @@ const tableService = {
             console.log("it is createViews response", viewResp)
 
 
-            let event  = {}
+            let event = {}
             let table = {}
             let fields = []
-            table.slug = call.request.slug 
+            table.slug = call.request.slug
             for (const field of call.request.fields) {
                 let type = converter(field.type)
                 if (field.slug !== "guid") {
@@ -53,9 +54,9 @@ const tableService = {
                         default: field.default,
                     })
                 }
-                
+
             }
-            table.fields = fields 
+            table.fields = fields
             event.payload = table
             event.project_id = call.request.project_id || cfg.ucodeDefaultProjectID
 

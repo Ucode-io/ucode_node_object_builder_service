@@ -136,7 +136,7 @@ let tableStore = {
             }
 
 
-            await sendMessageToTopic(con.TopicTableUpdeteV1, event)
+            // await sendMessageToTopic(con.TopicTableUpdeteV1, event)
             return table;
         } catch (err) {
             throw err

@@ -644,7 +644,7 @@ let permission = {
                     {
                         $set: {
                             read: app.permission.read,
-                            write: app.permission.write,
+                            create: app.permission.create,
                             update: app.permission.update,
                             delete: app.permission.delete,
                             role_id: app.permission.role_id,
@@ -660,7 +660,7 @@ let permission = {
                 await AppPermission.create(
                     {
                         read: app.permission.read,
-                        write: app.permission.write,
+                        create: app.permission.create,
                         update: app.permission.update,
                         delete: app.permission.delete,
                         guid: v4(),

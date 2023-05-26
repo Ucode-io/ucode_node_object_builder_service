@@ -87,64 +87,73 @@ let appStore = {
             if (data.search) {
                 payload.name = RegExp(data.search, "i")
             }
-            const pipelines = [{
-                '$match': payload
-            },
-            {
-                '$lookup': {
-                    'from': 'app_permissions',
-                    'let': {
-                        'appId': '$id',
-                        'roleId': data.role_id
-                    },
-                    'pipeline': [
-                        {
-                            '$match': {
-                                '$expr': {
-                                    '$and': [
-                                        {
-                                            '$eq': [
-                                                '$app_id', '$$appId'
-                                            ]
-                                        }, {
-                                            '$eq': [
-                                                '$role_id', '$$roleId'
-                                            ]
-                                        }
-                                    ]
+            const pipelines = [
+                {
+                    '$match': payload
+                }, {
+                    '$lookup': {
+                        'from': 'app_permissions',
+                        'let': {
+                            'appId': '$id',
+                            'roleId': data.role_id
+                        },
+                        'pipeline': [
+                            {
+                                '$match': {
+                                    '$expr': {
+                                        '$and': [
+                                            {
+                                                '$eq': [
+                                                    '$app_id', '$$appId'
+                                                ]
+                                            }, {
+                                                '$eq': [
+                                                    '$role_id', '$$roleId'
+                                                ]
+                                            }
+                                        ]
+                                    }
                                 }
                             }
-                        }
-                    ],
-                    'as': 'permission'
+                        ],
+                        'as': 'permission'
+                    }
+                }, {
+                    '$unwind': {
+                        'path': '$permission',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                }, {
+                    '$project': {
+                        'deleted_at': 0,
+                        '__v': 0,
+                        '_id': 0,
+                        'permission._id': 0,
+                        'permission.__v': 0,
+                        'permission.createdAt': 0,
+                        'permission.updatedAt': 0
+                    }
+                }, {
+                    '$sort': {
+                        'created_at': -1
+                    }
                 }
-            }, {
-                '$match': {
-                    'permission': { '$ne': [] } // Filter out apps without matching permissions
-                }
-            }, {
-                '$unwind': {
-                    'path': '$permission',
-                    'preserveNullAndEmptyArrays': false
-                }
-            }, {
-                '$project': {
-                    'deleted_at': 0,
-                    '__v': 0,
-                    '_id': 0,
-                    'permission._id': 0,
-                    'permission.__v': 0,
-                    'permission.createdAt': 0,
-                    'permission.updatedAt': 0
-                }
-            }, {
-                '$sort': {
-                    'created_at': -1
-                }
-            }
             ]
 
             const apps = await App.aggregate(pipelines)
+            apps.forEach(app => {
+                if (!Object.keys(app.permission)) {
+                    app.permission = {
+                        create: false,
+                        read: false,
+                        update: false,
+                        delete: false,
+                        role_id: data.role_id,
+                        app_id: app.id,
+                        guid: ""
+                    }
+                }
+            })
             console.log("app:::", apps);
             const count = await App.countDocuments(query);
             return { apps, count };

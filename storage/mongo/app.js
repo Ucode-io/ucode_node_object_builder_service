@@ -142,7 +142,7 @@ let appStore = {
 
             const apps = await App.aggregate(pipelines)
             apps.forEach(app => {
-                if (!Object.keys(app.permission)) {
+                if (!app.permission || !Object.keys(app.permission)) {
                     app.permission = {
                         create: false,
                         read: false,

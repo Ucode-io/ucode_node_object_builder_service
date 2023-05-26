@@ -37,7 +37,7 @@ let permission = {
                 if (app.tables.length) {
                     for (const tableFromApp of app.tables) {
                         // const tableInfo = await table.findOne({ id: tableFromApp.table_id })
-                        const tableInfo = await tableVersion(mongoConn, {id: tableFromApp.table_id}, data.version_id, true)
+                        const tableInfo = await tableVersion(mongoConn, { id: tableFromApp.table_id }, data.version_id, true)
                         let res;
                         if (tableInfo) {
                             const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
@@ -81,7 +81,7 @@ let permission = {
                                 }
                                 field_types.guid = "String"
                                 event.payload.field_types = field_types
-                                event.project_id = req.project_id 
+                                event.project_id = req.project_id
 
                                 await sendMessageToTopic(con.TopicObjectUpdateV1, event)
                             } else {
@@ -108,7 +108,7 @@ let permission = {
                                 }
                                 field_types.guid = "String"
                                 event.payload.field_types = field_types
-                                event.project_id = req.project_id 
+                                event.project_id = req.project_id
 
                                 await sendMessageToTopic(con.TopicObjectCreateV1, event)
                             }
@@ -131,7 +131,7 @@ let permission = {
             // const tables = await table.find({
             //     deleted_at: "1970-01-01T18:00:00.000+00:00",
             // })
-            const tables = await tableVersion(mongoConn, {delete_at: "1970-01-01T18:00:00.000+00:00"}, req.version_id, false)
+            const tables = await tableVersion(mongoConn, { delete_at: "1970-01-01T18:00:00.000+00:00" }, req.version_id, false)
             let tableSlugs = []
             let noPermissions = []
             tables.forEach(table => {
@@ -197,19 +197,19 @@ let permission = {
             //     slug: req.table_slug,
             //     deleted_at: "1970-01-01T18:00:00.000+00:00",
             // }).lean()
-            const tableInfo = await tableVersion(mongoConn, {slug: req.table_slug}, req.version_id, true)
+            const tableInfo = await tableVersion(mongoConn, { slug: req.table_slug }, req.version_id, true)
             const fields = await Field.find({
                 table_id: tableInfo.id
             })
             let fieldIdAndLabels = []
             fields.forEach(field => {
-                fieldIdAndLabels.push({field_id: field.id, label: field.label})
+                fieldIdAndLabels.push({ field_id: field.id, label: field.label })
             })
             const permissionTable = (await ObjectBuilder(true, req.project_id))["field_permission"]
             let fieldPermissions = await permissionTable.models.find({
-                    role_id: req.role_id,
-                    table_slug: req.table_slug
-                },
+                role_id: req.role_id,
+                table_slug: req.table_slug
+            },
                 {
                     _id: 0,
                     __v: 0
@@ -234,9 +234,9 @@ let permission = {
                     fieldPermission._doc.label = field?.label
                     docFieldPermissions.push(fieldPermission._doc)
                 }
-                
+
             }
-            
+
             const response = struct.encode({
                 field_permissions: docFieldPermissions
             })
@@ -259,11 +259,12 @@ let permission = {
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
+        const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         const View = mongoConn.models['View']
 
-        
+
         const role = await Role.findOne(
             { guid: req.role_id },
             null,
@@ -279,14 +280,56 @@ let permission = {
             ...role._doc
         }
 
-        const apps = await App.find(
-            {},
-            null,
-            {
-                sort: { created_at: -1 }
-            }
-        );
 
+        const pipelines = [{
+            '$match': {}
+        },
+        {
+            '$lookup': {
+                'from': 'app_permissions',
+                'let': {
+                    'appId': '$id',
+                    'roleId': role.guid
+                },
+                'pipeline': [
+                    {
+                        '$match': {
+                            '$expr': {
+                                '$and': [
+                                    {
+                                        '$eq': [
+                                            '$app_id', '$$appId'
+                                        ]
+                                    }, {
+                                        '$eq': [
+                                            '$role_id', '$$roleId'
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                'as': 'permission'
+            }
+        }, {
+            '$unwind': {
+                'path': '$permission',
+                'preserveNullAndEmptyArrays': true
+            }
+        }, {
+            '$project': {
+                'deleted_at': 0,
+                '__v': 0,
+                '_id': 0
+            }
+        }, {
+            '$sort': {
+                'created_at': -1
+            }
+        }
+        ]
+        const apps = await App.aggregate(pipelines)
         if (!apps) {
             console.log('WARNING apps not found')
             return roleCopy
@@ -296,8 +339,17 @@ let permission = {
         let appsList = []
         for (let app of apps) {
 
-            let appCopy = {
-                ...app._doc
+            let appCopy = app
+            if (!appCopy.permission || !Object.keys(appCopy.permission)) {
+                appCopy.permission = {
+                    read: false,
+                    update: false,
+                    create: false,
+                    delete: false,
+                    guid: "",
+                    role_id: roleCopy.guid,
+                    app_id: appCopy.id
+                }
             }
 
             let tableIds = []
@@ -315,12 +367,11 @@ let permission = {
             //         sort: { created_at: -1 }
             //     }
             // );
-            
-            const tables = await tableVersion(mongoConn, {id: {$in: tableIds}, deleted_at: "1970-01-01T18:00:00.000+00:00"}, req.version_id, false)
+
+            const tables = await tableVersion(mongoConn, { id: { $in: tableIds }, deleted_at: "1970-01-01T18:00:00.000+00:00" }, req.version_id, false)
 
             if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
-                return roleCopy
             }
 
             let tablesList = []
@@ -331,12 +382,12 @@ let permission = {
                 }
 
                 const record_permissions = await RecordPermission.findOne(
-                    {   
+                    {
                         $and: [
-                            {table_slug: table.slug},
-                            {role_id: req.role_id}
+                            { table_slug: table.slug },
+                            { role_id: req.role_id }
                         ]
-                        
+
                     }
                 );
 
@@ -363,13 +414,13 @@ let permission = {
                 let fieldIdAndLabels = []
                 // console.log("--test 0 field permission--");
                 fields.forEach(el => {
-                    fieldIdAndLabels.push({field_id: el.id, label: el.label})
+                    fieldIdAndLabels.push({ field_id: el.id, label: el.label })
                 })
 
                 let fieldPermissions = await FieldPermission.find({
-                        role_id: req.role_id,
-                        table_slug: table.slug
-                    },
+                    role_id: req.role_id,
+                    table_slug: table.slug
+                },
                     {
                         _id: 0,
                         __v: 0
@@ -395,7 +446,7 @@ let permission = {
                         fieldPermission._doc.label = field?.label
                         docFieldPermissions.push(fieldPermission._doc)
                     }
-                    
+
                 }
                 // NEW
 
@@ -406,8 +457,8 @@ let permission = {
                 let viewRelationPermissions = await ViewPermission.find(
                     {
                         $and: [
-                            {role_id: req.role_id},
-                            {table_slug: table.slug}
+                            { role_id: req.role_id },
+                            { table_slug: table.slug }
                         ]
                     },
                     null,
@@ -434,7 +485,7 @@ let permission = {
                     relationIds.push(element.id)
                 })
                 let relationObject = {};
-                relations.map(el => relationObject[el.id] = {table_from: el.table_from, table_to: el.table_to})
+                relations.map(el => relationObject[el.id] = { table_from: el.table_from, table_to: el.table_to })
                 let views = []
                 if (relationIds.length) {
                     views = await View.find({
@@ -444,7 +495,7 @@ let permission = {
                 }
                 let viewObject = {};
                 views.map(el => viewObject[el.relation_id] = el.name)
-        
+
                 let viewRelationPermissionsIds = []
                 viewRelationPermissions.forEach(element => {
                     viewRelationPermissionsIds.push(element.relation_id)
@@ -492,12 +543,12 @@ let permission = {
                     }
                 })
                 tableCopy.automatic_filters = {
-                    read:   readFilters,
-                    write:  writeFilters,
+                    read: readFilters,
+                    write: writeFilters,
                     update: updateFilters,
                     delete: deleteFilters,
                 }
-                 const CustomEvent = mongoConn.models['CustomEvent']
+                const CustomEvent = mongoConn.models['CustomEvent']
 
                 const customEvents = await CustomEvent.find({
                     table_slug: table.slug,
@@ -562,6 +613,7 @@ let permission = {
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
+        const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
 
         let role = await Role.findOneAndUpdate(
             {
@@ -584,6 +636,39 @@ let permission = {
         let automaticFilters = []
         let actionPermissions = []
         for (let app of req?.data?.apps) {
+            if (app?.permission?.guid) {
+                await AppPermission.findOneAndUpdate(
+                    {
+                        guid: app.permission.guid
+                    },
+                    {
+                        $set: {
+                            read: app.permission.read,
+                            write: app.permission.write,
+                            update: app.permission.update,
+                            delete: app.permission.delete,
+                            role_id: app.permission.role_id,
+                            app_id: app.permission.app_id
+                        }
+                    },
+                    {
+                        upsert: false,
+                    }
+                )
+
+            } else {
+                await AppPermission.create(
+                    {
+                        read: app.permission.read,
+                        write: app.permission.write,
+                        update: app.permission.update,
+                        delete: app.permission.delete,
+                        guid: v4(),
+                        role_id: roleId,
+                        app_id: app.id
+                    }
+                )
+            }
             for (let table of app?.tables) {
                 let isHaveCondition = false
                 let lengthKeys = Object.keys(table.automatic_filters) ? Object.keys(table.automatic_filters).length : false
@@ -608,8 +693,8 @@ let permission = {
                         {
                             upsert: false,
                         }
-                    )                  
-                    
+                    )
+
                 } else {
                     await RecordPermission.create(
                         {
@@ -762,7 +847,7 @@ let permission = {
                 // }
 
 
-                
+
             }
         }
         await AutomaticFilter.insertMany(automaticFilters)

@@ -17,6 +17,7 @@ const createRelation = require("../initial_setups/relation");
 const createSettingLanguage = require("../initial_setups/setting_language");
 const createSettingCurrency = require("../initial_setups/setting_currency");
 const createSettingTimezone = require("../initial_setups/setting_timezone");
+const createAppPermission = require("../initial_setups/appPermission");
 
 async function insertCollections(conn, userId, projectId) {
 
@@ -187,6 +188,14 @@ async function insertCollections(conn, userId, projectId) {
         conn.collection('setting.timezones').insertMany(settingTimezones, function (err, result) {
             if (err) throw err;
             console.log("Inserted Timezone :", result.insertedCount)
+        })
+    }
+    if (!collections['app_permission']) {
+
+        const appPermissions = await createAppPermission(roleID)
+        conn.collection('app_permissions').insertMany(appPermissions, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted App Permissions :", result.insertedCount)
         })
     }
 }

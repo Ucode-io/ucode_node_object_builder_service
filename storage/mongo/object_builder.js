@@ -780,7 +780,6 @@ let objectBuilder = {
         })
         console.log("TEST::::::::::4")
         // console.time("TIME_LOGGING:::is_have_condition")
-        console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
         if (permission?.is_have_condition) {
             const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -794,7 +793,7 @@ let objectBuilder = {
                 ]
 
             })
-            console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
+            
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
                     if (autoFilter.custom_field === "user_id") {
@@ -1179,8 +1178,10 @@ let objectBuilder = {
         // console.timeEnd("TIME_LOGGING:::limit")
         // console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
+        console.log("TEST::::::::::12.1")
         // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
+            console.log("TEST::::::::::12.2")
             let prev = result.length
             count = count - (prev - result.length)
         }

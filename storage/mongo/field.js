@@ -222,7 +222,7 @@ let fieldStore = {
             const Field = mongoConn.models['Field']
 
             if(data.is_system) {
-                data.is_system = false
+                throw new Error("This field is system field")
             }
 
             const fieldBeforUpdate = await Field.findOne(

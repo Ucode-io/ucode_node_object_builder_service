@@ -370,3 +370,10 @@
   },
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
+{
+  message: 'service.field.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-05-29T11:03:48.812Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

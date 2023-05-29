@@ -429,35 +429,6 @@ async function createField() {
         "updated_at": new Date(),
         "__v": 0
     }, {
-        "id": "645d85b8-67e0-4594-96c7-540b63d6b018",
-        "required": false,
-        "slug": "active",
-        "label": "Актив",
-        "default": "",
-        "type": "NUMBER",
-        "index": "string",
-        "attributes": {
-            "fields": {
-                "maxLength": {
-                    "stringValue": "",
-                    "kind": "stringValue"
-                },
-                "placeholder": {
-                    "stringValue": "",
-                    "kind": "stringValue"
-                },
-                "showTooltip": {
-                    "boolValue": false,
-                    "kind": "boolValue"
-                }
-            }
-        },
-        "is_visible": false,
-        "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-    },  {
         "id": "87ddadf0-689b-4285-9fc7-5cb76bdd4a7c",
         "required": false,
         "slug": "expires_at",
@@ -495,11 +466,13 @@ async function createField() {
         "is_visible": true,
         "id": "2a77fd05-5278-4188-ba34-a7b8d13e2e51",
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
+        "is_system": true,
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
     }, {
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
+        "is_system": true,
         "required": false,
         "slug": "project_id",
         "label": "IT'S RELATION",
@@ -512,18 +485,7 @@ async function createField() {
         "__v": 0
     }, {
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
-        "required": false,
-        "slug": "client_platform_id",
-        "label": "IT'S RELATION",
-        "type": "LOOKUP",
-        "is_visible": true,
-        "relation_id": "e03071ed-a3e1-417d-a654-c0998a7c74bc",
-        "id": "d84b1431-f7ae-43c5-b2e1-83f82ec1f979",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-    }, {
-        "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
+        "is_system": true,
         "required": false,
         "slug": "client_type_id",
         "label": "IT'S RELATION",
@@ -536,6 +498,7 @@ async function createField() {
         "__v": 0
     }, {
         "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
+        "is_system": true,
         "required": false,
         "slug": "role_id",
         "label": "IT'S RELATION",

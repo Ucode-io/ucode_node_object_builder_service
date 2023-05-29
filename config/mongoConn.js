@@ -56,7 +56,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         conn.model('Document', require('../schemas/document'))
         conn.model('EventLog', require('../schemas/event_log'))
         conn.model('Event', require('../schemas/event'))
-        conn.model('Field', require('../schemas/field'))
+        // conn.model('Field', require('../schemas/field'))
         conn.model('Function', require('../schemas/function'))
         conn.model('HtmlTemplate', require('../schemas/html_template'))
         conn.model('Panel', require('../schemas/panel'))

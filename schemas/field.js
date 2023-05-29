@@ -61,6 +61,10 @@ const FieldSchema = mongoose.Schema(
             type: String,
             required: false,
         },
+        is_system: {
+            type: Boolean,
+            default: false
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

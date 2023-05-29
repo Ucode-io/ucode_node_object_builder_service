@@ -47,7 +47,7 @@ async function insertCollections(conn, userId, projectId) {
             });
     })
 
-    console.log('available collections', collections)
+    // console.log('available collections', collections)
 
 
     if (!collections['apps']) {
@@ -164,7 +164,6 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted View Permissions :", result.insertedCount)
         })
     }
-    console.log("TEST::::::1")
     if (!collections['setting.languages']) {
         console.log("TEST::::::3")
         const settingLanguages = await createSettingLanguage()

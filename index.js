@@ -27,7 +27,7 @@ const logger = require("./config/logger");
 
     try {
         logger.info(`autoconnecting to resources`);
-        
+
         await projectStorage.autoConnect(
             {
                 request: {
@@ -38,6 +38,7 @@ const logger = require("./config/logger");
                 logger.info(`autoconnected to resources ${code} - ${result}`);
             }
         )
+        
         logger.info(`autoconnected successfully done!!!`);
 
     } catch (err) {

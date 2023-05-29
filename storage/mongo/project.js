@@ -8,6 +8,7 @@ const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
 const initialTableFolder = require("../../helper/initialTableFolder")
+const isSystemChecker = require("../../helper/is_system")
 
 
 let NAMESPACE = "storage.project";
@@ -124,6 +125,8 @@ let projectStore = {
                     mongoDBConn.once("open", async function () {
                         // await insertCollectioinitialTableFolderns(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
+                        mongoDBConn.model('Field', require('../../schemas/field'))
+                        await isSystemChecker(mongoDBConn)
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))

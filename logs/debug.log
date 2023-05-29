@@ -5147,3 +5147,221 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-29T11:27:43.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-29T11:27:43.909Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "autoservice_autoservice_object_builder_service",\n' +
+    '    "username": "autoservice_autoservice_object_builder_service",\n' +
+    '    "password": "q6viL9SDOv"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-29T11:27:43.909Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-29T11:27:43.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-29T11:27:44.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-29T11:28:12.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-05-29T11:28:12.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-29T11:29:02.079Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-29T11:29:02.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "autoservice_autoservice_object_builder_service",\n' +
+    '    "username": "autoservice_autoservice_object_builder_service",\n' +
+    '    "password": "q6viL9SDOv"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-29T11:29:02.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-05-29T11:29:02.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'info',
+  timestamp: '2023-05-29T11:29:02.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-29T11:29:30.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-05-29T11:29:30.834Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getAll: requested - {\n' +
+    '  "table_id": "",\n' +
+    '  "limit": 100,\n' +
+    '  "offset": 0,\n' +
+    '  "search": "",\n' +
+    '  "table_slug": "user",\n' +
+    '  "with_many_relation": false,\n' +
+    '  "with_one_relation": false,\n' +
+    '  "role_id": "",\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-05-29T11:30:42.337Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.getAll: requested, {\n' +
+    '  "table_id": "",\n' +
+    '  "limit": 100,\n' +
+    '  "offset": 0,\n' +
+    '  "search": "",\n' +
+    '  "table_slug": "user",\n' +
+    '  "with_many_relation": false,\n' +
+    '  "with_one_relation": false,\n' +
+    '  "role_id": "",\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-29T11:30:42.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-05-29T11:30:42.628Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-05-29T11:30:42.628Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-29T11:39:07.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-29T11:39:07.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-29T11:39:07.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-05-29T11:39:07.977Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-05-29T11:39:07.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

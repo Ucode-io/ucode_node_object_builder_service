@@ -8,6 +8,7 @@ const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
 const initialTableFolder = require("../../helper/initialTableFolder")
+const isSystemChecker = require("../../helper/is_system")
 
 
 let NAMESPACE = "storage.project";
@@ -46,7 +47,7 @@ let projectStore = {
                 mongoDBConn.model('Document', require('../../schemas/document'))
                 mongoDBConn.model('EventLog', require('../../schemas/event_log'))
                 mongoDBConn.model('Event', require('../../schemas/event'))
-                // mongoDBConn.model('Field', require('../../schemas/field'))
+                mongoDBConn.model('Field', require('../../schemas/field'))
                 mongoDBConn.model('Function', require('../../schemas/function'))
                 mongoDBConn.model('HtmlTemplate', require('../../schemas/html_template'))
                 mongoDBConn.model('Panel', require('../../schemas/panel'))
@@ -124,8 +125,8 @@ let projectStore = {
                     mongoDBConn.once("open", async function () {
                         // await insertCollectioinitialTableFolderns(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
-                        await insertCollections(mongoDBConn, data.user_id || "", data.project_id)
                         mongoDBConn.model('Field', require('../../schemas/field'))
+                        await isSystemChecker(mongoDBConn)
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))

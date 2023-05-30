@@ -294,6 +294,7 @@ let permission = {
 
 
         let appsList = []
+        console.log("\nApps ", apps.length, apps)
         for (let app of apps) {
 
             let appCopy = {
@@ -311,7 +312,7 @@ let permission = {
                 console.log('WARNING tables not found')
                 return roleCopy
             }
-
+            console.log("\n Tables ", tables.length, tables);
             let tablesList = []
 
             for (let table of tables) {

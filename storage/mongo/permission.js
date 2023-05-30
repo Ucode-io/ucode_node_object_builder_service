@@ -304,19 +304,8 @@ let permission = {
             for (let table of (app.tables || [])) {
                 tableIds.push(table.table_id)
             }
-
-            // const tables = await Table.find(
-            //     {
-            //         id: { $in: tableIds },
-            //         deleted_at: "1970-01-01T18:00:00.000+00:00",
-            //     },
-            //     null,
-            //     {
-            //         sort: { created_at: -1 }
-            //     }
-            // );
-            
-            const tables = await tableVersion(mongoConn, {id: {$in: tableIds}, deleted_at: "1970-01-01T18:00:00.000+00:00"}, req.version_id, false)
+            console.log("\nTable ids", tableIds)
+            const tables = await tableVersion(mongoConn, {id: {$in: tableIds}, deleted_at: new Date("1970-01-01T18:00:00.000+00:00")}, req.version_id, false)
 
             if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
@@ -355,7 +344,7 @@ let permission = {
                         is_public: false
                     }
                 }
-
+                console.log("\nRecord permissions ", record_permissions);
                 // NEW
                 const fields = await Field.find({
                     table_id: table.id
@@ -534,7 +523,7 @@ let permission = {
             }
 
             appCopy.tables = tablesList
-
+            console.log("\n App info ", appCopy)
             appsList.push(appCopy)
         }
 

@@ -249,6 +249,8 @@ let permission = {
 
     }),
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
+        return { project_id: "okok", data: {} }
+
         console.log("ENTER FUNCTION")
         const mongoConn = await mongoPool.get(req.project_id)
         const Table = mongoConn.models['Table']
@@ -531,7 +533,7 @@ let permission = {
         roleCopy.apps = appsList
 
         // console.log('response->', JSON.stringify(roleCopy, null, 2))
-        return { project_id: req.project_id, data: roleCopy }
+        // return { project_id: req.project_id, data: roleCopy }
 
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {

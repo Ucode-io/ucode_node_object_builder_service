@@ -402,7 +402,7 @@ let objectBuilder = {
             }
         }
 
-        const relations = []
+        let relations = []
         let relationsFields = []
         if (with_relations) {
             const relationsResp = await Relation.find({

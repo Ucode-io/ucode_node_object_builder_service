@@ -285,7 +285,7 @@ let fieldsRelationsStore = {
                         }
 
                         console.log("response from field create while creating relation", res)
-                        await sendMessageToTopic(con.TopicRelationToCreateV1, eventTo)
+                        // await sendMessageToTopic(con.TopicRelationToCreateV1, eventTo)
                         type = converter(field.type);
                         let fieldsTo = []
                         let eventFrom = {}
@@ -298,7 +298,7 @@ let fieldsRelationsStore = {
                         )
                         tableRes.fields = fieldsTo
                         eventFrom.payload = tableRes
-                        await sendMessageToTopic(con.TopicRelationFromCreateV1, eventFrom)
+                        // await sendMessageToTopic(con.TopicRelationFromCreateV1, eventFrom)
                         break;
                     case 'Recursive':
                         relationReq.recursive_field = relationReq.table_from + "_id";
@@ -354,7 +354,7 @@ let fieldsRelationsStore = {
                         )
                         tableRecursive.fields = fields
                         event.payload = tableRecursive
-                        await sendMessageToTopic(con.TopicRecursiveRelationCreateV1, event)
+                        // await sendMessageToTopic(con.TopicRecursiveRelationCreateV1, event)
                         break;
                     case 'Many2One':
                     case 'One2One':
@@ -408,7 +408,7 @@ let fieldsRelationsStore = {
                         )
                         tableMany2One.fields = fieldsMany2One
                         eventMany2One.payload = tableMany2One
-                        await sendMessageToTopic(con.TopicMany2OneRelationCreateV1, eventMany2One)
+                        // await sendMessageToTopic(con.TopicMany2OneRelationCreateV1, eventMany2One)
                         break;
                     default:
                 }

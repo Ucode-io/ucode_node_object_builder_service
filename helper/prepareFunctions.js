@@ -127,7 +127,7 @@ let prepareFunction = {
             }
         }
 
-        tableInfo.fields.forEach(el => {
+        for(let el of tableInfo.fields) { 
             if (el.attributes) {
                 if (struct.decode(el.attributes).defaultValue && !data[el.slug]) {
                     if (typeof data[el.slug] === "boolean") {
@@ -141,9 +141,12 @@ let prepareFunction = {
                             data[el.slug] = struct.decode(el.attributes).defaultValue
                         }
                     }
+                } else if (struct.decode(el.attributes)?.default_values?.length && !data[el.slug]) {
+                    data[el.slug] = struct.decode(el.attributes)?.default_values[0]
+
                 }
             }
-        })
+        }
 
         let payload = new tableInfo.models(data);
         if (ownGuid) {

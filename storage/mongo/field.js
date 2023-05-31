@@ -200,7 +200,7 @@ let fieldStore = {
             tableRes.fields = fields
             event.payload = tableRes
             event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldCreateV1, event)
+            // await sendMessageToTopic(topics.TopicFieldCreateV1, event)
 
 
             return response;
@@ -292,7 +292,7 @@ let fieldStore = {
             event.payload = fieldRes
 
             event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldUpdateV1, event)
+            // await sendMessageToTopic(topics.TopicFieldUpdateV1, event)
 
             return field;
         } catch (err) {
@@ -549,7 +549,7 @@ let fieldStore = {
             event.payload = fieldRes
 
             event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldDeleteV1, event)
+            // await sendMessageToTopic(topics.TopicFieldDeleteV1, event)
 
             return field;
 

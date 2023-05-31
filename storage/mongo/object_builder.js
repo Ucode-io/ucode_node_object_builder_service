@@ -742,24 +742,24 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        // console.log("\n---GetList-->req:", req)
+        console.log("\n---GetList-->req: >>> ", req)
         const mongoConn = await mongoPool.get(req.project_id)
         // console.log("test prod obj builder");
+        console.log("TEST::::::::::1")
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
         const params = struct.decode(req?.data)
-
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
 
-        // console.log("\n\n---> T1\n\n", req.table_slug)
+        console.log("\n\n---> T1\n\n", req)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-
+        console.log("TEST::::::::::3", tableInfo)
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields
@@ -767,7 +767,7 @@ let objectBuilder = {
         // console.log("\n\n---> T2\n\n")
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
-        // console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
+        console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -778,8 +778,9 @@ let objectBuilder = {
                 }
             ]
         })
+        console.log("TEST::::::::::4")
         // console.time("TIME_LOGGING:::is_have_condition")
-        // console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
+        console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
         if (permission?.is_have_condition) {
             const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -793,7 +794,7 @@ let objectBuilder = {
                 ]
 
             })
-            // console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
+            console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
                     if (autoFilter.custom_field === "user_id") {
@@ -801,6 +802,7 @@ let objectBuilder = {
                             params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
                             params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
                         } else {
+                            console.log("\n\n>>>>> inside else")
                             params["guid"] = params["user_id_from_token"]
                         }
                     } else {
@@ -818,9 +820,10 @@ let objectBuilder = {
                 }
             }
         }
+        console.log("TEST::::::::::6")
         // console.timeEnd("TIME_LOGGING:::is_have_condition")
         // console.time("TIME_LOGGING:::view_fields")
-        // console.log(":::::::::::: TEST 11")
+        console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
                 let arrayOfViewFields = [];
@@ -840,14 +843,17 @@ let objectBuilder = {
         // console.timeEnd("TIME_LOGGING:::view_fields")
         // console.time("TIME_LOGGING:::client_type_id")
         if (clientTypeId) {
+            console.log("\n\n>>>> client type ", clientTypeId);
             const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
             if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
+                console.log(">>>>>>>>>>. indside if");
                 params["guid"] = params["user_id_from_token"]
             }
         }
+        console.log("TEST::::::::::7")
         // console.timeEnd("TIME_LOGGING:::client_type_id")
         // console.log("TEST::::::3")
         let views = []
@@ -874,6 +880,7 @@ let objectBuilder = {
                 params[key] = RegExp(params[key], "i")
             }
         }
+        console.log("TEST::::::::::8")
         // console.timeEnd("TIME_LOGGING:::key_of_keys")
         // console.log("TEST::::::4")
         // console.time("TIME_LOGGING:::relation")
@@ -889,56 +896,7 @@ let objectBuilder = {
             }
             ]
         })
-
-        //     $and: [{
-        //         table_from: req.table_slug
-        //     }, {
-        //         type: "Many2One"
-        //     }]
-        // },
-        // {
-        //     $and: [{
-        //         table_to: req.table_slug
-        //     }, {
-        //         type: "One2Many"
-        //     }]
-        // },
-        // {
-        //     $and: [{
-        //         $or: [{
-        //             table_from: req.table_slug
-        //         },
-        //         {
-        //             "dynamic_tables.table_slug": req.table_slug
-        //         }]
-        //     },
-        //     {
-        //         type: "Many2Dynamic"
-        //     }
-        //     ]
-        // },
-        // {
-        //     $and: [{
-        //         $or: [{
-        //             table_from: req.table_slug
-        //         },
-        //         {
-        //             table_to: req.table_slug
-        //         }]
-        //     }, {
-        //         type: "Many2Many"
-        //     }]
-        // },
-        //   {
-        //     $and: [{
-        //         table_from: req.table_slug
-        //     }, {
-        //         type: "Recursive"
-        //     }]
-        //   }
-        //     ]
-        // })
-        // console.timeEnd("TIME_LOGGING:::relation")
+        console.log("TEST::::::::::9")
         // console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
@@ -948,8 +906,7 @@ let objectBuilder = {
                     if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
                         relation.table_to = relation.table_from
                     }
-                    // let relationTable = await table.findOne({ slug: relation.table_to })
-                    let relationTable = await tableVersion(mongoConn, {slug: relation.table_to}, params.version_id, true)
+                    let relationTable = await table.findOne({ slug: relation.table_to })
                     let relationFields = await Field.find(
                         {
                             table_id: relationTable?.id
@@ -996,8 +953,7 @@ let objectBuilder = {
                                 }
                             }
                             field._doc.view_fields = viewFields
-                            // let childRelationTable = await table.findOne({ slug: table_slug })
-                            let childRelationTable = await tableVersion(mongoConn, {slug: table_slug}, params.version_id, true)
+                            let childRelationTable = await table.findOne({ slug: table_slug })
                             field._doc.table_label = relationTable?.label
                             field.label = childRelationTable?.label
                             changedField = field
@@ -1020,7 +976,7 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::with_relations")
-        // console.log("TEST::::::6")
+        console.log("TEST::::::6")
 
 
         let result = [], count;
@@ -1047,6 +1003,7 @@ let objectBuilder = {
             let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
             params.phone = phone
         }
+        console.log("TEST::::::::::11")
         // console.timeEnd("TIME_LOGGING:::phone")
         // console.log("TEST::::::7")
         let populateArr = []
@@ -1054,8 +1011,8 @@ let objectBuilder = {
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
-                    $and: [params]
-                },
+                        $and: [params]
+                    },
                     {
                         createdAt: 0,
                         updatedAt: 0,
@@ -1170,7 +1127,7 @@ let objectBuilder = {
                             }
                         }
                     }
-                    // console.log("TEST::::::9")
+                    console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -1196,7 +1153,7 @@ let objectBuilder = {
                     populateArr.push(papulateTable)
                 }
                 // console.log("\n\n-----> T3\n\n", tableInfo, params)
-                // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
+                console.log("::::::::::::::::::: POPULATE ARR", populateArr)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -1218,6 +1175,7 @@ let objectBuilder = {
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
+        console.log("TEST::::::::::12")
         // console.timeEnd("TIME_LOGGING:::limit")
         // console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
@@ -1227,7 +1185,7 @@ let objectBuilder = {
             count = count - (prev - result.length)
         }
         // console.timeEnd("TIME_LOGGING:::result")
-
+        console.log("TEST::::::::::13")
         // console.log("TEST::::::11")
         // console.time("TIME_LOGGING:::toField")
         // this function add field permission for each field by role id
@@ -1279,6 +1237,7 @@ let objectBuilder = {
                 field.view_fields = viewFields
             }
         }
+        console.log("TEST::::::::::14")
         // console.timeEnd("TIME_LOGGING:::decodedFields")
         // console.log("TEST::::::13")
         // console.time("TIME_LOGGING:::additional_request")
@@ -1288,7 +1247,7 @@ let objectBuilder = {
             additional_param[params.additional_request.additional_field] = { $in: params.additional_request.additional_values }
 
             if (relations.length == 0) {
-                // console.log("test 111/:::");
+                console.log("test 111/:::");
                 additional_results = await tableInfo.models.find({
                     ...additional_param
                 },
@@ -1332,6 +1291,7 @@ let objectBuilder = {
             additional_results = additional_results.filter(obj => !result_ids.includes(obj.guid))
             result = result.concat(additional_results)
         }
+        console.log("TEST::::::::::15")
         // console.timeEnd("TIME_LOGGING:::additional_request")
         // console.log("TEST::::::14")
         let updatedObjects = []
@@ -1352,27 +1312,22 @@ let objectBuilder = {
                                 }
                             })
                         }
-                        // const relationFieldTable = await table.findOne({
-                        //     slug: attributes.table_from.split('#')[0],
-                        //     deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        // })
-                        const relationFieldTable = await tableVersion(mongoConn, {slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00"}, params.version_id, true)
+                        const relationFieldTable = await table.findOne({
+                            slug: attributes.table_from.split('#')[0],
+                            deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        })
                         const relationField = await Field.findOne({
                             relation_id: attributes.table_from.split('#')[1],
                             table_id: relationFieldTable.id
                         })
-                        // console.log("rel table::", relationFieldTable)
-                        // console.log("field:::", relationField);
+                        console.log("rel table::", relationFieldTable)
+                        console.log("field:::", relationField);
                         if (!relationField || !relationFieldTable) {
-                            // console.log("relation field not found")
+                            console.log("relation field not found")
                             res[field.slug] = 0
                             continue
                         }
-                        const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                        }
                         let matchParams = {
                             [matchField]: { '$eq': res.guid },
                             ...filters
@@ -1383,9 +1338,6 @@ let objectBuilder = {
                                 isChanged = true
                             }
                             res[field.slug] = resultFormula[0].res
-                        } else {
-                            res[field.slug] = 0
-                            isChanged = true
                         }
                     }
                 } else {
@@ -1402,7 +1354,9 @@ let objectBuilder = {
                 updatedObjects.push(res)
             }
         }
-        // console.timeEnd("TIME_LOGGING:::res_of_result")
+        console.log("TEST::::::::::16")
+
+        
         // console.time("TIME_LOGGING:::length")
         if (updatedObjects.length) {
             await objectBuilder.multipleUpdateV2({
@@ -1422,7 +1376,7 @@ let objectBuilder = {
         });
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response }
-    }),
+    }),        
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage
             const mongoConn = await mongoPool.get(req.project_id)

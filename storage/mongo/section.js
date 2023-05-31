@@ -280,7 +280,7 @@ let sectionStore = {
             const Section = mongoConn.models['Section']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-
+            
             let table = {};
             if (data.table_id === "") {
                 // table = await Table.findOne({
@@ -290,10 +290,16 @@ let sectionStore = {
                 data.table_id = table.id;
             }
 
+            let query = {}
+            if(data.table_id) { 
+                query.table_id = data.table_id;
+            }
+            if(data.tab_id) {
+                query.tab_id = data.tab_id;
+            }
+
             const sections = await Section.find(
-                {
-                    table_id: data.table_id,
-                },
+                query,
                 null,
                 {
                     sort: { created_at: -1 }
@@ -438,6 +444,8 @@ let sectionStore = {
                                 originalAttributes["default_values"] = view_of_relation.default_values
                             }
                         }
+                        originalAttributes = JSON.stringify(originalAttributes)
+                        originalAttributes = JSON.parse(originalAttributes)
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)
@@ -470,6 +478,7 @@ let sectionStore = {
         }
 
     })
+    
 };
 
 module.exports = sectionStore;

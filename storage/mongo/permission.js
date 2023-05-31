@@ -249,8 +249,6 @@ let permission = {
 
     }),
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
-        return { project_id: "okokok", data: {} }
-
         console.log("ENTER FUNCTION")
         const mongoConn = await mongoPool.get(req.project_id)
         const Table = mongoConn.models['Table']
@@ -261,7 +259,6 @@ let permission = {
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
-        const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         const View = mongoConn.models['View']

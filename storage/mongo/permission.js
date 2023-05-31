@@ -249,7 +249,7 @@ let permission = {
 
     }),
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
-        return { project_id: "okok", data: {} }
+        return { project_id: "okokok", data: {} }
 
         console.log("ENTER FUNCTION")
         const mongoConn = await mongoPool.get(req.project_id)

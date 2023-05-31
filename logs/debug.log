@@ -14188,3 +14188,59 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-05-31T04:24:31.370Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-05-31T04:24:31.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-31T04:24:31.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs",\n' +
+    '    "database": "abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs",\n' +
+    '    "password": "39Ezx84S0c"\n' +
+    '  },\n' +
+    '  "id": "04090b83-90bf-4117-82d4-8413f80f655e",\n' +
+    '  "project_id": "04090b83-90bf-4117-82d4-8413f80f655e",\n' +
+    '  "path": "k8s/ucode-dev/cc050d7b-c5e9-4718-93fb-662680f2a7e6/9eb5fc50-33cf-4904-b243-d4da09ec3435/44d49763-b1fb-44d0-9ea3-2b704a48086b/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "44d49763-b1fb-44d0-9ea3-2b704a48086b",\n' +
+    '  "environment_id": "e4997123-67ce-4549-a4dc-73a62ca28fcc",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-05-31T04:24:33.509Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs:39Ezx84S0c@65.109.239.69:27017/abdinazaro_9eb5fc5033cf4904b243d4da09ec3435_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-05-31T04:24:33.510Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

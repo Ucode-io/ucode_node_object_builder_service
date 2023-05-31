@@ -249,7 +249,9 @@ let permission = {
 
     }),
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
+        return { project_id: "okokok", data: {} }
 
+        console.log("ENTER FUNCTION")
         const mongoConn = await mongoPool.get(req.project_id)
         const Table = mongoConn.models['Table']
         const App = mongoConn.models['App']
@@ -337,6 +339,7 @@ let permission = {
 
 
         let appsList = []
+        console.log("Apps ", apps.length, apps)
         for (let app of apps) {
 
             let appCopy = app
@@ -356,24 +359,13 @@ let permission = {
             for (let table of (app.tables || [])) {
                 tableIds.push(table.table_id)
             }
-
-            // const tables = await Table.find(
-            //     {
-            //         id: { $in: tableIds },
-            //         deleted_at: "1970-01-01T18:00:00.000+00:00",
-            //     },
-            //     null,
-            //     {
-            //         sort: { created_at: -1 }
-            //     }
-            // );
-
-            const tables = await tableVersion(mongoConn, { id: { $in: tableIds }, deleted_at: "1970-01-01T18:00:00.000+00:00" }, req.version_id, false)
+            console.log("Table ids", tableIds)
+            const tables = await tableVersion(mongoConn, {id: {$in: tableIds}, deleted_at: new Date("1970-01-01T18:00:00.000+00:00")}, req.version_id, false)
 
             if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
             }
-
+            console.log(" Tables ", tables.length, tables);
             let tablesList = []
 
             for (let table of tables) {
@@ -406,7 +398,7 @@ let permission = {
                         is_public: false
                     }
                 }
-
+                console.log("Record permissions ", record_permissions);
                 // NEW
                 const fields = await Field.find({
                     table_id: table.id
@@ -585,14 +577,14 @@ let permission = {
             }
 
             appCopy.tables = tablesList
-
+            console.log(" App info ", appCopy)
             appsList.push(appCopy)
         }
 
         roleCopy.apps = appsList
 
         // console.log('response->', JSON.stringify(roleCopy, null, 2))
-        return { project_id: req.project_id, data: roleCopy }
+        // return { project_id: req.project_id, data: roleCopy }
 
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {

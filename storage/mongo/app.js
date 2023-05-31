@@ -58,6 +58,15 @@ let appStore = {
             const App = mongoConn.models['App']
             const Table = mongoConn.models['Table']
 
+            const appBeforeUpdate = await App.findOne({id: data.id})
+            if(!appBeforeUpdate) {
+                throw Error("App not found")
+            }
+
+            if(appBeforeUpdate.is_system) {
+                throw Error("This app is system app, you can't change system app")
+            }
+
             const app = await App.updateOne(
                 {
                     id: data.id,
@@ -213,6 +222,15 @@ let appStore = {
             const mongoConn = await mongoPool.get(data.project_id)
 
             const App = mongoConn.models['App']
+
+            const appBeforeDelete = await App.findOne({ id: data.id })
+            if(!appBeforeDelete) {
+                throw Error("App not found")
+            }
+
+            if(appBeforeUpdate.is_system) {
+                throw Error("This app is system app, you can't change system app")
+            }
 
             const app = await App.deleteOne({ id: data.id });
 

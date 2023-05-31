@@ -312,7 +312,7 @@ let permission = {
 
             if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
-                return roleCopy
+                // return roleCopy
             }
             console.log(" Tables ", tables.length, tables);
             let tablesList = []

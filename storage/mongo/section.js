@@ -349,7 +349,7 @@ let sectionStore = {
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
                         for (const field of tableFields) {
-                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0] && fieldReq.slug === field.relation_field) {
+                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0] && fieldResp.slug === field.relation_field) {
                                 let autofill = {
                                     field_from: field.autofill_field,
                                     field_to: field.slug,

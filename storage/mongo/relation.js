@@ -463,6 +463,15 @@ let relationStore = {
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
 
+            const relationBefore = await Relation.findOne({id: data.id})
+            if(!relationBefore) {
+                throw Error("Relation not found")
+            }
+
+            if(relationBefore.is_system) {
+                throw Error("This relation is system relation, you can't change it!")
+            }
+
             const relation = await Relation.updateOne(
                 {
                     id: data.id,
@@ -803,6 +812,7 @@ let relationStore = {
                             relations[i].cascading_tree_table_slug,
                         cascading_tree_field_slug:
                             relations[i].cascading_tree_field_slug,
+                        is_system: relations[i].is_system
                     };
                     if (tableTo) {
                         responseRelation["table_to"] = tableTo;
@@ -909,6 +919,14 @@ let relationStore = {
             const Relation = mongoConn.models["Relation"];
 
             const relation = await Relation.findOne({ id: data.id });
+            if(!relation) {
+                throw Error("Relation not found")
+            }
+
+            if(relation.is_system) {
+                throw Error("This relation is system relation, you can't change it!")
+            }
+            
             let table, resp, field = {}
             let tableResp = {}
             let event = {}

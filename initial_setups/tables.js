@@ -190,21 +190,6 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0
       },{
-        "label": "Врачи",
-        "slug": "doctors",
-        "description": "Специалисты",
-        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
-        "show_in_menu": true,
-        "is_changed": false,
-        "icon": "stethoscope.svg",
-        "subtitle_field_slug": "name",
-        "with_increment_id": true,
-        "digit_number": 3,
-        "id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-      },{
         "label": "Файл",
         "slug": "file",
         "description": "Файлы",
@@ -214,6 +199,19 @@ async function createTable() {
         "icon": "file-arrow-down.svg",
         "subtitle_field_slug": "",
         "id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+      },{
+        "label": "Разрешение на приложении",
+        "slug": "app_permission",
+        "description": "Разрешение на приложении",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "file-arrow-down.svg",
+        "subtitle_field_slug": "",
+        "id": "41491588-53f1-4457-ba46-93019363ab88",
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0

@@ -923,6 +923,28 @@ async function createFieldPermission(roleID) {
         "createdAt": new Date(),
         "updatedAt": new Date(),
         "__v": 0
+    },{
+        "field_id": "6f344830-819c-40a3-a255-f11cdb515c2d",
+        "table_slug": "app_permission",
+        "view_permission": true,
+        "edit_permission": true,
+        "role_id": roleID,
+        "label": "ID",
+        "guid": "3bc850eb-ac68-4a5f-9403-33e3b638ce49",
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
+        "__v": 0
+    },{
+        "field_id": "a73fd453-3c21-4ab8-9e21-59d85acd106d",
+        "table_slug": "app_permission",
+        "view_permission": true,
+        "edit_permission": true,
+        "role_id": roleID,
+        "label": "ID",
+        "guid": "3bc850eb-ac68-4a5f-9403-33e3b638ce50",
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
+        "__v": 0
     }]
 
     return fieldPermission

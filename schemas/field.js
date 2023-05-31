@@ -63,6 +63,10 @@ const FieldSchema = mongoose.Schema(
         },
         relation_field: {
             type: String
+        },
+        is_system: {
+            type: Boolean,
+            default: false
         }
     },
     {

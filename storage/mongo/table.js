@@ -1,7 +1,7 @@
 const cfg = require('../../config/index')
 const catchWrapDb = require("../../helper/catchWrapDb");
 const con = require("../../config/kafkaTopics");
-const sendMessageToTopic = require("../../config/kafka");
+// const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
 
@@ -136,7 +136,7 @@ let tableStore = {
             }
 
 
-            await sendMessageToTopic(con.TopicTableUpdeteV1, event)
+            // await sendMessageToTopic(con.TopicTableUpdeteV1, event)
             return table;
         } catch (err) {
             throw err

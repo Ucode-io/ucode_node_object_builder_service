@@ -824,8 +824,8 @@ let permission = {
                     }
                     bulkWriteRecordPermissions.push({
                         updateOne: {
-                            filter,
-                            document,
+                            filter: { guid: table.record_permissions.guid },
+                            update: document,
                             upsert: true
                         }
                     })
@@ -850,17 +850,16 @@ let permission = {
                 for (let field_permission of (table.field_permissions || [])) {
 
                     if (field_permission?.guid) {
-                        let filter = {
-                            guid: field_permission.guid,
-                        }
-                        let documentFieldPermission = {
+                        let document = {
                             view_permission: field_permission.view_permission,
                             edit_permission: field_permission.edit_permission,
                         }
                         bulkWriteFieldPermissions.push({
                             updateOne: {
-                                filter,
-                                documentFieldPermission,
+                                filter: {
+                                    guid: field_permission.guid,
+                                },
+                                update: document,
                                 upsert: true
                             }
                         })
@@ -883,11 +882,10 @@ let permission = {
                 for (let view_permission of (table.view_permissions || [])) {
                     if (view_permission?.guid) {
                         let document = { view_permission: view_permission.view_permission }
-                        let filter = { guid: view_permission.guid }
                         bulkWriteViewPermission.push({
                             updateOne: {
-                                filter,
-                                document,
+                                filter: { guid: view_permission.guid },
+                                update: document,
                                 upsert: true,
                             }
                         })

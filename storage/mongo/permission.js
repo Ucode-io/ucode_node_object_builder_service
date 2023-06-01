@@ -296,8 +296,8 @@ let permission = {
         }
 
 
+        let countViewRelationPermission = 0
         let appsList = []
-        console.log("Apps ", apps.length, apps)
         for (let app of apps) {
 
             let appCopy = {
@@ -308,14 +308,12 @@ let permission = {
             for (let table of (app.tables || [])) {
                 tableIds.push(table.table_id)
             }
-            console.log("Table ids", tableIds)
             const tables = await tableVersion(mongoConn, { id: { $in: tableIds }, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, req.version_id, false)
 
             if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
                 // return roleCopy
             }
-            console.log(" Tables ", tables.length, tables);
             let tablesList = []
 
             for (let table of tables) {
@@ -348,7 +346,6 @@ let permission = {
                         is_public: false
                     }
                 }
-                console.log("Record permissions ", record_permissions);
                 // NEW
                 const fields = await Field.find({
                     table_id: table.id
@@ -459,7 +456,7 @@ let permission = {
                         docViewRelationPermissions.push(viewRelationPermission._doc)
                     }
                 }
-
+                countViewRelationPermission += docViewRelationPermissions?.length
                 tableCopy.view_permissions = docViewRelationPermissions || []
                 const automaticFilters = await AutomaticFilter.find({
                     role_id: req.role_id,
@@ -527,12 +524,11 @@ let permission = {
             }
 
             appCopy.tables = tablesList
-            console.log(" App info ", appCopy)
             appsList.push(appCopy)
         }
 
         roleCopy.apps = appsList
-
+        console.log("count of view permissions:::", countViewRelationPermission);
         // console.log('response->', JSON.stringify(roleCopy, null, 2))
         return { project_id: req.project_id, data: roleCopy }
 
@@ -960,7 +956,6 @@ let permission = {
             }
         }
         for (let view_permission of (viewPermissions || [])) {
-            console.log("view_permission::", view_permission);
             if (view_permission?.guid) {
                 let document = { view_permission: view_permission.view_permission, label: view_permission.label }
                 bulkWriteViewPermission.push({

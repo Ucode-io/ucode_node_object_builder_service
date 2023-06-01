@@ -22,7 +22,6 @@ let formulaFunction = {
         return newValue
     },
     calculateFormulaBackend: async (attributes, matchField, matchParams, project_id) => {
-        console.log("attibites", attributes);
         let groupByWithDollorSign = '$' + matchField
         let sumFieldWithDollowSign = '$' + attributes["sum_field"]
         let aggregateFunction = '$sum';

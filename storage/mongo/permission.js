@@ -297,7 +297,6 @@ let permission = {
 
 
         let appsList = []
-        console.log("Apps ", apps.length, apps)
         for (let app of apps) {
 
             let appCopy = {
@@ -308,14 +307,12 @@ let permission = {
             for (let table of (app.tables || [])) {
                 tableIds.push(table.table_id)
             }
-            console.log("Table ids", tableIds)
             const tables = await tableVersion(mongoConn, { id: { $in: tableIds }, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, req.version_id, false)
 
             if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
                 // return roleCopy
             }
-            console.log(" Tables ", tables.length, tables);
             let tablesList = []
 
             for (let table of tables) {
@@ -348,7 +345,6 @@ let permission = {
                         is_public: false
                     }
                 }
-                console.log("Record permissions ", record_permissions);
                 // NEW
                 const fields = await Field.find({
                     table_id: table.id
@@ -527,7 +523,6 @@ let permission = {
             }
 
             appCopy.tables = tablesList
-            console.log(" App info ", appCopy)
             appsList.push(appCopy)
         }
 
@@ -960,7 +955,6 @@ let permission = {
             }
         }
         for (let view_permission of (viewPermissions || [])) {
-            console.log("view_permission::", view_permission);
             if (view_permission?.guid) {
                 let document = { view_permission: view_permission.view_permission, label: view_permission.label }
                 bulkWriteViewPermission.push({

@@ -954,13 +954,14 @@ let permission = {
                     guid: v4()
                 }
                 bulkWriteFieldPermissions.push({
-                    insertOne: documentFieldPermission
+                    insertOne: new FieldPermission(documentFieldPermission)
                 })
             }
         }
         for (let view_permission of (viewPermissions || [])) {
+            console.log("view_permission::", view_permission);
             if (view_permission?.guid) {
-                let document = { view_permission: view_permission.view_permission }
+                let document = { view_permission: view_permission.view_permission, label: view_permission.label }
                 bulkWriteViewPermission.push({
                     updateOne: {
                         filter: { guid: view_permission.guid },
@@ -979,12 +980,9 @@ let permission = {
                     table_slug: view_permission.table_slug,
                     view_permission: view_permission.view_permission,
                 }
-                bulkWriteViewPermission.push({ insertOne: document })
+                bulkWriteViewPermission.push({ insertOne: { document: document } })
             }
         }
-        console.log("bulkWriteRecordPermissions lenght:::", bulkWriteRecordPermissions.length);
-        console.log("bulkWriteFieldPermissions lenght:::", bulkWriteFieldPermissions.length);
-        console.log("bulkWriteViewPermission lenght:::", bulkWriteViewPermission.length);
         console.log("time before bulk table permission", new Date());
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
         console.log("time after bulk table permission", new Date());

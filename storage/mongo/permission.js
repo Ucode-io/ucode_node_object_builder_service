@@ -927,7 +927,7 @@ let permission = {
 
             }
         }
-        for (let field_permission of fieldPermissions) {
+        for (let field_permission of fieldPermissions || []) {
 
             if (field_permission?.guid) {
                 let document = {
@@ -958,7 +958,7 @@ let permission = {
                 })
             }
         }
-        for (let view_permission of viewPermissions) {
+        for (let view_permission of viewPermissions || []) {
             if (view_permission?.guid) {
                 let document = { view_permission: view_permission.view_permission }
                 bulkWriteViewPermission.push({

@@ -18,6 +18,7 @@ const createSettingLanguage = require("../initial_setups/setting_language");
 const createSettingCurrency = require("../initial_setups/setting_currency");
 const createSettingTimezone = require("../initial_setups/setting_timezone");
 const createAppPermission = require("../initial_setups/appPermission");
+const createMenu = require("../initial_setups/menu");
 
 async function insertCollections(conn, userId, projectId) {
 
@@ -29,7 +30,7 @@ async function insertCollections(conn, userId, projectId) {
     const testLoginID = v4().toString()
     const connectionID = v4().toString()
 
-    
+
     collections = await new Promise((resolve, reject) => {
         let collections = {}
         conn.db.listCollections()
@@ -196,6 +197,14 @@ async function insertCollections(conn, userId, projectId) {
         conn.collection('app_permissions').insertMany(appPermissions, function (err, result) {
             if (err) throw err;
             console.log("Inserted App Permissions :", result.insertedCount)
+        })
+    }
+    if (!collections['object_builder_service.menus']) {
+
+        const menus = await createMenu()
+        conn.collection('object_builder_service.menus').insertMany(menus, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted Default Menus :", result.insertedCount)
         })
     }
 }

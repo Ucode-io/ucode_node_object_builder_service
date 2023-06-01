@@ -393,6 +393,7 @@
 }
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: 'service.field.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-29T11:03:48.812Z',
@@ -4335,52 +4336,94 @@
   message: 'service.section.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T06:38:39.946Z',
+=======
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-05-31T17:54:45.328Z',
+>>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getAll: failed with error: appWithPermission is not defined',
   level: 'error',
   timestamp: '2023-05-18T06:39:14.148Z',
+=======
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
+  level: 'error',
+  timestamp: '2023-05-31T17:55:55.835Z',
+>>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T06:47:43.460Z',
+=======
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
+  level: 'error',
+  timestamp: '2023-05-31T17:57:54.352Z',
+>>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T06:51:27.900Z',
+=======
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-06-01T11:13:38.875Z',
+>>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T06:51:51.468Z',
+=======
+  message: 'service.menu.create: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-01T19:46:26.107Z',
+>>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getAll: failed with error: appWithPermission is not defined',
   level: 'error',
   timestamp: '2023-05-18T06:52:45.069Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-01T20:17:37.160Z',
+>>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T06:58:10.622Z',
+=======
+  message: 'service.menu.update: failed with error: app is not defined',
+  level: 'error',
+  timestamp: '2023-06-01T20:25:59.009Z',
+>>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'mongo connection error Authentication failed.',
   level: 'error',
   timestamp: '2023-05-18T07:14:10.460Z',
@@ -5284,3 +5327,11 @@
       '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
   }
 }
+=======
+  message: 'service.menu.delete: failed with error: app is not defined',
+  level: 'error',
+  timestamp: '2023-06-01T20:30:39.474Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248

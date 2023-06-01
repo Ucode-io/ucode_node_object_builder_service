@@ -34,6 +34,7 @@ const fieldsRelationsService = require("../services/fields_and_relations");
 const settingService = require("../services/setting")
 const tableFolderService = require("../services/table_folder");
 const layoutService = require("../services/layout");
+const menuService = require("../services/menu");
 
 const PROTO_URL =
     __dirname +
@@ -90,6 +91,7 @@ module.exports = async function () {
             server.addService(objectBuilderProto.TableHelpersService.service, tableHelpersService);
             server.addService(objectBuilderProto.FieldAndRelationService.service, fieldsRelationsService);
             server.addService(objectBuilderProto.SettingService.service, settingService);
+            server.addService(objectBuilderProto.MenuService.service, menuService);
 
             server.bindAsync(
                 "0.0.0.0:" + cfg.RPCPort,

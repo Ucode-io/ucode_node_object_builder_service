@@ -800,7 +800,7 @@ let permission = {
         if (!role) {
             throw ErrRoleNotFound
         }
-
+        let fieldPermissions = [], viewPermissions = []
         let automaticFilters = []
         let actionPermissions = []
         let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermission = [];
@@ -846,63 +846,8 @@ let permission = {
                         }
                     })
                 }
-
-                for (let field_permission of (table.field_permissions || [])) {
-
-                    if (field_permission?.guid) {
-                        let document = {
-                            view_permission: field_permission.view_permission,
-                            edit_permission: field_permission.edit_permission,
-                        }
-                        bulkWriteFieldPermissions.push({
-                            updateOne: {
-                                filter: {
-                                    guid: field_permission.guid,
-                                },
-                                update: document,
-                                upsert: true
-                            }
-                        })
-                    } else {
-                        let documentFieldPermission = {
-                            view_permission: field_permission.view_permission,
-                            edit_permission: field_permission.edit_permission,
-                            field_id: field_permission.field_id,
-                            table_slug: table.slug,
-                            role_id: roleId,
-                            label: field_permission.label,
-                            guid: v4()
-                        }
-                        bulkWriteFieldPermissions.push({
-                            insertOne: documentFieldPermission
-                        })
-                    }
-                }
-
-                for (let view_permission of (table.view_permissions || [])) {
-                    if (view_permission?.guid) {
-                        let document = { view_permission: view_permission.view_permission }
-                        bulkWriteViewPermission.push({
-                            updateOne: {
-                                filter: { guid: view_permission.guid },
-                                update: document,
-                                upsert: true,
-                            }
-                        })
-
-                    } else {
-
-                        let document = {
-                            guid: v4(),
-                            label: view_permission.label,
-                            relation_id: view_permission.relation_id,
-                            role_id: roleId,
-                            table_slug: table.slug,
-                            view_permission: view_permission.view_permission,
-                        }
-                        bulkWriteViewPermission.push({ insertOne: document })
-                    }
-                }
+                fieldPermissions = { ...fieldPermissions, ...table.field_permissions }
+                viewPermissions = { ...viewPermissions, ...table.view_permissions }
                 let query = {
                     table_slug: table.slug,
                     role_id: req.data.guid
@@ -982,11 +927,66 @@ let permission = {
 
             }
         }
-        await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
-        await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
-        await ViewPermission.bulkWrite(bulkWriteViewPermission)
-        await AutomaticFilter.insertMany(automaticFilters)
-        await ActionPermission.insertMany(actionPermissions)
+        for (let field_permission of fieldPermissions) {
+
+            if (field_permission?.guid) {
+                let document = {
+                    view_permission: field_permission.view_permission,
+                    edit_permission: field_permission.edit_permission,
+                }
+                bulkWriteFieldPermissions.push({
+                    updateOne: {
+                        filter: {
+                            guid: field_permission.guid,
+                        },
+                        update: document,
+                        upsert: true
+                    }
+                })
+            } else {
+                let documentFieldPermission = {
+                    view_permission: field_permission.view_permission,
+                    edit_permission: field_permission.edit_permission,
+                    field_id: field_permission.field_id,
+                    table_slug: field_permission.table_slug,
+                    role_id: roleId,
+                    label: field_permission.label,
+                    guid: v4()
+                }
+                bulkWriteFieldPermissions.push({
+                    insertOne: documentFieldPermission
+                })
+            }
+        }
+        for (let view_permission of viewPermissions) {
+            if (view_permission?.guid) {
+                let document = { view_permission: view_permission.view_permission }
+                bulkWriteViewPermission.push({
+                    updateOne: {
+                        filter: { guid: view_permission.guid },
+                        update: document,
+                        upsert: true,
+                    }
+                })
+
+            } else {
+
+                let document = {
+                    guid: v4(),
+                    label: view_permission.label,
+                    relation_id: view_permission.relation_id,
+                    role_id: roleId,
+                    table_slug: view_permission.table_slug,
+                    view_permission: view_permission.view_permission,
+                }
+                bulkWriteViewPermission.push({ insertOne: document })
+            }
+        }
+        bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
+        bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
+        bulkWriteViewPermission.length && await ViewPermission.bulkWrite(bulkWriteViewPermission)
+        automaticFilters.length && await AutomaticFilter.insertMany(automaticFilters)
+        actionPermissions.length && await ActionPermission.insertMany(actionPermissions)
 
         return {}
 

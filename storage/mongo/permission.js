@@ -933,6 +933,7 @@ let permission = {
                 let document = {
                     view_permission: field_permission.view_permission,
                     edit_permission: field_permission.edit_permission,
+                    label: field_permission.label
                 }
                 bulkWriteFieldPermissions.push({
                     updateOne: {
@@ -983,6 +984,9 @@ let permission = {
                 bulkWriteViewPermission.push({ insertOne: { document: document } })
             }
         }
+        console.log("bulkWriteRecordPermissions::", bulkWriteRecordPermissions.length)
+        console.log("bulkWriteFieldPermissions::", bulkWriteFieldPermissions.length)
+        console.log("bulkWriteViewPermission::", bulkWriteViewPermission.length)
         console.log("time before bulk table permission", new Date());
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
         console.log("time after bulk table permission", new Date());

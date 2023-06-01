@@ -963,7 +963,7 @@ let permission = {
                 let document = { view_permission: view_permission.view_permission }
                 bulkWriteViewPermission.push({
                     updateOne: {
-                        filter: { guid: view_permission?.guid, relation_id: view_permission.relation_id, role_id: roleId },
+                        filter: { guid: view_permission.guid },
                         update: document,
                         upsert: false,
                     }

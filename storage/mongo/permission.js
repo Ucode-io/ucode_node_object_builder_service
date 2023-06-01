@@ -982,9 +982,16 @@ let permission = {
                 bulkWriteViewPermission.push({ insertOne: document })
             }
         }
+        console.log("bulkWriteRecordPermissions lenght:::", bulkWriteRecordPermissions.length);
+        console.log("bulkWriteFieldPermissions lenght:::", bulkWriteFieldPermissions.length);
+        console.log("bulkWriteViewPermission lenght:::", bulkWriteViewPermission.length);
+        console.log("time before bulk table permission", new Date());
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
+        console.log("time after bulk table permission", new Date());
         bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
+        console.log("time after bulk field permission", new Date());
         bulkWriteViewPermission.length && await ViewPermission.bulkWrite(bulkWriteViewPermission)
+        console.log("time after view field permission", new Date());
         automaticFilters.length && await AutomaticFilter.insertMany(automaticFilters)
         actionPermissions.length && await ActionPermission.insertMany(actionPermissions)
 

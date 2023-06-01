@@ -846,8 +846,8 @@ let permission = {
                         }
                     })
                 }
-                fieldPermissions = [ ...fieldPermissions, ...table.field_permissions ]
-                viewPermissions = [ ...viewPermissions, ...table.view_permissions ]
+                fieldPermissions = [...fieldPermissions, ...table.field_permissions]
+                viewPermissions = [...viewPermissions, ...table.view_permissions]
                 let query = {
                     table_slug: table.slug,
                     role_id: req.data.guid
@@ -963,7 +963,7 @@ let permission = {
                 let document = { view_permission: view_permission.view_permission }
                 bulkWriteViewPermission.push({
                     updateOne: {
-                        filter: { guid: view_permission.guid },
+                        filter: { guid: view_permission?.guid, relation_id: view_permission.relation_id, role_id: roleId },
                         update: document,
                         upsert: false,
                     }

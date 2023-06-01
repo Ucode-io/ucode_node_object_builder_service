@@ -826,7 +826,7 @@ let permission = {
                         updateOne: {
                             filter: { guid: table.record_permissions.guid },
                             update: document,
-                            upsert: true
+                            upsert: false
                         }
                     })
                 } else {
@@ -940,7 +940,7 @@ let permission = {
                             guid: field_permission.guid,
                         },
                         update: document,
-                        upsert: true
+                        upsert: false
                     }
                 })
             } else {
@@ -965,7 +965,7 @@ let permission = {
                     updateOne: {
                         filter: { guid: view_permission.guid },
                         update: document,
-                        upsert: true,
+                        upsert: false,
                     }
                 })
 

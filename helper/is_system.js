@@ -18,9 +18,9 @@ module.exports = async function (mongoConn) {
             await field.save()
     }
     console.log("Field table is_system true done ✅");
-    console.log("APPS ", initialApps)
-    initialApps = await initialApps()
-    const app = await App.findOneAndUpdate({id: initialApps[0]?.id}, {is_system: true})
+    console.log("APPS ", await initialApps)
+    let iApps = initialApps
+    const app = await App.findOneAndUpdate({id: iApps[0]?.id}, {is_system: true})
     console.log("Авторизация app is_system true done ✅");
 
     let initial_table_ids = (await initialTables()).map(el => el.id)

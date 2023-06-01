@@ -1,18 +1,18 @@
-require('dotenv').config({ path: '/app/.env' });
-require("dotenv").config({ path: "./.env" })
+const dotenv = require('dotenv')
 const projectStorage = require('./storage/mongo/project')
 const config = require('./config/index')
-// const mongooseConnection = require("./config/mongooseConnection");
-// @TODO:: add collection Delete Interval function for resources
-// const collectionDeleteInterval = require("./helper/collectionDeleteInterval"); 
 const grpcConnection = require("./config/grpcConnection");
-const kafka = require("./config/kafka");
 const logger = require("./config/logger");
+
+if (dotenv.config({ path: '/app/.env' }).error !== undefined) {
+    if (dotenv.config({ path: './.env' }).error !== undefined) {
+        console.log("error while load .env file")
+    }
+}
 
 (async function () {
     try {
         await grpcConnection()
-
     } catch (err) {
         throw err
     }
@@ -28,22 +28,17 @@ const logger = require("./config/logger");
     try {
         logger.info(`auto connecting to resources`);
 
-        await projectStorage.autoConnect(
-            {
-                request: {
-                    k8s_namespace: config.k8s_namespace
-                }
-            },
-            (code, result) => {
-                logger.info(`connected to resources ${code} - ${result}`);
+        await projectStorage.reconnect({
+            project_id: "4ef62259-adf8-4066-b0e6-16e3cb47241b",
+            credentials: {
+                host: "65.109.239.69",
+                port: 30027,
+                database: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
+                username: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
+                password: "bLjkGFjiva"
             }
-        )
-        
-        logger.info(`connected successfully done!!!`);
-
+        })
     } catch (err) {
         logger.info(`auto connecting to resources failed: ${err}`);
     }
-
-
 })();

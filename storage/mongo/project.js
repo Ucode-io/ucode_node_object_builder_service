@@ -134,7 +134,7 @@ let projectStore = {
                         mongoDBConn.model('App', require('../../schemas/app'))
                         await objectBuilder(false, data.project_id)
                         await initialTableFolder({project_id: data.project_id})
-                        console.log("Object builder has successfully runned for", data.project_id);
+                        console.log("Object builder has successfully run for", data.project_id);
                         resolve()
                     });
 
@@ -207,7 +207,7 @@ let projectStore = {
             try {
                 await projectStore.reconnect(it)
             } catch (err) {
-                logger.info(`autoconnecting to resources failed: ${err}`);
+                logger.info(`auto connecting to resources failed: ${err}`);
             }
         }
 

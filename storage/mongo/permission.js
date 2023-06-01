@@ -264,6 +264,7 @@ let permission = {
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
+        const ViewRelation = mongoConn.models['ViewRelation']
         const View = mongoConn.models['View']
 
 
@@ -296,7 +297,7 @@ let permission = {
         }
 
 
-        let countViewRelationPermission = 0
+        let countViewRelationPermission = 0, countRelation = 0, countExistsPermission = 0
         let appsList = []
         for (let app of apps) {
 
@@ -306,7 +307,9 @@ let permission = {
 
             let tableIds = []
             for (let table of (app.tables || [])) {
-                tableIds.push(table.table_id)
+                if (table.is_own_table) {
+                    tableIds.push(table.table_id)
+                }
             }
             const tables = await tableVersion(mongoConn, { id: { $in: tableIds }, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, req.version_id, false)
 
@@ -403,61 +406,62 @@ let permission = {
                     null,
                     { sort: { createdAt: -1 } }
                 );
-                const relations = await Relation.find({
-                    $or: [
-                        {
-                            type: "Many2Many",
-                            $or: [
-                                { table_to: table.slug },
-                                { table_from: table.slug },
-                            ]
-                        },
-                        {
-                            type: { $ne: "Many2Many" },
-                            table_to: table.slug
-                        }
-                    ]
-                }).lean()
-                let relationIdsObject = [], relationIds = []
-                relations.forEach(element => {
-                    relationIdsObject.push({ relation_id: element.id })
-                    relationIds.push(element.id)
-                })
-                let relationObject = {};
-                relations.map(el => relationObject[el.id] = { table_from: el.table_from, table_to: el.table_to })
-                let views = []
-                if (relationIds.length) {
-                    views = await View.find({
-                        relation_table_slug: table.slug,
-                        relation_id: { $in: relationIds }
-                    }).lean()
+                if (viewRelationPermissions.length) {
+                    countExistsPermission += viewRelationPermissions.length
                 }
-                let viewObject = {};
-                views.map(el => viewObject[el.relation_id] = el.name)
+                let viewRelation = await ViewRelation.findOne({ table_slug: table.slug })
+                let relationIdsFromViewRelation = []
+                if (viewRelation && viewRelation.relations && viewRelation.relations.length) {
+                    viewRelation.relations.forEach(el => { relationIdsFromViewRelation.push(el.relation_id) })
+                }
 
-                let viewRelationPermissionsIds = []
-                viewRelationPermissions.forEach(element => {
-                    viewRelationPermissionsIds.push(element.relation_id)
-                })
-                let docViewRelationPermissions = []
-                let noViewRelationPermission = relationIdsObject.filter(obj => !viewRelationPermissionsIds.includes(obj.relation_id))
-                viewRelationPermissions = viewRelationPermissions.concat(noViewRelationPermission)
-                for (const viewRelationPermission of viewRelationPermissions) {
-                    let view = viewObject[viewRelationPermission.relation_id]
-                    let relation = relationObject[viewRelationPermission.relation_id]
-                    if (!viewRelationPermission.guid) {
-                        viewRelationPermission.role_id = req.role_id
-                        viewRelationPermission.table_slug = table.slug
-                        viewRelationPermission.view_permission = false
-                        viewRelationPermission.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
-                        docViewRelationPermissions.push(viewRelationPermission)
-                    } else {
-                        viewRelationPermission._doc.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
-                        docViewRelationPermissions.push(viewRelationPermission._doc)
+                if (relationIdsFromViewRelation.length) {
+                    countRelation += relationIdsFromViewRelation.length
+                    const relations = await Relation.find({ id: { $in: relationIdsFromViewRelation } }).lean()
+                    let relationIdsObject = [], relationIds = []
+                    if (relations && relations.length) {
+                        relations.forEach(element => {
+                            relationIdsObject.push({ relation_id: element.id })
+                            relationIds.push(element.id)
+                        })
+                        let relationObject = {};
+                        relations.map(el => relationObject[el.id] = { table_from: el.table_from, table_to: el.table_to })
+                        let views = []
+                        if (relationIds.length) {
+                            views = await View.find({
+                                relation_table_slug: table.slug,
+                                relation_id: { $in: relationIds }
+                            }).lean()
+                        }
+                        let viewObject = {};
+                        views.map(el => viewObject[el.relation_id] = el.name)
+
+                        let viewRelationPermissionsIds = []
+                        viewRelationPermissions.forEach(element => {
+                            viewRelationPermissionsIds.push(element.relation_id)
+                        })
+                        let docViewRelationPermissions = []
+                        let noViewRelationPermission = relationIdsObject.filter(obj => !viewRelationPermissionsIds.includes(obj.relation_id))
+                        viewRelationPermissions = viewRelationPermissions.concat(noViewRelationPermission)
+                        for (const viewRelationPermission of viewRelationPermissions) {
+                            let view = viewObject[viewRelationPermission.relation_id]
+                            let relation = relationObject[viewRelationPermission.relation_id]
+                            if (!viewRelationPermission.guid) {
+                                viewRelationPermission.role_id = req.role_id
+                                viewRelationPermission.table_slug = table.slug
+                                viewRelationPermission.view_permission = false
+                                viewRelationPermission.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                                docViewRelationPermissions.push(viewRelationPermission)
+                            } else {
+                                viewRelationPermission._doc.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
+                                docViewRelationPermissions.push(viewRelationPermission._doc)
+                            }
+                        }
+                        countViewRelationPermission += docViewRelationPermissions?.length
+                        tableCopy.view_permissions = docViewRelationPermissions || []
                     }
                 }
-                countViewRelationPermission += docViewRelationPermissions?.length
-                tableCopy.view_permissions = docViewRelationPermissions || []
+
                 const automaticFilters = await AutomaticFilter.find({
                     role_id: req.role_id,
                     table_slug: table.slug,
@@ -529,6 +533,8 @@ let permission = {
 
         roleCopy.apps = appsList
         console.log("count of view permissions:::", countViewRelationPermission);
+        console.log("count of relation:::", countRelation);
+        console.log("count of exists permission:::", countExistsPermission);
         // console.log('response->', JSON.stringify(roleCopy, null, 2))
         return { project_id: req.project_id, data: roleCopy }
 

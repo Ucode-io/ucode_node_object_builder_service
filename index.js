@@ -32,12 +32,11 @@ const logger = require("./config/logger");
         //     credentials: {
         //         host: "142.93.164.37",
         //         port: 27017,
-        //         database: "autoservice_autoservice_object_builder_service",
-        //         username: "autoservice_autoservice_object_builder_service",
-        //         password: "q6viL9SDOv"
+        //         database: "rizo-company_rizo-company_object_builder_service",
+        //         username: "rizo-company_rizo-company_object_builder_service",
+        //         password: "uEzqO8YsIt"
         //     }
         // })
-
 
         await projectStorage.autoConnect(
             {

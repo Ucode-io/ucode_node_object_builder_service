@@ -4698,3 +4698,425 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T11:07:22.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T11:07:22.051Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "autoservice_autoservice_object_builder_service",\n' +
+    '    "username": "autoservice_autoservice_object_builder_service",\n' +
+    '    "password": "q6viL9SDOv"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-01T11:07:22.051Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-01T11:07:22.051Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T11:07:52.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T11:07:52.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "autoservice_autoservice_object_builder_service",\n' +
+    '    "username": "autoservice_autoservice_object_builder_service",\n' +
+    '    "password": "q6viL9SDOv"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-01T11:07:52.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-01T11:07:52.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-01T11:07:53.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T11:11:15.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T11:11:15.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "autoservice_autoservice_object_builder_service",\n' +
+    '    "username": "autoservice_autoservice_object_builder_service",\n' +
+    '    "password": "q6viL9SDOv"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-01T11:11:15.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-01T11:11:15.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-01T11:11:16.263Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-01T11:11:45.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-01T11:11:45.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-06-01T11:13:38.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T11:19:11.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T11:19:11.569Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "username": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "password": "uEzqO8YsIt"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-01T11:19:11.569Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-01T11:19:11.569Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-01T11:19:12.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-01T11:23:39.890Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-01T11:23:39.897Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T11:34:12.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T11:34:12.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "username": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "password": "uEzqO8YsIt"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-01T11:34:12.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-01T11:34:12.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-01T11:34:12.846Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-01T11:38:54.067Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-01T11:38:54.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T11:56:17.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T11:56:17.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "username": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "password": "uEzqO8YsIt"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-01T11:56:17.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-01T11:56:17.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-01T11:56:17.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-01T12:00:51.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-01T12:00:51.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T12:18:52.167Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T12:18:52.169Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "username": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "password": "uEzqO8YsIt"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-01T12:18:52.170Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-01T12:18:52.170Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-01T12:18:52.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T12:23:16.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T12:23:16.874Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "username": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "password": "uEzqO8YsIt"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-01T12:23:16.874Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-01T12:23:16.874Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-01T12:23:17.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-01T12:27:48.608Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-01T12:27:48.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -846,8 +846,8 @@ let permission = {
                         }
                     })
                 }
-                fieldPermissions = [ ...fieldPermissions, ...table.field_permissions ]
-                viewPermissions = [ ...viewPermissions, ...table.view_permissions ]
+                fieldPermissions = [...fieldPermissions, ...table.field_permissions]
+                viewPermissions = [...viewPermissions, ...table.view_permissions]
                 let query = {
                     table_slug: table.slug,
                     role_id: req.data.guid

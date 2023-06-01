@@ -398,3 +398,31 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.menu.create: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-01T19:46:26.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-01T20:17:37.160Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.update: failed with error: app is not defined',
+  level: 'error',
+  timestamp: '2023-06-01T20:25:59.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.delete: failed with error: app is not defined',
+  level: 'error',
+  timestamp: '2023-06-01T20:30:39.474Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

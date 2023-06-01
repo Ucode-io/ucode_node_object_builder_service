@@ -29,6 +29,9 @@ const AppSchema = mongoose.Schema(
         //     type: String,
         //     required: [true, "commit_guid is required"],
         // },
+        is_system: {
+            type: Boolean,
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

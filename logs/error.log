@@ -5170,7 +5170,11 @@
 {
   message: 'Error while auto connecting',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-31T10:02:26.580Z',
+=======
+  timestamp: '2023-05-31T12:18:39.321Z',
+>>>>>>> 8e23a885fb2aa4ce6c73e87ebcf45de6239564dd
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',

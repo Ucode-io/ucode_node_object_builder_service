@@ -47,6 +47,9 @@ const TableSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
+        is_system: {
+            type: Boolean,
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -125,13 +125,13 @@ let projectStore = {
                     mongoDBConn.once("open", async function () {
                         // await insertCollectioinitialTableFolderns(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
-                        mongoDBConn.model('Field', require('../../schemas/field'))
                         await isSystemChecker(mongoDBConn)
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))
                         mongoDBConn.model('Tab', require('../../schemas/tab'))
                         mongoDBConn.model('Layout', require('../../schemas/layouts'))
+                        mongoDBConn.model('App', require('../../schemas/app'))
                         await objectBuilder(false, data.project_id)
                         await initialTableFolder({project_id: data.project_id})
                         console.log("Object builder has successfully runned for", data.project_id);

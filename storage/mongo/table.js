@@ -87,7 +87,15 @@ let tableStore = {
 
             data.is_changed = true
 
-            let del_payload = {id: data.id, version_ids: []}
+            let tableBefore = await TableHistory.findOne({id: data.id})
+            if(!tableBefore) {
+                throw Error("Table not found")
+            }
+
+            if(tableBefore.is_system) {
+                throw Error("This table is system table, you can't change table")
+            }
+
             let tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id,
             })
@@ -234,7 +242,7 @@ let tableStore = {
                     }
                 }
             }
-            console.log(":::::::::::::::::::: test 1", table)
+           
             return table
         } catch (err) {
             throw err
@@ -245,16 +253,23 @@ let tableStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const TableHistory = mongoConn.models['Table.history']
+            const TableVersion = mongoConn.models['Table.version']
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
 
-            let payload = {id: data.id, version_ids: []}
+            let payload = {id: data.id}
+            let table = null
             if(data.version_id) {
-                payload.version_ids = { $in: [data.version_id] }
+                payload.version_id = data.version_id
+                table = await TableVersion.findOne(payload)
+            } else {
+                table = await Table.findOne(payload)
             }
-            const table = await Table.findOne(payload)
             if(!table) throw new Error("Table not found with given parameters")
+            if(table.is_system) {
+                throw Error("This table is system table, you can't change table")
+            }
             if(table) {
                 let payload = {}
                 
@@ -269,14 +284,26 @@ let tableStore = {
                 table.commit_guid = history_resp.guid
                 await table.save()
             }
-            const resp = await Table.updateOne(
-                payload,
-                {
-                    $set: {
-                        deleted_at: Date.now(),
+            let resp = {}
+            if(data.version_id) {
+                resp = await TableVersion.updateOne(
+                    payload,
+                    {
+                        $set: {
+                            deleted_at: Date.now(),
+                        }
                     }
-                }
-            );
+                );
+            } else {
+                resp = await Table.updateOne(
+                    payload,
+                    {
+                        $set: {
+                            deleted_at: Date.now(),
+                        }
+                    }
+                );
+            }
 
             const getRelations = await Relation.find({
                 $or: [

@@ -15780,14 +15780,22 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-05-31T10:02:26.545Z',
+=======
+  timestamp: '2023-05-31T12:18:39.228Z',
+>>>>>>> 8e23a885fb2aa4ce6c73e87ebcf45de6239564dd
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-05-31T10:02:26.548Z',
+=======
+  timestamp: '2023-05-31T12:18:39.236Z',
+>>>>>>> 8e23a885fb2aa4ce6c73e87ebcf45de6239564dd
   label: 'object_builder_service',
   metadata: {}
 }
@@ -15798,14 +15806,22 @@
     '  }\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-05-31T10:02:26.548Z',
+=======
+  timestamp: '2023-05-31T12:18:39.237Z',
+>>>>>>> 8e23a885fb2aa4ce6c73e87ebcf45de6239564dd
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Error while auto connecting',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-31T10:02:26.580Z',
+=======
+  timestamp: '2023-05-31T12:18:39.321Z',
+>>>>>>> 8e23a885fb2aa4ce6c73e87ebcf45de6239564dd
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',
@@ -15825,7 +15841,90 @@
 {
   message: 'autoconnecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-05-31T10:02:26.582Z',
+=======
+  timestamp: '2023-05-31T12:18:39.327Z',
+>>>>>>> 8e23a885fb2aa4ce6c73e87ebcf45de6239564dd
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T10:25:14.918Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T10:25:14.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-01T10:25:14.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-01T10:26:46.278Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-01T10:26:46.280Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-01T10:26:46.281Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-01T10:26:46.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-06-01T10:26:46.726Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-01T10:27:12.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-01T10:27:12.553Z',
   label: 'object_builder_service',
   metadata: {}
 }

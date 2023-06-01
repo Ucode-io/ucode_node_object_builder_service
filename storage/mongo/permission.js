@@ -296,6 +296,7 @@ let permission = {
         }
 
 
+        let countViewRelationPermission = 0
         let appsList = []
         for (let app of apps) {
 
@@ -455,7 +456,7 @@ let permission = {
                         docViewRelationPermissions.push(viewRelationPermission._doc)
                     }
                 }
-
+                countViewRelationPermission += docViewRelationPermissions?.length
                 tableCopy.view_permissions = docViewRelationPermissions || []
                 const automaticFilters = await AutomaticFilter.find({
                     role_id: req.role_id,
@@ -527,7 +528,7 @@ let permission = {
         }
 
         roleCopy.apps = appsList
-
+        console.log("count of view permissions:::", countViewRelationPermission);
         // console.log('response->', JSON.stringify(roleCopy, null, 2))
         return { project_id: req.project_id, data: roleCopy }
 

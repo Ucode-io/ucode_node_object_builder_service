@@ -5231,3 +5231,56 @@
     }
   }
 }
+{
+  message: 'Server selection timed out after 30000 ms',
+  level: 'error',
+  timestamp: '2023-06-01T13:49:29.178Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '65.109.239.69:30027' => ServerDescription {
+          address: '65.109.239.69:30027',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 14179638,
+          lastWriteDate: 0,
+          error: null,
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: Server selection timed out after 30000 ms\n' +
+      '    at Connection.openUri (/home/abdinazarov/udevs/UCODE_PROD/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/abdinazarov/udevs/UCODE_PROD/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/abdinazarov/udevs/UCODE_PROD/ucode_node_object_builder_service/config/mongoConn.js:43:33)\n' +
+      '    at /home/abdinazarov/udevs/UCODE_PROD/ucode_node_object_builder_service/storage/mongo/project.js:113:39\n' +
+      '    at Object.reconnect (/home/abdinazarov/udevs/UCODE_PROD/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/abdinazarov/udevs/UCODE_PROD/ucode_node_object_builder_service/index.js:31:30\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+  }
+}

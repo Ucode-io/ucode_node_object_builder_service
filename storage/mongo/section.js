@@ -75,8 +75,8 @@ let sectionStore = {
             }
 
             const resp = await Table.updateOne({
-                    id: data.table_id,
-                },
+                id: data.table_id,
+            },
                 {
                     $set: {
                         is_changed: true
@@ -104,7 +104,7 @@ let sectionStore = {
                 // const table = await Table.findOne({
                 //     id: data.table_id,
                 // })
-                const table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true)
+                const table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
                 data.table_slug = table.slug
             }
             let viewRelationReq = {}
@@ -129,7 +129,7 @@ let sectionStore = {
             const roles = await roleTable?.models.find()
             console.log("TEST::::::::3", roles)
             for (const role of roles) {
-                let view_relations = data.view_relations? data.view_relations : []
+                let view_relations = data.view_relations ? data.view_relations : []
                 console.log("TEST::::::::4", view_relations)
                 for (const relation of view_relations) {
                     let is_exist_view = await viewRelationPermissionTable?.models.findOne({
@@ -189,7 +189,7 @@ let sectionStore = {
                 // table = await Table.findOne({
                 //     slug: data.table_id
                 // });
-                table = await tableVersion(mongoConn, {slug: data.table_id}, data.version_id, true)
+                table = await tableVersion(mongoConn, { slug: data.table_id }, data.version_id, true)
                 data.table_slug = table.slug;
             }
             let query = {
@@ -231,7 +231,7 @@ let sectionStore = {
                 // table = await Table.findOne({
                 //     id: data.table_id
                 // });
-                table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true);
+                table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true);
                 data.table_slug = table.slug;
             }
             let resp = {}
@@ -286,9 +286,11 @@ let sectionStore = {
                 // table = await Table.findOne({
                 //     slug: data.table_slug,
                 // });
-                table = await tableVersion(mongoConn, {slug: data.table_slug}, data.version_id, true);
+                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
                 data.table_id = table.id;
             }
+            console.log("table id:::: " + table?.id);
+            console.log("table:::: " + table);
 
             let query = {}
             if(data.table_id) { 
@@ -305,6 +307,7 @@ let sectionStore = {
                     sort: { created_at: -1 }
                 }
             );
+            console.log("length: " + sections.length);
             let sectionsResponse = []
             for (const section of sections) {
                 let fieldsRes = [], fieldsWithPermissions = []
@@ -386,7 +389,7 @@ let sectionStore = {
                                     //         __v: 0
                                     //     }
                                     // )
-                                    const dynamicTableInfo = await tableVersion(mongoConn, {slug: dynamic_table.table_slug}, data.version_id, true)
+                                    const dynamicTableInfo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
                                     dynamicTableToAttribute = dynamic_table
                                     dynamicTableToAttribute["table"] = dynamicTableInfo._doc
                                     viewFieldsInDynamicTable = []
@@ -429,7 +432,7 @@ let sectionStore = {
                                 }
                             }
                         } else {
-                             originalAttributes = {
+                            originalAttributes = {
                                 autofill: autofillFields,
                                 view_fields: fieldAsAttribute,
                                 auto_filters: relation?.auto_filters,

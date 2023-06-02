@@ -1,5 +1,5 @@
 let initialFields = require("../initial_setups/field")
-let initialApps = require("../initial_setups/app")
+let { createApp } = require("../initial_setups/app")
 let initialTables = require("../initial_setups/tables")
 let initialRelations = require("../initial_setups/relation")
 
@@ -18,8 +18,8 @@ module.exports = async function (mongoConn) {
             await field.save()
     }
     console.log("Field table is_system true done ✅");
-
-    initialApps = await initialApps()
+    console.log("APPS ", createApp)
+    let initialApps = await createApp()
     const app = await App.findOneAndUpdate({id: initialApps[0]?.id}, {is_system: true})
     console.log("Авторизация app is_system true done ✅");
 
@@ -41,5 +41,5 @@ module.exports = async function (mongoConn) {
             await relation.save()
         }
     }
-    console.log("Relation table is_system true done ✅");
+    console.log("Relation table is_system true done ✅✅");
 }

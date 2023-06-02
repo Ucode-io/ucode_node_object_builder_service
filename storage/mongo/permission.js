@@ -15,6 +15,7 @@ const App = require('./app')
 const Table = require('./table');
 const { limit } = require("../../config/index");
 const { ta, el } = require("date-fns/locale");
+const { bulkWrite } = require("../../models/relation");
 
 let permission = {
     upsertPermissionsByAppId: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertPermissionsByAppId`, async (req) => {
@@ -249,7 +250,9 @@ let permission = {
 
     }),
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
+        // return { project_id: "okok", data: {} }
 
+        console.log("ENTER FUNCTION")
         const mongoConn = await mongoPool.get(req.project_id)
         const Table = mongoConn.models['Table']
         const App = mongoConn.models['App']
@@ -262,6 +265,7 @@ let permission = {
         const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
+        const ViewRelation = mongoConn.models['ViewRelation']
         const View = mongoConn.models['View']
 
 
@@ -336,6 +340,7 @@ let permission = {
         }
 
 
+        let countViewRelationPermission = 0, countRelation = 0, countExistsPermission = 0
         let appsList = []
         for (let app of apps) {
 
@@ -354,7 +359,9 @@ let permission = {
 
             let tableIds = []
             for (let table of (app.tables || [])) {
-                tableIds.push(table.table_id)
+                if (table.is_own_table) {
+                    tableIds.push(table.table_id)
+                }
             }
 
             // const tables = await Table.find(
@@ -373,7 +380,6 @@ let permission = {
             if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
             }
-
             let tablesList = []
 
             for (let table of tables) {
@@ -406,7 +412,6 @@ let permission = {
                         is_public: false
                     }
                 }
-
                 // NEW
                 const fields = await Field.find({
                     table_id: table.id
@@ -518,7 +523,6 @@ let permission = {
                     }
                 }
 
-                tableCopy.view_permissions = docViewRelationPermissions || []
                 const automaticFilters = await AutomaticFilter.find({
                     role_id: req.role_id,
                     table_slug: table.slug,
@@ -585,12 +589,13 @@ let permission = {
             }
 
             appCopy.tables = tablesList
-
             appsList.push(appCopy)
         }
 
         roleCopy.apps = appsList
-
+        console.log("count of view permissions:::", countViewRelationPermission);
+        console.log("count of relation:::", countRelation);
+        console.log("count of exists permission:::", countExistsPermission);
         // console.log('response->', JSON.stringify(roleCopy, null, 2))
         return { project_id: req.project_id, data: roleCopy }
 
@@ -852,6 +857,241 @@ let permission = {
         }
         await AutomaticFilter.insertMany(automaticFilters)
         await ActionPermission.insertMany(actionPermissions)
+
+        return {}
+
+    }),
+    updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {
+        const ErrRoleNotFound = new Error('role_id is required')
+        const ErrWhileUpdate = new Error('error while updating')
+
+        const roleId = req?.data?.guid || ''
+        if (!roleId) {
+            throw ErrRoleNotFound
+        }
+
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Table = mongoConn.models['Table']
+        const App = mongoConn.models['App']
+        const Role = (await ObjectBuilder(true, req.project_id))['role'].models
+        const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
+        const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
+        const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
+        const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
+        const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
+
+        let role = await Role.findOneAndUpdate(
+            {
+                guid: req.data.guid
+            },
+            {
+                $set: {
+                    name: req.data.name
+                }
+            },
+            {
+                upsert: false
+            }
+        )
+
+        if (!role) {
+            throw ErrRoleNotFound
+        }
+        let fieldPermissions = [], viewPermissions = []
+        let automaticFilters = []
+        let actionPermissions = []
+        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermission = [];
+        for (let app of req?.data?.apps) {
+            for (let table of app?.tables) {
+                let isHaveCondition = false
+                let lengthKeys = Object.keys(table.automatic_filters) ? Object.keys(table.automatic_filters).length : false
+                if (lengthKeys) {
+                    isHaveCondition = true
+                }
+                if (table?.record_permissions?.guid) {
+                    let filter = { guid: table.record_permissions.guid }
+                    let document = {
+                        read: table.record_permissions.read,
+                        write: table.record_permissions.write,
+                        update: table.record_permissions.update,
+                        delete: table.record_permissions.delete,
+                        is_have_condition: isHaveCondition,
+                        is_public: table.record_permissions.is_public,
+                        role_id: roleId,
+                    }
+                    bulkWriteRecordPermissions.push({
+                        updateOne: {
+                            filter: { guid: table.record_permissions.guid },
+                            update: document,
+                            upsert: false
+                        }
+                    })
+                } else {
+                    let document = {}
+                    document["read"] = "Yes"
+                    document["write"] = "Yes"
+                    document["delete"] = "Yes"
+                    document["update"] = "Yes"
+                    document["is_have_condition"] = false
+                    document["is_public"] = true
+                    document["guid"] = v4()
+                    document["role_id"] = roleId
+                    document["table_slug"] = table.slug
+                    bulkWriteRecordPermissions.push({
+                        insertOne: {
+                            document,
+                        }
+                    })
+                }
+                fieldPermissions = [...fieldPermissions, ...table.field_permissions]
+                viewPermissions = [...viewPermissions, ...table.view_permissions]
+                let query = {
+                    table_slug: table.slug,
+                    role_id: req.data.guid
+                }
+                const count = await AutomaticFilter.countDocuments(query)
+                if (count) {
+                    await AutomaticFilter.deleteMany(query)
+                }
+                let readFilters = table?.automatic_filters?.read || []
+                let writeFilters = table?.automatic_filters?.write || []
+                let updateFilters = table?.automatic_filters?.update || []
+                let deleteFilters = table?.automatic_filters?.delete || []
+                for (let af of readFilters) {
+                    let payload = new AutomaticFilter(af)
+                    payload.guid = v4()
+                    payload.role_id = roleId
+                    payload.table_slug = table.slug
+                    payload.method = "read"
+                    automaticFilters.push(payload)
+                }
+                for (let af of writeFilters) {
+                    let payload = new AutomaticFilter(af)
+                    payload.guid = v4()
+                    payload.role_id = roleId
+                    payload.table_slug = table.slug
+                    payload.method = "write"
+                    automaticFilters.push(payload)
+                }
+                for (let af of updateFilters) {
+                    let payload = new AutomaticFilter(af)
+                    payload.guid = v4()
+                    payload.role_id = roleId
+                    payload.table_slug = table.slug
+                    payload.method = "update"
+                    automaticFilters.push(payload)
+                }
+                for (let af of deleteFilters) {
+                    let payload = new AutomaticFilter(af)
+                    payload.guid = v4()
+                    payload.role_id = roleId
+                    payload.table_slug = table.slug
+                    payload.method = "delete"
+                    automaticFilters.push(payload)
+                }
+
+                // test new logic update action permission
+                const countActionPermission = await ActionPermission.countDocuments(query)
+                if (countActionPermission) {
+                    await ActionPermission.deleteMany(query)
+                }
+                table.action_permissions.forEach(el => {
+                    el.table_slug = table.slug
+                    el.role_id = req.data.guid
+                    let payload = new ActionPermission(el)
+                    actionPermissions.push(payload)
+                })
+                // let permissioncustomEventIds = []
+                // actionPermissions.forEach(actionPermission => {
+                //     permissioncustomEventIds.push(actionPermission.custom_event_id)
+                // })
+                // let docPermissions = []
+                // let noActionPermissions = customEventIdAndLabels.filter(val => !permissioncustomEventIds.includes(val.custom_event_id))
+                // actionPermissions = actionPermissions.concat(noActionPermissions)
+                // for (const actionPermission of actionPermissions) {
+                //     if (!actionPermission.guid) {
+                //         actionPermission.permission = false
+                //         actionPermission.g
+                //         docPermissions.push(actionPermission)
+                //     // } else {
+                //         let customEvent = customEvents.find(obj => obj.id === actionPermission.custom_event_id)
+                //         actionPermission._doc.label = customEvent?.label
+                //         docPermissions.push(actionPermission._doc)
+                //     }
+                // }
+
+
+
+            }
+        }
+        for (let field_permission of (fieldPermissions || [])) {
+
+            if (field_permission?.guid) {
+                let document = {
+                    view_permission: field_permission.view_permission,
+                    edit_permission: field_permission.edit_permission,
+                    label: field_permission.label
+                }
+                bulkWriteFieldPermissions.push({
+                    updateOne: {
+                        filter: {
+                            guid: field_permission.guid,
+                        },
+                        update: document,
+                        upsert: false
+                    }
+                })
+            } else {
+                let documentFieldPermission = {
+                    view_permission: field_permission.view_permission,
+                    edit_permission: field_permission.edit_permission,
+                    field_id: field_permission.field_id,
+                    table_slug: field_permission.table_slug,
+                    role_id: roleId,
+                    label: field_permission.label,
+                    guid: v4()
+                }
+                bulkWriteFieldPermissions.push({
+                    insertOne: new FieldPermission(documentFieldPermission)
+                })
+            }
+        }
+        for (let view_permission of (viewPermissions || [])) {
+            if (view_permission?.guid) {
+                let document = { view_permission: view_permission.view_permission, label: view_permission.label }
+                bulkWriteViewPermission.push({
+                    updateOne: {
+                        filter: { guid: view_permission.guid },
+                        update: document,
+                        upsert: false,
+                    }
+                })
+
+            } else {
+
+                let document = {
+                    guid: v4(),
+                    label: view_permission.label,
+                    relation_id: view_permission.relation_id,
+                    role_id: roleId,
+                    table_slug: view_permission.table_slug,
+                    view_permission: view_permission.view_permission,
+                }
+                bulkWriteViewPermission.push({ insertOne: { document: document } })
+            }
+        }
+        console.log("bulkWriteRecordPermissions::", bulkWriteRecordPermissions.length)
+        console.log("bulkWriteFieldPermissions::", bulkWriteFieldPermissions.length)
+        console.log("bulkWriteViewPermission::", bulkWriteViewPermission.length)
+        console.log("time before bulk table permission", new Date());
+        bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
+        console.log("time after bulk table permission", new Date());
+        bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
+        console.log("time after bulk field permission", new Date());
+        bulkWriteViewPermission.length && await ViewPermission.bulkWrite(bulkWriteViewPermission)
+        console.log("time after view field permission", new Date());
+        automaticFilters.length && await AutomaticFilter.insertMany(automaticFilters)
+        actionPermissions.length && await ActionPermission.insertMany(actionPermissions)
 
         return {}
 

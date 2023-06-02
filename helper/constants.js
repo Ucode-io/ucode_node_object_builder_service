@@ -5,21 +5,22 @@ module.exports = {
     BOOLEAN_TYPES: ["CHECKBOX", "SWITCH"],
     MIXED_TYPES: ["MULTISELECT", "LOOKUPS", "DYNAMIC", "FORMULA", "FORMULA_FRONTEND", "LANGUAGE_TYPE"],
     DYNAMIC_TYPES: ["AUTOFILL"],
+    MENU_TYPES: ["TABLE", "LAYOUT", "FOLDER"],
 
 
     // KAFKA PRODUCER TOPICS
 
 
     // TABLE
-	TopicTableCreateV1: "v1.analytics_service.table.create",
+    TopicTableCreateV1: "v1.analytics_service.table.create",
     TopicTableUpdeteV1: "v1.analytics_service.table.update",
 
-    
+
     // OBJECT
-	TopicObjectCreateV1: "v1.analytics_service.object.create",
+    TopicObjectCreateV1: "v1.analytics_service.object.create",
     TopicObjectDeleteV1: "v1.analytics_service.object.delete",
     TopicObjectUpdateV1: "v1.analytics_service.object.update",
-    
+
     // FIELDS
     TopicFieldCreateV1: "v1.analytics_service.field.create",
     TopicFieldUpdateV1: "v1.analytics_service.field.update",
@@ -34,7 +35,7 @@ module.exports = {
 
 
     // EVENT 
-	TopicEventCreateV1: "v1.event_service.event.create",
+    TopicEventCreateV1: "v1.event_service.event.create",
     TopicEventDeleteV1: "v1.event_service.event.delete",
     TopicEventUpdateV1: "v1.event_service.event.update"
 };

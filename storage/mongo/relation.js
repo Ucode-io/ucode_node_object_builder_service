@@ -502,6 +502,7 @@ let relationStore = {
                 ],
             });
             if (isViewExists) {
+                console.log(" >>>> is data ", data)
                 const view = await View.updateOne(
                     {
                         $and: [

@@ -88,6 +88,9 @@ const ViewSchema = mongoose.Schema(
         },
         attributes: {
             type: mongoose.Schema.Types.Mixed
+        },
+        function_path: {
+            type: String
         }
     },
     {

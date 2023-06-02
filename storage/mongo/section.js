@@ -349,13 +349,14 @@ let sectionStore = {
                                 relation_id: relation.id,
                                 relation_table_slug: data.table_slug
                             })
+                            console.log(">>> view ", view_of_relation);
 
                         }
 
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
                         for (const field of tableFields) {
-                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0] && fieldResp.slug === field.relation_field) {
+                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0] && fieldResp?.slug === field?.relation_field) {
                                 let autofill = {
                                     field_from: field.autofill_field,
                                     field_to: field.slug,
@@ -423,7 +424,8 @@ let sectionStore = {
                                     object_id_from_jwt: relation?.object_id_from_jwt,
                                     cascadings: relation?.cascadings,
                                     cascading_tree_table_slug: relation?.cascading_tree_table_slug,
-                                    cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                                    cascading_tree_field_slug: relation?.cascading_tree_field_slug,
+                                    function_path: view_of_relation?.function_path 
                                 }
                             }
                         } else {
@@ -435,7 +437,8 @@ let sectionStore = {
                                 object_id_from_jwt: relation?.object_id_from_jwt,
                                 cascadings: relation?.cascadings,
                                 cascading_tree_table_slug: relation?.cascading_tree_table_slug,
-                                cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                                cascading_tree_field_slug: relation?.cascading_tree_field_slug,
+                                function_path: view_of_relation?.function_path
                             }
                         }
 

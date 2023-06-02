@@ -526,6 +526,7 @@ let relationStore = {
                             multiple_insert: data.multiple_insert,
                             multiple_insert_field: data.multiple_insert_field,
                             updated_fields: data.updated_fields,
+                            function_path: data.function_path,
                         },
                     }
                 );

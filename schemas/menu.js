@@ -22,6 +22,9 @@ const MenuSchema = mongoose.Schema(
         },
         type: {
             type: String,
+        },
+        icon: {
+            type: String,
         }
     },
     {

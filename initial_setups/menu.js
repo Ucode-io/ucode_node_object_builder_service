@@ -12,7 +12,7 @@ async function createMenu() {
         "type": "FOLDER"
     }, {
         "label": "Избранное",
-        "icon": "user-shield.svg",
+        "icon": "folder.svg",
         "id": "c57eedc3-a954-4262-a0af-376c65b5a282",
         "created_at": new Date(),
         "updated_at": new Date(),

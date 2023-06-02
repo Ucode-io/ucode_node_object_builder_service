@@ -16,6 +16,11 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id)
 
             const Menu = mongoConn.models['object_builder_service.menu']
+            if (data.type === "TABLE") {
+                let table = await tableVersion(mongoConn, { id: single_table.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
+                data.icon = table?.icon
+                data.label = table?.label
+            }
 
             const menu = new Menu(data);
 
@@ -35,6 +40,12 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id)
 
             const Menu = mongoConn.models['object_builder_service.menu']
+
+            if (data.type === "TABLE") {
+                let table = await tableVersion(mongoConn, { id: single_table.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
+                data.icon = table?.icon
+                data.label = table?.label
+            }
 
             const menu = await Menu.updateOne(
                 {
@@ -85,6 +96,26 @@ let menuStore = {
                 )
             } else {
                 pipelines.push({
+                    '$lookup':
+                    {
+                        from: "tables",
+                        localField: "table_id",
+                        foreignField: "id",
+                        as: "table",
+                    },
+                }, {
+                    '$unwind':
+                    /**
+                     * path: Path to the array field.
+                     * includeArrayIndex: Optional name for index.
+                     * preserveNullAndEmptyArrays: Optional
+                     *   toggle to unwind null and empty values.
+                     */
+                    {
+                        path: "$table",
+                        preserveNullAndEmptyArrays: true,
+                    },
+                }, {
                     '$skip': data.offset
                 }, {
                     '$limit': data.limit

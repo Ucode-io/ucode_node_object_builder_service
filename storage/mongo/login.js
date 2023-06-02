@@ -473,6 +473,110 @@ let loginStore = {
 
         return response
     }),
+    loginDataByUserId: catchWrapDbObjectBuilder(`${NAMESPACE}.loginDataByUserId`, async (req) => {
+        console.log("TEST:::::::::1", req.resource_environment_id)
+        console.log("req", JSON.stringify(req, null, 2))
+
+        const userTable = (await ObjectBuilder(true, req.resource_environment_id))["user"]
+        let user = await userTable.models.findOne(
+            {
+                guid: req.user_id,
+                project_id: req.project_id
+            }
+        ).lean()
+
+        let user_found = false
+        console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
+
+        if (!user) {
+            return {
+                user_found: user_found
+            }
+        }
+        console.log("TEST:::::::::3")
+        const clientTypeTable = (await ObjectBuilder(true, req.resource_environment_id))["client_type"]
+
+        const clientType = await clientTypeTable.models.findOne(
+            {
+                guid: user.client_type_id
+            }
+        ).lean()
+        console.log("TEST:::::::::2", JSON.stringify(clientType, null, 2))
+
+        const roleTable = (await ObjectBuilder(true, req.resource_environment_id))["role"]
+
+        const role = await roleTable.models.findOne(
+            {
+                guid: user.role_id
+            }
+        ).lean()
+        console.log("TEST:::::::::4")
+        const clientPlatfromTable = (await ObjectBuilder(true, req.resource_environment_id))["client_platform"]
+
+        const clientPlatform = await clientPlatfromTable.models.findOne(
+            {
+                guid: role?.client_platform_id
+            }
+        ).lean()
+
+        console.log("TEST:::::::::5", JSON.stringify(clientPlatform, null, 2))
+
+        const connectionsTable = (await ObjectBuilder(true, req.resource_environment_id))["connections"]
+
+        const connections = await connectionsTable.models.find(
+            {
+                client_type_id: clientType?.guid
+            }
+        ).lean()
+
+        console.log("TEST:::::::::6", JSON.stringify(connections, null, 2))
+        let clientTypeResp = {}
+        clientTypeResp = clientType
+        clientTypeResp.tables = connections
+
+        const recordPermission = (await ObjectBuilder(true, req.resource_environment_id))["record_permission"]
+
+        const permissions = await recordPermission.models.find(
+            {
+                role_id: user.role_id,
+            }
+        ).lean()
+        console.log("TEST:::::::::7", JSON.stringify(permissions, null, 2))
+
+        let userId;
+        if (user) {
+            user_found = true
+            userId = user.guid
+        }
+        console.log("TEST:::::::::8")
+        const appPermissions = await recordPermission.models.find(
+            {
+                $and: [
+                    {
+                        table_slug: "app"
+                    },
+                    {
+                        role_id: user.role_id
+                    }
+                ]
+            }
+        ).lean()
+
+        //@TODO:: check user can login with this login strategy
+        let response = {
+            user_found: user_found,
+            client_platform: clientPlatform,
+            client_type: clientTypeResp,
+            user_id: userId,
+            app_permissions: appPermissions,
+            role: role,
+            permissions: permissions,
+            login_table_slug: 'user'
+        }
+        console.log("TEST:::::::::10", JSON.stringify(response, null, 2))
+
+        return response
+    })
 }
 
 module.exports = loginStore;

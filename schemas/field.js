@@ -67,6 +67,10 @@ const FieldSchema = mongoose.Schema(
         is_system: {
             type: Boolean,
             default: false
+        },
+        show_label: {
+            type: Boolean,
+            default: true
         }
     },
     {

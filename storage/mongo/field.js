@@ -234,6 +234,10 @@ let fieldStore = {
             if(fieldBeforUpdate.is_system) {
                 throw new Error("This field is system field")
             }
+
+            if(data.is_system) {
+                data.is_system = false
+            }
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 // let autoFillTable = await Table.findOne({
                 //     slug: data.autofill_table,

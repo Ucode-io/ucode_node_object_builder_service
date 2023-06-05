@@ -295,11 +295,6 @@ message V2LoginWithOptionRequest {
     repeated Object tables = 3;
 }
 
-message V2LoginWithOptionRequest {
-    map<string, string> data = 1;
-    string login_strategy = 2;
-}
-
 message V2LoginSuperAdminRes {
     bool user_found = 1;
     string user_id = 2;

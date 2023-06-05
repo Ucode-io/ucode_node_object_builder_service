@@ -37,7 +37,7 @@ deploy-staging:
   stage: deploy
   extends: .deploy_template
   variables:
-    NAMESPACE: test
+    NAMESPACE: ucode-test
     VALUES_FILE: .helm/values-test.yml
     K8SCONFIGJSON: $UCODE_KUBECONFIG
   only:

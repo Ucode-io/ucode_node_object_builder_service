@@ -1,7 +1,7 @@
 {
   message: 'Error while auto connecting',
   level: 'error',
-  timestamp: '2023-06-05T10:03:45.625Z',
+  timestamp: '2023-06-05T11:08:35.008Z',
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',

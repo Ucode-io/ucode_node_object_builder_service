@@ -31,6 +31,9 @@ let fieldStore = {
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             let fieldPermissions = []
             for (const fieldReq of data.fields) {
+                if(fieldReq.is_system) {
+                    fieldReq.is_system = false
+                }
                 if (con.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
                     // let autoFillTable = await Table.findOne({
                     //     slug: fieldReq.autofill_table,
@@ -149,6 +152,9 @@ let fieldStore = {
                     data.attributes = autoFillField.attributes
                 }
             }
+            if(data.is_system) {
+                data.is_system = false
+            }
             const field = new Field(data);
             const response = await field.save();
             const resp = await Table.updateOne({
@@ -220,6 +226,14 @@ let fieldStore = {
                     id: data.id,
                 }
             )
+
+            if(!fieldBeforUpdate) {
+                throw new Error("Field not found")
+            }
+
+            if(fieldBeforUpdate.is_system) {
+                throw new Error("This field is system field")
+            }
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 // let autoFillTable = await Table.findOne({
                 //     slug: data.autofill_table,
@@ -334,7 +348,7 @@ let fieldStore = {
                 }
             ).skip(data.offset)
                 .limit(data.limit);
-
+            
             let many_relation_fields = [];
             if (with_many_relations) {
 
@@ -526,6 +540,12 @@ let fieldStore = {
             const Field = mongoConn.models['Field']
 
             const deletedField = await Field.findOne({ id: data.id })
+            if(!deletedField) {
+                throw new Error("Field not found")
+            }
+            if(deletedField.is_system) {
+                throw new Error("This field is system field")
+            }
             // const table = await Table.findOne({ id: deletedField.table_id,  })
             const table = await tableVersion(mongoConn, {id: deletedField.table_id}, data.version_id, true)
             const field = await Field.deleteOne({ id: data.id });

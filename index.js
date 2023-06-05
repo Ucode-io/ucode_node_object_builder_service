@@ -38,7 +38,6 @@ const logger = require("./config/logger");
                 logger.info(`autoconnected to resources ${code} - ${result}`);
             }
         )
-        
         logger.info(`autoconnected successfully done!!!`);
 
     } catch (err) {

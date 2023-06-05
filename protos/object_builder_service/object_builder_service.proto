@@ -33,4 +33,9 @@ import "table_helpers.proto";
 import "fields_and_relations.proto";
 import "setting.proto";
 import "table_folder.proto";
+<<<<<<< HEAD
 import "layout.proto";
+=======
+import "layout.proto";
+import "menu.proto";
+>>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db

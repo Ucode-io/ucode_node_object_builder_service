@@ -398,6 +398,7 @@
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
+<<<<<<< HEAD
   message: 'mongo connection error Authentication failed.',
   level: 'error',
   timestamp: '2023-05-22T05:53:35.703Z',
@@ -4578,52 +4579,94 @@
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: self.get is not a function',
   level: 'error',
   timestamp: '2023-05-18T08:33:18.560Z',
+=======
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-05-31T17:54:45.328Z',
+>>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: self.get is not a function',
   level: 'error',
   timestamp: '2023-05-18T08:35:02.478Z',
+=======
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
+  level: 'error',
+  timestamp: '2023-05-31T17:55:55.835Z',
+>>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: self.get is not a function',
   level: 'error',
   timestamp: '2023-05-18T08:36:45.154Z',
+=======
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
+  level: 'error',
+  timestamp: '2023-05-31T17:57:54.352Z',
+>>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: self.get is not a function',
   level: 'error',
   timestamp: '2023-05-18T08:37:17.290Z',
+=======
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-06-01T11:13:38.875Z',
+>>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T08:39:59.996Z',
+=======
+  message: 'service.menu.create: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-01T19:46:26.107Z',
+>>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T08:40:05.666Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-01T20:17:37.160Z',
+>>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T08:40:05.760Z',
+=======
+  message: 'service.menu.update: failed with error: app is not defined',
+  level: 'error',
+  timestamp: '2023-06-01T20:25:59.009Z',
+>>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T08:40:05.901Z',
@@ -5145,3 +5188,11 @@
   },
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
+=======
+  message: 'service.menu.delete: failed with error: app is not defined',
+  level: 'error',
+  timestamp: '2023-06-01T20:30:39.474Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db

@@ -22370,3 +22370,541 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-05T10:46:36.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'auto connecting to resources',
+  level: 'info',
+  timestamp: '2023-06-05T10:46:36.862Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4ef62259-adf8-4066-b0e6-16e3cb47241b",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-05T10:46:36.863Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-05T10:46:36.864Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-06-05T10:46:37.398Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-05T10:46:58.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-05T10:46:58.704Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-05T10:46:58.704Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-06-05T10:46:58.760Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-06-05T10:46:58.765Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-05T10:47:48.348Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-05T10:47:48.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-05T10:47:48.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-06-05T10:47:48.405Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-06-05T10:47:48.408Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-05T10:48:59.754Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-05T10:48:59.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-05T10:48:59.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "database": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "password": ""\n' +
+    '  },\n' +
+    '  "id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "project_id": "1a4ff921-26cf-4ed4-9ebb-c9461926b03b",\n' +
+    '  "path": "k8s/ucode-dev/1acd4a4d-9b17-433b-84a6-4dfaa0ab19ad/1a4ff921-26cf-4ed4-9ebb-c9461926b03b/1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c",\n' +
+    '  "environment_id": "eb265897-fb9d-4a74-8bb6-0ecf9549c28d",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:00.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:00.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-05T10:49:00.920Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:511:28)\n' +
+      '    at processIncomingData (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:399:12)\n' +
+      '    at _write (node:internal/streams/writable:340:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:344:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:774:22)\n' +
+      '    at Socket.emit (node:events:511:28)\n' +
+      '    at addChunk (node:internal/streams/readable:332:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:305:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:242:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-06-05T10:49:00.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "meta_admin_3e8f31b98810453d895d3cb31091e29c_p_obj_build_svcs",\n' +
+    '    "database": "meta_admin_3e8f31b98810453d895d3cb31091e29c_p_obj_build_svcs",\n' +
+    '    "password": ""\n' +
+    '  },\n' +
+    '  "id": "7977ef7e-873f-4e89-ade3-22d7ef974203",\n' +
+    '  "project_id": "3e8f31b9-8810-453d-895d-3cb31091e29c",\n' +
+    '  "path": "k8s/ucode-dev/37daa35b-0439-402d-a9f0-03664c1455b5/3e8f31b9-8810-453d-895d-3cb31091e29c/59cd3e3b-3677-427e-b47c-f53c3e8d4804/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "59cd3e3b-3677-427e-b47c-f53c3e8d4804",\n' +
+    '  "environment_id": "d16e652a-2f71-411b-a52a-cd785d74e787",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:00.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://meta_admin_3e8f31b98810453d895d3cb31091e29c_p_obj_build_svcs:@65.109.239.69:30027/meta_admin_3e8f31b98810453d895d3cb31091e29c_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:00.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-05T10:49:01.250Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:511:28)\n' +
+      '    at processIncomingData (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:399:12)\n' +
+      '    at _write (node:internal/streams/writable:340:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:344:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:774:22)\n' +
+      '    at Socket.emit (node:events:511:28)\n' +
+      '    at addChunk (node:internal/streams/readable:332:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:305:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:242:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-06-05T10:49:01.252Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "paypal_adm_21c628db091b4eed9071691ae5a6bcea_p_obj_build_svcs",\n' +
+    '    "database": "paypal_adm_21c628db091b4eed9071691ae5a6bcea_p_obj_build_svcs",\n' +
+    '    "password": ""\n' +
+    '  },\n' +
+    '  "id": "b8a79a94-5db9-437d-8c4b-58f22e1bb1d1",\n' +
+    '  "project_id": "21c628db-091b-4eed-9071-691ae5a6bcea",\n' +
+    '  "path": "k8s/ucode-dev/3c6b95bc-4b9b-43c5-8882-37ff544d402f/21c628db-091b-4eed-9071-691ae5a6bcea/3afed095-1ac2-4554-a513-9baf913f82cb/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "3afed095-1ac2-4554-a513-9baf913f82cb",\n' +
+    '  "environment_id": "265170fd-789f-444e-a9e5-60e6adadd88e",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:01.253Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://paypal_adm_21c628db091b4eed9071691ae5a6bcea_p_obj_build_svcs:@65.109.239.69:30027/paypal_adm_21c628db091b4eed9071691ae5a6bcea_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:01.253Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-05T10:49:01.622Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:511:28)\n' +
+      '    at processIncomingData (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:399:12)\n' +
+      '    at _write (node:internal/streams/writable:340:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:344:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:774:22)\n' +
+      '    at Socket.emit (node:events:511:28)\n' +
+      '    at addChunk (node:internal/streams/readable:332:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:305:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:242:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-06-05T10:49:01.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": ""\n' +
+    '  },\n' +
+    '  "id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "project_id": "62d6f9d4-dd9c-425b-84f6-cb90860967a8",\n' +
+    '  "path": "k8s/ucode-dev/61bd72ca-f847-40f2-85b3-a337873862c3/62d6f9d4-dd9c-425b-84f6-cb90860967a8/1879f037-3e8a-4a10-bebc-f4cfaf5818b5/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "1879f037-3e8a-4a10-bebc-f4cfaf5818b5",\n' +
+    '  "environment_id": "d3177993-55c7-467f-8ae5-278fcbbddf61",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:01.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:01.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-05T10:49:02.006Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:511:28)\n' +
+      '    at processIncomingData (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:399:12)\n' +
+      '    at _write (node:internal/streams/writable:340:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:344:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:774:22)\n' +
+      '    at Socket.emit (node:events:511:28)\n' +
+      '    at addChunk (node:internal/streams/readable:332:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:305:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:242:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-06-05T10:49:02.007Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "meta_70df6c8356ad41c88328a768546a8e61_p_obj_build_svcs",\n' +
+    '    "database": "meta_70df6c8356ad41c88328a768546a8e61_p_obj_build_svcs",\n' +
+    '    "password": ""\n' +
+    '  },\n' +
+    '  "id": "15ded632-92cc-4791-bb8e-e03c61e9edd9",\n' +
+    '  "project_id": "70df6c83-56ad-41c8-8328-a768546a8e61",\n' +
+    '  "path": "k8s/ucode-dev/185b163f-1c5a-41f8-aa92-f03aa47f81ee/70df6c83-56ad-41c8-8328-a768546a8e61/4c2068b3-dbdf-462c-b352-a40868d7e310/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "4c2068b3-dbdf-462c-b352-a40868d7e310",\n' +
+    '  "environment_id": "7b57d781-2a11-493b-9f7a-b8b10c74e881",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:02.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://meta_70df6c8356ad41c88328a768546a8e61_p_obj_build_svcs:@65.109.239.69:30027/meta_70df6c8356ad41c88328a768546a8e61_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:02.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-05T10:49:02.341Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:511:28)\n' +
+      '    at processIncomingData (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:399:12)\n' +
+      '    at _write (node:internal/streams/writable:340:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:344:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:774:22)\n' +
+      '    at Socket.emit (node:events:511:28)\n' +
+      '    at addChunk (node:internal/streams/readable:332:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:305:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:242:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-06-05T10:49:02.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-05T10:49:02.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-05T10:49:02.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.loginWithOtp: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-05T10:54:57.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.loginWithOtp: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-05T10:55:24.935Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.loginWithOtp: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-05T10:55:31.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

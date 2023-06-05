@@ -449,10 +449,7 @@ let sectionStore = {
                         }
                         originalAttributes = JSON.stringify(originalAttributes)
                         originalAttributes = JSON.parse(originalAttributes)
-<<<<<<< HEAD
-=======
 
->>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)

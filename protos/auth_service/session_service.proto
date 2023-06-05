@@ -114,15 +114,7 @@ message LogoutRequest {
 }
 
 message RefreshTokenRequest {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    string refresh_token = 2;
-=======
     string refresh_token = 1;
->>>>>>> ed077df504986d904ff3c4f933d557f0ebea8663
-=======
-    string refresh_token = 1;
->>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
     string role_id = 2;
     string client_type_id = 3;
     string env_id = 4;

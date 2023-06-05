@@ -129,12 +129,9 @@ let projectStore = {
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))
-<<<<<<< HEAD
                         mongoDBConn.model('Tab', require('../../schemas/tab'))
                         mongoDBConn.model('Layout', require('../../schemas/layouts'))
-=======
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
->>>>>>> 27af7f50581119014dd8e3ee48a4b8c3c93da8db
                         await objectBuilder(false, data.project_id)
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })

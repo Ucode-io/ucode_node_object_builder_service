@@ -39,7 +39,7 @@ deploy-staging:
   variables:
     NAMESPACE: ucode-test
     VALUES_FILE: .helm/values-test.yml
-    K8SCONFIGJSON: $UCODE_KUBECONFIG
+    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
   only:
     - staging
 

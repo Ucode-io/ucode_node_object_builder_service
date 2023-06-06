@@ -25,6 +25,9 @@ const MenuSchema = mongoose.Schema(
         },
         icon: {
             type: String,
+        },
+        microfrontend_id: {
+            type: String,
         }
     },
     {

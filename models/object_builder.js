@@ -482,6 +482,7 @@ async function buildModels(is_build = true, project_id) {
             _id: 0,
             __v: 0,
         }).lean()
+        console.log("temp indexes: ", temp)
         // console.log("TEST:::::::::::12")
         tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex});
     }

@@ -27,7 +27,6 @@ let prepareFunction = {
         console.log("project id::", req.project_id);
         // console.log("project id::", data);
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-        console.log("::::::::::::::::::::::::::::::TABLE INFO:::::::::::::::::::::::::::::", tableInfo)
         let tableData = await table.findOne(
             {
                 slug: req.table_slug
@@ -201,7 +200,6 @@ let prepareFunction = {
         event.payload.field_types = field_types
         event.project_id = req.project_id 
 
-        console.log("::::::::::::::::TABLE DATA::::::::::::::::::", data)
 
         return { payload, data, event, appendMany2ManyObjects }
     },

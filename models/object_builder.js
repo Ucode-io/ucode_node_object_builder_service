@@ -182,7 +182,6 @@ async function buildModels(is_build = true, project_id) {
                         }
                     }
                     console.log("check unique: ", field.unique)
-                    console.log("field: ", field)
                     switch (field.unique) {
                         case true:
                             fieldObject[field.slug].unique = true

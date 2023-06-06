@@ -19,6 +19,8 @@ const createSettingCurrency = require("../initial_setups/setting_currency");
 const createSettingTimezone = require("../initial_setups/setting_timezone");
 const createAppPermission = require("../initial_setups/appPermission");
 const createMenu = require("../initial_setups/menu");
+const guessRole = require("../initial_setups/defaultRole")
+const guessClientType = require("../initial_setups/guessClientType")
 
 async function insertCollections(conn, userId, projectId) {
 
@@ -142,7 +144,9 @@ async function insertCollections(conn, userId, projectId) {
     }
 
     if (!collections['record_permissions']) {
-        const recordPermission = await createRecordPermision(roleID)
+        let recordPermission = await createRecordPermision(roleID)
+        let guessRecordPermission = await createRecordPermision(guessRole.id)
+        recordPermission.push(...guessRecordPermission)
         conn.collection('record_permissions').insertMany(recordPermission, function (err, result) {
             if (err) throw err;
             console.log("Inserted Record Permission :", result.insertedCount)
@@ -150,7 +154,9 @@ async function insertCollections(conn, userId, projectId) {
     }
 
     if (!collections['field_permissions']) {
-        const fieldPermissions = await createFieldPermission(roleID)
+        let fieldPermissions = await createFieldPermission(roleID)
+        let guessFieldPermissions = await createFieldPermission(guessRole.id)
+        fieldPermissions.push(...guessFieldPermissions)
         conn.collection('field_permissions').insertMany(fieldPermissions, function (err, result) {
             if (err) throw err;
             console.log("Inserted Field Permissions :", result.insertedCount)
@@ -165,6 +171,7 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted View Permissions :", result.insertedCount)
         })
     }
+
     if (!collections['setting.languages']) {
         console.log("TEST::::::3")
         const settingLanguages = await createSettingLanguage()
@@ -173,7 +180,7 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted Languages :", result.insertedCount)
         })
     }
-    console.log("TEST::::::2")
+    
     if (!collections['setting.currencies']) {
 
         const settingCurrencies = await createSettingCurrency()

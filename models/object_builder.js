@@ -189,7 +189,7 @@ async function buildModels(is_build = true, project_id) {
                                 {
                                     [field.slug]: 1,
                                 },
-                                // {unique: true, dropDups: true, sparse: true},
+                                {unique: true, dropDups: true, sparse: true},
                             )
                             break;
                         case false:
@@ -470,13 +470,7 @@ async function buildModels(is_build = true, project_id) {
         // console.log("TEST:::::::::::11")
 
         for (const index of fieldsIndex) {
-            // temp.index(index);
-            temp.createIndex(index, { unique: true }, function (err, result) {
-                if (err) {
-                  console.error('Error creating unique index:', err);
-                } else {
-                  console.log('Unique index created successfully:', result);
-                }})
+            temp.index(index)
         }
 
         let views = await View.find({

@@ -757,7 +757,7 @@ let objectBuilder = {
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
 
-        console.log("\n\n---> T1\n\n", req)
+        // console.log("\n\n---> T1\n\n", req)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
         // console.log("TEST::::::::::3", tableInfo)
         let keys = Object.keys(params)
@@ -767,7 +767,7 @@ let objectBuilder = {
         // console.log("\n\n---> T2\n\n")
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
-        console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
+        // console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -1321,8 +1321,8 @@ let objectBuilder = {
                             relation_id: attributes.table_from.split('#')[1],
                             table_id: relationFieldTable.id
                         })
-                        console.log("rel table::", relationFieldTable)
-                        console.log("field:::", relationField);
+                        // console.log("rel table::", relationFieldTable)
+                        // console.log("field:::", relationField);
                         if (!relationField || !relationFieldTable) {
                             console.log("relation field not found")
                             res[field.slug] = 0

@@ -759,7 +759,7 @@ let objectBuilder = {
 
         console.log("\n\n---> T1\n\n", req)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-        console.log("TEST::::::::::3", tableInfo)
+        // console.log("TEST::::::::::3", tableInfo)
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields

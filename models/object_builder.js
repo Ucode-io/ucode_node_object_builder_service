@@ -181,16 +181,15 @@ async function buildModels(is_build = true, project_id) {
                             default: _default,
                         }
                     }
-                    // console.log("TEST:::::::::::6")
-                    // checking field uniqueness
+                    console.log("check unique: ", field.unique)
                     switch (field.unique) {
                         case true:
                             fieldObject[field.slug].unique = true
-                            fieldsIndex.push(
+                            fieldsIndex.push(   
                                 {
                                     [field.slug]: 1,
                                 },
-                                {unique: true, dropDups: true, sparse: true},
+                                // {unique: true, dropDups: true, sparse: true},
                             )
                             break;
                         case false:
@@ -203,7 +202,6 @@ async function buildModels(is_build = true, project_id) {
                         default:
                             break;
                     }
-                    // console.log("TEST:::::::::::7")
                 } else {
                     fieldObject = {
                         ...fieldObject,
@@ -216,8 +214,6 @@ async function buildModels(is_build = true, project_id) {
                     }
                 }
                
-                // console.log("TEST:::::::::::8")
-                // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
                 if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS" && field.type != "DYNAMIC") {
                     fieldsModel.push(field._doc) 
                     fieldsIndex.push({[field.slug]: 'text'})
@@ -373,6 +369,7 @@ async function buildModels(is_build = true, project_id) {
                     // we change isReferenced to true in order to avoid adding the same fields twice or more
                 }
             }  
+            console.log("Index fields: ", fieldsIndex)
             isReferenced = true
         }
         
@@ -473,7 +470,13 @@ async function buildModels(is_build = true, project_id) {
         // console.log("TEST:::::::::::11")
 
         for (const index of fieldsIndex) {
-            temp.index(index);
+            // temp.index(index);
+            temp.createIndex(index, { unique: true }, function (err, result) {
+                if (err) {
+                  console.error('Error creating unique index:', err);
+                } else {
+                  console.log('Unique index created successfully:', result);
+                }})
         }
 
         let views = await View.find({
@@ -485,6 +488,7 @@ async function buildModels(is_build = true, project_id) {
             _id: 0,
             __v: 0,
         }).lean()
+        console.log("temp indexes: ", temp)
         // console.log("TEST:::::::::::12")
         tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex});
     }

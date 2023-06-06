@@ -95,15 +95,16 @@ let menuStore = {
                     }
                 )
             } else {
-                pipelines.push({
-                    '$lookup':
+                pipelines.push(
                     {
-                        from: "tables",
-                        localField: "table_id",
-                        foreignField: "id",
-                        as: "table",
-                    },
-                }, {
+                        '$lookup':
+                        {
+                            from: "tables",
+                            localField: "table_id",
+                            foreignField: "id",
+                            as: "table",
+                        },
+                    }, {
                     '$unwind':
                     /**
                      * path: Path to the array field.
@@ -113,6 +114,27 @@ let menuStore = {
                      */
                     {
                         path: "$table",
+                        preserveNullAndEmptyArrays: true,
+                    },
+                },
+                    {
+                        '$lookup':
+                        {
+                            from: "function_service.functions",
+                            localField: "microfrontend_id",
+                            foreignField: "id",
+                            as: "microfrontend",
+                        },
+                    }, {
+                    '$unwind':
+                    /**
+                     * path: Path to the array field.
+                     * includeArrayIndex: Optional name for index.
+                     * preserveNullAndEmptyArrays: Optional
+                     *   toggle to unwind null and empty values.
+                     */
+                    {
+                        path: "$microfrontend",
                         preserveNullAndEmptyArrays: true,
                     },
                 }, {

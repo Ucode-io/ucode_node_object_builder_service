@@ -10,6 +10,7 @@ const logger = require("../../config/logger");
 const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
 const initialMenu = require("../../helper/initialMenu");
+const defaultRoles = require("../../helper/defaultRole")
 
 
 let NAMESPACE = "storage.project";
@@ -136,6 +137,7 @@ let projectStore = {
                         mongoDBConn.model('App', require('../../schemas/app'))
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         await objectBuilder(false, data.project_id)
+                        await defaultRoles(mongoDBConn, data?.project_id)
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);

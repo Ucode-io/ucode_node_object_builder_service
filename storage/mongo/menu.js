@@ -120,7 +120,7 @@ let menuStore = {
                     {
                         '$lookup':
                         {
-                            from: "function_service.function",
+                            from: "function_service.functions",
                             localField: "microfrontend_id",
                             foreignField: "id",
                             as: "microfrontend",

@@ -369,7 +369,7 @@ async function buildModels(is_build = true, project_id) {
                     // we change isReferenced to true in order to avoid adding the same fields twice or more
                 }
             }  
-            console.Log("Index fields: ", fieldsIndex)
+            console.log("Index fields: ", fieldsIndex)
             isReferenced = true
         }
         

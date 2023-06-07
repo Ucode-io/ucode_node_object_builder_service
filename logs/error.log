@@ -5334,6 +5334,7 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
 {
   message: 'Error while auto connecting',
@@ -5539,24 +5540,43 @@
   message: 'service.loginStore.loginWithOtp: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-05T10:54:57.290Z',
+=======
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:51:37.186Z',
+>>>>>>> 2f6efda5caa2c21d2f6765556038e3ec09baa875
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.loginStore.loginWithOtp: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-05T10:55:24.935Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:52:54.653Z',
+>>>>>>> 2f6efda5caa2c21d2f6765556038e3ec09baa875
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.loginStore.loginWithOtp: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-05T10:55:31.406Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:52:55.979Z',
+>>>>>>> 2f6efda5caa2c21d2f6765556038e3ec09baa875
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'Error while auto connecting',
   level: 'error',
   timestamp: '2023-06-06T05:19:07.728Z',
@@ -5743,4 +5763,25 @@
       '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
   },
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:53:16.904Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:53:21.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:53:22.275Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> 2f6efda5caa2c21d2f6765556038e3ec09baa875
 }

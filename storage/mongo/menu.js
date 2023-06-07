@@ -93,11 +93,6 @@ let menuStore = {
                     {
                         '$limit': 1
                     },
-                    {
-                        '$sort': {
-                            'order': 1
-                        }
-                    }
                 )
             } else {
                 pipelines.push(
@@ -149,6 +144,11 @@ let menuStore = {
                 })
             }
             const menus = await Menu.aggregate(pipelines)
+            if (!data.parent_id) {
+                menus[0]?.child_menus.sort(
+                    (p1, p2) =>
+                        (p1.order > p2.order) ? 1 : (p1.order < p2.order) ? -1 : 0)
+            }
 
             const count = await Menu.countDocuments(query);
             return { menus, count };

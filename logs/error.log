@@ -426,3 +426,45 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:51:37.186Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:52:54.653Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:52:55.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:53:16.904Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:53:21.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:53:22.275Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

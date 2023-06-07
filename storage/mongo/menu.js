@@ -199,7 +199,7 @@ let menuStore = {
                 bulkWriteMenus.push({
                     updateOne: {
                         filter: { id: menu.id },
-                        document: { order: i }
+                        update: { order: i }
                     }
                 })
                 i += 1

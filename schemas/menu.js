@@ -28,6 +28,9 @@ const MenuSchema = mongoose.Schema(
         },
         microfrontend_id: {
             type: String,
+        },
+        order: {
+            type: Number,
         }
     },
     {

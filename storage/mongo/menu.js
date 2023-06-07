@@ -92,6 +92,11 @@ let menuStore = {
                     },
                     {
                         '$limit': 1
+                    },
+                    {
+                        '$sort': {
+                            'order': 1
+                        }
                     }
                 )
             } else {
@@ -178,6 +183,29 @@ let menuStore = {
             const menu = await Menu.deleteOne({ id: data.id });
 
             return menu;
+        } catch (err) {
+            throw err
+        }
+    }),
+    updateMenuOrder: catchWrapDb(`${NAMESPACE}.updateMenuOrder`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+
+            const Menu = mongoConn.models['object_builder_service.menu']
+
+            let bulkWriteMenus = []
+            let i = 1
+            for (const menu of data.menus) {
+                bulkWriteMenus.push({
+                    updateOne: {
+                        filter: { id: menu.id },
+                        document: { order: i }
+                    }
+                })
+                i += 1
+            }
+            await Menu.bulkWrite(bulkWriteMenus)
+            return;
         } catch (err) {
             throw err
         }

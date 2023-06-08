@@ -357,6 +357,12 @@ let layoutStore = {
                 table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
                 data.table_id = table.id;
             }
+            let payload = {
+                table_id: data.table_id,
+            }
+            if (data.is_default) {
+                payload.is_default = true;
+            }
 
             const layouts = await Layout.find(
                 {

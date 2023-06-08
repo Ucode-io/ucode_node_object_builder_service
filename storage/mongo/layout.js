@@ -375,10 +375,10 @@ let layoutStore = {
             const Tab = mongoConn.models['Tab']
 
             let table = {};
-            table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true);
-            if (!table) throw new Error("Couldn't find table")
-
-            data.table_id = table.id;
+            if (data.table_id === "") {
+                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+                data.table_id = table.id;
+            }
             let payload = {
                 table_id: data.table_id,
             }

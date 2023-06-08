@@ -1001,17 +1001,17 @@ let objectBuilder = {
         }
         // console.timeEnd("TIME_LOGGING:::search")
         // console.time("TIME_LOGGING:::phone")
-        if (params.phone_number) {
-            let temp = params.phone_number.toString()
-            let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-            params.phone_number = phone
-        } else if (params.phone) {
-            let temp = params.phone.toString()
-            let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-            params.phone = phone
-        }
+        // if (params.phone_number) {
+        //     let temp = params.phone_number.toString()
+        //     let tempPhone = temp.substring(5, temp.length - 2)
+        //     let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
+        //     params.phone_number = phone
+        // } else if (params.phone) {
+        //     let temp = params.phone.toString()
+        //     let tempPhone = temp.substring(5, temp.length - 2)
+        //     let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
+        //     params.phone = phone
+        // }
         console.log("TEST::::::::::11")
         // console.timeEnd("TIME_LOGGING:::phone")
         // console.log("TEST::::::7")

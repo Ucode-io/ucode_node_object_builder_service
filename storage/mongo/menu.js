@@ -70,7 +70,6 @@ let menuStore = {
             const Menu = mongoConn.models['object_builder_service.menu']
 
             let query = {
-                label: RegExp(data.search, "i"),
                 parent_id: data.parent_id
             }
             const pipelines = [
@@ -106,6 +105,7 @@ let menuStore = {
                     },
                 )
             } else {
+                query["label"] = RegExp(data.search, "i"),
                 pipelines.push(
                     {
                         '$lookup':

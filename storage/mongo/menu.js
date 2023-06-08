@@ -86,7 +86,18 @@ let menuStore = {
                         'foreignField': 'parent_id',
                         'as': 'child_menus'
                     }
-                },
+                })
+                if (data.search) {
+                    pipelines.push({
+                        $unwind: "$child_menus" // Optional, if you want to treat each child menu as a separate document
+                    },
+                    {
+                        $match: {
+                            "child_menus.label": RegExp(data.search, "i"),
+                        }
+                    },)
+                }
+                pipelines.push(
                     {
                         '$skip': 0
                     },
@@ -141,7 +152,15 @@ let menuStore = {
                     '$skip': data.offset
                 }, {
                     '$limit': data.limit
-                })
+                },{
+                    $sort:
+                      /**
+                       * Provide any number of field/order pairs.
+                       */
+                      {
+                        order: 1,
+                      },
+                  },)
             }
             const menus = await Menu.aggregate(pipelines)
             if (!data.parent_id) {

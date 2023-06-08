@@ -86,6 +86,13 @@ let menuStore = {
                         'foreignField': 'parent_id',
                         'as': 'child_menus'
                     }
+                },{
+                    $unwind: "$child_menus" // Optional, if you want to treat each child menu as a separate document
+                },
+                {
+                    $match: {
+                        "child_menus.label": RegExp(data.search, "i"),
+                    }
                 },
                     {
                         '$skip': 0

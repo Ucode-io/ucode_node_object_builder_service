@@ -5785,3 +5785,45 @@
   metadata: {}
 >>>>>>> 2f6efda5caa2c21d2f6765556038e3ec09baa875
 }
+{
+  message: 'service.object_builder.getList: failed with error: Invalid regular expression: /(99/: Unterminated group',
+  level: 'error',
+  timestamp: '2023-06-08T12:03:26.611Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Invalid regular expression: /(99/: Unterminated group',
+  level: 'error',
+  timestamp: '2023-06-08T12:04:47.740Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Invalid regular expression: /(99/: Unterminated group',
+  level: 'error',
+  timestamp: '2023-06-08T12:06:51.260Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Invalid regular expression: /(99/: Unterminated group',
+  level: 'error',
+  timestamp: '2023-06-08T12:08:34.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Invalid regular expression: /(99/: Unterminated group',
+  level: 'error',
+  timestamp: '2023-06-08T12:10:59.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: Invalid regular expression: /(99/: Unterminated group',
+  level: 'error',
+  timestamp: '2023-06-08T12:12:24.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

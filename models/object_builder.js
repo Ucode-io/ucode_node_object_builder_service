@@ -181,7 +181,6 @@ async function buildModels(is_build = true, project_id) {
                             default: _default,
                         }
                     }
-                    console.log("check unique: ", field.unique)
                     switch (field.unique) {
                         case true:
                             fieldObject[field.slug].unique = true
@@ -369,7 +368,6 @@ async function buildModels(is_build = true, project_id) {
                     // we change isReferenced to true in order to avoid adding the same fields twice or more
                 }
             }  
-            console.log("Index fields: ", fieldsIndex)
             isReferenced = true
         }
         
@@ -482,7 +480,6 @@ async function buildModels(is_build = true, project_id) {
             _id: 0,
             __v: 0,
         }).lean()
-        console.log("temp indexes: ", temp)
         // console.log("TEST:::::::::::12")
         tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex});
     }

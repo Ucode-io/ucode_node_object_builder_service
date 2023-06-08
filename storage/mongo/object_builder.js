@@ -756,13 +756,13 @@ let objectBuilder = {
         // handle scopes
         for(let key in params) {
             let scope_regex = /[()]/
-            if(scope_regex.test(key)) {
+            if(scope_regex.test(params[key])) {
                 let with_slash = ""
                 for(let el of params[key]) {
                     if(el == "(") {
-                        with_slash += "\("
+                        with_slash += "\\("
                     } else if (el == ")") {
-                        with_slash += "\)"
+                        with_slash += "\\)"
                     }
                     else {
                         with_slash += el

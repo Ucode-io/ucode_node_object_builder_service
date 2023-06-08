@@ -25,6 +25,12 @@ const MenuSchema = mongoose.Schema(
         },
         icon: {
             type: String,
+        },
+        microfrontend_id: {
+            type: String,
+        },
+        order: {
+            type: Number,
         }
     },
     {
@@ -33,5 +39,25 @@ const MenuSchema = mongoose.Schema(
         toJSON: { virtuals: true },
     }
 );
+// MenuSchema.virtual("child_menus", {
+//     ref: "object_builder_service.menu",
+//     localField: "id",
+//     foreignField: "parent_id",
+//     justOne: false,
+// })
+
+// MenuSchema.virtual("tables", {
+//     ref: "tables",
+//     localField: "table_id",
+//     foreignField: "id",
+//     justOne: true,
+// })
+
+// MenuSchema.virtual("microfrontend", {
+//     ref: "function_service.functions",
+//     localField: "microfrontend_id",
+//     foreignField: "id",
+//     justOne: true,
+// })
 
 module.exports = MenuSchema

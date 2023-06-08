@@ -86,14 +86,18 @@ let menuStore = {
                         'foreignField': 'parent_id',
                         'as': 'child_menus'
                     }
-                },{
-                    $unwind: "$child_menus" // Optional, if you want to treat each child menu as a separate document
-                },
-                {
-                    $match: {
-                        "child_menus.label": RegExp(data.search, "i"),
-                    }
-                },
+                })
+                if (data.search) {
+                    pipelines.push({
+                        $unwind: "$child_menus" // Optional, if you want to treat each child menu as a separate document
+                    },
+                    {
+                        $match: {
+                            "child_menus.label": RegExp(data.search, "i"),
+                        }
+                    },)
+                }
+                pipelines.push(
                     {
                         '$skip': 0
                     },

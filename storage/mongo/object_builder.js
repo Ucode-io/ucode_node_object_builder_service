@@ -753,6 +753,25 @@ let objectBuilder = {
 
         const params = struct.decode(req?.data)
 
+        // handle scopes
+        for(let key in params) {
+            let scope_regex = /[()]/
+            if(scope_regex.test(key)) {
+                let with_slash = ""
+                for(let el of params[key]) {
+                    if(el == "(") {
+                        with_slash += "\("
+                    } else if (el == ")") {
+                        with_slash += "\)"
+                    }
+                    else {
+                        with_slash += el
+                    }
+                }
+                params[key] = with_slash
+            }
+        }
+
         if(req.project_id == "4ef62259-adf8-4066-b0e6-16e3cb47241b") {
 
             console.log("\n Initial params", params)

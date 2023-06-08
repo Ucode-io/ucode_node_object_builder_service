@@ -92,18 +92,19 @@ let menuStore = {
                     },
                     {
                         '$limit': 1
-                    }
+                    },
                 )
             } else {
-                pipelines.push({
-                    '$lookup':
+                pipelines.push(
                     {
-                        from: "tables",
-                        localField: "table_id",
-                        foreignField: "id",
-                        as: "table",
-                    },
-                }, {
+                        '$lookup':
+                        {
+                            from: "tables",
+                            localField: "table_id",
+                            foreignField: "id",
+                            as: "table",
+                        },
+                    }, {
                     '$unwind':
                     /**
                      * path: Path to the array field.
@@ -115,6 +116,27 @@ let menuStore = {
                         path: "$table",
                         preserveNullAndEmptyArrays: true,
                     },
+                },
+                    {
+                        '$lookup':
+                        {
+                            from: "function_service.functions",
+                            localField: "microfrontend_id",
+                            foreignField: "id",
+                            as: "microfrontend",
+                        },
+                    }, {
+                    '$unwind':
+                    /**
+                     * path: Path to the array field.
+                     * includeArrayIndex: Optional name for index.
+                     * preserveNullAndEmptyArrays: Optional
+                     *   toggle to unwind null and empty values.
+                     */
+                    {
+                        path: "$microfrontend",
+                        preserveNullAndEmptyArrays: true,
+                    },
                 }, {
                     '$skip': data.offset
                 }, {
@@ -122,6 +144,11 @@ let menuStore = {
                 })
             }
             const menus = await Menu.aggregate(pipelines)
+            if (!data.parent_id) {
+                menus[0]?.child_menus.sort(
+                    (p1, p2) =>
+                        (p1.order > p2.order) ? 1 : (p1.order < p2.order) ? -1 : 0)
+            }
 
             const count = await Menu.countDocuments(query);
             return { menus, count };
@@ -156,6 +183,29 @@ let menuStore = {
             const menu = await Menu.deleteOne({ id: data.id });
 
             return menu;
+        } catch (err) {
+            throw err
+        }
+    }),
+    updateMenuOrder: catchWrapDb(`${NAMESPACE}.updateMenuOrder`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+
+            const Menu = mongoConn.models['object_builder_service.menu']
+
+            let bulkWriteMenus = []
+            let i = 1
+            for (const menu of data.menus) {
+                bulkWriteMenus.push({
+                    updateOne: {
+                        filter: { id: menu.id },
+                        update: { order: i }
+                    }
+                })
+                i += 1
+            }
+            await Menu.bulkWrite(bulkWriteMenus)
+            return;
         } catch (err) {
             throw err
         }

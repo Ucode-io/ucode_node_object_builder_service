@@ -7,6 +7,7 @@ const menuService = {
     GetByID: catchWrapService(`service.menu.getByID`, menuStore.getByID),
     GetAll: catchWrapService(`service.menu.getAll`, menuStore.getAll),
     Delete: catchWrapService(`service.menu.delete`, menuStore.delete),
+    UpdateMenuOrder: catchWrapService(`service.menu.updateMenuOrder`, menuStore.updateMenuOrder),
 };
 
 module.exports = menuService;

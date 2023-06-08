@@ -752,6 +752,31 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
 
         const params = struct.decode(req?.data)
+
+        // handle scopes
+        for(let key in params) {
+            let scope_regex = /[()]/
+            if(scope_regex.test(params[key])) {
+                let with_slash = ""
+                for(let el of params[key]) {
+                    if(el == "(") {
+                        with_slash += "\\("
+                    } else if (el == ")") {
+                        with_slash += "\\)"
+                    }
+                    else {
+                        with_slash += el
+                    }
+                }
+                params[key] = with_slash
+            }
+        }
+
+        if(req.project_id == "4ef62259-adf8-4066-b0e6-16e3cb47241b") {
+
+            console.log("\n Initial params", params)
+        }
+        console.log("TEST::::::::::2")
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -991,17 +1016,17 @@ let objectBuilder = {
         }
         // console.timeEnd("TIME_LOGGING:::search")
         // console.time("TIME_LOGGING:::phone")
-        if (params.phone_number) {
-            let temp = params.phone_number.toString()
-            let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-            params.phone_number = phone
-        } else if (params.phone) {
-            let temp = params.phone.toString()
-            let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-            params.phone = phone
-        }
+        // if (params.phone_number) {
+        //     let temp = params.phone_number.toString()
+        //     let tempPhone = temp.substring(5, temp.length - 2)
+        //     let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
+        //     params.phone_number = phone
+        // } else if (params.phone) {
+        //     let temp = params.phone.toString()
+        //     let tempPhone = temp.substring(5, temp.length - 2)
+        //     let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
+        //     params.phone = phone
+        // }
         console.log("TEST::::::::::11")
         // console.timeEnd("TIME_LOGGING:::phone")
         // console.log("TEST::::::7")

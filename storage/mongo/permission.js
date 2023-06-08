@@ -924,7 +924,7 @@ let permission = {
                     document["table_slug"] = table.slug
                     bulkWriteRecordPermissions.push({
                         insertOne: {
-                            document,
+                            document: document,
                         }
                     })
                 }
@@ -1037,7 +1037,7 @@ let permission = {
                     guid: v4()
                 }
                 bulkWriteFieldPermissions.push({
-                    insertOne: new FieldPermission(documentFieldPermission)
+                    insertOne: { document: new FieldPermission(documentFieldPermission) }
                 })
             }
         }

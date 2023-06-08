@@ -27,16 +27,6 @@ const logger = require("./config/logger");
 
     try {
         logger.info(`autoconnecting to resources`);
-        // await projectStorage.reconnect({
-        //     project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81", // alldental
-        //     credentials: {
-        //         host: '65.109.239.69',
-        //         port: '30027',
-        //         username: 'youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
-        //         database: 'youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
-        //         password: 'bLjkGFjiva'
-        //     }
-        // })
 
         await projectStorage.autoConnect(
             {
@@ -45,13 +35,14 @@ const logger = require("./config/logger");
                 }
             },
             (code, result) => {
-                logger.info(`autoconnected to resources ${code} - ${result}`);
+                logger.info(`connected to resources ${code} - ${result}`);
             }
         )
-        logger.info(`autoconnected successfully done!!!`);
+
+        logger.info(`connected successfully done!!!`);
 
     } catch (err) {
-        logger.info(`autoconnecting to resources failed: ${err}`);
+        logger.info(`auto connecting to resources failed: ${err}`);
     }
 
 

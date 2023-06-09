@@ -5120,3 +5120,263 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-09T13:39:57.663Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-09T13:39:57.665Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "autoservice_autoservice_object_builder_service",\n' +
+    '    "username": "autoservice_autoservice_object_builder_service",\n' +
+    '    "password": "q6viL9SDOv"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-09T13:39:57.665Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-09T13:39:57.665Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-09T13:39:58.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-09T13:40:48.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-09T13:40:48.743Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.getAll: requested - {\n' +
+    '  "table_slug": "a_table_1",\n' +
+    '  "limit": 100,\n' +
+    '  "offset": 0,\n' +
+    '  "table_id": "",\n' +
+    '  "relation_table_slug": "",\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-09T13:53:19.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getAll: requested, {\n' +
+    '  "table_slug": "a_table_1",\n' +
+    '  "limit": 100,\n' +
+    '  "offset": 0,\n' +
+    '  "table_id": "",\n' +
+    '  "relation_table_slug": "",\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-09T13:53:19.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-09T13:53:20.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-09T13:53:20.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-09T14:01:08.383Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-09T14:01:08.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "autoservice_autoservice_object_builder_service",\n' +
+    '    "username": "autoservice_autoservice_object_builder_service",\n' +
+    '    "password": "q6viL9SDOv"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-09T14:01:08.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-09T14:01:08.387Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-09T14:01:09.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-09T14:01:48.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-06-09T14:01:48.661Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.update: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "56fc4a06-7d7f-4cb8-9fe6-0ce5deec2af5"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "id": "e3e77183-4bda-4661-9981-73feaeb76ded",\n' +
+    '  "table_from": "c_table_1",\n' +
+    '  "table_to": "a_table_1",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "A table",\n' +
+    '  "relation_table_slug": "c_table_1",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": true,\n' +
+    '  "default_editable": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-09T14:01:54.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.update: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "56fc4a06-7d7f-4cb8-9fe6-0ce5deec2af5"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "id": "e3e77183-4bda-4661-9981-73feaeb76ded",\n' +
+    '  "table_from": "c_table_1",\n' +
+    '  "table_to": "a_table_1",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "A table",\n' +
+    '  "relation_table_slug": "c_table_1",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": true,\n' +
+    '  "default_editable": false\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-09T14:01:54.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-09T14:01:56.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.update: succeeded',
+  level: 'info',
+  timestamp: '2023-06-09T14:01:56.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

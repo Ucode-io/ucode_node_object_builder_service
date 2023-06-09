@@ -115,12 +115,12 @@ let prepareFunction = {
             } else {
                 if(incrementLength) {
                     nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug]?.length)) + 1
-                    console.log("@@@@@@@@@@  ", nextIncrement)
+                    // console.log("@@@@@@@@@@  ", nextIncrement)
                     data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
     
                 } else {
                     nextIncrement = parseInt(last[incrementNum.slug]) + 1
-                    console.log("!!!!!!!! ", nextIncrement)
+                    // console.log("!!!!!!!! ", nextIncrement)
                     data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
                 }
                 

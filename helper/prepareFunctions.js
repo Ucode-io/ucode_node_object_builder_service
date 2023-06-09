@@ -105,8 +105,8 @@ let prepareFunction = {
         })
         if (incrementNum) {
             let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-            console.log(">>>>>>>>>>>>>>> last ", last)
-            console.log(">>>>>>>>>>>>>>> increment field ", incrementNum)
+            // console.log(">>>>>>>>>>>>>>> last ", last)
+            // console.log(">>>>>>>>>>>>>>> increment field ", incrementNum)
 
             let attributes = struct.decode(incrementNum.attributes)
             let incrementLength = attributes.prefix?.length

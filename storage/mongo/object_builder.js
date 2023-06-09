@@ -752,23 +752,23 @@ let objectBuilder = {
         const params = struct.decode(req?.data)
 
         // handle scopes
-        for(let key in params) {
-            let scope_regex = /[()]/
-            if(scope_regex.test(params[key])) {
-                let with_slash = ""
-                for(let el of params[key]) {
-                    if(el == "(") {
-                        with_slash += "\\("
-                    } else if (el == ")") {
-                        with_slash += "\\)"
-                    }
-                    else {
-                        with_slash += el
-                    }
-                }
-                params[key] = with_slash
-            }
-        }
+        // for(let key in params) {
+        //     let scope_regex = /[()]/
+        //     if(scope_regex.test(params[key])) {
+        //         let with_slash = ""
+        //         for(let el of params[key]) {
+        //             if(el == "(") {
+        //                 with_slash += "\\("
+        //             } else if (el == ")") {
+        //                 with_slash += "\\)"
+        //             }
+        //             else {
+        //                 with_slash += el
+        //             }
+        //         }
+        //         params[key] = with_slash
+        //     }
+        // }
 
         const limit = params.limit
         const offset = params.offset
@@ -892,6 +892,14 @@ let objectBuilder = {
                     }
                 }
             } else if (!key.includes('.') && typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
+                if (params[key]) {
+                    if (params[key].includes("(")) {
+                        params[key] = params[key].replaceAll("(", ("\\("))
+                    }
+                    if (params[key].includes(")")) {
+                        params[key] = params[key].replaceAll(")", ("\\)"))
+                    }
+                }
                 params[key] = RegExp(params[key], "i")
             }
         }

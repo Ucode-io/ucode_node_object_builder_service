@@ -47,9 +47,6 @@ const TableSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
-        default_editable: {
-            type: Boolean,
-        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -89,6 +89,12 @@ const ViewSchema = mongoose.Schema(
         attributes: {
             type: mongoose.Schema.Types.Mixed
         },
+        default_editable: {
+            type: Boolean,
+        },
+        creatable: {
+            type: Boolean,
+        }
         // commit_id: {
         //     type: Number,
         //     required: [true, "commit_id is required"],

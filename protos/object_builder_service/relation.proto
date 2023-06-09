@@ -49,6 +49,7 @@ message CreateRelationRequest {
     string version_id = 30;
     bool creatable = 31;
     bool default_editable = 32;
+    
 }
 
 message AutoFilter {

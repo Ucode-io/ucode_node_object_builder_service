@@ -492,7 +492,7 @@ let relationStore = {
                     },
                 ],
             });
-            if (isViewExists) {
+            if (isViewExists) {                
                 const view = await View.updateOne(
                     {
                         $and: [
@@ -517,6 +517,8 @@ let relationStore = {
                             multiple_insert: data.multiple_insert,
                             multiple_insert_field: data.multiple_insert_field,
                             updated_fields: data.updated_fields,
+                            default_editable: data.default_editable,
+                            creatable: data.creatable,
                         },
                     }
                 );
@@ -872,6 +874,7 @@ let relationStore = {
                         relations[i].cascading_tree_field_slug,
                 };
                 if (view) {
+                    console.log("creatable:", view.creatable);
                     responseRelation["title"] = view.name;
                     responseRelation["columns"] = view.columns;
                     responseRelation["quick_filters"] = view.quick_filters;

@@ -55,7 +55,7 @@ let relationStore = {
                     //     slug: data.table_to,
                     //     deleted_at: "1970-01-01T18:00:00.000+00:00",
                     // });
-                    table = await tableVersion(mongoConn, {slug: data.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                    table = await tableVersion(mongoConn, { slug: data.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     result = await relationFieldChecker(data.field_to, table.id, data.project_id)
                     if (result.exists) {
                         data.field_to = result.lastField;
@@ -105,7 +105,7 @@ let relationStore = {
                     //     slug: data.table_from,
                     //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                     // });
-                    table = await tableVersion(mongoConn, {slug: data.table_from}, data.version_id, true)
+                    table = await tableVersion(mongoConn, { slug: data.table_from }, data.version_id, true)
                     field = new Field({
                         table_id: table.id,
                         slug: data.relation_field_slug,
@@ -148,7 +148,7 @@ let relationStore = {
                     //     slug: data.table_to,
                     //     deleted_at: "1970-01-01T18:00:00.000+00:00",
                     // });
-                    let tableTo = await tableVersion(mongoConn, {slug: data.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                    let tableTo = await tableVersion(mongoConn, { slug: data.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     result = await relationFieldChecker(data.field_to, tableTo.id, data.project_id)
                     if (result.exists) {
                         data.field_to = result.lastField;
@@ -206,7 +206,7 @@ let relationStore = {
                     //     slug: data.table_from,
                     //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                     // });
-                    tableFrom = await tableVersion(mongoConn, {slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                    tableFrom = await tableVersion(mongoConn, { slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     result = await relationFieldChecker(data.field_from, tableFrom.id, data.project_id)
                     if (result.exists) {
                         data.field_from = result.lastField;
@@ -278,7 +278,7 @@ let relationStore = {
                     //     slug: data.table_from,
                     //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                     // });
-                    table = await tableVersion(mongoConn, {slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                    table = await tableVersion(mongoConn, { slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     result = await relationFieldChecker(data.recursive_field, table.id, data.project_id)
                     if (result.exists) {
                         data.recursive_field = result.lastField;
@@ -351,7 +351,7 @@ let relationStore = {
                     //     slug: data.table_from,
                     //     deleted_at: "1970-01-01T18:00:00.000+00:00",
                     // });
-                    table = await tableVersion(mongoConn, {slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                    table = await tableVersion(mongoConn, { slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     result = await relationFieldChecker(data.field_from, table.id, data.project_id)
                     if (result.exists) {
                         data.field_from = result.lastField;
@@ -546,7 +546,7 @@ let relationStore = {
                 // let table = await Table.findOne({
                 //     id: data.table_id
                 // });
-                let table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true)
+                let table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
                 data.table_slug = table.slug;
             }
             const relations = await Relation.find(
@@ -584,7 +584,7 @@ let relationStore = {
                             // let tableTo = await Table.findOne({
                             //     slug: dynamic_table.table_slug,
                             // })
-                            let tableTo = await tableVersion(mongoConn, {slug: dynamic_table.table_slug}, data.version_id, true)
+                            let tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
                             let view = await View.findOne({
                                 $and: [
                                     { relation_table_slug: data.table_slug },
@@ -674,7 +674,7 @@ let relationStore = {
                 // let tableTo = await Table.findOne({
                 //     slug: relations[i].table_to
                 // })
-                let tableTo = await tableVersion(mongoConn, {slug: relations[i].table_to}, data.version_id, true)
+                let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
                 let view = await View.findOne({
                     $and: [
                         { relation_table_slug: data.table_slug },
@@ -742,7 +742,7 @@ let relationStore = {
                 // let table = await Table.findOne({
                 //     id: data.table_id
                 // });
-                let table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true)
+                let table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
                 data.table_slug = table.slug;
             }
             const relations = await Relation.find(
@@ -774,7 +774,7 @@ let relationStore = {
                 // let tableFrom = await Table.findOne({
                 //     slug: relations[i].table_from
                 // })
-                let tableFrom = await tableVersion(mongoConn, {slug: relations[i].table_from}, data.version_id, true)
+                let tableFrom = await tableVersion(mongoConn, { slug: relations[i].table_from }, data.version_id, true)
                 if (relations[i].type === "Many2Dynamic") {
                     let tableTo;
                     for (const dynamic_table of relations[i].dynamic_tables) {
@@ -782,7 +782,7 @@ let relationStore = {
                             // tableTo = await Table.findOne({
                             //     slug: dynamic_table.table_slug
                             // })
-                            tableTo = await tableVersion(mongoConn, {slug: dynamic_table.table_slug}, data.version_id, true)
+                            tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
                         }
                     }
                     let responseRelation = {
@@ -835,6 +835,8 @@ let relationStore = {
                             view.multiple_insert_field;
                         responseRelation["updated_fields"] =
                             view.updated_fields;
+                        responseRelation["creatable"] = view.creatable;
+                        responseRelation["default_editable"] = view.default_editable;
                     }
                     responseRelations.push(responseRelation);
                     continue;
@@ -842,7 +844,7 @@ let relationStore = {
                 // let tableTo = await Table.findOne({
                 //     slug: relations[i].table_to
                 // })
-                let tableTo = await tableVersion(mongoConn, {slug: relations[i].table_to}, data.version_id, true)
+                let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
                 let view = await View.findOne({
                     $and: [
                         { relation_table_slug: data.table_slug },
@@ -888,6 +890,8 @@ let relationStore = {
                     responseRelation["multiple_insert_field"] =
                         view.multiple_insert_field;
                     responseRelation["updated_fields"] = view.updated_fields;
+                    responseRelation["creatable"] = view.creatable;
+                    responseRelation["default_editable"] = view.default_editable;
                 }
                 responseRelations.push(responseRelation);
             }
@@ -918,7 +922,7 @@ let relationStore = {
                 //     slug: relation.table_to,
                 //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                 // });
-                table = await tableVersion(mongoConn, {slug: relation.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                table = await tableVersion(mongoConn, { slug: relation.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                 // resp = await Field.deleteOne({
                 //     table_id: table.id,
                 //     slug: relation.field_to,
@@ -935,7 +939,7 @@ let relationStore = {
                 //     slug: relation.table_to,
                 //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                 // });
-                table = await tableVersion(mongoConn, {slug: relation.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                table = await tableVersion(mongoConn, { slug: relation.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                 resp = await Field.deleteOne({
                     table_id: table.id,
                     slug: relation.field_to,
@@ -951,7 +955,7 @@ let relationStore = {
                 //     slug: relation.table_from,
                 //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                 // });
-                table = await tableVersion(mongoConn, {slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                 resp = await Field.deleteOne({
                     table_id: table.id,
                     slug: relation.field_from,
@@ -968,7 +972,7 @@ let relationStore = {
                 //     slug: relation.table_from,
                 //     deleted_at: '1970-01-01T18:00:00.000+00:00'
                 // });
-                table = await tableVersion(mongoConn, {slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                 resp = await Field.deleteOne({
                     table_id: table.id,
                     slug: relation.field_to,
@@ -985,7 +989,7 @@ let relationStore = {
                 //     slug: relation.table_from,
                 //     deleted_at: '1970-01-01T18:00:00.000+00:00'
                 // });
-                table = await tableVersion(mongoConn, {slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                 resp = await Field.deleteOne({
                     table_id: table.id,
                     slug: relation.field_from,

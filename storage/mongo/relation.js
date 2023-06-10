@@ -492,7 +492,7 @@ let relationStore = {
                     },
                 ],
             });
-            if (isViewExists) {                
+            if (isViewExists) {
                 const view = await View.updateOne(
                     {
                         $and: [
@@ -667,6 +667,9 @@ let relationStore = {
                                     view.multiple_insert_field;
                                 responseRelation["updated_fields"] =
                                     view.updated_fields;
+                                responseRelation["default_editable"] = view.default_editable;
+                                responseRelation["creatable"] = view.creatable;
+
                             }
                             responseRelations.push(responseRelation);
                         }
@@ -720,6 +723,8 @@ let relationStore = {
                     responseRelation["multiple_insert_field"] =
                         view.multiple_insert_field;
                     responseRelation["updated_fields"] = view.updated_fields;
+                    responseRelation["default_editable"] = view.default_editable;
+                    responseRelation["creatable"] = view.creatable;
                 }
                 responseRelations.push(responseRelation);
             }

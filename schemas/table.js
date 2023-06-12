@@ -55,5 +55,12 @@ const TableSchema = mongoose.Schema(
     }
 );
 
+TableSchema.virtual("record_permissions", {
+    ref: "record_permission",
+    localField: "slug",
+    foreignField: "table_slug",
+    justOne: true,
+})
+
 TableSchema.index({ 'slug': 1, 'deleted_at': 1, }, { unique: true });
 module.exports = TableSchema

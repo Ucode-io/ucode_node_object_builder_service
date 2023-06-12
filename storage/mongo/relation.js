@@ -492,6 +492,9 @@ let relationStore = {
                     },
                 ],
             });
+            let viewRelationPermissions = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
+            const res = await viewRelationPermissions.models.updateMany({ relation_id: data.id, table_slug: data.relation_table_slug }, { $set: { label: data.title } })
+            console.log("res::", res);
             if (isViewExists) {
                 const view = await View.updateOne(
                     {

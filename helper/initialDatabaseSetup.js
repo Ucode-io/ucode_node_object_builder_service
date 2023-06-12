@@ -163,16 +163,16 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted View Permissions :", result.insertedCount)
         })
     }
-    console.log("TEST::::::1")
+   
     if (!collections['setting.languages']) {
-        console.log("TEST::::::3")
+        
         const settingLanguages = await createSettingLanguage()
         conn.collection('setting.languages').insertMany(settingLanguages, function (err, result) {
             if (err) throw err;
             console.log("Inserted Languages :", result.insertedCount)
         })
     }
-    console.log("TEST::::::2")
+    
     if (!collections['setting.currencies']) {
 
         const settingCurrencies = await createSettingCurrency()

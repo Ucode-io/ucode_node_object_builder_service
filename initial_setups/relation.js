@@ -1,5 +1,42 @@
 async function createRelation() {
-  let relation = [{
+  let relation = [
+    {
+      "id": "9be077e7-d2e1-459a-a54b-04cb2a65c552",
+      "table_from": "user",
+      "field_from": "setting.languages_id",
+      "table_to": "setting.languages",
+      "field_to": "id",
+      "type": "Many2One",
+      "view_fields": [
+        "366a5ecd-993f-44b5-9d98-0155f12bb01b"
+      ],
+      "relation_field_slug": "",
+      "dynamic_tables": [],
+      "editable": false,
+      "created_at": new Date(),
+      "updated_at": new Date(),
+      "__v": 0,
+      "is_system": true
+    },
+    {
+      "id": "c168f2df-c6a2-4921-8c56-56e708a8d766",
+      "table_from": "user",
+      "field_from": "setting.timezones_id",
+      "table_to": "setting.timezones",
+      "field_to": "id",
+      "type": "Many2One",
+      "view_fields": [
+        "da225ef5-7d7c-4e27-a036-6ff895749fa3"
+      ],
+      "relation_field_slug": "",
+      "dynamic_tables": [],
+      "editable": false,
+      "created_at": new Date(),
+      "updated_at": new Date(),
+      "__v": 0,
+      "is_system": true
+    },
+    {
     "id": "426a0cd6-958d-4317-bf23-3b4ea4720e53",
     "table_from": "client_type",
     "field_from": "client_platform_ids",

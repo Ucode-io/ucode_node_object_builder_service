@@ -60,7 +60,40 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-    }, {
+    },
+    {
+        "label": "Языки",
+        "slug": "setting.languages",
+        "description": "Языки",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "address-card.svg",
+        "subtitle_field_slug": "",
+        "with_increment_id": false,
+        "digit_number": 0,
+        "id": "d267203c-1c23-4663-a721-7a845d4b98ad",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+    },
+    {
+        "label": "Часовые пояса",
+        "slug": "setting.timezones",
+        "description": "Часовые пояса",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "address-card.svg",
+        "subtitle_field_slug": "",
+        "with_increment_id": false,
+        "digit_number": 0,
+        "id": "bba3dddc-5f20-449c-8ec8-37bef283c766",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+    },
+    {
         "label": "Разрешение",
         "slug": "record_permission",
         "description": "record permission",

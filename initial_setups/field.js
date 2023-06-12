@@ -1,5 +1,244 @@
 async function createField() {
-    let fields = [{
+    let fields = [
+      {
+        "required": false,
+        "slug": "guid",
+        "label": "ID",
+        "default": "v4",
+        "type": "UUID",
+        "index": "true",
+        "is_visible": true,
+        "id": "553e4fff-2e57-4c93-b1cb-920a470cdd64",
+        "table_id": "bba3dddc-5f20-449c-8ec8-37bef283c766",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+    },
+    {
+      "id": "45cfc41f-ad65-4fde-ad5b-73b8a8d7bd3e",
+      "required": false,
+      "slug": "text",
+      "label": "Описание",
+      "default": "",
+      "type": "SINGLE_LINE",
+      "index": "string",
+      "attributes": {
+          "fields": {
+              "disabled": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "icon": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              },
+              "placeholder": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              },
+              "showTooltip": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "creatable": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "defaultValue": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              }
+          }
+      },
+      "is_visible": false,
+      "table_id": "bba3dddc-5f20-449c-8ec8-37bef283c766",
+      "created_at": new Date(),
+      "updated_at": new Date(),
+      "__v": 0
+  },
+    {
+      "id": "da225ef5-7d7c-4e27-a036-6ff895749fa3",
+      "required": false,
+      "slug": "name",
+      "label": "Название",
+      "default": "",
+      "type": "SINGLE_LINE",
+      "index": "string",
+      "attributes": {
+          "fields": {
+              "disabled": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "icon": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              },
+              "placeholder": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              },
+              "showTooltip": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "creatable": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "defaultValue": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              }
+          }
+      },
+      "is_visible": false,
+      "table_id": "bba3dddc-5f20-449c-8ec8-37bef283c766",
+      "created_at": new Date(),
+      "updated_at": new Date(),
+      "__v": 0
+  },
+  {
+        "required": false,
+        "slug": "guid",
+        "label": "ID",
+        "default": "v4",
+        "type": "UUID",
+        "index": "true",
+        "is_visible": true,
+        "id": "bcfa71c0-b3a8-47b6-a058-861cd5079d29",
+        "table_id": "d267203c-1c23-4663-a721-7a845d4b98ad",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+    },
+    {
+      "id": "4946ffb5-9079-4ef8-acdf-0b1d2ffbc36b",
+      "required": false,
+      "slug": "native_name",
+      "label": "Родное название",
+      "default": "",
+      "type": "SINGLE_LINE",
+      "index": "string",
+      "attributes": {
+          "fields": {
+              "disabled": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "icon": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              },
+              "placeholder": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              },
+              "showTooltip": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "creatable": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "defaultValue": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              }
+          }
+      },
+      "is_visible": false,
+      "table_id": "d267203c-1c23-4663-a721-7a845d4b98ad",
+      "created_at": new Date(),
+      "updated_at": new Date(),
+      "__v": 0
+  },
+    {
+      "id": "5842bc93-2943-4cab-b603-c1a8032d7c55",
+      "required": false,
+      "slug": "short_name",
+      "label": "Краткое название",
+      "default": "",
+      "type": "SINGLE_LINE",
+      "index": "string",
+      "attributes": {
+          "fields": {
+              "disabled": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "icon": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              },
+              "placeholder": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              },
+              "showTooltip": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "creatable": {
+                  "boolValue": false,
+                  "kind": "boolValue"
+              },
+              "defaultValue": {
+                  "stringValue": "",
+                  "kind": "stringValue"
+              }
+          }
+      },
+      "is_visible": false,
+      "table_id": "d267203c-1c23-4663-a721-7a845d4b98ad",
+      "created_at": new Date(),
+      "updated_at": new Date(),
+      "__v": 0
+  },
+    {
+        "id": "366a5ecd-993f-44b5-9d98-0155f12bb01b",
+        "required": false,
+        "slug": "name",
+        "label": "Название",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+            "fields": {
+                "disabled": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                },
+                "icon": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                },
+                "placeholder": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                },
+                "showTooltip": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                },
+                "creatable": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                },
+                "defaultValue": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                }
+            }
+        },
+        "is_visible": false,
+        "table_id": "d267203c-1c23-4663-a721-7a845d4b98ad",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+    },
+    {
         "id": "d8127cf2-2d60-474e-94ba-317d3b1ba18a",
         "required": false,
         "slug": "table_slug",

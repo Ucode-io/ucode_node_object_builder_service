@@ -1,5 +1,69 @@
 async function createFieldPermission(roleID) {
-    let fieldPermission = [{
+    let fieldPermission = [
+    {
+        "field_id": "4946ffb5-9079-4ef8-acdf-0b1d2ffbc36b",
+        "table_slug": "setting.languages",
+        "view_permission": true,
+        "edit_permission": true,
+        "role_id": roleID,
+        "label": "Название",
+        "guid": "5a44c527-dde1-427b-bbfd-574664a65b10",
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
+        "__v": 0
+    }, 
+    {
+        "field_id": "5842bc93-2943-4cab-b603-c1a8032d7c55",
+        "table_slug": "setting.languages",
+        "view_permission": true,
+        "edit_permission": true,
+        "role_id": roleID,
+        "label": "Название",
+        "guid": "7c98f01c-5a59-4e8c-bb6d-e376513d78a6",
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
+        "__v": 0
+    },   
+    {
+        "field_id": "366a5ecd-993f-44b5-9d98-0155f12bb01b",
+        "table_slug": "setting.languages",
+        "view_permission": true,
+        "edit_permission": true,
+        "role_id": roleID,
+        "label": "Название",
+        "guid": "9552edd6-bc64-4b6a-ac60-60eb28a48438",
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
+        "__v": 0
+    },  
+
+    {
+        "field_id": "45cfc41f-ad65-4fde-ad5b-73b8a8d7bd3e",
+        "table_slug": "setting.timezones",
+        "view_permission": true,
+        "edit_permission": true,
+        "role_id": roleID,
+        "label": "Название",
+        "guid": "d85ac643-99ae-4517-815e-0dbf5aac993d",
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
+        "__v": 0
+    }, 
+    {
+        "field_id": "da225ef5-7d7c-4e27-a036-6ff895749fa3",
+        "table_slug": "setting.timezones",
+        "view_permission": true,
+        "edit_permission": true,
+        "role_id": roleID,
+        "label": "Название",
+        "guid": "af405097-9c3a-4669-9e06-6982314eb007",
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
+        "__v": 0
+    },
+        
+        
+    {
         "field_id": "37137f5f-ef9b-4710-a6df-fb920750fdfb",
         "table_slug": "project",
         "view_permission": true,

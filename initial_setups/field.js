@@ -152,7 +152,8 @@ async function createField() {
       "table_id": "d267203c-1c23-4663-a721-7a845d4b98ad",
       "created_at": new Date(),
       "updated_at": new Date(),
-      "__v": 0
+      "__v": 0,
+      "is_system": true
   },
     {
       "id": "5842bc93-2943-4cab-b603-c1a8032d7c55",

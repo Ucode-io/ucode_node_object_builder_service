@@ -17,6 +17,7 @@ const createRelation = require("../initial_setups/relation");
 const createSettingLanguage = require("../initial_setups/setting_language");
 const createSettingCurrency = require("../initial_setups/setting_currency");
 const createSettingTimezone = require("../initial_setups/setting_timezone");
+const settingCheker = require("./settingChecker")
 
 async function insertCollections(conn, userId, projectId) {
 
@@ -24,7 +25,7 @@ async function insertCollections(conn, userId, projectId) {
     const clientPlatformID = v4().toString()
     const clientTypeID = v4().toString()
     const roleID = v4().toString()
-    const userID = userId.toString()
+    const userID = userId ? userId.toString() : ""
     const testLoginID = v4().toString()
     const connectionID = v4().toString()
 
@@ -46,7 +47,7 @@ async function insertCollections(conn, userId, projectId) {
             });
     })
 
-    console.log('available collections', collections)
+    // console.log('available collections', collections)
 
 
     if (!collections['apps']) {
@@ -190,6 +191,8 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted Timezone :", result.insertedCount)
         })
     }
+
+    await settingCheker(conn, projectId)
 }
 
 module.exports = insertCollections

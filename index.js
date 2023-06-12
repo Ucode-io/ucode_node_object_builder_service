@@ -27,17 +27,6 @@ const logger = require("./config/logger");
 
     try {
         logger.info(`autoconnecting to resources`);
-        // await projectStorage.reconnect({
-        //     project_id: "a5f5affc-db2b-4046-af47-19376ff481f9", // alldental
-        //     credentials: {
-        //         host: "142.93.164.37",
-        //         port: 27017,
-        //         database: "autoservice_autoservice_object_builder_service",
-        //         username: "autoservice_autoservice_object_builder_service",
-        //         password: "q6viL9SDOv"
-        //     }
-        // })
-        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
 
         await projectStorage.autoConnect(
             {

@@ -80,6 +80,8 @@ let customEventStore = {
                 $set: data,
             }
         );
+        let actionPermissions = (await ObjectBuilder(true, data.project_id))["action_permission"]
+        await actionPermissions.models.updateMany({ custom_event_id: data.id }, { $set: { label: data.label } })
 
         return custom_event;
     }),

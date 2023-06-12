@@ -252,20 +252,14 @@ let permission = {
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
         // return { project_id: "okok", data: {} }
 
-        console.log("ENTER FUNCTION")
         const mongoConn = await mongoPool.get(req.project_id)
-        const Table = mongoConn.models['Table']
         const App = mongoConn.models['App']
         const Role = (await ObjectBuilder(true, req.project_id))['role'].models
-        const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
-        const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
-        const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
-        const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const Field = mongoConn.models['Field']
-        const Relation = mongoConn.models['Relation']
         const ViewRelation = mongoConn.models['ViewRelation']
-        const View = mongoConn.models['View']
+        const CustomEvent = mongoConn.models['CustomEvent']
+
 
 
         const role = await Role.findOne(
@@ -295,9 +289,284 @@ let permission = {
             console.log('WARNING apps not found')
             return roleCopy
         }
+        const getListFieldPermisssions = [
+            {
+                '$lookup': {
+                    'from': 'field_permissions',
+                    'let': {
+                        'fieldId': '$id'
+                    },
+                    'pipeline': [
+                        {
+                            '$match': {
+                                '$expr': {
+                                    '$and': [
+                                        {
+                                            '$eq': [
+                                                '$field_id', '$$fieldId'
+                                            ]
+                                        }, {
+                                            '$eq': [
+                                                '$role_id', req.role_id
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    'as': 'field_permissions'
+                }
+            }, {
+                '$unwind': {
+                    'path': '$field_permissions',
+                    'preserveNullAndEmptyArrays': true
+                }
+            }, {
+                '$group': {
+                    '_id': '$table_id',
+                    'fields': {
+                        '$push': '$$ROOT'
+                    }
+                }
+            }, {
+                '$match': {
+                    '_id': {
+                        '$ne': null
+                    }
+                }
+            }, {
+                '$group': {
+                    '_id': null,
+                    'table_fields': {
+                        '$push': {
+                            'k': '$_id',
+                            'v': '$fields'
+                        }
+                    }
+                }
+            }, {
+                '$replaceRoot': {
+                    'newRoot': {
+                        '$arrayToObject': '$table_fields'
+                    }
+                }
+            }
+        ]
+        const getListViewRelationPermissions = [{
+            '$lookup': {
+                'from': 'view_relation_permissions',
+                'localField': 'relations.relation_id',
+                'foreignField': 'relation_id',
+                'as': 'view_permissions'
+            }
+        }, {
+            '$addFields': {
+                'view_permissions': {
+                    '$filter': {
+                        'input': '$view_permissions',
+                        'as': 'view_permission',
+                        'cond': {
+                            '$eq': [
+                                '$$view_permission.role_id', req.role_id
+                            ]
+                        }
+                    }
+                }
+            }
+        }, {
+            '$group': {
+                '_id': null,
+                'view_permission': {
+                    '$push': {
+                        'k': '$table_slug',
+                        'v': '$view_permissions'
+                    }
+                }
+            }
+        }, {
+            '$replaceRoot': {
+                'newRoot': {
+                    '$arrayToObject': '$view_permission'
+                }
+            }
+        }]
+        const getListActionPermissions = [
+            {
+                '$lookup': {
+                    'from': 'action_permissions',
+                    'localField': 'id',
+                    'foreignField': 'custom_event_id',
+                    'as': 'action_permissions'
+                }
+            }, {
+                '$addFields': {
+                    'action_permissions': {
+                        '$filter': {
+                            'input': '$action_permissions',
+                            'as': 'action_permission',
+                            'cond': {
+                                '$eq': [
+                                    '$$action_permission.role_id', req.role_id
+                                ]
+                            }
+                        }
+                    }
+                }
+            }, {
+                '$group': {
+                    '_id': null,
+                    'action_permission': {
+                        '$push': {
+                            'k': '$table_slug',
+                            'v': '$action_permissions'
+                        }
+                    }
+                }
+            }, {
+                '$replaceRoot': {
+                    'newRoot': {
+                        '$arrayToObject': '$action_permission'
+                    }
+                }
+            }
+        ]
+        const getAutoFilters = [
+            {
+                '$match': { role_id: req.role_id }
+            },
+            {
+                '$group': {
+                    '_id': '$table_slug',
+                    'read': {
+                        '$push': {
+                            '$cond': {
+                                'if': {
+                                    '$eq': [
+                                        '$method', 'read'
+                                    ]
+                                },
+                                'then': '$$ROOT',
+                                'else': ''
+                            }
+                        }
+                    },
+                    'write': {
+                        '$push': {
+                            '$cond': {
+                                'if': {
+                                    '$eq': [
+                                        '$method', 'write'
+                                    ]
+                                },
+                                'then': '$$ROOT',
+                                'else': ''
+                            }
+                        }
+                    },
+                    'update': {
+                        '$push': {
+                            '$cond': {
+                                'if': {
+                                    '$eq': [
+                                        '$method', 'update'
+                                    ]
+                                },
+                                'then': '$$ROOT',
+                                'else': ''
+                            }
+                        }
+                    },
+                    'delete': {
+                        '$push': {
+                            '$cond': {
+                                'if': {
+                                    '$eq': [
+                                        '$method', 'delete'
+                                    ]
+                                },
+                                'then': '$$ROOT',
+                                'else': ''
+                            }
+                        }
+                    }
+                }
+            }, {
+                '$project': {
+                    'automatic_filters': {
+                        'read': {
+                            '$filter': {
+                                'input': '$read',
+                                'cond': {
+                                    '$ne': [
+                                        '$$this', ''
+                                    ]
+                                }
+                            }
+                        },
+                        'write': {
+                            '$filter': {
+                                'input': '$write',
+                                'cond': {
+                                    '$ne': [
+                                        '$$this', ''
+                                    ]
+                                }
+                            }
+                        },
+                        'update': {
+                            '$filter': {
+                                'input': '$update',
+                                'cond': {
+                                    '$ne': [
+                                        '$$this', ''
+                                    ]
+                                }
+                            }
+                        },
+                        'delete': {
+                            '$filter': {
+                                'input': '$delete',
+                                'cond': {
+                                    '$ne': [
+                                        '$$this', ''
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }, {
+                '$group': {
+                    '_id': null,
+                    'automatic_filter': {
+                        '$push': {
+                            'k': '$_id',
+                            'v': '$automatic_filters'
+                        }
+                    }
+                }
+            }, {
+                '$replaceRoot': {
+                    'newRoot': {
+                        '$arrayToObject': '$automatic_filter'
+                    }
+                }
+            }
+        ]
 
+        let fieldsOfTables = await Field.aggregate(getListFieldPermisssions)
+        let fields = fieldsOfTables[0]
 
-        let countViewRelationPermission = 0, countRelation = 0, countExistsPermission = 0
+        let viewPermissions = await ViewRelation.aggregate(getListViewRelationPermissions)
+        let viewPermission = viewPermissions[0]
+
+        let actionPermissions = await CustomEvent.aggregate(getListActionPermissions)
+        let actionPermission = actionPermissions[0]
+
+        let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
+        let automaticFilter = automaticFilters[0]
+
         let appsList = []
         for (let app of apps) {
 
@@ -311,32 +580,20 @@ let permission = {
                     tableIds.push(table.table_id)
                 }
             }
-            const tables = await tableVersion(mongoConn, { id: { $in: tableIds }, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, req.version_id, false)
-
+            const tables = await tableVersion(mongoConn, { id: { $in: tableIds }, deleted_at: new Date("1970-01-01T18:00:00.000+00:00"), role_id: req.role_id }, req.version_id, false)
+            let tablesList = []
             if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
                 // return roleCopy
             }
-            let tablesList = []
 
             for (let table of tables) {
                 let tableCopy = {
-                    ...table._doc
+                    ...table._doc,
+                    record_permissions: table.record_permissions || null
                 }
 
-                const record_permissions = await RecordPermission.findOne(
-                    {
-                        $and: [
-                            { table_slug: table.slug },
-                            { role_id: req.role_id }
-                        ]
-
-                    }
-                );
-
-                if (record_permissions) {
-                    tableCopy.record_permissions = record_permissions._doc
-                } else {
+                if (!tableCopy.record_permissions) {
                     console.log('WARNING record_permissions not found')
                     tableCopy.record_permissions = {
                         table_slug: table.slug,
@@ -349,181 +606,39 @@ let permission = {
                         is_public: false
                     }
                 }
-                // NEW
-                const fields = await Field.find({
-                    table_id: table.id
-                })
-                let fieldIdAndLabels = []
-                // console.log("--test 0 field permission--");
-                fields.forEach(el => {
-                    fieldIdAndLabels.push({ field_id: el.id, label: el.label })
-                })
-
-                let fieldPermissions = await FieldPermission.find({
-                    role_id: req.role_id,
-                    table_slug: table.slug
-                },
-                    {
-                        _id: 0,
-                        __v: 0
-                    }
-                )
-                // console.log("--test 1 field permission--");
-                let permissionFieldIds = []
-                fieldPermissions.forEach(fieldPermission => {
-                    permissionFieldIds.push(fieldPermission.field_id)
-                })
-                let docFieldPermissions = []
-                let noFieldPermissions = fieldIdAndLabels.filter(val => !permissionFieldIds.includes(val.field_id))
-                fieldPermissions = fieldPermissions.concat(noFieldPermissions)
-                for (const fieldPermission of fieldPermissions) {
-                    if (!fieldPermission.guid) {
-                        fieldPermission.role_id = req.role_id
-                        fieldPermission.table_slug = table.slug
-                        fieldPermission.view_permission = false
-                        fieldPermission.edit_permission = false
-                        docFieldPermissions.push(fieldPermission)
+                let tableFields = fields[table.id]
+                tableCopy.field_permissions = []
+                tableFields && tableFields.length && tableFields.forEach(field => {
+                    if (field.field_permissions) {
+                        tableCopy.field_permissions.push({
+                            ...field.field_permissions,
+                            label: field.label,
+                        })
                     } else {
-                        let field = fields.find(obj => obj.id === fieldPermission.field_id)
-                        fieldPermission._doc.label = field?.label
-                        docFieldPermissions.push(fieldPermission._doc)
-                    }
-
-                }
-                // NEW
-
-
-                tableCopy.field_permissions = docFieldPermissions || []
-
-
-                let viewRelationPermissions = await ViewPermission.find(
-                    {
-                        $and: [
-                            { role_id: req.role_id },
-                            { table_slug: table.slug }
-                        ]
-                    },
-                    null,
-                    { sort: { createdAt: -1 } }
-                );
-                if (viewRelationPermissions.length) {
-                    countExistsPermission += viewRelationPermissions.length
-                }
-                let viewRelation = await ViewRelation.findOne({ table_slug: table.slug })
-                let relationIdsFromViewRelation = []
-                if (viewRelation && viewRelation.relations && viewRelation.relations.length) {
-                    viewRelation.relations.forEach(el => { relationIdsFromViewRelation.push(el.relation_id) })
-                }
-
-                if (relationIdsFromViewRelation.length) {
-                    countRelation += relationIdsFromViewRelation.length
-                    const relations = await Relation.find({ id: { $in: relationIdsFromViewRelation } }).lean()
-                    let relationIdsObject = [], relationIds = []
-                    if (relations && relations.length) {
-                        relations.forEach(element => {
-                            relationIdsObject.push({ relation_id: element.id })
-                            relationIds.push(element.id)
+                        tableCopy.field_permissions.push({
+                            field_id: field.id,
+                            table_slug: table.slug,
+                            view_permission: false,
+                            edit_permission: false,
+                            role_id: req.role_id,
+                            label: field.label,
+                            guid: ""
                         })
-                        let relationObject = {};
-                        relations.map(el => relationObject[el.id] = { table_from: el.table_from, table_to: el.table_to })
-                        let views = []
-                        if (relationIds.length) {
-                            views = await View.find({
-                                relation_table_slug: table.slug,
-                                relation_id: { $in: relationIds }
-                            }).lean()
-                        }
-                        let viewObject = {};
-                        views.map(el => viewObject[el.relation_id] = el.name)
-
-                        let viewRelationPermissionsIds = []
-                        viewRelationPermissions.forEach(element => {
-                            viewRelationPermissionsIds.push(element.relation_id)
-                        })
-                        let docViewRelationPermissions = []
-                        let noViewRelationPermission = relationIdsObject.filter(obj => !viewRelationPermissionsIds.includes(obj.relation_id))
-                        viewRelationPermissions = viewRelationPermissions.concat(noViewRelationPermission)
-                        for (const viewRelationPermission of viewRelationPermissions) {
-                            let view = viewObject[viewRelationPermission.relation_id]
-                            let relation = relationObject[viewRelationPermission.relation_id]
-                            if (!viewRelationPermission.guid) {
-                                viewRelationPermission.role_id = req.role_id
-                                viewRelationPermission.table_slug = table.slug
-                                viewRelationPermission.view_permission = false
-                                viewRelationPermission.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
-                                docViewRelationPermissions.push(viewRelationPermission)
-                            } else {
-                                viewRelationPermission._doc.label = view ? view : `No label: from ${relation?.table_from} to ${relation?.table_to}`
-                                docViewRelationPermissions.push(viewRelationPermission._doc)
-                            }
-                        }
-                        countViewRelationPermission += docViewRelationPermissions?.length
-                        tableCopy.view_permissions = docViewRelationPermissions || []
-                    }
-                }
-
-                const automaticFilters = await AutomaticFilter.find({
-                    role_id: req.role_id,
-                    table_slug: table.slug,
-                })
-                let readFilters = [], writeFilters = [], updateFilters = [], deleteFilters = [];
-                automaticFilters.forEach(el => {
-                    switch (el.method) {
-                        case "read":
-                            readFilters.push(el)
-                            break;
-                        case "write":
-                            writeFilters.push(el)
-                            break;
-                        case "update":
-                            updateFilters.push(el)
-                            break;
-                        case "delete":
-                            deleteFilters.push(el)
-                            break;
-                        default:
-                            break;
                     }
                 })
-                tableCopy.automatic_filters = {
-                    read: readFilters,
-                    write: writeFilters,
-                    update: updateFilters,
-                    delete: deleteFilters,
+                if (viewPermission[table.slug]) {
+                    tableCopy.view_permissions = viewPermission[table.slug]
+                } else {
+                    tableCopy.view_permissions = []
                 }
-                const CustomEvent = mongoConn.models['CustomEvent']
-
-                const customEvents = await CustomEvent.find({
-                    table_slug: table.slug,
-                })
-                let eventObj = {}
-                customEvents.map(el => eventObj[el.id] = el.label)
-                // let customEventIdAndLabels = []
-                // customEvents.forEach(customEvent => {
-                //     customEventIdAndLabels.push({ custom_event_id: customEvent.id, label: customEvent.label })
-                // })
-                // let actionPermissions = await ActionPermission.find({
-                //     role_id: req.role_id,
-                //     table_slug: req.table_slug
-                // },
-                //     {
-                //         created_at: 0,
-                //         updated_at: 0,
-                //         createdAt: 0,
-                //         updatedAt: 0,
-                //         _id: 0,
-                //         __v: 0
-                //     }
-                // )
-                const actionPermissions = await ActionPermission.find({
-                    role_id: req.role_id,
-                    table_slug: table.slug,
-                })
-                actionPermissions.forEach(el => {
-                    el.label = eventObj[el.custom_event_id]
-                })
-                tableCopy.action_permissions = actionPermissions || []
-
+                if (actionPermission[table.slug]) {
+                    tableCopy.action_permissions = actionPermission[table.slug]
+                } else {
+                    tableCopy.action_permissions = []
+                }
+                if (automaticFilter[table.slug]) {
+                    tableCopy.automatic_filters = automaticFilter[table.slug]
+                }
                 tablesList.push(tableCopy)
             }
 
@@ -532,10 +647,6 @@ let permission = {
         }
 
         roleCopy.apps = appsList
-        console.log("count of view permissions:::", countViewRelationPermission);
-        console.log("count of relation:::", countRelation);
-        console.log("count of exists permission:::", countExistsPermission);
-        // console.log('response->', JSON.stringify(roleCopy, null, 2))
         return { project_id: req.project_id, data: roleCopy }
 
     }),
@@ -802,202 +913,155 @@ let permission = {
         if (!role) {
             throw ErrRoleNotFound
         }
-        let fieldPermissions = [], viewPermissions = []
-        let automaticFilters = []
-        let actionPermissions = []
-        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermission = [];
+        let fieldPermissions = [], viewPermissions = [], actionPermissions = []
+        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
+        let readFilters = [], writeFilters = [], updateFilters = [], deleteFilters = []
+        let automaticFilters = {}
         for (let app of req?.data?.apps) {
             for (let table of app?.tables) {
                 let isHaveCondition = false
-                let lengthKeys = Object.keys(table.automatic_filters) ? Object.keys(table.automatic_filters).length : false
-                if (lengthKeys) {
+
+
+                // readFilters = [...readFilters, ...(table?.automatic_filters?.read || [])]
+                // writeFilters = [...writeFilters, ...(table?.automatic_filters?.write || [])]
+                // updateFilters = [...updateFilters, ...(table?.automatic_filters?.update || [])]
+                // deleteFilters = [...deleteFilters, ...(table?.automatic_filters?.delete || [])]
+                if (table?.automatic_filters?.read?.length ||
+                    table?.automatic_filters?.write?.length ||
+                    table?.automatic_filters?.delete?.length ||
+                    table?.automatic_filters?.update?.length) {
                     isHaveCondition = true
-                }
-                if (table?.record_permissions?.guid) {
-                    let filter = { guid: table.record_permissions.guid }
-                    let document = {
-                        read: table.record_permissions.read,
-                        write: table.record_permissions.write,
-                        update: table.record_permissions.update,
-                        delete: table.record_permissions.delete,
-                        is_have_condition: isHaveCondition,
-                        is_public: table.record_permissions.is_public,
-                        role_id: roleId,
+                    automaticFilters[table.slug] = {
+                        automatic_filters: table.automatic_filters
                     }
-                    bulkWriteRecordPermissions.push({
-                        updateOne: {
-                            filter: { guid: table.record_permissions.guid },
-                            update: document,
-                            upsert: false
-                        }
-                    })
-                } else {
-                    let document = {}
-                    document["read"] = "Yes"
-                    document["write"] = "Yes"
-                    document["delete"] = "Yes"
-                    document["update"] = "Yes"
-                    document["is_have_condition"] = false
-                    document["is_public"] = true
-                    document["guid"] = v4()
-                    document["role_id"] = roleId
-                    document["table_slug"] = table.slug
-                    bulkWriteRecordPermissions.push({
-                        insertOne: {
-                            document: document,
-                        }
-                    })
                 }
+                let document = {
+                    read: table.record_permissions.read,
+                    write: table.record_permissions.write,
+                    update: table.record_permissions.update,
+                    delete: table.record_permissions.delete,
+                    is_have_condition: isHaveCondition,
+                    is_public: table.record_permissions.is_public,
+                    role_id: roleId,
+                    table_slug: table.slug
+                }
+                bulkWriteRecordPermissions.push({
+                    updateOne: {
+                        filter: { role_id: roleId, table_slug: table.slug },
+                        update: document,
+                        upsert: true
+                    }
+                })
                 fieldPermissions = [...fieldPermissions, ...table.field_permissions]
                 viewPermissions = [...viewPermissions, ...table.view_permissions]
-                let query = {
-                    table_slug: table.slug,
-                    role_id: req.data.guid
-                }
-                const count = await AutomaticFilter.countDocuments(query)
-                if (count) {
-                    await AutomaticFilter.deleteMany(query)
-                }
-                let readFilters = table?.automatic_filters?.read || []
-                let writeFilters = table?.automatic_filters?.write || []
-                let updateFilters = table?.automatic_filters?.update || []
-                let deleteFilters = table?.automatic_filters?.delete || []
-                for (let af of readFilters) {
-                    let payload = new AutomaticFilter(af)
-                    payload.guid = v4()
-                    payload.role_id = roleId
-                    payload.table_slug = table.slug
-                    payload.method = "read"
-                    automaticFilters.push(payload)
-                }
-                for (let af of writeFilters) {
-                    let payload = new AutomaticFilter(af)
-                    payload.guid = v4()
-                    payload.role_id = roleId
-                    payload.table_slug = table.slug
-                    payload.method = "write"
-                    automaticFilters.push(payload)
-                }
-                for (let af of updateFilters) {
-                    let payload = new AutomaticFilter(af)
-                    payload.guid = v4()
-                    payload.role_id = roleId
-                    payload.table_slug = table.slug
-                    payload.method = "update"
-                    automaticFilters.push(payload)
-                }
-                for (let af of deleteFilters) {
-                    let payload = new AutomaticFilter(af)
-                    payload.guid = v4()
-                    payload.role_id = roleId
-                    payload.table_slug = table.slug
-                    payload.method = "delete"
-                    automaticFilters.push(payload)
-                }
-
-                // test new logic update action permission
-                const countActionPermission = await ActionPermission.countDocuments(query)
-                if (countActionPermission) {
-                    await ActionPermission.deleteMany(query)
-                }
-                table.action_permissions.forEach(el => {
-                    el.table_slug = table.slug
-                    el.role_id = req.data.guid
-                    let payload = new ActionPermission(el)
-                    actionPermissions.push(payload)
-                })
-                // let permissioncustomEventIds = []
-                // actionPermissions.forEach(actionPermission => {
-                //     permissioncustomEventIds.push(actionPermission.custom_event_id)
-                // })
-                // let docPermissions = []
-                // let noActionPermissions = customEventIdAndLabels.filter(val => !permissioncustomEventIds.includes(val.custom_event_id))
-                // actionPermissions = actionPermissions.concat(noActionPermissions)
-                // for (const actionPermission of actionPermissions) {
-                //     if (!actionPermission.guid) {
-                //         actionPermission.permission = false
-                //         actionPermission.g
-                //         docPermissions.push(actionPermission)
-                //     // } else {
-                //         let customEvent = customEvents.find(obj => obj.id === actionPermission.custom_event_id)
-                //         actionPermission._doc.label = customEvent?.label
-                //         docPermissions.push(actionPermission._doc)
-                //     }
-                // }
-
-
-
+                actionPermissions = [...actionPermissions, ...table.action_permissions]
             }
         }
         for (let field_permission of (fieldPermissions || [])) {
 
-            if (field_permission?.guid) {
-                let document = {
-                    view_permission: field_permission.view_permission,
-                    edit_permission: field_permission.edit_permission,
-                    label: field_permission.label
-                }
-                bulkWriteFieldPermissions.push({
-                    updateOne: {
-                        filter: {
-                            guid: field_permission.guid,
-                        },
-                        update: document,
-                        upsert: false
-                    }
-                })
-            } else {
-                let documentFieldPermission = {
-                    view_permission: field_permission.view_permission,
-                    edit_permission: field_permission.edit_permission,
-                    field_id: field_permission.field_id,
-                    table_slug: field_permission.table_slug,
-                    role_id: roleId,
-                    label: field_permission.label,
-                    guid: v4()
-                }
-                bulkWriteFieldPermissions.push({
-                    insertOne: { document: new FieldPermission(documentFieldPermission) }
-                })
+            let documentFieldPermission = {
+                view_permission: field_permission.view_permission,
+                edit_permission: field_permission.edit_permission,
+                field_id: field_permission.field_id,
+                table_slug: field_permission.table_slug,
+                role_id: roleId,
+                label: field_permission.label,
+                guid: v4()
             }
+            bulkWriteFieldPermissions.push({
+                updateOne: {
+                    filter: {
+                        field_id: field_permission.field_id,
+                        role_id: roleId
+                    },
+                    update: documentFieldPermission,
+                    upsert: true
+                }
+            })
         }
         for (let view_permission of (viewPermissions || [])) {
-            if (view_permission?.guid) {
-                let document = { view_permission: view_permission.view_permission, label: view_permission.label }
-                bulkWriteViewPermission.push({
-                    updateOne: {
-                        filter: { guid: view_permission.guid },
-                        update: document,
-                        upsert: false,
-                    }
-                })
-
-            } else {
-
-                let document = {
-                    guid: v4(),
-                    label: view_permission.label,
-                    relation_id: view_permission.relation_id,
-                    role_id: roleId,
-                    table_slug: view_permission.table_slug,
-                    view_permission: view_permission.view_permission,
+            let document = {
+                view_permission: view_permission.view_permission,
+                label: view_permission.label,
+                role_id: roleId,
+                table_slug: view_permission.table_slug,
+                relation_id: view_permission.relation_id
+            }
+            bulkWriteViewPermissions.push({
+                updateOne: {
+                    filter: {
+                        relation_id: view_permission.relation_id,
+                        table_slug: view_permission.table_slug,
+                        role_id: roleId
+                    },
+                    update: document,
+                    upsert: true,
                 }
-                bulkWriteViewPermission.push({ insertOne: { document: document } })
+            })
+        }
+        for (let action_permission of (actionPermissions || [])) {
+
+            let documentActionPermission = {
+                view_permission: action_permission.permission,
+                custom_event_id: action_permission.custom_event_id,
+                table_slug: action_permission.table_slug,
+                role_id: roleId,
+                label: action_permission.label,
+            }
+            bulkWriteActionPermissions.push({
+                updateOne: {
+                    filter: {
+                        custom_event_id: action_permission.custom_event_id,
+                        role_id: roleId
+                    },
+                    update: documentActionPermission,
+                    upsert: true
+                }
+            })
+        }
+        let tableFilters = []
+        for (const tableSlug of Object.keys(automaticFilters)) {
+            if (automaticFilters[tableSlug]) {
+                const filters = automaticFilters[tableSlug].automatic_filters
+                for (let read_filter of (filters.read || [])) {
+                    read_filter.role_id = roleId
+                    read_filter.method = "read"
+                    read_filter.table_slug = tableSlug
+                    read_filter.guid = v4()
+                    tableFilters.push(read_filter)
+                }
+                for (let update_filter of (filters.update || [])) {
+                    update_filter.role_id = roleId
+                    update_filter.method = "update"
+                    update_filter.table_slug = tableSlug
+                    update_filter.guid = v4()
+                    tableFilters.push(update_filter)
+                }
+                for (let write_filter of (filters.write || [])) {
+                    write_filter.role_id = roleId
+                    write_filter.method = "write"
+                    write_filter.table_slug = tableSlug
+                    write_filter.guid = v4()
+                    tableFilters.push(write_filter)
+                }
+                for (let delete_filter of (filters.delete || [])) {
+                    delete_filter.role_id = roleId
+                    delete_filter.method = "delete"
+                    delete_filter.table_slug = tableSlug
+                    delete_filter.guid = v4()
+                    tableFilters.push(delete_filter)
+                }
             }
         }
-        console.log("bulkWriteRecordPermissions::", bulkWriteRecordPermissions.length)
-        console.log("bulkWriteFieldPermissions::", bulkWriteFieldPermissions.length)
-        console.log("bulkWriteViewPermission::", bulkWriteViewPermission.length)
-        console.log("time before bulk table permission", new Date());
-        bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
-        console.log("time after bulk table permission", new Date());
-        bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
-        console.log("time after bulk field permission", new Date());
-        bulkWriteViewPermission.length && await ViewPermission.bulkWrite(bulkWriteViewPermission)
-        console.log("time after view field permission", new Date());
-        automaticFilters.length && await AutomaticFilter.insertMany(automaticFilters)
-        actionPermissions.length && await ActionPermission.insertMany(actionPermissions)
 
+        if (tableFilters.length) {
+            AutomaticFilter.deleteMany({})
+            await AutomaticFilter.insertMany(tableFilters)
+        }
+        bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
+        bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
+        bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
+        bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
         return {}
 
     }),

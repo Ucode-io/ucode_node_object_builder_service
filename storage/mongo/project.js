@@ -7,7 +7,8 @@ const client = require('../../services/grpc/client');
 const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
-const initialTableFolder = require("../../helper/initialTableFolder")
+const initialTableFolder = require("../../helper/initialTableFolder");
+const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 
 
 let NAMESPACE = "storage.project";
@@ -128,7 +129,8 @@ let projectStore = {
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))
                         await objectBuilder(false, data.project_id)
-                        await initialTableFolder({project_id: data.project_id})
+                        await initialTableFolder({ project_id: data.project_id })
+                        await createIndexPermissionTables({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

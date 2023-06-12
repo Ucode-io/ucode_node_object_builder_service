@@ -3,6 +3,7 @@ const { v4 } = require("uuid");
 const mongoPool = require('../../pkg/pool')
 const tableVersion = require('../../helper/table_version');
 const constants = require("../../helper/constants");
+const { struct } = require("pb-util/build");
 let NAMESPACE = "storage.menu";
 
 
@@ -70,105 +71,73 @@ let menuStore = {
             const Menu = mongoConn.models['object_builder_service.menu']
 
             let query = {
-                parent_id: data.parent_id
+                parent_id: data.parent_id,
+                label: RegExp(data.search, "i")
             }
             const pipelines = [
                 {
                     '$match': query
-                }
-            ]
-            if (!data.parent_id) {
-                pipelines.push({
-                    '$lookup': {
-                        'from': 'object_builder_service.menus',
-                        'localField': 'id',
-                        'foreignField': 'parent_id',
-                        'as': 'child_menus'
-                    }
-                })
-                if (data.search) {
-                    pipelines.push({
-                        $unwind: "$child_menus" // Optional, if you want to treat each child menu as a separate document
-                    },
-                    {
-                        $match: {
-                            "child_menus.label": RegExp(data.search, "i"),
-                        }
-                    },)
-                }
-                pipelines.push(
-                    {
-                        '$skip': 0
-                    },
-                    {
-                        '$limit': 1
-                    },
-                )
-            } else {
-                query["label"] = RegExp(data.search, "i"),
-                pipelines.push(
-                    {
-                        '$lookup':
-                        {
-                            from: "tables",
-                            localField: "table_id",
-                            foreignField: "id",
-                            as: "table",
-                        },
-                    }, {
-                    '$unwind':
-                    /**
-                     * path: Path to the array field.
-                     * includeArrayIndex: Optional name for index.
-                     * preserveNullAndEmptyArrays: Optional
-                     *   toggle to unwind null and empty values.
-                     */
-                    {
-                        path: "$table",
-                        preserveNullAndEmptyArrays: true,
-                    },
                 },
-                    {
-                        '$lookup':
-                        {
-                            from: "function_service.functions",
-                            localField: "microfrontend_id",
-                            foreignField: "id",
-                            as: "microfrontend",
-                        },
-                    }, {
-                    '$unwind':
-                    /**
-                     * path: Path to the array field.
-                     * includeArrayIndex: Optional name for index.
-                     * preserveNullAndEmptyArrays: Optional
-                     *   toggle to unwind null and empty values.
-                     */
-                    {
-                        path: "$microfrontend",
-                        preserveNullAndEmptyArrays: true,
-                    },
+                {
+                    '$lookup': {
+                        'from': 'tables',
+                        'localField': 'table_id',
+                        'foreignField': 'id',
+                        'as': 'table'
+                    }
+                }, {
+                    '$lookup': {
+                        'from': 'function_service.functions',
+                        'localField': 'microfrontend_id',
+                        'foreignField': 'id',
+                        'as': 'microfrontend'
+                    }
+                }, {
+                    '$lookup': {
+                        'from': 'web_pages.web_page',
+                        'localField': 'webpage_id',
+                        'foreignField': 'id',
+                        'as': 'webpage'
+                    }
+                }, {
+                    '$unwind': {
+                        'path': '$table',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                }, {
+                    '$unwind': {
+                        'path': '$microfrontend',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                }, {
+                    '$unwind': {
+                        'path': '$webpage',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                }, {
+                    '$addFields': {
+                        'data': {
+                            'table': '$table',
+                            'microfrontend': '$microfrontend',
+                            'webpage': '$webpage'
+                        }
+                    }
                 }, {
                     '$skip': data.offset
                 }, {
                     '$limit': data.limit
-                },{
+                }, {
                     $sort:
-                      /**
-                       * Provide any number of field/order pairs.
-                       */
-                      {
+                    {
                         order: 1,
-                      },
-                  },)
-            }
-            const menus = await Menu.aggregate(pipelines)
-            if (!data.parent_id) {
-                menus[0]?.child_menus.sort(
-                    (p1, p2) =>
-                        (p1.order > p2.order) ? 1 : (p1.order < p2.order) ? -1 : 0)
-            }
-
+                    },
+                }]
+            let menus = await Menu.aggregate(pipelines)
+            menus = JSON.parse(JSON.stringify(menus))
+            menus.forEach(el => {
+                el.data = struct.encode(el.data)
+            })
+            // console.log("menus::", menus);
             const count = await Menu.countDocuments(query);
             return { menus, count };
         } catch (err) {

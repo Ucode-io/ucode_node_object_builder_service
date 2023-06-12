@@ -31,6 +31,9 @@ const MenuSchema = mongoose.Schema(
         },
         order: {
             type: Number,
+        },
+        webpage_id: {
+            type: String,
         }
     },
     {

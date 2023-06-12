@@ -592,7 +592,6 @@ let permission = {
                     ...table._doc,
                     record_permissions: table.record_permissions || null
                 }
-
                 if (!tableCopy.record_permissions) {
                     console.log('WARNING record_permissions not found')
                     tableCopy.record_permissions = {
@@ -626,17 +625,17 @@ let permission = {
                         })
                     }
                 })
-                if (viewPermission[table.slug]) {
+                if (viewPermission && viewPermission[table.slug]) {
                     tableCopy.view_permissions = viewPermission[table.slug]
                 } else {
                     tableCopy.view_permissions = []
                 }
-                if (actionPermission[table.slug]) {
+                if (actionPermission && actionPermission[table.slug]) {
                     tableCopy.action_permissions = actionPermission[table.slug]
                 } else {
                     tableCopy.action_permissions = []
                 }
-                if (automaticFilter[table.slug]) {
+                if (automaticFilter && automaticFilter[table.slug]) {
                     tableCopy.automatic_filters = automaticFilter[table.slug]
                 }
                 tablesList.push(tableCopy)

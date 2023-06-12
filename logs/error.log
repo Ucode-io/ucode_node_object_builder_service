@@ -532,3 +532,31 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-12T19:40:07.803Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-12T19:40:07.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-12T19:40:57.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.getListWithRoleAppTablePermissions: failed with error: Cannot read properties of undefined (reading 'analytics')",
+  level: 'error',
+  timestamp: '2023-06-12T19:41:12.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

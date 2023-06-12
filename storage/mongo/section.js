@@ -289,8 +289,8 @@ let sectionStore = {
                 table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
                 data.table_id = table.id;
             }
-            console.log("table id:::: " + table?.id);
-            console.log("table:::: " + table);
+            // console.log("table id:::: " + table?.id);
+            // console.log("table:::: " + table);
 
             let query = {}
             if(data.table_id) { 
@@ -307,7 +307,7 @@ let sectionStore = {
                     sort: { created_at: -1 }
                 }
             );
-            console.log("length: " + sections.length);
+            // console.log("length: " + sections.length);
             let sectionsResponse = []
             for (const section of sections) {
                 let fieldsRes = [], fieldsWithPermissions = []

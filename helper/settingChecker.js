@@ -1,5 +1,6 @@
 const tables = require("../initial_setups/tables")
 const fields = require("../initial_setups/field")
+const relations = require("../initial_setups/relation")
 const recordPermissions = require("../initial_setups/recordPermission")
 const fieldPermissions = require("../initial_setups/fieldPermission")
 const objectBuilder = require("../models/object_builder");
@@ -9,11 +10,13 @@ module.exports = async function (mongoConn, project_id) {
     console.log("Language insert function working...")
     const Table = mongoConn.models['Table']
     const Field = mongoConn.models['Field']
+    const Relation = mongoConn.models['Relation']
     const RecordPermission = mongoConn.models['record_permission']
     const FieldPermission = mongoConn.models['field_permission']
 
     let table_data = await tables()
     let field_data = await fields()
+    let relation_data = await relations()
     let record_permission_data = await recordPermissions()
     let field_permission_data = await fieldPermissions()
 
@@ -30,8 +33,28 @@ module.exports = async function (mongoConn, project_id) {
     // console.log("#test 1 ", setting_tables, table_data)
     let setting_field_ids = []
     let setting_fields = field_data.filter(el => {
-        if (el.table_id == language_id || el.table_id == timezone_id) {
+        if (
+            // el.table_id == language_id 
+            // || 
+            // el.table_id == timezone_id
+            // || 
+            el.slug == language_slug + "_id"
+            ||
+            el.slug == timezone_slug + "_id"
+            ) {
             setting_field_ids.push(el.id)
+            return true
+        }
+    })
+    console.log("#test 1", setting_fields.length, setting_field_ids)
+    let setting_relation_ids = []
+    let setting_relations = relation_data.filter(el => {
+        if(
+            (el.table_from == "user" && el.table_to == language_slug) 
+            ||
+            (el.table_from == "user" && el.table_to == timezone_slug)
+        ) {
+            setting_relation_ids.push(el.id)
             return true
         }
     })
@@ -61,6 +84,11 @@ module.exports = async function (mongoConn, project_id) {
     const exist_fields = await Field.find({id: {$in: setting_field_ids}})
     if(!exist_fields.length) {
         await Field.insertMany(setting_fields)
+    }
+
+    const exist_relations = await Relation.find({id: {$in: setting_relation_ids}})
+    if(!exist_relations.length) {
+        await Relation.insertMany(setting_relations)
     }
 
     const exist_record_permissions = await RecordPermission.find({guid: {$in: setting_record_permissions_ids}})

@@ -1,6 +1,32 @@
 async function createField() {
     let fields = [
       {
+        "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
+        "required": false,
+        "slug": "setting.languages_id",
+        "label": "IT'S RELATION",
+        "type": "LOOKUP",
+        "is_visible": true,
+        "relation_id": "9be077e7-d2e1-459a-a54b-04cb2a65c552",
+        "id": "c7bc6424-7402-4835-a50b-721ab13d6921",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+    },
+    {
+      "table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
+      "required": false,
+      "slug": "setting.timezones_id",
+      "label": "IT'S RELATION",
+      "type": "LOOKUP",
+      "is_visible": true,
+      "relation_id": "c168f2df-c6a2-4921-8c56-56e708a8d766",
+      "id": "ac490e3f-f0ab-4ec8-920d-2c9d03b439ad",
+      "created_at": new Date(),
+      "updated_at": new Date(),
+      "__v": 0
+    },
+    {
         "required": false,
         "slug": "guid",
         "label": "ID",

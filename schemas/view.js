@@ -93,7 +93,7 @@ const ViewSchema = mongoose.Schema(
             type: String
         },navigate: {
             type: mongoose.Schema.Types.Mixed
-        },
+        }
         // commit_id: {
         //     type: Number,
         //     required: [true, "commit_id is required"],

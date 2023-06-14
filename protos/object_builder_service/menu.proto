@@ -5,6 +5,7 @@ option go_package="genproto/object_builder_service";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
+import "table.proto";
 
 service MenuService {
     rpc Create(CreateMenuRequest) returns (Menu) {}
@@ -40,6 +41,20 @@ message Menu {
     int32 order = 10;
     string webpage_id = 11;
 }
+
+// // if you change this message you must be change Function message in new_function_service's new_function_service.proto 
+// message MicroFrontend {
+//     string id = 1;
+//     string path = 2;
+//     string name = 3;
+//     string description = 4;
+//     string project_id = 5;
+//     string function_folder_id = 7;
+//     string environment_id = 8;
+//     string url = 9;
+//     string password = 10;
+//     string ssh_url = 11;
+// }
 
 message MenuForGetAll {
     string label = 1;

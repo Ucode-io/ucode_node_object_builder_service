@@ -673,6 +673,7 @@ let relationStore = {
                                     view.updated_fields;
                                 responseRelation["default_editable"] = view.default_editable;
                                 responseRelation["creatable"] = view.creatable;
+                                responseRelation["function_path"] = view.function_path;
 
                             }
                             responseRelations.push(responseRelation);
@@ -729,6 +730,7 @@ let relationStore = {
                     responseRelation["updated_fields"] = view.updated_fields;
                     responseRelation["default_editable"] = view.default_editable;
                     responseRelation["creatable"] = view.creatable;
+                    responseRelation["function_path"] = view.function_path;
                 }
                 responseRelations.push(responseRelation);
             }
@@ -848,6 +850,7 @@ let relationStore = {
                             view.updated_fields;
                         responseRelation["creatable"] = view.creatable;
                         responseRelation["default_editable"] = view.default_editable;
+                        responseRelation["function_path"] = view.function_path;
                     }
                     responseRelations.push(responseRelation);
                     continue;
@@ -904,6 +907,7 @@ let relationStore = {
                     responseRelation["updated_fields"] = view.updated_fields;
                     responseRelation["creatable"] = view.creatable;
                     responseRelation["default_editable"] = view.default_editable;
+                    responseRelation["function_path"] = view.function_path;
                 }
                 responseRelations.push(responseRelation);
             }

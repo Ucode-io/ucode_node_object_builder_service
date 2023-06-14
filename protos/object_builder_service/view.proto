@@ -82,7 +82,6 @@ message View {
     google.protobuf.Struct attributes = 25;
     string project_id = 26;
     bool default_editable = 27;
-    
 }
 
 message GetAllViewsResponse {

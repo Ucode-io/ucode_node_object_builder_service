@@ -94,10 +94,38 @@ let menuStore = {
                     }
                 }, {
                     '$lookup': {
-                        'from': 'web_pages.web_page',
-                        'localField': 'webpage_id',
-                        'foreignField': 'id',
-                        'as': 'webpage'
+                        from: "web_pages.web_page",
+                        let: {
+                            webpage_id: "$webpage_id",
+                        },
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: {
+                                        $and: [
+                                            {
+                                                $eq: ["$id", "$$webpage_id"],
+                                            },
+                                            // Add additional match conditions if needed
+                                        ],
+                                    },
+                                },
+                            },
+                            {
+                                $sort: {
+                                    created_at: -1,
+                                },
+                            },
+                            {
+                                $group: {
+                                    _id: "$webpage_id",
+                                    webpage: {
+                                        $first: "$$ROOT",
+                                    },
+                                },
+                            },
+                        ],
+                        as: "webpage"
                     }
                 }, {
                     '$unwind': {
@@ -119,7 +147,7 @@ let menuStore = {
                         'data': {
                             'table': '$table',
                             'microfrontend': '$microfrontend',
-                            'webpage': '$webpage'
+                            'webpage': '$webpage.webpage'
                         }
                     }
                 }, {

@@ -29,13 +29,13 @@ if (dotenv.config({ path: '/app/.env' }).error !== undefined) {
         logger.info(`auto connecting to resources`);
 
         await projectStorage.reconnect({
-            project_id: "4ef62259-adf8-4066-b0e6-16e3cb47241b",
+            project_id: "53b9d486-e202-4b0f-bb0c-921634c7f5ec", // alldental
             credentials: {
-                host: "65.109.239.69",
+                host: "95.217.155.57",
                 port: 30027,
-                database: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
-                username: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
-                password: "bLjkGFjiva"
+                database: "ets3_ets3_object_builder_service",
+                username: "ets3_ets3_object_builder_service",
+                password: "lSXvowmdCI"
             }
         })
     } catch (err) {

@@ -34559,3 +34559,887 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-14T14:01:47.873Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'auto connecting to resources',
+  level: 'info',
+  timestamp: '2023-06-14T14:01:47.874Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "credentials": {\n' +
+    '    "host": "95.217.155.57",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "ets3_ets3_object_builder_service",\n' +
+    '    "username": "ets3_ets3_object_builder_service",\n' +
+    '    "password": "lSXvowmdCI"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:01:47.874Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ets3_ets3_object_builder_service:lSXvowmdCI@95.217.155.57:30027/ets3_ets3_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-14T14:01:47.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ets3_ets3_object_builder_service:lSXvowmdCI@95.217.155.57:30027/ets3_ets3_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-14T14:01:48.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:02:19.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "e7a3e066-7f08-4867-9fd7-753d454b13b3"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:02:46.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "e7a3e066-7f08-4867-9fd7-753d454b13b3"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:02:46.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "app_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:02:46.626Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "app_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:02:46.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:02:46.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:02:46.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "4f9ed906-a072-4919-b039-f73dc40d5a26"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:02:46.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "4f9ed906-a072-4919-b039-f73dc40d5a26"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:02:46.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:02:46.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:02:46.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:02:46.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:02:46.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:02:46.828Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:02:46.830Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:02:46.838Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:02:46.839Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "4f9ed906-a072-4919-b039-f73dc40d5a26"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:32.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "4f9ed906-a072-4919-b039-f73dc40d5a26"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:32.226Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "app_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:32.231Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "app_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:32.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:32.236Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:32.237Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "e7a3e066-7f08-4867-9fd7-753d454b13b3"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:32.239Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "e7a3e066-7f08-4867-9fd7-753d454b13b3"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:32.239Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:32.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:32.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:32.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:32.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:32.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:32.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:32.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:32.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:39.226Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:39.228Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "app_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:39.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "app_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:39.236Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "4f9ed906-a072-4919-b039-f73dc40d5a26"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:39.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "4f9ed906-a072-4919-b039-f73dc40d5a26"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:39.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "e7a3e066-7f08-4867-9fd7-753d454b13b3"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:39.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "e7a3e066-7f08-4867-9fd7-753d454b13b3"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:39.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:39.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:39.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:39.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:39.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:39.437Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:39.437Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:04:39.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:04:39.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "137ee8b1-2805-4d5d-bd14-528aa3072aa8"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:05:05.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "137ee8b1-2805-4d5d-bd14-528aa3072aa8"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:05:05.460Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:05:05.593Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:05:05.593Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "137ee8b1-2805-4d5d-bd14-528aa3072aa8"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:05:06.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "137ee8b1-2805-4d5d-bd14-528aa3072aa8"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:05:06.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:05:07.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:05:07.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "137ee8b1-2805-4d5d-bd14-528aa3072aa8"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:05:07.375Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "137ee8b1-2805-4d5d-bd14-528aa3072aa8"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:05:07.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:05:07.505Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:05:07.506Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-14T14:08:59.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'auto connecting to resources',
+  level: 'info',
+  timestamp: '2023-06-14T14:08:59.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "credentials": {\n' +
+    '    "host": "95.217.155.57",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "ets3_ets3_object_builder_service",\n' +
+    '    "username": "ets3_ets3_object_builder_service",\n' +
+    '    "password": "lSXvowmdCI"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:08:59.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ets3_ets3_object_builder_service:lSXvowmdCI@95.217.155.57:30027/ets3_ets3_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-14T14:08:59.429Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ets3_ets3_object_builder_service:lSXvowmdCI@95.217.155.57:30027/ets3_ets3_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-14T14:08:59.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:09:28.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:09:52.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:09:52.921Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "4f9ed906-a072-4919-b039-f73dc40d5a26"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:09:52.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "4f9ed906-a072-4919-b039-f73dc40d5a26"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:09:52.940Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "e7a3e066-7f08-4867-9fd7-753d454b13b3"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:09:52.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "role_id": "e7a3e066-7f08-4867-9fd7-753d454b13b3"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:09:52.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "app_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-14T14:09:52.948Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "app_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-14T14:09:52.949Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:09:53.075Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:09:53.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.query_folder.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:09:53.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table_folder.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:09:53.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:09:53.133Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:09:53.133Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-14T14:09:53.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-06-14T14:09:53.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

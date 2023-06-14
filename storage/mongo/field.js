@@ -498,7 +498,7 @@ let fieldStore = {
                             field._doc.table_label = relationTable?.label
                             field._doc.label = field._doc?.label + " (" + relationTable?.label + ")"
                             changedField = field
-                            changedField._doc?.path_slug = relationTable.slug + "_id_data" + "." + field.slug
+                            changedField._doc.path_slug = relationTable.slug + "_id_data" + "." + field.slug
                             one_relation_fields.push(changedField._doc)
                         }
                     }

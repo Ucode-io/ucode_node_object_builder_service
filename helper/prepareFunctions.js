@@ -105,8 +105,8 @@ let prepareFunction = {
         })
         if (incrementNum) {
             let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-            console.log(">>>>>>>>>>>>>>> last ", last)
-            console.log(">>>>>>>>>>>>>>> increment field ", incrementNum)
+            // console.log(">>>>>>>>>>>>>>> last ", last)
+            // console.log(">>>>>>>>>>>>>>> increment field ", incrementNum)
 
             let attributes = struct.decode(incrementNum.attributes)
             let incrementLength = attributes.prefix?.length
@@ -115,12 +115,12 @@ let prepareFunction = {
             } else {
                 if(incrementLength) {
                     nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug]?.length)) + 1
-                    console.log("@@@@@@@@@@  ", nextIncrement)
+                    // console.log("@@@@@@@@@@  ", nextIncrement)
                     data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
     
                 } else {
                     nextIncrement = parseInt(last[incrementNum.slug]) + 1
-                    console.log("!!!!!!!! ", nextIncrement)
+                    // console.log("!!!!!!!! ", nextIncrement)
                     data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
                 }
                 

@@ -11,6 +11,7 @@ const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
 const initialMenu = require("../../helper/initialMenu");
 const defaultRoles = require("../../helper/defaultRole")
+const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 
 
 let NAMESPACE = "storage.project";
@@ -69,6 +70,7 @@ let projectStore = {
                 mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
                 mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+                mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)
@@ -136,6 +138,7 @@ let projectStore = {
                         mongoDBConn.model('Layout', require('../../schemas/layouts'))
                         mongoDBConn.model('App', require('../../schemas/app'))
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+                        mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                         await objectBuilder(false, data.project_id)
                         await defaultRoles(mongoDBConn, data?.project_id)
                         await initialTableFolder({ project_id: data.project_id })

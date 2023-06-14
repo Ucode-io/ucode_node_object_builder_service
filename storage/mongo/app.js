@@ -179,14 +179,12 @@ let appStore = {
             const Table = mongoConn.models['Table']
 
             const app = await App.findOne({ id: data.id });
-            console.log("::: app tables", app.tables?.length, JSON.stringify(app.tables))
             let tables = []
             const recordPermission = (await ObjectBuilder(true, data.project_id))["record_permission"]
             if (app.tables) {
                 for (const single_table of app.tables) {
-                    // table = await Table.findOne({ id: single_table.table_id})
+                    // let table = await Table.findOne({ id: single_table.table_id})
                     let table = await tableVersion(mongoConn, { id: single_table.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
-                    console.log(">>>>>>>>>>>>>> table ", table, { id: single_table.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") })
                     if (table) {
                         let recordPermissions = await recordPermission.models.findOne(
                             {

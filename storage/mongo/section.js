@@ -447,9 +447,11 @@ let sectionStore = {
                         }
 
                         if (view_of_relation) {
+
                             if (view_of_relation.default_values && view_of_relation.default_values.length) {
                                 originalAttributes["default_values"] = view_of_relation.default_values
                             }
+                            originalAttributes["creatable"] = view_of_relation.creatable
                         }
                         originalAttributes = JSON.stringify(originalAttributes)
                         originalAttributes = JSON.parse(originalAttributes)

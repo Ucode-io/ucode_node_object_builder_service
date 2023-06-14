@@ -60,7 +60,7 @@ let tableHelpers = {
             //         sort: { created_at: -1 }
             //     }
             // )
-            const tables = await tableVersion(mongoConn, {id: {$in: tableIds, deleted_at: "1970-01-01T18:00:00.000+00:00"}}, data.version_id, false)
+            const tables = await tableVersion(mongoConn, {id: {$in: tableIds}, deleted_at: new Date("1970-01-01T18:00:00.000+00:00")}, data.version_id, false)
             let tableSlugs = [], changedTables = []
             for (const table of tables) {
                 let changedTable = { ...table._doc }

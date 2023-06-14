@@ -27,6 +27,17 @@ const logger = require("./config/logger");
     console.log("mongo credentials: ", config.mongoHost, config.mongoPort, config.mongoUser, config.mongoDatabase, config.mongoPassword)
     try {
         logger.info(`autoconnecting to resources`);
+        // await projectStorage.reconnect({
+        //     project_id: "a5f5affc-db2b-4046-af47-19376ff481f9", // alldental
+        //     credentials: {
+        //         host: "142.93.164.37",
+        //         port: 27017,
+        //         database: "autoservice_autoservice_object_builder_service",
+        //         username: "autoservice_autoservice_object_builder_service",
+        //         password: "q6viL9SDOv"
+        //     }
+        // })
+        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
 
         await projectStorage.autoConnect(
             {
@@ -39,7 +50,7 @@ const logger = require("./config/logger");
             }
         )
 
-        logger.info(`connected successfully done!!!`);
+        logger.info(`autoconnect successfully done!!!`);
 
     } catch (err) {
         logger.info(`auto connecting to resources failed: ${err}`);

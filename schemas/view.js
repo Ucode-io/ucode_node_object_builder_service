@@ -94,6 +94,12 @@ const ViewSchema = mongoose.Schema(
         },
         navigate: {
             type: mongoose.Schema.Types.Mixed
+        },
+        default_editable: {
+            type: Boolean,
+        },
+        creatable: {
+            type: Boolean,
         }
         // commit_id: {
         //     type: Number,

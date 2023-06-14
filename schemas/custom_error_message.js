@@ -20,8 +20,8 @@ const CustomErrorMessageSchema = mongoose.Schema(
         error_id: {
             type: String,
         },
-        variables: {
-            type: mongoose.Schema.Types.Mixed
+        language_id: {
+            type: String,
         }
     },
     {

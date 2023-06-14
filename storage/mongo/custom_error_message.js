@@ -6,7 +6,7 @@ const mongoPool = require('../../pkg/pool');
 let NAMESPACE = "storage.custom_error_message";
 
 let customErrorMessageStore = {
-    createAll: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
+    createAll: catchWrapDb(`${NAMESPACE}.createAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
@@ -17,8 +17,7 @@ let customErrorMessageStore = {
                 customErrMsg.table_id = data.id;
                 var response = customErrMsg.save();
             }
-
-            const resp = await Table.updateOne({
+            await Table.updateOne({
                 id: data.id,
             },
                 {
@@ -32,22 +31,43 @@ let customErrorMessageStore = {
             throw err
         }
     }),
+    create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+            const CustomErrorMessage = mongoConn.models['CustomErrorMessage']
+
+            const customErrMsg = new CustomErrorMessage(data);
+            var response = customErrMsg.save();
+
+            await Table.updateOne({
+                id: data.table_id,
+            },
+                {
+                    $set: {
+                        is_changed: true
+                    }
+                }
+            )
+            return response;
+        } catch (err) {
+            throw err
+        }
+    }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const CustomErrorMessage = mongoConn.models['CustomErrorMessage']
-            const count = await CustomErrorMessage.deleteMany(
+            await CustomErrorMessage.updateOne({
+                id: data.id,
+            },
                 {
-                    table_id: data.table_id,
+                    $set: data
                 }
             )
-            for (const customErrMsgReq of data.custom_error_messages) {
-                const customErrMsg = new CustomErrorMessage(customErrMsgReq);
-                var response = customErrMsg.save();
-            }
 
-            const resp = await Table.updateOne({
+            await Table.updateOne({
                 id: data.table_id,
             },
                 {
@@ -58,6 +78,22 @@ let customErrorMessageStore = {
             )
 
             return;
+        } catch (err) {
+            throw err
+        }
+
+    }),
+    getById: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const CustomErrorMessage = mongoConn.models['CustomErrorMessage']
+
+            const customErrMsg = await CustomErrorMessage.findOne(
+                {
+                    id: data.id,
+                },
+            );
+            return customErrMsg;
         } catch (err) {
             throw err
         }
@@ -90,7 +126,24 @@ let customErrorMessageStore = {
             throw err
         }
 
-    })
+    }),
+    delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const CustomErrorMessage = mongoConn.models['CustomErrorMessage']
+
+            await CustomErrorMessage.deleteOne(
+                {
+                    id: data.id,
+                },
+            );
+            return;
+
+        } catch (err) {
+            throw err
+        }
+
+    }),
 };
 
 module.exports = customErrorMessageStore;

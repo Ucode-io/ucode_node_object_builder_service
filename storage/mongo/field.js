@@ -401,19 +401,19 @@ let fieldStore = {
                             field._doc.view_fields = viewFields
                             // let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3),  })
                             let childRelationTable = await tableVersion(mongoConn, {slug: field.slug.slice(0, -3)}, data.version_id, true)
-                            field._doc.table_label = relationTable.label
-                            field.label = childRelationTable.label
+                            field._doc.table_label = relationTable?.label
+                            field.label = childRelationTable?.label
                             changedField = field
-                            changedField._doc.path_slug = relationTable.slug + "_id_data" + "." + field.slug
-                            changedField._doc.table_slug = relationTable.slug
+                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
+                            changedField._doc.table_slug = relationTable?.slug
                             many_relation_fields.push(changedField._doc)
                         } else {
                             if (field.attributes) {
                                 field.attributes = struct.decode(field.attributes)
                             }
-                            field._doc.table_label = relationTable.label
+                            field._doc.table_label = relationTable?.label
                             changedField = field
-                            changedField._doc.path_slug = relationTable.slug + "_id_data" + "." + field.slug
+                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
                             many_relation_fields.push(changedField._doc)
                         }
                     }
@@ -485,20 +485,20 @@ let fieldStore = {
                             field._doc.view_fields = viewFields
                             // let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3),  })
                             let childRelationTable = await tableVersion(mongoConn, {slug: field.slug.slice(0, -3)}, data.version_id, true)
-                            field._doc.table_label = relationTable.label
-                            field.label = childRelationTable.label
+                            field._doc.table_label = relationTable?.label
+                            field.label = childRelationTable?.label
                             changedField = field
-                            changedField._doc.path_slug = relationTable.slug + "_id_data" + "." + field.slug
-                            changedField._doc.table_slug = relationTable.slug
+                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
+                            changedField._doc.table_slug = relationTable?.slug
                             one_relation_fields.push(changedField._doc)
                         } else {
                             if (field.attributes) {
                                 field.attributes = struct.decode(field.attributes)
                             }
-                            field._doc.table_label = relationTable.label
-                            field._doc.label = field._doc.label + " (" + relationTable.label + ")"
+                            field._doc.table_label = relationTable?.label
+                            field._doc.label = field._doc?.label + " (" + relationTable?.label + ")"
                             changedField = field
-                            changedField._doc.path_slug = relationTable.slug + "_id_data" + "." + field.slug
+                            changedField._doc?.path_slug = relationTable.slug + "_id_data" + "." + field.slug
                             one_relation_fields.push(changedField._doc)
                         }
                     }

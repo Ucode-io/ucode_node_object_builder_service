@@ -24,7 +24,7 @@ const logger = require("./config/logger");
     process.addListener("unhandledRejection", (e) => {
         console.error("Custom Unhandled Rejection", e);
     });
-
+    console.log("mongo credentials: ", config.mongoHost, config.mongoPort, config.mongoUser, config.mongoDatabase, config.mongoPassword)
     try {
         logger.info(`autoconnecting to resources`);
 

@@ -6651,3 +6651,29 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'mongo connection error connect ETIMEDOUT 65.109.239.69:30027',
+  level: 'error',
+  timestamp: '2023-06-14T09:31:54.553Z',
+  label: 'object_builder_service',
+  metadata: {
+    cause: Error: connect ETIMEDOUT 65.109.239.69:30027
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1187:16) {
+      errno: -60,
+      code: 'ETIMEDOUT',
+      syscall: 'connect',
+      address: '65.109.239.69',
+      port: 30027
+    },
+    connectionGeneration: 0,
+    stack: 'MongoNetworkError: connect ETIMEDOUT 65.109.239.69:30027\n' +
+      '    at connectionFailureError (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:387:20)\n' +
+      '    at Socket.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)\n' +
+      '    at Object.onceWrapper (node:events:642:26)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at emitErrorNT (node:internal/streams/destroy:157:8)\n' +
+      '    at emitErrorCloseNT (node:internal/streams/destroy:122:3)\n' +
+      '    at processTicksAndRejections (node:internal/process/task_queues:83:21)'
+  },
+  [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+}

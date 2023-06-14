@@ -522,6 +522,7 @@ let relationStore = {
                             updated_fields: data.updated_fields,
                             default_editable: data.default_editable,
                             creatable: data.creatable,
+                            function_path: data.function_path,
                         },
                     }
                 );

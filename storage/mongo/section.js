@@ -420,7 +420,8 @@ let sectionStore = {
                                     object_id_from_jwt: relation?.object_id_from_jwt,
                                     cascadings: relation?.cascadings,
                                     cascading_tree_table_slug: relation?.cascading_tree_table_slug,
-                                    cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                                    cascading_tree_field_slug: relation?.cascading_tree_field_slug,
+                                    function_path: view_of_relation?.function_path
                                 }
                             }
                         } else {
@@ -432,7 +433,8 @@ let sectionStore = {
                                 object_id_from_jwt: relation?.object_id_from_jwt,
                                 cascadings: relation?.cascadings,
                                 cascading_tree_table_slug: relation?.cascading_tree_table_slug,
-                                cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                                cascading_tree_field_slug: relation?.cascading_tree_field_slug,
+                                function_path: view_of_relation?.function_path,
                             }
                         }
 

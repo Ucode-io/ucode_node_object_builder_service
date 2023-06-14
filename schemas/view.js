@@ -91,7 +91,8 @@ const ViewSchema = mongoose.Schema(
         },
         function_path: {
             type: String
-        },navigate: {
+        },
+        navigate: {
             type: mongoose.Schema.Types.Mixed
         }
         // commit_id: {

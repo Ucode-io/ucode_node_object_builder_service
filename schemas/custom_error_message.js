@@ -22,6 +22,16 @@ const CustomErrorMessageSchema = mongoose.Schema(
         },
         language_id: {
             type: String,
+        },
+        action_type: {
+            type: String,
+            enum: [
+                "DELETE", "GET_LIST",
+                "GET_SINGLE", "UPDATE",
+                "APPEND_MANY2MANY", "DELETE_MANY2MANY",
+                "GET_LIST_SLIM", "GET_SINGLE_SLIM",
+                "CREATE", "MULTIPLE_UPDATE", "GET_LIST_IN_EXCEL"
+            ]
         }
     },
     {

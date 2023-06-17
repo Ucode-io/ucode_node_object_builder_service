@@ -281,16 +281,13 @@ let sectionStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
             
-            let table = {};
-            if (data.table_id === "") {
-                // table = await Table.findOne({
-                //     slug: data.table_slug,
-                // });
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                data.table_id = table.id;
-            }
-            // console.log("table id:::: " + table?.id);
-            // console.log("table:::: " + table);
+            let tableQuery = {}
+            if(data.table_id) {
+                tableQuery.id = data.table_id
+            } else if(data.table_slug) {
+                tableQuery.slug = data.table_slug
+            }            
+            let table = await tableVersion(mongoConn, tableQuery, data.version_id, true);
 
             let query = {}
             if(data.table_id) { 

@@ -129,6 +129,7 @@ let projectStore = {
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))
                         await objectBuilder(false, data.project_id)
+                        console.log(">>>>>>>> ")
                         // await initialTableFolder({ project_id: data.project_id })
                         // await createIndexPermissionTables({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);

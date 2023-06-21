@@ -24,7 +24,7 @@ const logger = require("./config/logger");
     process.addListener("unhandledRejection", (e) => {
         console.error("Custom Unhandled Rejection", e);
     });
-
+    console.log("mongo credentials: ", config.mongoHost, config.mongoPort, config.mongoUser, config.mongoDatabase, config.mongoPassword)
     try {
         logger.info(`autoconnecting to resources`);
         // await projectStorage.reconnect({
@@ -46,13 +46,14 @@ const logger = require("./config/logger");
                 }
             },
             (code, result) => {
-                logger.info(`autoconnected to resources ${code} - ${result}`);
+                logger.info(`connected to resources ${code} - ${result}`);
             }
         )
-        logger.info(`autoconnected successfully done!!!`);
+
+        logger.info(`autoconnect successfully done!!!`);
 
     } catch (err) {
-        logger.info(`autoconnecting to resources failed: ${err}`);
+        logger.info(`auto connecting to resources failed: ${err}`);
     }
 
 

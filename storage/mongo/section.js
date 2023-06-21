@@ -280,22 +280,25 @@ let sectionStore = {
             const Section = mongoConn.models['Section']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
+            
+            let tableQuery = {}
+            if(data.table_id) {
+                tableQuery.id = data.table_id
+            } else if(data.table_slug) {
+                tableQuery.slug = data.table_slug
+            }            
+            let table = await tableVersion(mongoConn, tableQuery, data.version_id, true);
 
-            let table = {};
-            if (data.table_id === "") {
-                // table = await Table.findOne({
-                //     slug: data.table_slug,
-                // });
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                data.table_id = table.id;
+            let query = {}
+            if(data.table_id) { 
+                query.table_id = data.table_id;
             }
-            // console.log("table id:::: " + table?.id);
-            // console.log("table:::: " + table);
+            if(data.tab_id) {
+                query.tab_id = data.tab_id;
+            }
 
             const sections = await Section.find(
-                {
-                    table_id: data.table_id,
-                },
+                query,
                 null,
                 {
                     sort: { created_at: -1 }
@@ -314,6 +317,7 @@ let sectionStore = {
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order
                         field.relation_type = fieldReq.relation_type
+                        field.show_label = fieldReq.show_label || false
                         let relationID = fieldReq.id.split("#")[1]
                         const fieldResp = await Field.findOne({
                             relation_id: relationID,
@@ -346,13 +350,14 @@ let sectionStore = {
                                 relation_id: relation.id,
                                 relation_table_slug: data.table_slug
                             })
+                            console.log(">>> view ", view_of_relation);
 
                         }
 
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
                         for (const field of tableFields) {
-                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0]) {
+                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0] && fieldResp?.slug === field?.relation_field) {
                                 let autofill = {
                                     field_from: field.autofill_field,
                                     field_to: field.slug,
@@ -421,7 +426,7 @@ let sectionStore = {
                                     cascadings: relation?.cascadings,
                                     cascading_tree_table_slug: relation?.cascading_tree_table_slug,
                                     cascading_tree_field_slug: relation?.cascading_tree_field_slug,
-                                    function_path: view_of_relation?.function_path
+                                    function_path: view_of_relation?.function_path 
                                 }
                             }
                         } else {
@@ -447,7 +452,6 @@ let sectionStore = {
                         }
                         originalAttributes = JSON.stringify(originalAttributes)
                         originalAttributes = JSON.parse(originalAttributes)
-
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)
@@ -480,6 +484,7 @@ let sectionStore = {
         }
 
     })
+    
 };
 
 module.exports = sectionStore;

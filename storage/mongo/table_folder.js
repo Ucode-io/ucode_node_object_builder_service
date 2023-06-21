@@ -8,11 +8,10 @@ let queryFolder = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id)
         const TableFolder = mongoConn.models["Table.folder"]
+        
+        const tableFolder = await TableFolder.create(data);
 
-        const tableFolder = new TableFolder(data);
-        var response = await tableFolder.save();
-
-        return response;
+        return tableFolder;
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id)
@@ -45,7 +44,12 @@ let queryFolder = {
         const mongoConn = await mongoPool.get(data.project_id)
         const TableFolder = mongoConn.models["Table.folder"]
 
-        const queryFolders = await TableFolder.find({}).skip(data.offset).limit(data.limit);
+        let query = {}
+        if(data.app_id) {
+            query.app_id = data.app_id
+        }
+
+        const queryFolders = await TableFolder.find(query).skip(data.offset).limit(data.limit);
     
         const count = await TableFolder.countDocuments();
         return {folders: queryFolders, count: count};

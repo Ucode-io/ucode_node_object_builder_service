@@ -246,6 +246,7 @@ let prepareFunction = {
         event.payload.field_types = field_types
         event.project_id = req.project_id 
 
+
         return { payload, data, event, appendMany2ManyObjects }
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {

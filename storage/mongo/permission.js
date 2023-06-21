@@ -256,6 +256,7 @@ let permission = {
         const App = mongoConn.models['App']
         const Role = (await ObjectBuilder(true, req.project_id))['role'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
+        const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
         const Field = mongoConn.models['Field']
         const ViewRelation = mongoConn.models['ViewRelation']
         const CustomEvent = mongoConn.models['CustomEvent']
@@ -277,14 +278,56 @@ let permission = {
             ...role._doc
         }
 
-        const apps = await App.find(
-            {},
-            null,
-            {
-                sort: { created_at: -1 }
-            }
-        );
 
+        const pipelines = [{
+            '$match': {}
+        },
+        {
+            '$lookup': {
+                'from': 'app_permissions',
+                'let': {
+                    'appId': '$id',
+                    'roleId': role.guid
+                },
+                'pipeline': [
+                    {
+                        '$match': {
+                            '$expr': {
+                                '$and': [
+                                    {
+                                        '$eq': [
+                                            '$app_id', '$$appId'
+                                        ]
+                                    }, {
+                                        '$eq': [
+                                            '$role_id', '$$roleId'
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                'as': 'permission'
+            }
+        }, {
+            '$unwind': {
+                'path': '$permission',
+                'preserveNullAndEmptyArrays': true
+            }
+        }, {
+            '$project': {
+                'deleted_at': 0,
+                '__v': 0,
+                '_id': 0
+            }
+        }, {
+            '$sort': {
+                'created_at': -1
+            }
+        }
+        ]
+        const apps = await App.aggregate(pipelines)
         if (!apps) {
             console.log('WARNING apps not found')
             return roleCopy
@@ -570,8 +613,17 @@ let permission = {
         let appsList = []
         for (let app of apps) {
 
-            let appCopy = {
-                ...app._doc
+            let appCopy = app
+            if (!appCopy.permission || !Object.keys(appCopy.permission)) {
+                appCopy.permission = {
+                    read: false,
+                    update: false,
+                    create: false,
+                    delete: false,
+                    guid: "",
+                    role_id: roleCopy.guid,
+                    app_id: appCopy.id
+                }
             }
 
             let tableIds = []
@@ -584,7 +636,6 @@ let permission = {
             let tablesList = []
             if (!tables || !tables.length) {
                 console.log('WARNING tables not found')
-                // return roleCopy
             }
 
             for (let table of tables) {
@@ -667,6 +718,7 @@ let permission = {
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
+        const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
 
         let role = await Role.findOneAndUpdate(
             {
@@ -689,6 +741,39 @@ let permission = {
         let automaticFilters = []
         let actionPermissions = []
         for (let app of req?.data?.apps) {
+            if (app?.permission?.guid) {
+                await AppPermission.findOneAndUpdate(
+                    {
+                        guid: app.permission.guid
+                    },
+                    {
+                        $set: {
+                            read: app.permission.read,
+                            create: app.permission.create,
+                            update: app.permission.update,
+                            delete: app.permission.delete,
+                            role_id: app.permission.role_id,
+                            app_id: app.permission.app_id
+                        }
+                    },
+                    {
+                        upsert: false,
+                    }
+                )
+
+            } else {
+                await AppPermission.create(
+                    {
+                        read: app.permission.read,
+                        create: app.permission.create,
+                        update: app.permission.update,
+                        delete: app.permission.delete,
+                        guid: v4(),
+                        role_id: roleId,
+                        app_id: app.id
+                    }
+                )
+            }
             for (let table of app?.tables) {
                 let isHaveCondition = false
                 let lengthKeys = Object.keys(table.automatic_filters) ? Object.keys(table.automatic_filters).length : false

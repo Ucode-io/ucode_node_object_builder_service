@@ -6,6 +6,7 @@
         "id": "c57eedc3-a954-4262-a0af-376c65b5a283",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0,
         "tables": [
           {
@@ -79,9 +80,9 @@
             "is_own_table": true
           },
           {
-            "table_id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+            "table_id": "41491588-53f1-4457-ba46-93019363ab88",
             "is_visible": true,
-            "is_own_table": false
+            "is_own_table": true
           }
         ]
       }]

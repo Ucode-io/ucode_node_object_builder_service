@@ -11,6 +11,7 @@ async function createTable() {
         "id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Связь",
@@ -26,6 +27,7 @@ async function createTable() {
         "id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Роли",
@@ -44,6 +46,7 @@ async function createTable() {
         "updated_at": {
             "$date": "2022-12-23T06:57:02.348Z"
         },
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Пользователи",
@@ -59,6 +62,7 @@ async function createTable() {
         "id": "2546e042-af2f-4cef-be7c-834e6bde951c",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Разрешение",
@@ -74,6 +78,7 @@ async function createTable() {
         "id": "25698624-5491-4c39-99ec-aed2eaf07b97",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Проект",
@@ -89,6 +94,7 @@ async function createTable() {
         "id": "373e9aae-315b-456f-8ec3-0851cad46fbf",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Автоматический фильтр",
@@ -104,6 +110,7 @@ async function createTable() {
         "id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Клиент платформа",
@@ -119,6 +126,7 @@ async function createTable() {
         "id": "53edfff0-2a31-4c73-b230-06a134afa50b",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Разрешение на действие",
@@ -132,6 +140,7 @@ async function createTable() {
         "id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Логин таблица",
@@ -147,6 +156,7 @@ async function createTable() {
         "id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Разрешение поля",
@@ -160,6 +170,7 @@ async function createTable() {
         "id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "label": "Тип клиентов",
@@ -175,6 +186,7 @@ async function createTable() {
         "id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     },{
         "label": "Шаблон",
@@ -188,21 +200,7 @@ async function createTable() {
         "id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
-      },{
-        "label": "Врачи",
-        "slug": "doctors",
-        "description": "Специалисты",
-        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
-        "show_in_menu": true,
-        "is_changed": false,
-        "icon": "stethoscope.svg",
-        "subtitle_field_slug": "name",
-        "with_increment_id": true,
-        "digit_number": 3,
-        "id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
-        "created_at": new Date(),
-        "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
       },{
         "label": "Файл",
@@ -216,6 +214,21 @@ async function createTable() {
         "id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
+        "__v": 0
+      },{
+        "label": "Разрешение на приложении",
+        "slug": "app_permission",
+        "description": "Разрешение на приложении",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "file-arrow-down.svg",
+        "subtitle_field_slug": "",
+        "id": "41491588-53f1-4457-ba46-93019363ab88",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
       }]
 

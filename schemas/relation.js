@@ -70,6 +70,9 @@ const RelationSchema = mongoose.Schema(
         commit_id: {
             type: String,
             required: false
+        },
+        is_system: {
+            type: Boolean
         }
     },
     {

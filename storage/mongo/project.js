@@ -7,7 +7,10 @@ const client = require('../../services/grpc/client');
 const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
-const initialTableFolder = require("../../helper/initialTableFolder");
+const initialTableFolder = require("../../helper/initialTableFolder")
+const isSystemChecker = require("../../helper/is_system")
+const initialMenu = require("../../helper/initialMenu");
+const defaultRoles = require("../../helper/defaultRole")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 
 
@@ -66,6 +69,8 @@ let projectStore = {
                 mongoDBConn.model('Setting.Languages', require('../../schemas/setting_language'))
                 mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
+                mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+                mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)
@@ -125,12 +130,19 @@ let projectStore = {
                     mongoDBConn.once("open", async function () {
                         // await insertCollectioinitialTableFolderns(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
+                        await isSystemChecker(mongoDBConn)
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))
+                        mongoDBConn.model('Tab', require('../../schemas/tab'))
+                        mongoDBConn.model('Layout', require('../../schemas/layouts'))
+                        mongoDBConn.model('App', require('../../schemas/app'))
+                        mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+                        mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                         await objectBuilder(false, data.project_id)
-                        // await initialTableFolder({ project_id: data.project_id })
-                        // await createIndexPermissionTables({ project_id: data.project_id })
+                        await defaultRoles(mongoDBConn, data?.project_id)
+                        await initialTableFolder({ project_id: data.project_id })
+                        await initialMenu({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });
@@ -198,13 +210,12 @@ let projectStore = {
         let reconnect_data = await client.autoConn(config.k8s_namespace);
         console.log("PROJECT-CRED >> ", reconnect_data.res.length, reconnect_data.res)
         for (let it of reconnect_data.res) {
-            console.log("credentials:::", it.resource_type)
             if (it.resource_type !== "MONGODB") continue
             // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
             try {
                 await projectStore.reconnect(it)
             } catch (err) {
-                logger.info(`autoconnecting to resources failed: ${err}`);
+                logger.info(`auto connecting to resources failed: ${err}`);
             }
         }
 

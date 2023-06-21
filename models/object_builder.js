@@ -181,12 +181,10 @@ async function buildModels(is_build = true, project_id) {
                             default: _default,
                         }
                     }
-                    // console.log("TEST:::::::::::6")
-                    // checking field uniqueness
                     switch (field.unique) {
                         case true:
                             fieldObject[field.slug].unique = true
-                            fieldsIndex.push(
+                            fieldsIndex.push(   
                                 {
                                     [field.slug]: 1,
                                 },
@@ -203,7 +201,6 @@ async function buildModels(is_build = true, project_id) {
                         default:
                             break;
                     }
-                    // console.log("TEST:::::::::::7")
                 } else {
                     fieldObject = {
                         ...fieldObject,
@@ -216,8 +213,6 @@ async function buildModels(is_build = true, project_id) {
                     }
                 }
                
-                // console.log("TEST:::::::::::8")
-                // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
                 if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS" && field.type != "DYNAMIC") {
                     fieldsModel.push(field._doc) 
                     fieldsIndex.push({[field.slug]: 'text'})
@@ -473,7 +468,7 @@ async function buildModels(is_build = true, project_id) {
         // console.log("TEST:::::::::::11")
 
         for (const index of fieldsIndex) {
-            temp.index(index);
+            temp.index(index)
         }
 
         let views = await View.find({

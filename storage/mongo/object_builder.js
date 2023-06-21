@@ -47,6 +47,13 @@ let objectBuilder = {
             return { table_slug: req.table_slug, data: object };
 
         } catch (err) {
+            if (err.errors.name === "ValidatorError") {
+                
+            }
+            console.log("error ....::", err);
+            console.log("keys::", Object.keys(err));
+            console.log("keys::", Object.keys(err.errors.name));
+            console.log("errorrr::", err.message);
             throw err
         }
     }),

@@ -1195,3 +1195,87 @@
   },
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-20T05:11:28.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-20T05:11:29.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-20T05:11:29.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-20T08:05:32.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-06-20T11:23:28.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-06-20T11:29:08.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:22:43.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:22:43.165Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:22:47.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:25:13.285Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:27:57.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:29:23.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

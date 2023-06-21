@@ -35443,3 +35443,91 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-21T11:49:17.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-21T11:49:17.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "autoservice_autoservice_object_builder_service",\n' +
+    '    "username": "autoservice_autoservice_object_builder_service",\n' +
+    '    "password": "q6viL9SDOv"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-21T11:49:17.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-21T11:49:17.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-21T11:49:18.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-21T11:49:28.444Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-21T11:49:28.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a5f5affc-db2b-4046-af47-19376ff481f9",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "autoservice_autoservice_object_builder_service",\n' +
+    '    "username": "autoservice_autoservice_object_builder_service",\n' +
+    '    "password": "q6viL9SDOv"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-21T11:49:28.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-06-21T11:49:28.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service',
+  level: 'info',
+  timestamp: '2023-06-21T11:49:29.252Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

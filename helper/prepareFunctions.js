@@ -137,6 +137,13 @@ let prepareFunction = {
                             data[el.slug] = Number(struct.decode(el.attributes).defaultValue)
                         } else if (el.type === "DATE_TIME" || el.type === "DATE") {
                             data[el.slug] = new Date().toISOString()
+                        } else if (el.type === "SWITCH") {
+                            let default_value = struct.decode(el.attributes).defaultValue?.toLocaleLowerCase()
+                            if(default_value == "true") {
+                                data[el.slug] = true
+                            } else if(default_value == "false") {
+                                data[el.slug] = false
+                            }
                         } else {
                             data[el.slug] = struct.decode(el.attributes).defaultValue
                         }

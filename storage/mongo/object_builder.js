@@ -835,6 +835,11 @@ let objectBuilder = {
                     }
                 }
             }
+        } else {
+            let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
+            if (objFromAuth) {
+                params["guid"] = objFromAuth.object_id
+            }
         }
         // console.log("TEST::::::::::6")
         // console.timeEnd("TIME_LOGGING:::is_have_condition")
@@ -953,6 +958,7 @@ let objectBuilder = {
                             } else {
                                 table_slug = field.slug.slice(0, -4)
                             }
+                            
                             childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
                             if (childRelation) {
                                 for (const view_field of childRelation.view_fields) {
@@ -1782,9 +1788,9 @@ let objectBuilder = {
 
             const modelFrom = await fromTableModel.models.findOne({
                 guid: data.id_from,
-            })
+            }).lean()
             for (const el of data.id_to) {
-                if (modelFrom[data.table_to + "_ids"]) {
+                if (modelFrom[data.table_to + "_ids"]?.length) {
                     if (!modelFrom[data.table_to + "_ids"].includes(el)) {
                         modelFrom[data.table_to + "_ids"].push(el)
                     }
@@ -1807,15 +1813,18 @@ let objectBuilder = {
             for (const el of data.id_to) {
                 const modelTo = await toTableModel.models.findOne({
                     guid: el,
-                })
-                if (modelTo[data.table_from + "_ids"]) {
+                }).lean()
+                if (modelTo[data.table_from + "_ids"]?.length) {
                     if (!modelTo[data.table_from + "_ids"].includes(data.id_from)) {
+                        console.log("Debug >> test #1", modelTo)
+                        console.log("Debug >> test #2", data.table_from + "_ids")
+                        console.log("Debug >> test #3", modelTo[data.table_from + "_ids"])
                         modelTo[data.table_from + "_ids"].push(data.id_from)
                     }
                 } else {
                     modelTo[data.table_from + "_ids"] = [data.id_from]
                 }
-
+                console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
                 await toTableModel.models.updateOne({
                     guid: el,
                 },

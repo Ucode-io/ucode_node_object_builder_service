@@ -533,6 +533,7 @@ let relationStore = {
                             function_path: data.function_path,
                             default_editable: data.default_editable,
                             creatable: data.creatable,
+                            function_path: data.function_path,
                         },
                     }
                 );
@@ -653,6 +654,7 @@ let relationStore = {
                                     relations[i].cascading_tree_table_slug,
                                 cascading_tree_field_slug:
                                     relations[i].cascading_tree_field_slug,
+                                relation_buttons: relations[i].relation_buttons
                             };
                             if (view) {
                                 responseRelation["title"] = view.name;
@@ -683,6 +685,7 @@ let relationStore = {
                                     view.updated_fields;
                                 responseRelation["default_editable"] = view.default_editable;
                                 responseRelation["creatable"] = view.creatable;
+                                responseRelation["function_path"] = view.function_path;
 
                             }
                             responseRelations.push(responseRelation);
@@ -717,6 +720,7 @@ let relationStore = {
                         relations[i].cascading_tree_table_slug,
                     cascading_tree_field_slug:
                         relations[i].cascading_tree_field_slug,
+                    relation_buttons: relations[i].relation_buttons
                 };
                 if (view) {
                     responseRelation["title"] = view.name;
@@ -739,6 +743,7 @@ let relationStore = {
                     responseRelation["updated_fields"] = view.updated_fields;
                     responseRelation["default_editable"] = view.default_editable;
                     responseRelation["creatable"] = view.creatable;
+                    responseRelation["function_path"] = view.function_path;
                 }
                 responseRelations.push(responseRelation);
             }
@@ -754,6 +759,7 @@ let relationStore = {
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
+            console.log(">>>> invoke function")
             const mongoConn = await mongoPool.get(data.project_id);
             const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
@@ -824,7 +830,8 @@ let relationStore = {
                             relations[i].cascading_tree_table_slug,
                         cascading_tree_field_slug:
                             relations[i].cascading_tree_field_slug,
-                        is_system: relations[i].is_system
+                        is_system: relations[i].is_system,
+                        relation_buttons: relations[i].relation_buttons,
                     };
                     if (tableTo) {
                         responseRelation["table_to"] = tableTo;
@@ -859,6 +866,7 @@ let relationStore = {
                             view.updated_fields;
                         responseRelation["creatable"] = view.creatable;
                         responseRelation["default_editable"] = view.default_editable;
+                        responseRelation["function_path"] = view.function_path;
                     }
                     responseRelations.push(responseRelation);
                     continue;
@@ -892,6 +900,7 @@ let relationStore = {
                         relations[i].cascading_tree_table_slug,
                     cascading_tree_field_slug:
                         relations[i].cascading_tree_field_slug,
+                    relation_buttons: relations[i].relation_buttons
                 };
                 if (view) {
                     console.log("creatable:", view.creatable);
@@ -915,6 +924,7 @@ let relationStore = {
                     responseRelation["updated_fields"] = view.updated_fields;
                     responseRelation["creatable"] = view.creatable;
                     responseRelation["default_editable"] = view.default_editable;
+                    responseRelation["function_path"] = view.function_path;
                 }
                 responseRelations.push(responseRelation);
             }

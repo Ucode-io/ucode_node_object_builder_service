@@ -426,7 +426,7 @@ let sectionStore = {
                                     cascadings: relation?.cascadings,
                                     cascading_tree_table_slug: relation?.cascading_tree_table_slug,
                                     cascading_tree_field_slug: relation?.cascading_tree_field_slug,
-                                    function_path: view_of_relation?.function_path 
+                                    function_path: view_of_relation?.function_path
                                 }
                             }
                         } else {

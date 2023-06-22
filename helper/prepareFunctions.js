@@ -261,6 +261,8 @@ let prepareFunction = {
             data.guid = data.auth_guid
         }
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
+
         const relations = await Relation.find({
             table_from: req.table_slug
         })
@@ -300,7 +302,6 @@ let prepareFunction = {
         };
         console.log("decodedElements: ", decodedFields)
         data.autofill_fields = decodedFields
-        const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
         let event = {}
         let field_types = {}
         event.payload = {}

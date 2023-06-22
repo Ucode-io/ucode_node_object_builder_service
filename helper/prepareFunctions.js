@@ -261,6 +261,45 @@ let prepareFunction = {
             data.guid = data.auth_guid
         }
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const relations = await Relation.find({
+            table_from: req.table_slug
+        })
+        let decodedFields = []
+        for (const element of tableInfo.fields) {
+            if (element.attributes && (element.type === "LOOKUP" || element.type === "LOOKUPS")) {
+                let autofillFields = []
+                let elementField = { ...element }
+                const relation = relations.find(val => (val.id === elementField.relation_id))
+
+                let relationTableSlug;
+                if (relation) {
+                    if (relation?.table_from === req.table_slug) {
+                        relationTableSlug = relation?.table_to
+                    } else {
+                        relationTableSlug = relation?.table_from
+                    }
+                    elementField.table_slug = relationTableSlug
+                }
+                elementField.attributes = struct.decode(element.attributes)
+                const tableElement = await tableVersion(mongoConn, { slug: req.table_slug }, data.version_id, true)
+                const tableElementFields = await Field.find({
+                    table_id: tableElement.id
+                })
+                for (const field of tableElementFields) {
+                    if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
+                        let autofill = {
+                            field_from: field.autofill_field,
+                            field_to: field.slug,
+                        }
+                        autofillFields.push(autofill)
+                    }
+                }
+                elementField.attributes["autofill"] = autofillFields,
+                    decodedFields.push(elementField)
+            }
+        };
+        console.log("decodedElements: ", decodedFields)
+        data.autofill_fields = decodedFields
         const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
         let event = {}
         let field_types = {}

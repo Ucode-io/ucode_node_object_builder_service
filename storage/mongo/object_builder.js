@@ -37,14 +37,15 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
 
-            let { payload, data, event, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
+            let { payload, data, event, appendMany2ManyObjects, decodedFields } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
 
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
             const object = struct.encode({ data });
-            return { table_slug: req.table_slug, data: object };
+            const field = struct.encode({ decodedFields });
+            return { table_slug: req.table_slug, data: object, fields: field };
 
         } catch (err) {
             throw err
@@ -57,7 +58,7 @@ let objectBuilder = {
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-            let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+            let { data, event, appendMany2Many, deleteMany2Many, decodedFields } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
@@ -67,7 +68,7 @@ let objectBuilder = {
             }
             // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
 
-            return response;
+            return { response: response, fields: decodedFields};
         } catch (err) {
             throw err
         }

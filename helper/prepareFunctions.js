@@ -7,6 +7,7 @@ const converter = require("./converter");
 const generators = require("./generator")
 const ObjectBuilder = require("./../models/object_builder");
 const { de } = require('date-fns/locale');
+const tableVersion = require("../helper/table_version")
 
 
 
@@ -250,6 +251,7 @@ let prepareFunction = {
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {
         const Relation = mongoConn.models['Relation']
+        const Field = mongoConn.models['Field']
 
         const data = struct.decode(req.data)
         if (!data.guid) {

@@ -19,6 +19,7 @@
     "@grpc/proto-loader": "^0.6.7",
     "art-template": "^4.13.2",
     "bcrypt": "^5.1.0",
+    "chai": "^4.3.7",
     "date-fns": "^2.29.2",
     "dotenv": "^16.0.1",
     "eta": "^2.0.1",
@@ -40,5 +41,8 @@
     "wkhtmltopdf": "^0.4.0",
     "xlsx": "^0.18.5",
     "xmldom": "^0.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
   }
 }

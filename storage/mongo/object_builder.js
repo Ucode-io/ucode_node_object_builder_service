@@ -753,25 +753,6 @@ let objectBuilder = {
 
         const params = struct.decode(req?.data)
 
-        // handle scopes
-        // for(let key in params) {
-        //     let scope_regex = /[()]/
-        //     if(scope_regex.test(params[key])) {
-        //         let with_slash = ""
-        //         for(let el of params[key]) {
-        //             if(el == "(") {
-        //                 with_slash += "\\("
-        //             } else if (el == ")") {
-        //                 with_slash += "\\)"
-        //             }
-        //             else {
-        //                 with_slash += el
-        //             }
-        //         }
-        //         params[key] = with_slash
-        //     }
-        // }
-
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -848,6 +829,18 @@ let objectBuilder = {
         // console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
+                let replacedSearch = ""
+                let empty = ""
+                for(let el of params.search) {
+                    if(el == "(" ) {
+                        empty += "\\("
+                    } else if(el == ")") {
+                        empty += "\\)"
+                    } else {
+                        empty += el
+                    }
+                }
+                params.search = empty
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))
@@ -1023,22 +1016,7 @@ let objectBuilder = {
                 }
             }
         }
-        // console.timeEnd("TIME_LOGGING:::search")
-        // console.time("TIME_LOGGING:::phone")
-        // if (params.phone_number) {
-        //     let temp = params.phone_number.toString()
-        //     let tempPhone = temp.substring(5, temp.length - 2)
-        //     let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-        //     params.phone_number = phone
-        // } else if (params.phone) {
-        //     let temp = params.phone.toString()
-        //     let tempPhone = temp.substring(5, temp.length - 2)
-        //     let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-        //     params.phone = phone
-        // }
-        // console.log("TEST::::::::::11")
-        // console.timeEnd("TIME_LOGGING:::phone")
-        // console.log("TEST::::::7")
+        
         let populateArr = []
         // console.time("TIME_LOGGING:::limit")
         if (limit !== 0) {

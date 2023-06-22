@@ -252,6 +252,7 @@ let prepareFunction = {
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {
         const Relation = mongoConn.models['Relation']
+        const Field = mongoConn.models['Field']
 
         const data = struct.decode(req.data)
         if (!data.guid) {

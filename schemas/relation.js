@@ -72,7 +72,12 @@ const RelationSchema = mongoose.Schema(
             required: false
         },
         is_system: {
-            type: Boolean
+            type: Boolean,
+            default: false
+        },
+        relation_buttons: {
+            type: Boolean,
+            default: false
         }
     },
     {

@@ -10,6 +10,7 @@ const logger = require("../../config/logger");
 const initialMenu = require("../../helper/initialMenu");
 const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
+const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 
 
 let NAMESPACE = "storage.project";

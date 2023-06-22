@@ -28,6 +28,9 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
 
+        
+        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
+
         await projectStorage.autoConnect(
             {
                 request: {

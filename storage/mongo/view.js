@@ -535,7 +535,7 @@ let viewStore = {
 
                 // console.log("output:::::", output)
                 for(let key in output) {
-                    if(typeof(output[key])) {
+                    if(typeof(output[key]) == "number") {
                         output[key] = numberFormatter(output[key])
                     }
                 }

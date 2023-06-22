@@ -195,7 +195,6 @@ let prepareFunction = {
         }
 
         let payload = new tableInfo.models(data);
-        payload.autofill_fields = decodedFields
         if (ownGuid) {
             payload.guid = ownGuid
         }
@@ -248,7 +247,7 @@ let prepareFunction = {
         event.project_id = req.project_id 
 
 
-        return { payload, data, event, appendMany2ManyObjects }
+        return { payload, data, event, appendMany2ManyObjects, decodedFields }
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {
         const Relation = mongoConn.models['Relation']
@@ -303,7 +302,6 @@ let prepareFunction = {
             }
         };
         console.log("decodedElements: ", decodedFields)
-        data.autofill_fields = decodedFields
         let event = {}
         let field_types = {}
         event.payload = {}
@@ -369,7 +367,7 @@ let prepareFunction = {
         event.payload.field_types = field_types
         event.payload.data = dataToAnalytics
         event.project_id = req.project_id
-        return { data, event, appendMany2Many, deleteMany2Many }
+        return { data, event, appendMany2Many, deleteMany2Many, decodedFields }
     },
 }
 

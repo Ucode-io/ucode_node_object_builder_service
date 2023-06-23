@@ -44,16 +44,20 @@ let objectBuilder = {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
             const object = struct.encode({ data });
-            return { table_slug: req.table_slug, data: object };
+            const table = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 201,
+                    table_id: table.id,
+                    action_type: "CREATE"
+
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
-            if (err.errors.name === "ValidatorError") {
-                
-            }
-            console.log("error ....::", err);
-            console.log("keys::", Object.keys(err));
-            console.log("keys::", Object.keys(err.errors.name));
-            console.log("errorrr::", err.message);
             throw err
         }
     }),
@@ -73,73 +77,85 @@ let objectBuilder = {
                 await objectBuilder.deleteManyToMany(resDeleteM2M)
             }
             // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
+            const table = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: table.id,
+                    action_type: "UPDATE"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
 
-            return response;
+            return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage };
         } catch (err) {
             throw err
         }
     }),
     getSingle: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingle`, async (req) => {
         // Prepare Stage
-            const mongoConn = await mongoPool.get(req.project_id)
-            const Field = mongoConn.models['Field']
-            const Relation = mongoConn.models['Relation']
-            const table = mongoConn.models['Table']
-            const data = struct.decode(req.data)
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Field = mongoConn.models['Field']
+        const Relation = mongoConn.models['Relation']
+        const data = struct.decode(req.data)
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
         //
 
         // Get Relations
-            const relations = await Relation.find({
-                table_from: req.table_slug,
-                type: "One2One"
-            })
-            const relationsM2M = await Relation.find({
-                $or: [{
-                    table_from: req.table_slug
-                },
-                {
-                    table_to: req.table_slug
-                }],
-                $and: [{
-                    type: "Many2Many"
-                }]
-            })
+        const relations = await Relation.find({
+            table_from: req.table_slug,
+            type: "One2One"
+        })
+        const relationsM2M = await Relation.find({
+            $or: [{
+                table_from: req.table_slug
+            },
+            {
+                table_to: req.table_slug
+            }],
+            $and: [{
+                type: "Many2Many"
+            }]
+        })
         //
 
         // Get Related Tables
-            let relatedTable = []
-            for (const relation of relations) {
-                const field = await Field.findOne({
-                    relation_id: relation.id
-                })
-                if (field) {
-                    relatedTable.push(field?.slug + "_data")
-                }
+        let relatedTable = []
+        for (const relation of relations) {
+            const field = await Field.findOne({
+                relation_id: relation.id
+            })
+            if (field) {
+                relatedTable.push(field?.slug + "_data")
             }
+        }
         //
         // Get relationsM2M
-            let relationQueries = []
-            for (const relation of relationsM2M) {
-                if (relation.table_to === req.table_slug) {
-                    relation.field_from = relation.field_to
-                }
-                relationQueries.push({
-                    slug: relation.field_from,
-                    relation_id: relation.id
-                })
+        let relationQueries = []
+        for (const relation of relationsM2M) {
+            if (relation.table_to === req.table_slug) {
+                relation.field_from = relation.field_to
             }
-            if (relationQueries.length > 0) {
-                const fields = await Field.find(
-                    {
-                        $or: relationQueries
-                    }
-                )
-                for (const field of fields) {
-                    if (field)
-                        relatedTable.push(field?.slug + "_data")
+            relationQueries.push({
+                slug: relation.field_from,
+                relation_id: relation.id
+            })
+        }
+        if (relationQueries.length > 0) {
+            const fields = await Field.find(
+                {
+                    $or: relationQueries
                 }
+            )
+            for (const field of fields) {
+                if (field)
+                    relatedTable.push(field?.slug + "_data")
             }
+        }
 
         let output = await tableInfo.models.findOne({
             guid: data.id
@@ -172,7 +188,7 @@ let objectBuilder = {
                     //     slug: attributes.table_from.split('#')[0],
                     //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                     // })
-                    const relationFieldTable =  await tableVersion(mongoConn, {slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00"}, data.version_id, true)
+                    const relationFieldTable = await tableVersion(mongoConn, { slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     const relationField = await Field.findOne({
                         relation_id: attributes.table_from.split('#')[1],
                         table_id: relationFieldTable.id
@@ -181,7 +197,7 @@ let objectBuilder = {
                         output[field.slug] = 0
                         continue
                     }
-                    const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
+                    const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
                     let matchField = relationField ? relationField.slug : req.table_slug + "_id"
                     if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
                         matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
@@ -251,7 +267,7 @@ let objectBuilder = {
                 // const tableElement = await table.findOne({
                 //     slug: req.table_slug
                 // })
-                const tableElement = await tableVersion(mongoConn, {slug: req.table_slug}, data.version_id, true)
+                const tableElement = await tableVersion(mongoConn, { slug: req.table_slug }, data.version_id, true)
                 const tableElementFields = await Field.find({
                     table_id: tableElement.id
                 })
@@ -265,7 +281,7 @@ let objectBuilder = {
                     }
                 }
                 elementField.attributes["autofill"] = autofillFields,
-                decodedFields.push(elementField)
+                    decodedFields.push(elementField)
             }
         };
 
@@ -286,7 +302,7 @@ let objectBuilder = {
                             _id: 0,
                             __v: 0
                         })
-                    
+
                     for (let i = 0; i < viewFieldsResp.length; i++) {
                         if (viewFieldsResp[i].attributes) {
                             viewFieldsResp[i].attributes = struct.decode(viewFieldsResp[i].attributes)
@@ -318,13 +334,24 @@ let objectBuilder = {
                 field.view_fields = viewFields
             }
         }
+        const table = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (table) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: table.id,
+                action_type: "GET_SINGLE",
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
+        }
 
         return {
             table_slug: data.table_slug,
             data: struct.encode({
                 response: output,
                 fields: decodedFields
-            })
+            }),
+            custom_message: customMessage
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
@@ -337,6 +364,9 @@ let objectBuilder = {
         const offset = params.offset
         delete params["client_type_id_from_token"]
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
 
         let keys = Object.keys(params)
         let order = params.order
@@ -610,7 +640,7 @@ let objectBuilder = {
                                 } else if (deepRelation.type === "Many2Many") {
                                     continue
                                 } else if (deepRelation.type === "Many2Dynamic") {
-                                   continue
+                                    continue
                                 } else {
                                     let deep_table_to_slug = "";
                                     const field = await Field.findOne({
@@ -622,7 +652,7 @@ let objectBuilder = {
                                     if (deep_table_to_slug === "") {
                                         continue
                                     }
-    
+
                                     if (deep_table_to_slug !== deepRelation.field_to + "_data") {
                                         let deepPopulate = {
                                             path: deep_table_to_slug
@@ -634,7 +664,7 @@ let objectBuilder = {
                                 //     deepRelation.field_to = deepRelation.field_from
                                 // }
 
-                                
+
                             }
                         }
                     }
@@ -650,7 +680,7 @@ let objectBuilder = {
                                 papulateTable = {
                                     path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
                                     populate: deepRelations
-                                }           
+                                }
                                 populateArr.push(papulateTable)
                             }
                             continue
@@ -740,12 +770,22 @@ let objectBuilder = {
         //         }
         //     }
         // }
+        const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (table) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: tableWithVerison.id,
+                action_type: "GET_SINGLE_SLIM"
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
+        }
 
         const response = struct.encode({
             count: count,
             response: result,
         });
-        return { table_slug: req.table_slug, data: response }
+        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
@@ -783,6 +823,9 @@ let objectBuilder = {
         delete params["client_type_id_from_token"]
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields
@@ -937,7 +980,7 @@ let objectBuilder = {
                         relation.table_to = relation.table_from
                     }
                     // let relationTable = await table.findOne({ slug: relation.table_to })
-                    let relationTable = await tableVersion(mongoConn, {slug: relation.table_to}, params.version_id, true)
+                    let relationTable = await tableVersion(mongoConn, { slug: relation.table_to }, params.version_id, true)
                     let relationFields = await Field.find(
                         {
                             table_id: relationTable?.id
@@ -985,7 +1028,7 @@ let objectBuilder = {
                             }
                             field._doc.view_fields = viewFields
                             // let childRelationTable = await table.findOne({ slug: table_slug })
-                            let childRelationTable = await tableVersion(mongoConn, {slug: table_slug}, params.version_id, true)
+                            let childRelationTable = await tableVersion(mongoConn, { slug: table_slug }, params.version_id, true)
                             field._doc.table_label = relationTable?.label
                             field.label = childRelationTable?.label
                             changedField = field
@@ -1043,8 +1086,8 @@ let objectBuilder = {
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
-                        $and: [params]
-                    },
+                    $and: [params]
+                },
                     {
                         createdAt: 0,
                         updatedAt: 0,
@@ -1131,7 +1174,7 @@ let objectBuilder = {
                                 } else if (deepRelation.type === "Many2Many") {
                                     continue
                                 } else if (deepRelation.type === "Many2Dynamic") {
-                                   continue
+                                    continue
                                 } else {
                                     let deep_table_to_slug = "";
                                     const field = await Field.findOne({
@@ -1143,7 +1186,7 @@ let objectBuilder = {
                                     if (deep_table_to_slug === "") {
                                         continue
                                     }
-    
+
                                     if (deep_table_to_slug !== deepRelation.field_to + "_data") {
                                         let deepPopulate = {
                                             path: deep_table_to_slug
@@ -1155,7 +1198,7 @@ let objectBuilder = {
                                 //     deepRelation.field_to = deepRelation.field_from
                                 // }
 
-                                
+
                             }
                         }
                     }
@@ -1172,7 +1215,7 @@ let objectBuilder = {
                                 papulateTable = {
                                     path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
                                     populate: deepRelations
-                                }           
+                                }
                                 populateArr.push(papulateTable)
                             }
                             continue
@@ -1348,7 +1391,7 @@ let objectBuilder = {
                         //     slug: attributes.table_from.split('#')[0],
                         //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                         // })
-                        const relationFieldTable = await tableVersion(mongoConn, {slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00"}, params.version_id, true)
+                        const relationFieldTable = await tableVersion(mongoConn, { slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00" }, params.version_id, true)
                         const relationField = await Field.findOne({
                             relation_id: attributes.table_from.split('#')[1],
                             table_id: relationFieldTable.id
@@ -1360,7 +1403,7 @@ let objectBuilder = {
                             res[field.slug] = 0
                             continue
                         }
-                        const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
+                        const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
                         if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
                             matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
@@ -1396,7 +1439,7 @@ let objectBuilder = {
         }
         // console.log("TEST::::::::::16")
 
-        
+
         // console.time("TIME_LOGGING:::length")
         if (updatedObjects.length) {
             await objectBuilder.multipleUpdateV2({
@@ -1414,72 +1457,86 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
+        const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (table) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: tableWithVerison.id,
+                action_type: "GET_LIST"
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
+        }
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-        return { table_slug: req.table_slug, data: response }
+        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage
-            const mongoConn = await mongoPool.get(req.project_id)
-            const Field = mongoConn.models['Field']
-            const Relation = mongoConn.models['Relation']
-            const table = mongoConn.models['Table']
-            const data = struct.decode(req.data)
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            let relatedTable = []
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Field = mongoConn.models['Field']
+        const Relation = mongoConn.models['Relation']
+        const table = mongoConn.models['Table']
+        const data = struct.decode(req.data)
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
+
+        let relatedTable = []
         //
 
         if (data.with_relations) {
             // Get Relations
-                const relations = await Relation.find({
-                    table_from: req.table_slug,
-                    type: "One2One"
-                })
-                const relationsM2M = await Relation.find({
-                    $or: [{
-                        table_from: req.table_slug
-                    },
-                    {
-                        table_to: req.table_slug
-                    }],
-                    $and: [{
-                        type: "Many2Many"
-                    }]
-                })
+            const relations = await Relation.find({
+                table_from: req.table_slug,
+                type: "One2One"
+            })
+            const relationsM2M = await Relation.find({
+                $or: [{
+                    table_from: req.table_slug
+                },
+                {
+                    table_to: req.table_slug
+                }],
+                $and: [{
+                    type: "Many2Many"
+                }]
+            })
             //
 
             // Get Related Tables
-                for (const relation of relations) {
-                    const field = await Field.findOne({
-                        relation_id: relation.id
-                    })
-                    if (field) {
-                        relatedTable.push(field?.slug + "_data")
-                    }
+            for (const relation of relations) {
+                const field = await Field.findOne({
+                    relation_id: relation.id
+                })
+                if (field) {
+                    relatedTable.push(field?.slug + "_data")
                 }
+            }
             //
 
             // Get relationsM2M
-                let relationQueries = []
-                for (const relation of relationsM2M) {
-                    if (relation.table_to === req.table_slug) {
-                        relation.field_from = relation.field_to
-                    }
-                    relationQueries.push({
-                        slug: relation.field_from,
-                        relation_id: relation.id
-                    })
+            let relationQueries = []
+            for (const relation of relationsM2M) {
+                if (relation.table_to === req.table_slug) {
+                    relation.field_from = relation.field_to
                 }
-                if (relationQueries.length > 0) {
-                    const fields = await Field.find(
-                        {
-                            $or: relationQueries
-                        }
-                    )
-                    for (const field of fields) {
-                        if (field)
-                            relatedTable.push(field?.slug + "_data")
+                relationQueries.push({
+                    slug: relation.field_from,
+                    relation_id: relation.id
+                })
+            }
+            if (relationQueries.length > 0) {
+                const fields = await Field.find(
+                    {
+                        $or: relationQueries
                     }
+                )
+                for (const field of fields) {
+                    if (field)
+                        relatedTable.push(field?.slug + "_data")
                 }
+            }
             //
         }
 
@@ -1521,7 +1578,7 @@ let objectBuilder = {
                         output[field.slug] = 0
                         continue
                     }
-                    const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
+                    const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
                     let matchField = relationField ? relationField.slug : req.table_slug + "_id"
                     if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
                         matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
@@ -1553,18 +1610,32 @@ let objectBuilder = {
             }
         }
 
+        const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (table) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: tableWithVerison.id
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
+        }
         return {
             table_slug: data.table_slug,
             data: struct.encode({
                 response: output,
-            })
+            }),
+            custom_message: customMessage
         }
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {
+            const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            if (!tableInfo) {
+                throw new Error("table not found")
+            }
 
             const response = await tableInfo.models.deleteOne({ guid: data.id });
             let event = {}
@@ -1575,14 +1646,25 @@ let objectBuilder = {
 
             event.project_id = req.project_id
             // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
+            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVerison.id,
+                    action_type: "DELETE",
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
 
-            return { table_slug: req.table_slug, data: response };
+            return { table_slug: req.table_slug, data: response, custom_message: customMessage };
         } catch (err) {
             throw err
         }
     }),
     getListInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListInExcel`, async (req) => {
         try {
+            const mongoConn = await mongoPool.get(req.project_id)
             const res = await objectBuilder.getList(req)
             const response = struct.decode(res.data)
             const result = response.response
@@ -1747,16 +1829,34 @@ let objectBuilder = {
             const respExcel = struct.encode({
                 link: cfg.minioEndpoint + "/reports/" + filename,
             });
-            return { table_slug: req.table_slug, data: respExcel }
+            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVerison.id,
+                    action_type: "GET_LIST_IN_EXCEL"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return { table_slug: req.table_slug, data: respExcel, custom_message: customMessage }
         } catch (err) {
             throw err
         }
     }),
     deleteManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteManyToMany`, async (data) => {
         try {
+            const mongoConn = await mongoPool.get(req.project_id)
+
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
+            if (!fromTableModel) {
+                throw new Error("table not found")
+            }
             const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
 
+            if (!toTableModel) {
+                throw new Error("table not found")
+            }
             const modelFrom = await fromTableModel.models.findOne({
                 guid: data.id_from,
             })
@@ -1784,16 +1884,33 @@ let objectBuilder = {
                         [data.table_from + "_ids"]: modelTo[data.table_from + "_ids"]
                     }
                 })
-            return data;
+            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVerison.id,
+                    action_type: "DELETE_MANY2MANY"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return { data: data, custom_message: customMessage };
         } catch (err) {
             throw err
         }
     }),
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
         try {
-            const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
-            const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
 
+            const mongoConn = await mongoPool.get(req.project_id)
+            const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
+            if (!fromTableModel) {
+                throw new Error("table not found")
+            }
+            const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
+            if (!toTableModel) {
+                throw new Error("table not found")
+            }
             const modelFrom = await fromTableModel.models.findOne({
                 guid: data.id_from,
             })
@@ -1839,9 +1956,19 @@ let objectBuilder = {
                         }
                     })
             }
+            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVerison.id,
+                    action_type: "APPEND_MANY2MANY",
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
 
 
-            return data;
+            return { data, custom_message: customMessage };
         } catch (err) {
             throw err
         }
@@ -1855,7 +1982,7 @@ let objectBuilder = {
             const Relation = mongoConn.models['Relation']
 
             const params = struct.decode(req.data)
- 
+
             const limit = params.limit
             const offset = params.offset
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
@@ -1896,7 +2023,7 @@ let objectBuilder = {
             if (with_relations) {
                 for (const relation of relations) {
                     // let relationTable = await table.findOne({ slug: relation.table_to })
-                    let relatedTable = await tableVersion(mongoConn, {slug: relation.table_to}, params.version_id, true)
+                    let relatedTable = await tableVersion(mongoConn, { slug: relation.table_to }, params.version_id, true)
 
                     let relationFields = await Field.find(
                         {
@@ -1937,7 +2064,7 @@ let objectBuilder = {
                             }
                             field._doc.view_fields = viewFields
                             // let childRelationTable = await table.findOne({ slug: field.slug.slice(0, -3) })
-                            let childRelationTable = await tableVersion(mongoConn, {slug: field.slug.slice(0, -3)}, params.version_id, true)
+                            let childRelationTable = await tableVersion(mongoConn, { slug: field.slug.slice(0, -3) }, params.version_id, true)
                             field._doc.table_label = relationTable.label
                             field.label = childRelationTable.label
                             changedField = field
@@ -2000,12 +2127,13 @@ let objectBuilder = {
     batch: catchWrapDbObjectBuilder(`${NAMESPACE}.batch`, async (req) => {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
 
             const params = {}
             const data = struct.decode(req.data)
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            if (!tableInfo) {
+                throw new Error('table not found')
+            }
 
             let result;
             for (const object of data.objects) {
@@ -2037,8 +2165,18 @@ let objectBuilder = {
                     await objectBuilder.create(requestToCreate)
                 }
             }
+            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVerison.id,
+                    action_type: "MULTIPLE_UPDATE"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
 
-            return { table_slug: req.table_slug, data: result };
+            return { table_slug: req.table_slug, data: result, custom_message: customMessage };
         } catch (err) {
             throw err
         }
@@ -2046,11 +2184,9 @@ let objectBuilder = {
     }),
     multipleUpdate: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
         try {
-
+            const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             let response = []
-            let allSum = 0
 
             for (const object of data.objects) {
                 const keys = Object.keys(object)
@@ -2076,10 +2212,22 @@ let objectBuilder = {
                     response.push(struct.decode(resp.data))
                 }
             }
-            return {
-                table_slug: data.table_slug, data: struct.encode({
-                    objects: response,
+            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVerison.id,
+                    action_type: "MULTIPLE_UPDATE"
                 })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return {
+                table_slug: data.table_slug,
+                data: struct.encode({
+                    objects: response,
+                }),
+                custom_message: customMessage
             };
         } catch (err) {
             throw err
@@ -2142,6 +2290,9 @@ let objectBuilder = {
             const datas = struct.decode(req.data)
             let objects = []
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            if (!tableInfo) {
+                throw new Error('table not found')
+            }
             for (const obj of datas.objects) {
                 let request = {
                     data: struct.encode(obj),
@@ -2182,7 +2333,7 @@ let objectBuilder = {
             const Relation = mongoConn.models['Relation']
             const View = mongoConn.models['View']
             const request = struct.decode(req.data)
-           
+
             // console.log(":::::::: request ", request)
             const view = await View.findOne({
                 id: request.view_id
@@ -2518,7 +2669,7 @@ let objectBuilder = {
                                 month: key
                             }
                             parentObj.amounts.push(parentMonthlyAmount)
-                        }  
+                        }
                         parentObj = objects.find(el => el.guid === parentObj[req.table_slug + "_id"] && parentObj[req.table_slug + "_id"] != parentObj["guid"])
                         if (parentObj) {
                             parentMonthlyAmount = parentObj.amounts.find(el => el.month === key)
@@ -2615,8 +2766,18 @@ let objectBuilder = {
             data.balance = balance
             const endTime = new Date()
 
+            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVerison.id,
+                    action_type: "GET_FINANCIAL_ANALYTICS"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
             // console.log(":::::::::::::::::::::::::::: TIME ", endTime - startTime)
-            return { table_slug: req.table_slug, data: struct.encode(data) }
+            return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage }
             // return { table_slug: "ok", data: struct.encode({}) }
             // return {}
         } catch (err) {

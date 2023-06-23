@@ -1279,3 +1279,766 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:45:12.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:47:20.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:48:30.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:49:55.795Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:50:53.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:51:40.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:52:50.882Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:58:06.444Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:01:11.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:01:37.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:03:39.432Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:04:27.067Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:08:23.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:09:08.422Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:10:34.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:14:39.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:23:39.957Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:23:57.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:53:49.166Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:55:56.690Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:56:13.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:56:50.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:57:09.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:57:13.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:02:15.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:07:56.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:08:29.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T05:09:15.863Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:09:31.018Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:24:47.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:27:38.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:30:18.180Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:30:18.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:35:57.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:38:21.747Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:42:05.951Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T09:16:17.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:16:49.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:18:03.466Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:20:29.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T09:21:21.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:22:05.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:23:10.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:24:23.240Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:26:41.329Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:27:53.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:29:48.819Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:30:42.703Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:35:32.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:00:51.851Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:01:16.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:02:33.830Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:02:58.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:03:13.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:05:46.666Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T10:07:45.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T10:44:36.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T10:45:26.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:45:58.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:51:41.603Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:55:22.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:58:16.850Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:58:44.945Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T10:59:15.817Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:59:57.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T11:26:11.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T11:27:30.854Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T13:46:54.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T13:48:28.085Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T15:40:45.071Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T15:41:02.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T15:41:03.391Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:50:41.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:52:48.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:53:55.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:55:21.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:55:22.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:56:02.253Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:58:11.479Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T17:01:37.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:01:46.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:01:47.171Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:01:59.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:02:37.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:03:29.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:03:50.675Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:04:36.542Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:06:22.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:08:20.771Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:14:33.331Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:30:47.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:44:45.509Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:46:43.844Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:03:25.991Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:06:24.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:09:32.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:14:50.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:17:55.947Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:19:08.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:26:11.152Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Таблица не готова',
+  level: 'error',
+  timestamp: '2023-06-23T13:27:24.863Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-06-23T13:29:17.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:42:57.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:43:49.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:46:31.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:48:11.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:50:01.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:53:33.930Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:54:28.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

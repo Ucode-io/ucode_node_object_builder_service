@@ -533,7 +533,6 @@ let relationStore = {
                             function_path: data.function_path,
                             default_editable: data.default_editable,
                             creatable: data.creatable,
-                            function_path: data.function_path,
                         },
                     }
                 );

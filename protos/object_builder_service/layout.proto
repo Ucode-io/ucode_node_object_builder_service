@@ -128,8 +128,8 @@ message ActionRelation2 {
 
 message RelationForGetAll2 {
     string id = 1;
-    string table_from = 2;
-    string table_to = 3;
+    Table2 table_from = 2;
+    Table2 table_to = 3;
     string type = 4;
     repeated Field2 view_fields = 5;
     repeated Summary2 summaries = 6;

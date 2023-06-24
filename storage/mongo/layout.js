@@ -116,11 +116,11 @@ let layoutStore = {
                     tab.layout_id = layout.id;
                     tabs.push(tab);
                     if (tab.type === 'relation') {
-                        console.log(":::::::::::TEST:::::::::::::::::::5.1")
+                        console.log(":::::::::::TEST:::::::::::::::::::5.1", tab, tabReq)
                         console.log("RELATION:::::::1", tab.relation, data.project_id)
-                        tab.relation["project_id"] = data.project_id
-                        console.log("RELATION:::::::2", tab.relation, data.project_id)
-                        await relationStorage.update(tab.relation)
+                        tabReq.relation["project_id"] = data.project_id
+                        console.log("RELATION:::::::2", tabReq.relation, data.project_id)
+                        await relationStorage.update(tabReq.relation)
                         console.log(":::::::::::TEST:::::::::::::::::::5.2")
                     } else if (tab.type === 'section') {
                         for (const sectionReq of tabReq.sections) {

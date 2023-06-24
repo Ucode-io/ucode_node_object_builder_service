@@ -40709,3 +40709,395 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-24T12:00:23.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'auto connecting to resources',
+  level: 'info',
+  timestamp: '2023-06-24T12:00:23.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-24T12:00:23.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-24T12:00:23.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-06-24T12:00:24.004Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-24T12:00:56.702Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: requested - {\n' +
+    '  "layouts": [\n' +
+    '    {\n' +
+    '      "tabs": [\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "fa6a6b6a-2bcf-4a6b-bfd1-4e6648da0fa3",\n' +
+    '          "label": "test",\n' +
+    '          "layout_id": "f1e87107-6ed0-4c94-b267-ad78bb83df41",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "section",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        },\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "eb9f72db-4db3-48ba-913d-71f1d471a417",\n' +
+    '          "label": "",\n' +
+    '          "layout_id": "",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "relation",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        },\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "bf62fc51-d8e4-4ff0-9005-dca4c786d709",\n' +
+    '          "label": "",\n' +
+    '          "layout_id": "",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "Many2Many",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        }\n' +
+    '      ],\n' +
+    '      "id": "f1e87107-6ed0-4c94-b267-ad78bb83df41",\n' +
+    '      "label": "New",\n' +
+    '      "order": 0,\n' +
+    '      "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6",\n' +
+    '      "type": "SimpleLayout",\n' +
+    '      "icon": "",\n' +
+    '      "is_default": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-24T12:03:15.866Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.layout.update: requested, {\n' +
+    '  "layouts": [\n' +
+    '    {\n' +
+    '      "tabs": [\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "fa6a6b6a-2bcf-4a6b-bfd1-4e6648da0fa3",\n' +
+    '          "label": "test",\n' +
+    '          "layout_id": "f1e87107-6ed0-4c94-b267-ad78bb83df41",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "section",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        },\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "eb9f72db-4db3-48ba-913d-71f1d471a417",\n' +
+    '          "label": "",\n' +
+    '          "layout_id": "",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "relation",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        },\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "bf62fc51-d8e4-4ff0-9005-dca4c786d709",\n' +
+    '          "label": "",\n' +
+    '          "layout_id": "",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "Many2Many",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        }\n' +
+    '      ],\n' +
+    '      "id": "f1e87107-6ed0-4c94-b267-ad78bb83df41",\n' +
+    '      "label": "New",\n' +
+    '      "order": 0,\n' +
+    '      "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6",\n' +
+    '      "type": "SimpleLayout",\n' +
+    '      "icon": "",\n' +
+    '      "is_default": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-24T12:03:15.866Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.update: requested, undefined',
+  level: 'debug',
+  timestamp: '2023-06-24T12:03:16.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.update: failed with error: Cannot read properties of undefined (reading 'project_id')",
+  level: 'error',
+  timestamp: '2023-06-24T12:03:16.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: requested - {\n' +
+    '  "layouts": [\n' +
+    '    {\n' +
+    '      "tabs": [\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "eb9f72db-4db3-48ba-913d-71f1d471a417",\n' +
+    '          "label": "",\n' +
+    '          "layout_id": "",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "relation",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        }\n' +
+    '      ],\n' +
+    '      "id": "f1e87107-6ed0-4c94-b267-ad78bb83df41",\n' +
+    '      "label": "New",\n' +
+    '      "order": 0,\n' +
+    '      "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6",\n' +
+    '      "type": "SimpleLayout",\n' +
+    '      "icon": "",\n' +
+    '      "is_default": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-24T12:06:59.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.layout.update: requested, {\n' +
+    '  "layouts": [\n' +
+    '    {\n' +
+    '      "tabs": [\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "eb9f72db-4db3-48ba-913d-71f1d471a417",\n' +
+    '          "label": "",\n' +
+    '          "layout_id": "",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "relation",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        }\n' +
+    '      ],\n' +
+    '      "id": "f1e87107-6ed0-4c94-b267-ad78bb83df41",\n' +
+    '      "label": "New",\n' +
+    '      "order": 0,\n' +
+    '      "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6",\n' +
+    '      "type": "SimpleLayout",\n' +
+    '      "icon": "",\n' +
+    '      "is_default": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-24T12:06:59.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.update: requested, undefined',
+  level: 'debug',
+  timestamp: '2023-06-24T12:07:00.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.update: failed with error: Cannot read properties of undefined (reading 'project_id')",
+  level: 'error',
+  timestamp: '2023-06-24T12:07:00.230Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-24T12:09:14.676Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'auto connecting to resources',
+  level: 'info',
+  timestamp: '2023-06-24T12:09:14.678Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-24T12:09:14.679Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-24T12:09:14.679Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-06-24T12:09:15.219Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-06-24T12:09:47.680Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: requested - {\n' +
+    '  "layouts": [\n' +
+    '    {\n' +
+    '      "tabs": [\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "eb9f72db-4db3-48ba-913d-71f1d471a417",\n' +
+    '          "label": "",\n' +
+    '          "layout_id": "",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "relation",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        }\n' +
+    '      ],\n' +
+    '      "id": "f1e87107-6ed0-4c94-b267-ad78bb83df41",\n' +
+    '      "label": "New",\n' +
+    '      "order": 0,\n' +
+    '      "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6",\n' +
+    '      "type": "SimpleLayout",\n' +
+    '      "icon": "",\n' +
+    '      "is_default": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-06-24T12:10:05.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.layout.update: requested, {\n' +
+    '  "layouts": [\n' +
+    '    {\n' +
+    '      "tabs": [\n' +
+    '        {\n' +
+    '          "sections": [],\n' +
+    '          "id": "eb9f72db-4db3-48ba-913d-71f1d471a417",\n' +
+    '          "label": "",\n' +
+    '          "layout_id": "",\n' +
+    '          "relation_id": "",\n' +
+    '          "type": "relation",\n' +
+    '          "order": 0,\n' +
+    '          "icon": "",\n' +
+    '          "relation": null\n' +
+    '        }\n' +
+    '      ],\n' +
+    '      "id": "f1e87107-6ed0-4c94-b267-ad78bb83df41",\n' +
+    '      "label": "New",\n' +
+    '      "order": 0,\n' +
+    '      "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6",\n' +
+    '      "type": "SimpleLayout",\n' +
+    '      "icon": "",\n' +
+    '      "is_default": true\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "53b9d486-e202-4b0f-bb0c-921634c7f5ec",\n' +
+    '  "table_id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-24T12:10:05.065Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.update: requested, undefined',
+  level: 'debug',
+  timestamp: '2023-06-24T12:10:05.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.update: failed with error: Cannot read properties of undefined (reading 'project_id')",
+  level: 'error',
+  timestamp: '2023-06-24T12:10:05.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -9436,3 +9436,24 @@
     }
   }
 }
+{
+  message: "service.layout.update: failed with error: Cannot read properties of undefined (reading 'project_id')",
+  level: 'error',
+  timestamp: '2023-06-24T12:03:16.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.update: failed with error: Cannot read properties of undefined (reading 'project_id')",
+  level: 'error',
+  timestamp: '2023-06-24T12:07:00.230Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.update: failed with error: Cannot read properties of undefined (reading 'project_id')",
+  level: 'error',
+  timestamp: '2023-06-24T12:10:05.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

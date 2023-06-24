@@ -112,6 +112,7 @@ let layoutStore = {
                     tab.layout_id = layout.id;
                     tabs.push(tab);
                     if (tab.type === 'relation') {
+                        tab.relation.project_id = data.project_id
                         await relationStorage.update(tab.relation)
                     } else if (tab.type === 'section') {
                         for (const sectionReq of tabReq.sections) {

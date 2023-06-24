@@ -118,6 +118,7 @@ let layoutStore = {
                     if (tab.type === 'relation') {
                         console.log(":::::::::::TEST:::::::::::::::::::5.1")
                         tab.relation.project_id = data.project_id
+                        console.log("RELATION:::::::", tab.relation, data.project_id)
                         await relationStorage.update(tab.relation)
                         console.log(":::::::::::TEST:::::::::::::::::::5.2")
                     } else if (tab.type === 'section') {

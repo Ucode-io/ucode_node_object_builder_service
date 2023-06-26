@@ -1,18 +1,18 @@
-const dotenv = require('dotenv')
+require('dotenv').config({ path: '/app/.env' });
+require("dotenv").config({ path: "./.env" })
 const projectStorage = require('./storage/mongo/project')
 const config = require('./config/index')
+// const mongooseConnection = require("./config/mongooseConnection");
+// @TODO:: add collection Delete Interval function for resources
+// const collectionDeleteInterval = require("./helper/collectionDeleteInterval"); 
 const grpcConnection = require("./config/grpcConnection");
+const kafka = require("./config/kafka");
 const logger = require("./config/logger");
-
-if (dotenv.config({ path: '/app/.env' }).error !== undefined) {
-    if (dotenv.config({ path: './.env' }).error !== undefined) {
-        console.log("error while load .env file")
-    }
-}
 
 (async function () {
     try {
         await grpcConnection()
+
     } catch (err) {
         throw err
     }
@@ -26,10 +26,9 @@ if (dotenv.config({ path: '/app/.env' }).error !== undefined) {
     });
 
     try {
-        logger.info(`auto connecting to resources`);
-
+        logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "53b9d486-e202-4b0f-bb0c-921634c7f5ec", // alldental
+            project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81", // alldental
             credentials: {
                 host: "65.109.239.69",
                 port: 30027,
@@ -38,7 +37,23 @@ if (dotenv.config({ path: '/app/.env' }).error !== undefined) {
                 password: "bLjkGFjiva"
             }
         })
+        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
+
+        // await projectStorage.autoConnect(
+        //     {
+        //         request: {
+        //             k8s_namespace: config.k8s_namespace
+        //         }
+        //     },
+        //     (code, result) => {
+        //         logger.info(`autoconnected to resources ${code} - ${result}`);
+        //     }
+        // )
+        logger.info(`autoconnected successfully done!!!`);
+
     } catch (err) {
-        logger.info(`auto connecting to resources failed: ${err}`);
+        logger.info(`autoconnecting to resources failed: ${err}`);
     }
+
+
 })();

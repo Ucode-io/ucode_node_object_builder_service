@@ -30,7 +30,7 @@ const CustomErrorMessageSchema = mongoose.Schema(
                 "GET_SINGLE", "UPDATE",
                 "APPEND_MANY2MANY", "DELETE_MANY2MANY",
                 "GET_LIST_SLIM", "GET_SINGLE_SLIM",
-                "CREATE", "MULTIPLE_UPDATE", "GET_LIST_IN_EXCEL"
+                "CREATE", "MULTIPLE_UPDATE", "GET_LIST_IN_EXCEL", "GET_FINANCIAL_ANALYTICS"
             ]
         }
     },

@@ -82,6 +82,7 @@ message View {
     google.protobuf.Struct attributes = 25;
     string project_id = 26;
     bool default_editable = 27;
+<<<<<<< HEAD
     Navigate navigate = 28;
     string function_path = 29;
 }
@@ -96,6 +97,8 @@ message Navigate {
 message KeyStringValue {
     string key = 1;
     string value = 2;
+=======
+>>>>>>> f0a81e929e51a70980dcac0cdb8a7613a04f4438
 }
 
 message GetAllViewsResponse {

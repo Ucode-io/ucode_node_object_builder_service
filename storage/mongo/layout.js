@@ -1,6 +1,7 @@
 const catchWrapDb = require('../../helper/catchWrapDb');
 const tableVersion = require('../../helper/table_version')
 const sectionStorage = require('./section')
+const relationStorage = require('./relation');
 
 
 let NAMESPACE = 'layout'
@@ -345,12 +346,8 @@ let layoutStore = {
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async function (data) {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            const Field = mongoConn.models['Field']
             const Layout = mongoConn.models['Layout']
             const Tab = mongoConn.models['Tab']
-            const Section = mongoConn.models['Section']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
 
             let table = {};
             if (data.table_id === "") {
@@ -365,9 +362,7 @@ let layoutStore = {
             }
 
             const layouts = await Layout.find(
-                {
-                    table_id: data.table_id,
-                },
+                payload,
                 null,
                 {
                     sort: { created_at: -1 }
@@ -375,43 +370,49 @@ let layoutStore = {
             ).lean();
 
             const layout_ids = []
-            for(let layout of layouts) {
+            for (let layout of layouts) {
                 layout_ids.push(layout.id);
             }
 
-            const tabs = await Tab.find({layout_id: {$in: layout_ids}}).lean()
-            
-            const map_tab = {}, tab_ids = []
-            for(let tab of tabs) {
-                if(tab.type === "section") {
-                    if(map_tab[tab.layout_id]) {
-                        map_tab[tab.layout_id].push(tab)
-                    } else {
-                        map_tab[tab.layout_id] = [ tab ]
-                    }
-                    tab_ids = []
+            const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()
 
-                    const {sections} = await sectionStorage.getAll({
+            const map_tab = {}
+            for (let tab of tabs) {
+                if (tab.type === "section") {
+
+                    const { sections } = await sectionStorage.getAll({
                         project_id: data.project_id,
                         tab_id: tab.id
                     })
 
                     tab.sections = sections
-                } else if(tab.type === "relation") {
+                } else if (tab.type === "relation" && tab.relation_id) {
+                    const { relation } = await relationStorage.getSingleViewForRelation({ id: tab.relation_id, project_id: data.project_id })
+                    console.log("relations:", relation);
+                    tab.relation = relation ? relation : {}
+                }
 
+                if (map_tab[tab.layout_id]) {
+                    map_tab[tab.layout_id].push(tab)
+                } else {
+                    map_tab[tab.layout_id] = [tab]
                 }
             }
 
-            for(let layout of layouts) {
-                layout.tabs = map_tab[layout.id]
+            if (Object.keys(map_tab).length > 0) {
+                for (let layout of layouts) {
+                    layout.tabs = map_tab[layout.id]
+                }
             }
 
-            return {layouts: layouts}
+            return { layouts: layouts }
 
         } catch (error) {
-
+            console.error(error)
+            throw error
         }
     })
+
 }
 
 module.exports = layoutStore;

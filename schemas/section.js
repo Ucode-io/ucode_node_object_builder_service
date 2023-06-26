@@ -36,9 +36,6 @@ const SectionSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
-        table_id: {
-            type: String,
-        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

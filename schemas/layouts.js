@@ -27,6 +27,9 @@ const LayoutSchema = mongoose.Schema(
         type: {
             type: String,
             enum: ['SimpleLayout', 'PopupLayout']
+        },
+        summary_fields: {
+            type: mongoose.Schema.Types.Mixed
         }
     },
     {

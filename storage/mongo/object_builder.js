@@ -1081,7 +1081,7 @@ let objectBuilder = {
         //         { deleted_at: null }
         //     ]
         // }
-        console.log(">>>>>>>> params", params)
+        console.log(">>>>>>>> params 1212", params)
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({

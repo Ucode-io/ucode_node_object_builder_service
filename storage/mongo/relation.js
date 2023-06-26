@@ -9,6 +9,7 @@ const relationFieldChecker = require("../../helper/relationFieldChecker");
 const ObjectBuilder = require("../../models/object_builder");
 const cfg = require("../../config/index");
 const mongoPool = require("../../pkg/pool");
+const AddPermission = require("../../helper/addPermission");
 
 let NAMESPACE = "storage.relation";
 
@@ -1702,8 +1703,8 @@ let relationStore = {
                     view.multiple_insert_field;
                 responseRelation["updated_fields"] = view.updated_fields;
             }
-            console.log("responseRelation: ", responseRelation);
-            return { relation: responseRelation };
+            const relationTabWithPermission = await AddPermission.toRelationTab(responseRelation, data.role_id, data.table_slug, data.project_id)
+            return { relation: relationTabWithPermission };
         } catch (err) {
             throw err;
         }

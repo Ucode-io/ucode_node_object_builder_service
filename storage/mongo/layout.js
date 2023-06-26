@@ -4,6 +4,7 @@ const sectionStorage = require('./section')
 const relationStorage = require('./relation')
 const mongoPool = require('../../pkg/pool');
 const { v4 } = require("uuid");
+const AddPermission = require('../../helper/addPermission');
 
 
 let NAMESPACE = 'storage.layout'
@@ -376,11 +377,17 @@ let layoutStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Layout = mongoConn.models['Layout']
             const Tab = mongoConn.models['Tab']
+            const Field = mongoConn.models['Field']
+            const View = mongoConn.models['View']
+            const Relation = mongoConn.models['Relation']
 
             let table = {};
             if (data.table_id === "") {
                 table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
                 data.table_id = table.id;
+            } else {
+                table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true);
+                data.table_slug = table.slug
             }
             let payload = {
                 table_id: data.table_id,
@@ -400,6 +407,155 @@ let layoutStore = {
             const layout_ids = []
             for (let layout of layouts) {
                 layout_ids.push(layout.id);
+                let summaryFields = [];
+                // this login for layout's summary field
+                if (layout.summary_fields && layout.summary_fields.length) {
+                    for (const fieldReq of layout.summary_fields) {
+                        let guid;
+                        let field = {};
+                        let encodedAttributes = {};
+                        if (fieldReq.id.includes("#")) {
+                            field.id = fieldReq.id
+                            field.label = fieldReq.field_name
+                            field.order = fieldReq.order
+                            field.relation_type = fieldReq.relation_type
+                            let relationID = fieldReq.id.split("#")[1]
+                            const fieldResp = await Field.findOne({
+                                relation_id: relationID,
+                                table_id: data.table_id
+                            })
+                            if (fieldResp) {
+                                field.slug = fieldResp.slug
+                                field.required = fieldResp.required
+                            }
+
+                            const relation = await Relation.findOne({ id: relationID })
+                            let fieldAsAttribute = []
+                            let view_of_relation;
+                            if (relation) {
+                                for (const fieldID of relation.view_fields) {
+                                    let field = await Field.findOne({
+                                        id: fieldID
+                                    },
+                                        {
+                                            created_at: 0,
+                                            updated_at: 0,
+                                            createdAt: 0,
+                                            updatedAt: 0,
+                                            _id: 0,
+                                            __v: 0
+                                        }).lean();
+                                    fieldAsAttribute.push(field)
+                                }
+                                view_of_relation = await View.findOne({
+                                    relation_id: relation.id,
+                                    relation_table_slug: data.table_slug
+                                })
+
+                            }
+
+                            let tableFields = await Field.find({ table_id: data.table_id })
+                            let autofillFields = []
+                            for (const field of tableFields) {
+                                if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0]) {
+                                    let autofill = {
+                                        field_from: field.autofill_field,
+                                        field_to: field.slug,
+                                        automatic: field.automatic,
+                                    }
+                                    autofillFields.push(autofill)
+                                }
+                            }
+                            let originalAttributes = {}
+                            let dynamicTables = [];
+                            if (relation?.type === "Many2Dynamic") {
+                                if (relation.dynamic_tables.length) {
+                                    let dynamicTableToAttribute;
+                                    for (const dynamic_table of relation.dynamic_tables) {
+                                        const dynamicTableInfo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
+                                        dynamicTableToAttribute = dynamic_table
+                                        dynamicTableToAttribute["table"] = dynamicTableInfo._doc
+                                        viewFieldsInDynamicTable = []
+                                        for (const fieldId of dynamicTableToAttribute.view_fields) {
+                                            let view_field = await Field.findOne(
+                                                {
+                                                    id: fieldId
+                                                },
+                                                {
+                                                    created_at: 0,
+                                                    updated_at: 0,
+                                                    createdAt: 0,
+                                                    updatedAt: 0,
+                                                    _id: 0,
+                                                    __v: 0
+                                                }
+                                            )
+                                            if (view_field) {
+                                                if (view_field.attributes) {
+                                                    view_field.attributes = struct.decode(view_field.attributes)
+                                                }
+                                                viewFieldsInDynamicTable.push(view_field._doc)
+                                            }
+                                        }
+                                        dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
+                                        dynamicTables.push(dynamicTableToAttribute)
+                                    }
+                                    originalAttributes = {
+                                        autofill: autofillFields,
+                                        view_fields: fieldAsAttribute,
+                                        auto_filters: relation?.auto_filters,
+                                        relation_field_slug: relation?.relation_field_slug,
+                                        dynamic_tables: dynamicTables,
+                                        is_user_id_default: relation?.is_user_id_default,
+                                        object_id_from_jwt: relation?.object_id_from_jwt,
+                                        cascadings: relation?.cascadings,
+                                        cascading_tree_table_slug: relation?.cascading_tree_table_slug,
+                                        cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                                    }
+                                }
+                            } else {
+                                originalAttributes = {
+                                    autofill: autofillFields,
+                                    view_fields: fieldAsAttribute,
+                                    auto_filters: relation?.auto_filters,
+                                    is_user_id_default: relation?.is_user_id_default,
+                                    object_id_from_jwt: relation?.object_id_from_jwt,
+                                    cascadings: relation?.cascadings,
+                                    cascading_tree_table_slug: relation?.cascading_tree_table_slug,
+                                    cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                                }
+                            }
+
+                            if (view_of_relation) {
+                                if (view_of_relation.default_values && view_of_relation.default_values.length) {
+                                    originalAttributes["default_values"] = view_of_relation.default_values
+                                }
+                            }
+                            originalAttributes = JSON.stringify(originalAttributes)
+                            originalAttributes = JSON.parse(originalAttributes)
+
+                            encodedAttributes = struct.encode(originalAttributes)
+                            field.attributes = encodedAttributes
+                            summaryFields.push(field)
+                        } else if (fieldReq.id.includes("@")) {
+                            field.id = fieldReq.id
+                        } else {
+                            guid = fieldReq.id
+                            field = await Field.findOne({
+                                id: guid
+                            });
+                            if (field) {
+                                field.order = fieldReq.order;
+                                field.column = fieldReq.column;
+                                field.id = fieldReq.id;
+                                field.relation_type = fieldReq.relation_type;
+                                summaryFields.push(field);
+                            }
+                        }
+                    }
+                    let fieldsWithPermissions = await AddPermission.toField(summaryFields, data.role_id, table.slug, data.project_id)
+                    layout.summary_fields = fieldsWithPermissions
+                }
             }
 
             const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()
@@ -410,12 +566,20 @@ let layoutStore = {
 
                     const { sections } = await sectionStorage.getAll({
                         project_id: data.project_id,
-                        tab_id: tab.id
+                        tab_id: tab.id,
+                        role_id: data.role_id,
+                        table_slug: table.slug
                     })
 
                     tab.sections = sections
                 } else if (tab.type === "relation" && tab.relation_id) {
-                    const { relation } = await relationStorage.getSingleViewForRelation({ id: tab.relation_id, project_id: data.project_id })
+                    const { relation } = await relationStorage.getSingleViewForRelation(
+                        {
+                            id: tab.relation_id,
+                            project_id: data.project_id,
+                            role_id: data.role_id,
+                            table_slug: table.slug
+                        })
                     console.log("relations:", relation);
                     tab.relation = relation ? relation : {}
                 }

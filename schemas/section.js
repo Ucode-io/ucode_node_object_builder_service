@@ -14,7 +14,7 @@ const SectionSchema = mongoose.Schema(
             sparse: true
         },
         order: {
-            type: Number, 
+            type: Number,
             required: [true, "Section must have order"],
         },
         column: {

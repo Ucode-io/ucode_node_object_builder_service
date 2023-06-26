@@ -2,6 +2,7 @@ const catchWrapDb = require('../../helper/catchWrapDb');
 const tableVersion = require('../../helper/table_version')
 const sectionStorage = require('./section')
 const relationStorage = require('./relation');
+const mongoPool = require('../../pkg/pool')
 
 
 let NAMESPACE = 'layout'
@@ -20,6 +21,10 @@ let layoutStore = {
             for (const layoutReq of data.layouts) {
                 const layout = new Layout(layoutReq);
                 layout.table_id = data.id;
+                if (layout.fields && layout.fields.length) {
+                    const summarySectionForLayout = new Section({ fields: layout.summary_fields, is_summary_section: true, table_id: data.id })
+                    sections.push(summarySectionForLayout)
+                }
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
                     const tab = new Tab(tabReq);

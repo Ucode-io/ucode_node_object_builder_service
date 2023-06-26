@@ -307,6 +307,7 @@ let sectionStore = {
             );
             let sectionsResponse = []
             for (const section of sections) {
+                console.log("Section: " + section.fields);
                 let fieldsRes = [], fieldsWithPermissions = []
                 for (const fieldReq of section.fields) {
                     let guid;
@@ -467,8 +468,11 @@ let sectionStore = {
                         }
                     }
                 }
+                console.log("fields:", fieldsRes);
                 // this function add field permission for each field by role iddynamicTableInfo
                 fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
+                fieldsWithPermissions
+                console.log("fieldsWithPermissions:", fieldsWithPermissions);
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)
             }

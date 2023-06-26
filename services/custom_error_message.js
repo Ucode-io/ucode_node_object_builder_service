@@ -6,7 +6,8 @@ const customErrorMessageService = {
     GetList: catchWrapService(`service.custom_error_message.getList`, customErrorMessageStore.getList),
     GetById: catchWrapService(`service.custom_error_message.getById`, customErrorMessageStore.getById),
     Create: catchWrapService(`service.custom_error_message.create`, customErrorMessageStore.create),
-    Delete: catchWrapService(`service.custom_error_message.delete`, customErrorMessageStore.delete)
+    Delete: catchWrapService(`service.custom_error_message.delete`, customErrorMessageStore.delete),
+    GetListForObject: catchWrapService(`service.custom_error_message.getListForObject`, customErrorMessageStore.getListForObject),
 };
 
 module.exports = customErrorMessageService;

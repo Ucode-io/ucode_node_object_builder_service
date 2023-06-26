@@ -68,6 +68,7 @@ let layoutStore = {
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
+            console.log(":::::::::::TEST:::::::::::::::::::1")
             const mongoConn = await mongoPool.get(data.project_id)
             const Tab = mongoConn.models['Tab']
             const Table = mongoConn.models['Table']
@@ -80,6 +81,7 @@ let layoutStore = {
                 }
                 layoutIds.push(layout.id)
             }
+            console.log(":::::::::::TEST:::::::::::::::::::2")
             console.log(tabIds, layoutIds)
             if (tabIds.length) {
                 await Section.deleteMany(
@@ -88,6 +90,7 @@ let layoutStore = {
                     }
                 )
             }
+            console.log(":::::::::::TEST:::::::::::::::::::3")
             if (layoutIds.length) {
                 await Tab.deleteMany(
                     {
@@ -95,12 +98,13 @@ let layoutStore = {
                     }
                 )
             }
-
+            console.log(":::::::::::TEST:::::::::::::::::::4")
             await Layout.deleteMany(
                 {
                     table_id: data.table_id,
                 }
             )
+            console.log(":::::::::::TEST:::::::::::::::::::5")
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
                 layoutReq.id = v4()
@@ -111,9 +115,7 @@ let layoutStore = {
                     const tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
                     tabs.push(tab);
-                    if (tab.type === 'relation') {
-                        await relationStorage.update(tab.relation)
-                    } else if (tab.type === 'section') {
+                    if (tab.type === 'section') {
                         for (const sectionReq of tabReq.sections) {
                             sectionReq.id = v4()
                             const section = new Section(sectionReq);
@@ -123,10 +125,11 @@ let layoutStore = {
                     }
                 }
             }
+            console.log(":::::::::::TEST:::::::::::::::::::6")
             await Layout.insertMany(layouts)
             await Tab.insertMany(tabs)
             await Section.insertMany(sections)
-
+            console.log(":::::::::::TEST:::::::::::::::::::7")
             const resp = await Table.updateOne({
                 id: data.table_id,
             },
@@ -135,7 +138,7 @@ let layoutStore = {
                         is_changed: true
                     }
                 })
-
+            console.log(":::::::::::TEST:::::::::::::::::::8")
             return;
         } catch (err) {
             throw err
@@ -412,8 +415,9 @@ let layoutStore = {
 
                     tab.sections = sections
                 } else if (tab.type === "relation" && tab.relation_id) {
-                    const { relations } = await relationStorage.getSingleViewForRelation({ id: tab.relation_id, project_id: data.project_id })
-                    tab.relation = relations.length ? relations[0] : {}
+                    const { relation } = await relationStorage.getSingleViewForRelation({ id: tab.relation_id, project_id: data.project_id })
+                    console.log("relations:", relation);
+                    tab.relation = relation ? relation : {}
                 }
 
                 if (map_tab[tab.layout_id]) {
@@ -436,6 +440,7 @@ let layoutStore = {
             throw error
         }
     })
+
 }
 
 module.exports = layoutStore;

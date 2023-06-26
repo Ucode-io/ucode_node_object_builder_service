@@ -56630,3 +56630,99 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-26T03:31:02.897Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-26T03:31:02.899Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-26T03:31:02.899Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-06-26T03:31:02.918Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-06-26T03:31:02.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-06-26T03:31:06.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-06-26T03:31:06.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-06-26T03:31:06.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-06-26T03:31:06.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-06-26T03:31:07.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

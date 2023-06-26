@@ -415,8 +415,9 @@ let layoutStore = {
 
                     tab.sections = sections
                 } else if (tab.type === "relation" && tab.relation_id) {
-                    const { relations } = await relationStorage.getSingleViewForRelation({ id: tab.relation_id, project_id: data.project_id })
-                    tab.relation = relations.length ? relations[0] : {}
+                    const { relation } = await relationStorage.getSingleViewForRelation({ id: tab.relation_id, project_id: data.project_id })
+                    console.log("relations:", relation);
+                    tab.relation = relation ? relation : {}
                 }
 
                 if (map_tab[tab.layout_id]) {
@@ -439,6 +440,7 @@ let layoutStore = {
             throw error
         }
     })
+
 }
 
 module.exports = layoutStore;

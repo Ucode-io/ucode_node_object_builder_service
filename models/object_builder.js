@@ -389,7 +389,7 @@ async function buildModels(is_build = true, project_id) {
                 toJSON: {
                     virtuals: true
                 },
-                strict: false
+                strict: true
             })
         if (hasPasswordField) {
             for (let i=0; i<arrayOfMiddlewares.length; i++) {

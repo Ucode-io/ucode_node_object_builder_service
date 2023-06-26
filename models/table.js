@@ -49,6 +49,11 @@ const TableSchema = mongoose.Schema(
         },
         is_system: {
             type: Boolean,
+            default: false
+        },
+        soft_delete: {
+            type: Boolean,
+            default: false
         }
     },
     {

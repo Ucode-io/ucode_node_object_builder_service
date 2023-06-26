@@ -27,7 +27,8 @@ let prepareFunction = {
         }
         console.log("project id::", req.project_id);
         // console.log("project id::", data);
-        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const allTableInfos = (await ObjectBuilder(true, req.project_id))
+        const tableInfo = allTableInfos[req.table_slug]
         let tableData = await table.findOne(
             {
                 slug: req.table_slug
@@ -167,6 +168,11 @@ let prepareFunction = {
         console.log("decodedElements: ", decodedFields)
 
         for(let el of tableInfo.fields) { 
+            if(!data[el.slug] && el.autofill_table && el.autofill_field) {
+                const AutiFillTable = allTableInfos[el.autofill_table]
+                const autofillObject = await AutiFillTable.models.findOne({guid: data[el.autofill_table + "_id"]}).lean() || {}
+                data[el.slug] = autofillObject[el.autofill_field]
+            }
             if (el.attributes) {
                 if (struct.decode(el.attributes).defaultValue && !data[el.slug]) {
                     if (typeof data[el.slug] === "boolean") {

@@ -378,17 +378,19 @@ async function buildModels(is_build = true, project_id) {
                 createdAt: {type: Date, select: false},
                 updatedAt: {type: Date, select: false},
                 created_at: {type: Date, select: false},
-                updated_at: {type: Date, select: false}
-        },
-        {
-            timestamps: true,
-            toObject: {
-                virtuals: true
+                updated_at: {type: Date, select: false},
+                deleted_at: {type: Date, select: false}
             },
-            toJSON: {
-                virtuals: true
-            },
-        })
+            {
+                timestamps: true,
+                toObject: {
+                    virtuals: true
+                },
+                toJSON: {
+                    virtuals: true
+                },
+                strict: false
+            })
         if (hasPasswordField) {
             for (let i=0; i<arrayOfMiddlewares.length; i++) {
                 temp[arrayOfMiddlewares[i].type](arrayOfMiddlewares[i].method, arrayOfMiddlewares[i]._function)

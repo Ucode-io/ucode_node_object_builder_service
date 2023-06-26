@@ -752,24 +752,10 @@ let objectBuilder = {
 
         const params = struct.decode(req?.data)
 
-        // handle scopes
-        // for(let key in params) {
-        //     let scope_regex = /[()]/
-        //     if(scope_regex.test(params[key])) {
-        //         let with_slash = ""
-        //         for(let el of params[key]) {
-        //             if(el == "(") {
-        //                 with_slash += "\\("
-        //             } else if (el == ")") {
-        //                 with_slash += "\\)"
-        //             }
-        //             else {
-        //                 with_slash += el
-        //             }
-        //         }
-        //         params[key] = with_slash
-        //     }
-        // }
+        // params.$or = [
+        //     { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+        //     // { deleted_at: null }
+        // ]
 
         const limit = params.limit
         const offset = params.offset
@@ -848,6 +834,18 @@ let objectBuilder = {
         console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
+                let replacedSearch = ""
+                let empty = ""
+                for(let el of params.search) {
+                    if(el == "(" ) {
+                        empty += "\\("
+                    } else if(el == ")") {
+                        empty += "\\)"
+                    } else {
+                        empty += el
+                    }
+                }
+                params.search = empty
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))
@@ -1021,24 +1019,19 @@ let objectBuilder = {
                 }
             }
         }
-        // console.timeEnd("TIME_LOGGING:::search")
-        // console.time("TIME_LOGGING:::phone")
-        // if (params.phone_number) {
-        //     let temp = params.phone_number.toString()
-        //     let tempPhone = temp.substring(5, temp.length - 2)
-        //     let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-        //     params.phone_number = phone
-        // } else if (params.phone) {
-        //     let temp = params.phone.toString()
-        //     let tempPhone = temp.substring(5, temp.length - 2)
-        //     let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-        //     params.phone = phone
-        // }
-        // console.log("TEST::::::::::11")
-        // console.timeEnd("TIME_LOGGING:::phone")
-        // console.log("TEST::::::7")
+        
         let populateArr = []
-        // console.time("TIME_LOGGING:::limit")
+
+        // check soft deleted datas
+        if(params.$or) {
+            params.$or.push({ deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, { deleted_at: null })
+        } else {
+            params.$or = [
+                { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                { deleted_at: null }
+            ]
+        }
+        console.log(">>>>>>>> params", params)
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -1555,21 +1548,33 @@ let objectBuilder = {
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {
+            console.log(">>>>>>>>>>.")
+            const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
 
-            const response = await tableInfo.models.deleteOne({ guid: data.id });
-            let event = {}
-            let table = {}
-            table.guid = data.id
-            table.table_slug = req.table_slug
-            event.payload = table
+            if(!tableModel.soft_delete) {
+                const response = await tableInfo.models.deleteOne({ guid: data.id });
+                let event = {}
+                let table = {}
+                table.guid = data.id
+                table.table_slug = req.table_slug
+                event.payload = table
 
-            event.project_id = req.project_id
-            // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
+                event.project_id = req.project_id
+                // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
 
-            return { table_slug: req.table_slug, data: response };
+                return { table_slug: req.table_slug, data: response };
+            } else if (tableModel.soft_delete) {
+                
+                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, {$set: {deleted_at: new Date()}})
+                console.log(">>>>>>>>> ", response)
+
+                return { table_slug: req.table_slug, data: response };
+            }
+
         } catch (err) {
             throw err
         }

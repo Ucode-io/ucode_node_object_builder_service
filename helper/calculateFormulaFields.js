@@ -7,17 +7,28 @@ let formulaFunction = {
         let sortedFields = fields.sort((a, b) => {
             return b.slug.length - a.slug.length
         })
+       
         let parser = new Parser()
         let computedFormula = attributes.formula
+        console.log("test #00 >> ", computedFormula)
         let newValue
         sortedFields.forEach(el => {
             let value = object[el.slug] ?? 0;
-            if (typeof value === "boolean")
-            value = JSON.stringify(value).toUpperCase()
-            if (typeof value === "string") value = `${value}`
-            computedFormula = computedFormula.replaceAll(`${el.slug}`, value)
+            console.log("test #1 >> ", el.slug, value, typeof value)
+            if (typeof value === "boolean") {
+                value = JSON.stringify(value).toUpperCase()
+            }
+            if (typeof value === "string") {
+                value = `${value}`
+            }
+            if (typeof value === "object") {
+                value = `'${value[0]}'`
+            }
+            computedFormula = computedFormula.replaceAll(`${el.slug}`, `${value}`)
         })
+        console.log(">> Replaced formula ", computedFormula)
         const {error, result} = parser.parse(computedFormula)
+        console.log(">>>>> error formula frontend", error, result)
         newValue = error ?? result
         return newValue
     },

@@ -7,6 +7,7 @@ var wkhtmltopdf = require('wkhtmltopdf');
 var Eta = require("eta");
 const ObjectBuilder = require("../../models/object_builder");
 const objectBuilderStore = require("./object_builder");
+const numberFormatter = require("../../helper/formatNumber")
 
 const mongoPool = require('../../pkg/pool');
 
@@ -530,8 +531,15 @@ let viewStore = {
                         output[relation.table_from] = []
                     }
                 }
+
+
                 // console.log("output:::::", output)
-                console.log("TEST::::::::8")
+                for(let key in output) {
+                    if(typeof(output[key]) == "number") {
+                        output[key] = numberFormatter(output[key])
+                    }
+                }
+                console.log("TEST::::::::8", output)
                 html = Eta.render(data.html, output)
                 console.log("TEST::::::::9")
                 html = html.replaceAll('[??', '{')

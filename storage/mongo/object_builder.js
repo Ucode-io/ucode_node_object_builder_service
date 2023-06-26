@@ -1462,7 +1462,7 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
-        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
+        console.log(">>>>>>>>>>>>>>>>> RESPONSE", response, params)
         return { table_slug: req.table_slug, data: response, custom_message: customMessage }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {

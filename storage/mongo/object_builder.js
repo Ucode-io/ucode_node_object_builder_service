@@ -753,6 +753,11 @@ let objectBuilder = {
 
         const params = struct.decode(req?.data)
 
+        // params.$or = [
+        //     { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+        //     // { deleted_at: null }
+        // ]
+
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -1018,7 +1023,17 @@ let objectBuilder = {
         }
         
         let populateArr = []
-        // console.time("TIME_LOGGING:::limit")
+
+        // check soft deleted datas
+        if(params.$or) {
+            params.$or.push({ deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, { deleted_at: null })
+        } else {
+            params.$or = [
+                { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                { deleted_at: null }
+            ]
+        }
+        console.log(">>>>>>>> params", params)
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -1541,21 +1556,33 @@ let objectBuilder = {
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {
+            console.log(">>>>>>>>>>.")
+            const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
 
-            const response = await tableInfo.models.deleteOne({ guid: data.id });
-            let event = {}
-            let table = {}
-            table.guid = data.id
-            table.table_slug = req.table_slug
-            event.payload = table
+            if(!tableModel.soft_delete) {
+                const response = await tableInfo.models.deleteOne({ guid: data.id });
+                let event = {}
+                let table = {}
+                table.guid = data.id
+                table.table_slug = req.table_slug
+                event.payload = table
 
-            event.project_id = req.project_id
-            // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
+                event.project_id = req.project_id
+                // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
 
-            return { table_slug: req.table_slug, data: response };
+                return { table_slug: req.table_slug, data: response };
+            } else if (tableModel.soft_delete) {
+                
+                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, {$set: {deleted_at: new Date()}})
+                console.log(">>>>>>>>> ", response)
+
+                return { table_slug: req.table_slug, data: response };
+            }
+
         } catch (err) {
             throw err
         }

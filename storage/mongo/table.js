@@ -98,8 +98,8 @@ let tableStore = {
                 payload = Object.assign(payload, table._doc)
                 delete payload._id
                 payload.commit_type = data.commit_type,
-                    payload.name = data.name,
-                    payload.action_time = new Date()
+                payload.name = data.name,
+                payload.action_time = new Date()
                 payload.author_id = data.author_id
                 const tableHistory = await TableHistory.create(payload)
                 table.commit_guid = tableHistory.guid

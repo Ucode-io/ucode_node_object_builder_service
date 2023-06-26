@@ -79,6 +79,7 @@ message CreateTableRequest {
     bool is_cached = 18;
     repeated Layout layouts = 19;
     bool default_editable = 20;
+    bool soft_delete = 21;
 }
 
 message IncrementID {
@@ -100,6 +101,7 @@ message CreateTableResponse {
     IncrementID increment_id = 10;
     bool is_cached = 11;
     bool default_editable = 12;
+    bool soft_delete = 13;
 }
 
 message UpdateTableRequest {
@@ -120,6 +122,7 @@ message UpdateTableRequest {
     string name = 15;
     bool is_cached = 16;
     bool default_editable = 17;
+    bool soft_delete = 18;
 }
 
 message Table {
@@ -140,6 +143,7 @@ message Table {
     bool is_cached = 15;
     Permission record_permissions = 16;
     bool default_editable = 17;
+    bool soft_delete = 18;
 }
 
 message CommitInfo {

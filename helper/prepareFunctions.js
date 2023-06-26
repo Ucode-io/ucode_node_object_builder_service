@@ -7,6 +7,7 @@ const converter = require("./converter");
 const generators = require("./generator")
 const ObjectBuilder = require("./../models/object_builder");
 const { de } = require('date-fns/locale');
+const tableVersion = require("../helper/table_version")
 
 
 
@@ -26,7 +27,11 @@ let prepareFunction = {
         }
         console.log("project id::", req.project_id);
         // console.log("project id::", data);
-        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const allTableInfos = (await ObjectBuilder(true, req.project_id))
+        const tableInfo = allTableInfos[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
         let tableData = await table.findOne(
             {
                 slug: req.table_slug
@@ -52,7 +57,7 @@ let prepareFunction = {
             if (relation) {
                 const field = await Field.findOne({
                     relation_id: relation.id,
-                    table_id: tableData.id
+                    table_id: tableData?.id
                 })
                 if (!data[field?.slug]) {
                     data[field?.slug] = data.object_id
@@ -61,7 +66,7 @@ let prepareFunction = {
         }
 
         let randomNumbers = await Field.findOne({
-            table_id: tableData.id,
+            table_id: tableData?.id,
             type: "RANDOM_NUMBERS"
         })
 
@@ -83,7 +88,7 @@ let prepareFunction = {
 
 
         let incrementField = await Field.findOne({
-            table_id: tableData.id,
+            table_id: tableData?.id,
             type: "INCREMENT_ID"
         })
         
@@ -100,7 +105,7 @@ let prepareFunction = {
         }
 
         let incrementNum = await Field.findOne({
-            table_id: tableData.id,
+            table_id: tableData?.id,
             type: "INCREMENT_NUMBER"
         })
         if (incrementNum) {
@@ -126,8 +131,51 @@ let prepareFunction = {
                 
             }
         }
+        const relations = await Relation.find({
+            table_from: req.table_slug
+        })
+        let decodedFields = []
+        for (const element of tableInfo.fields) {
+            if (element.attributes && (element.type === "LOOKUP" || element.type === "LOOKUPS")) {
+                let autofillFields = []
+                let elementField = { ...element }
+                const relation = relations.find(val => (val.id === elementField.relation_id))
+
+                let relationTableSlug;
+                if (relation) {
+                    if (relation?.table_from === req.table_slug) {
+                        relationTableSlug = relation?.table_to
+                    } else {
+                        relationTableSlug = relation?.table_from
+                    }
+                    elementField.table_slug = relationTableSlug
+                }
+                elementField.attributes = struct.decode(element.attributes)
+                const tableElement = await tableVersion(mongoConn, { slug: req.table_slug }, data.version_id, true)
+                const tableElementFields = await Field.find({
+                    table_id: tableElement.id
+                })
+                for (const field of tableElementFields) {
+                    if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
+                        let autofill = {
+                            field_from: field.autofill_field,
+                            field_to: field.slug,
+                        }
+                        autofillFields.push(autofill)
+                    }
+                }
+                elementField.attributes["autofill"] = autofillFields,
+                    decodedFields.push(elementField)
+            }
+        };
+        console.log("decodedElements: ", decodedFields)
 
         for(let el of tableInfo.fields) { 
+            if(!data[el.slug] && el.autofill_table && el.autofill_field) {
+                const AutiFillTable = allTableInfos[el.autofill_table]
+                const autofillObject = await AutiFillTable.models.findOne({guid: data[el.autofill_table + "_id"]}).lean() || {}
+                data[el.slug] = autofillObject[el.autofill_field]
+            }
             if (el.attributes) {
                 if (struct.decode(el.attributes).defaultValue && !data[el.slug]) {
                     if (typeof data[el.slug] === "boolean") {
@@ -137,6 +185,13 @@ let prepareFunction = {
                             data[el.slug] = Number(struct.decode(el.attributes).defaultValue)
                         } else if (el.type === "DATE_TIME" || el.type === "DATE") {
                             data[el.slug] = new Date().toISOString()
+                        } else if (el.type === "SWITCH") {
+                            let default_value = struct.decode(el.attributes).defaultValue?.toLocaleLowerCase()
+                            if(default_value == "true") {
+                                data[el.slug] = true
+                            } else if(default_value == "false") {
+                                data[el.slug] = false
+                            }
                         } else {
                             data[el.slug] = struct.decode(el.attributes).defaultValue
                         }
@@ -154,7 +209,7 @@ let prepareFunction = {
         }
         let fields = await Field.find(
             {
-                table_id: tableData.id
+                table_id: tableData?.id
             }
         )
 
@@ -201,10 +256,11 @@ let prepareFunction = {
         event.project_id = req.project_id 
 
 
-        return { payload, data, event, appendMany2ManyObjects }
+        return { payload, data, event, appendMany2ManyObjects, decodedFields }
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {
         const Relation = mongoConn.models['Relation']
+        const Field = mongoConn.models['Field']
 
         const data = struct.decode(req.data)
         if (!data.guid) {
@@ -215,7 +271,49 @@ let prepareFunction = {
             data.guid = data.auth_guid
         }
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
         const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
+
+        const relations = await Relation.find({
+            table_from: req.table_slug
+        })
+        let decodedFields = []
+        for (const element of tableInfo.fields) {
+            if (element.attributes && (element.type === "LOOKUP" || element.type === "LOOKUPS")) {
+                let autofillFields = []
+                let elementField = { ...element }
+                const relation = relations.find(val => (val.id === elementField.relation_id))
+
+                let relationTableSlug;
+                if (relation) {
+                    if (relation?.table_from === req.table_slug) {
+                        relationTableSlug = relation?.table_to
+                    } else {
+                        relationTableSlug = relation?.table_from
+                    }
+                    elementField.table_slug = relationTableSlug
+                }
+                elementField.attributes = struct.decode(element.attributes)
+                const tableElement = await tableVersion(mongoConn, { slug: req.table_slug }, data.version_id, true)
+                const tableElementFields = await Field.find({
+                    table_id: tableElement.id
+                })
+                for (const field of tableElementFields) {
+                    if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
+                        let autofill = {
+                            field_from: field.autofill_field,
+                            field_to: field.slug,
+                        }
+                        autofillFields.push(autofill)
+                    }
+                }
+                elementField.attributes["autofill"] = autofillFields,
+                    decodedFields.push(elementField)
+            }
+        };
+        console.log("decodedElements: ", decodedFields)
         let event = {}
         let field_types = {}
         event.payload = {}
@@ -281,7 +379,7 @@ let prepareFunction = {
         event.payload.field_types = field_types
         event.payload.data = dataToAnalytics
         event.project_id = req.project_id
-        return { data, event, appendMany2Many, deleteMany2Many }
+        return { data, event, appendMany2Many, deleteMany2Many, decodedFields }
     },
 }
 

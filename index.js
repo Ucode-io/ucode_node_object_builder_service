@@ -37,8 +37,10 @@ const logger = require("./config/logger");
         //         password: "q6viL9SDOv"
         //     }
         // })
-        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
 
+        
+        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
+        console.log(">>>> test for change view 1")
         await projectStorage.autoConnect(
             {
                 request: {

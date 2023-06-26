@@ -83,6 +83,7 @@ message View {
     string project_id = 26;
     bool default_editable = 27;
     Navigate navigate = 28;
+    string function_path = 29;
 }
 
 message Navigate {

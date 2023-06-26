@@ -100,7 +100,10 @@ const ViewSchema = mongoose.Schema(
         },
         creatable: {
             type: Boolean,
-        }
+        },
+        function_path: {
+            type: String
+        },
         // commit_id: {
         //     type: Number,
         //     required: [true, "commit_id is required"],

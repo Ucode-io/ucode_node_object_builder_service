@@ -12,7 +12,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Связь",
         "slug": "connections",
@@ -28,7 +29,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Роли",
         "slug": "role",
@@ -47,7 +49,8 @@ async function createTable() {
             "$date": "2022-12-23T06:57:02.348Z"
         },
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Пользователи",
         "slug": "user",
@@ -63,7 +66,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Разрешение",
         "slug": "record_permission",
@@ -79,7 +83,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Проект",
         "slug": "project",
@@ -95,7 +100,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Автоматический фильтр",
         "slug": "automatic_filter",
@@ -111,7 +117,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Клиент платформа",
         "slug": "client_platform",
@@ -127,7 +134,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Разрешение на действие",
         "slug": "action_permission",
@@ -141,7 +149,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Логин таблица",
         "slug": "test_login",
@@ -157,7 +166,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Разрешение поля",
         "slug": "field_permission",
@@ -171,7 +181,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Тип клиентов",
         "slug": "client_type",
@@ -187,7 +198,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     },{
         "label": "Шаблон",
         "slug": "template",
@@ -201,7 +213,24 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
+      },{
+        "label": "Врачи",
+        "slug": "doctors",
+        "description": "Специалисты",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "stethoscope.svg",
+        "subtitle_field_slug": "name",
+        "with_increment_id": true,
+        "digit_number": 3,
+        "id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "soft_delete": false,
       },{
         "label": "Файл",
         "slug": "file",
@@ -229,7 +258,8 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
       }]
 
     return tables;

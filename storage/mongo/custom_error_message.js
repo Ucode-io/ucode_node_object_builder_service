@@ -144,6 +144,32 @@ let customErrorMessageStore = {
         }
 
     }),
+    getListForObject: catchWrapDb(`${NAMESPACE}.getListForObject`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const CustomErrorMessage = mongoConn.models['CustomErrorMessage']
+
+            let table = {};
+            if (data.table_id === "") {
+                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+                data.table_id = table.id;
+            }
+
+            const custom_error_messages = await CustomErrorMessage.find(
+                data,
+                null,
+                {
+                    sort: { created_at: -1 }
+                }
+            );
+            console.log("custom error messages:", custom_error_messages);
+            return { custom_error_messages, count: custom_error_messages?.length };
+
+        } catch (err) {
+            throw err
+        }
+
+    }),
 };
 
 module.exports = customErrorMessageStore;

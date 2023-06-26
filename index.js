@@ -43,7 +43,6 @@ const logger = require("./config/logger");
         console.log(">>>> test for change view 1")
         await projectStorage.autoConnect(
             {
-                
                 request: {
                     k8s_namespace: config.k8s_namespace
                 }

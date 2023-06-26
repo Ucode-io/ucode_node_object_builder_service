@@ -796,7 +796,7 @@ let objectBuilder = {
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
-        const params = struct.decode(req?.data)
+        let params = struct.decode(req?.data)
 
         // params.$or = [
         //     { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
@@ -1084,7 +1084,7 @@ let objectBuilder = {
         console.log(">>>>>>>> params 1212", params)
 
         // test params
-        params = {}
+        // params = {}
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({

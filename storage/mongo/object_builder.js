@@ -1073,14 +1073,14 @@ let objectBuilder = {
         let populateArr = []
 
         // check soft deleted datas
-        // if(params.$or) {
-        //     params.$or.push({ deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, { deleted_at: null })
-        // } else {
-        //     params.$or = [
-        //         { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
-        //         { deleted_at: null }
-        //     ]
-        // }
+        if(params.$or) {
+            params.$or.push({ deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, { deleted_at: null })
+        } else {
+            params.$or = [
+                { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                { deleted_at: null }
+            ]
+        }
         console.log(">>>>>>>> params 1212", params)
         if (limit !== 0) {
             if (relations.length == 0) {

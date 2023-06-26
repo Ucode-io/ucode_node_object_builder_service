@@ -29,7 +29,10 @@ const LayoutSchema = mongoose.Schema(
             enum: ['SimpleLayout', 'PopupLayout']
         },
         is_default: {
-            type: Boolean,
+            type: Boolean
+        },
+        summary_fields: {
+            type: mongoose.Schema.Types.Mixed
         }
     },
     {

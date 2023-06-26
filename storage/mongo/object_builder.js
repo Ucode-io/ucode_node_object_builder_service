@@ -770,12 +770,12 @@ let objectBuilder = {
         //         }
         //     }
         // }
-        const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
-        if (table) {
+        if (tableWithVersion) {
             const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                 code: 200,
-                table_id: tableWithVerison.id,
+                table_id: tableWithVersion.id,
                 action_type: "GET_SINGLE_SLIM"
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
@@ -1457,12 +1457,12 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
-        const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
-        if (table) {
+        if (tableWithVersion) {
             const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                 code: 200,
-                table_id: tableWithVerison.id,
+                table_id: tableWithVersion.id,
                 action_type: "GET_LIST"
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
@@ -1610,12 +1610,12 @@ let objectBuilder = {
             }
         }
 
-        const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
-        if (table) {
+        if (tableWithVersion) {
             const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                 code: 200,
-                table_id: tableWithVerison.id
+                table_id: tableWithVersion.id
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
@@ -1646,12 +1646,12 @@ let objectBuilder = {
 
             event.project_id = req.project_id
             // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "DELETE",
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -1829,12 +1829,12 @@ let objectBuilder = {
             const respExcel = struct.encode({
                 link: cfg.minioEndpoint + "/reports/" + filename,
             });
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "GET_LIST_IN_EXCEL"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -1884,12 +1884,12 @@ let objectBuilder = {
                         [data.table_from + "_ids"]: modelTo[data.table_from + "_ids"]
                     }
                 })
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "DELETE_MANY2MANY"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -1956,12 +1956,12 @@ let objectBuilder = {
                         }
                     })
             }
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "APPEND_MANY2MANY",
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -2165,12 +2165,12 @@ let objectBuilder = {
                     await objectBuilder.create(requestToCreate)
                 }
             }
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "MULTIPLE_UPDATE"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -2212,12 +2212,12 @@ let objectBuilder = {
                     response.push(struct.decode(resp.data))
                 }
             }
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "MULTIPLE_UPDATE"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -2766,12 +2766,12 @@ let objectBuilder = {
             data.balance = balance
             const endTime = new Date()
 
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "GET_FINANCIAL_ANALYTICS"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }

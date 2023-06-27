@@ -796,7 +796,7 @@ let objectBuilder = {
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
-        const params = struct.decode(req?.data)
+        let params = struct.decode(req?.data)
 
         // params.$or = [
         //     { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
@@ -1081,7 +1081,10 @@ let objectBuilder = {
                 { deleted_at: null }
             ]
         }
-        console.log(">>>>>>>> params", params)
+        console.log(">>>>>>>> params 1212", params)
+
+        // test params
+        // params = {}
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -1462,7 +1465,7 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
-        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
+        console.log(">>>>>>>>>>>>>>>>> RESPONSE", response, params)
         return { table_slug: req.table_slug, data: response, custom_message: customMessage }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {

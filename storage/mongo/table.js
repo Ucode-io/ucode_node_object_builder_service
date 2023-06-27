@@ -183,6 +183,7 @@ let tableStore = {
 
             let tables = []
 
+            console.log(">>>>>> query for get list table", query)
             if (data.version_id) {
                 query.version_id = data.version_id
                 tables = await TableVersion.find(query).skip(data.offset).limit(data.limit)

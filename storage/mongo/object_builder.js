@@ -752,12 +752,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
 
         const params = struct.decode(req?.data)
-
-        // params.$or = [
-        //     { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
-        //     // { deleted_at: null }
-        // ]
-
+        
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]

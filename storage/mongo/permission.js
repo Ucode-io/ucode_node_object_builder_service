@@ -718,7 +718,7 @@ let permission = {
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
-        const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
+        // const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
 
         let role = await Role.findOneAndUpdate(
             {
@@ -741,39 +741,39 @@ let permission = {
         let automaticFilters = []
         let actionPermissions = []
         for (let app of req?.data?.apps) {
-            if (app?.permission?.guid) {
-                await AppPermission.findOneAndUpdate(
-                    {
-                        guid: app.permission.guid
-                    },
-                    {
-                        $set: {
-                            read: app.permission.read,
-                            create: app.permission.create,
-                            update: app.permission.update,
-                            delete: app.permission.delete,
-                            role_id: app.permission.role_id,
-                            app_id: app.permission.app_id
-                        }
-                    },
-                    {
-                        upsert: false,
-                    }
-                )
+            // if (app?.permission?.guid) {
+            //     await AppPermission.findOneAndUpdate(
+            //         {
+            //             guid: app.permission.guid
+            //         },
+            //         {
+            //             $set: {
+            //                 read: app.permission.read,
+            //                 create: app.permission.create,
+            //                 update: app.permission.update,
+            //                 delete: app.permission.delete,
+            //                 role_id: app.permission.role_id,
+            //                 app_id: app.permission.app_id
+            //             }
+            //         },
+            //         {
+            //             upsert: false,
+            //         }
+            //     )
 
-            } else {
-                await AppPermission.create(
-                    {
-                        read: app.permission.read,
-                        create: app.permission.create,
-                        update: app.permission.update,
-                        delete: app.permission.delete,
-                        guid: v4(),
-                        role_id: roleId,
-                        app_id: app.id
-                    }
-                )
-            }
+            // } else {
+            //     await AppPermission.create(
+            //         {
+            //             read: app.permission.read,
+            //             create: app.permission.create,
+            //             update: app.permission.update,
+            //             delete: app.permission.delete,
+            //             guid: v4(),
+            //             role_id: roleId,
+            //             app_id: app.id
+            //         }
+            //     )
+            // }
             for (let table of app?.tables) {
                 let isHaveCondition = false
                 let lengthKeys = Object.keys(table.automatic_filters) ? Object.keys(table.automatic_filters).length : false

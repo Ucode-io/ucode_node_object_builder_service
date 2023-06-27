@@ -458,34 +458,6 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0
 	}, {
-		"id": "87ddadf0-689b-4285-9fc7-5cb76bdd4a7c",
-		"required": false,
-		"slug": "expires_at",
-		"label": "Срок годности",
-		"default": "",
-		"type": "DATE_TIME",
-		"index": "string",
-		"attributes": {
-			"fields": {
-				"maxLength": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"placeholder": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"showTooltip": {
-					"boolValue": false,
-					"kind": "boolValue"
-				}
-			}
-		},
-		"is_visible": false,
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"__v": 0
-	}, {
 		"required": false,
 		"slug": "guid",
 		"label": "ID",
@@ -3716,6 +3688,248 @@ async function createField() {
 		"__v": 0
 	},
 	{
+		"required": true,
+		"is_system": true,
+		"slug": "guid",
+		"label": "ID",
+		"default": "v4",
+		"type": "UUID",
+		"index": "true",
+		"is_visible": true,
+		"id": "a73fd453-3c21-4ab8-9e21-59d85acd106d",
+		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	}, {
+		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"required": false,
+		"is_system": true,
+		"slug": "role_id",
+		"label": "FROM app_permission TO role",
+		"type": "LOOKUP",
+		"is_visible": true,
+		"relation_id": "82e93baf-2e02-432a-942b-2c93cbe26b81",
+		"id": "6f344830-819c-40a3-a255-f11cdb515c2d",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	}, {
+		"id": "b8d627d2-99b3-40c1-929c-10094b2784aa",
+		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"required": false,
+		"is_system": true,
+		"slug": "app_id",
+		"label": "App Id",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"creatable": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"autofill_field": "",
+		"autofill_table": "",
+		"unique": false,
+		"automatic": false,
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	}, {
+		"id": "3c3dca2f-3c0c-499e-b732-89baf16f987f",
+		"required": false,
+		"is_system": true,
+		"slug": "create",
+		"label": "Создать",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"creatable": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	}, {
+		"id": "4ae1959d-c898-4937-9503-bec55c2abade",
+		"required": false,
+		"is_system": true,
+		"slug": "update",
+		"label": "Изменить",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"creatable": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	}, {
+		"id": "b35b1f62-c15a-412f-8f48-811178ae64e1",
+		"required": false,
+		"is_system": true,
+		"slug": "read",
+		"label": "Чтение",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"creatable": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	}, {
+		"id": "592789b2-cb93-42f8-90dd-dfeb24ed979f",
+		"required": false,
+		"is_system": true,
+		"slug": "delete",
+		"label": "Удалить",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"creatable": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
 		"id": "588f80aa-0838-43b9-bb49-29a7cfecae8d",
 		"required": false,
 		"slug": "title",
@@ -3850,6 +4064,8 @@ async function createField() {
 		"__v": 0
 	}
 	]
+	let f = fields.find(el => !el.table_id)
+	console.log("len::", fields.length, f);
 
 	return fields
 }

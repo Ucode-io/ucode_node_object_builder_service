@@ -810,6 +810,7 @@ let objectBuilder = {
 
         console.log("\n\n---> T1\n\n", req)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        console.log(">>>>>>>>>>> found table", tableInfo)
         if (!tableInfo) {
             throw new Error("table not found")
         }

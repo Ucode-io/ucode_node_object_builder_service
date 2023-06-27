@@ -1445,7 +1445,7 @@ let relationStore = {
                 tableResp.slug = table.slug
                 tableResp.fields = fields
                 event.payload = tableResp
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event)
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event)
             } else if (relation.type === 'Many2Many') {
                 // table = await Table.findOne({
                 //     slug: relation.table_to,
@@ -1462,7 +1462,7 @@ let relationStore = {
                 tableResp.slug = table.slug
                 tableResp.fields = fields
                 event.payload = tableResp
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event)
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event)
                 // table = await Table.findOne({
                 //     slug: relation.table_from,
                 //     deleted_at: "1970-01-01T18:00:00.000+00:00"
@@ -1478,7 +1478,7 @@ let relationStore = {
                 tableResp.slug = table.slug;
                 tableResp.fields = fields;
                 event.payload = tableResp;
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event);
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event);
             } else if (relation.type === "Recursive") {
                 // table = await Table.findOne({
                 //     slug: relation.table_from,
@@ -1495,7 +1495,7 @@ let relationStore = {
                 tableResp.slug = table.slug;
                 tableResp.fields = fields;
                 event.payload = tableResp;
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event);
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event);
             } else {
                 // table = await Table.findOne({
                 //     slug: relation.table_from,
@@ -1512,7 +1512,7 @@ let relationStore = {
                 tableResp.slug = table.slug;
                 tableResp.fields = fields;
                 event.payload = tableResp;
-                await sendMessageToTopic(con.TopicRelationDeleteV1, event);
+                // await sendMessageToTopic(con.TopicRelationDeleteV1, event);
             }
             const res = await Table.updateOne(
                 {

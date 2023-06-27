@@ -1424,6 +1424,7 @@ let relationStore = {
             const Field = mongoConn.models["Field"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
+            const Tab = mongoConn.models["Tab"];
 
             const relation = await Relation.findOne({ id: data.id });
             let table, resp, field = {}
@@ -1529,8 +1530,8 @@ let relationStore = {
                 relation_id: relation.id,
             });
             resp = await Relation.deleteOne({ id: data.id });
-            let count = await TabSchema.countDocuments({ relation_id: data.id })
-            count && await TabSchema.deleteMany({ relation_id: data.id })
+            let count = await Tab.countDocuments({ relation_id: data.id })
+            count && await Tab.deleteMany({ relation_id: data.id })
             return resp;
         } catch (err) {
             throw err;

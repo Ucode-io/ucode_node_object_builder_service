@@ -87,7 +87,7 @@ let tableStore = {
 
             data.is_changed = true
 
-            let tableBefore = await TableHistory.findOne({id: data.id})
+            let tableBefore = await Table.findOne({id: data.id})
             if(!tableBefore) {
                 throw Error("Table not found")
             }

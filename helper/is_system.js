@@ -41,5 +41,5 @@ module.exports = async function (mongoConn) {
             await relation.save()
         }
     }
-    console.log("Relation table is_system true done ✅✅");
+    console.log("Relation table is_system true done ✅");
 }

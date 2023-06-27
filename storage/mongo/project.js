@@ -143,6 +143,7 @@ let projectStore = {
                         await defaultRoles(mongoDBConn, data?.project_id)
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
+                        await insertCollections(mongoDBConn, data.user_id, data.project_id)
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

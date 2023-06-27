@@ -21,6 +21,7 @@ const createAppPermission = require("../initial_setups/appPermission");
 const createMenu = require("../initial_setups/menu");
 const guessRole = require("../initial_setups/defaultRole")
 const guessClientType = require("../initial_setups/guessClientType")
+const settingCheker = require("./settingChecker")
 
 async function insertCollections(conn, userId, projectId) {
 
@@ -28,7 +29,7 @@ async function insertCollections(conn, userId, projectId) {
     const clientPlatformID = v4().toString()
     const clientTypeID = v4().toString()
     const roleID = v4().toString()
-    const userID = userId.toString()
+    const userID = userId ? userId.toString() : ""
     const testLoginID = v4().toString()
     const connectionID = v4().toString()
 
@@ -173,7 +174,7 @@ async function insertCollections(conn, userId, projectId) {
     }
 
     if (!collections['setting.languages']) {
-        console.log("TEST::::::3")
+        
         const settingLanguages = await createSettingLanguage()
         conn.collection('setting.languages').insertMany(settingLanguages, function (err, result) {
             if (err) throw err;
@@ -198,22 +199,8 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted Timezone :", result.insertedCount)
         })
     }
-    if (!collections['app_permission']) {
 
-        const appPermissions = await createAppPermission(roleID)
-        conn.collection('app_permissions').insertMany(appPermissions, function (err, result) {
-            if (err) throw err;
-            console.log("Inserted App Permissions :", result.insertedCount)
-        })
-    }
-    if (!collections['object_builder_service.menus']) {
-
-        const menus = await createMenu()
-        conn.collection('object_builder_service.menus').insertMany(menus, function (err, result) {
-            if (err) throw err;
-            console.log("Inserted Default Menus :", result.insertedCount)
-        })
-    }
+    await settingCheker(conn, projectId)
 }
 
 module.exports = insertCollections

@@ -3,6 +3,7 @@ const { v4 } = require("uuid");
 const mongoPool = require('../../pkg/pool')
 const tableVersion = require('../../helper/table_version');
 const constants = require("../../helper/constants");
+const { struct } = require("pb-util/build");
 let NAMESPACE = "storage.menu";
 
 
@@ -70,59 +71,101 @@ let menuStore = {
             const Menu = mongoConn.models['object_builder_service.menu']
 
             let query = {
-                label: RegExp(data.search, "i"),
-                parent_id: data.parent_id
+                parent_id: data.parent_id,
+                label: RegExp(data.search, "i")
             }
             const pipelines = [
                 {
                     '$match': query
-                }
-            ]
-            if (!data.parent_id) {
-                pipelines.push({
-                    '$lookup': {
-                        'from': 'object_builder_service.menus',
-                        'localField': 'id',
-                        'foreignField': 'parent_id',
-                        'as': 'child_menus'
-                    }
                 },
-                    {
-                        '$skip': 0
-                    },
-                    {
-                        '$limit': 1
+                {
+                    '$lookup': {
+                        'from': 'tables',
+                        'localField': 'table_id',
+                        'foreignField': 'id',
+                        'as': 'table'
                     }
-                )
-            } else {
-                pipelines.push({
-                    '$lookup':
-                    {
-                        from: "tables",
-                        localField: "table_id",
-                        foreignField: "id",
-                        as: "table",
-                    },
                 }, {
-                    '$unwind':
-                    /**
-                     * path: Path to the array field.
-                     * includeArrayIndex: Optional name for index.
-                     * preserveNullAndEmptyArrays: Optional
-                     *   toggle to unwind null and empty values.
-                     */
-                    {
-                        path: "$table",
-                        preserveNullAndEmptyArrays: true,
-                    },
+                    '$lookup': {
+                        'from': 'function_service.functions',
+                        'localField': 'microfrontend_id',
+                        'foreignField': 'id',
+                        'as': 'microfrontend'
+                    }
+                }, {
+                    '$lookup': {
+                        from: "web_pages.web_page",
+                        let: {
+                            webpage_id: "$webpage_id",
+                        },
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: {
+                                        $and: [
+                                            {
+                                                $eq: ["$id", "$$webpage_id"],
+                                            },
+                                            // Add additional match conditions if needed
+                                        ],
+                                    },
+                                },
+                            },
+                            {
+                                $sort: {
+                                    created_at: -1,
+                                },
+                            },
+                            {
+                                $group: {
+                                    _id: "$webpage_id",
+                                    webpage: {
+                                        $first: "$$ROOT",
+                                    },
+                                },
+                            },
+                        ],
+                        as: "webpage"
+                    }
+                }, {
+                    '$unwind': {
+                        'path': '$table',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                }, {
+                    '$unwind': {
+                        'path': '$microfrontend',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                }, {
+                    '$unwind': {
+                        'path': '$webpage',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                }, {
+                    '$addFields': {
+                        'data': {
+                            'table': '$table',
+                            'microfrontend': '$microfrontend',
+                            'webpage': '$webpage.webpage'
+                        }
+                    }
                 }, {
                     '$skip': data.offset
                 }, {
                     '$limit': data.limit
-                })
-            }
-            const menus = await Menu.aggregate(pipelines)
-
+                }, {
+                    $sort:
+                    {
+                        order: 1,
+                    },
+                }]
+            let menus = await Menu.aggregate(pipelines)
+            menus = JSON.parse(JSON.stringify(menus))
+            menus.forEach(el => {
+                el.data = struct.encode(el.data)
+            })
+            // console.log("menus::", menus);
             const count = await Menu.countDocuments(query);
             return { menus, count };
         } catch (err) {
@@ -156,6 +199,29 @@ let menuStore = {
             const menu = await Menu.deleteOne({ id: data.id });
 
             return menu;
+        } catch (err) {
+            throw err
+        }
+    }),
+    updateMenuOrder: catchWrapDb(`${NAMESPACE}.updateMenuOrder`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+
+            const Menu = mongoConn.models['object_builder_service.menu']
+
+            let bulkWriteMenus = []
+            let i = 1
+            for (const menu of data.menus) {
+                bulkWriteMenus.push({
+                    updateOne: {
+                        filter: { id: menu.id },
+                        update: { order: i }
+                    }
+                })
+                i += 1
+            }
+            await Menu.bulkWrite(bulkWriteMenus)
+            return;
         } catch (err) {
             throw err
         }

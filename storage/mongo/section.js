@@ -281,14 +281,13 @@ let sectionStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
             
-            let table = {};
-            if (data.table_id === "") {
-                // table = await Table.findOne({
-                //     slug: data.table_slug,
-                // });
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                data.table_id = table.id;
-            }
+            let tableQuery = {}
+            if(data.table_id) {
+                tableQuery.id = data.table_id
+            } else if(data.table_slug) {
+                tableQuery.slug = data.table_slug
+            }            
+            let table = await tableVersion(mongoConn, tableQuery, data.version_id, true);
             console.log("table id:::: " + table?.id);
             console.log("table:::: " + table);
 
@@ -307,7 +306,7 @@ let sectionStore = {
                     sort: { created_at: -1 }
                 }
             );
-            console.log("length: " + sections.length);
+            // console.log("length: " + sections.length);
             let sectionsResponse = []
             for (const section of sections) {
                 let fieldsRes = [], fieldsWithPermissions = []
@@ -426,7 +425,8 @@ let sectionStore = {
                                     object_id_from_jwt: relation?.object_id_from_jwt,
                                     cascadings: relation?.cascadings,
                                     cascading_tree_table_slug: relation?.cascading_tree_table_slug,
-                                    cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                                    cascading_tree_field_slug: relation?.cascading_tree_field_slug,
+                                    function_path: view_of_relation?.function_path
                                 }
                             }
                         } else {
@@ -438,14 +438,17 @@ let sectionStore = {
                                 object_id_from_jwt: relation?.object_id_from_jwt,
                                 cascadings: relation?.cascadings,
                                 cascading_tree_table_slug: relation?.cascading_tree_table_slug,
-                                cascading_tree_field_slug: relation?.cascading_tree_field_slug
+                                cascading_tree_field_slug: relation?.cascading_tree_field_slug,
+                                function_path: view_of_relation?.function_path,
                             }
                         }
 
                         if (view_of_relation) {
+
                             if (view_of_relation.default_values && view_of_relation.default_values.length) {
                                 originalAttributes["default_values"] = view_of_relation.default_values
                             }
+                            originalAttributes["creatable"] = view_of_relation.creatable
                         }
                         originalAttributes = JSON.stringify(originalAttributes)
                         originalAttributes = JSON.parse(originalAttributes)

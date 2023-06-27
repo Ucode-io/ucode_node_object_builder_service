@@ -28,6 +28,9 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
 
+        
+        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
+
         await projectStorage.autoConnect(
             {
                 request: {
@@ -35,13 +38,14 @@ const logger = require("./config/logger");
                 }
             },
             (code, result) => {
-                logger.info(`autoconnected to resources ${code} - ${result}`);
+                logger.info(`connected to resources ${code} - ${result}`);
             }
         )
+        
         logger.info(`autoconnected successfully done!!!`);
 
     } catch (err) {
-        logger.info(`autoconnecting to resources failed: ${err}`);
+        logger.info(`auto connecting to resources failed: ${err}`);
     }
 
 

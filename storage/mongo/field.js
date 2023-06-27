@@ -37,17 +37,17 @@ let fieldStore = {
                 if (con.DYNAMIC_TYPES.includes(fieldReq.type) && fieldReq.autofill_field && fieldReq.autofill_table) {
                     // let autoFillTable = await Table.findOne({
                     //     slug: fieldReq.autofill_table,
-                        
+
                     // })
-                    let autoFillTable = await tableVersion(mongoConn, {slug: fieldReq.autofill_table}, data.version_id, true)
+                    let autoFillTable = await tableVersion(mongoConn, { slug: fieldReq.autofill_table }, data.version_id, true)
                     let autoFillFieldSlug = "", autoFillField = {}
                     if (fieldReq.autofill_field.includes(".")) {
                         let splitedAutofillField = fieldReq.autofill_field.split(".")
                         // autoFillTable = await Table.findOne({
                         //     slug: splitedAutofillField[0],
-                            
+
                         // })
-                        autoFillTable = await tableVersion(mongoConn, {slug: splitedAutofillField[0]}, data.version_id, true)
+                        autoFillTable = await tableVersion(mongoConn, { slug: splitedAutofillField[0] }, data.version_id, true)
                         let splitedTable = splitedAutofillField[0].split("_")
                         let tableSlug = ""
                         for (let i = 0; i < splitedTable.length - 2; i++) {
@@ -56,9 +56,9 @@ let fieldStore = {
                         tableSlug = tableSlug.slice(1, tableSlug.length)
                         // autoFillTable = await Table.findOne({
                         //     slug: tableSlug,
-                            
+
                         // })
-                        autoFillTable = await tableVersion(mongoConn, {slug: tableSlug}, data.version_id, true)
+                        autoFillTable = await tableVersion(mongoConn, { slug: tableSlug }, data.version_id, true)
                         autoFillFieldSlug = splitedAutofillField[1]
                     } else {
                         autoFillFieldSlug = fieldReq.autofill_field
@@ -72,7 +72,7 @@ let fieldStore = {
                         fieldReq.attributes = autoFillField.attributes
                     }
                 }
-                const field = new Field(fieldReq); 
+                const field = new Field(fieldReq);
                 field.table_id = data.id;
                 if (fieldReq.id) {
                     field.id = fieldReq.id
@@ -80,9 +80,9 @@ let fieldStore = {
                 var response = field.save();
                 // const table = await Table.findOne({
                 //     id: data.id,
-                    
+
                 // })
-                const table = await tableVersion(mongoConn, {id: data.id}, data.version_id, true)
+                const table = await tableVersion(mongoConn, { id: data.id }, data.version_id, true)
                 const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
                 const roles = await roleTable?.models.find()
                 for (const role of roles) {
@@ -102,11 +102,11 @@ let fieldStore = {
             const resp = await Table.updateOne({
                 id: data.id,
             },
-            {
-                $set: {
-                    is_changed: true
-                }
-            })
+                {
+                    $set: {
+                        is_changed: true
+                    }
+                })
             return response;
         } catch (err) {
             throw err
@@ -122,9 +122,9 @@ let fieldStore = {
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 // let autoFillTable = await Table.findOne({
                 //     slug: data.autofill_table,
-                    
+
                 // })
-                let autoFillTable = await tableVersion(mongoConn, {slug: data.autofill_table}, data.version_id, true)
+                let autoFillTable = await tableVersion(mongoConn, { slug: data.autofill_table }, data.version_id, true)
                 let autoFillFieldSlug = "", autoFillField = {}
                 if (data.autofill_field.includes(".")) {
                     let splitedAutofillField = data.autofill_field.split(".")
@@ -136,9 +136,9 @@ let fieldStore = {
                     tableSlug = tableSlug.slice(1, tableSlug.length)
                     // autoFillTable = await Table.findOne({
                     //     slug: tableSlug,
-                        
+
                     // })
-                    autoFillTable = await tableVersion(mongoConn, {slug: tableSlug}, data.version_id, true)
+                    autoFillTable = await tableVersion(mongoConn, { slug: tableSlug }, data.version_id, true)
                     autoFillFieldSlug = splitedAutofillField[1]
                 } else {
                     autoFillFieldSlug = data.autofill_field
@@ -159,18 +159,18 @@ let fieldStore = {
             const response = await field.save();
             const resp = await Table.updateOne({
                 id: data.table_id,
-                
+
             },
-            {
-                $set: {
-                    is_changed: true
-                }
-            })
+                {
+                    $set: {
+                        is_changed: true
+                    }
+                })
             // const table = await Table.findOne({
             //     id: data.table_id,
-                
+
             // });
-            const table = await tableVersion(mongoConn, {id: data.table_id}, data.version_id, true)
+            const table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -237,9 +237,9 @@ let fieldStore = {
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 // let autoFillTable = await Table.findOne({
                 //     slug: data.autofill_table,
-                    
+
                 // })
-                let autoFillTable = await tableVersion(mongoConn, {slug: data.autofill_table}, data.version_id, true)
+                let autoFillTable = await tableVersion(mongoConn, { slug: data.autofill_table }, data.version_id, true)
                 let autoFillFieldSlug = "", autoFillField = {}
                 if (data.autofill_field.includes(".")) {
                     let splitedAutofillField = data.autofill_field.split(".")
@@ -251,9 +251,9 @@ let fieldStore = {
                     tableSlug = tableSlug.slice(1, tableSlug.length)
                     // autoFillTable = await Table.findOne({
                     //     slug: tableSlug,
-                        
+
                     // })
-                    autoFillTable = await tableVersion(mongoConn, {slug: tableSlug}, data.version_id, true)
+                    autoFillTable = await tableVersion(mongoConn, { slug: tableSlug }, data.version_id, true)
                     autoFillFieldSlug = splitedAutofillField[1]
                 } else {
                     autoFillFieldSlug = data.autofill_field
@@ -276,6 +276,8 @@ let fieldStore = {
                     $set: data
                 }
             )
+            let fieldPermissions = (await ObjectBuilder(true, data.project_id))["field_permission"]
+            await fieldPermissions.models.updateMany({ field_id: data.id }, { $set: { label: data.label } })
 
             const resp = await Table.updateOne({
                 id: data.table_id,
@@ -287,7 +289,7 @@ let fieldStore = {
                 })
             const table = await Table.findOne({
                 id: data.table_id,
-                
+
             });
             let event = {}
             let fieldRes = {}
@@ -325,9 +327,9 @@ let fieldStore = {
             if (data.table_id === "") {
                 // table = await Table.findOne({
                 //     slug: data.table_slug,
-                    
+
                 // });
-                table = await tableVersion(mongoConn, {slug: data.table_slug}, data.version_id, true)
+                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true)
                 data.table_id = table.id;
             }
             let query = {
@@ -372,7 +374,7 @@ let fieldStore = {
 
                 for (const relation of relations) {
                     // let relationTable = await Table.findOne({ slug: relation.table_from,  })
-                    let relationTable = await tableVersion(mongoConn, {slug: relation.table_from}, data.version_id, true)
+                    let relationTable = await tableVersion(mongoConn, { slug: relation.table_from }, data.version_id, true)
 
                     let relationFields = await Field.find(
                         {
@@ -415,19 +417,19 @@ let fieldStore = {
                             field._doc.view_fields = viewFields
                             // let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3),  })
                             let childRelationTable = await tableVersion(mongoConn, {slug: field.slug.slice(0, -3)}, data.version_id, true)
-                            field._doc.table_label = relationTable.label
-                            field.label = childRelationTable.label
+                            field._doc.table_label = relationTable?.label
+                            field.label = childRelationTable?.label
                             changedField = field
-                            changedField._doc.path_slug = relationTable.slug + "_id_data" + "." + field.slug
-                            changedField._doc.table_slug = relationTable.slug
+                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
+                            changedField._doc.table_slug = relationTable?.slug
                             many_relation_fields.push(changedField._doc)
                         } else {
                             if (field.attributes) {
                                 field.attributes = struct.decode(field.attributes)
                             }
-                            field._doc.table_label = relationTable.label
+                            field._doc.table_label = relationTable?.label
                             changedField = field
-                            changedField._doc.path_slug = relationTable.slug + "_id_data" + "." + field.slug
+                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
                             many_relation_fields.push(changedField._doc)
                         }
                     }
@@ -457,7 +459,7 @@ let fieldStore = {
 
                 for (const relation of relations) {
                     // let relationTable = await Table.findOne({ slug: relation.table_to,  })
-                    let relationTable = await tableVersion(mongoConn, {slug: relation.table_to}, data.version_id, true)
+                    let relationTable = await tableVersion(mongoConn, { slug: relation.table_to }, data.version_id, true)
                     let relationFields = await Field.find(
                         {
                             table_id: relationTable.id
@@ -499,18 +501,18 @@ let fieldStore = {
                             field._doc.view_fields = viewFields
                             // let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3),  })
                             let childRelationTable = await tableVersion(mongoConn, {slug: field.slug.slice(0, -3)}, data.version_id, true)
-                            field._doc.table_label = relationTable.label
-                            field.label = childRelationTable.label
+                            field._doc.table_label = relationTable?.label
+                            field.label = childRelationTable?.label
                             changedField = field
-                            changedField._doc.path_slug = relationTable.slug + "_id_data" + "." + field.slug
-                            changedField._doc.table_slug = relationTable.slug
+                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
+                            changedField._doc.table_slug = relationTable?.slug
                             one_relation_fields.push(changedField._doc)
                         } else {
                             if (field.attributes) {
                                 field.attributes = struct.decode(field.attributes)
                             }
-                            field._doc.table_label = relationTable.label
-                            field._doc.label = field._doc.label + " (" + relationTable.label + ")"
+                            field._doc.table_label = relationTable?.label
+                            field._doc.label = field._doc?.label + " (" + relationTable?.label + ")"
                             changedField = field
                             changedField._doc.path_slug = relationTable.slug + "_id_data" + "." + field.slug
                             one_relation_fields.push(changedField._doc)
@@ -525,7 +527,7 @@ let fieldStore = {
                 many_relation_fields: many_relation_fields,
             });
 
-            
+
             const count = await Field.countDocuments(query);
             return { fields: fields, count: count, data: response };
         } catch (err) {
@@ -547,7 +549,7 @@ let fieldStore = {
                 throw new Error("This field is system field")
             }
             // const table = await Table.findOne({ id: deletedField.table_id,  })
-            const table = await tableVersion(mongoConn, {id: deletedField.table_id}, data.version_id, true)
+            const table = await tableVersion(mongoConn, { id: deletedField.table_id }, data.version_id, true)
             const field = await Field.deleteOne({ id: data.id });
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const response = await fieldPermissionTable?.models.deleteMany({

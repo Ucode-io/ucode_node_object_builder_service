@@ -70,6 +70,10 @@ const RelationSchema = mongoose.Schema(
         commit_id: {
             type: String,
             required: false
+        },
+        relation_buttons: {
+            type: Boolean,
+            default: false
         }
     },
     {

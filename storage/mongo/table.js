@@ -24,14 +24,14 @@ let tableStore = {
 
             const table = new Table(data);
             const response = await table.save();
-            if(response) {
+            if (response) {
                 let payload = {}
-                
+
                 payload = Object.assign(payload, response._doc)
                 delete payload._id
                 payload.commit_type = data.commit_type,
-                payload.name = data.name,
-                payload.action_time = new Date()
+                    payload.name = data.name,
+                    payload.action_time = new Date()
                 payload.author_id = data.author_id
                 const tableHistory = await TableHistory.create(payload)
 
@@ -87,21 +87,21 @@ let tableStore = {
 
             data.is_changed = true
 
-            let del_payload = {id: data.id, version_ids: []}
+            let del_payload = { id: data.id, version_ids: [] }
             let tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id,
             })
             const table = await Table.create(data)
-            if(table) {
+            if (table) {
                 let payload = {}
-                
+
                 payload = Object.assign(payload, table._doc)
                 delete payload._id
                 payload.commit_type = data.commit_type,
-                payload.name = data.name,
-                payload.action_time = new Date()
+                    payload.name = data.name,
+                    payload.action_time = new Date()
                 payload.author_id = data.author_id
-                const tableHistory =  await TableHistory.create(payload)
+                const tableHistory = await TableHistory.create(payload)
                 table.commit_guid = tableHistory.guid
                 await table.save()
             }
@@ -169,13 +169,13 @@ let tableStore = {
                 name: RegExp(data.search, "i")
             }
 
-            if(data.folder_id) {
+            if (data.folder_id) {
                 query.folder_id = data.folder_id
             }
 
             let tables = []
 
-            if(data.version_id) {
+            if (data.version_id) {
                 query.version_id = data.version_id
                 tables = await TableVersion.find(query).skip(data.offset).limit(data.limit)
             } else {
@@ -186,8 +186,8 @@ let tableStore = {
                         sort: { created_at: -1 }
                     }
                 )
-                .skip(data.offset)
-                .limit(data.limit);
+                    .skip(data.offset)
+                    .limit(data.limit);
             }
 
             const count = await Table.countDocuments(query);
@@ -204,9 +204,9 @@ let tableStore = {
             const TableVersion = mongoConn.models['Table.version']
             const TableHistory = mongoConn.models['Table.history']
 
-            let params = {id: data.id}
+            let params = { id: data.id }
             let table = null
-            if(data.version_id) {
+            if (data.version_id) {
                 params.version_id = data.version_id
                 table = await TableVersion.findOne(params).lean()
 
@@ -215,13 +215,13 @@ let tableStore = {
 
             }
 
-            if(table) {         
-                const history = await TableHistory.findOne({guid: table.commit_guid}).lean()
-                if(history) {
+            if (table) {
+                const history = await TableHistory.findOne({ guid: table.commit_guid }).lean()
+                if (history) {
                     history.id = history.guid
                     history.version_ids = []
-                    let version_ids = await TableVersion.find({commit_guid: history.guid})
-                    for(let el of version_ids) {
+                    let version_ids = await TableVersion.find({ commit_guid: history.guid })
+                    for (let el of version_ids) {
                         history.version_ids.push(el.version_id)
                     }
 
@@ -249,20 +249,20 @@ let tableStore = {
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
 
-            let payload = {id: data.id, version_ids: []}
-            if(data.version_id) {
+            let payload = { id: data.id, version_ids: [] }
+            if (data.version_id) {
                 payload.version_ids = { $in: [data.version_id] }
             }
             const table = await Table.findOne(payload)
-            if(!table) throw new Error("Table not found with given parameters")
-            if(table) {
+            if (!table) throw new Error("Table not found with given parameters")
+            if (table) {
                 let payload = {}
-                
+
                 payload = Object.assign(payload, table._doc)
                 delete payload._id
                 payload.commit_type = data.commit_type,
-                payload.name = data.name,
-                payload.action_time = new Date()
+                    payload.name = data.name,
+                    payload.action_time = new Date()
                 payload.author_id = data.author_id
                 const history_resp = await TableHistory.create(payload)
 
@@ -324,6 +324,8 @@ let tableStore = {
             const response = await fieldPermissionTable?.models.deleteMany({
                 table_slug: table.slug
             })
+            const tablePermission = (await ObjectBuilder(true, data.project_id))["record_permission"]
+            tablePermission?.models?.deleteMany({ table_slug: table.slug })
 
             return table;
         } catch (err) {
@@ -338,7 +340,7 @@ let tableStore = {
             const TableHistory = mongoConn.models['Table.history']
             const TableVersion = mongoConn.models['Table.version']
 
-            const histories = await TableHistory.find({id: data.table_id}).sort({created_at:-1})
+            const histories = await TableHistory.find({ id: data.table_id }).sort({ created_at: -1 })
             const versions = await TableVersion.aggregate([
                 {
                     $match: {
@@ -356,14 +358,14 @@ let tableStore = {
                     },
                 }
             ])
-        
+
             let map_versions = {}
-            for(let el of versions) {
+            for (let el of versions) {
                 map_versions[el._id] = el.itemSold.map(el => el.version_id)
             }
             let result = []
-            for(let el of histories) {
-                
+            for (let el of histories) {
+
                 result.push({
                     name: el.name,
                     version_ids: map_versions[el.guid],
@@ -386,18 +388,19 @@ let tableStore = {
             const TableHistory = mongoConn.models['Table.history']
             const TableVersion = mongoConn.models['Table.version']
 
-            const table = await TableHistory.findOne({guid: data.id}).lean()
-            if(!table) {
+            const table = await TableHistory.findOne({ guid: data.id }).lean()
+            if (!table) {
                 throw new Error("Table not found with given parameters")
             }
-            const version_ids = await TableVersion.find({commit_guid: table.guid}, {version_id: 1})
+            const version_ids = await TableVersion.find({ commit_guid: table.guid }, { version_id: 1 })
             table.version_ids = []
             table.id = table.guid
-            for(let el of version_ids) {
+            for (let el of version_ids) {
                 table.version_ids.push(el.version_id)
             }
             return table
-        } catch (err) {let ids = []
+        } catch (err) {
+            let ids = []
             throw err
         }
 
@@ -408,13 +411,13 @@ let tableStore = {
             const Table = mongoConn.models['Table']
             const TableHistory = mongoConn.models['Table.history']
 
-            let table = await TableHistory.findOne({guid: data.id}).lean()
-            if(!table) {
+            let table = await TableHistory.findOne({ guid: data.id }).lean()
+            if (!table) {
                 throw new Error("Table not found with given parameters")
             }
 
             delete table._id,
-            delete table.guid
+                delete table.guid
             table.version_ids = []
             table.commit_type = data.commit_type
             table.name = data.name
@@ -425,8 +428,8 @@ let tableStore = {
             const deleted = await Table.findOneAndDelete({
                 id: reverted.id,
             })
-            if(!deleted) {
-                await TableHistory.findOneAndDelete({guid: reverted.guid})
+            if (!deleted) {
+                await TableHistory.findOneAndDelete({ guid: reverted.guid })
                 throw new Error("Table not deleted with given parameters")
             }
 
@@ -436,9 +439,9 @@ let tableStore = {
             delete payload.guid
             payload.commit_guid = reverted.guid
             payload.version_ids = []
-            
+
             const new_table = await Table.create(payload)
-            
+
             let resp = Object.assign({}, reverted._doc)
             resp.id = resp.guid
             resp.created_at = resp.created_at
@@ -456,24 +459,24 @@ let tableStore = {
             const TableHistory = mongoConn.models['Table.history']
             const TableVersion = mongoConn.models['Table.version']
 
-            const history = await TableHistory.findOne({guid: data.id}).lean()
+            const history = await TableHistory.findOne({ guid: data.id }).lean()
 
-            const deleted = await TableVersion.deleteMany({version_id: { $in: data.version_ids }})
+            const deleted = await TableVersion.deleteMany({ version_id: { $in: data.version_ids } })
 
             let payload = []
-            for(let el of data.version_ids) {
-               payload.push({
-                 id: history.id,
-                 label: history.label,
-                 slug: history.slug,
-                 description: history.description,
-                 show_in_menu: history.show_in_menu,
-                 is_changed: history.is_changed,
-                 icon: history.icon,
-                 subtitle_field_slug: history.subtitle_field_slug,
-                 version_id: el,
-                 commit_guid: history.guid
-               })
+            for (let el of data.version_ids) {
+                payload.push({
+                    id: history.id,
+                    label: history.label,
+                    slug: history.slug,
+                    description: history.description,
+                    show_in_menu: history.show_in_menu,
+                    is_changed: history.is_changed,
+                    icon: history.icon,
+                    subtitle_field_slug: history.subtitle_field_slug,
+                    version_id: el,
+                    commit_guid: history.guid
+                })
             }
 
             await TableVersion.insertMany(payload)

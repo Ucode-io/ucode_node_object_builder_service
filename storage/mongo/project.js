@@ -12,6 +12,7 @@ const isSystemChecker = require("../../helper/is_system")
 const initialMenu = require("../../helper/initialMenu");
 const defaultRoles = require("../../helper/defaultRole")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
+const initialCustomMessage = require("../../helper/initialCustomMessage");
 
 
 let NAMESPACE = "storage.project";
@@ -144,6 +145,8 @@ let projectStore = {
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
                         await insertCollections(mongoDBConn, data.user_id, data.project_id)
+                        // await createIndexPermissionTables({ project_id: data.project_id })
+                        await initialCustomMessage({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

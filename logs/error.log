@@ -105,13 +105,20 @@
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
   level: 'error',
   timestamp: '2023-05-22T08:38:04.648Z',
+=======
+  message: 'service.layout.getAll: failed with error: mongoPool is not defined',
+  level: 'error',
+  timestamp: '2023-06-26T07:43:43.231Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'mongo connection error Authentication failed.',
   level: 'error',
   timestamp: '2023-05-24T04:24:32.172Z',
@@ -143,24 +150,42 @@
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
   level: 'error',
   timestamp: '2023-05-31T17:54:45.328Z',
+=======
+  message: 'service.layout.getAll: failed with error: permissionFunctions.responseRelation is not a function',
+  level: 'error',
+  timestamp: '2023-06-26T10:01:40.274Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
   level: 'error',
   timestamp: '2023-05-31T17:55:55.835Z',
+=======
+  message: 'service.layout.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-26T10:09:31.176Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
   level: 'error',
   timestamp: '2023-05-31T17:57:54.352Z',
+=======
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'table_from')",
+  level: 'error',
+  timestamp: '2023-06-27T08:13:45.240Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
   level: 'error',
   timestamp: '2023-06-01T11:13:38.875Z',
@@ -413,3 +438,11 @@
     }
   }
 }
+=======
+  message: "service.layout.getAll: failed with error: Cannot destructure property 'relation' of '(intermediate value)' as it is null.",
+  level: 'error',
+  timestamp: '2023-06-27T08:17:37.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687

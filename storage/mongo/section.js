@@ -157,7 +157,6 @@ let sectionStore = {
                         }
 
                         const viewRelationPermission = new viewRelationPermissionTable.models(permissionViewRelation)
-                        console.log("viewRelationPermission", viewRelationPermission)
                         viewRelationPermission.save()
                     }
                 }
@@ -288,14 +287,12 @@ let sectionStore = {
                 tableQuery.slug = data.table_slug
             }            
             let table = await tableVersion(mongoConn, tableQuery, data.version_id, true);
-            console.log("table id:::: " + table?.id);
-            console.log("table:::: " + table);
 
             let query = {}
-            if(data.table_id) { 
-                query.table_id = data.table_id;
-            }
-            if(data.tab_id) {
+            // if (data.table_id) {
+            //     query.table_id = data.table_id;
+            // }
+            if (data.tab_id) {
                 query.tab_id = data.tab_id;
             }
 
@@ -309,6 +306,7 @@ let sectionStore = {
             // console.log("length: " + sections.length);
             let sectionsResponse = []
             for (const section of sections) {
+                console.log("Section: " + section.fields);
                 let fieldsRes = [], fieldsWithPermissions = []
                 for (const fieldReq of section.fields) {
                     let guid;
@@ -319,6 +317,7 @@ let sectionStore = {
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order
                         field.relation_type = fieldReq.relation_type
+                        field.show_label = fieldReq.show_label || false
                         let relationID = fieldReq.id.split("#")[1]
                         const fieldResp = await Field.findOne({
                             relation_id: relationID,
@@ -351,13 +350,14 @@ let sectionStore = {
                                 relation_id: relation.id,
                                 relation_table_slug: data.table_slug
                             })
+                            console.log(">>> view ", view_of_relation);
 
                         }
 
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
                         for (const field of tableFields) {
-                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0] && fieldResp.slug === field.relation_field) {
+                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0] && fieldResp?.slug === field?.relation_field) {
                                 let autofill = {
                                     field_from: field.autofill_field,
                                     field_to: field.slug,
@@ -452,7 +452,6 @@ let sectionStore = {
                         }
                         originalAttributes = JSON.stringify(originalAttributes)
                         originalAttributes = JSON.parse(originalAttributes)
-
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)
@@ -474,7 +473,7 @@ let sectionStore = {
                     }
                 }
                 // this function add field permission for each field by role iddynamicTableInfo
-                fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
+                fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, data.table_slug ? data.table_slug : table.slug, data.project_id)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)
             }
@@ -485,7 +484,7 @@ let sectionStore = {
         }
 
     })
-    
+
 };
 
 module.exports = sectionStore;

@@ -458,34 +458,6 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0
 	}, {
-		"id": "87ddadf0-689b-4285-9fc7-5cb76bdd4a7c",
-		"required": false,
-		"slug": "expires_at",
-		"label": "Срок годности",
-		"default": "",
-		"type": "DATE_TIME",
-		"index": "string",
-		"attributes": {
-			"fields": {
-				"maxLength": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"placeholder": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"showTooltip": {
-					"boolValue": false,
-					"kind": "boolValue"
-				}
-			}
-		},
-		"is_visible": false,
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"__v": 0
-	}, {
 		"required": false,
 		"slug": "guid",
 		"label": "ID",
@@ -4092,6 +4064,8 @@ async function createField() {
 		"__v": 0
 	}
 	]
+	let f = fields.find(el => !el.table_id)
+	console.log("len::", fields.length, f);
 
 	return fields
 }

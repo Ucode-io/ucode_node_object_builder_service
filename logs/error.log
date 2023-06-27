@@ -356,3 +356,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'table_from')",
+  level: 'error',
+  timestamp: '2023-06-27T08:13:45.240Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot destructure property 'relation' of '(intermediate value)' as it is null.",
+  level: 'error',
+  timestamp: '2023-06-27T08:17:37.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

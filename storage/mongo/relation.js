@@ -10,6 +10,7 @@ const ObjectBuilder = require("../../models/object_builder");
 const cfg = require("../../config/index");
 const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
+const TabSchema = require("../../schemas/tab");
 
 let NAMESPACE = "storage.relation";
 
@@ -1009,10 +1010,12 @@ let relationStore = {
                     },
                 }
             );
-            const deleteViews = await View.deleteMany({
+            await View.deleteMany({
                 relation_id: relation.id,
             });
             resp = await Relation.deleteOne({ id: data.id });
+            let count = await TabSchema.countDocuments({ relation_id: data.id })
+            count && await TabSchema.deleteMany({ relation_id: data.id })
             return resp;
         } catch (err) {
             throw err;
@@ -1040,9 +1043,10 @@ let relationStore = {
                 {
                     sort: { created_at: -1 },
                 }
-            )
-                .populate("fields")
-                .lean();
+            ).populate("fields").lean();
+            if (!relation) {
+                return {};
+            }
             // let responseRelations = [];
             // for (let i = 0; i < relations.length; i++) {
             // let tableFrom = await Table.findOne({

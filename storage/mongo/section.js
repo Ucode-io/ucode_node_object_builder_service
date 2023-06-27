@@ -289,9 +289,9 @@ let sectionStore = {
             let table = await tableVersion(mongoConn, tableQuery, data.version_id, true);
 
             let query = {}
-            if (data.table_id) {
-                query.table_id = data.table_id;
-            }
+            // if (data.table_id) {
+            //     query.table_id = data.table_id;
+            // }
             if (data.tab_id) {
                 query.tab_id = data.tab_id;
             }

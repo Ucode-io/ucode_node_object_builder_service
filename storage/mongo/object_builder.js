@@ -751,7 +751,7 @@ let objectBuilder = {
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
-        const params = struct.decode(req?.data)
+        let params = struct.decode(req?.data)
         
         const limit = params.limit
         const offset = params.offset
@@ -1021,14 +1021,30 @@ let objectBuilder = {
 
         // check soft deleted datas
         if(params.$or) {
-            params.$or.push({ deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, { deleted_at: null })
+            params.$and = [
+                { $or: params.$or },
+                { 
+                    $or:  [
+                        { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                        { deleted_at: null }
+                    ]
+                }
+            ]
+
+            delete params.$or
         } else {
             params.$or = [
                 { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
                 { deleted_at: null }
             ]
         }
-        console.log(">>>>>>>> params", params)
+
+        // delete params.limit
+        // delete params.search
+        // delete params.view_fields
+
+        console.log(">>>>>>>> params", params, params.$or)
+
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({

@@ -9,6 +9,7 @@ const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
 const initialTableFolder = require("../../helper/initialTableFolder");
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
+const initialMenu = require("../../helper/initialMenu");
 
 
 let NAMESPACE = "storage.project";
@@ -66,6 +67,7 @@ let projectStore = {
                 mongoDBConn.model('Setting.Languages', require('../../schemas/setting_language'))
                 mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
+                mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)
@@ -130,10 +132,12 @@ let projectStore = {
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))
                         mongoDBConn.model('Tab', require('../../schemas/tab'))
                         mongoDBConn.model('Layout', require('../../schemas/layouts'))
+                        mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         await objectBuilder(false, data.project_id)
                         console.log(">>>>>>>> ")
-                        // await initialTableFolder({ project_id: data.project_id })
                         // await createIndexPermissionTables({ project_id: data.project_id })
+                        await initialTableFolder({ project_id: data.project_id })
+                        await initialMenu({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

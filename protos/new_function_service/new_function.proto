@@ -32,6 +32,7 @@ message CreateFunctionRequest {
     string ssh_url = 12;
 }
 
+// if you change this message you must be change Microfrontend message in object_builder_service's menu.proto
 message Function {
     string id = 1;
     string path = 2;

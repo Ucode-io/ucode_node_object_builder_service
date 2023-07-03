@@ -336,13 +336,20 @@
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
   level: 'error',
   timestamp: '2023-05-22T08:38:04.648Z',
+=======
+  message: 'service.layout.getAll: failed with error: mongoPool is not defined',
+  level: 'error',
+  timestamp: '2023-06-26T07:43:43.231Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'mongo connection error Authentication failed.',
   level: 'error',
   timestamp: '2023-05-24T04:24:32.172Z',
@@ -374,24 +381,42 @@
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
   level: 'error',
   timestamp: '2023-05-31T17:54:45.328Z',
+=======
+  message: 'service.layout.getAll: failed with error: permissionFunctions.responseRelation is not a function',
+  level: 'error',
+  timestamp: '2023-06-26T10:01:40.274Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
   level: 'error',
   timestamp: '2023-05-31T17:55:55.835Z',
+=======
+  message: 'service.layout.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-26T10:09:31.176Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
   level: 'error',
   timestamp: '2023-05-31T17:57:54.352Z',
+=======
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'table_from')",
+  level: 'error',
+  timestamp: '2023-06-27T08:13:45.240Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
   level: 'error',
   timestamp: '2023-06-01T11:13:38.875Z',
@@ -557,6 +582,31 @@
   message: "service.app.getListWithRoleAppTablePermissions: failed with error: Cannot read properties of undefined (reading 'analytics')",
   level: 'error',
   timestamp: '2023-06-12T19:41:12.453Z',
+=======
+  message: "service.layout.getAll: failed with error: Cannot destructure property 'relation' of '(intermediate value)' as it is null.",
+  level: 'error',
+  timestamp: '2023-06-27T08:17:37.939Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
   label: 'object_builder_service',
   metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-07-03T13:54:43.032Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
 }

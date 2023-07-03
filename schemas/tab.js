@@ -1,26 +1,16 @@
 const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 
-const SectionSchema = mongoose.Schema(
+const TabSchema = mongoose.Schema(
     {
         id: {
             type: String,
             default: v4,
             unique: true
         },
-        tab_id: {
-            type: String,
-            required: [true, "Section must have tab_id"],
-            sparse: true
-        },
         order: {
             type: Number,
-            required: [true, "Section must have order"],
-        },
-        column: {
-            type: String,
-            // required: [true, "Field must have column"],
-            index: true
+            required: [true, "Tab must have order"],
         },
         label: {
             type: String,
@@ -29,12 +19,16 @@ const SectionSchema = mongoose.Schema(
         icon: {
             type: String
         },
-        fields: {
-            type: mongoose.Schema.Types.Mixed,
+        type: {
+            type: String,
+            enum: ['relation', 'section']
         },
-        is_summary_section: {
-            type: Boolean,
-            default: false
+        layout_id: {
+            type: String,
+            required: [true, "Table must have layout_id"],
+        },
+        relation_id: {
+            type: String,
         },
     },
     {
@@ -44,4 +38,11 @@ const SectionSchema = mongoose.Schema(
     }
 );
 
-module.exports = SectionSchema
+TabSchema.virtual("sections", {
+    ref: "Section",
+    localField: "id",
+    foreignField: 'tab_id',
+    justOne: false
+})
+
+module.exports = TabSchema;

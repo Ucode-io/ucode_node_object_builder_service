@@ -77,8 +77,7 @@ message CreateTableRequest {
     string commit_type = 16;
     string name = 17;
     bool is_cached = 18;
-    repeated Layout layouts = 19;
-    bool default_editable = 20;
+    repeated LayoutRequest layouts = 19;
 }
 
 message IncrementID {
@@ -99,7 +98,6 @@ message CreateTableResponse {
     repeated Section sections = 9;
     IncrementID increment_id = 10;
     bool is_cached = 11;
-    bool default_editable = 12;
 }
 
 message UpdateTableRequest {
@@ -119,7 +117,6 @@ message UpdateTableRequest {
     string commit_type = 14;
     string name = 15;
     bool is_cached = 16;
-    bool default_editable = 17;
 }
 
 message Table {
@@ -139,7 +136,6 @@ message Table {
     CommitInfo commit_info = 14;
     bool is_cached = 15;
     Permission record_permissions = 16;
-    bool default_editable = 17;
 }
 
 message CommitInfo {

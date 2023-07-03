@@ -128,6 +128,8 @@ let projectStore = {
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))
+                        mongoDBConn.model('Tab', require('../../schemas/tab'))
+                        mongoDBConn.model('Layout', require('../../schemas/layouts'))
                         await objectBuilder(false, data.project_id)
                         console.log(">>>>>>>> ")
                         // await initialTableFolder({ project_id: data.project_id })

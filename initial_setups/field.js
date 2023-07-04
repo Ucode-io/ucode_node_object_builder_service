@@ -1,5 +1,45 @@
 async function createField() {
 	let fields = [{
+		"id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",
+		"table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
+		"required": false,
+		"slug": "label",
+		"label": "Название связь",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"is_system": true,
+		"autofill_field": "",
+		"autofill_table": "",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},{
 		"id": "d8127cf2-2d60-474e-94ba-317d3b1ba18a",
 		"required": false,
 		"slug": "table_slug",
@@ -1030,6 +1070,46 @@ async function createField() {
 		"is_visible": true,
 		"relation_id": "426a0cd6-958d-4317-bf23-3b4ea4720e53",
 		"id": "d95156ba-d443-4c95-8383-c122747330c5",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},{
+		"id": "485ceb40-6267-4f5e-9327-f75fe79e8bfe",
+		"table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
+		"required": false,
+		"slug": "label",
+		"label": "Название",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"is_system": true,
+		"autofill_field": "",
+		"autofill_table": "",
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0

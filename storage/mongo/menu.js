@@ -30,14 +30,13 @@ let menuStore = {
             let permissions = []
             for (const role of roles) {
                 let permissionRecord = {
+                    guid: v4(),
+                    menu_id: response?.id,
+                    role_id: role.guid,
                     delete: true,
                     write: true,
-                    menu_id: response?.id,
                     update: true,
                     read: true,
-                    is_have_condition: false,
-                    role_id: role.guid,
-                    guid: v4()
                 }
                 permissions.push(permissionRecord)
 
@@ -104,7 +103,7 @@ let menuStore = {
                         'foreignField': 'id',
                         'as': 'table'
                     }
-                }, 
+                },
                 {
                     '$lookup': {
                         'from': 'function_service.functions',
@@ -112,7 +111,7 @@ let menuStore = {
                         'foreignField': 'id',
                         'as': 'microfrontend'
                     }
-                }, 
+                },
                 {
                     '$lookup': {
                         from: "web_pages.web_page",
@@ -147,96 +146,97 @@ let menuStore = {
                         ],
                         as: "webpage"
                     }
-                }, 
+                },
                 {
                     '$unwind': {
                         'path': '$table',
                         'preserveNullAndEmptyArrays': true
                     }
-                }, 
+                },
                 {
                     '$unwind': {
                         'path': '$microfrontend',
                         'preserveNullAndEmptyArrays': true
                     }
-                }, 
+                },
                 {
                     '$unwind': {
                         'path': '$webpage',
                         'preserveNullAndEmptyArrays': true
                     }
-                }, 
+                },
+                {
+                    '$lookup': {
+                        'from': 'menu_permissions',
+                        'let': {
+                            'menuId': '$id',
+                            'roleId': data.role_id
+                        },
+                        'pipeline': [
+                            {
+                                '$match': {
+                                    '$expr': {
+                                        '$and': [
+                                            {
+                                                '$eq': [
+                                                    '$role_id', '$$roleId'
+                                                ]
+                                            },
+                                            {
+                                                '$eq': [
+                                                    '$menu_id', '$$menuId'
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        'as': 'permission'
+                    },
+                },
+                {
+                    '$unwind': {
+                        'path': '$permission',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$project': {
+                        'permission._id': 0,
+                        'permission.__v': 0,
+                        'permission.createdAt': 0,
+                        'permission.updatedAt': 0,
+                    }
+                },
                 {
                     '$addFields': {
                         'data': {
                             'table': '$table',
                             'microfrontend': '$microfrontend',
-                            'webpage': '$webpage.webpage'
+                            'webpage': '$webpage.webpage',
+                            'permission': '$permission'
                         }
                     }
-                }, 
+                },
                 {
                     '$skip': data.offset
-                }, 
+                },
                 {
                     '$limit': data.limit
-                }, 
+                },
                 {
                     $sort:
                     {
                         order: 1,
                     },
                 }]
-                
-                if(data.type == constants.MENU_GET_TYPES[1]) {
-                    pipelines.splice(3, 0, {
-                        '$lookup': {
-                            'from': 'menu_permissions',
-                            'let': {
-                                'menuId': '$id',
-                                'roleId': data.role_id
-                            },
-                            'pipeline': [
-                                {
-                                    '$match': {
-                                        '$expr': {
-                                            '$and': [
-                                                {
-                                                    '$eq': [
-                                                        '$role_id', '$$roleId'
-                                                    ]
-                                                },
-                                                {
-                                                    '$eq': [
-                                                        '$menu_id', '$$menuId'
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            ],
-                            'as': 'permission'
-                        }
-                    })
-
-                    pipelines.splice(7, 0, {
-                        '$unwind': {
-                            'path': '$permission',
-                            'preserveNullAndEmptyArrays': true
-                        }
-                    })
-
-                    pipelines[9]['$addFields']['data']['permission'] = '$permission'
-                }
-
 
             let menus = await Menu.aggregate(pipelines)
             menus = JSON.parse(JSON.stringify(menus))
             menus.forEach(el => {
                 el.data = struct.encode(el.data)
             })
-            console.log("menus::", menus);
             const count = await Menu.countDocuments(query);
             return { menus, count };
         } catch (err) {
@@ -269,7 +269,7 @@ let menuStore = {
 
             const menu = await Menu.deleteOne({ id: data.id });
             const menuPermissionTable = mongoConn.models['menu_permission']
-            await menuPermissionTable.deleteMany({menu_id: data.id})
+            await menuPermissionTable.deleteMany({ menu_id: data.id })
             return menu;
         } catch (err) {
             throw err

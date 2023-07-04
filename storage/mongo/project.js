@@ -10,6 +10,7 @@ const logger = require("../../config/logger");
 const initialTableFolder = require("../../helper/initialTableFolder");
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialMenu = require("../../helper/initialMenu");
+const initialMenuPermission = require("../../helper/initialMenuPermission");
 
 
 let NAMESPACE = "storage.project";
@@ -135,9 +136,10 @@ let projectStore = {
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         await objectBuilder(false, data.project_id)
                         console.log(">>>>>>>> ")
-                        // await createIndexPermissionTables({ project_id: data.project_id })
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
+                        await initialMenuPermission({ project_id: data.project_id })
+                        await createIndexPermissionTables({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

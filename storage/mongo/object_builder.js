@@ -1393,8 +1393,10 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
+        
+        const tableResp = await table.findOne({slug: req.table_slug}) || {is_cached: false}
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-        return { table_slug: req.table_slug, data: response }
+        return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage

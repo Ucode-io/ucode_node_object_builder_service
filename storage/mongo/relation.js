@@ -9,6 +9,8 @@ const relationFieldChecker = require("../../helper/relationFieldChecker");
 const ObjectBuilder = require("../../models/object_builder");
 const cfg = require("../../config/index");
 const mongoPool = require("../../pkg/pool");
+const AddPermission = require("../../helper/addPermission");
+const TabSchema = require("../../schemas/tab");
 
 let NAMESPACE = "storage.relation";
 
@@ -927,6 +929,7 @@ let relationStore = {
             const Field = mongoConn.models["Field"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
+            const Tab = mongoConn.models["Tab"];
 
             const relation = await Relation.findOne({ id: data.id });
             let table, resp, field = {}
@@ -1028,11 +1031,190 @@ let relationStore = {
                     },
                 }
             );
-            const deleteViews = await View.deleteMany({
+            await View.deleteMany({
                 relation_id: relation.id,
             });
             resp = await Relation.deleteOne({ id: data.id });
+            let count = await Tab.countDocuments({ relation_id: data.id })
+            count && await Tab.deleteMany({ relation_id: data.id })
             return resp;
+        } catch (err) {
+            throw err;
+        }
+    }),
+    getSingleViewForRelation: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id);
+            const Field = mongoConn.models["Field"];
+            const View = mongoConn.models["View"];
+            const Relation = mongoConn.models["Relation"];
+
+            if (data.table_slug === "") {
+                // let table = await Table.findOne({
+                //     id: data.table_id
+                // });
+                let table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
+                data.table_slug = table.slug;
+            }
+            const relation = await Relation.findOne(
+                {
+                    id: data.id
+                },
+                null,
+                {
+                    sort: { created_at: -1 },
+                }
+            ).populate("fields").lean();
+            if (!relation) {
+                return {};
+            }
+            // let responseRelations = [];
+            // for (let i = 0; i < relations.length; i++) {
+            // let tableFrom = await Table.findOne({
+            //     slug: relation.table_from,
+            // })
+            let tableFrom = await tableVersion(mongoConn, { slug: relation.table_from }, data.version_id, true)
+            if (relation.type === "Many2Dynamic") {
+                for (const dynamic_table of relation.dynamic_tables) {
+                    if (dynamic_table.table_slug === data.table_slug || tableFrom.slug === data.table_slug) {
+                        // let tableTo = await Table.findOne({
+                        //     slug: dynamic_table.table_slug,
+                        // })
+                        let tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
+                        let view = await View.findOne({
+                            $and: [
+                                { relation_table_slug: data.table_slug },
+                                { relation_id: relation.id },
+                            ],
+                        });
+                        viewFieldsInDynamicTable = [];
+                        for (const fieldId of dynamic_table.view_fields) {
+                            let view_field = await Field.findOne(
+                                {
+                                    id: fieldId,
+                                },
+                                {
+                                    created_at: 0,
+                                    updated_at: 0,
+                                    createdAt: 0,
+                                    updatedAt: 0,
+                                    _id: 0,
+                                    __v: 0,
+                                }
+                            );
+                            if (view_field) {
+                                if (view_field.attributes) {
+                                    view_field.attributes = struct.decode(
+                                        view_field.attributes
+                                    );
+                                }
+                                viewFieldsInDynamicTable.push(
+                                    view_field._doc
+                                );
+                            }
+                        }
+                        let responseRelation = {
+                            id: relation.id,
+                            table_from: tableFrom,
+                            table_to: tableTo,
+                            type: relation.type,
+                            view_fields: viewFieldsInDynamicTable,
+                            editable: relation.editable,
+                            dynamic_tables: relation.dynamic_tables,
+                            relation_field_slug:
+                                relation.relation_field_slug,
+                            auto_filters: relation.auto_filters,
+                            is_user_id_default:
+                                relation.is_user_id_default,
+                            cascadings: relation.cascadings,
+                            object_id_from_jwt:
+                                relation.object_id_from_jwt,
+                            cascading_tree_table_slug:
+                                relation.cascading_tree_table_slug,
+                            cascading_tree_field_slug:
+                                relation.cascading_tree_field_slug,
+                        };
+                        if (view) {
+                            responseRelation["title"] = view.name;
+                            responseRelation["columns"] = view.columns;
+                            responseRelation["quick_filters"] =
+                                view.quick_filters;
+                            responseRelation["group_fields"] =
+                                view.group_fields;
+                            responseRelation["is_editable"] =
+                                view.is_editable;
+                            responseRelation["relation_table_slug"] =
+                                view.relation_table_slug;
+                            responseRelation["view_type"] = view.type;
+                            responseRelation["summaries"] = view.summaries;
+                            responseRelation["relation_id"] =
+                                view.relation_id;
+                            responseRelation["default_values"] =
+                                view.default_values;
+                            responseRelation["action_relations"] =
+                                view.action_relations;
+                            responseRelation["default_limit"] =
+                                view.default_limit;
+                            responseRelation["multiple_insert"] =
+                                view.multiple_insert;
+                            responseRelation["multiple_insert_field"] =
+                                view.multiple_insert_field;
+                            responseRelation["updated_fields"] =
+                                view.updated_fields;
+                        }
+                    }
+                }
+            }
+            // let tableTo = await Table.findOne({
+            //     slug: relation.table_to
+            // })
+            let tableTo = await tableVersion(mongoConn, { slug: relation.table_to }, data.version_id, true)
+            let view = await View.findOne({
+                $and: [
+                    { relation_table_slug: data.table_slug },
+                    { relation_id: relation.id },
+                ],
+            });
+            let responseRelation = {
+                id: relation.id,
+                table_from: tableFrom,
+                table_to: tableTo,
+                type: relation.type,
+                view_fields: relation.fields,
+                editable: relation.editable,
+                dynamic_tables: relation.dynamic_tables,
+                relation_field_slug: relation.relation_field_slug,
+                auto_filters: relation.auto_filters,
+                is_user_id_default: relation.is_user_id_default,
+                cascadings: relation.cascadings,
+                object_id_from_jwt: relation.object_id_from_jwt,
+                cascading_tree_table_slug:
+                    relation.cascading_tree_table_slug,
+                cascading_tree_field_slug:
+                    relation.cascading_tree_field_slug,
+            };
+            if (view) {
+                responseRelation["title"] = view.name;
+                responseRelation["columns"] = view.columns;
+                responseRelation["quick_filters"] = view.quick_filters;
+                responseRelation["group_fields"] = view.group_fields;
+                responseRelation["is_editable"] = view.is_editable;
+                responseRelation["relation_table_slug"] =
+                    view.relation_table_slug;
+                responseRelation["view_type"] = view.type;
+                responseRelation["summaries"] = view.summaries;
+                responseRelation["relation_id"] = view.relation_id;
+                responseRelation["default_values"] = view.default_values;
+                responseRelation["action_relations"] =
+                    view.action_relations;
+                responseRelation["default_limit"] = view.default_limit;
+                responseRelation["multiple_insert"] = view.multiple_insert;
+                responseRelation["multiple_insert_field"] =
+                    view.multiple_insert_field;
+                responseRelation["updated_fields"] = view.updated_fields;
+            }
+            const relationTabWithPermission = await AddPermission.toRelationTab(responseRelation, data.role_id, data.table_slug, data.project_id)
+            return { relation: relationTabWithPermission };
         } catch (err) {
             throw err;
         }

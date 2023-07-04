@@ -186,6 +186,46 @@ let permissionFunctions = {
         } catch (err) {
             throw err
         }
+    },
+    toRelationTab: async (relation, roleId, tableSlug, project_id) => {
+
+        try {
+            if (!project_id) {
+                console.warn('WARNING:: Using default project id in [helper.addPermission.toRelationTab]...')
+            }
+
+
+
+            const relationPermissionTable = (await ObjectBuilder(true, project_id))["view_relation_permission"]
+            let viewRelationPermissions = await relationPermissionTable.models.findOne({
+                role_id: roleId,
+                table_slug: tableSlug,
+                relation_id: relation.id
+            },
+                {
+                    created_at: 0,
+                    updated_at: 0,
+                    createdAt: 0,
+                    updatedAt: 0,
+                    _id: 0,
+                    __v: 0
+                }
+            )
+
+            let encodedPermission = {}
+            if (viewRelationPermissions) {
+                if (viewRelationPermissions._doc) {
+                    encodedPermission = struct.encode(viewRelationPermissions._doc)
+                } else {
+                    encodedPermission = struct.encode(viewRelationPermissions)
+                }
+            }
+            relation["permission"] = encodedPermission
+            return relation
+
+        } catch (err) {
+            throw err
+        }
     }
 
 }

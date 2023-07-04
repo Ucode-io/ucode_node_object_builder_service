@@ -337,9 +337,20 @@
 }
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: 'Error while auto connecting',
   level: 'error',
   timestamp: '2023-05-21T07:29:40.514Z',
+=======
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-05-22T08:38:04.648Z',
+=======
+  message: 'service.layout.getAll: failed with error: mongoPool is not defined',
+  level: 'error',
+  timestamp: '2023-06-26T07:43:43.231Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',
@@ -357,6 +368,10 @@
   }
 }
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   message: 'mongo connection error Authentication failed.',
   level: 'error',
   timestamp: '2023-05-22T05:33:05.908Z',
@@ -4333,11 +4348,20 @@
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
   level: 'error',
   timestamp: '2023-05-31T17:54:45.328Z',
+<<<<<<< HEAD
 >>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
+=======
+=======
+  message: 'service.layout.getAll: failed with error: permissionFunctions.responseRelation is not a function',
+  level: 'error',
+  timestamp: '2023-06-26T10:01:40.274Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.app.getAll: failed with error: appWithPermission is not defined',
   level: 'error',
@@ -4347,10 +4371,21 @@
   level: 'error',
   timestamp: '2023-05-31T17:55:55.835Z',
 >>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
+=======
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
+  level: 'error',
+  timestamp: '2023-05-31T17:55:55.835Z',
+=======
+  message: 'service.layout.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-26T10:09:31.176Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
@@ -4360,15 +4395,28 @@
   level: 'error',
   timestamp: '2023-05-31T17:57:54.352Z',
 >>>>>>> bd544190fe562d70dbaf621a7c62848cdd96f248
+=======
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: Must provide an update object.',
+  level: 'error',
+  timestamp: '2023-05-31T17:57:54.352Z',
+=======
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'table_from')",
+  level: 'error',
+  timestamp: '2023-06-27T08:13:45.240Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-05-18T06:51:27.900Z',
 =======
+=======
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: Error role not found',
   level: 'error',
   timestamp: '2023-06-01T11:13:38.875Z',
@@ -4377,6 +4425,7 @@
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
@@ -4392,10 +4441,21 @@
   level: 'error',
   timestamp: '2023-06-09T17:50:29.213Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  message: "service.app.getByID: failed with error: Cannot read properties of null (reading 'tables')",
+  level: 'error',
+  timestamp: '2023-06-09T17:50:29.213Z',
+=======
+  message: 'service.menu.create: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-01T19:46:26.107Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.app.getAll: failed with error: appWithPermission is not defined',
@@ -4411,10 +4471,21 @@
   level: 'error',
   timestamp: '2023-06-09T17:55:05.827Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-09T17:55:05.827Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-01T20:17:37.160Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.app.getAll: failed with error: db conn with given projectId does not exist',
@@ -4430,10 +4501,21 @@
   level: 'error',
   timestamp: '2023-06-09T17:55:06.260Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-09T17:55:06.260Z',
+=======
+  message: 'service.menu.update: failed with error: app is not defined',
+  level: 'error',
+  timestamp: '2023-06-01T20:25:59.009Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   message: 'mongo connection error Authentication failed.',
@@ -4468,10 +4550,21 @@
   level: 'error',
   timestamp: '2023-06-09T17:55:06.269Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-09T17:55:06.269Z',
+=======
+  message: 'service.menu.delete: failed with error: app is not defined',
+  level: 'error',
+  timestamp: '2023-06-01T20:30:39.474Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
   level: 'error',
@@ -4481,10 +4574,21 @@
   level: 'error',
   timestamp: '2023-06-09T17:55:11.482Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-09T17:55:11.482Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:51:37.186Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: self.get is not a function',
   level: 'error',
@@ -4494,10 +4598,21 @@
   level: 'error',
   timestamp: '2023-06-09T17:55:11.907Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-09T17:55:11.907Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:52:54.653Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: self.get is not a function',
   level: 'error',
@@ -4507,10 +4622,21 @@
   level: 'error',
   timestamp: '2023-06-09T17:55:12.004Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-09T17:55:12.004Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:52:55.979Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: self.get is not a function',
   level: 'error',
@@ -4519,17 +4645,43 @@
   message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
   level: 'error',
   timestamp: '2023-06-09T17:57:36.214Z',
+=======
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-09T17:57:36.214Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:53:16.904Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
   level: 'error',
   timestamp: '2023-06-09T17:57:36.669Z',
+=======
+<<<<<<< HEAD
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-09T17:57:36.669Z',
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:53:21.564Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
   level: 'error',
   timestamp: '2023-06-09T17:57:36.680Z',
@@ -4597,7 +4749,10 @@
     'Use mongoose.model(name, schema)',
   level: 'error',
   timestamp: '2023-06-12T19:13:26.736Z',
+<<<<<<< HEAD
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
@@ -4605,16 +4760,21 @@
   message: 'service.app.getListWithRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
   level: 'error',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-05-18T07:45:55.944Z',
 =======
   timestamp: '2023-06-12T19:40:07.803Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  timestamp: '2023-06-12T19:40:07.803Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.object_builder.getList: failed with error: db conn with given projectId does not exist',
   level: 'error',
+<<<<<<< HEAD
 <<<<<<< HEAD
   timestamp: '2023-05-18T07:45:55.948Z',
   label: 'object_builder_service',
@@ -4818,6 +4978,9 @@
 =======
   timestamp: '2023-06-12T19:40:07.825Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  timestamp: '2023-06-12T19:40:07.825Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
@@ -4825,14 +4988,19 @@
   message: 'service.table.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-05-18T08:40:06.006Z',
 =======
   timestamp: '2023-06-12T19:40:57.052Z',
 >>>>>>> 3729c5bc09263b09b896223b10f0684fe095fb93
+=======
+  timestamp: '2023-06-12T19:40:57.052Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.app.create: failed with error: appPermission.insertMany is not a function',
   level: 'error',
@@ -6018,10 +6186,26 @@
   message: 'service.object_builder.getList: failed with error: Invalid regular expression: /(99/: Unterminated group',
   level: 'error',
   timestamp: '2023-06-08T12:03:26.611Z',
+=======
+  message: "service.app.getListWithRoleAppTablePermissions: failed with error: Cannot read properties of undefined (reading 'analytics')",
+  level: 'error',
+  timestamp: '2023-06-12T19:41:12.453Z',
+=======
+  message: "service.layout.getAll: failed with error: Cannot destructure property 'relation' of '(intermediate value)' as it is null.",
+  level: 'error',
+  timestamp: '2023-06-27T08:17:37.939Z',
+>>>>>>> 44340836e910b3094132f79b12207689f7b29687
+=======
+  message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-07T06:53:22.275Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: Invalid regular expression: /(99/: Unterminated group',
   level: 'error',
   timestamp: '2023-06-08T12:04:47.740Z',
@@ -6077,18 +6261,32 @@
   }
 }
 {
+=======
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   message: 'Error while auto connecting',
   level: 'error',
+<<<<<<< HEAD
+  timestamp: '2023-07-03T13:54:43.032Z',
+=======
   timestamp: '2023-06-12T09:26:19.710Z',
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',
     error: Error: 14 UNAVAILABLE: No connection established
+<<<<<<< HEAD
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+=======
         at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
         at Object.onReceiveStatus (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
         at Object.onReceiveStatus (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
         at Object.onReceiveStatus (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
         at /Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
         at processTicksAndRejections (node:internal/process/task_queues:78:11) {
       code: 14,
       details: 'No connection established',
@@ -6096,6 +6294,8 @@
     }
   }
 }
+<<<<<<< HEAD
+=======
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
@@ -6683,7 +6883,10 @@
   message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-12T09:49:15.336Z',
+<<<<<<< HEAD
 >>>>>>> 5789ae4517fd6d8ec42321b469314cc299c28ce3
+=======
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
@@ -8600,10 +8803,22 @@
   message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-12T11:51:45.135Z',
+<<<<<<< HEAD
+=======
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
+  level: 'error',
+  timestamp: '2023-07-04T06:17:08.511Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'mongo connection error connect ETIMEDOUT 65.109.239.69:30027',
   level: 'error',
   timestamp: '2023-06-14T09:31:54.553Z',
@@ -9490,10 +9705,16 @@
   level: 'error',
   timestamp: '2023-06-16T05:26:17.022Z',
 >>>>>>> f0a81e929e51a70980dcac0cdb8a7613a04f4438
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
+  level: 'error',
+  timestamp: '2023-07-04T06:17:08.774Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: "service.layout.update: failed with error: Cannot read properties of undefined (reading 'project_id')",
   level: 'error',
@@ -9531,10 +9752,16 @@
   level: 'error',
   timestamp: '2023-06-20T05:11:28.824Z',
 >>>>>>> f0a81e929e51a70980dcac0cdb8a7613a04f4438
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:27:50.243Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: "service.layout.update: failed with error: Cannot read properties of undefined (reading 'project_id')",
   level: 'error',
@@ -9550,31 +9777,53 @@
   message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-20T05:11:29.025Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
   level: 'error',
-  timestamp: '2023-06-20T08:05:32.436Z',
+  timestamp: '2023-07-04T06:27:50.277Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+<<<<<<< HEAD
+  timestamp: '2023-06-20T08:05:32.436Z',
+=======
+  timestamp: '2023-07-04T06:28:14.481Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
   message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
   timestamp: '2023-06-20T11:23:28.872Z',
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:28:14.486Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
   timestamp: '2023-06-20T11:29:08.752Z',
+=======
+  message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-07-04T06:35:27.835Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T03:22:43.026Z',
@@ -10463,6 +10712,11 @@
   message: "service.layout.getAll: failed with error: Cannot destructure property 'relation' of '(intermediate value)' as it is null.",
   level: 'error',
   timestamp: '2023-06-27T08:17:37.939Z',
+=======
+  message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-07-04T06:35:27.847Z',
+>>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
   label: 'object_builder_service',
   metadata: {}
 }

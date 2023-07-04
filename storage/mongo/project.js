@@ -11,8 +11,9 @@ const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
 const initialMenu = require("../../helper/initialMenu");
 const defaultRoles = require("../../helper/defaultRole")
-const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialCustomMessage = require("../../helper/initialCustomMessage");
+const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
+const initialMenuPermission = require("../../helper/initialMenuPermission");
 
 
 let NAMESPACE = "storage.project";
@@ -141,12 +142,14 @@ let projectStore = {
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                         await objectBuilder(false, data.project_id)
+                        console.log(">>>>>>>> ")
+                        await insertCollections(mongoDBConn, data.user_id, data.project_id)
                         await defaultRoles(mongoDBConn, data?.project_id)
+                        await initialCustomMessage({ project_id: data.project_id })
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
-                        await insertCollections(mongoDBConn, data.user_id, data.project_id)
-                        // await createIndexPermissionTables({ project_id: data.project_id })
-                        await initialCustomMessage({ project_id: data.project_id })
+                        await initialMenuPermission({ project_id: data.project_id })
+                        await createIndexPermissionTables({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

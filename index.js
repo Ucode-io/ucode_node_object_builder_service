@@ -27,16 +27,6 @@ const logger = require("./config/logger");
     console.log("mongo credentials: ", config.mongoHost, config.mongoPort, config.mongoUser, config.mongoDatabase, config.mongoPassword)
     try {
         logger.info(`autoconnecting to resources`);
-        // await projectStorage.reconnect({
-        //     project_id: "6f7a8419-4b0e-40cd-887d-54dd50907707", // alldental
-        //     credentials: {
-        //         host: "65.109.239.69",
-        //         port: 30027,
-        //         database: "uacademy_fc128bcc5ddc488dbb625296202eb347_p_obj_build_svcs",
-        //         username: "uacademy_fc128bcc5ddc488dbb625296202eb347_p_obj_build_svcs",
-        //         password: "2B055zuUyy"
-        //     }
-        // })
 
         
         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service

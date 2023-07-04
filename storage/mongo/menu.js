@@ -10,22 +10,40 @@ let NAMESPACE = "storage.menu";
 let menuStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
-
             if (!constants.MENU_TYPES.includes(data.type)) {
                 throw new Error("Unsupported menu type");
             }
             const mongoConn = await mongoPool.get(data.project_id)
 
             const Menu = mongoConn.models['object_builder_service.menu']
+            const menuPermissionTable = mongoConn.models['menu_permission']
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
                 data.icon = table?.icon
                 data.label = table?.label
             }
 
-            const menu = new Menu(data);
+            const response = await Menu.create(data);
 
-            const response = await menu.save();
+            const roleTable = mongoConn.models["role"]
+            const roles = await roleTable?.find({})
+            let permissions = []
+            for (const role of roles) {
+                let permissionRecord = {
+                    guid: v4(),
+                    menu_id: response?.id,
+                    role_id: role.guid,
+                    delete: true,
+                    write: true,
+                    update: true,
+                    read: true,
+                }
+                permissions.push(permissionRecord)
+
+            }
+            if (permissions.length) {
+                await menuPermissionTable.insertMany(permissions)
+            }
 
             return response;
         } catch (err) {
@@ -85,14 +103,16 @@ let menuStore = {
                         'foreignField': 'id',
                         'as': 'table'
                     }
-                }, {
+                },
+                {
                     '$lookup': {
                         'from': 'function_service.functions',
                         'localField': 'microfrontend_id',
                         'foreignField': 'id',
                         'as': 'microfrontend'
                     }
-                }, {
+                },
+                {
                     '$lookup': {
                         from: "web_pages.web_page",
                         let: {
@@ -106,7 +126,6 @@ let menuStore = {
                                             {
                                                 $eq: ["$id", "$$webpage_id"],
                                             },
-                                            // Add additional match conditions if needed
                                         ],
                                     },
                                 },
@@ -127,45 +146,97 @@ let menuStore = {
                         ],
                         as: "webpage"
                     }
-                }, {
+                },
+                {
                     '$unwind': {
                         'path': '$table',
                         'preserveNullAndEmptyArrays': true
                     }
-                }, {
+                },
+                {
                     '$unwind': {
                         'path': '$microfrontend',
                         'preserveNullAndEmptyArrays': true
                     }
-                }, {
+                },
+                {
                     '$unwind': {
                         'path': '$webpage',
                         'preserveNullAndEmptyArrays': true
                     }
-                }, {
+                },
+                {
+                    '$lookup': {
+                        'from': 'menu_permissions',
+                        'let': {
+                            'menuId': '$id',
+                            'roleId': data.role_id
+                        },
+                        'pipeline': [
+                            {
+                                '$match': {
+                                    '$expr': {
+                                        '$and': [
+                                            {
+                                                '$eq': [
+                                                    '$role_id', '$$roleId'
+                                                ]
+                                            },
+                                            {
+                                                '$eq': [
+                                                    '$menu_id', '$$menuId'
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        'as': 'permission'
+                    },
+                },
+                {
+                    '$unwind': {
+                        'path': '$permission',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$project': {
+                        'permission._id': 0,
+                        'permission.__v': 0,
+                        'permission.createdAt': 0,
+                        'permission.updatedAt': 0,
+                    }
+                },
+                {
                     '$addFields': {
                         'data': {
                             'table': '$table',
                             'microfrontend': '$microfrontend',
-                            'webpage': '$webpage.webpage'
+                            'webpage': '$webpage.webpage',
+                            'permission': '$permission'
                         }
                     }
-                }, {
+                },
+                {
                     '$skip': data.offset
-                }, {
+                },
+                {
                     '$limit': data.limit
-                }, {
+                },
+                {
                     $sort:
                     {
                         order: 1,
                     },
                 }]
+
             let menus = await Menu.aggregate(pipelines)
             menus = JSON.parse(JSON.stringify(menus))
             menus.forEach(el => {
                 el.data = struct.encode(el.data)
             })
-            // console.log("menus::", menus);
             const count = await Menu.countDocuments(query);
             return { menus, count };
         } catch (err) {
@@ -197,7 +268,8 @@ let menuStore = {
             const Menu = mongoConn.models['object_builder_service.menu']
 
             const menu = await Menu.deleteOne({ id: data.id });
-
+            const menuPermissionTable = mongoConn.models['menu_permission']
+            await menuPermissionTable.deleteMany({ menu_id: data.id })
             return menu;
         } catch (err) {
             throw err

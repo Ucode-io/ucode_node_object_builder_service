@@ -65,10 +65,41 @@ async function createTable() {
         "id": "2546e042-af2f-4cef-be7c-834e6bde951c",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "is_system": true,
-        "__v": 0,
-        "soft_delete": false,
-    }, {
+        "__v": 0
+    },
+    {
+        "label": "Языки",
+        "slug": "setting.languages",
+        "description": "Языки",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "address-card.svg",
+        "subtitle_field_slug": "",
+        "with_increment_id": false,
+        "digit_number": 0,
+        "id": "d267203c-1c23-4663-a721-7a845d4b98ad",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+    },
+    {
+        "label": "Часовые пояса",
+        "slug": "setting.timezones",
+        "description": "Часовые пояса",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "address-card.svg",
+        "subtitle_field_slug": "",
+        "with_increment_id": false,
+        "digit_number": 0,
+        "id": "bba3dddc-5f20-449c-8ec8-37bef283c766",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
+    },
+    {
         "label": "Разрешение",
         "slug": "record_permission",
         "description": "record permission",
@@ -200,7 +231,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
-    },{
+    }, {
         "label": "Шаблон",
         "slug": "template",
         "description": "Шаблоны",
@@ -215,7 +246,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
-      },{
+    }, {
         "label": "Врачи",
         "slug": "doctors",
         "description": "Специалисты",
@@ -231,7 +262,7 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "soft_delete": false,
-      },{
+    }, {
         "label": "Файл",
         "slug": "file",
         "description": "Файлы",
@@ -245,7 +276,7 @@ async function createTable() {
         "updated_at": new Date(),
         "is_system": true,
         "__v": 0
-      },{
+    }, {
         "label": "Разрешение на приложении",
         "slug": "app_permission",
         "description": "Разрешение на приложении",
@@ -260,7 +291,25 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
-      }]
+
+    }, {
+        "id": "c2f225b6-b6d9-4201-aa25-e648a4c1ff29",
+        "label": "Custom Error",
+        "slug": "object_builder.custom_error",
+        "description": "Custom Error",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "is_system": true,
+        "icon": "bear-toy.svg",
+        "subtitle_field_slug": "",
+        "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",
+        "is_cached": false,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "commit_guid": "277404a5-83ac-4a5c-8f4b-c38d10b1796b"
+    }]
 
     return tables;
 }

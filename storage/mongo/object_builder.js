@@ -770,12 +770,12 @@ let objectBuilder = {
         //         }
         //     }
         // }
-        const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
-        if (table) {
+        if (tableWithVersion) {
             const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                 code: 200,
-                table_id: tableWithVerison.id,
+                table_id: tableWithVersion.id,
                 action_type: "GET_SINGLE_SLIM"
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
@@ -796,14 +796,18 @@ let objectBuilder = {
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
-        const params = struct.decode(req?.data)
-
+        let params = struct.decode(req?.data)
+        
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        console.log(">>>>>>>>>>> found table", tableInfo)
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields
@@ -1066,14 +1070,30 @@ let objectBuilder = {
 
         // check soft deleted datas
         if(params.$or) {
-            params.$or.push({ deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, { deleted_at: null })
+            params.$and = [
+                { $or: params.$or },
+                { 
+                    $or:  [
+                        { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                        { deleted_at: null }
+                    ]
+                }
+            ]
+
+            delete params.$or
         } else {
             params.$or = [
                 { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
                 { deleted_at: null }
             ]
         }
-        console.log(">>>>>>>> params 1212", params)
+
+        // delete params.limit
+        // delete params.search
+        // delete params.view_fields
+
+        console.log(">>>>>>>> params", params, params.$or)
+
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -1448,12 +1468,12 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
-        const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
-        if (table) {
+        if (tableWithVersion) {
             const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                 code: 200,
-                table_id: tableWithVerison.id,
+                table_id: tableWithVersion.id,
                 action_type: "GET_LIST"
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
@@ -1601,12 +1621,12 @@ let objectBuilder = {
             }
         }
 
-        const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
-        if (table) {
+        if (tableWithVersion) {
             const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                 code: 200,
-                table_id: tableWithVerison.id
+                table_id: tableWithVersion.id
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
@@ -1647,6 +1667,27 @@ let objectBuilder = {
                 return { table_slug: req.table_slug, data: response };
             }
 
+            const response = await tableInfo.models.deleteOne({ guid: data.id });
+            let event = {}
+            let table = {}
+            table.guid = data.id
+            table.table_slug = req.table_slug
+            event.payload = table
+
+            event.project_id = req.project_id
+            // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "DELETE",
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+
+            return { table_slug: req.table_slug, data: response, custom_message: customMessage };
         } catch (err) {
             throw err
         }
@@ -1818,12 +1859,12 @@ let objectBuilder = {
             const respExcel = struct.encode({
                 link: cfg.minioEndpoint + "/reports/" + filename,
             });
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "GET_LIST_IN_EXCEL"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -1873,12 +1914,12 @@ let objectBuilder = {
                         [data.table_from + "_ids"]: modelTo[data.table_from + "_ids"]
                     }
                 })
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "DELETE_MANY2MANY"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -1948,12 +1989,12 @@ let objectBuilder = {
                         }
                     })
             }
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "APPEND_MANY2MANY",
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -2157,12 +2198,12 @@ let objectBuilder = {
                     await objectBuilder.create(requestToCreate)
                 }
             }
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "MULTIPLE_UPDATE"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -2204,12 +2245,12 @@ let objectBuilder = {
                     response.push(struct.decode(resp.data))
                 }
             }
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "MULTIPLE_UPDATE"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
@@ -2758,12 +2799,12 @@ let objectBuilder = {
             data.balance = balance
             const endTime = new Date()
 
-            const tableWithVerison = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: tableWithVerison.id,
+                    table_id: tableWithVersion.id,
                     action_type: "GET_FINANCIAL_ANALYTICS"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }

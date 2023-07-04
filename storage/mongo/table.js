@@ -87,7 +87,7 @@ let tableStore = {
 
             data.is_changed = true
 
-            let tableBefore = await TableHistory.findOne({id: data.id})
+            let tableBefore = await Table.findOne({id: data.id})
             if(!tableBefore) {
                 throw Error("Table not found")
             }
@@ -183,6 +183,7 @@ let tableStore = {
 
             let tables = []
 
+            console.log(">>>>>> query for get list table", query)
             if (data.version_id) {
                 query.version_id = data.version_id
                 tables = await TableVersion.find(query).skip(data.offset).limit(data.limit)

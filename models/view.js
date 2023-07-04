@@ -92,6 +92,9 @@ const ViewSchema = mongoose.Schema(
         function_path: {
             type: String
         },
+        navigate: {
+            type: mongoose.Schema.Types.Mixed
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

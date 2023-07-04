@@ -30,6 +30,9 @@ const LayoutSchema = mongoose.Schema(
         },
         summary_fields: {
             type: mongoose.Schema.Types.Mixed
+        },
+        is_default: {
+            type: Boolean,
         }
     },
     {

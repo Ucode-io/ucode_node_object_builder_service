@@ -1042,19 +1042,23 @@ let relationStore = {
             throw err;
         }
     }),
-    getSingleViewForRelation: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
+    getSingleViewForRelation: catchWrapDb(`${NAMESPACE}.getSingleViewForRelation`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id);
             const Field = mongoConn.models["Field"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
 
-            if (data.table_slug === "") {
-                // let table = await Table.findOne({
-                //     id: data.table_id
-                // });
-                let table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
-                data.table_slug = table.slug;
+            let tableQuery = {}
+            if (data.table_slug) {
+                tableQuery.table_slug = data.table_slug;
+            } else if (data.table_id) {
+                tableQuery.id = data.table_id;
+            }
+            let table = await tableVersion(mongoConn, tableQuery, data.version_id, true)
+            if (table) {
+                data.table_slug = table.slug
+                data.table_id = table.id
             }
             const relation = await Relation.findOne(
                 {
@@ -1068,18 +1072,10 @@ let relationStore = {
             if (!relation) {
                 return {};
             }
-            // let responseRelations = [];
-            // for (let i = 0; i < relations.length; i++) {
-            // let tableFrom = await Table.findOne({
-            //     slug: relation.table_from,
-            // })
             let tableFrom = await tableVersion(mongoConn, { slug: relation.table_from }, data.version_id, true)
             if (relation.type === "Many2Dynamic") {
                 for (const dynamic_table of relation.dynamic_tables) {
                     if (dynamic_table.table_slug === data.table_slug || tableFrom.slug === data.table_slug) {
-                        // let tableTo = await Table.findOne({
-                        //     slug: dynamic_table.table_slug,
-                        // })
                         let tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
                         let view = await View.findOne({
                             $and: [
@@ -1165,9 +1161,6 @@ let relationStore = {
                     }
                 }
             }
-            // let tableTo = await Table.findOne({
-            //     slug: relation.table_to
-            // })
             let tableTo = await tableVersion(mongoConn, { slug: relation.table_to }, data.version_id, true)
             let view = await View.findOne({
                 $and: [

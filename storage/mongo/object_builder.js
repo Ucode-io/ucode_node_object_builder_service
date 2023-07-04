@@ -797,12 +797,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
 
         let params = struct.decode(req?.data)
-
-        // params.$or = [
-        //     { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
-        //     // { deleted_at: null }
-        // ]
-
+        
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -1074,20 +1069,31 @@ let objectBuilder = {
         let populateArr = []
 
         // check soft deleted datas
-        // if(params.$or) {
-        //     params.$or.push({ deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, { deleted_at: null })
-        // } else {
-        //     params.$or = [
-        //         { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
-        //         { deleted_at: null }
-        //     ]
-        // }
-        // let reg = params.$or
-        // params = {name: params.$or[0].name}
-        // params.$or = reg
-        
-        console.log(">>>>>>>> params 1212", params.$or, params)
-        
+        if(params.$or) {
+            params.$and = [
+                { $or: params.$or },
+                { 
+                    $or:  [
+                        { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                        { deleted_at: null }
+                    ]
+                }
+            ]
+
+            delete params.$or
+        } else {
+            params.$or = [
+                { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                { deleted_at: null }
+            ]
+        }
+
+        // delete params.limit
+        // delete params.search
+        // delete params.view_fields
+
+        console.log(">>>>>>>> params", params, params.$or)
+
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({

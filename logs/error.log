@@ -1469,3 +1469,31 @@
   metadata: {}
 }
 >>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+{
+  message: 'service.table.update: failed with error: Table validation failed: label: Table must have label',
+  level: 'error',
+  timestamp: '2023-07-05T08:58:27.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: Table validation failed: label: Table must have label',
+  level: 'error',
+  timestamp: '2023-07-05T09:00:05.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.table.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-05T09:01:36.194Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-07-05T09:07:08.973Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

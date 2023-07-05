@@ -91,6 +91,7 @@ let tableStore = {
             let tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id,
             })
+            console.log("aaa:", tableBeforeUpdate);
             const table = await Table.create(data)
             if (table) {
                 let payload = {}
@@ -135,8 +136,6 @@ let tableStore = {
                 }
             }
 
-
-            await sendMessageToTopic(con.TopicTableUpdeteV1, event)
             return table;
         } catch (err) {
             throw err
@@ -171,6 +170,9 @@ let tableStore = {
 
             if (data.folder_id) {
                 query.folder_id = data.folder_id
+            }
+            if (data.is_login_table) {
+                query.is_login_table = data.is_login_table
             }
 
             let tables = []

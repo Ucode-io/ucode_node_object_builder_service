@@ -17,7 +17,7 @@ async function buildModels(is_build = true, project_id) {
     }
     // console.log("TEST:::::::::::1")
     const mongoDBConn = await mongoPool.get(project_id)
-   
+
     const Table = mongoDBConn.models['Table']
     const Field = mongoDBConn.models['Field']
     const Relation = mongoDBConn.models['Relation']
@@ -52,34 +52,35 @@ async function buildModels(is_build = true, project_id) {
                 }, {
                     type: "Many2One"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
-                  table_to: table.slug
+                    table_to: table.slug
                 }, {
-                  type: "One2Many"
+                    type: "One2Many"
                 }]
-              },
-              {
+            },
+            {
                 $and: [{
                     $or: [{
                         table_from: table.slug
                     },
                     {
                         "dynamic_tables.table_slug": table.slug
-                    }]},   
-                    {
-                        type: "Many2Dynamic"
-                    }
+                    }]
+                },
+                {
+                    type: "Many2Dynamic"
+                }
                 ]
-              },
-              {
+            },
+            {
                 $and: [{
                     table_from: table.slug
                 }, {
                     type: "Recursive"
                 }]
-              }
+            }
             ]
         });
         let relationsM2M = await Relation.find({
@@ -97,12 +98,12 @@ async function buildModels(is_build = true, project_id) {
         const fields = await Field.find({
             table_id: table.id,
         },
-        {
-            created_at: 0,
-            updated_at: 0,
-            _id: 0,
-            __v: 0,
-        });
+            {
+                created_at: 0,
+                updated_at: 0,
+                _id: 0,
+                __v: 0,
+            });
         let fieldObject = {};
         let fieldsModel = [];
         let fieldsIndex = [];
@@ -121,9 +122,9 @@ async function buildModels(is_build = true, project_id) {
                         {
                             type: 'pre',
                             method: 'save',
-                            _function: function(next) {
+                            _function: function (next) {
                                 if (this[field.slug]) {
-                                    let checkPassword = this[field.slug].substring(0,4)
+                                    let checkPassword = this[field.slug].substring(0, 4)
                                     if (checkPassword !== "$2b$" && checkPassword !== "$2a$") {
                                         this[field.slug] = passwordTools.generatePasswordHash(this[field.slug]);
                                     } else {
@@ -136,11 +137,11 @@ async function buildModels(is_build = true, project_id) {
                         {
                             type: 'pre',
                             method: 'updateOne',
-                            _function: function(next) {
+                            _function: function (next) {
                                 if (this.getUpdate()?.$set[field.slug] && this.getUpdate()?.$set[field.slug] !== '') {
-                                    let checkHashedPass = this.getUpdate()?.$set[field.slug].substring(0,4)
+                                    let checkHashedPass = this.getUpdate()?.$set[field.slug].substring(0, 4)
                                     if (checkHashedPass !== "$2b$" && checkHashedPass !== "$2a$") {
-                                        this.set({[field.slug]: passwordTools.generatePasswordHash(this.getUpdate().$set[field.slug])});
+                                        this.set({ [field.slug]: passwordTools.generatePasswordHash(this.getUpdate().$set[field.slug]) });
                                     }
                                 }
                                 next()
@@ -190,7 +191,7 @@ async function buildModels(is_build = true, project_id) {
                                 {
                                     [field.slug]: 1,
                                 },
-                                {unique: true, dropDups: true, sparse: true},
+                                { unique: true, dropDups: true, sparse: true },
                             )
                             break;
                         case false:
@@ -215,22 +216,22 @@ async function buildModels(is_build = true, project_id) {
                         }
                     }
                 }
-               
+
                 // console.log("TEST:::::::::::8")
                 // in case if field.type is not equal to LOOKUP(which is datatype for relations) and ID, we push all field into one array for mongoose schema
                 if (field.type != "LOOKUP" && field.label != "ID" && field.type != "LOOKUPS" && field.type != "DYNAMIC") {
-                    fieldsModel.push(field._doc) 
-                    fieldsIndex.push({[field.slug]: 'text'})
-                } else if ((field.type === "LOOKUP" || field.type === "LOOKUPS" || field.type === "DYNAMIC") && isReferenced == false){
+                    fieldsModel.push(field._doc)
+                    fieldsIndex.push({ [field.slug]: 'text' })
+                } else if ((field.type === "LOOKUP" || field.type === "LOOKUPS" || field.type === "DYNAMIC") && isReferenced == false) {
                     // else if we need to add all relation fields to related table fields
 
                     // sections have to be got, so that we can specify by which fields tables are related
-                    
+
                     // if section.field contains '#' (it is M2O and O2M related tables field) OR (@ is for O2O relation field)
-                
+
                     // relation fields get by field.relation_id
-                    const relation = await Relation.findOne({id: field.relation_id})
-                    const view = await View.findOne({relation_id: field.relation_id, relation_table_slug: table.slug})
+                    const relation = await Relation.findOne({ id: field.relation_id })
+                    const view = await View.findOne({ relation_id: field.relation_id, relation_table_slug: table.slug })
                     let resField = {}
                     resField.id = field.id
                     resField.label = view?.name
@@ -251,16 +252,16 @@ async function buildModels(is_build = true, project_id) {
                         if (relation.type !== "Many2Dynamic") {
                             for (const fieldID of relation.view_fields) {
                                 let field = await Field.findOne({
-                                    id:fieldID
+                                    id: fieldID
                                 },
-                                {
-                                    created_at: 0,
-                                    updated_at: 0,
-                                    createdAt: 0,
-                                    updatedAt: 0,
-                                    _id: 0,
-                                    __v: 0
-                                }).lean();
+                                    {
+                                        created_at: 0,
+                                        updated_at: 0,
+                                        createdAt: 0,
+                                        updatedAt: 0,
+                                        _id: 0,
+                                        __v: 0
+                                    }).lean();
                                 fieldAsAttribute.push(field)
 
                             }
@@ -277,9 +278,14 @@ async function buildModels(is_build = true, project_id) {
                                 table_id: tableElement.id
                             })
                             for (const field of tableElementFields) {
-                                if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
+                                let autoFillTable = field.autofill_table
+                                if (field?.autofill_table?.includes('#')) {
+                                    autoFillTable = field.autofill_table.split('#')[0]
+                                }
+                                if (field.autofill_field && autoFillTable && autoFillTable === relationTableSlug) {
+
                                     let autofill = {
-                                        field_from : field.autofill_field,
+                                        field_from: field.autofill_field,
                                         field_to: field.slug,
                                         automatic: field.automatic,
                                     }
@@ -340,7 +346,7 @@ async function buildModels(is_build = true, project_id) {
                         resField.attributes["auto_filters"] = relation?.auto_filters
                         resField.attributes["is_user_id_default"] = relation?.is_user_id_default
                         resField.attributes["object_id_from_jwt"] = relation?.object_id_from_jwt
-                        
+
                         resField.table_slug = relationTableSlug
                         if (view) {
                             if (view.default_values && view.default_values.length) {
@@ -372,30 +378,30 @@ async function buildModels(is_build = true, project_id) {
                     // after the first time when all relation fields are appended to our field array, 
                     // we change isReferenced to true in order to avoid adding the same fields twice or more
                 }
-            }  
+            }
             isReferenced = true
         }
-        
+
         // console.log("TEST:::::::::::9", fieldObject)
-        let temp =  mongoose.Schema(
+        let temp = mongoose.Schema(
             {
-            ...fieldObject,
-                createdAt: {type: Date, select: false},
-                updatedAt: {type: Date, select: false},
-                created_at: {type: Date, select: false},
-                updated_at: {type: Date, select: false}
-        },
-        {
-            timestamps: true,
-            toObject: {
-                virtuals: true
+                ...fieldObject,
+                createdAt: { type: Date, select: false },
+                updatedAt: { type: Date, select: false },
+                created_at: { type: Date, select: false },
+                updated_at: { type: Date, select: false }
             },
-            toJSON: {
-                virtuals: true
-            },
-        })
+            {
+                timestamps: true,
+                toObject: {
+                    virtuals: true
+                },
+                toJSON: {
+                    virtuals: true
+                },
+            })
         if (hasPasswordField) {
-            for (let i=0; i<arrayOfMiddlewares.length; i++) {
+            for (let i = 0; i < arrayOfMiddlewares.length; i++) {
                 temp[arrayOfMiddlewares[i].type](arrayOfMiddlewares[i].method, arrayOfMiddlewares[i]._function)
             }
         }
@@ -433,20 +439,20 @@ async function buildModels(is_build = true, project_id) {
                     justOne: false
                 }
                 slug = relation.field_from + "_data"
-            } else if (relation.type === "Many2One"){
+            } else if (relation.type === "Many2One") {
                 populateParams = {
                     ref: relation.table_to,
                     localField: field?.slug,
                     foreignField: 'guid',
                     justOne: true
                 }
-            } else if (relation.type === "Recursive"){
+            } else if (relation.type === "Recursive") {
                 populateParams = {
                     ref: relation.table_to,
                     localField: field?.slug,
                     foreignField: 'guid',
                     justOne: true
-                }   
+                }
             } else if (relation.type === "One2Many") {
                 relation.table_to = relation.table_from
                 populateParams = {
@@ -455,7 +461,7 @@ async function buildModels(is_build = true, project_id) {
                     foreignField: 'guid',
                     justOne: true
                 }
-            } else if (relation.type === "Many2Dynamic"){
+            } else if (relation.type === "Many2Dynamic") {
                 for (dynamic_table of relation.dynamic_tables) {
                     populateParams = {
                         ref: dynamic_table.table_slug,
@@ -463,11 +469,11 @@ async function buildModels(is_build = true, project_id) {
                         foreignField: 'guid',
                         justOne: true
                     }
-                    temp.virtual(populateParams.localField+"_data", populateParams);
+                    temp.virtual(populateParams.localField + "_data", populateParams);
                 }
                 continue;
             }
-            
+
             temp.virtual(slug, populateParams);
         }
         // console.log("TEST:::::::::::11")
@@ -479,14 +485,14 @@ async function buildModels(is_build = true, project_id) {
         let views = await View.find({
             table_slug: table.slug
         },
-        {
-            created_at: 0,
-            updated_at: 0,
-            _id: 0,
-            __v: 0,
-        }).lean()
+            {
+                created_at: 0,
+                updated_at: 0,
+                _id: 0,
+                __v: 0,
+            }).lean()
         // console.log("TEST:::::::::::12")
-        tempArray.push({field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex});
+        tempArray.push({ field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex });
     }
 
     mongooseObject[project_id] = mongooseObject[project_id] ? mongooseObject[project_id] : {}
@@ -521,21 +527,21 @@ async function buildModels(is_build = true, project_id) {
                 if (!(index_name.concat('_1') in index_list)) {
                     delete dropIndexes[index_name]
                 }
-            } 
+            }
         } catch (error) {
             logger.info("error while get index");
         }
-        if(dropIndexes && Object.keys(dropIndexes).length > 0) {
+        if (dropIndexes && Object.keys(dropIndexes).length > 0) {
             mongooseObject[project_id][model.slug].models.collection.dropIndex(dropIndexes);
         }
         const resp = await Table.updateOne({
             slug: model.slug,
         },
-        {
-            $set: {
-                is_changed: false
-            }
-        })
+            {
+                $set: {
+                    is_changed: false
+                }
+            })
     }
     return mongooseObject[project_id]
 }

@@ -803,7 +803,6 @@ let objectBuilder = {
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
 
-        console.log("\n\n---> T1\n\n", req)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
         console.log(">>>>>>>>>>> found table", tableInfo)
         if (!tableInfo) {
@@ -815,7 +814,6 @@ let objectBuilder = {
         let with_relations = params.with_relations
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
-        console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -828,6 +826,7 @@ let objectBuilder = {
         })
         // console.log("TEST::::::::::4")
         // console.time("TIME_LOGGING:::is_have_condition")
+        // console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
         if (permission?.is_have_condition) {
             const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -841,7 +840,8 @@ let objectBuilder = {
                 ]
 
             })
-
+            // console.log("TEST::::::::::5")
+            // console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
                     if (autoFilter.custom_field === "user_id") {
@@ -875,7 +875,7 @@ let objectBuilder = {
         // console.log("TEST::::::::::6")
         // console.timeEnd("TIME_LOGGING:::is_have_condition")
         // console.time("TIME_LOGGING:::view_fields")
-        console.log(":::::::::::: TEST 11")
+        // console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
                 let replacedSearch = ""
@@ -1051,8 +1051,8 @@ let objectBuilder = {
             }
         }
         // console.timeEnd("TIME_LOGGING:::with_relations")
-        console.log("TEST::::::6")
-
+        // console.log("TEST::::::6")
+        // console.log("TEST::::::::::10")
 
         let result = [], count;
         let searchByField = []
@@ -1213,7 +1213,7 @@ let objectBuilder = {
                             }
                         }
                     }
-                    console.log("TEST::::::9")
+                    // console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -1239,7 +1239,7 @@ let objectBuilder = {
                     populateArr.push(papulateTable)
                 }
                 // console.log("\n\n-----> T3\n\n", tableInfo, params)
-                console.log("::::::::::::::::::: POPULATE ARR", populateArr)
+                // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -1265,10 +1265,8 @@ let objectBuilder = {
         // console.timeEnd("TIME_LOGGING:::limit")
         // console.log("TEST::::::10")
         count = await tableInfo.models.count(params);
-        console.log("TEST::::::::::12.1")
         // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
-            console.log("TEST::::::::::12.2")
             let prev = result.length
             count = count - (prev - result.length)
         }
@@ -1335,7 +1333,7 @@ let objectBuilder = {
             additional_param[params.additional_request.additional_field] = { $in: params.additional_request.additional_values }
 
             if (relations.length == 0) {
-                console.log("test 111/:::");
+                // console.log("test 111/:::");
                 additional_results = await tableInfo.models.find({
                     ...additional_param
                 },
@@ -1409,15 +1407,18 @@ let objectBuilder = {
                             relation_id: attributes.table_from.split('#')[1],
                             table_id: relationFieldTable.id
                         })
-                        console.log("rel table::", relationFieldTable)
-                        console.log("field:::", relationField);
+                        // console.log("rel table::", relationFieldTable)
+                        // console.log("field:::", relationField);
                         if (!relationField || !relationFieldTable) {
-                            console.log("relation field not found")
+                            // console.log("relation field not found")
                             res[field.slug] = 0
                             continue
                         }
-                        
+                        const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                        }
                         let matchParams = {
                             [matchField]: { '$eq': res.guid },
                             ...filters
@@ -1428,6 +1429,9 @@ let objectBuilder = {
                                 isChanged = true
                             }
                             res[field.slug] = resultFormula[0].res
+                        } else {
+                            res[field.slug] = 0
+                            isChanged = true
                         }
                     }
                 } else {

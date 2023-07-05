@@ -300,7 +300,7 @@ let sectionStore = {
                 query,
                 null,
                 {
-                    sort: { order: -1 }
+                    sort: { order: 1 }
                 }
             );
             // console.log("length: " + sections.length);

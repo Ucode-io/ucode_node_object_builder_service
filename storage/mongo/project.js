@@ -68,6 +68,8 @@ let projectStore = {
                 mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
                 mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+                mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
+                mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)

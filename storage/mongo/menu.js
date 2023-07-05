@@ -298,7 +298,7 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
 
-            let resp = await MenuSettings.findOneAndDelete({id: data.id}, null, {new: true})
+            let resp = await MenuSettings.findOneAndDelete({id: data.id})
             if(!resp) {
                 throw Error("Menu Templete not found with given id!")
             }
@@ -374,7 +374,7 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
-            let resp = await MenuTemplate.findOneAndDelete({id: data.id}, null, {new: true})
+            let resp = await MenuTemplate.findOneAndDelete({id: data.id})
             if(!resp) {
                 throw Error("Menu Templete not found with given id!")
             }

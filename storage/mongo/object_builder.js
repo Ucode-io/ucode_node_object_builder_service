@@ -44,7 +44,18 @@ let objectBuilder = {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
             const object = struct.encode({ data });
-            return { table_slug: req.table_slug, data: object };
+            const table = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 201,
+                    table_id: table.id,
+                    action_type: "CREATE"
+
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
             throw err
@@ -66,8 +77,18 @@ let objectBuilder = {
                 await objectBuilder.deleteManyToMany(resDeleteM2M)
             }
             // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
+            const table = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (table) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: table.id,
+                    action_type: "UPDATE"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
 
-            return response;
+            return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage };
         } catch (err) {
             throw err
         }
@@ -77,9 +98,11 @@ let objectBuilder = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
-        const table = mongoConn.models['Table']
         const data = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
         //
 
         // Get Relations
@@ -311,13 +334,24 @@ let objectBuilder = {
                 field.view_fields = viewFields
             }
         }
+        const table = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (table) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: table.id,
+                action_type: "GET_SINGLE",
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
+        }
 
         return {
             table_slug: data.table_slug,
             data: struct.encode({
                 response: output,
                 fields: decodedFields
-            })
+            }),
+            custom_message: customMessage
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
@@ -330,6 +364,9 @@ let objectBuilder = {
         const offset = params.offset
         delete params["client_type_id_from_token"]
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
 
         let keys = Object.keys(params)
         let order = params.order
@@ -682,65 +719,73 @@ let objectBuilder = {
             count = count - (prev - result.length)
         }
 
-        let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
-        for (const res of result) {
-            for (const field of formulaFields) {
-                let attributes = struct.decode(field.attributes)
-                if (field.type === "FORMULA") {
-                    if (attributes.table_from && attributes.sum_field) {
-                        let filters = {}
-                        if (attributes.formula_filters) {
-                            attributes.formula_filters.forEach(el => {
-                                filters[el.key.split("#")[0]] = el.value
-                                if (Array.isArray(el.value)) {
-                                    filters[el.key.split("#")[0]] = { $in: el.value }
-                                }
-                            })
-                        }
-                        const relationFieldTable = await table.findOne({
-                            slug: attributes.table_from.split('#')[0],
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        })
-                        const relationField = await Field.findOne({
-                            relation_id: attributes.table_from.split('#')[1],
-                            table_id: relationFieldTable.id
-                        })
-                        if (!relationField || !relationFieldTable) {
-                            res[field.slug] = 0
-                            continue
-                        }
-                        const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
-                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                        }
-                        let matchParams = {
-                            [matchField]: { '$eq': res.guid },
-                            ...filters
-                        }
-                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
-                        if (resultFormula.length) {
-                            res[field.slug] = resultFormula[0].res
-                        } else {
-                            res[field.slug] = 0
-                        }
-                    }
-                } else {
-                    if (attributes && attributes.formula) {
-                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-                        res[field.slug] = resultFormula
-                    }
-                }
-            }
+        // let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
+        // for (const res of result) {
+        //     for (const field of formulaFields) {
+        //         let attributes = struct.decode(field.attributes)
+        //         if (field.type === "FORMULA") {
+        //             if (attributes.table_from && attributes.sum_field) {
+        //                 let filters = {}
+        //                 if (attributes.formula_filters) {
+        //                     attributes.formula_filters.forEach(el => {
+        //                         filters[el.key.split("#")[0]] = el.value
+        //                         if (Array.isArray(el.value)) {
+        //                             filters[el.key.split("#")[0]] = { $in: el.value }
+        //                         }
+        //                     })
+        //                 }
+        //                 const relationFieldTable = await table.findOne({
+        //                     slug: attributes.table_from.split('#')[0],
+        //                     deleted_at: "1970-01-01T18:00:00.000+00:00"
+        //                 })
+        //                 const relationField = await Field.findOne({
+        //                     relation_id: attributes.table_from.split('#')[1],
+        //                     table_id: relationFieldTable.id
+        //                 })
+        //                 if (!relationField || !relationFieldTable) {
+        //                     res[field.slug] = 0
+        //                     continue
+        //                 }
+        //                 const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
+        //                 let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+        //                 if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+        //                     matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+        //                 }
+        //                 let matchParams = {
+        //                     [matchField]: { '$eq': res.guid },
+        //                     ...filters
+        //                 }
+        //                 const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
+        //                 if (resultFormula.length) {
+        //                     res[field.slug] = resultFormula[0].res
+        //                 } else {
+        //                     res[field.slug] = 0
+        //                 }
+        //             }
+        //         } else {
+        //             if (attributes && attributes.formula) {
+        //                 const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
+        //                 res[field.slug] = resultFormula
+        //             }
+        //         }
+        //     }
+        // }
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (tableWithVersion) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: tableWithVersion.id,
+                action_type: "GET_SINGLE_SLIM"
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
         }
-
-
 
         const response = struct.encode({
             count: count,
             response: result,
         });
-        return { table_slug: req.table_slug, data: response }
+        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
@@ -759,6 +804,9 @@ let objectBuilder = {
         delete params["client_type_id_from_token"]
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
         let keys = Object.keys(params)
         let order = params.order
         let fields = tableInfo.fields
@@ -1393,8 +1441,18 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (tableWithVersion) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: tableWithVersion.id,
+                action_type: "GET_LIST"
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
+        }
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-        return { table_slug: req.table_slug, data: response }
+        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage
@@ -1404,6 +1462,10 @@ let objectBuilder = {
         const table = mongoConn.models['Table']
         const data = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
+
         let relatedTable = []
         //
 
@@ -1532,18 +1594,32 @@ let objectBuilder = {
             }
         }
 
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (tableWithVersion) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: tableWithVersion.id
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
+        }
         return {
             table_slug: data.table_slug,
             data: struct.encode({
                 response: output,
-            })
+            }),
+            custom_message: customMessage
         }
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {
+            const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            if (!tableInfo) {
+                throw new Error("table not found")
+            }
 
             const response = await tableInfo.models.deleteOne({ guid: data.id });
             let event = {}
@@ -1554,14 +1630,25 @@ let objectBuilder = {
 
             event.project_id = req.project_id
             // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "DELETE",
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
 
-            return { table_slug: req.table_slug, data: response };
+            return { table_slug: req.table_slug, data: response, custom_message: customMessage };
         } catch (err) {
             throw err
         }
     }),
     getListInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListInExcel`, async (req) => {
         try {
+            const mongoConn = await mongoPool.get(req.project_id)
             const res = await objectBuilder.getList(req)
             const response = struct.decode(res.data)
             const result = response.response
@@ -1726,16 +1813,34 @@ let objectBuilder = {
             const respExcel = struct.encode({
                 link: cfg.minioEndpoint + "/reports/" + filename,
             });
-            return { table_slug: req.table_slug, data: respExcel }
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "GET_LIST_IN_EXCEL"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return { table_slug: req.table_slug, data: respExcel, custom_message: customMessage }
         } catch (err) {
             throw err
         }
     }),
     deleteManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteManyToMany`, async (data) => {
         try {
+            const mongoConn = await mongoPool.get(req.project_id)
+
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
+            if (!fromTableModel) {
+                throw new Error("table not found")
+            }
             const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
 
+            if (!toTableModel) {
+                throw new Error("table not found")
+            }
             const modelFrom = await fromTableModel.models.findOne({
                 guid: data.id_from,
             })
@@ -1763,16 +1868,33 @@ let objectBuilder = {
                         [data.table_from + "_ids"]: modelTo[data.table_from + "_ids"]
                     }
                 })
-            return data;
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "DELETE_MANY2MANY"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return { data: data, custom_message: customMessage };
         } catch (err) {
             throw err
         }
     }),
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
         try {
-            const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
-            const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
 
+            const mongoConn = await mongoPool.get(req.project_id)
+            const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
+            if (!fromTableModel) {
+                throw new Error("table not found")
+            }
+            const toTableModel = (await ObjectBuilder(true, data.project_id))[data.table_to]
+            if (!toTableModel) {
+                throw new Error("table not found")
+            }
             const modelFrom = await fromTableModel.models.findOne({
                 guid: data.id_from,
             }).lean()
@@ -1821,9 +1943,19 @@ let objectBuilder = {
                         }
                     })
             }
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "APPEND_MANY2MANY",
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
 
 
-            return data;
+            return { data, custom_message: customMessage };
         } catch (err) {
             throw err
         }
@@ -1982,12 +2114,13 @@ let objectBuilder = {
     batch: catchWrapDbObjectBuilder(`${NAMESPACE}.batch`, async (req) => {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
 
             const params = {}
             const data = struct.decode(req.data)
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            if (!tableInfo) {
+                throw new Error('table not found')
+            }
 
             let result;
             for (const object of data.objects) {
@@ -2019,8 +2152,18 @@ let objectBuilder = {
                     await objectBuilder.create(requestToCreate)
                 }
             }
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "MULTIPLE_UPDATE"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
 
-            return { table_slug: req.table_slug, data: result };
+            return { table_slug: req.table_slug, data: result, custom_message: customMessage };
         } catch (err) {
             throw err
         }
@@ -2028,11 +2171,9 @@ let objectBuilder = {
     }),
     multipleUpdate: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
         try {
-
+            const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             let response = []
-            let allSum = 0
 
             for (const object of data.objects) {
                 const keys = Object.keys(object)
@@ -2058,10 +2199,22 @@ let objectBuilder = {
                     response.push(struct.decode(resp.data))
                 }
             }
-            return {
-                table_slug: data.table_slug, data: struct.encode({
-                    objects: response,
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "MULTIPLE_UPDATE"
                 })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return {
+                table_slug: data.table_slug,
+                data: struct.encode({
+                    objects: response,
+                }),
+                custom_message: customMessage
             };
         } catch (err) {
             throw err
@@ -2124,6 +2277,9 @@ let objectBuilder = {
             const datas = struct.decode(req.data)
             let objects = []
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            if (!tableInfo) {
+                throw new Error('table not found')
+            }
             for (const obj of datas.objects) {
                 let request = {
                     data: struct.encode(obj),
@@ -2597,8 +2753,18 @@ let objectBuilder = {
             data.balance = balance
             const endTime = new Date()
 
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "GET_FINANCIAL_ANALYTICS"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
             // console.log(":::::::::::::::::::::::::::: TIME ", endTime - startTime)
-            return { table_slug: req.table_slug, data: struct.encode(data) }
+            return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage }
             // return { table_slug: "ok", data: struct.encode({}) }
             // return {}
         } catch (err) {

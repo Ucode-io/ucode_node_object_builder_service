@@ -2872,3 +2872,10 @@
     }
   }
 }
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2023-07-05T12:37:12.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

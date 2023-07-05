@@ -281,11 +281,12 @@ let sectionStore = {
             const Relation = mongoConn.models['Relation']
 
             let table = {};
-            if (data.table_id === "") {
+            if (!data.table_id) {
                 // table = await Table.findOne({
                 //     slug: data.table_slug,
                 // });
                 table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+                console.log("bbbbb::", table);
                 data.table_id = table.id;
             }
             // console.log("table id:::: " + table?.id);
@@ -354,11 +355,14 @@ let sectionStore = {
                             })
 
                         }
-
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
                         for (const field of tableFields) {
-                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0]) {
+                            let autoFillTable = field.autofill_table
+                            if (field?.autofill_table?.includes('#')) {
+                                autoFillTable = field.autofill_table.split('#')[0]
+                            }
+                            if (field.autofill_field && autoFillTable && autoFillTable === fieldReq.id.split("#")[0]) {
                                 let autofill = {
                                     field_from: field.autofill_field,
                                     field_to: field.slug,

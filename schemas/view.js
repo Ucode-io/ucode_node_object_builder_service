@@ -89,9 +89,12 @@ const ViewSchema = mongoose.Schema(
         attributes: {
             type: mongoose.Schema.Types.Mixed
         },
+<<<<<<< HEAD
         function_path: {
             type: String
         },
+=======
+>>>>>>> 7ceaea63bccfd3e83a6b9a65d5315f7980fa5de9
         navigate: {
             type: mongoose.Schema.Types.Mixed
         },

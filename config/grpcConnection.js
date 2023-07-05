@@ -33,7 +33,7 @@ const tableHelpersService = require("../services/table_helpers");
 const fieldsRelationsService = require("../services/fields_and_relations");
 const settingService = require("../services/setting")
 const tableFolderService = require("../services/table_folder");
-const layoutService = require("../services/layout");
+const layoutService = require("../services/layout")
 const menuService = require("../services/menu");
 const customErrorMessageService = require("../services/custom_error_message");
 

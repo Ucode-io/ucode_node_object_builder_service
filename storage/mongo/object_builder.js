@@ -1474,8 +1474,10 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
+        const tableResp = await table.findOne({slug: req.table_slug}) || {is_cached: false}
+
         console.log(">>>>>>>>>>>>>>>>> RESPONSE", response, params)
-        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
+        return { table_slug: req.table_slug, data: response, custom_message: customMessage, is_cached: tableResp.is_cached }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage

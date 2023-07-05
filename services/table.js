@@ -30,8 +30,8 @@ const tableService = {
             const sectionResp = await layoutStore.createAll(call.request);
             console.log("it is createAllsections response", sectionResp)
 
-            const customErrMsgResp = await customErrorMessageStore.createAll(call.request)
-            console.log("it is createAllCustomErrorMessage response", customErrMsgResp)
+            // const customErrMsgResp = await customErrorMessageStore.createAll(call.request)
+            // console.log("it is createAllCustomErrorMessage response", customErrMsgResp)
 
             let viewData = {}
             viewData.table_slug = call.request.slug

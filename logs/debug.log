@@ -74924,18 +74924,27 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-06-27T08:11:42.359Z',
+=======
+  timestamp: '2023-07-05T10:10:25.493Z',
+>>>>>>> 7ceaea63bccfd3e83a6b9a65d5315f7980fa5de9
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-06-27T08:11:42.361Z',
+=======
+  timestamp: '2023-07-05T10:10:25.497Z',
+>>>>>>> 7ceaea63bccfd3e83a6b9a65d5315f7980fa5de9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.reconnect: requested, {\n' +
     '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
     '  "credentials": {\n' +
@@ -74948,10 +74957,20 @@
     '}',
   level: 'debug',
   timestamp: '2023-06-27T08:11:42.361Z',
+=======
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T10:10:25.498Z',
+>>>>>>> 7ceaea63bccfd3e83a6b9a65d5315f7980fa5de9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'debug',
   timestamp: '2023-06-27T08:11:42.362Z',
@@ -76881,6 +76900,31 @@
   message: 'autoconnected successfully done!!!',
   level: 'info',
   timestamp: '2023-07-04T10:26:18.126Z',
+=======
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-07-05T10:10:25.531Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-07-05T10:10:25.534Z',
+>>>>>>> 7ceaea63bccfd3e83a6b9a65d5315f7980fa5de9
   label: 'object_builder_service',
   metadata: {}
 }

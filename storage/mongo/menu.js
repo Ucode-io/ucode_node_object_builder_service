@@ -19,8 +19,8 @@ let menuStore = {
             const menuPermissionTable = mongoConn.models['menu_permission']
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
-                data.icon = table?.icon
-                data.label = table?.label
+                if (!data.icon) data.icon = table?.icon
+                if (!data.label) data.label = table?.label
             }
 
             const response = await Menu.create(data);
@@ -62,8 +62,8 @@ let menuStore = {
 
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
-                data.icon = table?.icon
-                data.label = table?.label
+                if (!data.icon) data.icon = table?.icon
+                if (!data.label) data.label = table?.label
             }
 
             const menu = await Menu.updateOne(

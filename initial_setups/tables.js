@@ -234,6 +234,25 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "commit_guid": "277404a5-83ac-4a5c-8f4b-c38d10b1796b"
+    }, {
+        "id": "eca81c06-c4fc-4242-8dc9-ecca575e1762",
+        "slug": "user_login_table",
+        "label": "User Login Table",
+        "description": "User Login Table",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "chalkboard-user.svg",
+        "subtitle_field_slug": "",
+        "folder_id": "",
+        "is_cached": false,
+        "is_system": false,
+        "soft_delete": false,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "is_system": true,
+        "__v": 0,
+        "commit_guid": "58e790aa-06a2-4a11-ae4f-0ff7cf2f8b0b"
     }]
 
     return tables;

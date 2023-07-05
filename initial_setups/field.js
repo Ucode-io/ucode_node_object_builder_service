@@ -4062,8 +4062,78 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0
-	}
-	]
+	}, {
+		"id": "43f4ca6b-0d98-4829-ac87-15bbcaf7af3f",
+		"required": false,
+		"slug": "table_id",
+		"label": "Table Id",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"show_label": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"unique": false,
+		"automatic": false,
+		"commit_id": "",
+		"is_system": false,
+		"show_label": true,
+		"table_id": "eca81c06-c4fc-4242-8dc9-ecca575e1762",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"is_system": true,
+		"__v": 0
+	}, {
+		"required": false,
+		"slug": "guid",
+		"label": "ID",
+		"default": "v4",
+		"type": "UUID",
+		"index": "true",
+		"is_visible": true,
+		"unique": true,
+		"is_system": false,
+		"show_label": true,
+		"id": "ee92d4c0-2a3a-4c1c-9025-aeb08f3d783f",
+		"table_id": "eca81c06-c4fc-4242-8dc9-ecca575e1762",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"is_system": true,
+		"__v": 0
+	}, {
+		"table_id": "eca81c06-c4fc-4242-8dc9-ecca575e1762",
+		"required": false,
+		"slug": "client_type_id",
+		"label": "FROM user_login_table TO client_type",
+		"type": "LOOKUP",
+		"is_visible": true,
+		"relation_id": "0c2889fc-95be-4b59-81f3-07e6903e9696",
+		"is_system": false,
+		"show_label": true,
+		"id": "e4267874-c7b5-47df-af6b-f2e434d45135",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"is_system": true,
+		"__v": 0
+	}]
 	let f = fields.find(el => !el.table_id)
 	console.log("len::", fields.length, f);
 

@@ -137,7 +137,7 @@ let projectStore = {
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                         await objectBuilder(false, data.project_id)
-                        console.log(">>>>>>>> ")
+                        // await initialTableFolder({ project_id: data.project_id })
                         // await createIndexPermissionTables({ project_id: data.project_id })
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })

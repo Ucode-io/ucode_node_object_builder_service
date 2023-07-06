@@ -279,14 +279,18 @@ let sectionStore = {
             const Section = mongoConn.models['Section']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            
-            let tableQuery = {}
-            if(data.table_id) {
-                tableQuery.id = data.table_id
-            } else if(data.table_slug) {
-                tableQuery.slug = data.table_slug
-            }            
-            let table = await tableVersion(mongoConn, tableQuery, data.version_id, true);
+
+            let table = {};
+            if (!data.table_id) {
+                // table = await Table.findOne({
+                //     slug: data.table_slug,
+                // });
+                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+                console.log("bbbbb::", table);
+                data.table_id = table.id;
+            }
+            // console.log("table id:::: " + table?.id);
+            // console.log("table:::: " + table);
 
             let query = {}
             // if (data.table_id) {
@@ -353,11 +357,14 @@ let sectionStore = {
                             console.log(">>> view ", view_of_relation);
 
                         }
-
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
                         for (const field of tableFields) {
-                            if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0] && fieldResp?.slug === field?.relation_field) {
+                            let autoFillTable = field.autofill_table
+                            if (field?.autofill_table?.includes('#')) {
+                                autoFillTable = field.autofill_table.split('#')[0]
+                            }
+                            if (field.autofill_field && autoFillTable && autoFillTable === fieldReq.id.split("#")[0]) {
                                 let autofill = {
                                     field_from: field.autofill_field,
                                     field_to: field.slug,

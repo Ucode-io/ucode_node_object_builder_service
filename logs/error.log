@@ -11620,6 +11620,7 @@
     }
   }
 }
+<<<<<<< HEAD
 >>>>>>> 7ceaea63bccfd3e83a6b9a65d5315f7980fa5de9
 {
   message: 'Error while auto connecting',
@@ -11640,4 +11641,26 @@
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
     }
   }
+=======
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2023-07-05T12:37:12.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-06T05:09:50.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-06T05:10:53.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> c031e29e4638fe6b2a6f5c943141db5a66948f5b
 }

@@ -11,7 +11,7 @@ const initialTableFolder = require("../../helper/initialTableFolder");
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialMenu = require("../../helper/initialMenu");
 const initialCustomMessage = require("../../helper/initialCustomMessage");
-const addFieldsToViewRelationPermission = require("../../helper/addFieldsToViewRelationPermission");
+const addFields = require("../../helper/addFields");
 
 
 let NAMESPACE = "storage.project";
@@ -144,7 +144,7 @@ let projectStore = {
                         await initialMenu({ project_id: data.project_id })
                         // await createIndexPermissionTables({ project_id: data.project_id })
                         await initialCustomMessage({ project_id: data.project_id })
-                        await addFieldsToViewRelationPermission({ project_id: data.project_id })
+                        await addFields({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

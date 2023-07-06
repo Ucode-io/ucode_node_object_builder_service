@@ -2,7 +2,7 @@ const mongoPool = require('../pkg/pool');
 const { v4 } = require("uuid")
 
 module.exports = async function (data) {
-    console.log(": add additional field to view relation permissison checking...")
+    console.log(": add additional field to view_relation_permissison and role checking...")
     const mongoConn = await mongoPool.get(data.project_id)
     const Field = mongoConn.models['Field']
     const Table = mongoConn.models['Table']
@@ -133,6 +133,48 @@ module.exports = async function (data) {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true,
+    }, {
+        "id": "c5962e1c-2687-46a5-b2dd-d46d41a038c5",
+        "required": false,
+        "slug": "grant_access",
+        "label": "Предоставление доступа",
+        "default": "",
+        "type": "SWITCH",
+        "index": "string",
+        "attributes": {
+            "fields": {
+                "defaultValue": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                },
+                "disabled": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                },
+                "icon": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                },
+                "placeholder": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                },
+                "showTooltip": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                },
+                "creatable": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                }
+            }
+        },
+        "is_visible": false,
+        "table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "is_system": true,
     }]
     let bulkWriteFields = []
     fields.forEach(field => {
@@ -150,9 +192,10 @@ module.exports = async function (data) {
         )
     })
     await Field.bulkWrite(bulkWriteFields)
-    await Table.updateOne({
-        id: "074fcb3b-038d-483d-b390-ca69490fc4c3"
+    // update role and view relation permission table
+    await Table.updateMany({
+        ids: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad"]
     }, { $set: { is_changed: true } })
 
-    console.log("done creating additional field for view relaiton permission")
+    console.log("done creating additional field for view_relaiton_permission and role")
 }

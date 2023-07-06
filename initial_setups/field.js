@@ -4189,6 +4189,48 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true,
+	}, {
+		"id": "c5962e1c-2687-46a5-b2dd-d46d41a038c5",
+		"required": false,
+		"slug": "grant_access",
+		"label": "Предоставление доступа",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"creatable": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true,
 	}]
 	let f = fields.find(el => !el.table_id)
 	console.log("len::", fields.length, f);

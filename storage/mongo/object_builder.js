@@ -1641,9 +1641,7 @@ let objectBuilder = {
             const data = struct.decode(req.data)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            if (!tableInfo) {
-                throw new Error("table not found")
-            }
+            const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
 
             if(!tableModel.soft_delete) {
                 const response = await tableInfo.models.deleteOne({ guid: data.id });

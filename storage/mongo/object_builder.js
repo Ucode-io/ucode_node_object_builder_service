@@ -1669,7 +1669,6 @@ let objectBuilder = {
                 return { table_slug: req.table_slug, data: response };
             }
 
-            const response = await tableInfo.models.deleteOne({ guid: data.id });
             let event = {}
             let table = {}
             table.guid = data.id

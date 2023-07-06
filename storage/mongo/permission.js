@@ -923,17 +923,9 @@ let permission = {
         }
         let fieldPermissions = [], viewPermissions = [], actionPermissions = []
         let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
-        let readFilters = [], writeFilters = [], updateFilters = [], deleteFilters = []
         let automaticFilters = {}
-        // for (let app of req?.data?.apps) {
         for (let table of req?.data?.tables) {
             let isHaveCondition = false
-
-
-            // readFilters = [...readFilters, ...(table?.automatic_filters?.read || [])]
-            // writeFilters = [...writeFilters, ...(table?.automatic_filters?.write || [])]
-            // updateFilters = [...updateFilters, ...(table?.automatic_filters?.update || [])]
-            // deleteFilters = [...deleteFilters, ...(table?.automatic_filters?.delete || [])]
             if (table?.automatic_filters?.read?.length ||
                 table?.automatic_filters?.write?.length ||
                 table?.automatic_filters?.delete?.length ||
@@ -964,7 +956,6 @@ let permission = {
             viewPermissions = [...viewPermissions, ...table.view_permissions]
             actionPermissions = [...actionPermissions, ...table.action_permissions]
         }
-        // }
         for (let field_permission of (fieldPermissions || [])) {
 
             let documentFieldPermission = {

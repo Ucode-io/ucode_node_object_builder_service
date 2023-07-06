@@ -1246,7 +1246,6 @@ let permission = {
                 }
             ]
             let menus = await Menu.aggregate(pipelines)
-            console.log("menus::", menus);
             return { menus };
         } catch (err) {
             throw err

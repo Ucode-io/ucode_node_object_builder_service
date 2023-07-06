@@ -91,7 +91,7 @@ let prepareFunction = {
             table_id: tableData?.id,
             type: "INCREMENT_ID"
         })
-        
+
         if (incrementField) {
             let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
             let attributes = struct.decode(incrementField.attributes)
@@ -118,17 +118,17 @@ let prepareFunction = {
             if (!last || !last[incrementNum.slug]) {
                 data[incrementNum.slug] = (attributes.prefix ? attributes.prefix : "") + '1'.padStart(attributes.digit_number, '0')
             } else {
-                if(incrementLength) {
+                if (incrementLength) {
                     nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug]?.length)) + 1
                     // console.log("@@@@@@@@@@  ", nextIncrement)
                     data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
-    
+
                 } else {
                     nextIncrement = parseInt(last[incrementNum.slug]) + 1
                     // console.log("!!!!!!!! ", nextIncrement)
                     data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
                 }
-                
+
             }
         }
         const relations = await Relation.find({
@@ -170,10 +170,10 @@ let prepareFunction = {
         };
         console.log("decodedElements: ", decodedFields)
 
-        for(let el of tableInfo.fields) { 
-            if(!data[el.slug] && el.autofill_table && el.autofill_field) {
+        for (let el of tableInfo.fields) {
+            if (!data[el.slug] && el.autofill_table && el.autofill_field) {
                 const AutiFillTable = allTableInfos[el.autofill_table]
-                const autofillObject = await AutiFillTable.models.findOne({guid: data[el.autofill_table + "_id"]}).lean() || {}
+                const autofillObject = await AutiFillTable.models.findOne({ guid: data[el.autofill_table + "_id"] }).lean() || {}
                 data[el.slug] = autofillObject[el.autofill_field]
             }
             if (el.attributes) {
@@ -187,9 +187,9 @@ let prepareFunction = {
                             data[el.slug] = new Date().toISOString()
                         } else if (el.type === "SWITCH") {
                             let default_value = struct.decode(el.attributes).defaultValue?.toLocaleLowerCase()
-                            if(default_value == "true") {
+                            if (default_value == "true") {
                                 data[el.slug] = true
-                            } else if(default_value == "false") {
+                            } else if (default_value == "false") {
                                 data[el.slug] = false
                             }
                         } else {
@@ -251,9 +251,9 @@ let prepareFunction = {
             dataToAnalytics[field.slug] = data[field.slug]
         }
         field_types.guid = "String"
-        event.payload.data = dataToAnalytics    
+        event.payload.data = dataToAnalytics
         event.payload.field_types = field_types
-        event.project_id = req.project_id 
+        event.project_id = req.project_id
 
 
         return { payload, data, event, appendMany2ManyObjects, decodedFields }

@@ -73,6 +73,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         conn.model('Setting.Currencies', require('../schemas/setting_currency'))
         conn.model('Setting.Timezones', require('../schemas/setting_timezone'))
         conn.model('object_builder_service.menu.settings', require('../schemas/menu_settings'))
+        conn.model('object_builder_service.menu', require('../schemas/menu'))
         conn.model('object_builder_service.menu.templates', require('../schemas/menu_template'))
         conn.model(
             "function_service.function",

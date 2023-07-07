@@ -176,7 +176,7 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-    },{
+    }, {
         "label": "Шаблон",
         "slug": "template",
         "description": "Шаблоны",
@@ -202,20 +202,21 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-      },{
-        "label": "Разрешение на приложении",
-        "slug": "app_permission",
-        "description": "Разрешение на приложении",
+    }, {
+        "label": "Разрешение для меню",
+        "slug": "menu_permission",
+        "description": "Разрешение для связь которые в страница сведений",
         "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
         "show_in_menu": true,
         "is_changed": false,
-        "icon": "file-arrow-down.svg",
+        "icon": "door-closed.svg",
         "subtitle_field_slug": "",
-        "id": "41491588-53f1-4457-ba46-93019363ab88",
+        "id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
-      }]
+        "__v": 0,
+        "is_system": true
+    }]
 
     return tables;
 }

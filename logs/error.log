@@ -1464,4 +1464,63 @@
   metadata: {}
 }
 >>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+<<<<<<< HEAD
 >>>>>>> 300423525db09f4f53eca8298898eb222f0c91bb
+=======
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
+  level: 'error',
+  timestamp: '2023-07-04T06:17:08.511Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
+  level: 'error',
+  timestamp: '2023-07-04T06:17:08.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:27:50.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:27:50.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:28:14.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:28:14.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-07-04T06:35:27.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-07-04T06:35:27.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 7f15796553e6c492db0d612bdc9f6a410b4c4cbe

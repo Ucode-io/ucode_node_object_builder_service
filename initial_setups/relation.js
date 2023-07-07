@@ -464,8 +464,8 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0
   }, {
-    "id": "82e93baf-2e02-432a-942b-2c93cbe26b81",
-    "table_from": "app_permission",
+    "id": "3f21b211-deaf-4869-8558-31a9359411e9",
+    "table_from": "menu_permission",
     "field_from": "role_id",
     "table_to": "role",
     "field_to": "id",
@@ -478,8 +478,9 @@ async function createRelation() {
     "editable": false,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
-  }]
+    "__v": 0,
+    "is_system": true
+  },]
 
   return relation
 }

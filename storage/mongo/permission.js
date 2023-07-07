@@ -8,14 +8,8 @@ const con = require("../../config/kafkaTopics");
 const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
 const tableVersion = require('../../helper/table_version');
-const cfg = require('../../config/index')
 const mongoPool = require('../../pkg/pool');
 
-const App = require('./app')
-const Table = require('./table');
-const { limit } = require("../../config/index");
-const { ta, el } = require("date-fns/locale");
-const { bulkWrite } = require("../../models/relation");
 
 let permission = {
     upsertPermissionsByAppId: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertPermissionsByAppId`, async (req) => {
@@ -1275,6 +1269,99 @@ let permission = {
             view_relation_permissions: docViewRelationPermissions
         })
         return { table_slug: "view_relation_permission", data: response }
+    }),
+    getAllMenuPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.gettAllMenuPermissions`, async (data) => {
+        try {
+            console.log("data:", data);
+
+            const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
+
+            const Menu = mongoConn.models['object_builder_service.menu']
+
+            let query = {
+                parent_id: data.parent_id,
+            }
+            const pipelines = [
+                {
+                    '$match': query
+                }, {
+                    '$lookup': {
+                        'from': 'menu_permissions',
+                        'let': {
+                            'menuId': '$id',
+                            'roleId': data.role_id
+                        },
+                        'pipeline': [
+                            {
+                                '$match': {
+                                    '$expr': {
+                                        '$and': [
+                                            {
+                                                '$eq': [
+                                                    '$role_id', '$$roleId'
+                                                ]
+                                            }, {
+                                                '$eq': [
+                                                    '$menu_id', '$$menuId'
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        'as': 'permission'
+                    }
+                }, {
+                    '$unwind': {
+                        'path': '$permission',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                }, {
+                    '$project': {
+                        "__v": 0,
+                        "_id": 0,
+                        'permission._id': 0,
+                        'permission.__v': 0,
+                        'permission.createdAt': 0,
+                        'permission.updatedAt': 0
+                    }
+                }
+            ]
+            let menus = await Menu.aggregate(pipelines)
+            return { menus };
+        } catch (err) {
+            throw err
+        }
+
+    }),
+    updateMenuPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateMenuPermissions`, async (data) => {
+        try {
+
+            // const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
+
+            const menuPermissionTable = (await ObjectBuilder(true, data.project_id))["menu_permission"].models
+            let updateMenuPermissions = []
+            data.menus.forEach(menu => {
+                menu.permission.role_id = data.role_id
+                menu.permission.id = menu.id
+                updateMenuPermissions.push({
+                    updateOne: {
+                        filter: {
+                            menu_id: menu.id,
+                            role_id: data.role_id
+                        },
+                        update: menu.permission,
+                        upsert: true
+                    }
+                })
+            })
+            updateMenuPermissions.length && await menuPermissionTable.bulkWrite(updateMenuPermissions)
+            return {};
+        } catch (err) {
+            throw err
+        }
+
     }),
 }
 

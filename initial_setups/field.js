@@ -3938,6 +3938,37 @@ async function createField() {
 		"is_system": true
 	},
 	{
+		"id": "50335ad5-ddf7-48e5-b1c1-5b1cadbd7731",
+		"required": false,
+		"slug": "menu_settings",
+		"label": "Menu Settings",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
 		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
 		"required": false,
 		"slug": "role_id",

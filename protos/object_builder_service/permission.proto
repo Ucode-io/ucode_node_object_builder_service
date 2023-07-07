@@ -160,10 +160,12 @@ message MenuPermission {
         bool write = 3;
         bool update = 4;
         bool delete = 5;
+        bool menu_settings = 6;
     };
     string id = 1;
     string label = 2;
-    Permission permission = 3;
+    string type = 3;
+    Permission permission = 4;
 }
 
 message GetAllMenuPermissionsRequest {

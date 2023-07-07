@@ -8,13 +8,10 @@ const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
 const initialMenu = require("../../helper/initialMenu");
-<<<<<<< HEAD
 const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
-=======
 const initialMenuPermission = require("../../helper/initialMenuPermission");
->>>>>>> 7f15796553e6c492db0d612bdc9f6a410b4c4cbe
 
 
 let NAMESPACE = "storage.project";
@@ -143,10 +140,7 @@ let projectStore = {
                         mongoDBConn.model('Layout', require('../../schemas/layouts'))
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         await objectBuilder(false, data.project_id)
-<<<<<<< HEAD
-=======
                         console.log(">>>>>>>> ")
->>>>>>> 7f15796553e6c492db0d612bdc9f6a410b4c4cbe
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
                         await initialMenuPermission({ project_id: data.project_id })

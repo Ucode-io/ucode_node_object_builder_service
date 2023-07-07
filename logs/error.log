@@ -1976,6 +1976,7 @@
   metadata: {}
 }
 >>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+<<<<<<< HEAD
 =======
   message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
   level: 'error',
@@ -2610,52 +2611,95 @@
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T16:58:11.479Z',
+=======
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
+  level: 'error',
+  timestamp: '2023-07-04T06:17:08.511Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
   level: 'error',
   timestamp: '2023-06-21T17:01:37.421Z',
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
+  level: 'error',
+  timestamp: '2023-07-04T06:17:08.774Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T17:01:46.531Z',
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:27:50.243Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T17:01:47.171Z',
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:27:50.277Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T17:01:59.002Z',
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:28:14.481Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T17:02:37.566Z',
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:28:14.486Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T17:03:29.050Z',
+=======
+  message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-07-04T06:35:27.835Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T17:03:50.675Z',
@@ -2876,6 +2920,11 @@
   message: "service.layout.getAll: failed with error: Cannot read properties of undefined (reading 'includes')",
   level: 'error',
   timestamp: '2023-07-05T12:37:12.310Z',
+=======
+  message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-07-04T06:35:27.847Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }

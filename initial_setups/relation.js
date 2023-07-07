@@ -463,7 +463,24 @@ async function createRelation() {
     "created_at": new Date(),
     "updated_at": new Date(),
     "__v": 0
-  }]
+  }, {
+    "id": "3f21b211-deaf-4869-8558-31a9359411e9",
+    "table_from": "menu_permission",
+    "field_from": "role_id",
+    "table_to": "role",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0,
+    "is_system": true
+  },]
 
   return relation
 }

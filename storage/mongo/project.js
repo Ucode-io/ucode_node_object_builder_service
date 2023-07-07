@@ -7,10 +7,16 @@ const client = require('../../services/grpc/client');
 const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
+<<<<<<< HEAD
 const initialMenu = require("../../helper/initialMenu");
 const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
+=======
+const initialTableFolder = require("../../helper/initialTableFolder");
+const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
+const initialMenu = require("../../helper/initialMenu");
+>>>>>>> 300423525db09f4f53eca8298898eb222f0c91bb
 
 
 let NAMESPACE = "storage.project";
@@ -69,6 +75,8 @@ let projectStore = {
                 mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
                 mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+                mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
+                mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)

@@ -89,6 +89,9 @@ const ViewSchema = mongoose.Schema(
         attributes: {
             type: mongoose.Schema.Types.Mixed
         },
+        navigate: {
+            type: mongoose.Schema.Types.Mixed
+        },
         default_editable: {
             type: Boolean,
         },

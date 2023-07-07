@@ -6,6 +6,7 @@ const mongoPool = require('../../pkg/pool');
 const { v4 } = require("uuid");
 const AddPermission = require('../../helper/addPermission');
 const { struct } = require('pb-util');
+const { v4 } = require("uuid");
 
 
 let NAMESPACE = 'storage.layout'

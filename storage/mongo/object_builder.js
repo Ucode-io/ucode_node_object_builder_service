@@ -796,8 +796,8 @@ let objectBuilder = {
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
-        const params = struct.decode(req?.data)
-
+        let params = struct.decode(req?.data)
+        
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -1066,7 +1066,29 @@ let objectBuilder = {
         }
         
         let populateArr = []
-        // console.time("TIME_LOGGING:::limit")
+
+        // check soft deleted datas
+        if(params.$or) {
+            params.$and = [
+                { $or: params.$or },
+                { 
+                    $or:  [
+                        { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                        { deleted_at: null }
+                    ]
+                }
+            ]
+
+            delete params.$or
+        } else {
+            params.$or = [
+                { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                { deleted_at: null }
+            ]
+        }
+
+        console.log(">>>>>>>> params", params, params.$or)
+
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -1451,8 +1473,10 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
+
+        const tableResp = await table.findOne({slug: req.table_slug}) || {is_cached: false}
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
+        return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage
@@ -1617,31 +1641,28 @@ let objectBuilder = {
             const data = struct.decode(req.data)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            if (!tableInfo) {
-                throw new Error("table not found")
+            const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
+
+            if(!tableModel.soft_delete) {
+                const response = await tableInfo.models.deleteOne({ guid: data.id });
+                let event = {}
+                let table = {}
+                table.guid = data.id
+                table.table_slug = req.table_slug
+                event.payload = table
+
+                event.project_id = req.project_id
+                // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
+
+                return { table_slug: req.table_slug, data: response };
+            } else if (tableModel.soft_delete) {
+                
+                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, {$set: {deleted_at: new Date()}})
+                console.log(">>>>>>>>> ", response)
+
+                return { table_slug: req.table_slug, data: response };
             }
 
-            const response = await tableInfo.models.deleteOne({ guid: data.id });
-            let event = {}
-            let table = {}
-            table.guid = data.id
-            table.table_slug = req.table_slug
-            event.payload = table
-
-            event.project_id = req.project_id
-            // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
-            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
-            let customMessage = ""
-            if (tableWithVersion) {
-                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
-                    code: 200,
-                    table_id: tableWithVersion.id,
-                    action_type: "DELETE",
-                })
-                if (customErrMsg) { customMessage = customErrMsg.message }
-            }
-
-            return { table_slug: req.table_slug, data: response, custom_message: customMessage };
         } catch (err) {
             throw err
         }

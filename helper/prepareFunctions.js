@@ -1,12 +1,9 @@
 const { struct } = require('pb-util');
-
-const catchWrapDbObjectBuilder = require("./catchWrapDbObjectBuilder")
-const { v4 } = require("uuid");
 const con = require("./constants");
 const converter = require("./converter");
 const generators = require("./generator")
 const ObjectBuilder = require("./../models/object_builder");
-const { de } = require('date-fns/locale');
+const grpcClient = require("./../services/grpc/client");
 
 
 
@@ -87,7 +84,6 @@ let prepareFunction = {
             table_id: tableData.id,
             type: "INCREMENT_ID"
         })
-        
         if (incrementField) {
             let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
             let attributes = struct.decode(incrementField.attributes)
@@ -114,24 +110,24 @@ let prepareFunction = {
             if (!last || !last[incrementNum.slug]) {
                 data[incrementNum.slug] = (attributes.prefix ? attributes.prefix : "") + '1'.padStart(attributes.digit_number, '0')
             } else {
-                if(incrementLength) {
+                if (incrementLength) {
                     nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug]?.length)) + 1
                     // console.log("@@@@@@@@@@  ", nextIncrement)
                     data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
-    
+
                 } else {
                     nextIncrement = parseInt(last[incrementNum.slug]) + 1
                     // console.log("!!!!!!!! ", nextIncrement)
                     data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
                 }
-                
+
             }
         }
 
-        for(let el of tableInfo.fields) { 
-            if(!data[el.slug] && el.autofill_table && el.autofill_field) {
+        for (let el of tableInfo.fields) {
+            if (!data[el.slug] && el.autofill_table && el.autofill_field) {
                 const AutiFillTable = allTableInfos[el.autofill_table]
-                const autofillObject = await AutiFillTable.models.findOne({guid: data[el.autofill_table + "_id"]}).lean() || {}
+                const autofillObject = await AutiFillTable.models.findOne({ guid: data[el.autofill_table + "_id"] }).lean() || {}
                 data[el.slug] = autofillObject[el.autofill_field]
             }
             if (el.attributes) {
@@ -145,9 +141,9 @@ let prepareFunction = {
                             data[el.slug] = new Date().toISOString()
                         } else if (el.type === "SWITCH") {
                             let default_value = struct.decode(el.attributes).defaultValue?.toLocaleLowerCase()
-                            if(default_value == "true") {
+                            if (default_value == "true") {
                                 data[el.slug] = true
-                            } else if(default_value == "false") {
+                            } else if (default_value == "false") {
                                 data[el.slug] = false
                             }
                         } else {
@@ -162,6 +158,31 @@ let prepareFunction = {
         }
 
         let payload = new tableInfo.models(data);
+        if (tableData && tableData.is_login_table) {
+            let tableAttributes = struct.decode(tableData.attributes)
+            if (tableAttributes && tableAttributes.auth_info) {
+                let authInfo = tableAttributes.auth_info
+                if (!data[authInfo['client_type_id']]
+                    || !data[authInfo['role_id']]
+                    || !(data[authInfo['login']] || data[authInfo['email']] || data[authInfo['phone']])
+                ) {
+                    throw new Error('This table is auth table. Auth information not fully given')
+                }
+                let authCheckRequest = {
+                    client_type_id: data['client_type_id'],
+                    role_id: data['role_id'],
+                    login: data[authInfo['login']],
+                    email: data[authInfo['email']],
+                    phone: data[authInfo['phone']],
+                    project_id: data['company_service_project_id'],
+                    company_id: data['company_service_company_id'],
+                    table_id: tableData.id,
+                    password: data[authInfo['password']],
+                }
+                const responseFromAuth = await grpcClient.syncUserWithAuth(authCheckRequest)
+                ownGuid = responseFromAuth.user_id
+            }
+        }
         if (ownGuid) {
             payload.guid = ownGuid
         }
@@ -209,9 +230,9 @@ let prepareFunction = {
             dataToAnalytics[field.slug] = data[field.slug]
         }
         field_types.guid = "String"
-        event.payload.data = dataToAnalytics    
+        event.payload.data = dataToAnalytics
         event.payload.field_types = field_types
-        event.project_id = req.project_id 
+        event.project_id = req.project_id
 
         return { payload, data, event, appendMany2ManyObjects }
     },

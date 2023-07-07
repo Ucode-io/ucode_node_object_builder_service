@@ -151,3 +151,17 @@ message UpdateRoleAppTablePermissionsRequest {
     string project_id = 1;
     RoleWithAppTablePermissions data = 2;
 }
+
+message MenuPermission {
+    message Permission { 
+        bool read = 2;
+        bool write = 3;
+        bool update = 4;
+        bool delete = 5;
+        bool menu_settings = 6;
+    };
+    string id = 1;
+    string label = 2;
+    string type = 3;
+    Permission permission = 4;
+}

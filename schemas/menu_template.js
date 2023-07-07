@@ -20,6 +20,9 @@ const MenuTemplateSchema = mongoose.Schema(
         active_text: {
             type: String
         },
+        title: {
+            type: String
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

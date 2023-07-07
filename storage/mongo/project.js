@@ -144,6 +144,8 @@ let projectStore = {
                         mongoDBConn.model('App', require('../../schemas/app'))
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
+                        mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
+                        mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
                         await objectBuilder(false, data.project_id)
                         console.log(">>>>>>>> ")
                         await defaultRoles(mongoDBConn, data?.project_id)

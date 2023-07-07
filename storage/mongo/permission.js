@@ -1004,7 +1004,7 @@ let permission = {
         for (let action_permission of (actionPermissions || [])) {
 
             let documentActionPermission = {
-                view_permission: action_permission.permission ,
+                view_permission: action_permission.permission,
                 custom_event_id: action_permission.custom_event_id,
                 table_slug: action_permission.table_slug,
                 role_id: roleId,
@@ -1026,32 +1026,40 @@ let permission = {
             if (automaticFilters[tableSlug]) {
                 const filters = automaticFilters[tableSlug].automatic_filters
                 for (let read_filter of (filters.read || [])) {
-                    read_filter.role_id = roleId
-                    read_filter.method = "read"
-                    read_filter.table_slug = tableSlug
-                    read_filter.guid = v4()
-                    tableFilters.push(read_filter)
+                    if (read_filter.custom_field && read_filter.object_field) {
+                        read_filter.role_id = roleId
+                        read_filter.method = "read"
+                        read_filter.table_slug = tableSlug
+                        read_filter.guid = v4()
+                        tableFilters.push(read_filter)
+                    }
                 }
                 for (let update_filter of (filters.update || [])) {
-                    update_filter.role_id = roleId
-                    update_filter.method = "update"
-                    update_filter.table_slug = tableSlug
-                    update_filter.guid = v4()
-                    tableFilters.push(update_filter)
+                    if (update_filter.custom_field && update_filter.object_field) {
+                        update_filter.role_id = roleId
+                        update_filter.method = "update"
+                        update_filter.table_slug = tableSlug
+                        update_filter.guid = v4()
+                        tableFilters.push(update_filter)
+                    }
                 }
                 for (let write_filter of (filters.write || [])) {
-                    write_filter.role_id = roleId
-                    write_filter.method = "write"
-                    write_filter.table_slug = tableSlug
-                    write_filter.guid = v4()
-                    tableFilters.push(write_filter)
+                    if (write_filter.custom_field && write_filter.object_field) {
+                        write_filter.role_id = roleId
+                        write_filter.method = "write"
+                        write_filter.table_slug = tableSlug
+                        write_filter.guid = v4()
+                        tableFilters.push(write_filter)
+                    }
                 }
                 for (let delete_filter of (filters.delete || [])) {
-                    delete_filter.role_id = roleId
-                    delete_filter.method = "delete"
-                    delete_filter.table_slug = tableSlug
-                    delete_filter.guid = v4()
-                    tableFilters.push(delete_filter)
+                    if (delete_filter.custom_field && delete_filter.object_field) {
+                        delete_filter.role_id = roleId
+                        delete_filter.method = "delete"
+                        delete_filter.table_slug = tableSlug
+                        delete_filter.guid = v4()
+                        tableFilters.push(delete_filter)
+                    }
                 }
             }
         }

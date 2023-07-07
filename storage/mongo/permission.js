@@ -1326,6 +1326,10 @@ let permission = {
                         'permission.createdAt': 0,
                         'permission.updatedAt': 0
                     }
+                }, {
+                    '$sort': {
+                        'order': 1,
+                    },
                 }
             ]
             let menus = await Menu.aggregate(pipelines)

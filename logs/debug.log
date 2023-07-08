@@ -74308,3 +74308,191 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-08T04:51:07.176Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-08T04:51:07.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "c930f744-9f49-4d96-b1f9-b7891730dcdd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "95.217.155.57",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs",\n' +
+    '    "username": "ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs",\n' +
+    '    "password": "BtJlSI9zlL"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-08T04:51:07.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs:BtJlSI9zlL@95.217.155.57:30027/ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-08T04:51:07.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs:BtJlSI9zlL@95.217.155.57:30027/ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-08T04:51:07.745Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-08T04:51:37.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-08T04:51:37.463Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: customMessage is not defined',
+  level: 'error',
+  timestamp: '2023-07-08T04:55:38.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-08T04:58:15.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-08T04:58:15.368Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "c930f744-9f49-4d96-b1f9-b7891730dcdd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "95.217.155.57",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs",\n' +
+    '    "username": "ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs",\n' +
+    '    "password": "BtJlSI9zlL"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-08T04:58:15.368Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs:BtJlSI9zlL@95.217.155.57:30027/ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-08T04:58:15.368Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs:BtJlSI9zlL@95.217.155.57:30027/ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-08T04:58:16.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-08T04:58:42.062Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-08T04:58:42.063Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-08T04:58:58.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-08T04:58:58.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "c930f744-9f49-4d96-b1f9-b7891730dcdd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "95.217.155.57",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs",\n' +
+    '    "username": "ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs",\n' +
+    '    "password": "BtJlSI9zlL"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-08T04:58:58.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs:BtJlSI9zlL@95.217.155.57:30027/ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-08T04:58:58.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs:BtJlSI9zlL@95.217.155.57:30027/ucode_test_0423bc17c6054d80922b9b031c2bff03_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-08T04:58:59.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-08T04:59:24.513Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-08T04:59:24.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-08T05:00:10.743Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

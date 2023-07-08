@@ -770,6 +770,16 @@ let objectBuilder = {
                 }
             }
         }
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (tableWithVersion) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: tableWithVersion.id,
+                action_type: "GET_LIST"
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
+        }
 
         const response = struct.encode({
             count: count,
@@ -1434,7 +1444,7 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-        return { table_slug: req.table_slug, data: response }
+        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
     }),        
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage

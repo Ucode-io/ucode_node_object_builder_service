@@ -2979,3 +2979,10 @@
     }
   }
 }
+{
+  message: 'service.object_builder.getList: failed with error: customMessage is not defined',
+  level: 'error',
+  timestamp: '2023-07-08T04:55:38.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

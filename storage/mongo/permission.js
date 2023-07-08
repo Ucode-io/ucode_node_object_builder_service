@@ -271,59 +271,6 @@ let permission = {
             ...role._doc
         }
 
-<<<<<<< HEAD
-
-        const pipelines = [{
-            '$match': {}
-        },
-        {
-            '$lookup': {
-                'from': 'app_permissions',
-                'let': {
-                    'appId': '$id',
-                    'roleId': role.guid
-                },
-                'pipeline': [
-                    {
-                        '$match': {
-                            '$expr': {
-                                '$and': [
-                                    {
-                                        '$eq': [
-                                            '$app_id', '$$appId'
-                                        ]
-                                    }, {
-                                        '$eq': [
-                                            '$role_id', '$$roleId'
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ],
-                'as': 'permission'
-            }
-        }, {
-            '$unwind': {
-                'path': '$permission',
-                'preserveNullAndEmptyArrays': true
-            }
-        }, {
-            '$project': {
-                'deleted_at': 0,
-                '__v': 0,
-                '_id': 0
-            }
-        }, {
-            '$sort': {
-                'created_at': -1
-            }
-        }
-        ]
-        const apps = await App.aggregate(pipelines)
-        if (!apps) {
-=======
         const tables = await Table.find(
             {
                 deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') }
@@ -343,7 +290,6 @@ let permission = {
         });
 
         if (!tables || !tables.length) {
->>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
             console.log('WARNING apps not found')
             return roleCopy
         }
@@ -626,19 +572,6 @@ let permission = {
         let automaticFilter = automaticFilters[0]
 
 
-<<<<<<< HEAD
-            let appCopy = app
-            if (!appCopy.permission || !Object.keys(appCopy.permission)) {
-                appCopy.permission = {
-                    read: false,
-                    update: false,
-                    create: false,
-                    delete: false,
-                    guid: "",
-                    role_id: roleCopy.guid,
-                    app_id: appCopy.id
-                }
-=======
 
         // let appCopy = {
         //     ...app._doc
@@ -660,7 +593,6 @@ let permission = {
             let tableCopy = {
                 ...table._doc,
                 record_permissions: table.record_permissions || null
->>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
             }
             if (!tableCopy.record_permissions) {
                 console.log('WARNING record_permissions not found')
@@ -675,22 +607,6 @@ let permission = {
                     is_public: false
                 }
             }
-<<<<<<< HEAD
-            const tables = await tableVersion(mongoConn, { id: { $in: tableIds }, deleted_at: new Date("1970-01-01T18:00:00.000+00:00"), role_id: req.role_id }, req.version_id, false)
-            let tablesList = []
-            if (!tables || !tables.length) {
-                console.log('WARNING tables not found')
-            }
-
-            for (let table of tables) {
-                let tableCopy = {
-                    ...table._doc,
-                    record_permissions: table.record_permissions || null
-                }
-                if (!tableCopy.record_permissions) {
-                    console.log('WARNING record_permissions not found')
-                    tableCopy.record_permissions = {
-=======
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
@@ -702,7 +618,6 @@ let permission = {
                 } else {
                     tableCopy.field_permissions.push({
                         field_id: field.id,
->>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
                         table_slug: table.slug,
                         view_permission: false,
                         edit_permission: false,

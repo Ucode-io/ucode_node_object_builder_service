@@ -189,26 +189,7 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-<<<<<<< HEAD
-      },{
-=======
     }, {
-        "label": "Врачи",
-        "slug": "doctors",
-        "description": "Специалисты",
-        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
-        "show_in_menu": true,
-        "is_changed": false,
-        "icon": "stethoscope.svg",
-        "subtitle_field_slug": "name",
-        "with_increment_id": true,
-        "digit_number": 3,
-        "id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0
-    }, {
->>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
         "label": "Файл",
         "slug": "file",
         "description": "Файлы",
@@ -222,7 +203,6 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0
     }, {
-<<<<<<< HEAD
         "label": "Разрешение для меню",
         "slug": "menu_permission",
         "description": "Разрешение для связь которые в страница сведений",
@@ -236,7 +216,7 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true
-=======
+    }, {
         "id": "c2f225b6-b6d9-4201-aa25-e648a4c1ff29",
         "label": "Custom Error",
         "slug": "object_builder.custom_error",
@@ -253,7 +233,6 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "commit_guid": "277404a5-83ac-4a5c-8f4b-c38d10b1796b"
->>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
     }]
 
     return tables;

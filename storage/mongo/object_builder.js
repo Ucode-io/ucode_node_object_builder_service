@@ -719,7 +719,6 @@ let objectBuilder = {
             count = count - (prev - result.length)
         }
 
-<<<<<<< HEAD
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         for (const res of result) {
             for (const field of formulaFields) {
@@ -770,68 +769,6 @@ let objectBuilder = {
                     }
                 }
             }
-=======
-        // let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
-        // for (const res of result) {
-        //     for (const field of formulaFields) {
-        //         let attributes = struct.decode(field.attributes)
-        //         if (field.type === "FORMULA") {
-        //             if (attributes.table_from && attributes.sum_field) {
-        //                 let filters = {}
-        //                 if (attributes.formula_filters) {
-        //                     attributes.formula_filters.forEach(el => {
-        //                         filters[el.key.split("#")[0]] = el.value
-        //                         if (Array.isArray(el.value)) {
-        //                             filters[el.key.split("#")[0]] = { $in: el.value }
-        //                         }
-        //                     })
-        //                 }
-        //                 const relationFieldTable = await table.findOne({
-        //                     slug: attributes.table_from.split('#')[0],
-        //                     deleted_at: "1970-01-01T18:00:00.000+00:00"
-        //                 })
-        //                 const relationField = await Field.findOne({
-        //                     relation_id: attributes.table_from.split('#')[1],
-        //                     table_id: relationFieldTable.id
-        //                 })
-        //                 if (!relationField || !relationFieldTable) {
-        //                     res[field.slug] = 0
-        //                     continue
-        //                 }
-        //                 const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
-        //                 let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-        //                 if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-        //                     matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-        //                 }
-        //                 let matchParams = {
-        //                     [matchField]: { '$eq': res.guid },
-        //                     ...filters
-        //                 }
-        //                 const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
-        //                 if (resultFormula.length) {
-        //                     res[field.slug] = resultFormula[0].res
-        //                 } else {
-        //                     res[field.slug] = 0
-        //                 }
-        //             }
-        //         } else {
-        //             if (attributes && attributes.formula) {
-        //                 const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-        //                 res[field.slug] = resultFormula
-        //             }
-        //         }
-        //     }
-        // }
-        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
-        let customMessage = ""
-        if (tableWithVersion) {
-            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
-                code: 200,
-                table_id: tableWithVersion.id,
-                action_type: "GET_SINGLE_SLIM"
-            })
-            if (customErrMsg) { customMessage = customErrMsg.message }
->>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
         }
 
         const response = struct.encode({
@@ -1497,13 +1434,8 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-<<<<<<< HEAD
         return { table_slug: req.table_slug, data: response }
     }),        
-=======
-        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
-    }),
->>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage
         const mongoConn = await mongoPool.get(req.project_id)

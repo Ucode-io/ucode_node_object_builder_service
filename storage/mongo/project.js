@@ -8,10 +8,15 @@ const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
 const initialMenu = require("../../helper/initialMenu");
+<<<<<<< HEAD
 const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
+=======
+const initialCustomMessage = require("../../helper/initialCustomMessage");
+const addFields = require("../../helper/addFields");
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
 
 
 let NAMESPACE = "storage.project";
@@ -70,8 +75,12 @@ let projectStore = {
                 mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
                 mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+<<<<<<< HEAD
                 mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
                 mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
+=======
+                mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)
@@ -139,12 +148,23 @@ let projectStore = {
                         mongoDBConn.model('Tab', require('../../schemas/tab'))
                         mongoDBConn.model('Layout', require('../../schemas/layouts'))
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+                        mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                         await objectBuilder(false, data.project_id)
+<<<<<<< HEAD
                         console.log(">>>>>>>> ")
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
                         await initialMenuPermission({ project_id: data.project_id })
                         await createIndexPermissionTables({ project_id: data.project_id })
+=======
+                        // await initialTableFolder({ project_id: data.project_id })
+                        // await createIndexPermissionTables({ project_id: data.project_id })
+                        await initialTableFolder({ project_id: data.project_id })
+                        await initialMenu({ project_id: data.project_id })
+                        // await createIndexPermissionTables({ project_id: data.project_id })
+                        await initialCustomMessage({ project_id: data.project_id })
+                        await addFields({ project_id: data.project_id })
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

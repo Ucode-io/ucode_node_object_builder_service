@@ -4,7 +4,6 @@ const { v4 } = require("uuid")
 module.exports = async function (data) {
     console.log(": Default menu checking...")
     const mongoConn = await mongoPool.get(data.project_id)
-    console.log("models:", mongoConn.models);
     const Menu = mongoConn.models['object_builder_service.menu']
     const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
     console.log("test menu::", Menu);

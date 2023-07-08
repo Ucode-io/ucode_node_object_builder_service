@@ -532,6 +532,7 @@
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'Error while auto connecting',
   level: 'error',
 <<<<<<< HEAD
@@ -569,6 +570,11 @@
   message: 'mongo connection error Authentication failed.',
   level: 'error',
   timestamp: '2023-06-12T09:41:55.816Z',
+=======
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T07:48:21.932Z',
+>>>>>>> origin/feature/custom_error
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -576,11 +582,19 @@
     codeName: 'AuthenticationFailed',
     connectionGeneration: 0,
     stack: 'MongoServerError: Authentication failed.\n' +
+<<<<<<< HEAD
       '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
       '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
       '    at MessageStream.emit (node:events:527:28)\n' +
       '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
       '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+=======
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+>>>>>>> origin/feature/custom_error
       '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
       '    at _write (node:internal/streams/writable:330:10)\n' +
       '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
@@ -596,7 +610,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-06-12T09:41:56.165Z',
+=======
+  timestamp: '2023-06-14T07:49:08.569Z',
+>>>>>>> origin/feature/custom_error
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -604,11 +622,19 @@
     codeName: 'AuthenticationFailed',
     connectionGeneration: 0,
     stack: 'MongoServerError: Authentication failed.\n' +
+<<<<<<< HEAD
       '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
       '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
       '    at MessageStream.emit (node:events:527:28)\n' +
       '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
       '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+=======
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+>>>>>>> origin/feature/custom_error
       '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
       '    at _write (node:internal/streams/writable:330:10)\n' +
       '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
@@ -622,6 +648,7 @@
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
+<<<<<<< HEAD
   message: 'mongo connection error Authentication failed.',
   level: 'error',
   timestamp: '2023-06-12T09:41:56.519Z',
@@ -877,7 +904,15 @@
   message: 'service.menu.getAll: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-12T09:49:15.336Z',
+<<<<<<< HEAD
 >>>>>>> 300423525db09f4f53eca8298898eb222f0c91bb
+=======
+=======
+  message: "service.custom_error_message.getList: failed with error: Cannot read properties of undefined (reading 'find')",
+  level: 'error',
+  timestamp: '2023-06-14T08:07:50.570Z',
+>>>>>>> origin/feature/custom_error
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
   label: 'object_builder_service',
   metadata: {}
 }
@@ -889,7 +924,11 @@
 =======
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-06-12T09:50:11.511Z',
+=======
+  timestamp: '2023-06-14T08:08:03.810Z',
+>>>>>>> origin/feature/custom_error
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -897,11 +936,19 @@
     codeName: 'AuthenticationFailed',
     connectionGeneration: 0,
     stack: 'MongoServerError: Authentication failed.\n' +
+<<<<<<< HEAD
       '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
       '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
       '    at MessageStream.emit (node:events:527:28)\n' +
       '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
       '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+=======
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+>>>>>>> origin/feature/custom_error
       '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
       '    at _write (node:internal/streams/writable:330:10)\n' +
       '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
@@ -917,7 +964,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-06-12T09:56:15.751Z',
+=======
+  timestamp: '2023-06-14T08:10:35.428Z',
+>>>>>>> origin/feature/custom_error
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -925,11 +976,19 @@
     codeName: 'AuthenticationFailed',
     connectionGeneration: 0,
     stack: 'MongoServerError: Authentication failed.\n' +
+<<<<<<< HEAD
       '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
       '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
       '    at MessageStream.emit (node:events:527:28)\n' +
       '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
       '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+=======
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+>>>>>>> origin/feature/custom_error
       '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
       '    at _write (node:internal/streams/writable:330:10)\n' +
       '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
@@ -945,7 +1004,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-06-12T10:04:19.381Z',
+=======
+  timestamp: '2023-06-14T08:11:23.583Z',
+>>>>>>> origin/feature/custom_error
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -953,11 +1016,19 @@
     codeName: 'AuthenticationFailed',
     connectionGeneration: 0,
     stack: 'MongoServerError: Authentication failed.\n' +
+<<<<<<< HEAD
       '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
       '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
       '    at MessageStream.emit (node:events:527:28)\n' +
       '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
       '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+=======
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+>>>>>>> origin/feature/custom_error
       '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
       '    at _write (node:internal/streams/writable:330:10)\n' +
       '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
@@ -973,7 +1044,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-06-12T10:08:18.766Z',
+=======
+  timestamp: '2023-06-14T08:23:17.265Z',
+>>>>>>> origin/feature/custom_error
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -981,11 +1056,19 @@
     codeName: 'AuthenticationFailed',
     connectionGeneration: 0,
     stack: 'MongoServerError: Authentication failed.\n' +
+<<<<<<< HEAD
       '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
       '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
       '    at MessageStream.emit (node:events:527:28)\n' +
       '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
       '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+=======
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+>>>>>>> origin/feature/custom_error
       '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
       '    at _write (node:internal/streams/writable:330:10)\n' +
       '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
@@ -999,9 +1082,11 @@
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot access 'menus' before initialization",
   level: 'error',
   timestamp: '2023-06-12T10:08:30.096Z',
+<<<<<<< HEAD
 >>>>>>> 300423525db09f4f53eca8298898eb222f0c91bb
   label: 'object_builder_service',
   metadata: {}
@@ -1012,9 +1097,11 @@
   level: 'error',
   timestamp: '2023-06-12T15:07:13.740Z',
 =======
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
+=======
   message: 'mongo connection error Authentication failed.',
   level: 'error',
-  timestamp: '2023-06-12T10:10:18.380Z',
+  timestamp: '2023-06-14T08:23:57.590Z',
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -1022,11 +1109,11 @@
     codeName: 'AuthenticationFailed',
     connectionGeneration: 0,
     stack: 'MongoServerError: Authentication failed.\n' +
-      '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
-      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
       '    at MessageStream.emit (node:events:527:28)\n' +
-      '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
-      '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
       '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
       '    at _write (node:internal/streams/writable:330:10)\n' +
       '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
@@ -1040,9 +1127,225 @@
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T08:26:21.068Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error connect ETIMEDOUT 65.109.239.69:30027',
+  level: 'error',
+  timestamp: '2023-06-14T08:27:56.247Z',
+  label: 'object_builder_service',
+  metadata: {
+    cause: Error: connect ETIMEDOUT 65.109.239.69:30027
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1187:16) {
+      errno: -60,
+      code: 'ETIMEDOUT',
+      syscall: 'connect',
+      address: '65.109.239.69',
+      port: 30027
+    },
+    connectionGeneration: 0,
+    stack: 'MongoNetworkError: connect ETIMEDOUT 65.109.239.69:30027\n' +
+      '    at connectionFailureError (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:387:20)\n' +
+      '    at Socket.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)\n' +
+      '    at Object.onceWrapper (node:events:642:26)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at emitErrorNT (node:internal/streams/destroy:157:8)\n' +
+      '    at emitErrorCloseNT (node:internal/streams/destroy:122:3)\n' +
+      '    at processTicksAndRejections (node:internal/process/task_queues:83:21)'
+  },
+  [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T08:27:56.564Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T08:28:33.620Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T08:30:38.710Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T08:31:18.091Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'service.custom_error_message.update: failed with error: connection 2 to 65.109.239.69:30027 closed',
+  level: 'error',
+  timestamp: '2023-06-14T08:42:29.142Z',
+>>>>>>> origin/feature/custom_error
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+<<<<<<< HEAD
+  timestamp: '2023-06-12T10:10:18.380Z',
+=======
+  timestamp: '2023-06-14T08:44:30.968Z',
+>>>>>>> origin/feature/custom_error
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+<<<<<<< HEAD
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+=======
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+>>>>>>> origin/feature/custom_error
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+<<<<<<< HEAD
   message: 'service.menu.getAll: failed with error: Unable to infer type for "Fri Jan 02 1970 00:00:00 GMT+0600 (Uzbekistan Standard Time)".',
   level: 'error',
   timestamp: '2023-06-12T10:10:33.246Z',
+<<<<<<< HEAD
 >>>>>>> 300423525db09f4f53eca8298898eb222f0c91bb
   label: 'object_builder_service',
   metadata: {}
@@ -1149,9 +1452,11 @@
 }
 >>>>>>> 44340836e910b3094132f79b12207689f7b29687
 =======
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
+=======
   message: 'mongo connection error Authentication failed.',
   level: 'error',
-  timestamp: '2023-06-12T10:13:35.804Z',
+  timestamp: '2023-06-14T09:52:51.653Z',
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -1159,11 +1464,11 @@
     codeName: 'AuthenticationFailed',
     connectionGeneration: 0,
     stack: 'MongoServerError: Authentication failed.\n' +
-      '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
-      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
       '    at MessageStream.emit (node:events:527:28)\n' +
-      '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
-      '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
       '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
       '    at _write (node:internal/streams/writable:330:10)\n' +
       '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
@@ -1177,6 +1482,223 @@
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 {
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T09:57:58.274Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T10:46:21.037Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T11:15:03.176Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-14T11:18:13.830Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-16T04:59:40.134Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-16T05:18:59.596Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'service.object_builder.getList: failed with error: Cast to ObjectId failed for value "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1" (type string) at path "_id" for model "user"',
+  level: 'error',
+  timestamp: '2023-06-16T05:26:17.022Z',
+>>>>>>> origin/feature/custom_error
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+<<<<<<< HEAD
+  timestamp: '2023-06-12T10:13:35.804Z',
+=======
+  timestamp: '2023-06-16T07:06:23.854Z',
+>>>>>>> origin/feature/custom_error
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+<<<<<<< HEAD
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+=======
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+>>>>>>> origin/feature/custom_error
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+<<<<<<< HEAD
   message: 'mongo connection error Authentication failed.',
   level: 'error',
   timestamp: '2023-06-12T11:50:19.497Z',
@@ -1465,58 +1987,102 @@
 }
 >>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 300423525db09f4f53eca8298898eb222f0c91bb
 =======
 {
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
   level: 'error',
   timestamp: '2023-07-04T06:17:08.511Z',
+=======
+=======
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-20T05:11:28.824Z',
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
   level: 'error',
   timestamp: '2023-07-04T06:17:08.774Z',
+=======
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-20T05:11:29.022Z',
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
   level: 'error',
   timestamp: '2023-07-04T06:27:50.243Z',
+=======
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-20T05:11:29.025Z',
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
   level: 'error',
   timestamp: '2023-07-04T06:27:50.277Z',
+=======
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'fields')",
+  level: 'error',
+  timestamp: '2023-06-20T08:05:32.436Z',
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
   level: 'error',
   timestamp: '2023-07-04T06:28:14.481Z',
+=======
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-06-20T11:23:28.872Z',
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
   level: 'error',
   timestamp: '2023-07-04T06:28:14.486Z',
+=======
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-06-20T11:29:08.752Z',
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
   level: 'error',
   timestamp: '2023-07-04T06:35:27.835Z',
+=======
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:22:43.026Z',
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
   level: 'error',
   timestamp: '2023-07-04T06:35:27.847Z',
@@ -1524,3 +2090,872 @@
   metadata: {}
 }
 >>>>>>> 7f15796553e6c492db0d612bdc9f6a410b4c4cbe
+=======
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:22:43.165Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:22:47.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:25:13.285Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:27:57.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:29:23.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:45:12.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:47:20.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:48:30.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:49:55.795Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:50:53.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:51:40.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: ValidationError: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:52:50.882Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T03:58:06.444Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:01:11.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:01:37.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:03:39.432Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:04:27.067Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:08:23.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:09:08.422Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:10:34.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:14:39.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:23:39.957Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:23:57.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:53:49.166Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:55:56.690Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:56:13.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:56:50.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T04:57:09.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T04:57:13.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:02:15.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:07:56.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:08:29.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T05:09:15.863Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:09:31.018Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:24:47.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:27:38.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:30:18.180Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:30:18.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:35:57.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:38:21.747Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T05:42:05.951Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T09:16:17.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:16:49.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:18:03.466Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:20:29.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T09:21:21.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:22:05.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:23:10.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:24:23.240Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:26:41.329Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:27:53.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:29:48.819Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:30:42.703Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T09:35:32.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:00:51.851Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:01:16.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:02:33.830Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:02:58.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:03:13.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:05:46.666Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T10:07:45.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T10:44:36.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T10:45:26.072Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:45:58.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:51:41.603Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:55:22.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:58:16.850Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:58:44.945Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T10:59:15.817Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T10:59:57.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T11:26:11.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T11:27:30.854Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T13:46:54.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T13:48:28.085Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T15:40:45.071Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T15:41:02.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T15:41:03.391Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:50:41.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:52:48.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:53:55.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:55:21.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:55:22.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:56:02.253Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T16:58:11.479Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-21T17:01:37.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:01:46.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:01:47.171Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:01:59.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:02:37.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:03:29.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:03:50.675Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:04:36.542Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:06:22.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:08:20.771Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:14:33.331Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:30:47.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:44:45.509Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
+  level: 'error',
+  timestamp: '2023-06-21T17:46:43.844Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:03:25.991Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:06:24.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:09:32.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:14:50.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:17:55.947Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:19:08.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'name')",
+  level: 'error',
+  timestamp: '2023-06-23T13:26:11.152Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: Таблица не готова',
+  level: 'error',
+  timestamp: '2023-06-23T13:27:24.863Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-06-23T13:29:17.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:42:57.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:43:49.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:46:31.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:48:11.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:50:01.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:53:33.930Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.a_test_tables index: name_1 dup key: { name: "Udevs" }',
+  level: 'error',
+  timestamp: '2023-06-23T13:54:28.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-06-27T07:10:53.689Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+>>>>>>> origin/feature/custom_error
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-07-05T10:10:25.531Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2023-07-05T12:37:12.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-06T05:09:50.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-06T05:10:53.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 50477155dc902220f94c2846b56a2ecd8e1ecc6f

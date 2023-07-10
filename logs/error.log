@@ -1497,3 +1497,66 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:22:27.322Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:27:51.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:28:59.798Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:31:24.349Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:33:07.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:58:13.956Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:59:20.985Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T13:00:21.407Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T13:01:28.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

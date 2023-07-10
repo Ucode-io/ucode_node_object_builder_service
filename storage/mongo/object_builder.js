@@ -17,11 +17,8 @@ var { addMonths, addDays, addYears } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
 
 const RangeDate = require("../../helper/rangeDate");
-const generators = require("../../helper/generator")
 const ObjectBuilder = require("../../models/object_builder");
 const FormulaFunction = require("../../helper/calculateFormulaFields");
-
-const { exists } = require("../../models/table");
 
 
 const mongoPool = require('../../pkg/pool');

@@ -179,7 +179,7 @@ let prepareFunction = {
                     table_id: tableData.id,
                     password: data[authInfo['password']],
                 }
-                const responseFromAuth = await grpcClient.syncUserWithAuth(authCheckRequest)
+                const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
                 ownGuid = responseFromAuth.user_id
             }
         }

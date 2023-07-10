@@ -28298,3 +28298,1322 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T11:51:22.383Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T11:51:22.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T11:51:22.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T11:51:22.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T11:51:23.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T11:51:59.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-10T11:51:59.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "df2afe09-c4bf-452c-8eb8-9d7aa2a1013a",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T11:53:38.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "df2afe09-c4bf-452c-8eb8-9d7aa2a1013a",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T11:53:38.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T11:53:38.391Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-07-10T11:53:38.391Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "df2afe09-c4bf-452c-8eb8-9d7aa2a1013a",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T11:53:54.993Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "df2afe09-c4bf-452c-8eb8-9d7aa2a1013a",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T11:53:54.994Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T11:53:55.551Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-07-10T11:53:55.553Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T11:55:27.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T11:55:27.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T11:55:27.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T11:55:27.754Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T11:55:28.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T11:56:03.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-10T11:56:03.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:22:27 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T12:22:27.135Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:22:27 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:22:27.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:22:27.322Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T12:26:51.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T12:26:51.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:26:51.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T12:26:51.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T12:26:52.135Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T12:27:30.854Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-10T12:27:30.856Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:27:50 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T12:27:50.918Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:27:50 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:27:50.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:27:51.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T12:28:20.622Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T12:28:20.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:28:20.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T12:28:20.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T12:28:21.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T12:28:52.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-10T12:28:52.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:28:59 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T12:28:59.625Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:28:59 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:28:59.626Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:28:59.798Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T12:30:48.588Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T12:30:48.590Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:30:48.590Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T12:30:48.590Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T12:30:49.131Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T12:31:20.355Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-10T12:31:20.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:31:24 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T12:31:24.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:31:24 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:31:24.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:31:24.349Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:33:07 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T12:33:07.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:33:07 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:33:07.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:33:07.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:08.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:08.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:35:08.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T12:35:08.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:09.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:10.603Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:10.605Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:35:10.605Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T12:35:10.605Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:11.161Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:12.877Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:12.878Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:35:12.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T12:35:12.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:13.378Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:14.873Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:14.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:35:14.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T12:35:14.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:15.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T12:35:52.333Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-10T12:35:52.333Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:58:13 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T12:58:13.789Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:58:13 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:58:13.791Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:58:13.956Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T12:58:42.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T12:58:42.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:58:42.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T12:58:42.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T12:58:43.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T12:59:15.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-10T12:59:15.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:59:20 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T12:59:20.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 17:59:20 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T12:59:20.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:59:20.985Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 18:00:21 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T13:00:21.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 18:00:21 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T13:00:21.236Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T13:00:21.407Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T13:00:44.570Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T13:00:44.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T13:00:44.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T13:00:44.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T13:00:45.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T13:01:24.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-10T13:01:24.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 18:01:28 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T13:01:28.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "\\n\\tauth_info\\u0012}*{\\n\\u001a\\n\\u000eclient_type_id\\u0012\\b\\u001a\\u0006status\\n\\u0011\\n\\u0005email\\u0012\\b\\u001a\\u0006status\\n\\u0010\\n\\u0005login\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\bpassword\\u0012\\u0006\\u001a\\u0004guid\\n\\u0010\\n\\u0005phone\\u0012\\u0007\\u001a\\u0005title\\n\\u0012\\n\\u0007role_id\\u0012\\u0007\\u001a\\u0005price",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 18:01:28 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": true,\n' +
+    '  "soft_delete": true,\n' +
+    '  "is_login_table": false,\n' +
+    '  "attributes": null\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T13:01:28.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T13:01:28.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

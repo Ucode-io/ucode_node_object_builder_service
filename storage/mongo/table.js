@@ -84,7 +84,9 @@ let tableStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const TableHistory = mongoConn.models['Table.history']
+            console.log("data::", data);
 
+            data.id && console.log("aaaA::::", data.id);
             data.is_changed = true
 
             let del_payload = { id: data.id, version_ids: [] }
@@ -93,6 +95,7 @@ let tableStore = {
             })
             console.log("aaa:", tableBeforeUpdate);
             const table = await Table.create(data)
+            console.log("table:", table);
             if (table) {
                 let payload = {}
 
@@ -151,6 +154,7 @@ let tableStore = {
                 id: req.id,
                 deleted_at: "1970-01-01T18:00:00.000+00:00",
             });
+            console.log("table found", table);
 
             return table;
         } catch (err) {

@@ -40,12 +40,12 @@ const SyncUserWithAuthService = () => {
     return new sync_user_with_auth_service.SyncUserWithAuthService(`${authServiceHost}${authServicePort}`, grpc.credentials.createInsecure());
 };
 
-const syncUserWithAuth = async (data) => {
+const autoConn = async (k8s_namespace) => {
     return new Promise((resolve, reject) => {
-        SyncUserWithAuthService().SyncUserWithAuth(data, (err, res) => {
+        ResourceService().AutoConnect({k8s_namespace: k8s_namespace}, (err, res) => {
             if (err) {
-                logger.error("Error synchronize user with auth service", {
-                    function: "syncUserWithAuth",
+                logger.error("Error while auto connecting", {
+                    function: "autoConn",
                     error: err
                 });
                 console.log("err: ", err)
@@ -58,4 +58,41 @@ const syncUserWithAuth = async (data) => {
     });
 };
 
-module.exports = { autoConn, syncUserWithAuth };
+
+const createUserAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserWithAuthService().CreateUser(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize user with auth service", {
+                    function: "createUserAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+
+const updateUserAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserWithAuthService().UpdateteUser(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize user with auth service", {
+                    function: "updateUserAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+
+module.exports = { autoConn, createUserAuth, updateUserAuth };

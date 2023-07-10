@@ -96,6 +96,8 @@ let tableStore = {
                 throw Error("This table is system table, you can't change table")
             }
 
+            console.log("Data:", data.id);
+            console.log("Data   asadad:", data);
             let tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id,
             })

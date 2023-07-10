@@ -10622,6 +10622,7 @@
   metadata: {}
 }
 >>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
+<<<<<<< HEAD
 =======
 >>>>>>> 7ceaea63bccfd3e83a6b9a65d5315f7980fa5de9
   message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
@@ -10633,10 +10634,17 @@
   level: 'error',
   timestamp: '2023-07-04T06:27:50.243Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+{
+  message: 'service.table.update: failed with error: Table validation failed: label: Table must have label',
+  level: 'error',
+  timestamp: '2023-07-05T08:58:27.339Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   message: "service.layout.update: failed with error: Cannot read properties of undefined (reading 'project_id')",
@@ -10646,10 +10654,16 @@
   message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-20T05:11:29.022Z',
+=======
+  message: 'service.table.update: failed with error: Table validation failed: label: Table must have label',
+  level: 'error',
+  timestamp: '2023-07-05T09:00:05.288Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-20T05:11:29.025Z',
@@ -10658,10 +10672,16 @@
   level: 'error',
   timestamp: '2023-07-04T06:27:50.277Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+  message: "service.table.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-05T09:01:36.194Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
   level: 'error',
 <<<<<<< HEAD
@@ -11664,3 +11684,11 @@
   metadata: {}
 >>>>>>> c031e29e4638fe6b2a6f5c943141db5a66948f5b
 }
+=======
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-07-05T09:07:08.973Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11

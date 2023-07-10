@@ -70638,15 +70638,23 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:13:04.575Z',
+=======
+  timestamp: '2023-07-05T06:08:42.861Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:13:04.577Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+  timestamp: '2023-07-05T06:08:42.865Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
@@ -70664,10 +70672,14 @@
   level: 'debug',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-06-26T09:55:49.801Z',
 =======
   timestamp: '2023-07-04T06:13:04.577Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+  timestamp: '2023-07-05T06:08:42.867Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
@@ -70675,10 +70687,14 @@
   message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'debug',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-06-26T09:55:49.801Z',
 =======
   timestamp: '2023-07-04T06:13:04.577Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+  timestamp: '2023-07-05T06:08:42.868Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
@@ -70686,10 +70702,14 @@
   message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-06-26T09:55:50.359Z',
 =======
   timestamp: '2023-07-04T06:13:05.010Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+  timestamp: '2023-07-05T06:08:43.454Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
@@ -70697,10 +70717,14 @@
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-06-26T09:56:23.612Z',
 =======
   timestamp: '2023-07-04T06:13:30.726Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+  timestamp: '2023-07-05T06:09:12.398Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
@@ -70708,14 +70732,19 @@
   message: 'autoconnected successfully done!!!',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-06-26T09:56:23.615Z',
 =======
   timestamp: '2023-07-04T06:13:30.727Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+  timestamp: '2023-07-05T06:09:12.398Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.layout.getAll: requested - {\n' +
     '  "table_slug": "a_test_table",\n' +
@@ -70736,10 +70765,53 @@
     '}',
   level: 'info',
   timestamp: '2023-07-04T06:16:56.808Z',
+=======
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6",\n' +
+    '  "label": "",\n' +
+    '  "description": "a_test_table_1",\n' +
+    '  "slug": "a_test_table",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-book.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Wed, 05 Jul 2023 13:58:26 +05",\n' +
+    '  "is_cached": true,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "client_type_id",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T08:58:27.018Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.app.getAll: requested, {\n' +
     '  "offset": 0,\n' +
     '  "limit": 100,\n' +
@@ -70749,10 +70821,53 @@
     '}',
   level: 'debug',
   timestamp: '2023-07-04T06:16:56.810Z',
+=======
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "bad04ff9-de8f-404f-a2e1-ad15dbba35c6",\n' +
+    '  "label": "",\n' +
+    '  "description": "a_test_table_1",\n' +
+    '  "slug": "a_test_table",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-book.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Wed, 05 Jul 2023 13:58:26 +05",\n' +
+    '  "is_cached": true,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "client_type_id",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T08:58:27.023Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.app.getAll: succeeded',
   level: 'debug',
   timestamp: '2023-07-04T06:16:56.945Z',
@@ -70798,10 +70913,16 @@
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
   level: 'error',
   timestamp: '2023-07-04T06:17:08.511Z',
+=======
+  message: 'service.table.update: failed with error: Table validation failed: label: Table must have label',
+  level: 'error',
+  timestamp: '2023-07-05T08:58:27.339Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.menu.getAll: requested - {\n' +
     '  "offset": 0,\n' +
     '  "limit": 100,\n' +
@@ -70812,10 +70933,53 @@
     '}',
   level: 'info',
   timestamp: '2023-07-04T06:17:08.774Z',
+=======
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "c715f975-810a-4436-9356-23e4b9790277",\n' +
+    '  "label": "",\n' +
+    '  "description": "Product 123w",\n' +
+    '  "slug": "product",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "diagram-project.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "ddddb48b-51d7-46cd-86c1-c0682d1c8962",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Wed, 05 Jul 2023 14:00:05 +05",\n' +
+    '  "is_cached": true,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "client_type_id",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T09:00:05.213Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.menu.getAll: requested, {\n' +
     '  "offset": 0,\n' +
     '  "limit": 100,\n' +
@@ -70826,27 +70990,178 @@
     '}',
   level: 'debug',
   timestamp: '2023-07-04T06:17:08.774Z',
+=======
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "c715f975-810a-4436-9356-23e4b9790277",\n' +
+    '  "label": "",\n' +
+    '  "description": "Product 123w",\n' +
+    '  "slug": "product",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "diagram-project.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "ddddb48b-51d7-46cd-86c1-c0682d1c8962",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Wed, 05 Jul 2023 14:00:05 +05",\n' +
+    '  "is_cached": true,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "client_type_id",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T09:00:05.214Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
   level: 'error',
   timestamp: '2023-07-04T06:17:08.774Z',
+=======
+  message: 'service.table.update: failed with error: Table validation failed: label: Table must have label',
+  level: 'error',
+  timestamp: '2023-07-05T09:00:05.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "c715f975-810a-4436-9356-23e4b9790277",\n' +
+    '  "label": "Product",\n' +
+    '  "description": "Product 123w",\n' +
+    '  "slug": "product",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "diagram-project.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "ddddb48b-51d7-46cd-86c1-c0682d1c8962",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Wed, 05 Jul 2023 14:01:35 +05",\n' +
+    '  "is_cached": true,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "client_type_id",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T09:01:35.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "c715f975-810a-4436-9356-23e4b9790277",\n' +
+    '  "label": "Product",\n' +
+    '  "description": "Product 123w",\n' +
+    '  "slug": "product",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "diagram-project.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "ddddb48b-51d7-46cd-86c1-c0682d1c8962",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Wed, 05 Jul 2023 14:01:35 +05",\n' +
+    '  "is_cached": true,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "client_type_id",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T09:01:35.871Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.table.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-05T09:01:36.194Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:20:48.437Z',
+=======
+  timestamp: '2023-07-05T09:06:24.674Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:20:48.439Z',
+=======
+  timestamp: '2023-07-05T09:06:24.677Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
@@ -70862,20 +71177,29 @@
     '  }\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:20:48.439Z',
+=======
+  timestamp: '2023-07-05T09:06:24.678Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:20:48.439Z',
+=======
+  timestamp: '2023-07-05T09:06:24.678Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:20:48.872Z',
   label: 'object_builder_service',
   metadata: {}
@@ -71001,24 +71325,36 @@
   message: 'service.menu.getAll: succeeded',
   level: 'info',
   timestamp: '2023-07-04T06:21:08.561Z',
+=======
+  timestamp: '2023-07-05T09:06:25.224Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:21:14.310Z',
+=======
+  timestamp: '2023-07-05T09:06:56.228Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:21:14.311Z',
+=======
+  timestamp: '2023-07-05T09:06:56.230Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.menu.getAll: requested - {\n' +
     '  "offset": 0,\n' +
     '  "limit": 100,\n' +
@@ -71029,10 +71365,53 @@
     '}',
   level: 'info',
   timestamp: '2023-07-04T06:21:25.067Z',
+=======
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "c715f975-810a-4436-9356-23e4b9790277",\n' +
+    '  "label": "Product",\n' +
+    '  "description": "Product 123w",\n' +
+    '  "slug": "product",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "diagram-project.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "ddddb48b-51d7-46cd-86c1-c0682d1c8962",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Wed, 05 Jul 2023 14:06:58 +05",\n' +
+    '  "is_cached": true,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "client_type_id",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T09:06:58.522Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.menu.getAll: requested, {\n' +
     '  "offset": 0,\n' +
     '  "limit": 100,\n' +
@@ -71043,17 +71422,66 @@
     '}',
   level: 'debug',
   timestamp: '2023-07-04T06:21:25.068Z',
+=======
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "c715f975-810a-4436-9356-23e4b9790277",\n' +
+    '  "label": "Product",\n' +
+    '  "description": "Product 123w",\n' +
+    '  "slug": "product",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "diagram-project.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "ddddb48b-51d7-46cd-86c1-c0682d1c8962",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Wed, 05 Jul 2023 14:06:58 +05",\n' +
+    '  "is_cached": true,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "client_type_id",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T09:06:58.523Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.menu.getAll: succeeded',
   level: 'debug',
   timestamp: '2023-07-04T06:21:25.208Z',
+=======
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-07-05T09:07:08.973Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.menu.getAll: succeeded',
   level: 'info',
   timestamp: '2023-07-04T06:21:25.208Z',
@@ -71277,10 +71705,23 @@
     '}',
   level: 'info',
   timestamp: '2023-07-04T06:21:54.786Z',
+=======
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "c715f975-810a-4436-9356-23e4b9790277",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T09:07:32.243Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.table.getAll: requested, {\n' +
     '  "offset": 0,\n' +
     '  "limit": 100,\n' +
@@ -80390,22 +80831,343 @@
     '}',
   level: 'debug',
   timestamp: '2023-07-07T05:48:49.909Z',
+=======
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "c715f975-810a-4436-9356-23e4b9790277",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T09:07:32.244Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
   level: 'debug',
   timestamp: '2023-07-07T05:48:49.910Z',
+=======
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T09:07:32.512Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
   level: 'info',
   timestamp: '2023-07-07T05:48:50.464Z',
 =======
 >>>>>>> 7f15796553e6c492db0d612bdc9f6a410b4c4cbe
+=======
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T09:07:32.513Z',
+>>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T13:13:30.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T13:13:30.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T13:13:30.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T13:13:30.216Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "autoconnecting to resources failed: Error: Unexpected token '<<'",
+  level: 'info',
+  timestamp: '2023-07-10T13:13:30.230Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T13:13:30.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-10T13:14:32.075Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-10T13:14:32.077Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T13:14:32.078Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-10T13:14:32.078Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-10T13:14:32.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T13:15:12.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-10T13:15:12.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: requested - {\n' +
+    '  "id": "df2afe09-c4bf-452c-8eb8-9d7aa2a1013a",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 18:15:46 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "soft_delete": false,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "role_id": {\n' +
+    '              "stringValue": "price",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "status",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "email": {\n' +
+    '              "stringValue": "status",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "login": {\n' +
+    '              "stringValue": "title",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "password": {\n' +
+    '              "stringValue": "guid",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "phone": {\n' +
+    '              "stringValue": "title",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T13:15:46.280Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: requested, {\n' +
+    '  "id": "df2afe09-c4bf-452c-8eb8-9d7aa2a1013a",\n' +
+    '  "label": "b_test_folder",\n' +
+    '  "description": "b_test_folder",\n' +
+    '  "slug": "b_test_folder",\n' +
+    '  "show_in_menu": true,\n' +
+    '  "icon": "address-card.svg",\n' +
+    '  "subtitle_field_slug": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "is_own_table": false,\n' +
+    '  "increment_id": {\n' +
+    '    "with_increment_id": false,\n' +
+    '    "digit_number": 0,\n' +
+    '    "prefix": ""\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",\n' +
+    '  "author_id": "9d6c33f8-45d8-4f5e-a3e6-d9f28dba8cd1",\n' +
+    '  "commit_type": "TABLE",\n' +
+    '  "name": "Auto Created Commit Update table - Mon, 10 Jul 2023 18:15:46 +05",\n' +
+    '  "is_cached": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "soft_delete": false,\n' +
+    '  "is_login_table": true,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "auth_info": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "role_id": {\n' +
+    '              "stringValue": "price",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "client_type_id": {\n' +
+    '              "stringValue": "status",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "email": {\n' +
+    '              "stringValue": "status",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "login": {\n' +
+    '              "stringValue": "title",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "password": {\n' +
+    '              "stringValue": "guid",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "phone": {\n' +
+    '              "stringValue": "title",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T13:15:46.281Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T13:16:16.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.update: succeeded',
+  level: 'info',
+  timestamp: '2023-07-10T13:16:16.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: requested - {\n' +
+    '  "id": "df2afe09-c4bf-452c-8eb8-9d7aa2a1013a",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-10T13:24:44.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: requested, {\n' +
+    '  "id": "df2afe09-c4bf-452c-8eb8-9d7aa2a1013a",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-10T13:24:44.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.table.getById: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-10T13:24:44.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-07-10T13:24:44.877Z',
   label: 'object_builder_service',
   metadata: {}
 }

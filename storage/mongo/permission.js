@@ -245,7 +245,8 @@ let permission = {
     }),
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
         // return { project_id: "okok", data: {} }
-
+        let start = new Date()
+        console.log(">>>>> permission with role ", new Date())
         const mongoConn = await mongoPool.get(req.project_id)
         const App = mongoConn.models['App']
         const Role = (await ObjectBuilder(true, req.project_id))['role'].models
@@ -262,7 +263,7 @@ let permission = {
             null,
             { sort: { createdAt: -1 } }
         )
-
+        console.log(">>>>>>>> test #1 ", new Date())
         if (!role) {
             console.log('WARNING role not found')
             throw new Error('Error role not found')
@@ -290,10 +291,99 @@ let permission = {
             match: { 'record_permissions.role_id': req.role_id },
         });
 
+        console.log(">>>>>>>> test #2 ", new Date())
+
         if (!tables || !tables.length) {
             console.log('WARNING apps not found')
             return roleCopy
         }
+        let testPipeline = [
+            {
+              $group: {
+                _id: '$table_id',
+                fields: { $push: '$$ROOT' }
+              }
+            },
+            {
+              $lookup: {
+                from: 'field_permissions',
+                let: { field_ids: '$fields.id' },
+                pipeline: [
+                  {
+                    $match: {
+                      $expr: {
+                        $and: [
+                          { $in: ['$field_id', '$$field_ids'] },
+                          { $eq: ['$role_id', req.role_id] } 
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    $project: {
+                      _id: 0,
+                      field_id: 1,
+                      table_slug: 1,
+                      view_permission: 1,
+                      edit_permission: 1,
+                      label: 1
+                    }
+                  }
+                ],
+                as: 'field_permissions'
+              }
+            },
+            {
+              $addFields: {
+                fields: {
+                  $map: {
+                    input: '$fields',
+                    as: 'field',
+                    in: {
+                      $mergeObjects: [
+                        '$$field',
+                        {
+                          field_permissions: {
+                            $filter: {
+                              input: '$field_permissions',
+                              as: 'fp',
+                              cond: {
+                                $eq: ['$$field.id', '$$fp.field_id']
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            {
+              $addFields: {
+                fields: {
+                  $map: {
+                    input: '$fields',
+                    as: 'field',
+                    in: {
+                      $cond: [
+                        { $ne: [{ $size: '$$field.field_permissions' }, 0] },
+                        '$$field',
+                        { $mergeObjects: ['$$field', { field_permissions: [] }] }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            {
+              $project: {
+                _id: 0,
+                table_id: '$_id',
+                fields: 1
+              }
+            }
+        ]
         const getListFieldPermisssions = [
             {
                 '$lookup': {
@@ -560,17 +650,25 @@ let permission = {
             }
         ]
 
-        let fieldsOfTables = await Field.aggregate(getListFieldPermisssions)
-        let fields = fieldsOfTables[0]
+        // let fieldsOfTables = await Field.aggregate(getListFieldPermisssions)
+        // let fields = fieldsOfTables[0]
+        // console.log(">>>>>>>> test #3 ", new Date())
 
+        let newFieldOfTables = await Field.aggregate(testPipeline)
+        let fields = {}
+        newFieldOfTables.forEach(el => {
+            fields[el.table_id] = el.fields
+        })
+        console.log(">>>>>>>> test #3.1 ", new Date())
         let viewPermissions = await ViewRelation.aggregate(getListViewRelationPermissions)
         let viewPermission = viewPermissions[0]
-
+        console.log(">>>>>>>> test #4 ", new Date())
         let actionPermissions = await CustomEvent.aggregate(getListActionPermissions)
         let actionPermission = actionPermissions[0]
-
+        console.log(">>>>>>>> test #5 ", new Date())
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
+        console.log(">>>>>>>> test #6 ", new Date())
 
 
 
@@ -611,9 +709,10 @@ let permission = {
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
-                if (field.field_permissions) {
+                if (field.field_permissions && field.field_permissions.length) {
+                    let obj = field.field_permissions[0]
                     tableCopy.field_permissions.push({
-                        ...field.field_permissions,
+                        ...obj,
                         label: field.label,
                     })
                 } else {
@@ -643,12 +742,13 @@ let permission = {
             }
             tablesList.push(tableCopy)
         }
-
+        console.log(">>>>>>>> test #7 ", new Date())
         // appCopy.tables = tablesList
         // appsList.push(appCopy)
+        let end =  new Date()
         console.log("tablesList length:::", tablesList.length);
         roleCopy.tables = tablesList
-        console.log('role copy::', roleCopy.tables);
+        console.log("\n\n time ", start, "\n", end, "\n", end - start)
         return { project_id: req.project_id, data: roleCopy }
 
     }),

@@ -668,7 +668,7 @@ let permission = {
         console.log(">>>>>>>> test #5 ", new Date())
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
-        console.log(">>>>>>>> test #6 ", new Date())
+        console.log(">>>>>>>> test #6", new Date())
 
 
 

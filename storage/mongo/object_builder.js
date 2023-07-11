@@ -1851,7 +1851,7 @@ let objectBuilder = {
     }),
     deleteManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteManyToMany`, async (data) => {
         try {
-            const mongoConn = await mongoPool.get(req.project_id)
+            const mongoConn = await mongoPool.get(data.project_id)
 
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
             if (!fromTableModel) {
@@ -1907,7 +1907,7 @@ let objectBuilder = {
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
         try {
 
-            const mongoConn = await mongoPool.get(req.project_id)
+            const mongoConn = await mongoPool.get(data.project_id)
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
             if (!fromTableModel) {
                 throw new Error("table not found")

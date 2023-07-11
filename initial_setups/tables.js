@@ -176,7 +176,7 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-    },{
+    }, {
         "label": "Шаблон",
         "slug": "template",
         "description": "Шаблоны",
@@ -189,7 +189,7 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-      },{
+    }, {
         "label": "Врачи",
         "slug": "doctors",
         "description": "Специалисты",
@@ -204,7 +204,7 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-      },{
+    }, {
         "label": "Файл",
         "slug": "file",
         "description": "Файлы",
@@ -217,7 +217,43 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-      }]
+    }, {
+        "id": "c2f225b6-b6d9-4201-aa25-e648a4c1ff29",
+        "label": "Custom Error",
+        "slug": "object_builder.custom_error",
+        "description": "Custom Error",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "is_system": true,
+        "icon": "bear-toy.svg",
+        "subtitle_field_slug": "",
+        "folder_id": "96ed7568-e086-48db-92b5-658450cbd4a8",
+        "is_cached": false,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "commit_guid": "277404a5-83ac-4a5c-8f4b-c38d10b1796b"
+    }, {
+        "id": "eca81c06-c4fc-4242-8dc9-ecca575e1762",
+        "slug": "user_login_table",
+        "label": "User Login Table",
+        "description": "User Login Table",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "chalkboard-user.svg",
+        "subtitle_field_slug": "",
+        "folder_id": "",
+        "is_cached": false,
+        "is_system": false,
+        "soft_delete": false,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "is_system": true,
+        "__v": 0,
+        "commit_guid": "58e790aa-06a2-4a11-ae4f-0ff7cf2f8b0b"
+    }]
 
     return tables;
 }

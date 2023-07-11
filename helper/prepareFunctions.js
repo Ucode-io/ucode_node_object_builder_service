@@ -23,8 +23,10 @@ let prepareFunction = {
         }
         console.log("project id::", req.project_id);
         // console.log("project id::", data);
-        const allTableInfos = (await ObjectBuilder(true, req.project_id))
-        const tableInfo = allTableInfos[req.table_slug]
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
         let tableData = await table.findOne(
             {
                 slug: req.table_slug
@@ -50,7 +52,7 @@ let prepareFunction = {
             if (relation) {
                 const field = await Field.findOne({
                     relation_id: relation.id,
-                    table_id: tableData.id
+                    table_id: tableData?.id
                 })
                 if (!data[field?.slug]) {
                     data[field?.slug] = data.object_id
@@ -59,7 +61,7 @@ let prepareFunction = {
         }
 
         let randomNumbers = await Field.findOne({
-            table_id: tableData.id,
+            table_id: tableData?.id,
             type: "RANDOM_NUMBERS"
         })
 
@@ -81,7 +83,7 @@ let prepareFunction = {
 
 
         let incrementField = await Field.findOne({
-            table_id: tableData.id,
+            table_id: tableData?.id,
             type: "INCREMENT_ID"
         })
         if (incrementField) {
@@ -97,7 +99,7 @@ let prepareFunction = {
         }
 
         let incrementNum = await Field.findOne({
-            table_id: tableData.id,
+            table_id: tableData?.id,
             type: "INCREMENT_NUMBER"
         })
         if (incrementNum) {
@@ -194,7 +196,7 @@ let prepareFunction = {
         }
         let fields = await Field.find(
             {
-                table_id: tableData.id
+                table_id: tableData?.id
             }
         )
 
@@ -254,6 +256,9 @@ let prepareFunction = {
             data.guid = data.auth_guid
         }
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
         const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
         let event = {}
         let field_types = {}

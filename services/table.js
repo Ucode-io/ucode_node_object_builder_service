@@ -10,6 +10,7 @@ const sendMessageToTopic = require("../config/kafka");
 const converter = require("../helper/converter");
 const cfg = require('../config/index');
 const layoutStore = require("../storage/mongo/layout");
+const customErrorMessageStore = require("../storage/mongo/custom_error_message");
 
 const NAMESPACE = `services.table`;
 
@@ -28,6 +29,9 @@ const tableService = {
 
             const sectionResp = await layoutStore.createAll(call.request);
             console.log("it is createAllsections response", sectionResp)
+
+            const customErrMsgResp = await customErrorMessageStore.createAll(call.request)
+            console.log("it is createAllCustomErrorMessage response", customErrMsgResp)
 
             let viewData = {}
             viewData.table_slug = call.request.slug

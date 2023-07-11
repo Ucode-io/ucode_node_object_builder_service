@@ -168,20 +168,25 @@ let prepareFunction = {
                 ) {
                     throw new Error('This table is auth table. Auth information not fully given')
                 }
-                let authCheckRequest = {
-                    client_type_id: data['client_type_id'],
-                    role_id: data['role_id'],
-                    login: data[authInfo['login']],
-                    email: data[authInfo['email']],
-                    phone: data[authInfo['phone']],
-                    project_id: data['company_service_project_id'],
-                    company_id: data['company_service_company_id'],
-                    table_slug: tableData.slug,
-                    password: data[authInfo['password']],
-                    resource_environment_id: req.project_id
+                let loginTable = await allTableInfos['user_login_table']?.models?.findOne({
+                    client_type_id: data[authInfo['client_type_id']],
+                    table_id: tableData.id
+                })
+                if (loginTable) {
+                    let authCheckRequest = {
+                        client_type_id: data['client_type_id'],
+                        role_id: data['role_id'],
+                        login: data[authInfo['login']],
+                        email: data[authInfo['email']],
+                        phone: data[authInfo['phone']],
+                        project_id: data['company_service_project_id'],
+                        company_id: data['company_service_company_id'],
+                        password: data[authInfo['password']],
+                        resource_environment_id: req.project_id
+                    }
+                    const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
+                    ownGuid = responseFromAuth.user_id
                 }
-                const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
-                ownGuid = responseFromAuth.user_id
             }
         }
         if (ownGuid) {

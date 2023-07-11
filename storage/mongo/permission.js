@@ -252,6 +252,7 @@ let permission = {
         const Role = (await ObjectBuilder(true, req.project_id))['role'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const Field = mongoConn.models['Field']
+        const FieldPermission = mongoConn.models['field_permission']
         const ViewRelation = mongoConn.models['ViewRelation']
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
@@ -282,22 +283,20 @@ let permission = {
                 _id: 0,
                 created_at: 0,
                 updated_at: 0,
-            },
-            {
-                sort: { created_at: -1 }
             }
         ).populate({
             path: 'record_permissions',
             match: { 'record_permissions.role_id': req.role_id },
-        });
+        }).lean()
 
         console.log(">>>>>>>> test #2 ", new Date())
 
         if (!tables || !tables.length) {
             console.log('WARNING apps not found')
             return roleCopy
-        }
-        let testPipeline = [
+        }    
+
+        const testPipeline = [
             {
               $group: {
                 _id: '$table_id',
@@ -653,13 +652,25 @@ let permission = {
         // let fieldsOfTables = await Field.aggregate(getListFieldPermisssions)
         // let fields = fieldsOfTables[0]
         // console.log(">>>>>>>> test #3 ", new Date())
-
-        let newFieldOfTables = await Field.aggregate(testPipeline)
-        let fields = {}
-        newFieldOfTables.forEach(el => {
-            fields[el.table_id] = el.fields
+        let testFieldResp = await Field.find().populate({
+            path: 'field_permissions',
+            match: {'field_permissions.role_id': req.role_id}
         })
-        console.log(">>>>>>>> test #3.1 ", new Date())
+        let fields = {}
+        testFieldResp.forEach(el => {
+            if (!fields[el.table_id]) {
+                fields[el.table_id] = [el]
+            } else {
+                fields[el.table_id].push(el)
+            }
+        })
+
+        // let newFieldOfTables = await Field.aggregate(testPipeline)
+        // let fields = {}
+        // newFieldOfTables.forEach(el => {
+        //     fields[el.table_id] = el.fields
+        // })
+        console.log(">>>>>>>> test #3 ", new Date())
         let viewPermissions = await ViewRelation.aggregate(getListViewRelationPermissions)
         let viewPermission = viewPermissions[0]
         console.log(">>>>>>>> test #4 ", new Date())
@@ -690,7 +701,7 @@ let permission = {
 
         for (let table of tables) {
             let tableCopy = {
-                ...table._doc,
+                ...table,
                 record_permissions: table.record_permissions || null
             }
             if (!tableCopy.record_permissions) {
@@ -709,10 +720,14 @@ let permission = {
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
-                if (field.field_permissions && field.field_permissions.length) {
-                    let obj = field.field_permissions[0]
+                if (field.field_permissions) {
+                    const temp = field.field_permissions
                     tableCopy.field_permissions.push({
-                        ...obj,
+                        field_id: field.id,
+                        table_slug: table.slug,
+                        view_permission: temp.view_permission,
+                        edit_permission: temp.edit_permission,
+                        role_id: req.role_id,
                         label: field.label,
                     })
                 } else {

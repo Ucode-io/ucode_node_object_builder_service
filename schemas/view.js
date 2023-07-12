@@ -103,6 +103,10 @@ const ViewSchema = mongoose.Schema(
         },
         navigate: {
             type: mongoose.Schema.Types.Mixed
+        },
+        order: {
+            type: Number,
+            default: 0
         }
         // commit_id: {
         //     type: Number,

@@ -386,12 +386,12 @@ async function buildModels(is_build = true, project_id) {
         // console.log("TEST:::::::::::9", fieldObject)
         let temp = mongoose.Schema(
             {
-            ...fieldObject,
-                createdAt: {type: Date, select: false},
-                updatedAt: {type: Date, select: false},
-                created_at: {type: Date, select: false},
-                updated_at: {type: Date, select: false},
-                deleted_at: {type: Date, select: false}
+                ...fieldObject,
+                createdAt: { type: Date, select: false },
+                updatedAt: { type: Date, select: false },
+                created_at: { type: Date, select: false },
+                updated_at: { type: Date, select: false },
+                deleted_at: { type: Date, select: false }
             },
             {
                 timestamps: true,
@@ -492,7 +492,9 @@ async function buildModels(is_build = true, project_id) {
                 updated_at: 0,
                 _id: 0,
                 __v: 0,
-            }).lean()
+            }, {
+            sort: { order: 1 }
+        }).lean()
         // console.log("TEST:::::::::::12")
         tempArray.push({ field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex });
     }

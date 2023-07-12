@@ -111,11 +111,18 @@ let viewStore = {
                 {
                     table_slug: data.table_slug,
                 },
-                null,
                 {
-                    sort: { created_at: -1 }
+                    created_at: 0,
+                    updated_at: 0,
+                    createdAt: 0,
+                    updatedAt: 0,
+                    _id: 0,
+                    __v: 0
+                },
+                {
+                    sort: { order: 1 }
                 }
-            );
+            ).lean();
             views.forEach(el => {
                 if (el.attributes) {
                     el.attributes = struct.encode(el)
@@ -145,7 +152,7 @@ let viewStore = {
                     created_at: 0,
                     updated_at: 0,
                     __v: 0
-            });
+                });
             if (view.attributes) {
                 view.attributes = struct.encode(view.attributes)
             }
@@ -196,119 +203,119 @@ let viewStore = {
             const object_builder = await ObjectBuilder(true, data.project_id)
 
             console.log("TEST:::::::::::::1")
-        let filename = "document_" +  Math.floor(Date.now() / 1000) + ".pdf"
-        link = "https://" + cfg.minioEndpoint + "/docs/" + filename
-        console.log("minio_endpoint:::::::", cfg.minioEndpoint)
+            let filename = "document_" + Math.floor(Date.now() / 1000) + ".pdf"
+            link = "https://" + cfg.minioEndpoint + "/docs/" + filename
+            console.log("minio_endpoint:::::::", cfg.minioEndpoint)
 
-        var html = data.html
-        let patientIdField;
-        let output;
-        console.log("TEST:::::::::::::2")
-        if (decodedData.linked_table_slug && decodedData.linked_object_id) {
-            data.html = data.html.replaceAll('[??', '{')
-            data.html = data.html.replaceAll('??]', '}')
-            data.html = data.html.replaceAll('&lt;', '<')
-            data.html = data.html.replaceAll('&gt;', '>')
-            data.html = data.html.replaceAll('&nbsp;', ' ')
-            data.html = data.html.replaceAll('&amp;', '&')
-            data.html = data.html.replaceAll('&quot;', '"')
-            data.html = data.html.replaceAll('&apos;', `'`)
-            const tableInfo = object_builder[decodedData.linked_table_slug]
-            // patientIdField = tableInfo.fields.find(el => el.slug === "patients_id")
-        
-            let relations = await Relation.find({
-                table_from : decodedData.linked_table_slug,
-                type: "Many2One"
-            })
-        
-            const relationsM2M = await Relation.find({
-                $or: [{
-                    table_from: decodedData.linked_table_slug
+            var html = data.html
+            let patientIdField;
+            let output;
+            console.log("TEST:::::::::::::2")
+            if (decodedData.linked_table_slug && decodedData.linked_object_id) {
+                data.html = data.html.replaceAll('[??', '{')
+                data.html = data.html.replaceAll('??]', '}')
+                data.html = data.html.replaceAll('&lt;', '<')
+                data.html = data.html.replaceAll('&gt;', '>')
+                data.html = data.html.replaceAll('&nbsp;', ' ')
+                data.html = data.html.replaceAll('&amp;', '&')
+                data.html = data.html.replaceAll('&quot;', '"')
+                data.html = data.html.replaceAll('&apos;', `'`)
+                const tableInfo = object_builder[decodedData.linked_table_slug]
+                // patientIdField = tableInfo.fields.find(el => el.slug === "patients_id")
+
+                let relations = await Relation.find({
+                    table_from: decodedData.linked_table_slug,
+                    type: "Many2One"
+                })
+
+                const relationsM2M = await Relation.find({
+                    $or: [{
+                        table_from: decodedData.linked_table_slug
+                    },
+                    {
+                        table_to: decodedData.linked_table_slug
+                    }],
+                    $and: [{
+                        type: "Many2Many"
+                    }]
+                })
+                console.log("TEST:::::::::::::3")
+                let relatedTable = []
+                for (const relation of relations) {
+                    const field = await Field.findOne({
+                        relation_id: relation.id
+                    })
+                    if (field) {
+                        relatedTable.push(field?.slug + "_data")
+                    }
+                }
+                for (const relation of relationsM2M) {
+                    if (relation.table_to === decodedData.linked_table_slug) {
+                        relation.field_from = relation.field_to
+                    }
+                    const field = await Field.findOne({
+                        slug: relation.field_from,
+                        relation_id: relation.id
+                    })
+                    if (field) {
+                        relatedTable.push(field?.slug + "_data")
+                    }
+                }
+                console.log("TEST:::::::::::::4")
+                output = await tableInfo.models.findOne({
+                    guid: decodedData.linked_object_id
                 },
-                {
-                    table_to: decodedData.linked_table_slug
-                }],
-                $and: [{
-                    type: "Many2Many"
-                }]
-            })
-            console.log("TEST:::::::::::::3")
-            let relatedTable = []
-            for (const relation of relations) {
-                const field = await Field.findOne({
-                    relation_id: relation.id
+                    {
+                        created_at: 0,
+                        updated_at: 0,
+                        createdAt: 0,
+                        updatedAt: 0,
+                        _id: 0,
+                        __v: 0
+                    }).populate(relatedTable).lean();
+                // output = await changeDateFormat(output, tableInfo.fields)
+
+                for (const it of tableInfo.fields) {
+                    if (it.type === "CODABAR") {
+                        JsBarcode(svgNode, output[it.slug], {
+                            xmlDocument: document,
+                        });
+                        const base64_barcode = Buffer.from(xmlSerializer.serializeToString(svgNode)).toString('base64');
+                        output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 10%\"><img src=\"data:image/svg+xml;base64," +
+                            base64_barcode +
+                            "\"/></figure>"
+                        // console.log(output[it.slug])
+                    }
+                }
+
+                relations = await Relation.find({
+                    table_to: decodedData.linked_table_slug,
+                    type: "Many2One"
                 })
-                if (field) {
-                    relatedTable.push(field?.slug+"_data")
-                }
-            }
-            for (const relation of relationsM2M) {
-                if (relation.table_to === decodedData.linked_table_slug) {
-                    relation.field_from = relation.field_to
-                }
-                const field = await Field.findOne({
-                    slug: relation.field_from,
-                    relation_id: relation.id
-                })
-                if (field) {
-                    relatedTable.push(field?.slug+"_data")
-                }
-            }
-            console.log("TEST:::::::::::::4")
-            output = await tableInfo.models.findOne({
-                guid: decodedData.linked_object_id
-            },
-            {
-                created_at: 0,
-                updated_at: 0,
-                createdAt: 0,
-                updatedAt: 0,
-                _id: 0,
-                __v: 0
-            }).populate(relatedTable).lean();
-            // output = await changeDateFormat(output, tableInfo.fields)
+                console.log("TEST:::::::::::::5")
+                for (const relation of relations) {
+                    // console.log("relation::::", relation)
+                    let relation_field = decodedData.linked_table_slug + "_id"
+                    // let m2mrelation_field = decodedData.linked_table_slug + "_ids"
 
-            for (const it of tableInfo.fields) {
-                if (it.type === "CODABAR") {
-                    JsBarcode(svgNode, output[it.slug], {
-                        xmlDocument: document,
-                    });
-                    const base64_barcode = Buffer.from(xmlSerializer.serializeToString(svgNode)).toString('base64');
-                    output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 10%\"><img src=\"data:image/svg+xml;base64," +
-                    base64_barcode + 
-                    "\"/></figure>"
-                     // console.log(output[it.slug])
+                    let response = await object_builder[relation.table_from].models.find({
+                        // '$or': [
+                        //     { [relation_field]: decodedData.linked_object_id },
+                        //     { [m2mrelation_field]: decodedData.linked_object_id }
+                        // ]
+                        [relation_field]: decodedData.linked_object_id
+                    })
+
+                    if (response) {
+                        output[relation.table_from] = response
+                    } else {
+                        output[relation.table_from] = []
+                    }
                 }
-            }
 
-            relations = await Relation.find({
-                table_to : decodedData.linked_table_slug,
-                type: "Many2One"
-            })
-            console.log("TEST:::::::::::::5")
-            for (const relation of relations) {
-                // console.log("relation::::", relation)
-                let relation_field = decodedData.linked_table_slug + "_id"
-                // let m2mrelation_field = decodedData.linked_table_slug + "_ids"
+                html = Eta.render(data.html, output)
 
-                let response = await object_builder[relation.table_from].models.find({
-                    // '$or': [
-                    //     { [relation_field]: decodedData.linked_object_id },
-                    //     { [m2mrelation_field]: decodedData.linked_object_id }
-                    // ]
-                    [relation_field]: decodedData.linked_object_id
-                })
-                
-                if (response) {
-                    output[relation.table_from] = response
-                } else {
-                    output[relation.table_from] = []
-                }
-            }
-
-            html = Eta.render(data.html, output)
-
-            html = html.replaceAll('[??', '{')
+                html = html.replaceAll('[??', '{')
                 html = html.replaceAll('??]', '}')
                 html = html.replaceAll('&lt;', '<')
                 html = html.replaceAll('&gt;', '>')
@@ -316,92 +323,92 @@ let viewStore = {
                 html = html.replaceAll('&amp;', '&')
                 html = html.replaceAll('&quot;', '"')
                 html = html.replaceAll('&apos;', `'`)
-        }
-       
+            }
 
-        if (!decodedData.page_height && !decodedData.page_width ) {
-            decodedData.page_height = "297"
-            decodedData.page_width = "210"
-        }
-       
-        console.log("TEST:::::::::::::6")
-        await new Promise((resolve, reject) => {
-            wkhtmltopdf(html, {output: filename, spawnOptions:{shell: true}, pageHeight: decodedData.page_height, pageWidth: decodedData.page_width  }, ()=>{
-                let ssl = true
-                // if (cfg.minioSSL !== "true") {
-                //     ssl =false
-                // }
-                var minioClient = new Minio.Client({
-                    endPoint: cfg.minioEndpoint,
-                    useSSL: ssl,
-                    accessKey: cfg.minioAccessKeyID,
-                    secretKey: cfg.minioSecretAccessKey                          
-                });
-                console.log("TEST:::::::::::::7")
-                var metaData = {
-                    'Content-Type': "application/pdf",
-                    'Content-Language': 123,
-                    'X-Amz-Meta-Testing': 1234,
-                    'example': 5678
-                }
-                  
-                let filepath = "./" + filename
-        
-                
-                //file exists
-                minioClient.fPutObject("docs", filename, filepath , metaData, function(error, etag) {
-                    if(error) {
-                        return console.log(error);
+
+            if (!decodedData.page_height && !decodedData.page_width) {
+                decodedData.page_height = "297"
+                decodedData.page_width = "210"
+            }
+
+            console.log("TEST:::::::::::::6")
+            await new Promise((resolve, reject) => {
+                wkhtmltopdf(html, { output: filename, spawnOptions: { shell: true }, pageHeight: decodedData.page_height, pageWidth: decodedData.page_width }, () => {
+                    let ssl = true
+                    // if (cfg.minioSSL !== "true") {
+                    //     ssl =false
+                    // }
+                    var minioClient = new Minio.Client({
+                        endPoint: cfg.minioEndpoint,
+                        useSSL: ssl,
+                        accessKey: cfg.minioAccessKeyID,
+                        secretKey: cfg.minioSecretAccessKey
+                    });
+                    console.log("TEST:::::::::::::7")
+                    var metaData = {
+                        'Content-Type': "application/pdf",
+                        'Content-Language': 123,
+                        'X-Amz-Meta-Testing': 1234,
+                        'example': 5678
                     }
-                    console.log("TEST:::::::::::::8")
-                    console.log("uploaded successfully")
-                    fs.stat(filename, async (err, stats) => {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            let doc = {}
-                            splitedFielName = filename.split(".")
-                            doc.file_link = link
-                            doc[decodedData.table_slug+"_id"] = decodedData.object_id
-                            doc.size = stats.size
-                            doc.type = splitedFielName[splitedFielName.length - 1]
-                            doc.name = filename
-                            doc.date = new Date().toISOString()
-                            doc.dynamic_author = {
-                                [decodedData.author_table+"_id"] : decodedData.author_id
-                            }
-                            if (patientIdField) {
-                                doc[patientIdField.slug] = output?.[patientIdField.slug]
-                            }
-                            if (decodedData.tags) {
-                                doc.tags = decodedData.tags.split(",")
-                            }
-                            let encodedData = struct.encode(doc)
-                            let request = {
-                                table_slug: "file",
-                                project_id: data.project_id,
-                                data: encodedData
-                            }
-                            await objectBuilderStore.create(request)
-                        }
-                    })
-                    console.log("TEST:::::::::::::9")
-                    fs.unlink(filename, (err => {
-                        if (err) console.log(err);
-                        else {
-                            console.log("Deleted file: ", filename);
-                        
-                            resolve()  
-    
-                        }
-                    }));
-                }); 
-            });
-        })
 
-          
-        
-        return {link}
+                    let filepath = "./" + filename
+
+
+                    //file exists
+                    minioClient.fPutObject("docs", filename, filepath, metaData, function (error, etag) {
+                        if (error) {
+                            return console.log(error);
+                        }
+                        console.log("TEST:::::::::::::8")
+                        console.log("uploaded successfully")
+                        fs.stat(filename, async (err, stats) => {
+                            if (err) {
+                                console.log(err)
+                            } else {
+                                let doc = {}
+                                splitedFielName = filename.split(".")
+                                doc.file_link = link
+                                doc[decodedData.table_slug + "_id"] = decodedData.object_id
+                                doc.size = stats.size
+                                doc.type = splitedFielName[splitedFielName.length - 1]
+                                doc.name = filename
+                                doc.date = new Date().toISOString()
+                                doc.dynamic_author = {
+                                    [decodedData.author_table + "_id"]: decodedData.author_id
+                                }
+                                if (patientIdField) {
+                                    doc[patientIdField.slug] = output?.[patientIdField.slug]
+                                }
+                                if (decodedData.tags) {
+                                    doc.tags = decodedData.tags.split(",")
+                                }
+                                let encodedData = struct.encode(doc)
+                                let request = {
+                                    table_slug: "file",
+                                    project_id: data.project_id,
+                                    data: encodedData
+                                }
+                                await objectBuilderStore.create(request)
+                            }
+                        })
+                        console.log("TEST:::::::::::::9")
+                        fs.unlink(filename, (err => {
+                            if (err) console.log(err);
+                            else {
+                                console.log("Deleted file: ", filename);
+
+                                resolve()
+
+                            }
+                        }));
+                    });
+                });
+            })
+
+
+
+            return { link }
 
         } catch (err) {
             throw err
@@ -501,9 +508,9 @@ let viewStore = {
                         });
                         const base64_barcode = Buffer.from(xmlSerializer.serializeToString(svgNode)).toString('base64');
                         output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 10%\"><img src=\"data:image/svg+xml;base64," +
-                        base64_barcode + 
-                        "\"/></figure>"
-                         // console.log(output[it.slug])
+                            base64_barcode +
+                            "\"/></figure>"
+                        // console.log(output[it.slug])
                     }
                 }
                 console.log("TEST::::::::7")
@@ -524,7 +531,7 @@ let viewStore = {
                         // ]
                         [relation_field]: decodedData.linked_object_id
                     })
-                    
+
                     if (response) {
                         output[relation.table_from] = response
                     } else {
@@ -534,8 +541,8 @@ let viewStore = {
 
 
                 // console.log("output:::::", output)
-                for(let key in output) {
-                    if(typeof(output[key]) == "number") {
+                for (let key in output) {
+                    if (typeof (output[key]) == "number") {
                         output[key] = numberFormatter(output[key])
                     }
                 }
@@ -553,6 +560,35 @@ let viewStore = {
             }
             return { html }
 
+        } catch (err) {
+            throw err
+        }
+    }),
+    updateViewOrder: catchWrapDb(`${NAMESPACE}.updateViewOrder`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+
+            const View = mongoConn.models['View']
+            const Table = mongoConn.models['Table']
+
+            let updateViewOrders = []
+            let i = 0
+            for (const id of data.ids) {
+                updateViewOrders.push({
+                    updateOne: {
+                        filter: { id: id },
+                        update: { order: i }
+                    }
+                })
+                i += 1
+            }
+            await View.bulkWrite(updateViewOrders)
+            await Table.updateOne({
+                slug: data.table_slug
+            }, {
+                $set: { is_changed: true },
+            })
+            return;
         } catch (err) {
             throw err
         }

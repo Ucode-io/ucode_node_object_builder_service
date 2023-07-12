@@ -1881,7 +1881,7 @@ let objectBuilder = {
                         [data.table_from + "_ids"]: modelTo[data.table_from + "_ids"]
                     }
                 })
-            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: data.table_from })
             let customMessage = ""
             if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
@@ -1956,7 +1956,7 @@ let objectBuilder = {
                         }
                     })
             }
-            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableWithVersion = await tableVersion(mongoConn, { slug: data.table_from })
             let customMessage = ""
             if (tableWithVersion) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({

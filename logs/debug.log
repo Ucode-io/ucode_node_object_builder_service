@@ -27764,10 +27764,17 @@
   message: 'grpc server is running at 9102',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-07-05T06:08:42.861Z',
 =======
   timestamp: '2023-06-14T07:38:16.986Z',
 >>>>>>> feature/user_login_table
+=======
+  timestamp: '2023-06-14T07:38:16.986Z',
+=======
+  timestamp: '2023-07-04T06:13:04.575Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+>>>>>>> 7047b885d45a595c8091ec3055db2df630793276
   label: 'object_builder_service',
   metadata: {}
 }
@@ -27775,8 +27782,11 @@
   message: 'autoconnecting to resources',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-07-05T06:08:42.865Z',
 =======
+=======
+>>>>>>> 7047b885d45a595c8091ec3055db2df630793276
   timestamp: '2023-06-14T07:38:16.988Z',
   label: 'object_builder_service',
   metadata: {}
@@ -27789,11 +27799,15 @@
     '}',
   level: 'debug',
   timestamp: '2023-06-14T07:38:16.988Z',
+=======
+  timestamp: '2023-07-04T06:13:04.577Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "service_type": "BUILDER_SERVICE",\n' +
     '  "resource_type": "MONGODB",\n' +
     '  "credentials": {\n' +
@@ -28011,26 +28025,48 @@
     '}',
   level: 'debug',
   timestamp: '2023-06-14T07:47:37.833Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:13:04.577Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-06-14T07:47:37.834Z',
+=======
+  timestamp: '2023-07-04T06:13:04.577Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-06-14T07:47:38.424Z',
+=======
+  timestamp: '2023-07-04T06:13:05.010Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-06-14T07:48:04.548Z',
   label: 'object_builder_service',
   metadata: {}
@@ -28441,12 +28477,16 @@
   message: 'storage.project.autoConnect: succeeded',
   level: 'debug',
   timestamp: '2023-06-14T07:49:08.569Z',
+=======
+  timestamp: '2023-07-04T06:13:30.726Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-06-14T07:49:08.569Z',
   label: 'object_builder_service',
   metadata: {}
@@ -36886,6 +36926,9 @@
   message: 'autoconnected successfully done!!!',
   level: 'info',
   timestamp: '2023-06-16T05:00:47.910Z',
+=======
+  timestamp: '2023-07-04T06:13:30.727Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
@@ -36895,10 +36938,17 @@
     '  "limit": 100,\n' +
     '  "search": "",\n' +
     '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+<<<<<<< HEAD
     '  "role_id": ""\n' +
     '}',
   level: 'info',
   timestamp: '2023-06-16T05:16:31.047Z',
+=======
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:16:56.808Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
@@ -36908,23 +36958,35 @@
     '  "limit": 100,\n' +
     '  "search": "",\n' +
     '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+<<<<<<< HEAD
     '  "role_id": ""\n' +
     '}',
   level: 'debug',
   timestamp: '2023-06-16T05:16:31.049Z',
+=======
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:16:56.810Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.app.getAll: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-06-16T05:16:31.217Z',
+=======
+  timestamp: '2023-07-04T06:16:56.945Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.app.getAll: succeeded',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-06-16T05:16:31.217Z',
   label: 'object_builder_service',
   metadata: {}
@@ -54451,6 +54513,6128 @@
   level: 'info',
   timestamp: '2023-07-05T10:10:25.534Z',
 >>>>>>> feature/user_login_table
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-05T12:28:38.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-05T12:28:38.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:28:38.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T12:28:38.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T12:28:39.188Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:29:32.419Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-05T12:29:32.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:31:44.843Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:31:44.846Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:31:45.292Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:31:48.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:31:48.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:31:48.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-05T12:35:22.309Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-05T12:35:22.311Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:35:22.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T12:35:22.313Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T12:35:23.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:36:19.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-05T12:36:19.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:37:10.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:37:10.795Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:37:11.194Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of undefined (reading 'includes')",
+  level: 'error',
+  timestamp: '2023-07-05T12:37:12.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-05T12:37:59.994Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-05T12:37:59.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:37:59.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T12:37:59.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T12:38:00.658Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:38:51.388Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-05T12:38:51.392Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:39:11.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:39:11.944Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:39:12.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:39:15.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:39:15.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:39:15.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:26.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:28.327Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:29.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:31.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:31.061Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:31.265Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:31.266Z',
+=======
+  timestamp: '2023-07-04T06:16:56.946Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:45:34.525Z',
+=======
+  timestamp: '2023-07-04T06:17:08.508Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:45:34.526Z',
+=======
+  timestamp: '2023-07-04T06:17:08.509Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:34.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:34.736Z',
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
+  level: 'error',
+  timestamp: '2023-07-04T06:17:08.511Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:45:35.028Z',
+=======
+  timestamp: '2023-07-04T06:17:08.774Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:45:35.028Z',
+=======
+  timestamp: '2023-07-04T06:17:08.774Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:35.226Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:35.226Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "254f4828-f86a-4513-927b-7a7ab149c650"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:36.988Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "254f4828-f86a-4513-927b-7a7ab149c650"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:36.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:37.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:37.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "eb276bcc-dfbb-42b8-8318-39e942349c14"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:38.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "eb276bcc-dfbb-42b8-8318-39e942349c14"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:38.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:38.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:38.650Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:39.984Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:42.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:42.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:42.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:42.605Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:42.606Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:42.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:42.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:43.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:43.880Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:46.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:45:46.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:45:46.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:46:05.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:46:07.878Z',
+=======
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading '1')",
+  level: 'error',
+  timestamp: '2023-07-04T06:17:08.774Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:47:01.692Z',
+=======
+  timestamp: '2023-07-04T06:20:48.437Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:47:01.695Z',
+=======
+  timestamp: '2023-07-04T06:20:48.439Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:47:01.695Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:20:48.439Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T12:47:01.696Z',
+=======
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T06:20:48.439Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T12:47:02.330Z',
+=======
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T06:20:48.872Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:47:53.300Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-05T12:47:53.301Z',
+=======
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:08.390Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:08.391Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:22.959Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:08.394Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:48:22.959Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:08.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:08.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:08.434Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:48:23.525Z',
+=======
+  timestamp: '2023-07-04T06:21:08.518Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:48:23.525Z',
+=======
+  timestamp: '2023-07-04T06:21:08.518Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:08.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:08.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:08.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:08.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:14.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:14.311Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:48:23.686Z',
+=======
+  timestamp: '2023-07-04T06:21:25.067Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:48:23.686Z',
+=======
+  timestamp: '2023-07-04T06:21:25.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:25.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:25.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:25.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:25.430Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "254f4828-f86a-4513-927b-7a7ab149c650"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:23.687Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:25.464Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "254f4828-f86a-4513-927b-7a7ab149c650"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:48:23.688Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:25.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:25.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:25.562Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:48:23.936Z',
+=======
+  timestamp: '2023-07-04T06:21:25.601Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:48:23.937Z',
+=======
+  timestamp: '2023-07-04T06:21:25.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:31.747Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:31.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:31.772Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:31.773Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:31.779Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:31.780Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:48:23.940Z',
+=======
+  timestamp: '2023-07-04T06:21:31.924Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:48:23.940Z',
+=======
+  timestamp: '2023-07-04T06:21:31.925Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:25.015Z',
+=======
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:31.933Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:31.934Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:29.709Z',
+=======
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:31.944Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:31.944Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:30.129Z',
+=======
+  message: 'service.table.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:54.786Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.custom_event.getList: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "method": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:48:30.129Z',
+=======
+  message: 'storage.table.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "folder_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:54.787Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:30.193Z',
+=======
+  message: 'storage.table.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:21:54.920Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:21:54.921Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "TABLE",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:05.050Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:48:30.193Z',
+=======
+  message: 'storage.menu.create: requested, {\n' +
+    '  "label": "",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "TABLE",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:05.052Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:48:30.586Z',
+=======
+  message: 'storage.menu.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:05.395Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:05.396Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:05.607Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:05.608Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.custom_event.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:48:30.624Z',
+=======
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:05.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:05.613Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:30.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:31.584Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:48:33.998Z',
+=======
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:05.739Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:48:33.998Z',
+=======
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:05.740Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:05.763Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:33.998Z',
+=======
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:05.764Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:54.307Z',
+=======
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:05.966Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:48:56.270Z',
+=======
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:05.966Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:06.111Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:06.111Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:17.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:17.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:17.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:17.600Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:17.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:17.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:17.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:17.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:17.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:17.724Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:22:17.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:22:17.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:24:04.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:24:04.693Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:24:04.701Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:24:04.701Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:24:04.829Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:24:04.829Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:24:04.831Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:24:04.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:24:04.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:24:04.990Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:24:05.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:24:05.109Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:50:36.470Z',
+=======
+  timestamp: '2023-07-04T06:27:24.820Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:50:36.472Z',
+=======
+  timestamp: '2023-07-04T06:27:24.822Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:50:36.472Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:27:24.822Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T12:50:36.473Z',
+=======
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T06:27:24.823Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T12:50:37.108Z',
+=======
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T06:27:25.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:27:50.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:27:50.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:27:50.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:27:50.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:27:50.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:27:50.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:27:50.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:27:50.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:27:50.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:27:50.692Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:51:30.812Z',
+=======
+  timestamp: '2023-07-04T06:27:51.028Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:51:30.815Z',
+=======
+  timestamp: '2023-07-04T06:27:51.029Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:51:36.270Z',
+=======
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:28:14.461Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:51:36.271Z',
+=======
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:28:14.461Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:51:36.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:51:40.584Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:51:40.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:51:40.587Z',
+=======
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:28:14.476Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:28:14.476Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:28:14.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:28:14.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:28:14.484Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
+  level: 'error',
+  timestamp: '2023-07-04T06:28:14.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:28:14.585Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:28:14.585Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:53:34.521Z',
+=======
+  timestamp: '2023-07-04T06:28:35.360Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:53:34.523Z',
+=======
+  timestamp: '2023-07-04T06:28:35.362Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:53:34.524Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:28:35.362Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T12:53:34.524Z',
+=======
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T06:28:35.363Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T12:53:35.155Z',
+=======
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T06:28:35.789Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:54:28.221Z',
+=======
+  timestamp: '2023-07-04T06:29:01.615Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:54:28.224Z',
+=======
+  timestamp: '2023-07-04T06:29:01.618Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:54:42.849Z',
+=======
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:29:18.043Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:54:42.851Z',
+=======
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:29:18.043Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:54:43.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:54:47.444Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:54:47.444Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:54:47.445Z',
+=======
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:29:18.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:29:18.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:29:18.097Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:29:18.097Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:29:18.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:29:18.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:29:18.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:29:18.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:29:18.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:29:18.233Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:55:10.004Z',
+=======
+  timestamp: '2023-07-04T06:34:44.828Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:55:10.006Z',
+=======
+  timestamp: '2023-07-04T06:34:44.830Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:55:10.006Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:34:44.830Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T12:55:10.006Z',
+=======
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T06:34:44.831Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T12:55:10.807Z',
+=======
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T06:34:45.238Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:56:14.031Z',
+=======
+  timestamp: '2023-07-04T06:35:10.806Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:56:14.033Z',
+=======
+  timestamp: '2023-07-04T06:35:10.806Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:56:48.713Z',
+=======
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:35:27.754Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:56:48.714Z',
+=======
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:35:27.758Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:56:49.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:56:53.070Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:56:53.070Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:56:53.071Z',
+=======
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:35:27.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:35:27.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:35:27.785Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:35:27.785Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-07-04T06:35:27.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-07-04T06:35:27.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:35:27.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:35:27.891Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:57:17.720Z',
+=======
+  timestamp: '2023-07-04T06:41:34.669Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:57:17.722Z',
+=======
+  timestamp: '2023-07-04T06:41:34.671Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:57:17.722Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:41:34.671Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T12:57:17.723Z',
+=======
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T06:41:34.672Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T12:57:18.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-05T12:57:26.254Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-05T12:57:26.256Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:57:26.256Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T12:57:26.257Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T12:57:26.901Z',
+=======
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T06:41:35.092Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:58:17.406Z',
+=======
+  timestamp: '2023-07-04T06:42:00.701Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T12:58:17.410Z',
+=======
+  timestamp: '2023-07-04T06:42:00.702Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T12:58:45.839Z',
+=======
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:42:22.317Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:58:45.840Z',
+=======
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:42:22.318Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T12:58:46.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:58:49.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T12:58:49.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T12:58:49.871Z',
+=======
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:42:22.328Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:42:22.328Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:42:22.334Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:42:22.334Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:42:22.454Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:42:22.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:42:22.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:42:22.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:42:22.463Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:42:22.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:57:02.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:57:02.625Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:57:02.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:57:02.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-04T06:57:02.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:57:02.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:57:02.949Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:57:02.949Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:57:03.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:57:03.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.app.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T06:57:03.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-04T06:57:03.139Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:01:00.391Z',
+=======
+  timestamp: '2023-07-04T06:59:17.409Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:01:00.392Z',
+=======
+  timestamp: '2023-07-04T06:59:17.411Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T13:01:00.393Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T06:59:17.411Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T13:01:00.393Z',
+=======
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T06:59:17.411Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T13:01:01.116Z',
+=======
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T06:59:17.847Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:01:53.369Z',
+=======
+  timestamp: '2023-07-04T06:59:43.268Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:01:53.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T13:03:14.169Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T13:03:14.170Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T13:03:14.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T13:03:18.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T13:03:18.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T13:03:18.449Z',
+=======
+  timestamp: '2023-07-04T06:59:43.269Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:04:00.609Z',
+=======
+  timestamp: '2023-07-04T07:13:25.087Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:04:00.612Z',
+=======
+  timestamp: '2023-07-04T07:13:25.089Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T13:04:00.613Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:13:25.089Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T13:04:00.613Z',
+=======
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:13:25.090Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T13:04:01.250Z',
+=======
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:13:25.480Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:04:52.234Z',
+=======
+  timestamp: '2023-07-04T07:13:49.685Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:04:52.237Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-05T13:05:02.128Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "coming",\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T13:05:02.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "tab_id": "44bbc4c3-f6e5-4568-9e54-e505d38312a3",\n' +
+    '  "role_id": "a2b89045-6c69-4a7a-b2e9-a21fd185d13b",\n' +
+    '  "table_slug": "coming"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T13:05:02.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T13:05:06.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-05T13:05:06.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-05T13:05:06.150Z',
+=======
+  timestamp: '2023-07-04T07:13:49.686Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:07:38.427Z',
+=======
+  timestamp: '2023-07-04T07:14:16.063Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:07:38.429Z',
+=======
+  timestamp: '2023-07-04T07:14:16.065Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-05T13:07:38.429Z',
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:14:16.065Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-05T13:07:38.429Z',
+=======
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:14:16.065Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-05T13:07:39.059Z',
+=======
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:14:16.476Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:08:29.479Z',
+=======
+  timestamp: '2023-07-04T07:14:41.993Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-05T13:08:29.482Z',
+=======
+  timestamp: '2023-07-04T07:14:41.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:20:06.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:20:06.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:20:06.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:20:06.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:20:06.956Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:20:31.986Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:20:31.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:50.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:50.859Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:50.859Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:50.860Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:51.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:52.432Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:52.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:52.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:52.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:52.834Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:54.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:54.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:54.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:54.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:54.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:56.584Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:56.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:56.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:56.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:57.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:59.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:59.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:59.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:22:59.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:22:59.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:23:00.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:23:00.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:23:00.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:23:00.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:23:01.355Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:23:31.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:23:31.745Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:24:17.571Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:24:17.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:24:17.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:24:17.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:24:17.964Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:24:42.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:24:42.598Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:25:54.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:25:54.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:25:54.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:25:54.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:25:54.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:26:20.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:26:20.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:27:54.974Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:27:54.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:27:54.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:27:54.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:27:55.412Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:28:21.971Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:28:21.971Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:28:52.845Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:28:52.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:28:52.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:28:52.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:28:53.260Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:29:17.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:29:17.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:30:53.625Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:30:53.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:30:53.628Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:30:53.628Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:30:54.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:31:18.792Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:31:18.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:32:24.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:32:24.075Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:32:24.075Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:32:24.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:32:24.496Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:32:49.559Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:32:49.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:33:15.163Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:33:15.165Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:33:15.165Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:33:15.166Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:33:15.580Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:33:41.551Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:33:41.554Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-04T07:34:29.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-04T07:34:29.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-04T07:34:29.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-04T07:34:29.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-04T07:34:29.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-04T07:34:56.226Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-04T07:34:56.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T06:08:58.600Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T06:08:58.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T06:08:58.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T06:08:58.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T06:08:59.126Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T06:09:31.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T06:09:31.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-07T03:56:57.695Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-07T03:56:57.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-07T03:56:57.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-07T03:56:57.698Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-07T03:56:58.209Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-07T03:57:35.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-07T03:57:35.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-07T04:04:10.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-07T04:04:10.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-07T04:04:10.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-07T04:04:10.944Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-07T04:04:11.469Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-07T04:04:43.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-07T04:04:43.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-07T04:05:01.051Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-07T04:05:01.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-07T04:05:01.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-07T04:05:01.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-07T04:05:01.591Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-07T04:05:15.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-07T04:05:15.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-07T04:05:15.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-07T04:05:15.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-07T04:05:15.931Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-07T04:05:49.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-07T04:05:49.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-07T04:45:22.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-07T04:45:22.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-07T04:45:22.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-07T04:45:22.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-07T04:45:22.581Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-07T04:45:55.287Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-07T04:45:55.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-07T05:23:33.236Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-07T05:23:33.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-07T05:23:33.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-07T05:23:33.239Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-07T05:23:33.761Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-07T05:24:07.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-07T05:24:07.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-07T05:33:46.037Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-07T05:33:46.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-07T05:33:46.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-07T05:33:46.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-07T05:33:46.563Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-07T05:34:18.236Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-07T05:34:18.244Z',
+>>>>>>> 644f08b8e0a6f6b5b83d1d79a1cd0019f1692405
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-07T19:38:00.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-07T19:38:00.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-07T19:38:00.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "database": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "password": "PyKDBQlTN3"\n' +
+    '  },\n' +
+    '  "id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "project_id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "path": "k8s/ucode-dev/1acd4a4d-9b17-433b-84a6-4dfaa0ab19ad/1a4ff921-26cf-4ed4-9ebb-c9461926b03b/1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c",\n' +
+    '  "environment_id": "eb265897-fb9d-4a74-8bb6-0ecf9549c28d",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-07T19:38:01.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-07T19:38:01.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:07:32.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:07:32.152Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:07:32.152Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:07:32.152Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:07:33.856Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:08:40.625Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:08:40.626Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-06T05:09:50.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-06T05:10:53.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:12:24.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:12:28.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:12:28.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:12:28.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:12:28.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:12:29.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:13:20.279Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:13:20.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:13:33.625Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:14:32.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:14:32.675Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:14:32.675Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:14:32.676Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:14:33.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:15:27.724Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:15:27.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:15:33.263Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:22:03.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:22:03.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:22:03.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:22:03.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:22:03.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:22:56.316Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:22:56.319Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:23:03.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:24:14.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:24:44.224Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:26:09.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:26:09.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:26:09.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:26:09.779Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:26:10.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:26:20.244Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:26:20.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:26:20.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:26:20.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:26:20.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:27:10.791Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:27:10.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:27:16.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:30:08.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:30:08.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:30:08.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:30:08.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:30:09.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:31:00.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:31:00.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:32:46.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:32:46.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:32:46.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:32:46.085Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:32:46.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:33:37.014Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:33:37.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:33:45.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:34:25.871Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:34:25.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:34:25.873Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:34:25.873Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:34:26.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:36:37.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:36:37.368Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:36:56.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:37:36.854Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:37:36.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:37:36.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:37:36.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:37:37.504Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:38:27.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:38:27.878Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:38:32.669Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T05:41:19.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T05:41:19.344Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",\n' +
+    '    "password": "UAQljhZlWm"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T05:41:19.344Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T05:41:19.344Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T05:41:20.071Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T05:42:10.636Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T05:42:10.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.getListWithRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-07-06T05:42:35.408Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T06:34:12.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T06:34:12.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T06:34:12.518Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T06:34:12.518Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T06:34:13.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T06:35:02.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T06:35:02.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T06:35:02.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T06:35:02.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T06:35:02.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T06:35:58.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T06:35:58.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T06:35:58.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T06:35:58.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T06:35:58.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T06:36:30.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T06:36:30.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T06:38:43.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T06:38:43.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T06:38:43.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T06:38:43.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T06:38:43.960Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T06:39:16.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T06:39:16.234Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T06:40:15.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T06:40:15.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T06:40:15.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T06:40:15.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T06:40:15.678Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T06:40:48.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T06:40:48.373Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-06T06:41:51.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-06T06:41:51.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-06T06:41:51.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-06T06:41:51.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-06T06:41:52.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-06T06:42:24.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-06T06:42:24.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-08T05:07:37.325Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-08T05:07:37.327Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-08T05:07:37.327Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-07-08T05:07:37.343Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-07-08T05:07:37.344Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-11T08:40:25.545Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-11T08:40:25.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-11T08:40:25.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-11T08:40:25.548Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-11T08:40:26.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-11T08:41:01.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-11T08:41:01.012Z',
   label: 'object_builder_service',
   metadata: {}
 }

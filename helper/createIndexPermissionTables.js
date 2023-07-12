@@ -8,6 +8,7 @@ module.exports = async function (data) {
     const actionPermission = mongoConn.models['action_permission']
     const viewRelationPermission = mongoConn.models['view_relation_permission']
     const recordPermission = mongoConn.models['record_permission']
+    const menuPermisssion = mongoConn.models['menu_permission']
     const Field = mongoConn.models['Field']
     const Table = mongoConn.models['Table']
     let labelFieldViewRelationTable = await Field.findOne({
@@ -108,11 +109,44 @@ module.exports = async function (data) {
         await Field.create(label)
         await Table.updateOne({ id: "5af2bfb2-6880-42ad-80c8-690e24a2523e" }, { $set: { is_changed: true } })
     }
+    try {
+        await fieldPermission.collection.createIndex({ field_id: 1, role_id: 1 }, { unique: true })
+    } catch (error) {
+        console.log("Couldn't create index for field permission");
+        console.log(error);
+    }
+    try {
+        await actionPermission.collection.createIndex({ custom_event_id: 1, role_id: 1 }, { unique: true })
+    } catch (error) {
+        console.log("Couldn't create index for action permission");
+        console.log(error);
+    }
+    try {
+        await viewRelationPermission.collection.createIndex({ relation_id: 1, role_id: 1, table_slug: 1 }, { unique: true })
+    } catch (error) {
+        console.log("Couldn't create index for view relation permission");
+        console.log(error);
+    }
 
-    await fieldPermission.collection.createIndex({ field_id: 1, role_id: 1 }, { unique: true })
-    await actionPermission.collection.createIndex({ custom_event_id: 1, role_id: 1 }, { unique: true })
-    await viewRelationPermission.collection.createIndex({ relation_id: 1, role_id: 1, table_slug: 1 }, { unique: true })
-    await recordPermission.collection.createIndex({ role_id: 1, table_slug: 1 }, { unique: true })
+    try {
+        await recordPermission.collection.createIndex({ role_id: 1, table_slug: 1 }, { unique: true })
+    } catch (error) {
+        console.log("Couldn't create index for table permission");
+        console.log(error);
+    }
+
+    try {
+        await recordPermission.collection.createIndex({ role_id: 1, table_slug: 1 }, { unique: true })
+    } catch (error) {
+        console.log("Couldn't create index for table permission");
+        console.log(error);
+    }
+    try {
+        await menuPermisssion.collection.createIndex({ menu_id: 1, role_id: 1 }, { unique: true })
+    } catch (error) {
+        console.log("Couldn't create index for menu permission");
+        console.log(error);
+    }
 
     console.log("create index done !!!")
 }

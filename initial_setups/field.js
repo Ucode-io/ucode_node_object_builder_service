@@ -1,5 +1,45 @@
 async function createField() {
 	let fields = [{
+		"id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",
+		"table_id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
+		"required": false,
+		"slug": "label",
+		"label": "Название связь",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"is_system": true,
+		"autofill_field": "",
+		"autofill_table": "",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},{
 		"id": "d8127cf2-2d60-474e-94ba-317d3b1ba18a",
 		"required": false,
 		"slug": "table_slug",
@@ -1002,6 +1042,46 @@ async function createField() {
 		"is_visible": true,
 		"relation_id": "426a0cd6-958d-4317-bf23-3b4ea4720e53",
 		"id": "d95156ba-d443-4c95-8383-c122747330c5",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},{
+		"id": "485ceb40-6267-4f5e-9327-f75fe79e8bfe",
+		"table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
+		"required": false,
+		"slug": "label",
+		"label": "Название",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"is_system": true,
+		"autofill_field": "",
+		"autofill_table": "",
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0
@@ -3688,166 +3768,85 @@ async function createField() {
 		"__v": 0
 	},
 	{
-		"required": true,
-		"is_system": true,
+		"id": "f27ad9eb-77b8-442e-8dd6-b674c34e11b2",
+		"required": false,
+		"slug": "update",
+		"label": "Изменение",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "76542bfd-dddf-433d-a62c-a9b9e63a778e",
+		"required": false,
+		"slug": "menu_id",
+		"label": "Menu id",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"required": false,
 		"slug": "guid",
 		"label": "ID",
 		"default": "v4",
 		"type": "UUID",
 		"index": "true",
 		"is_visible": true,
-		"id": "a73fd453-3c21-4ab8-9e21-59d85acd106d",
-		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"id": "24f6f31c-99ac-47eb-aeb4-eed4b66f2634",
+		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
 		"created_at": new Date(),
 		"updated_at": new Date(),
-		"__v": 0
-	}, {
-		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "c07b5a98-ac39-40d3-b379-9f22f8978283",
 		"required": false,
-		"is_system": true,
-		"slug": "role_id",
-		"label": "FROM app_permission TO role",
-		"type": "LOOKUP",
-		"is_visible": true,
-		"relation_id": "82e93baf-2e02-432a-942b-2c93cbe26b81",
-		"id": "6f344830-819c-40a3-a255-f11cdb515c2d",
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"__v": 0
-	}, {
-		"id": "b8d627d2-99b3-40c1-929c-10094b2784aa",
-		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
-		"required": false,
-		"is_system": true,
-		"slug": "app_id",
-		"label": "App Id",
-		"default": "",
-		"type": "SINGLE_LINE",
-		"index": "string",
-		"attributes": {
-			"fields": {
-				"showTooltip": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"creatable": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"defaultValue": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"disabled": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"icon": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"placeholder": {
-					"stringValue": "",
-					"kind": "stringValue"
-				}
-			}
-		},
-		"is_visible": false,
-		"autofill_field": "",
-		"autofill_table": "",
-		"unique": false,
-		"automatic": false,
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"__v": 0
-	}, {
-		"id": "3c3dca2f-3c0c-499e-b732-89baf16f987f",
-		"required": false,
-		"is_system": true,
-		"slug": "create",
-		"label": "Создать",
-		"default": "",
-		"type": "SWITCH",
-		"index": "string",
-		"attributes": {
-			"fields": {
-				"defaultValue": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"disabled": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"icon": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"placeholder": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"showTooltip": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"creatable": {
-					"boolValue": false,
-					"kind": "boolValue"
-				}
-			}
-		},
-		"is_visible": false,
-		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"__v": 0
-	}, {
-		"id": "4ae1959d-c898-4937-9503-bec55c2abade",
-		"required": false,
-		"is_system": true,
-		"slug": "update",
-		"label": "Изменить",
-		"default": "",
-		"type": "SWITCH",
-		"index": "string",
-		"attributes": {
-			"fields": {
-				"defaultValue": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"disabled": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"icon": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"placeholder": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"showTooltip": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"creatable": {
-					"boolValue": false,
-					"kind": "boolValue"
-				}
-			}
-		},
-		"is_visible": false,
-		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"__v": 0
-	}, {
-		"id": "b35b1f62-c15a-412f-8f48-811178ae64e1",
-		"required": false,
-		"is_system": true,
 		"slug": "read",
 		"label": "Чтение",
 		"default": "",
@@ -3855,15 +3854,7 @@ async function createField() {
 		"index": "string",
 		"attributes": {
 			"fields": {
-				"defaultValue": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"disabled": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"icon": {
+				"maxLength": {
 					"stringValue": "",
 					"kind": "stringValue"
 				},
@@ -3874,38 +3865,27 @@ async function createField() {
 				"showTooltip": {
 					"boolValue": false,
 					"kind": "boolValue"
-				},
-				"creatable": {
-					"boolValue": false,
-					"kind": "boolValue"
 				}
 			}
 		},
 		"is_visible": false,
-		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
+		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
 		"created_at": new Date(),
 		"updated_at": new Date(),
-		"__v": 0
-	}, {
-		"id": "592789b2-cb93-42f8-90dd-dfeb24ed979f",
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "78696817-fb90-4072-b061-3149e0ae44fe",
 		"required": false,
-		"is_system": true,
 		"slug": "delete",
-		"label": "Удалить",
+		"label": "Удаление",
 		"default": "",
 		"type": "SWITCH",
 		"index": "string",
 		"attributes": {
 			"fields": {
-				"defaultValue": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"disabled": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"icon": {
+				"maxLength": {
 					"stringValue": "",
 					"kind": "stringValue"
 				},
@@ -3916,152 +3896,90 @@ async function createField() {
 				"showTooltip": {
 					"boolValue": false,
 					"kind": "boolValue"
-				},
-				"creatable": {
-					"boolValue": false,
-					"kind": "boolValue"
 				}
 			}
 		},
 		"is_visible": false,
-		"table_id": "41491588-53f1-4457-ba46-93019363ab88",
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"__v": 0
-	},
-	{
-		"id": "588f80aa-0838-43b9-bb49-29a7cfecae8d",
-		"required": false,
-		"slug": "title",
-		"label": "Титул",
-		"default": "",
-		"type": "SINGLE_LINE",
-		"index": "string",
-		"attributes": {
-			"fields": {
-				"showTooltip": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"show_label": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"validation": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"validation_message": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"creatable": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"defaultValue": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"disabled": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"icon": {
-					"stringValue": "",
-					"kind": "stringValue"
-				}
-			}
-		},
-		"is_visible": false,
-		"unique": false,
-		"automatic": false,
-		"commit_id": "",
-		"is_system": true,
-		"show_label": true,
-		"table_id": "c2f225b6-b6d9-4201-aa25-e648a4c1ff29",
+		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0,
-		"autofill_field": "",
-		"autofill_table": "",
-		"relation_field": "",
-		"relation_id": ""
+		"is_system": true
 	},
 	{
+		"id": "50335ad5-ddf7-48e5-b1c1-5b1cadbd7730",
 		"required": false,
-		"slug": "guid",
-		"label": "ID",
-		"default": "v4",
-		"type": "UUID",
-		"index": "true",
-		"is_visible": true,
-		"unique": true,
-		"is_system": true,
-		"show_label": true,
-		"id": "74d91d9b-1cb8-4f58-8b63-5773d5424306",
-		"table_id": "c2f225b6-b6d9-4201-aa25-e648a4c1ff29",
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"__v": 0
-	},
-	{
-		"id": "2a237e0c-50fd-40bb-9d78-580135d8ade3",
-		"table_id": "c2f225b6-b6d9-4201-aa25-e648a4c1ff29",
-		"required": false,
-		"slug": "name",
-		"label": "Название",
+		"slug": "write",
+		"label": "Write",
 		"default": "",
-		"type": "SINGLE_LINE",
+		"type": "SWITCH",
 		"index": "string",
 		"attributes": {
 			"fields": {
-				"validation": {
+				"maxLength": {
 					"stringValue": "",
 					"kind": "stringValue"
 				},
-				"validation_message": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"creatable": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"defaultValue": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"disabled": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"icon": {
+				"placeholder": {
 					"stringValue": "",
 					"kind": "stringValue"
 				},
 				"showTooltip": {
 					"boolValue": false,
 					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
+		"required": false,
+		"slug": "role_id",
+		"label": "IT'S RELATION",
+		"type": "LOOKUP",
+		"is_visible": true,
+		"relation_id": "3f21b211-deaf-4869-8558-31a9359411e9",
+		"id": "718e9580-f67f-48fe-a2bc-76d8ac88ea8e",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},{
+		"id": "50335ad5-ddf7-48e5-b1c1-5b1cadbd7731",
+		"required": false,
+		"slug": "menu_settings",
+		"label": "Настройки",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
 				},
-				"show_label": {
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
 					"boolValue": false,
 					"kind": "boolValue"
 				}
 			}
 		},
 		"is_visible": false,
-		"autofill_field": "",
-		"autofill_table": "",
-		"unique": false,
-		"automatic": false,
-		"commit_id": "",
-		"relation_field": "",
-		"is_system": true,
-		"show_label": false,
+		"table_id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
 		"created_at": new Date(),
 		"updated_at": new Date(),
-		"__v": 0
+		"__v": 0,
+		"is_system": true
 	}, {
 		"id": "43f4ca6b-0d98-4829-ac87-15bbcaf7af3f",
 		"required": false,
@@ -4100,7 +4018,8 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"is_system": true,
-		"__v": 0
+		"__v": 0,
+		"is_system": true
 	}, {
 		"required": false,
 		"slug": "guid",
@@ -4134,8 +4053,6 @@ async function createField() {
 		"is_system": true,
 		"__v": 0
 	}]
-	let f = fields.find(el => !el.table_id)
-	console.log("len::", fields.length, f);
 
 	return fields
 }

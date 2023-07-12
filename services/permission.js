@@ -10,7 +10,9 @@ const permissionService = {
     UpdateRoleAppTablePermissions: catchWrapServiceObjectBuilder(`service.app.updateRoleAppTablePermissions`, permissionStore.updateRoleAppTablePermissions),
     CreateRoleAppTablePermissions: catchWrapServiceObjectBuilder(`service.app.createRoleAppTablePermissions`, permissionStore.createRoleAppTablePermissions),
     GetActionPermissions: catchWrapServiceObjectBuilder("service.permissionStore.getActionPermissions", permissionStore.getActionPermissions),
-    GetViewRelationPermissions: catchWrapServiceObjectBuilder("service.permissionStore.getViewRelationPermissions", permissionStore.getViewRelationPermissions)
+    GetViewRelationPermissions: catchWrapServiceObjectBuilder("service.permissionStore.getViewRelationPermissions", permissionStore.getViewRelationPermissions),
+    GetAllMenuPermissions: catchWrapServiceObjectBuilder("service.permissionStore.getAllMenuPermissions", permissionStore.getAllMenuPermissions),
+    UpdateMenuPermissions: catchWrapServiceObjectBuilder("service.permissionStore.updateMenuPermissions", permissionStore.updateMenuPermissions),
 };
 
 module.exports = permissionService;

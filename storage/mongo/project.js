@@ -12,6 +12,8 @@ const createIndexPermissionTables = require("../../helper/createIndexPermissionT
 const initialMenu = require("../../helper/initialMenu");
 const initialCustomMessage = require("../../helper/initialCustomMessage");
 const initialUserLoginTable = require("../../helper/initialUserLoginTable");
+const initialMenuPermission = require("../../helper/initialMenuPermission");
+const addFields = require("../../helper/addFields");
 
 
 let NAMESPACE = "storage.project";
@@ -71,6 +73,8 @@ let projectStore = {
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
                 mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                 mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
+                mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
+                mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)
@@ -141,8 +145,10 @@ let projectStore = {
                         console.log(">>>>>>>> ")
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
-                        await createIndexPermissionTables({ project_id: data.project_id })
                         await initialCustomMessage({ project_id: data.project_id })
+                        await initialMenuPermission({ project_id: data.project_id })
+                        await createIndexPermissionTables({ project_id: data.project_id })
+                        await addFields({ project_id: data.project_id })
                         await initialUserLoginTable({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()

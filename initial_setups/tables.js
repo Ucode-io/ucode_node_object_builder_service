@@ -11,7 +11,8 @@ async function createTable() {
         "id": "074fcb3b-038d-483d-b390-ca69490fc4c3",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Связь",
         "slug": "connections",
@@ -26,7 +27,8 @@ async function createTable() {
         "id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Роли",
         "slug": "role",
@@ -44,7 +46,8 @@ async function createTable() {
         "updated_at": {
             "$date": "2022-12-23T06:57:02.348Z"
         },
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Пользователи",
         "slug": "user",
@@ -59,7 +62,8 @@ async function createTable() {
         "id": "2546e042-af2f-4cef-be7c-834e6bde951c",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Разрешение",
         "slug": "record_permission",
@@ -74,7 +78,8 @@ async function createTable() {
         "id": "25698624-5491-4c39-99ec-aed2eaf07b97",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Проект",
         "slug": "project",
@@ -89,7 +94,8 @@ async function createTable() {
         "id": "373e9aae-315b-456f-8ec3-0851cad46fbf",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Автоматический фильтр",
         "slug": "automatic_filter",
@@ -104,7 +110,8 @@ async function createTable() {
         "id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Клиент платформа",
         "slug": "client_platform",
@@ -119,7 +126,8 @@ async function createTable() {
         "id": "53edfff0-2a31-4c73-b230-06a134afa50b",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Разрешение на действие",
         "slug": "action_permission",
@@ -132,7 +140,8 @@ async function createTable() {
         "id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Логин таблица",
         "slug": "test_login",
@@ -147,7 +156,8 @@ async function createTable() {
         "id": "5db33db7-4524-4414-b65a-b6b8e5bba345",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Разрешение поля",
         "slug": "field_permission",
@@ -160,7 +170,8 @@ async function createTable() {
         "id": "961a3201-65a4-452a-a8e1-7c7ba137789c",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "soft_delete": false,
     }, {
         "label": "Тип клиентов",
         "slug": "client_type",
@@ -175,8 +186,9 @@ async function createTable() {
         "id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
-    }, {
+        "__v": 0,
+        "soft_delete": false,
+    },{
         "label": "Шаблон",
         "slug": "template",
         "description": "Шаблоны",
@@ -188,8 +200,9 @@ async function createTable() {
         "id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
-    }, {
+        "__v": 0,
+        "soft_delete": false,
+      },{
         "label": "Врачи",
         "slug": "doctors",
         "description": "Специалисты",
@@ -203,8 +216,9 @@ async function createTable() {
         "id": "6b99e876-b4d8-440c-b2e2-a961530690f8",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
-    }, {
+        "__v": 0,
+        "soft_delete": false,
+      },{
         "label": "Файл",
         "slug": "file",
         "description": "Файлы",
@@ -253,6 +267,20 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "commit_guid": "58e790aa-06a2-4a11-ae4f-0ff7cf2f8b0b"
+    },{
+        "label": "Разрешение для меню",
+        "slug": "menu_permission",
+        "description": "Разрешение для связь которые в страница сведений",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "door-closed.svg",
+        "subtitle_field_slug": "",
+        "id": "08a391b2-1c78-4f3e-b84a-9d745e7d528f",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "is_system": true
     }]
 
     return tables;

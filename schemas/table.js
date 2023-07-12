@@ -53,12 +53,17 @@ const TableSchema = mongoose.Schema(
         },
         attributes: {
             type: mongoose.Schema.Types.Mixed
+        },
+        soft_delete: {
+            type: Boolean,
+            default: false
         }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
         toObject: { virtuals: true },
         toJSON: { virtuals: true },
+        strict: false
     }
 );
 

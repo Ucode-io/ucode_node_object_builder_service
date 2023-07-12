@@ -919,7 +919,7 @@ let objectBuilder = {
         // console.log("TEST::::::::::7")
         // console.timeEnd("TIME_LOGGING:::client_type_id")
         // console.log("TEST::::::3")
-        let views = []
+        let views = tableInfo.views;
         // console.time("TIME_LOGGING:::app_id")
         if (params.app_id) {
             views = tableInfo.views.filter(val => (val.app_id === params.app_id))

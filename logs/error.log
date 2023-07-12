@@ -11823,4 +11823,21 @@
     }
   }
 }
+<<<<<<< HEAD
 >>>>>>> dc0936bbbe6ba420aa8c05dc791b79adbfae1299
+=======
+{
+  message: 'service.view.getList: failed with error: Unable to infer type for "Thu Jun 08 2023 16:43:46 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2023-07-12T05:06:10.349Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.updateViewOrder: failed with error: Table is not defined',
+  level: 'error',
+  timestamp: '2023-07-12T05:36:48.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> e05dffb2a0c3199458194af38ac40af417f23641

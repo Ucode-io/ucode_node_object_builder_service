@@ -172,8 +172,10 @@ let prepareFunction = {
         for (let el of tableInfo.fields) {
             if (!data[el.slug] && el.autofill_table && el.autofill_field) {
                 const AutiFillTable = allTableInfos[el.autofill_table]
-                const autofillObject = await AutiFillTable.models.findOne({ guid: data[el.autofill_table + "_id"] }).lean() || {}
-                data[el.slug] = autofillObject[el.autofill_field]
+                if (AutiFillTable) {
+                    const autofillObject = await AutiFillTable.models.findOne({ guid: data[el.autofill_table + "_id"] }).lean() || {}
+                    data[el.slug] = autofillObject[el.autofill_field]
+                }
             }
             if (el.attributes) {
                 if (struct.decode(el.attributes).defaultValue && !data[el.slug]) {

@@ -804,7 +804,6 @@ let objectBuilder = {
         delete params["client_type_id_from_token"]
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-        console.log(">>>>>>>>>>> found table", tableInfo)
         if (!tableInfo) {
             throw new Error("table not found")
         }
@@ -1087,10 +1086,6 @@ let objectBuilder = {
                 { deleted_at: null }
             ]
         }
-
-        // delete params.limit
-        // delete params.search
-        // delete params.view_fields
 
         console.log(">>>>>>>> params", params, params.$or)
 
@@ -1877,7 +1872,7 @@ let objectBuilder = {
     }),
     deleteManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteManyToMany`, async (data) => {
         try {
-            const mongoConn = await mongoPool.get(req.project_id)
+            const mongoConn = await mongoPool.get(data.project_id)
 
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
             if (!fromTableModel) {
@@ -1933,7 +1928,7 @@ let objectBuilder = {
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
         try {
 
-            const mongoConn = await mongoPool.get(req.project_id)
+            const mongoConn = await mongoPool.get(data.project_id)
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
             if (!fromTableModel) {
                 throw new Error("table not found")

@@ -169,7 +169,6 @@ let prepareFunction = {
             }
         };
         console.log("decodedElements: ", decodedFields)
-
         for (let el of tableInfo.fields) {
             if (!data[el.slug] && el.autofill_table && el.autofill_field) {
                 const AutiFillTable = allTableInfos[el.autofill_table]

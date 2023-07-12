@@ -71,6 +71,14 @@ const FieldSchema = mongoose.Schema(
         show_label: {
             type: Boolean,
             default: true
+        },
+        enable_multilanguage: {
+            type: Boolean,
+            default: false
+        },
+        hide_multilanguage: {
+            type: Boolean,
+            default: false
         }
     },
     {

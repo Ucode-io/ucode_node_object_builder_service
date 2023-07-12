@@ -562,10 +562,11 @@ let layoutStore = {
                 const map_tab = {}
                 for (let tab of tabs) {
                     if (tab.type === "section") {
-
                         const { sections } = await sectionStorage.getAll({
                             project_id: data.project_id,
-                            tab_id: tab.id
+                            tab_id: tab.id,
+                            table_slug: table.slug,
+                            table_id: table.id
                         })
 
                         tab.sections = sections

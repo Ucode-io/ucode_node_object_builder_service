@@ -3132,3 +3132,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2023-07-12T11:30:16.369Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

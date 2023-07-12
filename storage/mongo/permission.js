@@ -995,6 +995,8 @@ let permission = {
 
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {
+        const start = new Date()
+        console.log(">>>>>>>>>>>>>> test #1 ",  new Date())
         const ErrRoleNotFound = new Error('role_id is required')
         const ErrWhileUpdate = new Error('error while updating')
 
@@ -1006,12 +1008,20 @@ let permission = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Table = mongoConn.models['Table']
         const App = mongoConn.models['App']
-        const Role = (await ObjectBuilder(true, req.project_id))['role'].models
-        const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
-        const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
-        const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
-        const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
-        const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
+        // const projectModels = await ObjectBuilder(true, req.project_id)
+        const Role = mongoConn.models['role']
+        const RecordPermission = mongoConn.models['record_permission']
+        const FieldPermission = mongoConn.models['field_permission']
+        const ViewPermission = mongoConn.models['view_relation_permission']
+        const AutomaticFilter = mongoConn.models['automatic_filter']
+        const ActionPermission = mongoConn.models['action_permission']
+        // const Role = projectModels['role'].models
+        // const RecordPermission = projectModels['record_permission'].models
+        // const FieldPermission = projectModels['field_permission'].models
+        // const ViewPermission = projectModels['view_relation_permission'].models
+        // const AutomaticFilter = projectModels['automatic_filter'].models
+        // const ActionPermission = projectModels['action_permission'].models
+        console.log(">>>>>>>>>>>>>> test #2 ",  new Date())
 
         let role = await Role.findOneAndUpdate(
             {
@@ -1026,13 +1036,14 @@ let permission = {
                 upsert: false
             }
         )
-
+        console.log(">>>>>>>>>>>>>> test #3 ",  new Date())
         if (!role) {
             throw ErrRoleNotFound
         }
         let fieldPermissions = [], viewPermissions = [], actionPermissions = []
         let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
         let automaticFilters = {}
+        console.log(">>>>>>>>>>>>>> test #4 ",  new Date())
         for (let table of req?.data?.tables) {
             let isHaveCondition = false
             if (table?.automatic_filters?.read?.length ||
@@ -1065,6 +1076,7 @@ let permission = {
             viewPermissions = [...viewPermissions, ...table.view_permissions]
             actionPermissions = [...actionPermissions, ...table.action_permissions]
         }
+        console.log(">>>>>>>>>>>>>> test #5 ",  new Date())
         for (let field_permission of (fieldPermissions || [])) {
 
             let documentFieldPermission = {
@@ -1087,6 +1099,7 @@ let permission = {
                 }
             })
         }
+        console.log(">>>>>>>>>>>>>> test #6 ",  new Date())
         for (let view_permission of (viewPermissions || [])) {
             let document = {
                 view_permission: view_permission.view_permission || false,
@@ -1110,6 +1123,7 @@ let permission = {
                 }
             })
         }
+        console.log(">>>>>>>>>>>>>> test #7 ",  new Date())
         for (let action_permission of (actionPermissions || [])) {
 
             let documentActionPermission = {
@@ -1130,6 +1144,7 @@ let permission = {
                 }
             })
         }
+        console.log(">>>>>>>>>>>>>> test #8 ",  new Date())
         let tableFilters = []
         for (const tableSlug of Object.keys(automaticFilters)) {
             if (automaticFilters[tableSlug]) {
@@ -1172,14 +1187,19 @@ let permission = {
                 }
             }
         }
+        console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
 
         if (tableFilters.length) {
             AutomaticFilter.deleteMany({})
             await AutomaticFilter.insertMany(tableFilters)
         }
+        console.log(">>>>>>>>>>>>>> test #10 ",  new Date())
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
+        console.log(">>>>>>>>>>>>>> test #11 ",  new Date())
         bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
+        console.log(">>>>>>>>>>>>>> test #12 ",  new Date())
         bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
+        console.log(">>>>>>>>>>>>>> test #13 ",  new Date())
         bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
         return {}
 

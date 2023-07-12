@@ -556,23 +556,30 @@ let layoutStore = {
                     let fieldsWithPermissions = await AddPermission.toField(summaryFields, data.role_id, table.slug, data.project_id)
                     layout.summary_fields = fieldsWithPermissions
                 }
-
                 const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()
 
                 const map_tab = {}
                 for (let tab of tabs) {
                     if (tab.type === "section") {
+
                         const { sections } = await sectionStorage.getAll({
                             project_id: data.project_id,
                             tab_id: tab.id,
-                            table_slug: table.slug,
-                            table_id: table.id
+                            role_id: data.role_id,
+                            table_slug: table.slug
                         })
 
                         tab.sections = sections
                     } else if (tab.type === "relation" && tab.relation_id) {
-                        const { relations } = await relationStorage.getSingleViewForRelation({ id: tab.relation_id, project_id: data.project_id })
-                        tab.relation = relations.length ? relations[0] : {}
+                        const { relation } = await relationStorage.getSingleViewForRelation(
+                            {
+                                id: tab.relation_id,
+                                project_id: data.project_id,
+                                role_id: data.role_id,
+                                table_slug: table.slug
+                            })
+                        console.log("relations:", relation);
+                        tab.relation = relation ? relation : {}
                     }
 
                     if (map_tab[tab.layout_id]) {
@@ -588,46 +595,6 @@ let layoutStore = {
                     }
                 }
             }
-
-            const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()
-
-            const map_tab = {}
-            for (let tab of tabs) {
-                if (tab.type === "section") {
-
-                    const { sections } = await sectionStorage.getAll({
-                        project_id: data.project_id,
-                        tab_id: tab.id,
-                        role_id: data.role_id,
-                        table_slug: table.slug
-                    })
-
-                    tab.sections = sections
-                } else if (tab.type === "relation" && tab.relation_id) {
-                    const { relation } = await relationStorage.getSingleViewForRelation(
-                        {
-                            id: tab.relation_id,
-                            project_id: data.project_id,
-                            role_id: data.role_id,
-                            table_slug: table.slug
-                        })
-                    console.log("relations:", relation);
-                    tab.relation = relation ? relation : {}
-                }
-
-                if (map_tab[tab.layout_id]) {
-                    map_tab[tab.layout_id].push(tab)
-                } else {
-                    map_tab[tab.layout_id] = [tab]
-                }
-            }
-
-            if (Object.keys(map_tab).length > 0) {
-                for (let layout of layouts) {
-                    layout.tabs = map_tab[layout.id]
-                }
-            }
-
             return { layouts: layouts }
 
         } catch (error) {

@@ -13,6 +13,7 @@ const initialMenu = require("../../helper/initialMenu");
 const initialCustomMessage = require("../../helper/initialCustomMessage");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
 const addFields = require("../../helper/addFields");
+const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
 
 
 let NAMESPACE = "storage.project";
@@ -70,7 +71,7 @@ let projectStore = {
                 mongoDBConn.model('Setting.Languages', require('../../schemas/setting_language'))
                 mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
-                mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+                mongoDBConn.modefieldPermissionIndexCheckInterl('object_builder_service.menu', require('../../schemas/menu'))
                 mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                 mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
                 mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
@@ -147,6 +148,7 @@ let projectStore = {
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenuPermission({ project_id: data.project_id })
                         await createIndexPermissionTables({ project_id: data.project_id })
+                        await fieldPermissionIndexChecker(mongoDBConn)
                         await addFields({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()

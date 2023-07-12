@@ -349,6 +349,7 @@ async function buildModels(is_build = true, project_id) {
 
                         resField.table_slug = relationTableSlug
                         if (view) {
+                            resField.attributes.function_path = view.function_path
                             if (view.default_values && view.default_values.length) {
                                 resField.attributes["default_values"] = view.default_values
                             }
@@ -385,11 +386,12 @@ async function buildModels(is_build = true, project_id) {
         // console.log("TEST:::::::::::9", fieldObject)
         let temp = mongoose.Schema(
             {
-                ...fieldObject,
-                createdAt: { type: Date, select: false },
-                updatedAt: { type: Date, select: false },
-                created_at: { type: Date, select: false },
-                updated_at: { type: Date, select: false }
+            ...fieldObject,
+                createdAt: {type: Date, select: false},
+                updatedAt: {type: Date, select: false},
+                created_at: {type: Date, select: false},
+                updated_at: {type: Date, select: false},
+                deleted_at: {type: Date, select: false}
             },
             {
                 timestamps: true,

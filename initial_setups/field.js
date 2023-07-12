@@ -1045,6 +1045,46 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0
+	},{
+		"id": "485ceb40-6267-4f5e-9327-f75fe79e8bfe",
+		"table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
+		"required": false,
+		"slug": "label",
+		"label": "Название",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"is_system": true,
+		"autofill_field": "",
+		"autofill_table": "",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
 	}, {
 		"id": "1e39a65d-9709-4c5a-99e4-dde67191d95a",
 		"required": false,

@@ -75,5 +75,12 @@ const FieldSchema = mongoose.Schema(
         toJSON: { virtuals: true },
     }
 );
+FieldSchema.virtual("field_permissions", {
+    ref: "field_permission",
+    localField: "id",
+    foreignField: "field_id",
+    justOne: true,
+})
+
 FieldSchema.index({id: 1, commit_id: -1}, {unique: true})
 module.exports = FieldSchema

@@ -265,7 +265,7 @@ let permission = {
             null,
             { sort: { createdAt: -1 } }
         )
-        console.log(">>>>>>>> test #1 ", new Date())
+        console.log(">>>>>>>> test #1 ", new Date(), role)
         if (!role) {
             console.log('WARNING role not found')
             throw new Error('Error role not found')
@@ -275,20 +275,58 @@ let permission = {
             ...role._doc
         }
 
-        const tables = await Table.find(
+        const tablePipeline = [
             {
+              $match: {
                 deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') }
+              }
             },
             {
+              $project: {
                 __v: 0,
                 _id: 0,
                 created_at: 0,
-                updated_at: 0,
+                updated_at: 0
+              }
+            },
+            {
+              $lookup: {
+                from: 'record_permissions', 
+                let: { tableSlug: '$slug' },
+                pipeline: [
+                  {
+                    $match: {
+                      $expr: {
+                        $and: [
+                          { $eq: ['$table_slug', '$$tableSlug'] },
+                          { $eq: ['$role_id', role.guid] }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    $limit: 1
+                  }
+                ],
+                as: 'record_permissions'
+              }
+            },
+            {
+              $project: {
+                id: "$id",
+                slug: '$slug',
+                label: "$label",
+                show_in_menu: "$show_in_menu",
+                is_changed: "$is_cached",
+                icon: "$icon",
+                is_changed: "$is_cached",
+                is_system: "$is_system",
+                record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
+              }
             }
-        ).populate({
-            path: 'record_permissions',
-            match: { 'record_permissions.role_id': req.role_id },
-        }).lean()
+        ]
+        
+        const tables = await Table.aggregate(tablePipeline)
 
         console.log(">>>>>>>> test #2 ", new Date())
 
@@ -297,155 +335,43 @@ let permission = {
             return roleCopy
         }    
 
-        const testPipeline = [
+        const fieldPipeline = [
             {
-              $group: {
-                _id: '$table_id',
-                fields: { $push: '$$ROOT' }
+              $project: {
+                __v: 0,
+                _id: 0,
+                created_at: 0,
+                updated_at: 0
               }
             },
             {
               $lookup: {
-                from: 'field_permissions',
-                let: { field_ids: '$fields.id' },
+                from: 'field_permissions', 
+                let: { fieldID: '$id' },
                 pipeline: [
                   {
                     $match: {
                       $expr: {
                         $and: [
-                          { $in: ['$field_id', '$$field_ids'] },
-                          { $eq: ['$role_id', req.role_id] } 
+                          { $eq: ['$field_id', '$$fieldID'] },
+                          { $eq: ['$role_id', role.guid] }
                         ]
                       }
                     }
                   },
                   {
-                    $project: {
-                      _id: 0,
-                      field_id: 1,
-                      table_slug: 1,
-                      view_permission: 1,
-                      edit_permission: 1,
-                      label: 1
-                    }
+                    $limit: 1
                   }
                 ],
                 as: 'field_permissions'
               }
             },
             {
-              $addFields: {
-                fields: {
-                  $map: {
-                    input: '$fields',
-                    as: 'field',
-                    in: {
-                      $mergeObjects: [
-                        '$$field',
-                        {
-                          field_permissions: {
-                            $filter: {
-                              input: '$field_permissions',
-                              as: 'fp',
-                              cond: {
-                                $eq: ['$$field.id', '$$fp.field_id']
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            {
-              $addFields: {
-                fields: {
-                  $map: {
-                    input: '$fields',
-                    as: 'field',
-                    in: {
-                      $cond: [
-                        { $ne: [{ $size: '$$field.field_permissions' }, 0] },
-                        '$$field',
-                        { $mergeObjects: ['$$field', { field_permissions: [] }] }
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            {
               $project: {
-                _id: 0,
-                table_id: '$_id',
-                fields: 1
+                label: "$label",
+                table_id: "$table_id",
+                field_permissions: { $arrayElemAt: ['$field_permissions', 0] }
               }
-            }
-        ]
-        const getListFieldPermisssions = [
-            {
-                '$lookup': {
-                    'from': 'field_permissions',
-                    'let': {
-                        'fieldId': '$id'
-                    },
-                    'pipeline': [
-                        {
-                            '$match': {
-                                '$expr': {
-                                    '$and': [
-                                        {
-                                            '$eq': [
-                                                '$field_id', '$$fieldId'
-                                            ]
-                                        }, {
-                                            '$eq': [
-                                                '$role_id', req.role_id
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    ],
-                    'as': 'field_permissions'
-                }
-            }, {
-                '$unwind': {
-                    'path': '$field_permissions',
-                    'preserveNullAndEmptyArrays': true
-                }
-            }, {
-                '$group': {
-                    '_id': '$table_id',
-                    'fields': {
-                        '$push': '$$ROOT'
-                    }
-                }
-            }, {
-                '$match': {
-                    '_id': {
-                        '$ne': null
-                    }
-                }
-            }, {
-                '$group': {
-                    '_id': null,
-                    'table_fields': {
-                        '$push': {
-                            'k': '$_id',
-                            'v': '$fields'
-                        }
-                    }
-                }
-            }, {
-                '$replaceRoot': {
-                    'newRoot': {
-                        '$arrayToObject': '$table_fields'
-                    }
-                }
             }
         ]
         const getListViewRelationPermissions = [{
@@ -650,13 +576,7 @@ let permission = {
             }
         ]
 
-        // let fieldsOfTables = await Field.aggregate(getListFieldPermisssions)
-        // let fields = fieldsOfTables[0]
-        // console.log(">>>>>>>> test #3 ", new Date())
-        let testFieldResp = await Field.find().populate({
-            path: 'field_permissions',
-            match: {'field_permissions.role_id': req.role_id}
-        })
+        let testFieldResp = await Field.aggregate(fieldPipeline)
         let fields = {}
         testFieldResp.forEach(el => {
             if (!fields[el.table_id]) {
@@ -666,11 +586,6 @@ let permission = {
             }
         })
 
-        // let newFieldOfTables = await Field.aggregate(testPipeline)
-        // let fields = {}
-        // newFieldOfTables.forEach(el => {
-        //     fields[el.table_id] = el.fields
-        // })
         console.log(">>>>>>>> test #3 ", new Date())
         let viewPermissions = await ViewRelation.aggregate(getListViewRelationPermissions)
         let viewPermission = viewPermissions[0]
@@ -682,23 +597,7 @@ let permission = {
         let automaticFilter = automaticFilters[0]
         console.log(">>>>>>>> test #6", new Date())
 
-
-
-        // let appCopy = {
-        //     ...app._doc
-        // }
-
-        // for (let table of (app.tables || [])) {
-        //     if (table.is_own_table) {
-        //         tableIds.push(table.table_id)
-        //     }
-        // }
-        // const tables = await tableVersion(mongoConn, { id: { $in: tableIds }, deleted_at: new Date("1970-01-01T18:00:00.000+00:00"), role_id: req.role_id }, req.version_id, false)
         let tablesList = []
-        // if (!tables || !tables.length) {
-        //     console.log('WARNING tables not found')
-        //     // return roleCopy
-        // }
 
         for (let table of tables) {
             let tableCopy = {
@@ -1030,6 +929,8 @@ let permission = {
 
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {
+        const start = new Date()
+        console.log(">>>>>>>>>>>>>> test #1 ",  new Date())
         const ErrRoleNotFound = new Error('role_id is required')
         const ErrWhileUpdate = new Error('error while updating')
 
@@ -1041,12 +942,20 @@ let permission = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Table = mongoConn.models['Table']
         const App = mongoConn.models['App']
-        const Role = (await ObjectBuilder(true, req.project_id))['role'].models
-        const RecordPermission = (await ObjectBuilder(true, req.project_id))['record_permission'].models
-        const FieldPermission = (await ObjectBuilder(true, req.project_id))['field_permission'].models
-        const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
-        const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
-        const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
+        // const projectModels = await ObjectBuilder(true, req.project_id)
+        const Role = mongoConn.models['role']
+        const RecordPermission = mongoConn.models['record_permission']
+        const FieldPermission = mongoConn.models['field_permission']
+        const ViewPermission = mongoConn.models['view_relation_permission']
+        const AutomaticFilter = mongoConn.models['automatic_filter']
+        const ActionPermission = mongoConn.models['action_permission']
+        // const Role = projectModels['role'].models
+        // const RecordPermission = projectModels['record_permission'].models
+        // const FieldPermission = projectModels['field_permission'].models
+        // const ViewPermission = projectModels['view_relation_permission'].models
+        // const AutomaticFilter = projectModels['automatic_filter'].models
+        // const ActionPermission = projectModels['action_permission'].models
+        console.log(">>>>>>>>>>>>>> test #2 ",  new Date())
 
         let role = await Role.findOneAndUpdate(
             {
@@ -1061,13 +970,14 @@ let permission = {
                 upsert: false
             }
         )
-
+        console.log(">>>>>>>>>>>>>> test #3 ",  new Date())
         if (!role) {
             throw ErrRoleNotFound
         }
         let fieldPermissions = [], viewPermissions = [], actionPermissions = []
         let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
         let automaticFilters = {}
+        console.log(">>>>>>>>>>>>>> test #4 ",  new Date())
         for (let table of req?.data?.tables) {
             let isHaveCondition = false
             if (table?.automatic_filters?.read?.length ||
@@ -1100,6 +1010,7 @@ let permission = {
             viewPermissions = [...viewPermissions, ...table.view_permissions]
             actionPermissions = [...actionPermissions, ...table.action_permissions]
         }
+        console.log(">>>>>>>>>>>>>> test #5 ",  new Date())
         for (let field_permission of (fieldPermissions || [])) {
 
             let documentFieldPermission = {
@@ -1122,6 +1033,7 @@ let permission = {
                 }
             })
         }
+        console.log(">>>>>>>>>>>>>> test #6 ",  new Date())
         for (let view_permission of (viewPermissions || [])) {
             let document = {
                 view_permission: view_permission.view_permission || false,
@@ -1145,6 +1057,7 @@ let permission = {
                 }
             })
         }
+        console.log(">>>>>>>>>>>>>> test #7 ",  new Date())
         for (let action_permission of (actionPermissions || [])) {
 
             let documentActionPermission = {
@@ -1165,6 +1078,7 @@ let permission = {
                 }
             })
         }
+        console.log(">>>>>>>>>>>>>> test #8 ",  new Date())
         let tableFilters = []
         for (const tableSlug of Object.keys(automaticFilters)) {
             if (automaticFilters[tableSlug]) {
@@ -1207,14 +1121,19 @@ let permission = {
                 }
             }
         }
+        console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
 
         if (tableFilters.length) {
             AutomaticFilter.deleteMany({})
             await AutomaticFilter.insertMany(tableFilters)
         }
+        console.log(">>>>>>>>>>>>>> test #10 ",  new Date())
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
+        console.log(">>>>>>>>>>>>>> test #11 ",  new Date())
         bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
+        console.log(">>>>>>>>>>>>>> test #12 ",  new Date())
         bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
+        console.log(">>>>>>>>>>>>>> test #13 ",  new Date())
         bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
         return {}
 

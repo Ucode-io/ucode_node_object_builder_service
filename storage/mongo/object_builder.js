@@ -1379,8 +1379,8 @@ let objectBuilder = {
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         // console.time("TIME_LOGGING:::res_of_result")
         for (const res of result) {
+            let isChanged = false
             for (const field of formulaFields) {
-                let isChanged = false
                 let attributes = struct.decode(field.attributes)
                 if (field.type === "FORMULA") {
                     if (attributes.table_from && attributes.sum_field) {
@@ -1438,9 +1438,9 @@ let objectBuilder = {
                         res[field.slug] = resultFormula
                     }
                 }
-                if (isChanged) {
-                    updatedObjects.push(res)
-                }
+            }
+            if (isChanged) {
+                updatedObjects.push(res)
             }
         }
         // console.log("TEST::::::::::16")

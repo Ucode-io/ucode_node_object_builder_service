@@ -8,6 +8,18 @@ const menuService = {
     GetAll: catchWrapService(`service.menu.getAll`, menuStore.getAll),
     Delete: catchWrapService(`service.menu.delete`, menuStore.delete),
     UpdateMenuOrder: catchWrapService(`service.menu.updateMenuOrder`, menuStore.updateMenuOrder),
+
+    CreateMenuSettings: catchWrapService(`service.menu.createMenuSettings`, menuStore.createMenuSettings),
+    GetAllMenuSettings: catchWrapService(`service.menu.getAllMenuSettings`, menuStore.getAllMenuSettings),
+    GetByIDMenuSettings: catchWrapService(`service.menu.getByIDMenuSettings`, menuStore.getByIDMenuSettings),
+    UpdateMenuSettings: catchWrapService(`service.menu.updateMenuSettings`, menuStore.updateMenuSettings),
+    DeleteMenuSettings: catchWrapService(`service.menu.deleteMenuSettings`, menuStore.deleteMenuSettings),
+
+    CreateMenuTemplate: catchWrapService(`service.menu.createMenuTemplate`, menuStore.createMenuTemplate),
+    GetAllMenuTemplate: catchWrapService(`service.menu.getAllMenuTemplate`, menuStore.getAllMenuTemplate),
+    GetByIDMenuTemplate: catchWrapService(`service.menu.getByIDMenuTemplate`, menuStore.getByIDMenuTemplate),
+    UpdateMenuTemplate: catchWrapService(`service.menu.updateMenuTemplate`, menuStore.updateMenuTemplate),
+    DeleteMenuTemplate: catchWrapService(`service.menu.deleteMenuTemplate`, menuStore.deleteMenuTemplate),
 };
 
 module.exports = menuService;

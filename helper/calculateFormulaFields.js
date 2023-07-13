@@ -24,6 +24,9 @@ let formulaFunction = {
             if (typeof value === "object") {
                 value = `'${value[0]}'`
             }
+            if (typeof value === "number") {
+                value = `${value}`
+            }
             computedFormula = computedFormula.replaceAll(`${el.slug}`, `${value}`)
         })
         console.log(">> Replaced formula ", computedFormula)

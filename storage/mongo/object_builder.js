@@ -1368,9 +1368,9 @@ let objectBuilder = {
                         res[field.slug] = resultFormula
                     }
                 }
-            }
-            if (isChanged) {
-                updatedObjects.push(res)
+                if (isChanged) {
+                    updatedObjects.push(res)
+                }
             }
         }
         // console.log("TEST::::::::::16")

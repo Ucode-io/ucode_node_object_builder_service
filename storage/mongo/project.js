@@ -14,6 +14,7 @@ const createIndexPermissionTables = require("../../helper/createIndexPermissionT
 const initialMenuPermission = require("../../helper/initialMenuPermission");
 const initialCustomMessage = require("../../helper/initialCustomMessage");
 const addFields = require("../../helper/addFields");
+const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
 
 
 let NAMESPACE = "storage.project";
@@ -150,6 +151,7 @@ let projectStore = {
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenuPermission({ project_id: data.project_id })
                         await createIndexPermissionTables({ project_id: data.project_id })
+                        await fieldPermissionIndexChecker(mongoDBConn)
                         await addFields({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()

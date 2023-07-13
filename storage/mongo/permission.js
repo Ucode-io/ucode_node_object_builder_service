@@ -623,7 +623,7 @@ let permission = {
                 if (field.field_permissions) {
                     const temp = field.field_permissions
                     tableCopy.field_permissions.push({
-                        field_id: field.id,
+                        field_id: temp.field_id,
                         table_slug: table.slug,
                         view_permission: temp.view_permission,
                         edit_permission: temp.edit_permission,
@@ -949,12 +949,6 @@ let permission = {
         const ViewPermission = mongoConn.models['view_relation_permission']
         const AutomaticFilter = mongoConn.models['automatic_filter']
         const ActionPermission = mongoConn.models['action_permission']
-        // const Role = projectModels['role'].models
-        // const RecordPermission = projectModels['record_permission'].models
-        // const FieldPermission = projectModels['field_permission'].models
-        // const ViewPermission = projectModels['view_relation_permission'].models
-        // const AutomaticFilter = projectModels['automatic_filter'].models
-        // const ActionPermission = projectModels['action_permission'].models
         console.log(">>>>>>>>>>>>>> test #2 ",  new Date())
 
         let role = await Role.findOneAndUpdate(

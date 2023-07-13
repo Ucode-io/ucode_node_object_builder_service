@@ -368,6 +368,7 @@ let permission = {
             {
               $project: {
                 label: "$label",
+                id: "$id",
                 table_id: "$table_id",
                 field_permissions: { $arrayElemAt: ['$field_permissions', 0] }
               }

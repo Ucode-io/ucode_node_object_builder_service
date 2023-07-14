@@ -250,9 +250,11 @@ let permission = {
         const App = mongoConn.models['App']
         const Role = (await ObjectBuilder(true, req.project_id))['role'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
+        // const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
         const Field = mongoConn.models['Field']
         const FieldPermission = mongoConn.models['field_permission']
         const ViewRelation = mongoConn.models['ViewRelation']
+        const Tab = mongoConn.models['Tab']
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
 
@@ -573,6 +575,52 @@ let permission = {
                     }
                 }
             }
+        ] 
+        const tabPipeline = [
+            {
+                $project: {
+                  __v: 0,
+                  _id: 0,
+                  created_at: 0,
+                  updated_at: 0
+                }
+            },
+            {
+                $match: {
+                    type: 'relation'
+                }
+            },
+            {
+                $lookup: {
+                  from: 'view_relation_permissions', 
+                  let: { relationID: '$relation_id' },
+                  pipeline: [
+                    {
+                      $match: {
+                        $expr: {
+                          $and: [
+                            { $eq: ['$relation_id', '$$relationID'] },
+                            { $eq: ['$role_id', role.guid] }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      $limit: 1
+                    }
+                  ],
+                  as: 'view_permissions'
+                }
+              },
+              {
+                $project: {
+                  label: "$label",
+                  id: "$id",
+                  table_slug: "$table_slug",
+                  layout_id: "$layout_id",
+                  view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
+                }
+              }
         ]
 
         let testFieldResp = await Field.aggregate(fieldPipeline)
@@ -586,8 +634,15 @@ let permission = {
         })
 
         console.log(">>>>>>>> test #3 ", new Date())
-        let viewPermissions = await ViewRelation.aggregate(getListViewRelationPermissions)
-        let viewPermission = viewPermissions[0]
+        let viewPermissions = await Tab.aggregate(tabPipeline)
+        let viewPermission = {}
+        viewPermissions.forEach(el => {
+            if (!viewPermission[el.table_slug]) {
+                viewPermission[el.table_slug] = [el]
+            } else {
+                viewPermission[el.table_slug].push(el)
+            }
+        })
         console.log(">>>>>>>> test #4 ", new Date())
         let actionPermissions = await CustomEvent.aggregate(getListActionPermissions)
         let actionPermission = actionPermissions[0]
@@ -597,7 +652,7 @@ let permission = {
         console.log(">>>>>>>> test #6", new Date())
 
         let tablesList = []
-
+        console.log(">>>>>>>> test #6.1 ", new Date(), viewPermission)
         for (let table of tables) {
             let tableCopy = {
                 ...table,
@@ -641,11 +696,36 @@ let permission = {
                     })
                 }
             })
-            if (viewPermission && viewPermission[table.slug]) {
-                tableCopy.view_permissions = viewPermission[table.slug]
-            } else {
-                tableCopy.view_permissions = []
-            }
+
+            let tableViews = viewPermission[table.slug]
+            tableCopy.view_permissions = []
+            tableViews && tableViews.length && tableViews.forEach(el => {
+                if (el.view_permissions) {
+                    const temp = el.view_permissions
+                    tableCopy.view_permissions.push({
+                        guid: temp.guid,
+                        relation_id: temp.relation_id,
+                        table_slug: temp.table_slug,
+                        view_permission: temp.view_permission,
+                        edit_permission: temp.edit_permission,
+                        create_permission: temp.create_permission,
+                        delete_permission: temp.delete_permission,
+                        label: el.label,
+                    })
+                } else {
+                    tableCopy.field_permissions.push({
+                        guid: "",
+                        relation_id: "",
+                        table_slug: "",
+                        view_permission: false,
+                        edit_permission: false,
+                        create_permission: false,
+                        delete_permission: false,
+                        label: el.label,
+                    })
+                }
+            })
+
             if (actionPermission && actionPermission[table.slug]) {
                 tableCopy.action_permissions = actionPermission[table.slug]
             } else {
@@ -684,7 +764,7 @@ let permission = {
         const ViewPermission = (await ObjectBuilder(true, req.project_id))['view_relation_permission'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         const ActionPermission = (await ObjectBuilder(true, req.project_id))['action_permission'].models
-        const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
+        // const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
 
         let role = await Role.findOneAndUpdate(
             {
@@ -707,39 +787,39 @@ let permission = {
         let automaticFilters = []
         let actionPermissions = []
         for (let app of req?.data?.apps) {
-            if (app?.permission?.guid) {
-                await AppPermission.findOneAndUpdate(
-                    {
-                        guid: app.permission.guid
-                    },
-                    {
-                        $set: {
-                            read: app.permission.read,
-                            create: app.permission.create,
-                            update: app.permission.update,
-                            delete: app.permission.delete,
-                            role_id: app.permission.role_id,
-                            app_id: app.permission.app_id
-                        }
-                    },
-                    {
-                        upsert: false,
-                    }
-                )
+            // if (app?.permission?.guid) {
+            //     await AppPermission.findOneAndUpdate(
+            //         {
+            //             guid: app.permission.guid
+            //         },
+            //         {
+            //             $set: {
+            //                 read: app.permission.read,
+            //                 create: app.permission.create,
+            //                 update: app.permission.update,
+            //                 delete: app.permission.delete,
+            //                 role_id: app.permission.role_id,
+            //                 app_id: app.permission.app_id
+            //             }
+            //         },
+            //         {
+            //             upsert: false,
+            //         }
+            //     )
 
-            } else {
-                await AppPermission.create(
-                    {
-                        read: app.permission.read,
-                        create: app.permission.create,
-                        update: app.permission.update,
-                        delete: app.permission.delete,
-                        guid: v4(),
-                        role_id: roleId,
-                        app_id: app.id
-                    }
-                )
-            }
+            // } else {
+            //     await AppPermission.create(
+            //         {
+            //             read: app.permission.read,
+            //             create: app.permission.create,
+            //             update: app.permission.update,
+            //             delete: app.permission.delete,
+            //             guid: v4(),
+            //             role_id: roleId,
+            //             app_id: app.id
+            //         }
+            //     )
+            // }
             for (let table of app?.tables) {
                 let isHaveCondition = false
                 let lengthKeys = Object.keys(table.automatic_filters) ? Object.keys(table.automatic_filters).length : false

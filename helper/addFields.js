@@ -175,6 +175,48 @@ module.exports = async function (data) {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true,
+    }, {
+        "id": "82f75cc2-1b68-4fe9-8680-7820376fcba7",
+        "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
+        "required": false,
+        "slug": "table_slug",
+        "label": "Таблица",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+            "fields": {
+                "show_label": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                },
+                "defaultValue": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                },
+                "icon": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                },
+                "showTooltip": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                }
+            }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "unique": false,
+        "automatic": false,
+        "commit_id": "",
+        "relation_field": "",
+        "is_system": false,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "relation_id": "",
+        "is_system": true,
     }]
     let bulkWriteFields = []
     fields.forEach(field => {
@@ -194,7 +236,7 @@ module.exports = async function (data) {
     await Field.bulkWrite(bulkWriteFields)
     // update role and view relation permission table
     await Table.updateMany({
-        ids: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad"]
+        id: { $in: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad", "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"] }
     }, { $set: { is_changed: true } })
 
     console.log("done creating additional field for view_relaiton_permission and role")

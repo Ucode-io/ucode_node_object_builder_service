@@ -10623,6 +10623,7 @@
 }
 >>>>>>> 2a32b0db5675cb77c55c186cf599110b53410b42
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7ceaea63bccfd3e83a6b9a65d5315f7980fa5de9
   message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
@@ -10635,10 +10636,14 @@
   timestamp: '2023-07-04T06:27:50.243Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
 =======
+=======
+<<<<<<< HEAD
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
 {
   message: 'service.table.update: failed with error: Table validation failed: label: Table must have label',
   level: 'error',
   timestamp: '2023-07-05T08:58:27.339Z',
+<<<<<<< HEAD
 >>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
   label: 'object_builder_service',
   metadata: {}
@@ -10659,17 +10664,48 @@
   level: 'error',
   timestamp: '2023-07-05T09:00:05.288Z',
 >>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
+=======
+=======
+=======
+>>>>>>> 7047b885d45a595c8091ec3055db2df630793276
+=======
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-20T05:11:28.824Z',
+>>>>>>> feature/user_login_table
   label: 'object_builder_service',
   metadata: {}
 }
 {
 <<<<<<< HEAD
+  message: 'service.table.update: failed with error: Table validation failed: label: Table must have label',
+  level: 'error',
+  timestamp: '2023-07-05T09:00:05.288Z',
+=======
+  message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-06-20T05:11:29.022Z',
+>>>>>>> feature/user_login_table
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  message: "service.table.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-05T09:01:36.194Z',
+=======
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
   message: 'service.loginStore.getUserUpdatedPermission: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-06-20T05:11:29.025Z',
 =======
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-07-04T06:27:50.277Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
 =======
@@ -10677,6 +10713,10 @@
   level: 'error',
   timestamp: '2023-07-05T09:01:36.194Z',
 >>>>>>> 0f29ac0268402d34ff8d527245f3dabc04f2ba11
+=======
+  timestamp: '2023-06-20T08:05:32.436Z',
+>>>>>>> feature/user_login_table
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
   label: 'object_builder_service',
   metadata: {}
 }
@@ -10696,16 +10736,25 @@
 <<<<<<< HEAD
   message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-06-20T11:23:28.872Z',
 =======
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'data')",
   level: 'error',
   timestamp: '2023-07-04T06:28:14.486Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+<<<<<<< HEAD
+  timestamp: '2023-07-05T09:07:08.973Z',
+=======
+  timestamp: '2023-06-20T11:23:28.872Z',
+>>>>>>> feature/user_login_table
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
   level: 'error',
@@ -10715,60 +10764,122 @@
   level: 'error',
   timestamp: '2023-07-04T06:35:27.835Z',
 >>>>>>> 0dbf81bcc9de5427f58ebe1bb526fd2a728f42b5
+=======
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:22:27.322Z',
+=======
+  message: 'service.table.update: failed with error: Connection error: connect ECONNREFUSED 127.0.0.1:9092',
+  level: 'error',
+  timestamp: '2023-06-20T11:29:08.752Z',
+>>>>>>> feature/user_login_table
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
   label: 'object_builder_service',
   metadata: {}
 }
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:27:51.100Z',
+=======
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T03:22:43.026Z',
+>>>>>>> feature/user_login_table
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:28:59.798Z',
+=======
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T03:22:43.165Z',
+>>>>>>> feature/user_login_table
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:31:24.349Z',
+=======
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T03:22:47.011Z',
+>>>>>>> feature/user_login_table
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:33:07.734Z',
+=======
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T03:25:13.285Z',
+>>>>>>> feature/user_login_table
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:58:13.956Z',
+=======
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T03:27:57.596Z',
+>>>>>>> feature/user_login_table
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T12:59:20.985Z',
+=======
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T03:29:23.245Z',
+>>>>>>> feature/user_login_table
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T13:00:21.407Z',
+=======
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T03:45:12.500Z',
+>>>>>>> feature/user_login_table
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.table.update: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "b_test_folder", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-07-10T13:01:28.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+=======
   message: 'service.object_builder.create: failed with error: a_test_table validation failed: name: Path `name` is required.',
   level: 'error',
   timestamp: '2023-06-21T03:47:20.336Z',
@@ -11728,6 +11839,7 @@
   }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 7ceaea63bccfd3e83a6b9a65d5315f7980fa5de9
 {
   message: 'Error while auto connecting',
@@ -11748,6 +11860,9 @@
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
     }
   }
+=======
+>>>>>>> feature/user_login_table
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
 =======
 {
   message: "service.layout.getAll: failed with error: Cannot read properties of undefined (reading 'includes')",
@@ -11824,16 +11939,25 @@
   }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> dc0936bbbe6ba420aa8c05dc791b79adbfae1299
 =======
 {
   message: 'service.view.getList: failed with error: Unable to infer type for "Thu Jun 08 2023 16:43:46 GMT+0500 (Uzbekistan Standard Time)".',
   level: 'error',
   timestamp: '2023-07-12T05:06:10.349Z',
+=======
+>>>>>>> 7047b885d45a595c8091ec3055db2df630793276
+{
+  message: 'service.object_builder.create: failed with error: This table is auth table. Auth information not fully given',
+  level: 'error',
+  timestamp: '2023-07-13T05:59:23.000Z',
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.view.updateViewOrder: failed with error: Table is not defined',
   level: 'error',
   timestamp: '2023-07-12T05:36:48.433Z',
@@ -11841,3 +11965,368 @@
   metadata: {}
 }
 >>>>>>> e05dffb2a0c3199458194af38ac40af417f23641
+=======
+  message: 'service.object_builder.create: failed with error: This table is auth table. Auth information not fully given',
+  level: 'error',
+  timestamp: '2023-07-13T06:07:51.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: sync_user_with_auth_service.SyncUserWithAuthService is not a constructor',
+  level: 'error',
+  timestamp: '2023-07-13T07:03:43.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:07:01.030Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 2 UNKNOWN: ERROR: relation "project" does not exist (SQLSTATE 42P01)
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 2,
+      details: 'ERROR: relation "project" does not exist (SQLSTATE 42P01)',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 2 UNKNOWN: ERROR: relation "project" does not exist (SQLSTATE 42P01)',
+  level: 'error',
+  timestamp: '2023-07-13T07:07:01.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:11:49.299Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'grpc: error while marshaling: proto: Marshal called with nil',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil',
+  level: 'error',
+  timestamp: '2023-07-13T07:11:49.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:12:09.607Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'grpc: error while marshaling: proto: Marshal called with nil',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil',
+  level: 'error',
+  timestamp: '2023-07-13T07:12:09.610Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:12:39.238Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'grpc: error while marshaling: proto: Marshal called with nil',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil',
+  level: 'error',
+  timestamp: '2023-07-13T07:12:39.239Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:12:59.561Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'grpc: error while marshaling: proto: Marshal called with nil',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil',
+  level: 'error',
+  timestamp: '2023-07-13T07:12:59.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:14:41.836Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'grpc: error while marshaling: proto: Marshal called with nil',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil',
+  level: 'error',
+  timestamp: '2023-07-13T07:14:41.839Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:14:42.090Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'grpc: error while marshaling: proto: Marshal called with nil',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil',
+  level: 'error',
+  timestamp: '2023-07-13T07:14:42.093Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:20:00.845Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'grpc: error while marshaling: proto: Marshal called with nil',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil',
+  level: 'error',
+  timestamp: '2023-07-13T07:20:00.847Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:24:00.880Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'grpc: error while marshaling: proto: Marshal called with nil',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil',
+  level: 'error',
+  timestamp: '2023-07-13T07:24:00.882Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-07-13T07:24:43.500Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUserAuth',
+    error: Error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'grpc: error while marshaling: proto: Marshal called with nil',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.create: failed with error: 13 INTERNAL: grpc: error while marshaling: proto: Marshal called with nil',
+  level: 'error',
+  timestamp: '2023-07-13T07:24:43.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-13T07:30:03.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.b_test_folders index: guid_1 dup key: { guid: "a837e586-2a6f-4a7c-a5d7-24b9f8f96f5d" }',
+  level: 'error',
+  timestamp: '2023-07-13T08:00:17.894Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.delete: failed with error: Schema hasn't been registered for model "record_permission".\n` +
+    'Use mongoose.model(name, schema)',
+  level: 'error',
+  timestamp: '2023-07-13T11:36:40.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.delete: failed with error: tableData is not defined',
+  level: 'error',
+  timestamp: '2023-07-13T11:36:59.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-13T11:38:33.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.delete: failed with error: This table is auth table. Auth information not fully given',
+  level: 'error',
+  timestamp: '2023-07-13T11:40:09.476Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.delete: failed with error: SyncUserService(...).Delete is not a function',
+  level: 'error',
+  timestamp: '2023-07-13T11:52:42.220Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de

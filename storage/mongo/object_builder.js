@@ -24,6 +24,7 @@ const FormulaFunction = require("../../helper/calculateFormulaFields");
 const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
+const grpcClient = require("../../services/grpc/client");
 
 
 let NAMESPACE = "storage.object_builder";
@@ -794,7 +795,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
 
         let params = struct.decode(req?.data)
-        
+
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -876,10 +877,10 @@ let objectBuilder = {
             if (params.view_fields.length && params.search !== "") {
                 let replacedSearch = ""
                 let empty = ""
-                for(let el of params.search) {
-                    if(el == "(" ) {
+                for (let el of params.search) {
+                    if (el == "(") {
                         empty += "\\("
-                    } else if(el == ")") {
+                    } else if (el == ")") {
                         empty += "\\)"
                     } else {
                         empty += el
@@ -998,7 +999,7 @@ let objectBuilder = {
                             } else {
                                 table_slug = field.slug.slice(0, -4)
                             }
-                            
+
                             childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
                             if (childRelation) {
                                 for (const view_field of childRelation.view_fields) {
@@ -1061,15 +1062,15 @@ let objectBuilder = {
                 }
             }
         }
-        
+
         let populateArr = []
 
         // check soft deleted datas
-        if(params.$or) {
+        if (params.$or) {
             params.$and = [
                 { $or: params.$or },
-                { 
-                    $or:  [
+                {
+                    $or: [
                         { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
                         { deleted_at: null }
                     ]
@@ -1471,7 +1472,7 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
-        const tableResp = await table.findOne({slug: req.table_slug}) || {is_cached: false}
+        const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
     }),
@@ -1636,30 +1637,43 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
-
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            const allTableInfo = (await ObjectBuilder(true, req.project_id))
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
-
-            if(!tableModel.soft_delete) {
-                const response = await tableInfo.models.deleteOne({ guid: data.id });
-                let event = {}
-                let table = {}
-                table.guid = data.id
-                table.table_slug = req.table_slug
-                event.payload = table
-
-                event.project_id = req.project_id
-                // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
-
-                return { table_slug: req.table_slug, data: response };
-            } else if (tableModel.soft_delete) {
-                
-                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, {$set: {deleted_at: new Date()}})
-                console.log(">>>>>>>>> ", response)
-
-                return { table_slug: req.table_slug, data: response };
+            let response = await allTableInfo[req.table_slug].models.findOne({
+                guid: data.id
+            })
+            if (response) {
+                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                    let tableAttributes = struct.decode(tableModel.attributes)
+    
+                    if (tableAttributes && tableAttributes.auth_info) {
+    
+                        let authInfo = tableAttributes.auth_info
+                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                            throw new Error('This table is auth table. Auth information not fully given')
+                        }
+                        let loginTable = allTableInfo['client_type']?.models?.findOne({
+                            client_type_id: response[authInfo['client_type_id']],
+                            table_slug: tableModel.slug
+                        })
+                        if (loginTable) {
+                            let authDeleteUserRequest = {
+                                client_type_id: response[authInfo['client_type_id']],
+                                role_id: response[authInfo['role_id']],
+                                project_id: data['company_service_project_id'],
+                                user_id: response['guid']
+                            }
+                            await grpcClient.deleteUserAuth(authDeleteUserRequest)
+                        }
+                    }
+                }
             }
-
+            if (!tableModel.soft_delete) {
+                await allTableInfo[req.table_slug].models.deleteOne({ guid: data.id });
+            } else if (tableModel.soft_delete) {
+                await allTableInfo[req.table_slug].models.updateOne({ guid: data.id }, { $set: { deleted_at: new Date() } })
+            }
+            return { table_slug: req.table_slug, data: response };
         } catch (err) {
             throw err
         }

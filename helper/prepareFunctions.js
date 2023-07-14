@@ -164,7 +164,7 @@ let prepareFunction = {
         }
 
         let payload = new tableInfo.models(data);
-        if (tableData && tableData.is_login_table) {
+        if (tableData && tableData.is_login_table && !data.from_auth_service) {
             let tableAttributes = struct.decode(tableData.attributes)
             if (tableAttributes && tableAttributes.auth_info) {
                 let authInfo = tableAttributes.auth_info
@@ -174,9 +174,9 @@ let prepareFunction = {
                 ) {
                     throw new Error('This table is auth table. Auth information not fully given')
                 }
-                let loginTable = await allTableInfos['user_login_table']?.models?.findOne({
+                let loginTable = await allTableInfos['client_type']?.models?.findOne({
                     client_type_id: data[authInfo['client_type_id']],
-                    table_id: tableData.id
+                    table_slug: tableData.slug
                 })
                 if (loginTable) {
                     let authCheckRequest = {
@@ -196,8 +196,11 @@ let prepareFunction = {
             }
         }
         if (ownGuid) {
+            console.log("ownd Guid:", ownGuid);
             payload.guid = ownGuid
+            data.guid = ownGuid
         }
+        console.log("payload:", payload);
         let fields = await Field.find(
             {
                 table_id: tableData?.id

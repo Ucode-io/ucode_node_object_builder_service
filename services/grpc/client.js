@@ -22,8 +22,8 @@ const ResourceService = () => {
     return new resource_service.ResourceService(`${companyServiceHost}${companyServicePort}`, grpc.credentials.createInsecure());
 };
 
-const SyncUserWithAuthService = () => {
-    const PROTO_PATH = __dirname + '/../../protos/auth_service/sync_user_.proto';
+const SyncUserService = () => {
+    const PROTO_PATH = __dirname + '/../../protos/auth_service/sync_user.proto';
 
     const packageDefinition = protoLoader.loadSync(
         PROTO_PATH,
@@ -37,7 +37,7 @@ const SyncUserWithAuthService = () => {
 
     const sync_user_with_auth_service = grpc.loadPackageDefinition(packageDefinition).auth_service;
     console.log(companyServiceHost, companyServicePort)
-    return new sync_user_with_auth_service.SyncUserWithAuthService(`${authServiceHost}${authServicePort}`, grpc.credentials.createInsecure());
+    return new sync_user_with_auth_service.SyncUserService(`${authServiceHost}${authServicePort}`, grpc.credentials.createInsecure());
 };
 
 const autoConn = async (k8s_namespace) => {
@@ -61,7 +61,7 @@ const autoConn = async (k8s_namespace) => {
 
 const createUserAuth = async (data) => {
     return new Promise((resolve, reject) => {
-        SyncUserWithAuthService().CreateUser(data, (err, res) => {
+        SyncUserService().CreateUser(data, (err, res) => {
             if (err) {
                 logger.error("Error synchronize user with auth service", {
                     function: "createUserAuth",
@@ -79,7 +79,7 @@ const createUserAuth = async (data) => {
 
 const updateUserAuth = async (data) => {
     return new Promise((resolve, reject) => {
-        SyncUserWithAuthService().UpdateteUser(data, (err, res) => {
+        SyncUserService().UpdateteUser(data, (err, res) => {
             if (err) {
                 logger.error("Error synchronize user with auth service", {
                     function: "updateUserAuth",
@@ -95,4 +95,21 @@ const updateUserAuth = async (data) => {
     });
 };
 
-module.exports = { autoConn, createUserAuth, updateUserAuth };
+const deleteUserAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserService().DeleteUser(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize user with auth service", {
+                    function: "deleteUserAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+module.exports = { autoConn, createUserAuth, updateUserAuth , deleteUserAuth};

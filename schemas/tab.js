@@ -30,6 +30,9 @@ const TabSchema = mongoose.Schema(
         relation_id: {
             type: String,
         },
+        table_slug: {
+            type: String,
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

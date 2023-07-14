@@ -12330,3 +12330,10 @@
   metadata: {}
 }
 >>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
+{
+  message: 'service.loginStore.login_data: failed with error: appPermissions is not defined',
+  level: 'error',
+  timestamp: '2023-07-14T09:03:58.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

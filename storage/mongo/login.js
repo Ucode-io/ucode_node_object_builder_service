@@ -456,7 +456,7 @@ let loginStore = {
             client_platform: clientPlatform,
             client_type: clientTypeResp,
             user_id: userId,
-            app_permissions: appPermissions,
+            // app_permissions: appPermissions,
             role: role,
             permissions: permissions,
             login_table_slug: tableSlug

@@ -20,6 +20,17 @@ let layoutStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
 
+            const resp = await Table.findOneAndUpdate({
+                id: data.table_id,
+            },
+                {
+                    $set: {
+                        is_changed: true
+                    }
+                }, {
+                    new: true
+            })
+
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
                 layoutReq.id = v4()
@@ -39,7 +50,8 @@ let layoutStore = {
                         icon: tab.icon,
                         type: tab.type,
                         layout_id: layout.id,
-                        relation_id: tab.relation_id
+                        relation_id: tab.relation_id,
+                        table_slug: resp?.slug
                     });
                     for (const sectionReq of tabReq.sections) {
                         sectionReq.id = v4()
@@ -53,15 +65,6 @@ let layoutStore = {
             await Layout.insertMany(layouts)
             await Tab.insertMany(tabs)
             await Section.insertMany(sections)
-
-            const resp = await Table.updateOne({
-                id: data.table_id,
-            },
-                {
-                    $set: {
-                        is_changed: true
-                    }
-                })
 
             return;
         } catch (err) {
@@ -77,6 +80,17 @@ let layoutStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
             let layoutIds = [], tabIds = [];
+            const resp = await Table.findOneAndUpdate({
+                id: data.table_id,
+            },
+                {
+                    $set: {
+                        is_changed: true
+                    }
+            }, {
+                new: true
+            })
+
             for (const layout of data.layouts) {
                 for (const tab of layout.tabs) {
                     tabIds.push(tab.id)
@@ -114,6 +128,7 @@ let layoutStore = {
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
                     tabReq.id = v4()
+                    tabReq.table_slug = resp?.slug
                     const tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
                     tabs.push(tab);
@@ -132,15 +147,6 @@ let layoutStore = {
             await Tab.insertMany(tabs)
             await Section.insertMany(sections)
             console.log(":::::::::::TEST:::::::::::::::::::7")
-            const resp = await Table.updateOne({
-                id: data.table_id,
-            },
-                {
-                    $set: {
-                        is_changed: true
-                    }
-                })
-            console.log(":::::::::::TEST:::::::::::::::::::8")
             return;
         } catch (err) {
             throw err

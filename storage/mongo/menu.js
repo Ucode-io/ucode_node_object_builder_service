@@ -410,7 +410,7 @@ let menuStore = {
 
     }),
     getByIDMenuTemplate: catchWrapDb(`${NAMESPACE}.getByIDMenuTemplate`, async (data) => {
-        try {
+        // try {
             console.log(":::::::::::::::DATA getByIDMenuTemplate::::::::::::::::::::::::", data)
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
@@ -421,9 +421,9 @@ let menuStore = {
             // }
 
             return resp;
-        } catch (err) {
-            throw err
-        }
+        // } catch (err) {
+        //     throw err
+        // }
 
     }),
     updateMenuTemplate: catchWrapDb(`${NAMESPACE}.updateMenuTemplate`, async (data) => {

@@ -419,6 +419,9 @@ let menuStore = {
             // if(!resp) {
             //     throw Error("Menu Templete not found with given id!")
             // }
+            if ( resp === null ) {
+                return null;
+            }
 
             return resp;
         } catch (err) {

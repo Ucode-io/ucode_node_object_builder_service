@@ -1136,7 +1136,7 @@ let permission = {
         for (let action_permission of (actionPermissions || [])) {
 
             let documentActionPermission = {
-                view_permission: action_permission.permission,
+                permission: action_permission.permission,
                 custom_event_id: action_permission.custom_event_id,
                 table_slug: action_permission.table_slug,
                 role_id: roleId,

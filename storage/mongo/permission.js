@@ -1198,7 +1198,7 @@ let permission = {
         console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
 
         if (tableFilters.length) {
-            AutomaticFilter.deleteMany({})
+            await AutomaticFilter.deleteMany({})
             await AutomaticFilter.insertMany(tableFilters)
         }
         console.log(">>>>>>>>>>>>>> test #10 ",  new Date())

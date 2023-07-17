@@ -2976,3 +2976,24 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: start is not defined',
+  level: 'error',
+  timestamp: '2023-07-17T06:33:13.548Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-07-17T06:34:34.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-07-17T06:36:18.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

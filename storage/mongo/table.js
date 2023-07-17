@@ -98,8 +98,8 @@ let tableStore = {
                 payload = Object.assign(payload, table._doc)
                 delete payload._id
                 payload.commit_type = data.commit_type,
-                payload.name = data.name,
-                payload.action_time = new Date()
+                    payload.name = data.name,
+                    payload.action_time = new Date()
                 payload.author_id = data.author_id
                 const tableHistory = await TableHistory.create(payload)
                 table.commit_guid = tableHistory.guid
@@ -163,6 +163,7 @@ let tableStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const TableVersion = mongoConn.models['Table.version']
+            const TablePermissions = (await ObjectBuilder(true, data.project_id))['record_permission']
 
             let query = {
                 deleted_at: "1970-01-01T18:00:00.000+00:00",
@@ -173,7 +174,21 @@ let tableStore = {
                 query.folder_id = data.folder_id
             }
 
-            let tables = []
+            let tables = [], tableSlugs = [];
+            let tablePermissions = await TablePermissions.models.find({ role_id: data.role_id, read: 'Yes' }).populate({ path: 'role_id_data' })
+            console.log("tablePermissions", tablePermissions);
+            let isDefaultAdmin = false
+            tablePermissions.forEach(permission => {
+                if (permission?.role_id_data?.name === 'DEFAULT ADMIN') isDefaultAdmin = true;
+                tableSlugs.push(permission.table_slug)
+            });
+            if (!tableSlugs.length && !isDefaultAdmin) {
+                return { tables: [], count: 0 }
+            } else {
+                if (!isDefaultAdmin) {
+                    query["slug"] = { $in: tableSlugs }
+                }
+            }
 
             if (data.version_id) {
                 query.version_id = data.version_id
@@ -187,8 +202,9 @@ let tableStore = {
                     }
                 )
                     .skip(data.offset)
-                    .limit(data.limit);
+                    .limit(data.limit)
             }
+
 
             const count = await Table.countDocuments(query);
             return { tables, count };

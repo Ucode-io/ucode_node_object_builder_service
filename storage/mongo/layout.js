@@ -6,6 +6,7 @@ const mongoPool = require('../../pkg/pool');
 const AddPermission = require('../../helper/addPermission');
 const { struct } = require('pb-util');
 const { v4 } = require("uuid");
+const ObjectBuilder = require('../../models/object_builder');
 
 
 let NAMESPACE = 'layout'
@@ -28,7 +29,7 @@ let layoutStore = {
                         is_changed: true
                     }
                 }, {
-                    new: true
+                new: true
             })
 
             let layouts = [], sections = [], tabs = [];
@@ -79,7 +80,10 @@ let layoutStore = {
             const Table = mongoConn.models['Table']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
-            let layoutIds = [], tabIds = [];
+            const RoleTable = (await ObjectBuilder(true, data.project_id))['role']
+            const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
+            const roles = await RoleTable?.models?.find({}).lean()
+            let layoutIds = [], tabIds = [], insertManyRelationPermissions = [];
             const resp = await Table.findOneAndUpdate({
                 id: data.table_id,
             },
@@ -87,7 +91,7 @@ let layoutStore = {
                     $set: {
                         is_changed: true
                     }
-            }, {
+                }, {
                 new: true
             })
 
@@ -107,7 +111,7 @@ let layoutStore = {
                 )
                 console.log(b);
             }
-            console.log(":::::::::::TEST:::::::::::::::::::3", )
+            console.log(":::::::::::TEST:::::::::::::::::::3",)
             if (layoutIds.length) {
                 const a = await Tab.deleteMany(
                     {
@@ -124,7 +128,7 @@ let layoutStore = {
             )
             console.log(c);
             console.log(":::::::::::TEST:::::::::::::::::::5")
-            let layouts = [], sections = [], tabs = [];
+            let layouts = [], sections = [], tabs = [], relationIds = [];
             for (const layoutReq of data.layouts) {
                 layoutReq.id = v4()
                 const layout = new Layout(layoutReq);
@@ -142,9 +146,29 @@ let layoutStore = {
                             section.tab_id = tab.id;
                             sections.push(section);
                         }
+                    } else if (tab.type === 'relation') {
+                        relationIds.push(tab.relation_id)
                     }
                 }
             }
+
+            for (const role of roles) {
+                for (const relation_id of relationIds) {
+                    let relationPermission = await viewRelationPermissionTable.findOne({ role_id: role.guid, table_slug: resp.table_slug, relation_id: relation_id })
+                    if (!relationPermission) {
+                        insertManyRelationPermissions.push({
+                            role_id: role.guid,
+                            table_slug: resp.table_slug,
+                            relation_id: relation_id,
+                            view_permission: true,
+                            create_permission: true,
+                            edit_permission: true,
+                            delete_permission: true,
+                        })
+                    }
+                }
+            }
+            insertManyRelationPermissions.length && await viewRelationPermissionTable.insertMany(insertManyRelationPermissions)
             console.log(":::::::::::TEST:::::::::::::::::::6", tabs)
             await Layout.insertMany(layouts)
             await Tab.insertMany(tabs)

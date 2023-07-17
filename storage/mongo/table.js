@@ -187,15 +187,21 @@ let tableStore = {
             if (data.folder_id) {
                 query.folder_id = data.folder_id
             }
+            if (data.is_login_table) {
+                query.is_login_table = data.is_login_table
+            }
 
             let tables = [], tableSlugs = [];
             let tablePermissions = await TablePermissions.models.find({ role_id: data.role_id, read: 'Yes' }).populate({ path: 'role_id_data' })
             console.log("tablePermissions", tablePermissions);
             let isDefaultAdmin = false
-            tablePermissions.forEach(permission => {
-                if (permission?.role_id_data?.name === 'DEFAULT ADMIN') isDefaultAdmin = true;
+            for (const permission of tablePermissions) {
+                if (permission?.role_id_data?.name === 'DEFAULT ADMIN') {
+                    isDefaultAdmin = true;
+                    break;
+                }
                 tableSlugs.push(permission.table_slug)
-            });
+            };
             if (!tableSlugs.length && !isDefaultAdmin) {
                 return { tables: [], count: 0 }
             } else {

@@ -11964,22 +11964,36 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> e05dffb2a0c3199458194af38ac40af417f23641
 =======
   message: 'service.object_builder.create: failed with error: This table is auth table. Auth information not fully given',
   level: 'error',
   timestamp: '2023-07-13T06:07:51.483Z',
+=======
+{
+  message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: start is not defined',
+  level: 'error',
+  timestamp: '2023-07-17T06:33:13.548Z',
+>>>>>>> 14de80a2d179ee8dbdd4eed4189a86926173722a
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: sync_user_with_auth_service.SyncUserWithAuthService is not a constructor',
   level: 'error',
   timestamp: '2023-07-13T07:03:43.462Z',
+=======
+  message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-07-17T06:34:34.729Z',
+>>>>>>> 14de80a2d179ee8dbdd4eed4189a86926173722a
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'Error synchronize user with auth service',
   level: 'error',
   timestamp: '2023-07-13T07:07:01.030Z',
@@ -12334,6 +12348,11 @@
   message: 'service.loginStore.login_data: failed with error: appPermissions is not defined',
   level: 'error',
   timestamp: '2023-07-14T09:03:58.983Z',
+=======
+  message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-07-17T06:36:18.102Z',
+>>>>>>> 14de80a2d179ee8dbdd4eed4189a86926173722a
   label: 'object_builder_service',
   metadata: {}
 }

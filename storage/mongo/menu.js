@@ -411,13 +411,14 @@ let menuStore = {
     }),
     getByIDMenuTemplate: catchWrapDb(`${NAMESPACE}.getByIDMenuTemplate`, async (data) => {
         try {
+            console.log(":::::::::::::::DATA getByIDMenuTemplate::::::::::::::::::::::::", data)
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
             let resp = await MenuTemplate.findOne({id: data.id})
-            if(!resp) {
-                throw Error("Menu Templete not found with given id!")
-            }
+            // if(!resp) {
+            //     throw Error("Menu Templete not found with given id!")
+            // }
 
             return resp;
         } catch (err) {

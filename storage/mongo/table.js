@@ -192,21 +192,23 @@ let tableStore = {
             }
 
             let tables = [], tableSlugs = [];
-            let tablePermissions = await TablePermissions.models.find({ role_id: data.role_id, read: 'Yes' }).populate({ path: 'role_id_data' })
-            console.log("tablePermissions", tablePermissions);
-            let isDefaultAdmin = false
-            for (const permission of tablePermissions) {
-                if (permission?.role_id_data?.name === 'DEFAULT ADMIN') {
-                    isDefaultAdmin = true;
-                    break;
-                }
-                tableSlugs.push(permission.table_slug)
-            };
-            if (!tableSlugs.length && !isDefaultAdmin) {
-                return { tables: [], count: 0 }
-            } else {
-                if (!isDefaultAdmin) {
-                    query["slug"] = { $in: tableSlugs }
+            if (data.role_id) {
+                let tablePermissions = await TablePermissions.models.find({ role_id: data.role_id, read: 'Yes' }).populate({ path: 'role_id_data' })
+                console.log("tablePermissions", tablePermissions);
+                let isDefaultAdmin = false
+                for (const permission of tablePermissions) {
+                    if (permission?.role_id_data?.name === 'DEFAULT ADMIN') {
+                        isDefaultAdmin = true;
+                        break;
+                    }
+                    tableSlugs.push(permission.table_slug)
+                };
+                if (!tableSlugs.length && !isDefaultAdmin) {
+                    return { tables: [], count: 0 }
+                } else {
+                    if (!isDefaultAdmin) {
+                        query["slug"] = { $in: tableSlugs }
+                    }
                 }
             }
 

@@ -11965,6 +11965,7 @@
   metadata: {}
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e05dffb2a0c3199458194af38ac40af417f23641
 =======
   message: 'service.object_builder.create: failed with error: This table is auth table. Auth information not fully given',
@@ -12360,6 +12361,12 @@
   message: 'Error while auto connecting',
   level: 'error',
   timestamp: '2023-07-17T11:21:22.951Z',
+=======
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-07-14T16:33:01.476Z',
+>>>>>>> ac8cab3b9e80ec008005f229292ee9493c2362aa
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',
@@ -12375,4 +12382,166 @@
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
     }
   }
+}
+<<<<<<< HEAD
+=======
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-07-14T16:33:29.949Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-07-15T09:06:51.033Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/sultankhodja/go/src/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-15T09:13:56.490Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-15T09:13:57.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-15T09:14:01.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-15T09:14:02.012Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-15T09:14:02.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-15T09:14:03.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-15T09:14:25.771Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-15T09:15:57.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:38:04.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:38:34.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:39:52.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:40:15.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:40:45.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:41:57.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> ac8cab3b9e80ec008005f229292ee9493c2362aa
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-18T10:06:06.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-18T10:06:06.930Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-18T10:07:17.283Z',
+  label: 'object_builder_service',
+  metadata: {}
 }

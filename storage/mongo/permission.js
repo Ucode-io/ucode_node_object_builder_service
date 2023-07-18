@@ -1111,7 +1111,7 @@ let permission = {
         console.log(">>>>>>>>>>>>>> test #6 ", new Date())
         for (let view_permission of (viewPermissions || [])) {
             let document = {
-                view_permission: view_permission.view_permission || false,
+                permission: view_permission.view_permission || false,
                 label: view_permission.label,
                 role_id: roleId,
                 table_slug: view_permission.table_slug,
@@ -1134,9 +1134,9 @@ let permission = {
         }
         console.log(">>>>>>>>>>>>>> test #7 ", new Date())
         for (let action_permission of (actionPermissions || [])) {
-
+            
             let documentActionPermission = {
-                view_permission: action_permission.permission,
+                permission: action_permission.permission,
                 custom_event_id: action_permission.custom_event_id,
                 table_slug: action_permission.table_slug,
                 role_id: roleId,
@@ -1198,8 +1198,8 @@ let permission = {
         }
         console.log(">>>>>>>>>>>>>> test #9 ", new Date())
 
+        await AutomaticFilter.deleteMany({role_id: roleId})
         if (tableFilters.length) {
-            AutomaticFilter.deleteMany({})
             await AutomaticFilter.insertMany(tableFilters)
         }
         console.log(">>>>>>>>>>>>>> test #10 ", new Date())

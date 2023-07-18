@@ -3980,6 +3980,130 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true
+	},
+
+
+	{
+		"required": false,
+		"slug": "guid",
+		"label": "ID",
+		"default": "v4",
+		"type": "UUID",
+		"index": "true",
+		"is_visible": true,
+		"id": "e3d79de4-7fa7-4803-818b-0edcca3793fa",
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "9139919e-3f77-4e7b-b3d5-e1bca64f6c34",
+		"required": false,
+		"slug": "menu_button",
+		"label": "Кнопка меню",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "d891975a-a5d5-4da1-a2f4-af4ce1ce3945",
+		"required": false,
+		"slug": "settings_button",
+		"label": "Кнопка настроек",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "954c4572-bde1-4cf1-948e-01f728fd5691",
+		"required": false,
+		"slug": "chat",
+		"label": "Чат",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"required": false,
+		"slug": "role_id",
+		"label": "IT'S RELATION",
+		"type": "LOOKUP",
+		"is_visible": true,
+		"relation_id": "3f21b211-deaf-4869-8558-31a9359411e9",
+		"id": "0b7899ea-f352-4f79-af64-276854999e9a",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
 	},]
 
 	return fields

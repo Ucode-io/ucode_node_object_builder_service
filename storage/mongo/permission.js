@@ -258,6 +258,7 @@ let permission = {
         const Tab = mongoConn.models['Tab']
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
+        const CustomPermission = mongoConn.models['custom_permission']
 
 
 
@@ -743,6 +744,7 @@ let permission = {
         let end =  new Date()
         console.log("tablesList length:::", tablesList.length);
         roleCopy.tables = tablesList
+        roleCopy.global_permission = await CustomPermission?.findOne({role_id: roleCopy.guid}) || {}
         console.log("\n\n time ", start, "\n", end, "\n", end - start)
         return { project_id: req.project_id, data: roleCopy }
 
@@ -1029,6 +1031,7 @@ let permission = {
         const ViewPermission = mongoConn.models['view_relation_permission']
         const AutomaticFilter = mongoConn.models['automatic_filter']
         const ActionPermission = mongoConn.models['action_permission']
+        const CustomPermission = mongoConn.models['custom_permission']
         console.log(">>>>>>>>>>>>>> test #2 ",  new Date())
 
         let role = await Role.findOneAndUpdate(
@@ -1195,6 +1198,13 @@ let permission = {
                 }
             }
         }
+
+        await CustomPermission.findOneAndUpdate({
+            role_id: roleId,
+        }, {
+            $set: req.data.global_permission
+        }) 
+
         console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
 
         await AutomaticFilter.deleteMany({role_id: roleId})

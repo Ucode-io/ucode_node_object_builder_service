@@ -3092,3 +3092,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2023-07-18T10:07:54.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

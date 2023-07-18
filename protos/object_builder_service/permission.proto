@@ -128,6 +128,14 @@ message RoleWithAppTablePermissions {
     string client_type_id = 5;
     bool grant_access = 6;
     repeated Table tables = 7;
+    GlobalPermission global_permission = 8;
+}
+
+message GlobalPermission {
+    string id = 1;
+    bool menu_button = 2;
+    bool chat = 3;
+    bool settings_button = 4;
 }
 
 message GetListWithRoleAppTablePermissionsResponse {

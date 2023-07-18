@@ -129,4 +129,4 @@ const deleteUserAuth = async (data) => {
         });
     });
 };
-module.exports = { autoConn, createUserAuth, updateUserAuth, deleteUserAuth, reConn };
+module.exports = { autoConn, createUserAuth, updateUserAuth, deleteUserAuth };

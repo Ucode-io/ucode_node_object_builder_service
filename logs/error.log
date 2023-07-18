@@ -12538,3 +12538,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-18T10:07:17.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

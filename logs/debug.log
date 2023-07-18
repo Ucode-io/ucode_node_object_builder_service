@@ -95289,3 +95289,383 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-18T10:06:44.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-18T10:06:44.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:06:44.648Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "database": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "password": "PyKDBQlTN3"\n' +
+    '  },\n' +
+    '  "id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "project_id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "path": "k8s/ucode-dev/1acd4a4d-9b17-433b-84a6-4dfaa0ab19ad/1a4ff921-26cf-4ed4-9ebb-c9461926b03b/1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c",\n' +
+    '  "environment_id": "eb265897-fb9d-4a74-8bb6-0ecf9549c28d",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:06:45.239Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-18T10:06:45.240Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-18T10:06:45.799Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-18T10:06:53.171Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-18T10:06:53.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:06:53.176Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "database": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "password": "PyKDBQlTN3"\n' +
+    '  },\n' +
+    '  "id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "project_id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "path": "k8s/ucode-dev/1acd4a4d-9b17-433b-84a6-4dfaa0ab19ad/1a4ff921-26cf-4ed4-9ebb-c9461926b03b/1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c",\n' +
+    '  "environment_id": "eb265897-fb9d-4a74-8bb6-0ecf9549c28d",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:06:53.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-18T10:06:53.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-18T10:06:54.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-07-18T10:06:55.716Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-18T10:06:56.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: requested, {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:06:56.138Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-18T10:06:56.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-18T10:06:58.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-07-18T10:06:58.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-18T10:07:06.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-18T10:07:06.220Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:07:06.220Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "database": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "password": "PyKDBQlTN3"\n' +
+    '  },\n' +
+    '  "id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "project_id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "path": "k8s/ucode-dev/1acd4a4d-9b17-433b-84a6-4dfaa0ab19ad/1a4ff921-26cf-4ed4-9ebb-c9461926b03b/1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c",\n' +
+    '  "environment_id": "eb265897-fb9d-4a74-8bb6-0ecf9549c28d",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:07:07.241Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-18T10:07:07.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-18T10:07:07.791Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-18T10:07:16.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-18T10:07:16.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-18T10:07:17.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-07-18T10:08:17.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-07-18T10:08:17.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:08:17.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "username": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "database": "uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs",\n' +
+    '    "password": "PyKDBQlTN3"\n' +
+    '  },\n' +
+    '  "id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "project_id": "a29f02b9-32db-4493-b837-4769f9361520",\n' +
+    '  "path": "k8s/ucode-dev/1acd4a4d-9b17-433b-84a6-4dfaa0ab19ad/1a4ff921-26cf-4ed4-9ebb-c9461926b03b/1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "1ffaeeae-6c45-4ad1-9a29-3fcdbac7a14c",\n' +
+    '  "environment_id": "eb265897-fb9d-4a74-8bb6-0ecf9549c28d",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:08:18.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-18T10:08:18.469Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-18T10:08:19.005Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  },\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-07-18T10:08:20.253Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-07-18T10:08:20.257Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-07-18T10:08:20.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-07-18T10:09:03.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-18T10:09:09.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-07-18T10:09:11.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

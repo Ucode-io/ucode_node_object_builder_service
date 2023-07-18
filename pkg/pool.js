@@ -14,32 +14,7 @@ async function get(projectId) {
     console.log("get pooling project");
 
     if (!pool.has(projectId)) {
-        try {
-            const reconnect_data = await client.reConn(config.k8s_namespace, projectId)
-
-            if(!reconnect_data) {
-                throw ErrProjectNotExists
-            }
-
-            if(reconnect_data?.res?.resource_type == "MONGODB") {
-                
-                const mongoDBConn = await newMongoDBConn({
-                    mongoHost: reconnect_data?.res?.credentials.host,
-                    mongoPort: reconnect_data?.res?.credentials.port,
-                    mongoDatabase: reconnect_data?.res?.credentials.database,
-                    mongoUser: reconnect_data?.res?.credentials.username,
-                    mongoPassword: reconnect_data?.res?.credentials.password
-                })
-
-                await override(reconnect_data?.res?.id, mongoDBConn)
-
-                return mongoDBConn
-            } else {
-                throw Error("Resource doesn't MONGODB type")
-            }
-        } catch (err) {
-            throw ErrProjectNotExists
-        }
+        throw ErrProjectNotExists
     }
 
     conn = pool.get(projectId)

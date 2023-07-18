@@ -154,7 +154,7 @@ let layoutStore = {
 
             for (const role of roles) {
                 for (const relation_id of relationIds) {
-                    let relationPermission = await viewRelationPermissionTable?.models?.findOne({ role_id: role.guid, table_slug: resp.table_slug, relation_id: relation_id })
+                    let relationPermission = await viewRelationPermissionTable?.models?.findOne({ role_id: role.guid, table_slug: resp.slug, relation_id: relation_id })
                     if (!relationPermission) {
                         insertManyRelationPermissions.push({
                             role_id: role.guid,

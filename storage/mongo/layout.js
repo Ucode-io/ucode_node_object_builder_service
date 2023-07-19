@@ -213,7 +213,7 @@ let layoutStore = {
             sections.forEach(section => {
                 fields = [...fields, section.fields]
             })
-            let relationFields = [], simpleFields = [], simpleFieldIds = [], simpleFieldOrder = {}, simpleFieldLang = {}
+            let relationFields = [], simpleFields = [], simpleFieldIds = [], simpleFieldOrder = {}
             fields.forEach(field => {
                 if (field.id.includes('#')) {
                     relationFields.push(field)
@@ -222,12 +222,10 @@ let layoutStore = {
                     simpleFieldIds.push(field.id)
                     simpleFieldOrder[field.id] = field.order
                 }
-                simpleFieldLang[field.id] = field.enable_multilanguage
             })
             let fieldRes = await Field.find({ id: { $in: simpleFieldIds } })
             fieldRes.forEach(f => {
                 f.order = simpleFieldOrder[f.id]
-                f.enable_multilanguage = simpleFieldLang[f.id]
             })
             for (const relField of relationFields) {
                 let field = {}

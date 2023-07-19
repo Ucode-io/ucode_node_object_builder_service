@@ -100,26 +100,29 @@ let layoutStore = {
             console.log(":::::::::::TEST:::::::::::::::::::2")
             console.log(tabIds, layoutIds)
             if (tabIds.length) {
-                await Section.deleteMany(
+                const b = await Section.deleteMany(
                     {
                         tab_id: { $in: tabIds },
                     }
                 )
+                console.log(b);
             }
-            console.log(":::::::::::TEST:::::::::::::::::::3")
+            console.log(":::::::::::TEST:::::::::::::::::::3", )
             if (layoutIds.length) {
-                await Tab.deleteMany(
+                const a = await Tab.deleteMany(
                     {
                         layout_id: { $in: layoutIds }
                     }
                 )
+                console.log(a);
             }
             console.log(":::::::::::TEST:::::::::::::::::::4")
-            await Layout.deleteMany(
+            const c = await Layout.deleteMany(
                 {
                     table_id: data.table_id,
                 }
             )
+            console.log(c);
             console.log(":::::::::::TEST:::::::::::::::::::5")
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
@@ -142,7 +145,7 @@ let layoutStore = {
                     }
                 }
             }
-            console.log(":::::::::::TEST:::::::::::::::::::6")
+            console.log(":::::::::::TEST:::::::::::::::::::6", tabs)
             await Layout.insertMany(layouts)
             await Tab.insertMany(tabs)
             await Section.insertMany(sections)

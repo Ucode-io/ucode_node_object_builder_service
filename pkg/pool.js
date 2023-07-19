@@ -18,6 +18,7 @@ async function get(projectId) {
     if (!projectId) {
         console.warn('WARNING:: Using default project id in pool...')
     }
+    console.log("get pooling project");
 
     if (!pool.has(projectId)) {
         throw ErrProjectNotExists
@@ -60,4 +61,4 @@ async function override(projectId, dbConn) {
     pool.set(projectId, dbConn)
 }
 
-module.exports = {get, add, remove, override}
+module.exports = { get, add, remove, override }

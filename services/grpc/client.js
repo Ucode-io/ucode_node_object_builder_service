@@ -40,4 +40,75 @@ const autoConn = async (k8s_namespace) => {
     });
 };
 
-module.exports = {autoConn};
+const reConn = async (k8s_namespace, project_id) => {
+    return new Promise((resolve, reject) => {
+        ResourceService().AutoConnectByProjectId({ k8s_namespace: k8s_namespace, project_id: project_id }, (err, res) => {
+            if (err) {
+                logger.error("Error while auto connecting", {
+                    function: "autoConn",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+
+const createUserAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserService().CreateUser(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize user with auth service", {
+                    function: "createUserAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+
+const updateUserAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserService().UpdateteUser(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize user with auth service", {
+                    function: "updateUserAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+
+const deleteUserAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserService().DeleteUser(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize user with auth service", {
+                    function: "deleteUserAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+module.exports = { autoConn, createUserAuth, updateUserAuth, deleteUserAuth, reConn };

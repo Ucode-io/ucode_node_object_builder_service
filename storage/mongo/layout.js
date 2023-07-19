@@ -252,6 +252,7 @@ let layoutStore = {
             }
             for (const section of sections) {
                 let fieldsRes = [], fieldsWithPermissions = []
+                console.log("fields :", section.fields)
                 for (const fieldReq of section.fields) {
                     let guid;
                     let field = {};
@@ -338,6 +339,7 @@ let layoutStore = {
                         const relation = await Relation.aggregate(piplines)
 
                         let tableFields = await Field.find({ table_id: data.table_id })
+                        console.log("table fields: ", tableFields)
                         let autofillFields = []
                         for (const field of tableFields) {
                             if (field.autofill_field && field.autofill_table && field.autofill_table === fieldReq.id.split("#")[0]) {

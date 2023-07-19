@@ -403,7 +403,7 @@ let loginStore = {
 
         const role = await roleTable.models.findOne(
             {
-                client_type_id: clientType.guid,
+                guid: user.role_id,
             }
         ).lean()
         console.log("TEST:::::::::4")

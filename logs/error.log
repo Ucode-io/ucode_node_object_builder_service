@@ -3092,3 +3092,45 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:38:04.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:38:34.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:39:52.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:40:15.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:40:45.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
+  level: 'error',
+  timestamp: '2023-07-18T09:41:57.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

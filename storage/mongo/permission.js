@@ -259,6 +259,8 @@ let permission = {
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
         const CustomPermission = mongoConn.models['custom_permission']
+        const ViewPermission = mongoConn.models['view_permission']
+        const View = mongoConn.models['view']
 
 
 
@@ -624,6 +626,46 @@ let permission = {
                 }
               }
         ]
+        const viewPipeline = [
+            {
+              $project: {
+                __v: 0,
+                _id: 0,
+                created_at: 0,
+                updated_at: 0
+              }
+            },
+            {
+              $lookup: {
+                from: 'view_permissions', 
+                let: { viewID: '$id' },
+                pipeline: [
+                  {
+                    $match: {
+                      $expr: {
+                        $and: [
+                          { $eq: ['$view_id', '$$viewID'] },
+                          { $eq: ['$role_id', role.guid] }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    $limit: 1
+                  }
+                ],
+                as: 'view_permissions'
+              }
+            },
+            {
+              $project: {
+                label: "$label",
+                id: "$id",
+                table_slug: "$table_slug",
+                field_permissions: { $arrayElemAt: ['$view_permissions', 0] }
+              }
+            }
+        ]
 
         let testFieldResp = await Field.aggregate(fieldPipeline)
         let fields = {}
@@ -632,6 +674,16 @@ let permission = {
                 fields[el.table_id] = [el]
             } else {
                 fields[el.table_id].push(el)
+            }
+        })
+
+        let tableViewPermissions = await View.aggregate(viewPipeline)
+        let tableViewPermission = {}
+        tableViewPermissions.forEach(el => {
+            if (!tableViewPermission[el.table_slug]) {
+                tableViewPermission[el.table_slug] = [el]
+            } else {
+                tableViewPermission[el.table_slug].push(el)
             }
         })
 
@@ -699,9 +751,9 @@ let permission = {
                 }
             })
 
-            let tableViews = viewPermission[table.slug]
+            let tableRelationViews = viewPermission[table.slug]
             tableCopy.view_permissions = []
-            tableViews && tableViews.length && tableViews.forEach(el => {
+            tableRelationViews && tableRelationViews.length && tableRelationViews.forEach(el => {
                 if (el.view_permissions) {
                     const temp = el.view_permissions
                     tableCopy.view_permissions.push({
@@ -715,10 +767,34 @@ let permission = {
                         label: el.label,
                     })
                 } else {
-                    tableCopy.field_permissions.push({
+                    tableCopy.view_permissions.push({
                         guid: "",
                         relation_id: "",
                         table_slug: "",
+                        view_permission: false,
+                        edit_permission: false,
+                        create_permission: false,
+                        delete_permission: false,
+                        label: el.label,
+                    })
+                }
+            })
+
+            let tableViews = tableViewPermission[table.slug]
+            tableCopy.table_view_permissions = []
+            tableViews && tableViews.length && tableViews.forEach(el => {
+                if (el.view_permissions) {
+                    const temp = el.view_permissions
+                    tableCopy.table_view_permissions.push({
+                        guid: temp.guid,
+                        view: temp.view,
+                        edit: temp.edit,
+                        delete: temp.delete,
+                        label: el.label
+                    })
+                } else {
+                    tableCopy.table_view_permissions.push({
+                        guid: "",
                         view_permission: false,
                         edit_permission: false,
                         create_permission: false,

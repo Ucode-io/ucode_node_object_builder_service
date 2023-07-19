@@ -277,6 +277,21 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true
+    },
+    {
+        "label": "Разрешение для вид",
+        "slug": "view_permission",
+        "description": "Разрешение для вид",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "door-closed.svg",
+        "subtitle_field_slug": "",
+        "id": "65a7936b-f3db-4401-afef-8eee77b68da3",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "is_system": true
     }]
 
     return tables;

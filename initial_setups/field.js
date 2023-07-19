@@ -4098,7 +4098,7 @@ async function createField() {
 		"label": "IT'S RELATION",
 		"type": "LOOKUP",
 		"is_visible": true,
-		"relation_id": "3f21b211-deaf-4869-8558-31a9359411e9",
+		"relation_id": "f24802bc-f72f-4195-b44c-a152c9fa9f28",
 		"id": "0b7899ea-f352-4f79-af64-276854999e9a",
 		"created_at": new Date(),
 		"updated_at": new Date(),
@@ -4135,7 +4135,146 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true
-	}]
+	},
+
+
+	{
+		"required": false,
+		"slug": "guid",
+		"label": "ID",
+		"default": "v4",
+		"type": "UUID",
+		"index": "true",
+		"is_visible": true,
+		"id": "3ac5430c-e5ed-4f69-9cbb-61ef23918e1a",
+		"table_id": "65a7936b-f3db-4401-afef-8eee77b68da3",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "bd8702b7-d2f1-4d07-b1c9-70c33608f5d2",
+		"required": false,
+		"slug": "view",
+		"label": "Чтение",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "65a7936b-f3db-4401-afef-8eee77b68da3",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "829e633e-e00d-49cc-89b2-88f6066c95a7",
+		"required": false,
+		"slug": "edit",
+		"label": "Write",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "65a7936b-f3db-4401-afef-8eee77b68da3",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "0ecc1f74-619e-4304-ab8d-82434c792820",
+		"required": false,
+		"slug": "delete",
+		"label": "Delete",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "65a7936b-f3db-4401-afef-8eee77b68da3",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"table_id": "65a7936b-f3db-4401-afef-8eee77b68da3",
+		"required": false,
+		"slug": "role_id",
+		"label": "IT'S RELATION",
+		"type": "LOOKUP",
+		"is_visible": true,
+		"relation_id": "e1530f57-ea8f-42be-98d3-011649f92ba1",
+		"id": "f97f7f87-0357-44e8-8f9a-9615c6bae5a1",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"table_id": "65a7936b-f3db-4401-afef-8eee77b68da3",
+		"required": false,
+		"slug": "view_id",
+		"label": "IT'S RELATION",
+		"type": "LOOKUP",
+		"is_visible": true,
+		"relation_id": "65244ef6-538d-405e-8a08-d84cc7e9e7ec",
+		"id": "fa3ec9d8-3524-43eb-a583-f3753b1cc71e",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	}
+]
 
 	return fields
 }

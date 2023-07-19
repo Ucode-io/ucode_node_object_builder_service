@@ -33,8 +33,8 @@ module.exports = async function (data) {
     let record_permission_data = await recordPermissions(role.guid)
     let field_permission_data = await fieldPermissions(role.guid)
 
-    let menu_permission_slug = "custom_permission"
-    let menu_permission_id = "1b066143-9aad-4b28-bd34-0032709e463b"
+    let menu_permission_slug = "view_permission"
+    let menu_permission_id = "65a7936b-f3db-4401-afef-8eee77b68da3"
 
     let menu_tables = table_data.filter(el => {
         if (el.id == menu_permission_id) {
@@ -55,7 +55,7 @@ module.exports = async function (data) {
     let menu_relation_ids = []
     let menu_relations = relation_data.filter(el => {
         if (
-            el.table_from == menu_permission_slug
+            el.table_from == menu_permission_slug || el.table_to == menu_permission_slug
         ) {
             menu_relation_ids.push(el.id)
             return true
@@ -91,27 +91,18 @@ module.exports = async function (data) {
     }
     
     await Table.updateOne({
-        slug: "custom_permission"
+        slug: "view_permission"
     }, { $set: { is_changed: true } })
 
-    const customPermissionTable = (await ObjectBuilder(true, data.project_id))["custom_permission"]
-    const exist_custom_permission = await customPermissionTable.models.findOne({role_id: role.guid})
-    !exist_custom_permission && await customPermissionTable.models.create({
-        guid: v4(),
-        menu_button: true,
-        chat: true,
-        settings_button: true,
-        role_id: role.guid,
-        view_create: true
-    })
+    const customPermissionTable = (await ObjectBuilder(true, data.project_id))["view_permission"]
 
-    const ModelCustomPermission = mongoConn.models["custom_permission"]
+    const ModelCustomPermission = mongoConn.models["view_permission"]
     const indexs = await ModelCustomPermission.collection.getIndexes()
 
-    if(!indexs['role_id_1']) {
+    if(!indexs['role_id_1_view_id_1']) {
         console.log(".>>>>")
-        await ModelCustomPermission.collection.createIndex({ role_id: 1}, {unique: true})
+        await ModelCustomPermission.collection.createIndex({ role_id: 1, view_id: 1}, {unique: true})
     }
     
-    console.log("Custom permission insert function done ✅")
+    console.log("View permission insert function done ✅")
 }

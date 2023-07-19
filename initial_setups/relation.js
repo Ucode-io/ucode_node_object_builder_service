@@ -498,6 +498,42 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true
+  },
+  {
+    "id": "e1530f57-ea8f-42be-98d3-011649f92ba1",
+    "table_from": "view_permission",
+    "field_from": "role_id",
+    "table_to": "role",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0,
+    "is_system": true
+  },
+  {
+    "id": "65244ef6-538d-405e-8a08-d84cc7e9e7ec",
+    "table_from": "view",
+    "field_from": "id",
+    "table_to": "view_permission",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": [
+      
+    ],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0,
+    "is_system": true
   }]
 
   return relation

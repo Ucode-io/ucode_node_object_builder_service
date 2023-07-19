@@ -101,7 +101,8 @@ module.exports = async function (data) {
         menu_button: true,
         chat: true,
         settings_button: true,
-        role_id: role.guid
+        role_id: role.guid,
+        view_create: true
     })
 
     const ModelCustomPermission = mongoConn.models["custom_permission"]

@@ -136,6 +136,7 @@ message GlobalPermission {
     bool menu_button = 2;
     bool chat = 3;
     bool settings_button = 4;
+    bool view_create = 5;
 }
 
 message GetListWithRoleAppTablePermissionsResponse {

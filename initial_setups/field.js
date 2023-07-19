@@ -4104,7 +4104,38 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true
-	},]
+	},
+	{
+		"id": "314a6bdd-548d-4aee-a31a-08fa2c428247",
+		"required": false,
+		"slug": "view_create",
+		"label": "View Create",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	}]
 
 	return fields
 }

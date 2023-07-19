@@ -110,6 +110,7 @@ message RoleWithAppTablePermissions {
             bool view = 3;
             bool edit = 4;
             bool delete = 5;
+            string view_id = 6;
         }
 
         string label = 1;

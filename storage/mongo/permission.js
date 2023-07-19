@@ -259,8 +259,7 @@ let permission = {
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
         const CustomPermission = mongoConn.models['custom_permission']
-        const ViewPermission = mongoConn.models['view_permission']
-        const View = mongoConn.models['view']
+        const View = mongoConn.models['View']
 
 
 
@@ -269,7 +268,7 @@ let permission = {
             null,
             { sort: { createdAt: -1 } }
         )
-        console.log(">>>>>>>> test #1 ", new Date(), role)
+        console.log(">>>>>>>> test #1 ", new Date(), role) 
         if (!role) {
             console.log('WARNING role not found')
             throw new Error('Error role not found')
@@ -659,10 +658,10 @@ let permission = {
             },
             {
               $project: {
-                label: "$label",
+                name: "$name",
                 id: "$id",
                 table_slug: "$table_slug",
-                field_permissions: { $arrayElemAt: ['$view_permissions', 0] }
+                view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
               }
             }
         ]
@@ -706,7 +705,6 @@ let permission = {
         console.log(">>>>>>>> test #6", new Date())
 
         let tablesList = []
-        console.log(">>>>>>>> test #6.1 ", new Date(), viewPermission)
         for (let table of tables) {
             let tableCopy = {
                 ...table,
@@ -790,7 +788,8 @@ let permission = {
                         view: temp.view,
                         edit: temp.edit,
                         delete: temp.delete,
-                        name: el.name
+                        name: el.name,
+                        view_id: temp.view_id
                     })
                 } else {
                     tableCopy.table_view_permissions.push({
@@ -800,6 +799,7 @@ let permission = {
                         create_permission: false,
                         delete_permission: false,
                         name: el.name,
+                        view_id: ""
                     })
                 }
             })
@@ -1108,6 +1108,7 @@ let permission = {
         const AutomaticFilter = mongoConn.models['automatic_filter']
         const ActionPermission = mongoConn.models['action_permission']
         const CustomPermission = mongoConn.models['custom_permission']
+        const TableViewPermission = mongoConn.models['view_permission']
         console.log(">>>>>>>>>>>>>> test #2 ",  new Date())
 
         let role = await Role.findOneAndUpdate(
@@ -1127,8 +1128,8 @@ let permission = {
         if (!role) {
             throw ErrRoleNotFound
         }
-        let fieldPermissions = [], viewPermissions = [], actionPermissions = []
-        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
+        let fieldPermissions = [], viewPermissions = [], actionPermissions = [],  tableViewPermissions = []
+        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [], bulkWriteTableViewPermissions = [];
         let automaticFilters = {}
         console.log(">>>>>>>>>>>>>> test #4 ",  new Date())
         for (let table of req?.data?.tables) {
@@ -1162,6 +1163,7 @@ let permission = {
             fieldPermissions = [...fieldPermissions, ...table.field_permissions]
             viewPermissions = [...viewPermissions, ...table.view_permissions]
             actionPermissions = [...actionPermissions, ...table.action_permissions]
+            tableViewPermissions = [...tableViewPermissions, ...table.table_view_permissions]
         }
         console.log(">>>>>>>>>>>>>> test #5 ",  new Date())
         for (let field_permission of (fieldPermissions || [])) {
@@ -1203,6 +1205,27 @@ let permission = {
                     filter: {
                         relation_id: view_permission.relation_id,
                         table_slug: view_permission.table_slug,
+                        role_id: roleId
+                    },
+                    update: document,
+                    upsert: true,
+                }
+            })
+        }
+        for (let view_permission of (tableViewPermissions || [])) {
+            console.log(">>>>>>>>>>>>>>>. ", view_permission)
+            let document = {
+                guid: view_permission.guid || v4(),
+                role_id: roleId,
+                view: view_permission.view || false,
+                edit: view_permission.edit || false,
+                delete: view_permission.delete || false,
+                view_id: view_permission.view_id,
+            }
+            bulkWriteTableViewPermissions.push({
+                updateOne: {
+                    filter: {
+                        view_id: view_permission.view_id,
                         role_id: roleId
                     },
                     update: document,
@@ -1295,6 +1318,8 @@ let permission = {
         bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
         console.log(">>>>>>>>>>>>>> test #13 ",  new Date())
         bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
+        console.log(">>>>>>>>>>>>>> test #14 ",  new Date(), bulkWriteTableViewPermissions, bulkWriteTableViewPermissions[0].updateOne)
+        bulkWriteTableViewPermissions.length && await TableViewPermission.bulkWrite(bulkWriteTableViewPermissions)
         return {}
 
     }),

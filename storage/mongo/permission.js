@@ -790,7 +790,7 @@ let permission = {
                         view: temp.view,
                         edit: temp.edit,
                         delete: temp.delete,
-                        label: el.label
+                        name: el.name
                     })
                 } else {
                     tableCopy.table_view_permissions.push({
@@ -799,7 +799,7 @@ let permission = {
                         edit_permission: false,
                         create_permission: false,
                         delete_permission: false,
-                        label: el.label,
+                        name: el.name,
                     })
                 }
             })

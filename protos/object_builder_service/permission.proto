@@ -104,6 +104,13 @@ message RoleWithAppTablePermissions {
             repeated AutomaticFilter update = 3;
             repeated AutomaticFilter delete = 4;
         }
+        message TableViewPermission {
+            string guid = 1;
+            string name = 2;
+            bool view = 3;
+            bool edit = 4;
+            bool delete = 5;
+        }
 
         string label = 1;
         string slug = 2;
@@ -120,6 +127,7 @@ message RoleWithAppTablePermissions {
         repeated ViewPermission view_permissions = 13;
         AutomaticFilterWithMethod automatic_filters = 14;
         repeated ActionPermission action_permissions = 15;
+        repeated TableViewPermission table_view_permissions = 16;
     }
     string name = 1;
     string guid = 2;

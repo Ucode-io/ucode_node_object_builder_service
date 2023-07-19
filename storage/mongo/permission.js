@@ -650,7 +650,7 @@ let permission = {
         console.log(">>>>>>>> test #5 ", new Date())
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
-        console.log(">>>>>>>> test #6", new Date())
+        console.log(">>>>>>>> test #6", new Date(), automaticFilters)
 
         let tablesList = []
         console.log(">>>>>>>> test #6.1 ", new Date(), viewPermission)
@@ -1154,7 +1154,7 @@ let permission = {
         }
         console.log(">>>>>>>>>>>>>> test #8 ",  new Date())
         let tableFilters = []
-        for (const tableSlug of Object.keys(automaticFilters)) {
+        for (const tableSlug in automaticFilters) {
             if (automaticFilters[tableSlug]) {
                 const filters = automaticFilters[tableSlug].automatic_filters
                 for (let read_filter of (filters.read || [])) {
@@ -1163,6 +1163,7 @@ let permission = {
                         read_filter.method = "read"
                         read_filter.table_slug = tableSlug
                         read_filter.guid = v4()
+                        console.log("$$$$$$$$$$ ", read_filter)
                         tableFilters.push(read_filter)
                     }
                 }
@@ -1197,9 +1198,11 @@ let permission = {
         }
         console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
 
-        await AutomaticFilter.deleteMany({role_id: roleId})
+        const deletedAutomaticFilter = await AutomaticFilter.deleteMany({role_id: roleId})
+        console.log(">>>>>>>>>>>>>> test #9.1 ", tableFilters)
         if (tableFilters.length) {
-            await AutomaticFilter.insertMany(tableFilters)
+            const insertedAutomaticFilter = await AutomaticFilter.insertMany(tableFilters)
+            console.log(">>>>>>>>>>>>>> test #9.2 ", insertedAutomaticFilter)
         }
         console.log(">>>>>>>>>>>>>> test #10 ",  new Date())
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)

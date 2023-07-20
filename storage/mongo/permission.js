@@ -1464,7 +1464,7 @@ let permission = {
         console.log(">>>>>>>>>>>>>> test #1 ", new Date())
         const ErrRoleNotFound = new Error('role_id is required')
 
-        const roleId = req?.data?.guid || ''
+        const roleId = req?.guid || ''
         if (!roleId) {
             throw ErrRoleNotFound
         }
@@ -1479,7 +1479,7 @@ let permission = {
 
         let role = await Role.findOne(
             {
-                guid: req.current_role_id
+                guid: roleId
             },
         )
         console.log(">>>>>>>>>>>>>> test #3 ", new Date())
@@ -1489,7 +1489,7 @@ let permission = {
         let bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
 
         console.log(">>>>>>>>>>>>>> test #4 ", new Date())
-        await RecordPermission.updateOne({ role_id: req.current_role_id, table_slug: req.table.slug },
+        await RecordPermission.updateOne({ role_id: roleId, table_slug: req.table.slug },
             {
                 $set: req.table.record_permissions
             },
@@ -1501,7 +1501,7 @@ let permission = {
                 edit_permission: field_permission.edit_permission,
                 field_id: field_permission.field_id,
                 table_slug: field_permission.table_slug,
-                role_id: req.current_role_id,
+                role_id: roleId,
                 label: field_permission.label,
                 guid: v4()
             }
@@ -1521,7 +1521,7 @@ let permission = {
             let document = {
                 view_permission: view_permission.view_permission || false,
                 label: view_permission.label,
-                role_id: req.current_role_id,
+                role_id: roleId,
                 table_slug: view_permission.table_slug,
                 relation_id: view_permission.relation_id,
                 edit_permission: view_permission.edit_permission || false,
@@ -1533,7 +1533,7 @@ let permission = {
                     filter: {
                         relation_id: view_permission.relation_id,
                         table_slug: view_permission.table_slug,
-                        role_id: req.current_role_id,
+                        role_id: roleId,
                     },
                     update: document,
                     upsert: true,
@@ -1547,14 +1547,14 @@ let permission = {
                 view_permission: action_permission.permission,
                 custom_event_id: action_permission.custom_event_id,
                 table_slug: action_permission.table_slug,
-                role_id: req.current_role_id,
+                role_id: roleId,
                 label: action_permission.label,
             }
             bulkWriteActionPermissions.push({
                 updateOne: {
                     filter: {
                         custom_event_id: action_permission.custom_event_id,
-                        role_id: req.current_role_id,
+                        role_id: roleId,
                     },
                     update: documentActionPermission,
                     upsert: true

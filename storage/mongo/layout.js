@@ -158,7 +158,7 @@ let layoutStore = {
                     if (!relationPermission) {
                         insertManyRelationPermissions.push({
                             role_id: role.guid,
-                            table_slug: resp.table_slug,
+                            table_slug: resp.slug,
                             relation_id: relation_id,
                             view_permission: true,
                             create_permission: true,

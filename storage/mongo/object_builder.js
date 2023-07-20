@@ -232,12 +232,13 @@ let objectBuilder = {
                 data: struct.encode(output)
             })
         }
-
-        for (const relation of relatedTable) {
-            if (relation in output) {
-                nameWithDollarSign = "$" + relation
-                output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
-                delete output[relation]
+        if (output) {
+            for (const relation of relatedTable) {
+                if (relation in output) {
+                    nameWithDollarSign = "$" + relation
+                    output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
+                    delete output[relation]
+                }
             }
         }
         let decodedFields = []

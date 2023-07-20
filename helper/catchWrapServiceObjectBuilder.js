@@ -1,8 +1,7 @@
 const logger = require("../config/logger");
 const grpc = require("@grpc/grpc-js");
-const { struct } = require("pb-util");
-const mongoPool = require('../pkg/pool');
-const ObjectBuilder = require("../models/object_builder");
+const mongoPool = require("../pkg/pool");
+const ObjectBuilder = require("../models/object_builder")
 
 module.exports = (namespace, fn) => {
     return async (call, callback) => {

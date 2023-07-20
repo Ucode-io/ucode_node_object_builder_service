@@ -12482,6 +12482,7 @@
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
   level: 'error',
   timestamp: '2023-07-18T09:38:04.631Z',
@@ -12542,6 +12543,11 @@
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-18T10:07:17.283Z',
+=======
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2023-07-18T10:07:54.654Z',
+>>>>>>> 155e563848c985ae8e1bd58d97e0fb1d869e6aa7
   label: 'object_builder_service',
   metadata: {}
 }

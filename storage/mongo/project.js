@@ -14,6 +14,8 @@ const defaultRoles = require("../../helper/defaultRole")
 const initialCustomMessage = require("../../helper/initialCustomMessage");
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
+const initialCustomPermission = require("../../helper/initialCustomPermission");
+const initialViewPermission = require("../../helper/initialViewPermission");
 const addFields = require("../../helper/addFields");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
 
@@ -134,7 +136,7 @@ let projectStore = {
             await new Promise((resolve, reject) => {
                 try {
                     mongoDBConn.once("open", async function () {
-                        // await insertCollectioinitialTableFolderns(mongoDBConn, "", data.project_id)
+                        // await insertCollectioinitialTableFolders(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
                         await isSystemChecker(mongoDBConn)
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
@@ -155,6 +157,8 @@ let projectStore = {
                         await initialMenu({ project_id: data.project_id })
                         await initialCustomMessage({ project_id: data.project_id })
                         await initialMenuPermission({ project_id: data.project_id })
+                        await initialCustomPermission({ project_id: data.project_id })
+                        await initialViewPermission({ project_id: data.project_id })
                         await createIndexPermissionTables({ project_id: data.project_id })
                         await fieldPermissionIndexChecker(mongoDBConn)
                         await addFields({ project_id: data.project_id })

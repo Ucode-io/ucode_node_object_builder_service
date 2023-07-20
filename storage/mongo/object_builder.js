@@ -926,7 +926,7 @@ let objectBuilder = {
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,
                 role_id: params.role_id_from_token
-            }) || {}
+            }).lean() || {}
             console.log(">>>>>>>>>. ", permission)
             view.attributes.view_permission = permission
         }

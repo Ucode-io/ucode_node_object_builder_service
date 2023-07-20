@@ -45,9 +45,7 @@ let viewStore = {
                 data.attributes = struct.decode(data.attributes)
             }
 
-            const view = new View(data);
-
-            const response = await view.save();
+            const response = await View.create(data)
 
             const resp = await Table.updateOne({
                 slug: data.table_slug

@@ -33,7 +33,7 @@ module.exports = async function (data) {
     let record_permission_data = await recordPermissions(role.guid)
     let field_permission_data = await fieldPermissions(role.guid)
 
-    let menu_permission_slug = "custom_permission"
+    let menu_permission_slug = "global_permission"
     let menu_permission_id = "1b066143-9aad-4b28-bd34-0032709e463b"
 
     let menu_tables = table_data.filter(el => {
@@ -45,7 +45,9 @@ module.exports = async function (data) {
     let menu_field_ids = []
     let menu_fields = field_data.filter(el => {
         if (
-            el.table_id == menu_permission_id
+            el.table_id == menu_permission_id ||
+            // this ids record_permission field ids
+            ["8498e227-7ab8-4ebe-81fa-9995fb63a301", "0b2e6bad-e461-4cfc-acf1-f59f98d46e57", "ab927fe6-30ed-488c-b4cc-0d5712f7a461", "96b034d5-d7b2-4d23-bbf6-7fe4041c520a", "52ea67a2-079d-4a03-907a-b0594ffede51"].includes(el.id)
         ) {
             menu_field_ids.push(el.id)
             return true
@@ -91,10 +93,10 @@ module.exports = async function (data) {
     }
     
     await Table.updateOne({
-        slug: "custom_permission"
+        slug: "global_permission"
     }, { $set: { is_changed: true } })
 
-    const customPermissionTable = (await ObjectBuilder(true, data.project_id))["custom_permission"]
+    const customPermissionTable = (await ObjectBuilder(true, data.project_id))["global_permission"]
     const exist_custom_permission = await customPermissionTable.models.findOne({role_id: role.guid})
     !exist_custom_permission && await customPermissionTable.models.create({
         guid: v4(),
@@ -102,10 +104,16 @@ module.exports = async function (data) {
         chat: true,
         settings_button: true,
         role_id: role.guid,
-        view_create: true
+        projects_button: true,
+        environments_button: true,
+        api_keys_button: true,
+        redirects_button: true,
+        menu_setting_button: true,
+        profile_settings_button: true,
+        project_settings_button: true,
     })
 
-    const ModelCustomPermission = mongoConn.models["custom_permission"]
+    const ModelCustomPermission = mongoConn.models["global_permission"]
     const indexs = await ModelCustomPermission.collection.getIndexes()
 
     if(!indexs['role_id_1']) {

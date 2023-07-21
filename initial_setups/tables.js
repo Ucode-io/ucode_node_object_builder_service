@@ -328,7 +328,7 @@ async function createTable() {
     },
     {
         "label": "Разрешение для настройки  ",
-        "slug": "custom_permission",
+        "slug": "global_permission",
         "description": "Разрешение для настройки",
         "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
         "show_in_menu": true,

@@ -4137,10 +4137,10 @@ async function createField() {
 		"is_system": true
 	},
 	{
-		"id": "314a6bdd-548d-4aee-a31a-08fa2c428247",
+		"id": "9b157a1b-0233-41fd-a25c-6d8ebb30ab22",
 		"required": false,
-		"slug": "view_create",
-		"label": "View Create",
+		"slug": "projects_button",
+		"label": "Projects",
 		"default": "",
 		"type": "SWITCH",
 		"index": "string",
@@ -4167,6 +4167,193 @@ async function createField() {
 		"__v": 0,
 		"is_system": true
 	},
+	{
+		"id": "52402ed2-8c88-498e-8d7b-19363cc978d1",
+		"required": false,
+		"slug": "environments_button",
+		"label": "Environments",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "cc49e5d8-ac6a-468f-b679-7fd48100d8a5",
+		"required": false,
+		"slug": "api_keys_button",
+		"label": "Api keys",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "443ac038-8caf-480e-a4d2-76f6dcaccaab",
+		"required": false,
+		"slug": "redirects_button",
+		"label": "Redirects",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "aabde577-efb8-4ea2-81bf-38c6ec02f4eb",
+		"required": false,
+		"slug": "menu_setting_button",
+		"label": "Menu settings",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "42d81d3b-9430-4780-8990-47e79cfb3f3f",
+		"required": false,
+		"slug": "profile_settings_button",
+		"label": "Profile settings",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+	{
+		"id": "451727b4e-767b-49fa-8799-ee0e0791ef29",
+		"required": false,
+		"slug": "project_settings_button",
+		"label": "Project settings",
+		"default": "",
+		"type": "SWITCH",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true
+	},
+
 
 
 	{
@@ -4304,7 +4491,161 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true
-	}
+	},
+
+
+
+
+	{
+		"id": "8498e227-7ab8-4ebe-81fa-9995fb63a301",
+		"required": false,
+		"slug": "language_btn",
+		"label": "Language",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "0b2e6bad-e461-4cfc-acf1-f59f98d46e57",
+		"required": false,
+		"slug": "view_create",
+		"label": "View create",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "ab927fe6-30ed-488c-b4cc-0d5712f7a461",
+		"required": false,
+		"slug": "automation",
+		"label": "Automation",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "96b034d5-d7b2-4d23-bbf6-7fe4041c520a",
+		"required": false,
+		"slug": "settings",
+		"label": "Settings",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "52ea67a2-079d-4a03-907a-b0594ffede51",
+		"required": false,
+		"slug": "share_modal",
+		"label": "Share modal",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
 ]
 
 	return fields

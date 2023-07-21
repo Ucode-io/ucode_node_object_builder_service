@@ -922,12 +922,10 @@ let objectBuilder = {
         let views = tableInfo.views;
         // console.time("TIME_LOGGING:::app_id")
         for(let view of views){
-            console.log(">>>>>>>>>. ", view.id, params.role_id_from_token)
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,
                 role_id: params.role_id_from_token
             }).lean() || {}
-            console.log(">>>>>>>>>. ", permission)
             view.attributes.view_permission = permission
         }
         // console.timeEnd("TIME_LOGGING:::app_id")

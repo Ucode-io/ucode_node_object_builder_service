@@ -14,7 +14,7 @@ const defaultRoles = require("../../helper/defaultRole")
 const initialCustomMessage = require("../../helper/initialCustomMessage");
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
-const initialCustomPermission = require("../../helper/initialCustomPermission");
+const initialGlobalPermission = require("../../helper/initialCustomPermission");
 const initialViewPermission = require("../../helper/initialViewPermission");
 const addFields = require("../../helper/addFields");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
@@ -157,7 +157,7 @@ let projectStore = {
                         await initialMenu({ project_id: data.project_id })
                         await initialCustomMessage({ project_id: data.project_id })
                         await initialMenuPermission({ project_id: data.project_id })
-                        await initialCustomPermission({ project_id: data.project_id })
+                        await initialGlobalPermission({ project_id: data.project_id })
                         await initialViewPermission({ project_id: data.project_id })
                         await createIndexPermissionTables({ project_id: data.project_id })
                         await fieldPermissionIndexChecker(mongoDBConn)

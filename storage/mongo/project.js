@@ -12,7 +12,7 @@ const createIndexPermissionTables = require("../../helper/createIndexPermissionT
 const initialMenu = require("../../helper/initialMenu");
 const initialCustomMessage = require("../../helper/initialCustomMessage");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
-const initialCustomPermission = require("../../helper/initialCustomPermission");
+const initialGlobalPermission = require("../../helper/initialCustomPermission");
 const initialViewPermission = require("../../helper/initialViewPermission");
 const addFields = require("../../helper/addFields");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
@@ -149,7 +149,7 @@ let projectStore = {
                         console.log(">>>>>>>> ")
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenuPermission({ project_id: data.project_id })
-                        await initialCustomPermission({ project_id: data.project_id })
+                        await initialGlobalPermission({ project_id: data.project_id })
                         await initialViewPermission({ project_id: data.project_id })
                         await createIndexPermissionTables({ project_id: data.project_id })
                         await fieldPermissionIndexChecker(mongoDBConn)

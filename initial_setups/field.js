@@ -4106,37 +4106,6 @@ async function createField() {
 		"is_system": true
 	},
 	{
-		"id": "314a6bdd-548d-4aee-a31a-08fa2c428247",
-		"required": false,
-		"slug": "view_create",
-		"label": "View Create",
-		"default": "",
-		"type": "SWITCH",
-		"index": "string",
-		"attributes": {
-			"fields": {
-				"maxLength": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"placeholder": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"showTooltip": {
-					"boolValue": false,
-					"kind": "boolValue"
-				}
-			}
-		},
-		"is_visible": false,
-		"table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"__v": 0,
-		"is_system": true
-	},
-	{
 		"id": "9b157a1b-0233-41fd-a25c-6d8ebb30ab22",
 		"required": false,
 		"slug": "projects_button",
@@ -4491,7 +4460,161 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true
-	}
+	},
+
+
+
+
+	{
+		"id": "8498e227-7ab8-4ebe-81fa-9995fb63a301",
+		"required": false,
+		"slug": "language_btn",
+		"label": "Language",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "0b2e6bad-e461-4cfc-acf1-f59f98d46e57",
+		"required": false,
+		"slug": "view_create",
+		"label": "View create",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "ab927fe6-30ed-488c-b4cc-0d5712f7a461",
+		"required": false,
+		"slug": "automation",
+		"label": "Automation",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "96b034d5-d7b2-4d23-bbf6-7fe4041c520a",
+		"required": false,
+		"slug": "settings",
+		"label": "Settings",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "52ea67a2-079d-4a03-907a-b0594ffede51",
+		"required": false,
+		"slug": "share_modal",
+		"label": "Share modal",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
 ]
 
 	return fields

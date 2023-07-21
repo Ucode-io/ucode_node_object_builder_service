@@ -483,7 +483,7 @@ async function createRelation() {
   },
   {
     "id": "f24802bc-f72f-4195-b44c-a152c9fa9f28",
-    "table_from": "custom_permission",
+    "table_from": "global_permission",
     "field_from": "role_id",
     "table_to": "role",
     "field_to": "id",

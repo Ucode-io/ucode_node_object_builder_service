@@ -258,7 +258,7 @@ let permission = {
         const Tab = mongoConn.models['Tab']
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
-        const CustomPermission = mongoConn.models['custom_permission']
+        const CustomPermission = mongoConn.models['global_permission']
         const View = mongoConn.models['View']
 
 
@@ -324,6 +324,13 @@ let permission = {
                 icon: "$icon",
                 is_changed: "$is_cached",
                 is_system: "$is_system",
+                custom_permission: {
+                    share_modal: "$share_modal",
+                    settings: "$settings",
+                    automation: "$automation",
+                    view_create: "$view_create",
+                    language_btn: "$language_btn",
+                },
                 record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
               }
             }
@@ -708,7 +715,14 @@ let permission = {
         for (let table of tables) {
             let tableCopy = {
                 ...table,
-                record_permissions: table.record_permissions || null
+                record_permissions: table.record_permissions || null,
+                custom_permission: {
+                    view_create: table?.custom_permission?.view_create || "No",
+                    share_modal: table?.custom_permission?.share_modal || "No",
+                    settings: table?.custom_permission?.settings || "No",
+                    automation: table?.custom_permission?.automation || "No",
+                    language_btn: table?.custom_permission?.language_btn || "No"
+                }
             }
             if (!tableCopy.record_permissions) {
                 console.log('WARNING record_permissions not found')
@@ -723,6 +737,7 @@ let permission = {
                     is_public: false
                 }
             }
+            console.log(table.record_permissions)
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
@@ -1107,7 +1122,7 @@ let permission = {
         const ViewPermission = mongoConn.models['view_relation_permission']
         const AutomaticFilter = mongoConn.models['automatic_filter']
         const ActionPermission = mongoConn.models['action_permission']
-        const CustomPermission = mongoConn.models['custom_permission']
+        const CustomPermission = mongoConn.models['global_permission']
         const TableViewPermission = mongoConn.models['view_permission']
         console.log(">>>>>>>>>>>>>> test #2 ",  new Date())
 
@@ -1133,6 +1148,7 @@ let permission = {
         let automaticFilters = {}
         console.log(">>>>>>>>>>>>>> test #4 ",  new Date())
         for (let table of req?.data?.tables) {
+            console.log(table.custom_permission)
             let isHaveCondition = false
             if (table?.automatic_filters?.read?.length ||
                 table?.automatic_filters?.write?.length ||
@@ -1151,7 +1167,12 @@ let permission = {
                 is_have_condition: isHaveCondition,
                 is_public: table.record_permissions.is_public,
                 role_id: roleId,
-                table_slug: table.slug
+                table_slug: table.slug,
+                language_btn: table?.custom_permission?.language_btn || false,
+                automation: table?.custom_permission?.automation || false,
+                settings: table?.custom_permission?.settings || false,
+                share_modal: table?.custom_permission?.share_modal || false,
+                view_create: table?.custom_permission?.view_create || false,
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {
@@ -1548,6 +1569,14 @@ let permission = {
             throw err
         }
 
+    }),
+    getGlobalPermissionByRoleId: catchWrapDbObjectBuilder(`${NAMESPACE}.getGlobalPermissionByRoleId`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id)
+        const GlobalPermission = mongoConn.models['global_permission']
+
+        const resp = await GlobalPermission?.findOne({role_id: req.role_id}).lean() || {}
+
+        return resp
     }),
 }
 

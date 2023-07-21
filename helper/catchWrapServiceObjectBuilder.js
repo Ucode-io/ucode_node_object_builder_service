@@ -5,6 +5,7 @@ const mongoPool = require("../pkg/pool");
 const grpcClient = require("../services/grpc/client");
 const config = require("../config/index");
 const projectStore = require("../storage/mongo/project");
+const ObjectBuilder = require("../models/object_builder")
 
 module.exports = (namespace, fn) => {
     return async (call, callback) => {

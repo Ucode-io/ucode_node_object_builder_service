@@ -1169,11 +1169,11 @@ let permission = {
                 is_public: table.record_permissions.is_public,
                 role_id: roleId,
                 table_slug: table.slug,
-                language_btn: table?.custom_permission?.language_btn || false,
-                automation: table?.custom_permission?.automation || false,
-                settings: table?.custom_permission?.settings || false,
-                share_modal: table?.custom_permission?.share_modal || false,
-                view_create: table?.custom_permission?.view_create || false,
+                language_btn: table?.custom_permission?.language_btn || "No",
+                automation: table?.custom_permission?.automation || "No",
+                settings: table?.custom_permission?.settings || "No",
+                share_modal: table?.custom_permission?.share_modal || "No",
+                view_create: table?.custom_permission?.view_create || "No",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {

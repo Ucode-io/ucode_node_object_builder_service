@@ -371,7 +371,9 @@ let loginStore = {
     login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login_data`, async (req) => {
         console.log("TEST:::::::::1", req.resource_environment_id)
         console.log("req", JSON.stringify(req, null, 2))
-        const clientTypeTable = (await ObjectBuilder(true, req.resource_environment_id))["client_type"]
+        const allTables = (await ObjectBuilder(true, req.resource_environment_id))
+        const clientTypeTable = allTables["client_type"]
+        const globalPermission = allTables["global_permission"]
 
         const clientType = await clientTypeTable.models.findOne(
             {
@@ -381,8 +383,8 @@ let loginStore = {
                 ]
             }
         ).lean()
-        console.log("TEST:::::::::2", JSON.stringify(clientType, null, 2))
-        let params = {}, tableSlug = "user"
+        // console.log("TEST:::::::::2", JSON.stringify(clientType, null, 2))
+        let params = {}
         params["guid"] = req.user_id
         params["project_id"] = req.project_id
         params["client_type_id"] = req.client_type
@@ -391,27 +393,27 @@ let loginStore = {
         }
         
 
-        const userTable = (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]
+        const userTable = allTables["user"]
         let user = await userTable.models.findOne(params).lean()
 
         let user_found = false
-        console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
+        // console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
 
         if (!user) {
             return {
                 user_found: user_found
             }
         }
-        console.log("TEST:::::::::3")
-        const roleTable = (await ObjectBuilder(true, req.resource_environment_id))["role"]
+        // console.log("TEST:::::::::3")
+        const roleTable = allTables["role"]
 
         const role = await roleTable.models.findOne(
             {
                 client_type_id: clientType.guid,
             }
         ).lean()
-        console.log("TEST:::::::::4")
-        const clientPlatfromTable = (await ObjectBuilder(true, req.resource_environment_id))["client_platform"]
+        // console.log("TEST:::::::::4")
+        const clientPlatfromTable = allTables["client_platform"]
 
         const clientPlatform = await clientPlatfromTable.models.findOne(
             {
@@ -419,9 +421,9 @@ let loginStore = {
             }
         ).lean()
 
-        console.log("TEST:::::::::5", JSON.stringify(clientPlatform, null, 2))
+        // console.log("TEST:::::::::5", JSON.stringify(clientPlatform, null, 2))
 
-        const connectionsTable = (await ObjectBuilder(true, req.resource_environment_id))["connections"]
+        const connectionsTable = allTables["connections"]
 
         const connections = await connectionsTable.models.find(
             {
@@ -429,26 +431,41 @@ let loginStore = {
             }
         ).lean()
 
-        console.log("TEST:::::::::6", JSON.stringify(connections, null, 2))
+        // console.log("TEST:::::::::6", JSON.stringify(connections, null, 2))
         let clientTypeResp = {}
         clientTypeResp = clientType
         clientTypeResp.tables = connections
 
-        const recordPermission = (await ObjectBuilder(true, req.resource_environment_id))["record_permission"]
+        const recordPermission = allTables["record_permission"]
 
         const permissions = await recordPermission.models.find(
             {
                 role_id: role.guid
             }
         ).lean()
-        console.log("TEST:::::::::7", JSON.stringify(permissions, null, 2))
+        // console.log("TEST:::::::::7", JSON.stringify(permissions, null, 2))
 
         let userId;
         if (user) {
             user_found = true
             userId = user.guid
         }
-        console.log("TEST:::::::::8")
+        // console.log("TEST:::::::::8")
+        const appPermissions = await recordPermission.models.find(
+            {
+                $and: [
+                    {
+                        table_slug: "app"
+                    },
+                    {
+                        role_id: user.role_id
+                    }
+                ]
+            }
+        ).lean()
+
+        const global_permission = await globalPermission.models.findOne({role_id: user.role_id}) || {}
+        console.log(global_permission)
 
         //@TODO:: check user can login with this login strategy
         let response = {
@@ -459,9 +476,10 @@ let loginStore = {
             // app_permissions: appPermissions,
             role: role,
             permissions: permissions,
-            login_table_slug: tableSlug
+            login_table_slug: 'user',
+            global_permission: global_permission
         }
-        console.log("TEST:::::::::10", JSON.stringify(response, null, 2))
+        // console.log("TEST:::::::::10", JSON.stringify(response, null, 2))
 
         return response
     }),

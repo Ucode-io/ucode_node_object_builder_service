@@ -922,11 +922,12 @@ let objectBuilder = {
         let views = tableInfo.views;
         // console.time("TIME_LOGGING:::app_id")
         for(let view of views){
+            console.log(view)
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,
                 role_id: params.role_id_from_token
             }).lean() || {}
-            view.attributes.view_permission = permission
+            view?.attributes?.view_permission = permission
         }
         // console.timeEnd("TIME_LOGGING:::app_id")
         // add regExp to params for filtering

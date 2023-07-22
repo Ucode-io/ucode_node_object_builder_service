@@ -493,7 +493,7 @@ async function buildModels(is_build = true, project_id) {
             }, {
             sort: { order: 1 }
         }).lean()
-        // console.log("TEST:::::::::::12")
+        // console.log("TEST:::::::::::12", views)
         tempArray.push({ field: fieldsModel, model: temp, relation: relations, view: views, slug: table.slug, dropIndex: dropIndex });
     }
 

@@ -324,13 +324,6 @@ let permission = {
                 icon: "$icon",
                 is_changed: "$is_cached",
                 is_system: "$is_system",
-                custom_permission: {
-                    share_modal: "$share_modal",
-                    settings: "$settings",
-                    automation: "$automation",
-                    view_create: "$view_create",
-                    language_btn: "$language_btn",
-                },
                 record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
               }
             }
@@ -717,11 +710,11 @@ let permission = {
                 ...table,
                 record_permissions: table.record_permissions || null,
                 custom_permission: {
-                    view_create: table?.custom_permission?.view_create || "No",
-                    share_modal: table?.custom_permission?.share_modal || "No",
-                    settings: table?.custom_permission?.settings || "No",
-                    automation: table?.custom_permission?.automation || "No",
-                    language_btn: table?.custom_permission?.language_btn || "No"
+                    view_create: table?.record_permissions?.view_create || "No",
+                    share_modal: table?.record_permissions?.share_modal || "No",
+                    settings: table?.record_permissions?.settings || "No",
+                    automation: table?.record_permissions?.automation || "No",
+                    language_btn: table?.record_permissions?.language_btn || "No"
                 }
             }
             if (!tableCopy.record_permissions) {

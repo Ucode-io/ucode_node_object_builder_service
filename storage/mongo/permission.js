@@ -325,13 +325,6 @@ let permission = {
                 icon: "$icon",
                 is_changed: "$is_cached",
                 is_system: "$is_system",
-                custom_permission: {
-                    share_modal: "$share_modal",
-                    settings: "$settings",
-                    automation: "$automation",
-                    view_create: "$view_create",
-                    language_btn: "$language_btn",
-                },
                 record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
               }
             }
@@ -718,11 +711,11 @@ let permission = {
                 ...table,
                 record_permissions: table.record_permissions || null,
                 custom_permission: {
-                    view_create: table?.custom_permission?.view_create || "No",
-                    share_modal: table?.custom_permission?.share_modal || "No",
-                    settings: table?.custom_permission?.settings || "No",
-                    automation: table?.custom_permission?.automation || "No",
-                    language_btn: table?.custom_permission?.language_btn || "No"
+                    view_create: table?.record_permissions?.view_create || "No",
+                    share_modal: table?.record_permissions?.share_modal || "No",
+                    settings: table?.record_permissions?.settings || "No",
+                    automation: table?.record_permissions?.automation || "No",
+                    language_btn: table?.record_permissions?.language_btn || "No"
                 }
             }
             if (!tableCopy.record_permissions) {
@@ -1149,7 +1142,6 @@ let permission = {
         let automaticFilters = {}
         console.log(">>>>>>>>>>>>>> test #4 ", new Date())
         for (let table of req?.data?.tables) {
-            console.log(table.custom_permission)
             let isHaveCondition = false
             if (table?.automatic_filters?.read?.length ||
                 table?.automatic_filters?.write?.length ||
@@ -1169,11 +1161,11 @@ let permission = {
                 is_public: table.record_permissions.is_public,
                 role_id: roleId,
                 table_slug: table.slug,
-                language_btn: table?.custom_permission?.language_btn || "No",
-                automation: table?.custom_permission?.automation || "No",
-                settings: table?.custom_permission?.settings || "No",
-                share_modal: table?.custom_permission?.share_modal || "No",
-                view_create: table?.custom_permission?.view_create || "No",
+                language_btn: table.custom_permission?.language_btn || "No",
+                automation: table.custom_permission?.automation || "No",
+                settings: table.custom_permission?.settings || "No",
+                share_modal: table.custom_permission?.share_modal || "No",
+                view_create: table.custom_permission?.view_create || "No",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {

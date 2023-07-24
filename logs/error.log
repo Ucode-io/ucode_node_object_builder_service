@@ -3254,6 +3254,7 @@
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
   level: 'error',
   timestamp: '2023-07-18T09:38:04.631Z',
@@ -3293,6 +3294,11 @@
   level: 'error',
   timestamp: '2023-07-18T09:41:57.813Z',
 >>>>>>> ac8cab3b9e80ec008005f229292ee9493c2362aa
+=======
+  message: 'service.app.updateRoleAppTablePermissions: failed with error: role_id is required',
+  level: 'error',
+  timestamp: '2023-07-18T10:07:54.654Z',
+>>>>>>> 61fd7f357465c1c97a3c09705273881d851ed104
   label: 'object_builder_service',
   metadata: {}
 }

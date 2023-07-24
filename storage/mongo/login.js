@@ -406,6 +406,11 @@ let loginStore = {
                 guid: user.role_id,
             }
         ).lean()
+        if (!role) {
+            return {
+                user_found: false
+            }
+        }
         console.log("TEST:::::::::4")
         const clientPlatfromTable = (await ObjectBuilder(true, req.resource_environment_id))["client_platform"]
 

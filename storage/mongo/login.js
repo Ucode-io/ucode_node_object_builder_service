@@ -388,6 +388,7 @@ let loginStore = {
         params["guid"] = req.user_id
         params["project_id"] = req.project_id
         params["client_type_id"] = req.client_type
+        let tableSlug = "user"
         if (clientType && clientType.table_slug) {
             tableSlug = clientType.table_slug
         }
@@ -404,6 +405,7 @@ let loginStore = {
                 user_found: user_found
             }
         }
+        console.log("user::", user);
         // console.log("TEST:::::::::3")
         const roleTable = allTables["role"]
 

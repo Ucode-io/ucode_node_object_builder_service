@@ -12867,3 +12867,17 @@
 }
 >>>>>>> Stashed changes
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-25T06:00:59.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: failed with error: tableSlug is not defined',
+  level: 'error',
+  timestamp: '2023-07-25T06:01:38.240Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

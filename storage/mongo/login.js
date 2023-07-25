@@ -391,9 +391,9 @@ let loginStore = {
         if (clientType && clientType.table_slug) {
             tableSlug = clientType.table_slug
         }
-        
 
-        const userTable = allTables["user"]
+
+        const userTable = allTables[tableSlug]
         let user = await userTable.models.findOne(params).lean()
 
         let user_found = false
@@ -409,9 +409,14 @@ let loginStore = {
 
         const role = await roleTable.models.findOne(
             {
-                client_type_id: clientType.guid,
+                guid: user.role_id,
             }
         ).lean()
+        if (!role) {
+            return {
+                user_found: false
+            }
+        }
         // console.log("TEST:::::::::4")
         const clientPlatfromTable = allTables["client_platform"]
 
@@ -464,7 +469,7 @@ let loginStore = {
             }
         ).lean()
 
-        const global_permission = await globalPermission.models.findOne({role_id: user.role_id}) || {}
+        const global_permission = await globalPermission.models.findOne({ role_id: user.role_id }) || {}
         console.log(global_permission)
 
         //@TODO:: check user can login with this login strategy
@@ -476,7 +481,7 @@ let loginStore = {
             // app_permissions: appPermissions,
             role: role,
             permissions: permissions,
-            login_table_slug: 'user',
+            login_table_slug: tableSlug,
             global_permission: global_permission
         }
         // console.log("TEST:::::::::10", JSON.stringify(response, null, 2))

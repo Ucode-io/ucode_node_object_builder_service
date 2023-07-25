@@ -9,7 +9,8 @@ async function createMenu() {
         "parent_id": "",
         "table_id": "",
         "layout_id": "",
-        "type": "FOLDER"
+        "type": "FOLDER",
+        "is_system": true,
     }, {
         "label": "Избранное",
         "icon": "folder.svg",
@@ -20,7 +21,8 @@ async function createMenu() {
         "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
         "table_id": "",
         "layout_id": "",
-        "type": "FOLDER"
+        "type": "FOLDER",
+        "is_system": true,
     }]
 
     return menu

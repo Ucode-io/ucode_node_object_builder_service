@@ -10,7 +10,8 @@ async function createConnection(connectionID, clientTypeID) {
         "client_type_id": clientTypeID,
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "is_system": true,
     }]
 
     return connections

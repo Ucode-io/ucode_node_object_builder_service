@@ -10,6 +10,7 @@ const logger = require("../../config/logger");
 const initialMenu = require("../../helper/initialMenu");
 const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
+const initialCustomMessage = require("../../helper/initialCustomMessage")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
 const initialGlobalPermission = require("../../helper/initialCustomPermission");

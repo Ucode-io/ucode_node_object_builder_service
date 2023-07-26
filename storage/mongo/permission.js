@@ -9,6 +9,7 @@ const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
 const tableVersion = require('../../helper/table_version');
 const mongoPool = require('../../pkg/pool');
+const getPermissionByTableSlug = require('../../helper/getPermissionByTableSlug');
 
 
 let permission = {
@@ -279,55 +280,55 @@ let permission = {
 
         const tablePipeline = [
             {
-              $match: {
-                deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') }
-              }
+                $match: {
+                    deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') }
+                }
             },
             {
-              $project: {
-                __v: 0,
-                _id: 0,
-                created_at: 0,
-                updated_at: 0
-              }
+                $project: {
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
+                }
             },
             {
-              $lookup: {
-                from: 'record_permissions', 
-                let: { tableSlug: '$slug' },
-                pipeline: [
-                  {
-                    $match: {
-                      $expr: {
-                        $and: [
-                          { $eq: ['$table_slug', '$$tableSlug'] },
-                          { $eq: ['$role_id', role.guid] }
-                        ]
-                      }
-                    }
-                  },
-                  {
-                    $limit: 1
-                  }
-                ],
-                as: 'record_permissions'
-              }
+                $lookup: {
+                    from: 'record_permissions',
+                    let: { tableSlug: '$slug' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$table_slug', '$$tableSlug'] },
+                                        { $eq: ['$role_id', role.guid] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
+                        }
+                    ],
+                    as: 'record_permissions'
+                }
             },
             {
-              $project: {
-                id: "$id",
-                slug: '$slug',
-                label: "$label",
-                show_in_menu: "$show_in_menu",
-                is_changed: "$is_cached",
-                icon: "$icon",
-                is_changed: "$is_cached",
-                is_system: "$is_system",
-                record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
-              }
+                $project: {
+                    id: "$id",
+                    slug: '$slug',
+                    label: "$label",
+                    show_in_menu: "$show_in_menu",
+                    is_changed: "$is_cached",
+                    icon: "$icon",
+                    is_changed: "$is_cached",
+                    is_system: "$is_system",
+                    record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
+                }
             }
         ]
-        
+
         const tables = await Table.aggregate(tablePipeline)
 
         console.log(">>>>>>>> test #2 ", new Date())
@@ -335,46 +336,46 @@ let permission = {
         if (!tables || !tables.length) {
             console.log('WARNING apps not found')
             return roleCopy
-        }    
+        }
 
         const fieldPipeline = [
             {
-              $project: {
-                __v: 0,
-                _id: 0,
-                created_at: 0,
-                updated_at: 0
-              }
+                $project: {
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
+                }
             },
             {
-              $lookup: {
-                from: 'field_permissions', 
-                let: { fieldID: '$id' },
-                pipeline: [
-                  {
-                    $match: {
-                      $expr: {
-                        $and: [
-                          { $eq: ['$field_id', '$$fieldID'] },
-                          { $eq: ['$role_id', role.guid] }
-                        ]
-                      }
-                    }
-                  },
-                  {
-                    $limit: 1
-                  }
-                ],
-                as: 'field_permissions'
-              }
+                $lookup: {
+                    from: 'field_permissions',
+                    let: { fieldID: '$id' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$field_id', '$$fieldID'] },
+                                        { $eq: ['$role_id', role.guid] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
+                        }
+                    ],
+                    as: 'field_permissions'
+                }
             },
             {
-              $project: {
-                label: "$label",
-                id: "$id",
-                table_id: "$table_id",
-                field_permissions: { $arrayElemAt: ['$field_permissions', 0] }
-              }
+                $project: {
+                    label: "$label",
+                    id: "$id",
+                    table_id: "$table_id",
+                    field_permissions: { $arrayElemAt: ['$field_permissions', 0] }
+                }
             }
         ]
         const getListViewRelationPermissions = [{
@@ -577,14 +578,14 @@ let permission = {
                     }
                 }
             }
-        ] 
+        ]
         const tabPipeline = [
             {
                 $project: {
-                  __v: 0,
-                  _id: 0,
-                  created_at: 0,
-                  updated_at: 0
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
                 }
             },
             {
@@ -594,35 +595,35 @@ let permission = {
             },
             {
                 $lookup: {
-                  from: 'view_relation_permissions', 
-                  let: { relationID: '$relation_id' },
-                  pipeline: [
-                    {
-                      $match: {
-                        $expr: {
-                          $and: [
-                            { $eq: ['$relation_id', '$$relationID'] },
-                            { $eq: ['$role_id', role.guid] }
-                          ]
+                    from: 'view_relation_permissions',
+                    let: { relationID: '$relation_id' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$relation_id', '$$relationID'] },
+                                        { $eq: ['$role_id', role.guid] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
                         }
-                      }
-                    },
-                    {
-                      $limit: 1
-                    }
-                  ],
-                  as: 'view_permissions'
+                    ],
+                    as: 'view_permissions'
                 }
-              },
-              {
+            },
+            {
                 $project: {
-                  label: "$label",
-                  id: "$id",
-                  table_slug: "$table_slug",
-                  layout_id: "$layout_id",
-                  view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
+                    label: "$label",
+                    id: "$id",
+                    table_slug: "$table_slug",
+                    layout_id: "$layout_id",
+                    view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
                 }
-              }
+            }
         ]
         const viewPipeline = [
             {
@@ -824,7 +825,7 @@ let permission = {
         console.log(">>>>>>>> test #7 ", new Date())
         // appCopy.tables = tablesList
         // appsList.push(appCopy)
-        let end =  new Date()
+        let end = new Date()
         console.log("tablesList length:::", tablesList.length);
         roleCopy.tables = tablesList
         roleCopy.global_permission = await CustomPermission?.findOne({role_id: roleCopy.guid}) || {}
@@ -1095,7 +1096,7 @@ let permission = {
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {
         const start = new Date()
-        console.log(">>>>>>>>>>>>>> test #1 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #1 ", new Date())
         const ErrRoleNotFound = new Error('role_id is required')
         const ErrWhileUpdate = new Error('error while updating')
 
@@ -1131,14 +1132,14 @@ let permission = {
                 upsert: false
             }
         )
-        console.log(">>>>>>>>>>>>>> test #3 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #3 ", new Date())
         if (!role) {
             throw ErrRoleNotFound
         }
         let fieldPermissions = [], viewPermissions = [], actionPermissions = [],  tableViewPermissions = []
         let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [], bulkWriteTableViewPermissions = [];
         let automaticFilters = {}
-        console.log(">>>>>>>>>>>>>> test #4 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #4 ", new Date())
         for (let table of req?.data?.tables) {
             console.log(table.custom_permission)
             let isHaveCondition = false
@@ -1178,7 +1179,7 @@ let permission = {
             actionPermissions = [...actionPermissions, ...table.action_permissions]
             tableViewPermissions = [...tableViewPermissions, ...table.table_view_permissions]
         }
-        console.log(">>>>>>>>>>>>>> test #5 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #5 ", new Date())
         for (let field_permission of (fieldPermissions || [])) {
 
             let documentFieldPermission = {
@@ -1201,7 +1202,7 @@ let permission = {
                 }
             })
         }
-        console.log(">>>>>>>>>>>>>> test #6 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #6 ", new Date())
         for (let view_permission of (viewPermissions || [])) {
             let document = {
                 permission: view_permission.view_permission || false,
@@ -1266,7 +1267,7 @@ let permission = {
                 }
             })
         }
-        console.log(">>>>>>>>>>>>>> test #8 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #8 ", new Date())
         let tableFilters = []
         for (const tableSlug of Object.keys(automaticFilters)) {
             if (automaticFilters[tableSlug]) {
@@ -1322,13 +1323,13 @@ let permission = {
         if (tableFilters.length) {
             await AutomaticFilter.insertMany(tableFilters)
         }
-        console.log(">>>>>>>>>>>>>> test #10 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #10 ", new Date())
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
-        console.log(">>>>>>>>>>>>>> test #11 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #11 ", new Date())
         bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
-        console.log(">>>>>>>>>>>>>> test #12 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #12 ", new Date())
         bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
-        console.log(">>>>>>>>>>>>>> test #13 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #13 ", new Date())
         bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
         console.log(">>>>>>>>>>>>>> test #14 ",  new Date(), bulkWriteTableViewPermissions, bulkWriteTableViewPermissions[0].updateOne)
         bulkWriteTableViewPermissions.length && await TableViewPermission.bulkWrite(bulkWriteTableViewPermissions)
@@ -1569,6 +1570,137 @@ let permission = {
 
         return resp
     }),
+    getPermissionsByTableSlug: catchWrapDbObjectBuilder(`${NAMESPACE}.getPermissionsByTableSlug`, async (req) => {
+        console.log(">>>>> permission with role ", new Date())
+        const current_user_permission = await getPermissionByTableSlug(
+            {
+                role_id: req.current_role_id,
+                table_slug: req.table_slug,
+                project_id: req.project_id
+            }
+        )
+        if (!req.role_id || req.role_id === req.current_role_id) {
+            return {current_user_permission}
+        }
+        const selected_user_permission = await getPermissionByTableSlug(
+            {
+                role_id: req.role_id,
+                table_slug: req.table_slug,
+                project_id: req.project_id
+            }
+        )
+        return {current_user_permission, selected_user_permission}
+    }),
+    updatePermissionsByTableSlug: catchWrapDbObjectBuilder(`${NAMESPACE}.updatePermissionsByTableSlug`, async (req) => {
+        console.log(">>>>>>>>>>>>>> test #1 ", new Date())
+        const ErrRoleNotFound = new Error('role_id is required')
+
+        const roleId = req?.guid || ''
+        if (!roleId) {
+            throw ErrRoleNotFound
+        }
+
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Role = mongoConn.models['role']
+        const RecordPermission = mongoConn.models['record_permission']
+        const FieldPermission = mongoConn.models['field_permission']
+        const ViewPermission = mongoConn.models['view_relation_permission']
+        const ActionPermission = mongoConn.models['action_permission']
+        console.log(">>>>>>>>>>>>>> test #2 ", new Date())
+
+        let role = await Role.findOne(
+            {
+                guid: roleId
+            },
+        )
+        console.log(">>>>>>>>>>>>>> test #3 ", new Date())
+        if (!role) {
+            throw ErrRoleNotFound
+        }
+        let bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
+
+        console.log(">>>>>>>>>>>>>> test #4 ", new Date())
+        await RecordPermission.updateOne({ role_id: roleId, table_slug: req.table.slug },
+            {
+                $set: req.table.record_permissions
+            },
+        )
+        for (let field_permission of (req?.table?.field_permissions || [])) {
+
+            let documentFieldPermission = {
+                view_permission: field_permission.view_permission,
+                edit_permission: field_permission.edit_permission,
+                field_id: field_permission.field_id,
+                table_slug: field_permission.table_slug,
+                role_id: roleId,
+                label: field_permission.label,
+                guid: v4()
+            }
+            bulkWriteFieldPermissions.push({
+                updateOne: {
+                    filter: {
+                        field_id: field_permission.field_id,
+                        role_id: roleId
+                    },
+                    update: documentFieldPermission,
+                    upsert: true
+                }
+            })
+        }
+        console.log(">>>>>>>>>>>>>> test #6 ", new Date())
+        for (let view_permission of (req?.table?.view_permissions || [])) {
+            let document = {
+                view_permission: view_permission.view_permission || false,
+                label: view_permission.label,
+                role_id: roleId,
+                table_slug: view_permission.table_slug,
+                relation_id: view_permission.relation_id,
+                edit_permission: view_permission.edit_permission || false,
+                create_permission: view_permission.create_permission || false,
+                delete_permission: view_permission.delete_permission || false,
+            }
+            bulkWriteViewPermissions.push({
+                updateOne: {
+                    filter: {
+                        relation_id: view_permission.relation_id,
+                        table_slug: view_permission.table_slug,
+                        role_id: roleId,
+                    },
+                    update: document,
+                    upsert: true,
+                }
+            })
+        }
+        console.log(">>>>>>>>>>>>>> test #7 ", new Date())
+        for (let action_permission of (req.table.action_permissions || [])) {
+
+            let documentActionPermission = {
+                view_permission: action_permission.permission,
+                custom_event_id: action_permission.custom_event_id,
+                table_slug: action_permission.table_slug,
+                role_id: roleId,
+                label: action_permission.label,
+            }
+            bulkWriteActionPermissions.push({
+                updateOne: {
+                    filter: {
+                        custom_event_id: action_permission.custom_event_id,
+                        role_id: roleId,
+                    },
+                    update: documentActionPermission,
+                    upsert: true
+                }
+            })
+        }
+
+        console.log(">>>>>>>>>>>>>> test #11 ", new Date())
+        bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
+        console.log(">>>>>>>>>>>>>> test #12 ", new Date())
+        bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
+        console.log(">>>>>>>>>>>>>> test #13 ", new Date())
+        bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
+        return {}
+    })
 }
 
 module.exports = permission

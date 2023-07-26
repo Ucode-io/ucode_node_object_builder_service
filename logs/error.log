@@ -3134,6 +3134,7 @@
 }
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: "service.layout.getAll: failed with error: Cannot read properties of undefined (reading 'id')",
   level: 'error',
   timestamp: '2023-07-12T11:30:16.369Z',
@@ -3201,17 +3202,29 @@
   message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-07-15T09:13:56.490Z',
+=======
+  message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: start is not defined',
+  level: 'error',
+  timestamp: '2023-07-17T06:33:13.548Z',
+>>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-07-15T09:13:57.503Z',
+=======
+  message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-07-17T06:34:34.729Z',
+>>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.menu.getAllMenuTemplate: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-07-15T09:14:01.393Z',
@@ -3299,6 +3312,11 @@
   level: 'error',
   timestamp: '2023-07-18T10:07:54.654Z',
 >>>>>>> 61fd7f357465c1c97a3c09705273881d851ed104
+=======
+  message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: Error role not found',
+  level: 'error',
+  timestamp: '2023-07-17T06:36:18.102Z',
+>>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
   label: 'object_builder_service',
   metadata: {}
 }

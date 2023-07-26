@@ -124,6 +124,6 @@ module.exports = async function (data) {
     
     console.log("Initial custom check function done ✅")
    } catch (err) {
-    console.log(err)
+    console.log("Custom permission err >>", err)
    }
 }

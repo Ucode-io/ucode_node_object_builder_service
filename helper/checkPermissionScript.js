@@ -53,8 +53,9 @@ module.exports = async function (data) {
             settings: "Yes",
             share_modal: "Yes"
         })
+        console.log("Check permission function done")
     } catch (err) {
-        console.log(err)
+        console.log("checkPermission err >>", err)
     }
     
 

@@ -219,7 +219,12 @@ let fieldStore = {
                 {
                     id: data.id,
                 }
-            )
+            ).lean()
+            if(fieldBeforUpdate && fieldBeforUpdate.is_system) {
+                console.log("there #1")
+                throw new Error("This field is system field")
+            }
+
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 // let autoFillTable = await Table.findOne({
                 //     slug: data.autofill_table,
@@ -527,7 +532,10 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
 
-            const deletedField = await Field.findOne({ id: data.id })
+            const deletedField = await Field.findOne({ id: data.id }).lean()
+            if(deletedField && deletedField.is_system) {
+                throw new Error("This field is system field")
+            }
             // const table = await Table.findOne({ id: deletedField.table_id,  })
             const table = await tableVersion(mongoConn, { id: deletedField.table_id }, data.version_id, true)
             const field = await Field.deleteOne({ id: data.id });

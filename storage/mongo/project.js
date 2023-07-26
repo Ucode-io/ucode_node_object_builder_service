@@ -13,6 +13,7 @@ const initialMenu = require("../../helper/initialMenu");
 const initialCustomMessage = require("../../helper/initialCustomMessage");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
 const addFields = require("../../helper/addFields");
+const systemChecker = require("../../helper/systemChecker");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
 
 
@@ -142,14 +143,14 @@ let projectStore = {
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                         await objectBuilder(false, data.project_id)
-                        await initialMenu({ project_id: data.project_id })
-                        await initialCustomMessage({ project_id: data.project_id })
-                        console.log(">>>>>>>> ")
-                        await initialTableFolder({ project_id: data.project_id })
-                        await initialMenuPermission({ project_id: data.project_id })
-                        await createIndexPermissionTables({ project_id: data.project_id })
-                        await fieldPermissionIndexChecker(mongoDBConn)
-                        await addFields({ project_id: data.project_id })
+                        // await initialMenu({ project_id: data.project_id })
+                        // await initialCustomMessage({ project_id: data.project_id })
+                        // await initialTableFolder({ project_id: data.project_id })
+                        await systemChecker({ project_id: data.project_id })
+                        // await initialMenuPermission({ project_id: data.project_id })
+                        // await createIndexPermissionTables({ project_id: data.project_id })
+                        // await fieldPermissionIndexChecker(mongoDBConn)
+                        // await addFields({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

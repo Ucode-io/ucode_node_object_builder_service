@@ -67,8 +67,13 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-
             let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+
+            const dataBeforeUpdate = await tableInfo.models.findOne({guid: data.id})
+            if(dataBeforeUpdate && dataBeforeUpdate.is_system) {
+                throw new Error("This document is system document")
+            }
+
             const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
@@ -1642,6 +1647,11 @@ let objectBuilder = {
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
+
+            const dataBeforeDelete = await tableInfo.models.findOne({guid: data.id})
+            if(dataBeforeDelete && dataBeforeDelete.is_system) {
+                throw new Error("This document is system document")
+            }
 
             if(!tableModel.soft_delete) {
                 const response = await tableInfo.models.deleteOne({ guid: data.id });

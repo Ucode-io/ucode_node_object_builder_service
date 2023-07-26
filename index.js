@@ -27,29 +27,19 @@ const logger = require("./config/logger");
 
     try {
         logger.info(`autoconnecting to resources`);
-        await projectStorage.reconnect({
-            project_id: "1", // youtube dev
-            credentials: {
-                host: "65.109.239.69",
-                port: 30027,
-                database: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
-                username: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
-                password: "bLjkGFjiva"
-            }
-        })
         
         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
 
-        // await projectStorage.autoConnect(
-        //     {
-        //         request: {
-        //             k8s_namespace: config.k8s_namespace
-        //         }
-        //     },
-        //     (code, result) => {
-        //         logger.info(`connected to resources ${code} - ${result}`);
-        //     }
-        // )
+        await projectStorage.autoConnect(
+            {
+                request: {
+                    k8s_namespace: config.k8s_namespace
+                }
+            },
+            (code, result) => {
+                logger.info(`connected to resources ${code} - ${result}`);
+            }
+        )
 
         logger.info(`connected successfully done!!!`);
 

@@ -87,10 +87,19 @@ let tableStore = {
 
             data.is_changed = true
 
-            let del_payload = { id: data.id, version_ids: [] }
+            const isSystemTable = await Table.findOne({
+                id: data.id
+            })
+
+            console.log(isSystemTable)
+            if(isSystemTable && isSystemTable.is_system) {
+                throw  new Error("This table is system table")
+            }
+
             let tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id,
             })
+            
             const table = await Table.create(data)
             if (table) {
                 let payload = {}
@@ -135,8 +144,7 @@ let tableStore = {
                 }
             }
 
-
-            await sendMessageToTopic(con.TopicTableUpdeteV1, event)
+            // await sendMessageToTopic(con.TopicTableUpdeteV1, event)
             return table;
         } catch (err) {
             throw err
@@ -249,12 +257,11 @@ let tableStore = {
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
 
-            let payload = { id: data.id, version_ids: [] }
-            if (data.version_id) {
-                payload.version_ids = { $in: [data.version_id] }
-            }
-            const table = await Table.findOne(payload)
+            const table = await Table.findOne({ id: data.id })
             if (!table) throw new Error("Table not found with given parameters")
+            if(table.is_system) {
+                throw  new Error("This table is system table")
+            }
             if (table) {
                 let payload = {}
 

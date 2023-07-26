@@ -9,49 +9,53 @@ const mongoPool = require('../pkg/pool');
 
 
 module.exports = async function (data) {
-    console.log("Custom Permission update function working...")
-    const mongoConn = await mongoPool.get(data.project_id)
-    const Role = mongoConn.models['role']
-    const View = mongoConn.models['View']
-    const ViewPermission = mongoConn.models['view_permission']
-    const RecordPermission = mongoConn.models['record_permission']
+    try {
+        console.log("Custom Permission update function working...")
+        const mongoConn = await mongoPool.get(data.project_id)
+        const Role = mongoConn.models['role']
+        const View = mongoConn.models['View']
+        const ViewPermission = mongoConn.models['view_permission']
+        const RecordPermission = mongoConn.models['record_permission']
 
-    const roles = await Role.find()
+        const roles = await Role.find()
 
-    const views = await View.find()
+        const views = await View.find()
 
-    
-    let bulkWriteViewPermissions = []
-    for(let view of views) {
-        for(let role of roles) {
-            bulkWriteViewPermissions.push({
-                updateOne: {
-                    filter: {
-                        view_id: view.id,
-                        role_id: role.guid
-                    },
-                    update: {
-                        guid: v4(),
-                        role_id: role.guid,
-                        view: true,
-                        edit:   true,
-                        delete: true,
-                        view_id: view.id,
-                    },
-                    upsert: true
-                }
-            })
+        
+        let bulkWriteViewPermissions = []
+        for(let view of views) {
+            for(let role of roles) {
+                bulkWriteViewPermissions.push({
+                    updateOne: {
+                        filter: {
+                            view_id: view.id,
+                            role_id: role.guid
+                        },
+                        update: {
+                            guid: v4(),
+                            role_id: role.guid,
+                            view: true,
+                            edit:   true,
+                            delete: true,
+                            view_id: view.id,
+                        },
+                        upsert: true
+                    }
+                })
+            }
         }
-    }
-    await ViewPermission.bulkWrite(bulkWriteViewPermissions)
+        await ViewPermission.bulkWrite(bulkWriteViewPermissions)
 
-    await RecordPermission.updateMany({}, {
-        view_create: "Yes",
-        language_btn: "Yes",
-        automation: "Yes",
-        settings: "Yes",
-        share_modal: "Yes"
-    })
+        await RecordPermission.updateMany({}, {
+            view_create: "Yes",
+            language_btn: "Yes",
+            automation: "Yes",
+            settings: "Yes",
+            share_modal: "Yes"
+        })
+    } catch (err) {
+        console.log(err)
+    }
     
 
 }

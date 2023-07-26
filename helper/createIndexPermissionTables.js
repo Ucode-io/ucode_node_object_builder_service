@@ -3,6 +3,7 @@ const { v4 } = require("uuid")
 const ObjectBuilder = require('../models/object_builder');
 
 module.exports = async function (data) {
+    console.log("Create index permission function working...")
     const mongoConn = await mongoPool.get(data.project_id)
     const fieldPermission = mongoConn.models['field_permission']
     const actionPermission = mongoConn.models['action_permission']

@@ -4,7 +4,7 @@ const ObjectBuilder = require("../models/object_builder");
 const customErrMsg = require('../initial_setups/customErrMsg');
 
 module.exports = async function (data) {
-    console.log(": Default table folder checking...")
+    console.log(": Default custom message checking...")
     const mongoConn = await mongoPool.get(data.project_id)
     const Table = mongoConn.models['Table']
     const Field = mongoConn.models['Field']
@@ -197,5 +197,5 @@ module.exports = async function (data) {
         )
     }
 
-    console.log(": Default table folder checking done!!!")
+    console.log(": Default custom message checking done!!!")
 }

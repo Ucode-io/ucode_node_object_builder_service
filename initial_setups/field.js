@@ -39,7 +39,7 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0
-	},{
+	}, {
 		"id": "d8127cf2-2d60-474e-94ba-317d3b1ba18a",
 		"required": false,
 		"slug": "table_slug",
@@ -1045,7 +1045,7 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0
-	},{
+	}, {
 		"id": "485ceb40-6267-4f5e-9327-f75fe79e8bfe",
 		"table_id": "5af2bfb2-6880-42ad-80c8-690e24a2523e",
 		"required": false,
@@ -3950,7 +3950,7 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true
-	},{
+	}, {
 		"id": "50335ad5-ddf7-48e5-b1c1-5b1cadbd7731",
 		"required": false,
 		"slug": "menu_settings",
@@ -3980,7 +3980,121 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true
-	},]
+	}, {
+		"id": "d440d8fa-f36f-4290-857d-73a8bb969d1e",
+		"required": false,
+		"slug": "type",
+		"label": "Тип",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"is_system": true,
+		"__v": 0
+	}, {
+		"id": "04b4921f-323f-45ce-835c-8f5ad5486634",
+		"required": false,
+		"slug": "main_table_slug",
+		"label": "Main Table Slug",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"is_system": true,
+		"__v": 0
+	}, {
+		"id": "71e5f87f-de45-40ee-baa7-a8654b1c4eff",
+		"required": false,
+		"slug": "field_slug",
+		"label": "Field Slug",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"is_system": true,
+		"__v": 0
+	}]
 
 	return fields
 }

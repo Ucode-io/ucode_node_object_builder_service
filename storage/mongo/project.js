@@ -18,6 +18,7 @@ const initialGlobalPermission = require("../../helper/initialCustomPermission");
 const initialViewPermission = require("../../helper/initialViewPermission");
 const addFields = require("../../helper/addFields");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
+const ceckPermissionScript = require("../../helper/checkPermissionScript")
 
 
 let NAMESPACE = "storage.project";
@@ -156,12 +157,14 @@ let projectStore = {
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
                         await initialCustomMessage({ project_id: data.project_id })
+                        await initialTableFolder({ project_id: data.project_id })
                         await initialMenuPermission({ project_id: data.project_id })
                         await initialGlobalPermission({ project_id: data.project_id })
                         await initialViewPermission({ project_id: data.project_id })
                         await createIndexPermissionTables({ project_id: data.project_id })
                         await fieldPermissionIndexChecker(mongoDBConn)
                         await addFields({ project_id: data.project_id })
+                        await ceckPermissionScript({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

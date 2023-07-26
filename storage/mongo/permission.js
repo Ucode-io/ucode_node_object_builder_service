@@ -1226,7 +1226,6 @@ let permission = {
             })
         }
         for (let view_permission of (tableViewPermissions || [])) {
-            console.log(">>>>>>>>>>>>>>>. ", view_permission)
             let document = {
                 guid: view_permission.guid || v4(),
                 role_id: roleId,

@@ -19,7 +19,6 @@ module.exports = async function (data) {
     const FieldPermission = mongoConn.models['field_permission']
     const Menu = mongoConn.models['object_builder_service.menu']
 
-    console.log(">>>>>>>>>>>> test #1")
     let role = await Role.findOne({ name: "DEFAULT ADMIN" })
     if (!role) {
         role = await Role.findOne({ name: "Guess" })
@@ -28,7 +27,6 @@ module.exports = async function (data) {
             throw Error("No role to create permission in menu permission insert helper")
         }
     }
-    console.log(">>>>>>>>>>>> test #2", JSON.stringify(role, null, 2))
     let table_data = await tables()
     let field_data = await fields()
     let relation_data = await relations()
@@ -43,7 +41,6 @@ module.exports = async function (data) {
             return true
         }
     })
-    console.log(">>>>>>>>>>>> test #3", JSON.stringify(menu_tables, null, 2))
     let menu_field_ids = []
     let menu_fields = field_data.filter(el => {
         if (
@@ -55,7 +52,6 @@ module.exports = async function (data) {
             return true
         }
     })
-    console.log(">>>>>>>>>>>> test #4", JSON.stringify(menu_field_ids, null, 2))
     let menu_relation_ids = []
     let menu_relations = relation_data.filter(el => {
         if (
@@ -65,7 +61,6 @@ module.exports = async function (data) {
             return true
         }
     })
-    console.log(">>>>>>>>>>>> test #5", JSON.stringify(menu_relation_ids, null, 2))
     let menu_field_permissions_ids = []
     let menu_field_permissions = field_permission_data.filter(el => {
         if (el.table_slug == menu_permission_slug) {
@@ -73,36 +68,28 @@ module.exports = async function (data) {
             return true
         }
     })
-    console.log(">>>>>>>>>>>> test #6", JSON.stringify(menu_field_permissions_ids, null, 2))
     const exist_tables = await Table.find({ id:  menu_permission_id  })
     if (!exist_tables.length) {
         console.log("Insert table collection >> ", JSON.stringify(menu_tables))
         await Table.insertMany(menu_tables)
     }
-    console.log(">>>>>>>>>>>> test #7", JSON.stringify(exist_tables, null, 2))
     const exist_fields = await Field.find({ id: { $in: menu_field_ids } })
     if (!exist_fields.length) {
         await Field.insertMany(menu_fields)
     }
-    console.log(">>>>>>>>>>>> test #8", JSON.stringify(exist_fields, null, 2))
     const exist_relations = await Relation.find({ id: { $in: menu_relation_ids } })
     if (!exist_relations.length) {
         await Relation.insertMany(menu_relations)
     }
-    console.log(">>>>>>>>>>>> test #9", JSON.stringify(exist_relations, null, 2))
     const exist_field_permissions = await FieldPermission.find({ guid: { $in: menu_field_permissions_ids } })
     if (!exist_field_permissions.length) {
         await FieldPermission.insertMany(menu_field_permissions)
     }
-    console.log(">>>>>>>>>>>> test #10", JSON.stringify(exist_field_permissions, null, 2))
     const updatedTable = await Table.findOneAndUpdate({
         slug: "global_permission"
     }, { $set: { is_changed: true } })
-    console.log(">>>>>>>>>>>> test #11", JSON.stringify(updatedTable, null, 2))
     const customPermissionTable = (await ObjectBuilder(true, data.project_id))["global_permission"]
-    console.log(">>>>>>>>>>>> test #12", JSON.stringify(customPermissionTable, null, 2))
     const exist_custom_permission = await customPermissionTable.models.findOne({role_id: role.guid})
-    console.log(">>>>>>>>>>>> test #13", JSON.stringify(exist_custom_permission, null, 2))
     !exist_custom_permission && await customPermissionTable.models.create({
         guid: v4(),
         menu_button: true,
@@ -122,7 +109,6 @@ module.exports = async function (data) {
     const indexs = await ModelCustomPermission.collection.getIndexes()
 
     if(!indexs['role_id_1']) {
-        console.log(".>>>>")
         await ModelCustomPermission.collection.createIndex({ role_id: 1}, {unique: true})
     }
     

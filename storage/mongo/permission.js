@@ -1315,7 +1315,7 @@ let permission = {
             role_id: roleId,
         }, {
             $set: req.data.global_permission
-        }) 
+        }, { upsert: true }) 
 
         console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
 

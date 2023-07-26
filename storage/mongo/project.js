@@ -151,7 +151,7 @@ let projectStore = {
                         await initialMenuPermission({ project_id: data.project_id })
                         await initialGlobalPermission({ project_id: data.project_id })
                         await initialViewPermission({ project_id: data.project_id })
-                        await createIndexPermissionTables({ project_id: data.project_id })
+                        // await createIndexPermissionTables({ project_id: data.project_id })
                         await fieldPermissionIndexChecker(mongoDBConn)
                         await addFields({ project_id: data.project_id })
                         await ceckPermissionScript({ project_id: data.project_id })

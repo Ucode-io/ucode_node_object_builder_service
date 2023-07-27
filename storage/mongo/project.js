@@ -12,9 +12,12 @@ const createIndexPermissionTables = require("../../helper/createIndexPermissionT
 const initialMenu = require("../../helper/initialMenu");
 const initialCustomMessage = require("../../helper/initialCustomMessage");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
+const initialGlobalPermission = require("../../helper/initialCustomPermission");
+const initialViewPermission = require("../../helper/initialViewPermission");
 const addFields = require("../../helper/addFields");
 const systemChecker = require("../../helper/systemChecker");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
+const ceckPermissionScript = require("../../helper/checkPermissionScript")
 
 
 let NAMESPACE = "storage.project";
@@ -133,7 +136,7 @@ let projectStore = {
             await new Promise((resolve, reject) => {
                 try {
                     mongoDBConn.once("open", async function () {
-                        // await insertCollectioinitialTableFolderns(mongoDBConn, "", data.project_id)
+                        // await insertCollectioinitialTableFolders(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
@@ -143,14 +146,17 @@ let projectStore = {
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                         await objectBuilder(false, data.project_id)
-                        // await initialMenu({ project_id: data.project_id })
-                        // await initialCustomMessage({ project_id: data.project_id })
-                        // await initialTableFolder({ project_id: data.project_id })
-                        await systemChecker({ project_id: data.project_id })
-                        // await initialMenuPermission({ project_id: data.project_id })
+                        await initialMenu({ project_id: data.project_id })
+                        await initialCustomMessage({ project_id: data.project_id })
+                        await initialTableFolder({ project_id: data.project_id })
+                        await initialMenuPermission({ project_id: data.project_id })
+                        await initialGlobalPermission({ project_id: data.project_id })
+                        await initialViewPermission({ project_id: data.project_id })
                         // await createIndexPermissionTables({ project_id: data.project_id })
-                        // await fieldPermissionIndexChecker(mongoDBConn)
-                        // await addFields({ project_id: data.project_id })
+                        await systemChecker({ project_id: data.project_id })
+                        await fieldPermissionIndexChecker(mongoDBConn)
+                        await addFields({ project_id: data.project_id })
+                        await ceckPermissionScript({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

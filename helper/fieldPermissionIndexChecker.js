@@ -1,6 +1,7 @@
 
 
 module.exports = async function (mongoConn) {
+    console.log("Field index checker working...")
     const FieldPermission = mongoConn.models['field_permission']
 
     const indexs = await FieldPermission.collection.getIndexes()
@@ -9,4 +10,5 @@ module.exports = async function (mongoConn) {
         console.log(".>>>>")
         await FieldPermission.collection.createIndex({ role_id: 1, field_id: 1 })
     }
+    console.log("Field index checker done")
 }

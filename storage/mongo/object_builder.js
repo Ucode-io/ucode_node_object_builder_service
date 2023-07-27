@@ -807,8 +807,9 @@ let objectBuilder = {
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-
-        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const allTables = (await ObjectBuilder(true, req.project_id))
+        const viewPermission = allTables["view_permission"]
+        const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
         }
@@ -926,8 +927,12 @@ let objectBuilder = {
         // console.log("TEST::::::3")
         let views = tableInfo.views;
         // console.time("TIME_LOGGING:::app_id")
-        if (params.app_id) {
-            views = tableInfo.views.filter(val => (val.app_id === params.app_id))
+        for(let view of views){
+            const permission = await viewPermission.models.findOne({
+                view_id: view.id,
+                role_id: params.role_id_from_token
+            }).lean() || {}
+            view.attributes ? view.attributes.view_permission = permission : view.attributes = { view_permission: permission }
         }
         // console.timeEnd("TIME_LOGGING:::app_id")
         // add regExp to params for filtering
@@ -1091,8 +1096,6 @@ let objectBuilder = {
                 { deleted_at: null }
             ]
         }
-
-        console.log(">>>>>>>> params", params, params.$or)
 
         if (limit !== 0) {
             if (relations.length == 0) {

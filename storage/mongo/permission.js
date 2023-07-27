@@ -9,6 +9,7 @@ const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
 const tableVersion = require('../../helper/table_version');
 const mongoPool = require('../../pkg/pool');
+const getPermissionByTableSlug = require('../../helper/getPermissionByTableSlug');
 
 
 let permission = {
@@ -258,6 +259,8 @@ let permission = {
         const Tab = mongoConn.models['Tab']
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
+        const CustomPermission = mongoConn.models['global_permission']
+        const View = mongoConn.models['View']
 
 
 
@@ -266,7 +269,7 @@ let permission = {
             null,
             { sort: { createdAt: -1 } }
         )
-        console.log(">>>>>>>> test #1 ", new Date(), role)
+        console.log(">>>>>>>> test #1 ", new Date(), role) 
         if (!role) {
             console.log('WARNING role not found')
             throw new Error('Error role not found')
@@ -278,39 +281,39 @@ let permission = {
 
         const tablePipeline = [
             {
-              $match: {
-                deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') }
-              }
+                $match: {
+                    deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') }
+                }
             },
             {
-              $project: {
-                __v: 0,
-                _id: 0,
-                created_at: 0,
-                updated_at: 0
-              }
+                $project: {
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
+                }
             },
             {
-              $lookup: {
-                from: 'record_permissions', 
-                let: { tableSlug: '$slug' },
-                pipeline: [
-                  {
-                    $match: {
-                      $expr: {
-                        $and: [
-                          { $eq: ['$table_slug', '$$tableSlug'] },
-                          { $eq: ['$role_id', role.guid] }
-                        ]
-                      }
-                    }
-                  },
-                  {
-                    $limit: 1
-                  }
-                ],
-                as: 'record_permissions'
-              }
+                $lookup: {
+                    from: 'record_permissions',
+                    let: { tableSlug: '$slug' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$table_slug', '$$tableSlug'] },
+                                        { $eq: ['$role_id', role.guid] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
+                        }
+                    ],
+                    as: 'record_permissions'
+                }
             },
             {
               $project: {
@@ -326,7 +329,7 @@ let permission = {
               }
             }
         ]
-        
+
         const tables = await Table.aggregate(tablePipeline)
 
         console.log(">>>>>>>> test #2 ", new Date())
@@ -334,46 +337,46 @@ let permission = {
         if (!tables || !tables.length) {
             console.log('WARNING apps not found')
             return roleCopy
-        }    
+        }
 
         const fieldPipeline = [
             {
-              $project: {
-                __v: 0,
-                _id: 0,
-                created_at: 0,
-                updated_at: 0
-              }
+                $project: {
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
+                }
             },
             {
-              $lookup: {
-                from: 'field_permissions', 
-                let: { fieldID: '$id' },
-                pipeline: [
-                  {
-                    $match: {
-                      $expr: {
-                        $and: [
-                          { $eq: ['$field_id', '$$fieldID'] },
-                          { $eq: ['$role_id', role.guid] }
-                        ]
-                      }
-                    }
-                  },
-                  {
-                    $limit: 1
-                  }
-                ],
-                as: 'field_permissions'
-              }
+                $lookup: {
+                    from: 'field_permissions',
+                    let: { fieldID: '$id' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$field_id', '$$fieldID'] },
+                                        { $eq: ['$role_id', role.guid] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
+                        }
+                    ],
+                    as: 'field_permissions'
+                }
             },
             {
-              $project: {
-                label: "$label",
-                id: "$id",
-                table_id: "$table_id",
-                field_permissions: { $arrayElemAt: ['$field_permissions', 0] }
-              }
+                $project: {
+                    label: "$label",
+                    id: "$id",
+                    table_id: "$table_id",
+                    field_permissions: { $arrayElemAt: ['$field_permissions', 0] }
+                }
             }
         ]
         const getListViewRelationPermissions = [{
@@ -576,14 +579,14 @@ let permission = {
                     }
                 }
             }
-        ] 
+        ]
         const tabPipeline = [
             {
                 $project: {
-                  __v: 0,
-                  _id: 0,
-                  created_at: 0,
-                  updated_at: 0
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
                 }
             },
             {
@@ -593,35 +596,75 @@ let permission = {
             },
             {
                 $lookup: {
-                  from: 'view_relation_permissions', 
-                  let: { relationID: '$relation_id' },
-                  pipeline: [
-                    {
-                      $match: {
-                        $expr: {
-                          $and: [
-                            { $eq: ['$relation_id', '$$relationID'] },
-                            { $eq: ['$role_id', role.guid] }
-                          ]
+                    from: 'view_relation_permissions',
+                    let: { relationID: '$relation_id' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$relation_id', '$$relationID'] },
+                                        { $eq: ['$role_id', role.guid] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
                         }
-                      }
-                    },
-                    {
-                      $limit: 1
-                    }
-                  ],
-                  as: 'view_permissions'
+                    ],
+                    as: 'view_permissions'
                 }
-              },
-              {
+            },
+            {
                 $project: {
-                  label: "$label",
-                  id: "$id",
-                  table_slug: "$table_slug",
-                  layout_id: "$layout_id",
-                  view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
+                    label: "$label",
+                    id: "$id",
+                    table_slug: "$table_slug",
+                    layout_id: "$layout_id",
+                    view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
                 }
+            }
+        ]
+        const viewPipeline = [
+            {
+              $project: {
+                __v: 0,
+                _id: 0,
+                created_at: 0,
+                updated_at: 0
               }
+            },
+            {
+              $lookup: {
+                from: 'view_permissions', 
+                let: { viewID: '$id' },
+                pipeline: [
+                  {
+                    $match: {
+                      $expr: {
+                        $and: [
+                          { $eq: ['$view_id', '$$viewID'] },
+                          { $eq: ['$role_id', role.guid] }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    $limit: 1
+                  }
+                ],
+                as: 'view_permissions'
+              }
+            },
+            {
+              $project: {
+                name: "$name",
+                id: "$id",
+                table_slug: "$table_slug",
+                view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
+              }
+            }
         ]
 
         let testFieldResp = await Field.aggregate(fieldPipeline)
@@ -631,6 +674,16 @@ let permission = {
                 fields[el.table_id] = [el]
             } else {
                 fields[el.table_id].push(el)
+            }
+        })
+
+        let tableViewPermissions = await View.aggregate(viewPipeline)
+        let tableViewPermission = {}
+        tableViewPermissions.forEach(el => {
+            if (!tableViewPermission[el.table_slug]) {
+                tableViewPermission[el.table_slug] = [el]
+            } else {
+                tableViewPermission[el.table_slug].push(el)
             }
         })
 
@@ -650,14 +703,20 @@ let permission = {
         console.log(">>>>>>>> test #5 ", new Date())
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
-        console.log(">>>>>>>> test #6", new Date(), automaticFilters)
+        console.log(">>>>>>>> test #6", new Date())
 
         let tablesList = []
-        console.log(">>>>>>>> test #6.1 ", new Date(), viewPermission)
         for (let table of tables) {
             let tableCopy = {
                 ...table,
-                record_permissions: table.record_permissions || null
+                record_permissions: table.record_permissions || null,
+                custom_permission: {
+                    view_create: table?.record_permissions?.view_create || "No",
+                    share_modal: table?.record_permissions?.share_modal || "No",
+                    settings: table?.record_permissions?.settings || "No",
+                    automation: table?.record_permissions?.automation || "No",
+                    language_btn: table?.record_permissions?.language_btn || "No"
+                }
             }
             if (!tableCopy.record_permissions) {
                 console.log('WARNING record_permissions not found')
@@ -672,6 +731,7 @@ let permission = {
                     is_public: false
                 }
             }
+            console.log(table.record_permissions)
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
@@ -698,9 +758,9 @@ let permission = {
                 }
             })
 
-            let tableViews = viewPermission[table.slug]
+            let tableRelationViews = viewPermission[table.slug]
             tableCopy.view_permissions = []
-            tableViews && tableViews.length && tableViews.forEach(el => {
+            tableRelationViews && tableRelationViews.length && tableRelationViews.forEach(el => {
                 if (el.view_permissions) {
                     const temp = el.view_permissions
                     tableCopy.view_permissions.push({
@@ -714,7 +774,7 @@ let permission = {
                         label: el.label,
                     })
                 } else {
-                    tableCopy.field_permissions.push({
+                    tableCopy.view_permissions.push({
                         guid: "",
                         relation_id: "",
                         table_slug: "",
@@ -723,6 +783,32 @@ let permission = {
                         create_permission: false,
                         delete_permission: false,
                         label: el.label,
+                    })
+                }
+            })
+
+            let tableViews = tableViewPermission[table.slug]
+            tableCopy.table_view_permissions = []
+            tableViews && tableViews.length && tableViews.forEach(el => {
+                if (el.view_permissions) {
+                    const temp = el.view_permissions
+                    tableCopy.table_view_permissions.push({
+                        guid: temp.guid,
+                        view: temp.view,
+                        edit: temp.edit,
+                        delete: temp.delete,
+                        name: el.name,
+                        view_id: temp.view_id
+                    })
+                } else {
+                    tableCopy.table_view_permissions.push({
+                        guid: "",
+                        view_permission: false,
+                        edit_permission: false,
+                        create_permission: false,
+                        delete_permission: false,
+                        name: el.name,
+                        view_id: ""
                     })
                 }
             })
@@ -740,9 +826,10 @@ let permission = {
         console.log(">>>>>>>> test #7 ", new Date())
         // appCopy.tables = tablesList
         // appsList.push(appCopy)
-        let end =  new Date()
+        let end = new Date()
         console.log("tablesList length:::", tablesList.length);
         roleCopy.tables = tablesList
+        roleCopy.global_permission = await CustomPermission?.findOne({role_id: roleCopy.guid}) || {}
         console.log("\n\n time ", start, "\n", end, "\n", end - start)
         return { project_id: req.project_id, data: roleCopy }
 
@@ -1010,7 +1097,7 @@ let permission = {
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {
         const start = new Date()
-        console.log(">>>>>>>>>>>>>> test #1 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #1 ", new Date())
         const ErrRoleNotFound = new Error('role_id is required')
         const ErrWhileUpdate = new Error('error while updating')
 
@@ -1029,6 +1116,8 @@ let permission = {
         const ViewPermission = mongoConn.models['view_relation_permission']
         const AutomaticFilter = mongoConn.models['automatic_filter']
         const ActionPermission = mongoConn.models['action_permission']
+        const CustomPermission = mongoConn.models['global_permission']
+        const TableViewPermission = mongoConn.models['view_permission']
         console.log(">>>>>>>>>>>>>> test #2 ",  new Date())
 
         let role = await Role.findOneAndUpdate(
@@ -1044,14 +1133,14 @@ let permission = {
                 upsert: false
             }
         )
-        console.log(">>>>>>>>>>>>>> test #3 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #3 ", new Date())
         if (!role) {
             throw ErrRoleNotFound
         }
-        let fieldPermissions = [], viewPermissions = [], actionPermissions = []
-        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
+        let fieldPermissions = [], viewPermissions = [], actionPermissions = [],  tableViewPermissions = []
+        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [], bulkWriteTableViewPermissions = [];
         let automaticFilters = {}
-        console.log(">>>>>>>>>>>>>> test #4 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #4 ", new Date())
         for (let table of req?.data?.tables) {
             let isHaveCondition = false
             if (table?.automatic_filters?.read?.length ||
@@ -1071,7 +1160,12 @@ let permission = {
                 is_have_condition: isHaveCondition,
                 is_public: table.record_permissions.is_public,
                 role_id: roleId,
-                table_slug: table.slug
+                table_slug: table.slug,
+                language_btn: table.custom_permission?.language_btn || "No",
+                automation: table.custom_permission?.automation || "No",
+                settings: table.custom_permission?.settings || "No",
+                share_modal: table.custom_permission?.share_modal || "No",
+                view_create: table.custom_permission?.view_create || "No",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {
@@ -1083,8 +1177,9 @@ let permission = {
             fieldPermissions = [...fieldPermissions, ...table.field_permissions]
             viewPermissions = [...viewPermissions, ...table.view_permissions]
             actionPermissions = [...actionPermissions, ...table.action_permissions]
+            tableViewPermissions = [...tableViewPermissions, ...table.table_view_permissions]
         }
-        console.log(">>>>>>>>>>>>>> test #5 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #5 ", new Date())
         for (let field_permission of (fieldPermissions || [])) {
 
             let documentFieldPermission = {
@@ -1107,7 +1202,7 @@ let permission = {
                 }
             })
         }
-        console.log(">>>>>>>>>>>>>> test #6 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #6 ", new Date())
         for (let view_permission of (viewPermissions || [])) {
             let document = {
                 permission: view_permission.view_permission || false,
@@ -1124,6 +1219,26 @@ let permission = {
                     filter: {
                         relation_id: view_permission.relation_id,
                         table_slug: view_permission.table_slug,
+                        role_id: roleId
+                    },
+                    update: document,
+                    upsert: true,
+                }
+            })
+        }
+        for (let view_permission of (tableViewPermissions || [])) {
+            let document = {
+                guid: view_permission.guid || v4(),
+                role_id: roleId,
+                view: view_permission.view || false,
+                edit: view_permission.edit || false,
+                delete: view_permission.delete || false,
+                view_id: view_permission.view_id,
+            }
+            bulkWriteTableViewPermissions.push({
+                updateOne: {
+                    filter: {
+                        view_id: view_permission.view_id,
                         role_id: roleId
                     },
                     update: document,
@@ -1152,9 +1267,9 @@ let permission = {
                 }
             })
         }
-        console.log(">>>>>>>>>>>>>> test #8 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #8 ", new Date())
         let tableFilters = []
-        for (const tableSlug in automaticFilters) {
+        for (const tableSlug of Object.keys(automaticFilters)) {
             if (automaticFilters[tableSlug]) {
                 const filters = automaticFilters[tableSlug].automatic_filters
                 for (let read_filter of (filters.read || [])) {
@@ -1163,7 +1278,6 @@ let permission = {
                         read_filter.method = "read"
                         read_filter.table_slug = tableSlug
                         read_filter.guid = v4()
-                        console.log("$$$$$$$$$$ ", read_filter)
                         tableFilters.push(read_filter)
                     }
                 }
@@ -1196,22 +1310,29 @@ let permission = {
                 }
             }
         }
+
+        await CustomPermission.findOneAndUpdate({
+            role_id: roleId,
+        }, {
+            $set: req.data.global_permission
+        }, { upsert: true }) 
+
         console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
 
-        const deletedAutomaticFilter = await AutomaticFilter.deleteMany({role_id: roleId})
-        console.log(">>>>>>>>>>>>>> test #9.1 ", tableFilters)
+        await AutomaticFilter.deleteMany({role_id: roleId})
         if (tableFilters.length) {
-            const insertedAutomaticFilter = await AutomaticFilter.insertMany(tableFilters)
-            console.log(">>>>>>>>>>>>>> test #9.2 ", insertedAutomaticFilter)
+            await AutomaticFilter.insertMany(tableFilters)
         }
-        console.log(">>>>>>>>>>>>>> test #10 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #10 ", new Date())
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
-        console.log(">>>>>>>>>>>>>> test #11 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #11 ", new Date())
         bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
-        console.log(">>>>>>>>>>>>>> test #12 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #12 ", new Date())
         bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
-        console.log(">>>>>>>>>>>>>> test #13 ",  new Date())
+        console.log(">>>>>>>>>>>>>> test #13 ", new Date())
         bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
+        console.log(">>>>>>>>>>>>>> test #14 ",  new Date(), bulkWriteTableViewPermissions, bulkWriteTableViewPermissions[0].updateOne)
+        bulkWriteTableViewPermissions.length && await TableViewPermission.bulkWrite(bulkWriteTableViewPermissions)
         return {}
 
     }),
@@ -1440,6 +1561,145 @@ let permission = {
             throw err
         }
 
+    }),
+    getPermissionsByTableSlug: catchWrapDbObjectBuilder(`${NAMESPACE}.getPermissionsByTableSlug`, async (req) => {
+        console.log(">>>>> permission with role ", new Date())
+        const current_user_permission = await getPermissionByTableSlug(
+            {
+                role_id: req.current_role_id,
+                table_slug: req.table_slug,
+                project_id: req.project_id
+            }
+        )
+        if (!req.role_id || req.role_id === req.current_role_id) {
+            return {current_user_permission}
+        }
+        const selected_user_permission = await getPermissionByTableSlug(
+            {
+                role_id: req.role_id,
+                table_slug: req.table_slug,
+                project_id: req.project_id
+            }
+        )
+        return {current_user_permission, selected_user_permission}
+    }),
+    updatePermissionsByTableSlug: catchWrapDbObjectBuilder(`${NAMESPACE}.updatePermissionsByTableSlug`, async (req) => {
+        console.log(">>>>>>>>>>>>>> test #1 ", new Date())
+        const ErrRoleNotFound = new Error('role_id is required')
+
+        const roleId = req?.guid || ''
+        if (!roleId) {
+            throw ErrRoleNotFound
+        }
+
+        const mongoConn = await mongoPool.get(req.project_id)
+        const Role = mongoConn.models['role']
+        const RecordPermission = mongoConn.models['record_permission']
+        const FieldPermission = mongoConn.models['field_permission']
+        const ViewPermission = mongoConn.models['view_relation_permission']
+        const ActionPermission = mongoConn.models['action_permission']
+        console.log(">>>>>>>>>>>>>> test #2 ", new Date())
+
+        let role = await Role.findOne(
+            {
+                guid: roleId
+            },
+        )
+        console.log(">>>>>>>>>>>>>> test #3 ", new Date())
+        if (!role) {
+            throw ErrRoleNotFound
+        }
+        let bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
+
+        console.log(">>>>>>>>>>>>>> test #4 ", new Date())
+        await RecordPermission.updateOne({ role_id: roleId, table_slug: req.table.slug },
+            {
+                $set: req.table.record_permissions
+            },
+        )
+        for (let field_permission of (req?.table?.field_permissions || [])) {
+
+            let documentFieldPermission = {
+                view_permission: field_permission.view_permission,
+                edit_permission: field_permission.edit_permission,
+                field_id: field_permission.field_id,
+                table_slug: field_permission.table_slug,
+                role_id: roleId,
+                label: field_permission.label,
+                guid: v4()
+            }
+            bulkWriteFieldPermissions.push({
+                updateOne: {
+                    filter: {
+                        field_id: field_permission.field_id,
+                        role_id: roleId
+                    },
+                    update: documentFieldPermission,
+                    upsert: true
+                }
+            })
+        }
+        console.log(">>>>>>>>>>>>>> test #6 ", new Date())
+        for (let view_permission of (req?.table?.view_permissions || [])) {
+            let document = {
+                view_permission: view_permission.view_permission || false,
+                label: view_permission.label,
+                role_id: roleId,
+                table_slug: view_permission.table_slug,
+                relation_id: view_permission.relation_id,
+                edit_permission: view_permission.edit_permission || false,
+                create_permission: view_permission.create_permission || false,
+                delete_permission: view_permission.delete_permission || false,
+            }
+            bulkWriteViewPermissions.push({
+                updateOne: {
+                    filter: {
+                        relation_id: view_permission.relation_id,
+                        table_slug: view_permission.table_slug,
+                        role_id: roleId,
+                    },
+                    update: document,
+                    upsert: true,
+                }
+            })
+        }
+        console.log(">>>>>>>>>>>>>> test #7 ", new Date())
+        for (let action_permission of (req.table.action_permissions || [])) {
+
+            let documentActionPermission = {
+                view_permission: action_permission.permission,
+                custom_event_id: action_permission.custom_event_id,
+                table_slug: action_permission.table_slug,
+                role_id: roleId,
+                label: action_permission.label,
+            }
+            bulkWriteActionPermissions.push({
+                updateOne: {
+                    filter: {
+                        custom_event_id: action_permission.custom_event_id,
+                        role_id: roleId,
+                    },
+                    update: documentActionPermission,
+                    upsert: true
+                }
+            })
+        }
+
+        console.log(">>>>>>>>>>>>>> test #11 ", new Date())
+        bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
+        console.log(">>>>>>>>>>>>>> test #12 ", new Date())
+        bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
+        console.log(">>>>>>>>>>>>>> test #13 ", new Date())
+        bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
+        return {}
+    }),
+    getGlobalPermissionByRoleId: catchWrapDbObjectBuilder(`${NAMESPACE}.getGlobalPermissionByRoleId`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id)
+        const GlobalPermission = mongoConn.models['global_permission']
+
+        const resp = await GlobalPermission?.findOne({role_id: req.role_id}).lean() || {}
+
+        return resp
     }),
 }
 

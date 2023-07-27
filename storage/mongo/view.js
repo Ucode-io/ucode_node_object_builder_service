@@ -14,6 +14,7 @@ const mongoPool = require('../../pkg/pool');
 var JsBarcode = require('jsbarcode');
 
 const { DOMImplementation, XMLSerializer } = require('xmldom');
+const { v4 } = require("uuid");
 const xmlSerializer = new XMLSerializer();
 const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -37,14 +38,14 @@ let viewStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
+            const Role = mongoConn.models['role']
+            const ViewPermission = mongoConn.models['view_permission']
 
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
             }
 
-            const view = new View(data);
-
-            const response = await view.save();
+            const response = await View.create(data)
 
             const resp = await Table.updateOne({
                 slug: data.table_slug
@@ -54,6 +55,20 @@ let viewStore = {
                         is_changed: true
                     }
                 })
+
+            const roles = await Role.find()
+            let query = []
+            for(let el of roles) {
+                query.push({
+                    guid: v4(),
+                    view: true,
+                    edit: true,
+                    delete: true,
+                    role_id: el.guid,
+                    view_id: response.id
+                })
+            }
+            await ViewPermission?.insertMany(query)
 
             return response;
 

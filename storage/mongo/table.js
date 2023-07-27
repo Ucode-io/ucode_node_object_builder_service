@@ -91,7 +91,6 @@ let tableStore = {
                 id: data.id
             })
 
-            console.log(isSystemTable)
             if(isSystemTable && isSystemTable.is_system) {
                 throw  new Error("This table is system table")
             }

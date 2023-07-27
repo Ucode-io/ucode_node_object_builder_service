@@ -89,4 +89,6 @@ module.exports = async function (data) {
     })
     await Relation.updateMany({id: {$in: relation_update_ids}}, {$set: {is_system: true}})
 
+    console.log("System checker function done")
+
 }

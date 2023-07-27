@@ -78,6 +78,9 @@ const RelationSchema = mongoose.Schema(
         relation_buttons: {
             type: Boolean,
             default: false
+        },
+        is_system: {
+            type: Boolean
         }
     },
     {

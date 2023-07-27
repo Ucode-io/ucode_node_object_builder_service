@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   message: 'Error while auto connecting',
   level: 'error',
@@ -11973,6 +11974,7 @@
   timestamp: '2023-07-13T06:07:51.483Z',
 =======
 {
+<<<<<<< HEAD
   message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: start is not defined',
   level: 'error',
   timestamp: '2023-07-17T06:33:13.548Z',
@@ -12368,6 +12370,8 @@
   timestamp: '2023-07-17T11:21:22.951Z',
 =======
 {
+=======
+>>>>>>> 17ef3310ed8dadf63e9db4fa272b45d23ffbe82d
   message: 'Error while auto connecting',
   level: 'error',
   timestamp: '2023-07-14T16:33:01.476Z',
@@ -12489,8 +12493,11 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+=======
+>>>>>>> 17ef3310ed8dadf63e9db4fa272b45d23ffbe82d
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
   level: 'error',
   timestamp: '2023-07-18T09:38:04.631Z',
@@ -12529,6 +12536,7 @@
   message: "service.menu.getAll: failed with error: Cannot read properties of undefined (reading 'object_builder_service.menu')",
   level: 'error',
   timestamp: '2023-07-18T09:41:57.813Z',
+<<<<<<< HEAD
   label: 'object_builder_service',
   metadata: {}
 }
@@ -12878,6 +12886,113 @@
   message: 'service.loginStore.login_data: failed with error: tableSlug is not defined',
   level: 'error',
   timestamp: '2023-07-25T06:01:38.240Z',
+=======
+>>>>>>> 17ef3310ed8dadf63e9db4fa272b45d23ffbe82d
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-07-26T04:34:27.900Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-07-26T04:36:00.229Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: "service.field.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-26T04:37:31.207Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-26T04:39:11.523Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-26T04:40:26.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-26T04:42:15.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-26T04:43:57.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-26T04:45:38.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.update: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-07-26T04:47:36.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.update: failed with error: This field is system field',
+  level: 'error',
+  timestamp: '2023-07-26T04:49:01.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.delete: failed with error: This field is system field',
+  level: 'error',
+  timestamp: '2023-07-26T04:50:37.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+=======
+>>>>>>> a06845b669e36b28b60bd5a034bb5aebaee15225

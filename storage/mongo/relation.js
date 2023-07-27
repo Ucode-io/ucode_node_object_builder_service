@@ -465,13 +465,9 @@ let relationStore = {
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
 
-            const relationBefore = await Relation.findOne({id: data.id})
-            if(!relationBefore) {
-                throw Error("Relation not found")
-            }
-
-            if(relationBefore.is_system) {
-                throw Error("This relation is system relation, you can't change it!")
+            const relationBeforeUpdate = await Relation.findOne({id: data.id})
+            if(relationBeforeUpdate && relationBeforeUpdate.is_system) {
+                throw new Error("This relation is system relation");
             }
 
             const relation = await Relation.updateOne(
@@ -1427,6 +1423,9 @@ let relationStore = {
             const Tab = mongoConn.models["Tab"];
 
             const relation = await Relation.findOne({ id: data.id });
+            if(relation && relation.is_system) {
+                throw new Error("This relation is system relation")
+            }
             let table, resp, field = {}
             let tableResp = {}
             let event = {}

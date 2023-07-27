@@ -9,7 +9,8 @@ function createClientPlatform(clientPlatformID, clientTypeID, projectID) {
         "__v": 0,
         "client_type_ids": [
             clientTypeID
-        ]
+        ],
+        "is_system": true,
     }]
 
     return clientPlatforms

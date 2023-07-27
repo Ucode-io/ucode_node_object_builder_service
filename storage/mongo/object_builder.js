@@ -65,8 +65,13 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 
-            let { data, event, appendMany2Many, deleteMany2Many, decodedFields } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+            const dataBeforeUpdate = await tableInfo.models.findOne({guid: data.id})
+            if(dataBeforeUpdate && dataBeforeUpdate.is_system) {
+                throw new Error("This document is system document")
+            }
+
             const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
@@ -927,7 +932,7 @@ let objectBuilder = {
                 view_id: view.id,
                 role_id: params.role_id_from_token
             }).lean() || {}
-            view.attributes ? view.attributes.view_permission = permission : null
+            view.attributes ? view.attributes.view_permission = permission : view.attributes = { view_permission: permission }
         }
         // console.timeEnd("TIME_LOGGING:::app_id")
         // add regExp to params for filtering
@@ -1652,7 +1657,18 @@ let objectBuilder = {
                 if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                     let tableAttributes = struct.decode(tableModel.attributes)
 
-                    if (tableAttributes && tableAttributes.auth_info) {
+            const dataBeforeDelete = await tableInfo.models.findOne({guid: data.id})
+            if(dataBeforeDelete && dataBeforeDelete.is_system) {
+                throw new Error("This document is system document")
+            }
+
+            if(!tableModel.soft_delete) {
+                const response = await tableInfo.models.deleteOne({ guid: data.id });
+                let event = {}
+                let table = {}
+                table.guid = data.id
+                table.table_slug = req.table_slug
+                event.payload = table
 
                         let authInfo = tableAttributes.auth_info
                         if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {

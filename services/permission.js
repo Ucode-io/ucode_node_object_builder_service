@@ -15,7 +15,6 @@ const permissionService = {
     UpdateMenuPermissions: catchWrapServiceObjectBuilder("service.permissionStore.updateMenuPermissions", permissionStore.updateMenuPermissions),
     GetPermissionsByTableSlug: catchWrapServiceObjectBuilder("service.permissionStore.getPermissionsByTableSlug", permissionStore.getPermissionsByTableSlug),
     UpdatePermissionsByTableSlug: catchWrapServiceObjectBuilder("service.permissionStore.updatePermissionsByTableSlug", permissionStore.updatePermissionsByTableSlug),
-    GetGlobalPermissionByRoleId: catchWrapServiceObjectBuilder("service.permissionStore.getGlobalPermissionByRoleId", permissionStore.getGlobalPermissionByRoleId),
 };
 
 module.exports = permissionService;

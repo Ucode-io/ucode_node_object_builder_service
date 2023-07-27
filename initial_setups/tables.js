@@ -14,6 +14,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Связь",
         "slug": "connections",
@@ -31,6 +32,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Роли",
         "slug": "role",
@@ -51,6 +53,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Пользователи",
         "slug": "user",
@@ -81,7 +84,8 @@ async function createTable() {
         "id": "d267203c-1c23-4663-a721-7a845d4b98ad",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "is_system": true
     },
     {
         "label": "Часовые пояса",
@@ -97,9 +101,14 @@ async function createTable() {
         "id": "bba3dddc-5f20-449c-8ec8-37bef283c766",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "__v": 0
+        "__v": 0,
+        "is_system": true
     },
     {
+        "__v": 0,
+        "soft_delete": false,
+        "is_system": true,
+    }, {
         "label": "Разрешение",
         "slug": "record_permission",
         "description": "record permission",
@@ -116,6 +125,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Проект",
         "slug": "project",
@@ -133,6 +143,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Автоматический фильтр",
         "slug": "automatic_filter",
@@ -150,6 +161,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Клиент платформа",
         "slug": "client_platform",
@@ -167,6 +179,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Разрешение на действие",
         "slug": "action_permission",
@@ -182,6 +195,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Логин таблица",
         "slug": "test_login",
@@ -199,6 +213,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Разрешение поля",
         "slug": "field_permission",
@@ -214,6 +229,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
     }, {
         "label": "Тип клиентов",
         "slug": "client_type",
@@ -231,7 +247,8 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
-    }, {
+        "is_system": true,
+    },{
         "label": "Шаблон",
         "slug": "template",
         "description": "Шаблоны",
@@ -246,7 +263,8 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
-    }, {
+        "is_system": true,
+      },{
         "label": "Врачи",
         "slug": "doctors",
         "description": "Специалисты",
@@ -262,6 +280,7 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "soft_delete": false,
+        "is_system": true,
       },{
         "label": "Файл",
         "slug": "file",
@@ -274,6 +293,7 @@ async function createTable() {
         "id": "b1896ed7-ba00-46ae-ae53-b424d2233589",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0
     }, {
         "id": "c2f225b6-b6d9-4201-aa25-e648a4c1ff29",

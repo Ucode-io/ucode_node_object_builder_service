@@ -61,6 +61,9 @@ const TableSchema = mongoose.Schema(
         },
         attributes: {
             type: mongoose.Schema.Types.Mixed
+        },
+        is_system: {
+            type: Boolean,
         }
     },
     {

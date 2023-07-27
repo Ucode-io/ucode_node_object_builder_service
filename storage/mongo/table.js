@@ -89,20 +89,18 @@ let tableStore = {
             data.id && console.log("aaaA::::", data.id);
             data.is_changed = true
 
-            let tableBefore = await Table.findOne({id: data.id})
-            if(!tableBefore) {
-                throw Error("Table not found")
+            const isSystemTable = await Table.findOne({
+                id: data.id
+            })
+
+            if(isSystemTable && isSystemTable.is_system) {
+                throw  new Error("This table is system table")
             }
 
-            if(tableBefore.is_system) {
-                throw Error("This table is system table, you can't change table")
-            }
-
-            console.log("Data:", data.id);
-            console.log("Data   asadad:", data);
             let tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id,
             })
+            
             const table = await Table.create(data)
             console.log("table:", table);
             if (table) {
@@ -147,7 +145,6 @@ let tableStore = {
                     recordPermission.save()
                 }
             }
-
 
             // await sendMessageToTopic(con.TopicTableUpdeteV1, event)
             return table;
@@ -289,19 +286,12 @@ let tableStore = {
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
 
-            let payload = {id: data.id}
-            let table = null
-            if(data.version_id) {
-                payload.version_id = data.version_id
-                table = await TableVersion.findOne(payload)
-            } else {
-                table = await Table.findOne(payload)
-            }
-            if(!table) throw new Error("Table not found with given parameters")
+            const table = await Table.findOne({ id: data.id })
+            if (!table) throw new Error("Table not found with given parameters")
             if(table.is_system) {
-                throw Error("This table is system table, you can't change table")
+                throw  new Error("This table is system table")
             }
-            if(table) {
+            if (table) {
                 let payload = {}
 
                 payload = Object.assign(payload, table._doc)

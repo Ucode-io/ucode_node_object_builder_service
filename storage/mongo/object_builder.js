@@ -810,10 +810,15 @@ let objectBuilder = {
         }
         let keys = Object.keys(params)
         let order = params.order || {}
+        
         let fields = tableInfo.fields
         let with_relations = params.with_relations
 
-        if(tableInfo.order_by && !Object.keys(order).length) {
+        const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+
+        if(currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: 1 }
+        } else if (!currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: -1 }
         }
 

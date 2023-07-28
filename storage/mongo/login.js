@@ -473,7 +473,7 @@ let loginStore = {
             }
         ).lean()
 
-        const global_permission = await globalPermission.models.findOne({ role_id: user.role_id }) || {}
+        const global_permission = await globalPermission?.models?.findOne({ role_id: user.role_id }) || {}
         console.log(global_permission)
 
         //@TODO:: check user can login with this login strategy

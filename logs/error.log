@@ -12540,22 +12540,36 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> ac8cab3b9e80ec008005f229292ee9493c2362aa
 {
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-18T10:06:06.673Z',
+=======
+{
+  message: 'service.loginStore.getConnetionOptions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-27T10:32:43.330Z',
+>>>>>>> 0558450f66f1734b9b0e949b492416d1e9cc04d9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-18T10:06:06.930Z',
+=======
+  message: 'service.loginStore.getConnetionOptions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-27T10:34:35.325Z',
+>>>>>>> 0558450f66f1734b9b0e949b492416d1e9cc04d9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-18T10:07:17.283Z',
@@ -12569,10 +12583,16 @@
   metadata: {}
 }
 =======
+=======
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of undefined (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-07-27T10:37:25.214Z',
+>>>>>>> 0558450f66f1734b9b0e949b492416d1e9cc04d9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'failed to find object in table undefined with given id: 921743b1-9315-4eb9-b180-244bcbeb67cb',
   level: 'error',
   timestamp: '2023-07-20T06:42:55.069Z',
@@ -12996,3 +13016,11 @@
 }
 =======
 >>>>>>> a06845b669e36b28b60bd5a034bb5aebaee15225
+=======
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of undefined (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-07-27T10:39:13.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 0558450f66f1734b9b0e949b492416d1e9cc04d9

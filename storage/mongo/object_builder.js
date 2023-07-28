@@ -813,11 +813,20 @@ let objectBuilder = {
             throw new Error("table not found")
         }
         let keys = Object.keys(params)
-        let order = params.order
+        let order = params.order || {}
+        
         let fields = tableInfo.fields
         let with_relations = params.with_relations
-        const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
+        const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+
+        if(currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: 1 }
+        } else if (!currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: -1 }
+        }
+
+        const permissionTable = allTables["record_permission"]
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -832,7 +841,7 @@ let objectBuilder = {
         // console.time("TIME_LOGGING:::is_have_condition")
         // console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
         if (permission?.is_have_condition) {
-            const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
+            const automaticFilterTable = allTables["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
                 $and: [
                     {
@@ -912,7 +921,7 @@ let objectBuilder = {
         // console.time("TIME_LOGGING:::client_type_id")
         if (clientTypeId) {
             // console.log("\n\n>>>> client type ", clientTypeId);
-            const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
+            const clientTypeTable = allTables["client_type"]
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
@@ -1493,7 +1502,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
         const table = mongoConn.models['Table']
         const data = struct.decode(req.data)
-        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
         }
@@ -1761,7 +1770,7 @@ let objectBuilder = {
                     //             }
                     //         ];
 
-                    //         const resultFormula = await (await ObjectBuilder(true, req.project_id))[attributes.table_from].models.aggregate(pipelines)
+                    //         const resultFormula = await allTables[attributes.table_from].models.aggregate(pipelines)
 
                     //         if (resultFormula.length) {
                     //             obj[field.slug] = resultFormula[0].res
@@ -2039,7 +2048,7 @@ let objectBuilder = {
 
             const limit = params.limit
             const offset = params.offset
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            const tableInfo = allTables[req.table_slug]
             let keys = Object.keys(params)
             let order = params.order
             let fields = tableInfo.fields

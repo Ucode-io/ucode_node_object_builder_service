@@ -64,6 +64,10 @@ const TableSchema = mongoose.Schema(
         },
         is_system: {
             type: Boolean,
+        },
+        order_by: {
+            type: Boolean,
+            default: false
         }
     },
     {

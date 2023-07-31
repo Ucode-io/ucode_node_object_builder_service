@@ -785,7 +785,8 @@ let objectBuilder = {
             count: count,
             response: result,
         });
-        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
+        const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
+        return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
@@ -797,7 +798,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
 
         let params = struct.decode(req?.data)
-        
+
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -889,10 +890,10 @@ let objectBuilder = {
             if (params.view_fields.length && params.search !== "") {
                 let replacedSearch = ""
                 let empty = ""
-                for(let el of params.search) {
-                    if(el == "(" ) {
+                for (let el of params.search) {
+                    if (el == "(") {
                         empty += "\\("
-                    } else if(el == ")") {
+                    } else if (el == ")") {
                         empty += "\\)"
                     } else {
                         empty += el
@@ -931,7 +932,7 @@ let objectBuilder = {
         // console.log("TEST::::::3")
         let views = tableInfo.views;
         // console.time("TIME_LOGGING:::app_id")
-        for(let view of views){
+        for (let view of views) {
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,
                 role_id: params.role_id_from_token
@@ -1015,7 +1016,7 @@ let objectBuilder = {
                             } else {
                                 table_slug = field.slug.slice(0, -4)
                             }
-                            
+
                             childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
                             if (childRelation) {
                                 for (const view_field of childRelation.view_fields) {
@@ -1078,15 +1079,15 @@ let objectBuilder = {
                 }
             }
         }
-        
+
         let populateArr = []
 
         // check soft deleted datas
-        if(params.$or) {
+        if (params.$or) {
             params.$and = [
                 { $or: params.$or },
-                { 
-                    $or:  [
+                {
+                    $or: [
                         { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
                         { deleted_at: null }
                     ]
@@ -1486,7 +1487,7 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
-        const tableResp = await table.findOne({slug: req.table_slug}) || {is_cached: false}
+        const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
     }),
@@ -1655,7 +1656,7 @@ let objectBuilder = {
             const tableInfo = allTables[req.table_slug]
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
 
-            if(!tableModel.soft_delete) {
+            if (!tableModel.soft_delete) {
                 const response = await tableInfo.models.deleteOne({ guid: data.id });
                 let event = {}
                 let table = {}
@@ -1668,8 +1669,8 @@ let objectBuilder = {
 
                 return { table_slug: req.table_slug, data: response };
             } else if (tableModel.soft_delete) {
-                
-                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, {$set: {deleted_at: new Date()}})
+
+                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
                 console.log(">>>>>>>>> ", response)
 
                 return { table_slug: req.table_slug, data: response };

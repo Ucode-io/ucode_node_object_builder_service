@@ -33,6 +33,12 @@ const LayoutSchema = mongoose.Schema(
         },
         is_default: {
             type: Boolean,
+        },
+        label_uz: {
+            type: String,
+        },
+        label_en: {
+            type: String,
         }
     },
     {

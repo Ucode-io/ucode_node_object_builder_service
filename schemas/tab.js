@@ -32,6 +32,12 @@ const TabSchema = mongoose.Schema(
         },
         table_slug: {
             type: String,
+        },
+        label_uz: {
+            type: String,
+        },
+        label_en: {
+            type: String,
         }
     },
     {

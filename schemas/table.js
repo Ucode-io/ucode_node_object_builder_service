@@ -50,6 +50,12 @@ const TableSchema = mongoose.Schema(
         soft_delete: {
             type: Boolean,
             default: false
+        },
+        label_uz: {
+            type: String,
+        },
+        label_en: {
+            type: String,
         }
     },
     {

@@ -777,8 +777,8 @@ let permission = {
                 } else {
                     tableCopy.view_permissions.push({
                         guid: "",
-                        relation_id: "",
-                        table_slug: "",
+                        relation_id: el.relation_id,
+                        table_slug: el.table_slug,
                         view_permission: false,
                         edit_permission: false,
                         create_permission: false,
@@ -809,7 +809,7 @@ let permission = {
                         create_permission: false,
                         delete_permission: false,
                         name: el.name,
-                        view_id: ""
+                        view_id: el.id
                     })
                 }
             })

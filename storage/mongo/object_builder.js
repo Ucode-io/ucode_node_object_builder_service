@@ -67,8 +67,8 @@ let objectBuilder = {
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
             let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 
-            const dataBeforeUpdate = await tableInfo.models.findOne({guid: data.id})
-            if(dataBeforeUpdate && dataBeforeUpdate.is_system) {
+            const dataBeforeUpdate = await tableInfo.models.findOne({ guid: data.id })
+            if (dataBeforeUpdate && dataBeforeUpdate.is_system) {
                 throw new Error("This document is system document")
             }
 
@@ -789,7 +789,8 @@ let objectBuilder = {
             count: count,
             response: result,
         });
-        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
+        const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
+        return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
@@ -814,13 +815,13 @@ let objectBuilder = {
         }
         let keys = Object.keys(params)
         let order = params.order || {}
-        
+
         let fields = tableInfo.fields
         let with_relations = params.with_relations
 
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
 
-        if(currentTable.order_by && !Object.keys(order).length) {
+        if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
         } else if (!currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: -1 }
@@ -935,8 +936,7 @@ let objectBuilder = {
         // console.log("TEST::::::3")
         let views = tableInfo.views;
         // console.time("TIME_LOGGING:::app_id")
-        for(let view of views){
-            console.log(view)
+        for (let view of views) {
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,
                 role_id: params.role_id_from_token
@@ -1666,18 +1666,18 @@ let objectBuilder = {
                 if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                     let tableAttributes = struct.decode(tableModel.attributes)
 
-            const dataBeforeDelete = await tableInfo.models.findOne({guid: data.id})
-            if(dataBeforeDelete && dataBeforeDelete.is_system) {
-                throw new Error("This document is system document")
-            }
+                    const dataBeforeDelete = await tableInfo.models.findOne({ guid: data.id })
+                    if (dataBeforeDelete && dataBeforeDelete.is_system) {
+                        throw new Error("This document is system document")
+                    }
 
-            if(!tableModel.soft_delete) {
-                const response = await tableInfo.models.deleteOne({ guid: data.id });
-                let event = {}
-                let table = {}
-                table.guid = data.id
-                table.table_slug = req.table_slug
-                event.payload = table
+                    if (!tableModel.soft_delete) {
+                        const response = await tableInfo.models.deleteOne({ guid: data.id });
+                        let event = {}
+                        let table = {}
+                        table.guid = data.id
+                        table.table_slug = req.table_slug
+                        event.payload = table
 
                         let authInfo = tableAttributes.auth_info
                         if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {

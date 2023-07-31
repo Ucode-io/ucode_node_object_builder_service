@@ -200,7 +200,7 @@ let fieldStore = {
             tableRes.fields = fields
             event.payload = tableRes
             event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldCreateV1, event)
+            // await sendMessageToTopic(topics.TopicFieldCreateV1, event)
 
 
             return response;

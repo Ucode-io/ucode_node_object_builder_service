@@ -68,6 +68,12 @@ const FieldSchema = mongoose.Schema(
         hide_multilanguage: {
             type: Boolean,
             default: false
+        },
+        label_uz: {
+            type: String,
+        },
+        label_en: {
+            type: String,
         }
     },
     {

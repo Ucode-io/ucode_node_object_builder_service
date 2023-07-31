@@ -622,6 +622,7 @@ let permission = {
                     id: "$id",
                     table_slug: "$table_slug",
                     layout_id: "$layout_id",
+                    relation_id: "$relation_id",
                     view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
                 }
             }
@@ -776,8 +777,8 @@ let permission = {
                 } else {
                     tableCopy.view_permissions.push({
                         guid: "",
-                        relation_id: "",
-                        table_slug: "",
+                        relation_id: el.relation_id,
+                        table_slug: el.table_slug,
                         view_permission: false,
                         edit_permission: false,
                         create_permission: false,
@@ -808,7 +809,7 @@ let permission = {
                         create_permission: false,
                         delete_permission: false,
                         name: el.name,
-                        view_id: ""
+                        view_id: el.id
                     })
                 }
             })
@@ -1205,7 +1206,7 @@ let permission = {
         console.log(">>>>>>>>>>>>>> test #6 ", new Date())
         for (let view_permission of (viewPermissions || [])) {
             let document = {
-                permission: view_permission.view_permission || false,
+                view_permission: view_permission.view_permission || false,
                 label: view_permission.label,
                 role_id: roleId,
                 table_slug: view_permission.table_slug,

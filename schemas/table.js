@@ -68,6 +68,12 @@ const TableSchema = mongoose.Schema(
         order_by: {
             type: Boolean,
             default: false
+        },
+        label_uz: {
+            type: String,
+        },
+        label_en: {
+            type: String,
         }
     },
     {

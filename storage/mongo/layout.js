@@ -52,7 +52,10 @@ let layoutStore = {
                         type: tab.type,
                         layout_id: layout.id,
                         relation_id: tab.relation_id,
-                        table_slug: resp?.slug
+                        table_slug: resp?.slug,
+                        label_uz: tab.label_uz,
+                        label_en: tab.label_en,
+
                     });
                     for (const sectionReq of tabReq.sections) {
                         sectionReq.id = v4()

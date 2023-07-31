@@ -82,6 +82,8 @@ message CreateTableRequest {
     bool default_editable = 20;
     bool soft_delete = 21;
     bool order_by = 22;
+    string label_uz = 23;
+    string label_en = 24;
 }
 
 message IncrementID {
@@ -128,6 +130,8 @@ message UpdateTableRequest {
     bool is_login_table = 19;
     google.protobuf.Struct attributes = 20;
     bool order_by = 21;
+    string label_uz = 22;
+    string label_en = 23;
 }
 
 message Table {
@@ -152,6 +156,8 @@ message Table {
     bool is_login_table = 19;
     google.protobuf.Struct attributes = 20;
     bool order_by = 21;
+    string label_uz = 22;
+    string label_en = 23;
 }
 
 message CommitInfo {

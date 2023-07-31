@@ -81,8 +81,8 @@ message CreateTableRequest {
     repeated LayoutRequest layouts = 19;
     bool default_editable = 20;
     bool soft_delete = 21;
-    string lable_uz = 22;
-    string lable_en = 23;
+    string label_uz = 22;
+    string label_en = 23;
 }
 
 message IncrementID {

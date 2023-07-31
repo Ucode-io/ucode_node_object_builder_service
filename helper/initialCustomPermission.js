@@ -8,8 +8,9 @@ const ObjectBuilder = require("../models/object_builder")
 const mongoPool = require('../pkg/pool');
 
 module.exports = async function (data) {
+   try {
     const mongoConn = await mongoPool.get(data.project_id)
-    console.log("Menu permission insert function working...")
+    console.log("Initial global check function working...")
     const Table = mongoConn.models['Table']
     const Role = mongoConn.models['role']
     const Field = mongoConn.models['Field']
@@ -26,7 +27,6 @@ module.exports = async function (data) {
             throw Error("No role to create permission in menu permission insert helper")
         }
     }
-
     let table_data = await tables()
     let field_data = await fields()
     let relation_data = await relations()
@@ -41,7 +41,6 @@ module.exports = async function (data) {
             return true
         }
     })
-
     let menu_field_ids = []
     let menu_fields = field_data.filter(el => {
         if (
@@ -53,7 +52,6 @@ module.exports = async function (data) {
             return true
         }
     })
-
     let menu_relation_ids = []
     let menu_relations = relation_data.filter(el => {
         if (
@@ -63,7 +61,6 @@ module.exports = async function (data) {
             return true
         }
     })
-
     let menu_field_permissions_ids = []
     let menu_field_permissions = field_permission_data.filter(el => {
         if (el.table_slug == menu_permission_slug) {
@@ -71,31 +68,26 @@ module.exports = async function (data) {
             return true
         }
     })
-
-    const exist_tables = await Table.find({ id: { $in: menu_permission_id } })
+    const exist_tables = await Table.find({ id:  menu_permission_id  })
     if (!exist_tables.length) {
+        console.log("Insert table collection >> ", JSON.stringify(menu_tables))
         await Table.insertMany(menu_tables)
     }
-
     const exist_fields = await Field.find({ id: { $in: menu_field_ids } })
     if (!exist_fields.length) {
         await Field.insertMany(menu_fields)
     }
-
     const exist_relations = await Relation.find({ id: { $in: menu_relation_ids } })
     if (!exist_relations.length) {
         await Relation.insertMany(menu_relations)
     }
-
     const exist_field_permissions = await FieldPermission.find({ guid: { $in: menu_field_permissions_ids } })
     if (!exist_field_permissions.length) {
         await FieldPermission.insertMany(menu_field_permissions)
     }
-    
-    await Table.updateOne({
+    const updatedTable = await Table.findOneAndUpdate({
         slug: "global_permission"
     }, { $set: { is_changed: true } })
-
     const customPermissionTable = (await ObjectBuilder(true, data.project_id))["global_permission"]
     const exist_custom_permission = await customPermissionTable.models.findOne({role_id: role.guid})
     !exist_custom_permission && await customPermissionTable.models.create({
@@ -117,9 +109,11 @@ module.exports = async function (data) {
     const indexs = await ModelCustomPermission.collection.getIndexes()
 
     if(!indexs['role_id_1']) {
-        console.log(".>>>>")
         await ModelCustomPermission.collection.createIndex({ role_id: 1}, {unique: true})
     }
     
-    console.log("Custom permission insert function done ✅")
+    console.log("Initial custom check function done 132 ✅")
+   } catch (err) {
+    console.log("Custom permission err >>", err)
+   }
 }

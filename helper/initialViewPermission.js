@@ -9,7 +9,7 @@ const mongoPool = require('../pkg/pool');
 
 module.exports = async function (data) {
     const mongoConn = await mongoPool.get(data.project_id)
-    console.log("Menu permission insert function working...")
+    console.log("Initial View check function working...")
     const Table = mongoConn.models['Table']
     const Role = mongoConn.models['role']
     const Field = mongoConn.models['Field']
@@ -104,5 +104,5 @@ module.exports = async function (data) {
         await ModelCustomPermission.collection.createIndex({ role_id: 1, view_id: 1}, {unique: true})
     }
     
-    console.log("View permission insert function done ✅")
+    console.log("Initial view permission check function done ✅")
 }

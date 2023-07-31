@@ -1,13 +1,18 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-06-05T10:03:45.593Z',
+=======
+  timestamp: '2023-07-26T13:14:02.349Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-06-05T10:03:45.596Z',
   label: 'object_builder_service',
   metadata: {}
@@ -83015,6 +83020,9 @@
   message: 'autoconnecting to resources',
   level: 'info',
   timestamp: '2023-07-18T09:47:12.160Z',
+=======
+  timestamp: '2023-07-26T13:14:02.351Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
@@ -83030,34 +83038,51 @@
     '  }\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-07-18T09:47:12.160Z',
+=======
+  timestamp: '2023-07-26T13:14:02.352Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-07-18T09:47:12.161Z',
+=======
+  timestamp: '2023-07-26T13:14:02.353Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-18T09:47:13.635Z',
+=======
+  timestamp: '2023-07-26T13:14:02.985Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-07-18T09:49:03.149Z',
+=======
+  timestamp: '2023-07-26T13:14:57.681Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-18T09:49:03.151Z',
   label: 'object_builder_service',
   metadata: {}
@@ -83243,18 +83268,25 @@
   message: 'service.app.updateRoleAppTablePermissions: succeeded',
   level: 'info',
   timestamp: '2023-07-18T10:15:14.687Z',
+=======
+  timestamp: '2023-07-26T13:14:57.685Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.app.updateRoleAppTablePermissions: succeeded',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-18T10:15:26.897Z',
 =======
   message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: Error role not found',
   level: 'error',
   timestamp: '2023-07-17T06:34:34.729Z',
 >>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+=======
+  timestamp: '2023-07-26T13:15:05.754Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
@@ -83262,10 +83294,14 @@
   message: 'grpc server is running at 9102',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-07-18T10:18:17.828Z',
 =======
   timestamp: '2023-07-17T06:34:59.773Z',
 >>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+=======
+  timestamp: '2023-07-26T14:37:17.155Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
@@ -83273,10 +83309,95 @@
   message: 'autoconnecting to resources',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-07-18T10:18:17.831Z',
 =======
   timestamp: '2023-07-17T06:34:59.775Z',
 >>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+=======
+  timestamp: '2023-07-26T14:37:17.157Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+<<<<<<< HEAD
+    '  "project_id": "1",\n' +
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+>>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+=======
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+<<<<<<< HEAD
+<<<<<<< HEAD
+  timestamp: '2023-07-18T10:18:17.831Z',
+=======
+  timestamp: '2023-07-17T06:34:59.775Z',
+>>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+=======
+  timestamp: '2023-07-26T14:37:17.158Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+<<<<<<< HEAD
+<<<<<<< HEAD
+  timestamp: '2023-07-18T10:18:17.832Z',
+=======
+  timestamp: '2023-07-17T06:34:59.776Z',
+>>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+=======
+  timestamp: '2023-07-26T14:37:17.159Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+<<<<<<< HEAD
+<<<<<<< HEAD
+  timestamp: '2023-07-18T10:18:19.159Z',
+=======
+  timestamp: '2023-07-26T14:37:17.716Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-18T10:19:40.625Z',
+=======
+  timestamp: '2023-07-26T14:38:15.881Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-07-18T10:19:40.627Z',
+=======
+  timestamp: '2023-07-26T14:38:15.884Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
@@ -83286,7 +83407,7 @@
     '  "project_id": "1",\n' +
 =======
     '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
->>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
     '  "credentials": {\n' +
     '    "host": "65.109.239.69",\n' +
     '    "port": 30027,\n' +
@@ -83297,72 +83418,28 @@
     '}',
   level: 'debug',
 <<<<<<< HEAD
-  timestamp: '2023-07-18T10:18:17.831Z',
-=======
-  timestamp: '2023-07-17T06:34:59.775Z',
->>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
-  level: 'debug',
-<<<<<<< HEAD
-  timestamp: '2023-07-18T10:18:17.832Z',
-=======
-  timestamp: '2023-07-17T06:34:59.776Z',
->>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
-  level: 'info',
-<<<<<<< HEAD
-  timestamp: '2023-07-18T10:18:19.159Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-07-18T10:19:40.625Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-07-18T10:19:40.627Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "project_id": "1",\n' +
-    '  "credentials": {\n' +
-    '    "host": "65.109.239.69",\n' +
-    '    "port": 30027,\n' +
-    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
-    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
-    '    "password": "bLjkGFjiva"\n' +
-    '  }\n' +
-    '}',
-  level: 'debug',
   timestamp: '2023-07-18T10:19:40.628Z',
+=======
+  timestamp: '2023-07-26T14:38:15.884Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-07-18T10:19:40.629Z',
+=======
+  timestamp: '2023-07-26T14:38:15.885Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-18T10:19:41.193Z',
   label: 'object_builder_service',
   metadata: {}
@@ -83455,6 +83532,9 @@
 =======
   timestamp: '2023-07-17T06:35:00.319Z',
 >>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+=======
+  timestamp: '2023-07-26T14:38:16.503Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
@@ -83462,14 +83542,19 @@
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-07-18T10:24:23.661Z',
 =======
   timestamp: '2023-07-17T06:35:37.125Z',
 >>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+=======
+  timestamp: '2023-07-26T14:39:08.249Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'connected successfully done!!!',
   level: 'info',
@@ -83486,20 +83571,33 @@
   message: 'service.permissionStore.getPermissionsByTableSlug: failed with error: Error role not found',
   level: 'error',
   timestamp: '2023-07-17T06:36:18.102Z',
+=======
+  message: 'connected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-07-26T14:39:08.249Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-17T06:38:00.640Z',
+=======
+  timestamp: '2023-07-31T06:36:05.758Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-17T06:38:00.642Z',
+=======
+  timestamp: '2023-07-31T06:36:05.760Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
@@ -83515,20 +83613,29 @@
     '  }\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-07-17T06:38:00.642Z',
+=======
+  timestamp: '2023-07-31T06:36:05.760Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-07-17T06:38:00.643Z',
+=======
+  timestamp: '2023-07-31T06:36:05.760Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-07-17T06:38:01.182Z',
   label: 'object_builder_service',
   metadata: {}
@@ -86083,6 +86190,9 @@
   level: 'info',
   timestamp: '2023-07-17T10:40:23.273Z',
 >>>>>>> d459bf2795e5c6c6d23dab62b7a11db7028f4b5b
+=======
+  timestamp: '2023-07-31T06:36:06.302Z',
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c
   label: 'object_builder_service',
   metadata: {}
 }

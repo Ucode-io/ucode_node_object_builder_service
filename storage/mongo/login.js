@@ -405,9 +405,15 @@ let loginStore = {
 
         const role = await roleTable.models.findOne(
             {
-                client_type_id: clientType.guid,
+                guid: user.role_id,
             }
         ).lean()
+        if (!role) {
+            return {
+                user_found: false
+            }
+        }
+        console.log("TEST:::::::::4")
         // console.log("TEST:::::::::4")
         const clientPlatfromTable = allTables["client_platform"]
 
@@ -460,7 +466,7 @@ let loginStore = {
             }
         ).lean()
 
-        const global_permission = await globalPermission.models.findOne({role_id: user.role_id}) || {}
+        const global_permission = await globalPermission?.models.findOne({role_id: user.role_id}) || {}
         console.log(global_permission)
 
         //@TODO:: check user can login with this login strategy

@@ -50,6 +50,10 @@ const TableSchema = mongoose.Schema(
         soft_delete: {
             type: Boolean,
             default: false
+        },
+        order_by: {
+            type: Boolean,
+            default: false
         }
     },
     {

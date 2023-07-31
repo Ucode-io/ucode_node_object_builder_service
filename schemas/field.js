@@ -67,6 +67,14 @@ const FieldSchema = mongoose.Schema(
         is_system: {
             type: Boolean,
             default: false
+        },
+        enable_multilanguage: {
+            type: Boolean,
+            default: false
+        },
+        hide_multilanguage: {
+            type: Boolean,
+            default: false
         }
     },
     {
@@ -82,5 +90,5 @@ FieldSchema.virtual("field_permissions", {
     justOne: true,
 })
 
-FieldSchema.index({id: 1, commit_id: -1}, {unique: true})
+FieldSchema.index({ id: 1, commit_id: -1 }, { unique: true })
 module.exports = FieldSchema

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   message: 'Error while auto connecting',
   level: 'error',
@@ -3320,3 +3321,5 @@
   label: 'object_builder_service',
   metadata: {}
 }
+=======
+>>>>>>> 59f0cc24efa5b4f21fa96ff7b730a410818b164c

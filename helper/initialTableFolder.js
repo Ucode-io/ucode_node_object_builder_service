@@ -2,7 +2,7 @@ const mongoPool = require('../pkg/pool');
 const { v4 } = require("uuid")
 
 module.exports = async function (data) {
-    console.log(": Default table folder checking...")
+    console.log(": Initial table folder checking...")
     const mongoConn = await mongoPool.get(data.project_id)
     const Table = mongoConn.models['Table']
     const TableFolder = mongoConn.models['Table.folder']
@@ -42,5 +42,5 @@ module.exports = async function (data) {
             )
         }
     }
-    console.log(": Default table folder checking done!!!")
+    console.log(": Initial table folder checking done!!!")
 }

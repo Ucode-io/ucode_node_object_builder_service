@@ -315,17 +315,17 @@ let permission = {
                 }
             },
             {
-                $project: {
-                    id: "$id",
-                    slug: '$slug',
-                    label: "$label",
-                    show_in_menu: "$show_in_menu",
-                    is_changed: "$is_cached",
-                    icon: "$icon",
-                    is_changed: "$is_cached",
-                    is_system: "$is_system",
-                    record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
-                }
+              $project: {
+                id: "$id",
+                slug: '$slug',
+                label: "$label",
+                show_in_menu: "$show_in_menu",
+                is_changed: "$is_cached",
+                icon: "$icon",
+                is_changed: "$is_cached",
+                is_system: "$is_system",
+                record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
+              }
             }
         ]
 
@@ -621,6 +621,7 @@ let permission = {
                     id: "$id",
                     table_slug: "$table_slug",
                     layout_id: "$layout_id",
+                    relation_id: "$relation_id",
                     view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
                 }
             }
@@ -775,8 +776,8 @@ let permission = {
                 } else {
                     tableCopy.view_permissions.push({
                         guid: "",
-                        relation_id: "",
-                        table_slug: "",
+                        relation_id: el.relation_id,
+                        table_slug: el.table_slug,
                         view_permission: false,
                         edit_permission: false,
                         create_permission: false,
@@ -807,7 +808,7 @@ let permission = {
                         create_permission: false,
                         delete_permission: false,
                         name: el.name,
-                        view_id: ""
+                        view_id: el.id
                     })
                 }
             })
@@ -1141,7 +1142,6 @@ let permission = {
         let automaticFilters = {}
         console.log(">>>>>>>>>>>>>> test #4 ", new Date())
         for (let table of req?.data?.tables) {
-            console.log(table.custom_permission)
             let isHaveCondition = false
             if (table?.automatic_filters?.read?.length ||
                 table?.automatic_filters?.write?.length ||
@@ -1161,11 +1161,11 @@ let permission = {
                 is_public: table.record_permissions.is_public,
                 role_id: roleId,
                 table_slug: table.slug,
-                language_btn: table?.custom_permission?.language_btn || "No",
-                automation: table?.custom_permission?.automation || "No",
-                settings: table?.custom_permission?.settings || "No",
-                share_modal: table?.custom_permission?.share_modal || "No",
-                view_create: table?.custom_permission?.view_create || "No",
+                language_btn: table.custom_permission?.language_btn || "No",
+                automation: table.custom_permission?.automation || "No",
+                settings: table.custom_permission?.settings || "No",
+                share_modal: table.custom_permission?.share_modal || "No",
+                view_create: table.custom_permission?.view_create || "No",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {
@@ -1205,7 +1205,7 @@ let permission = {
         console.log(">>>>>>>>>>>>>> test #6 ", new Date())
         for (let view_permission of (viewPermissions || [])) {
             let document = {
-                permission: view_permission.view_permission || false,
+                view_permission: view_permission.view_permission || false,
                 label: view_permission.label,
                 role_id: roleId,
                 table_slug: view_permission.table_slug,

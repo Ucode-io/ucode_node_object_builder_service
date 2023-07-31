@@ -785,7 +785,8 @@ let objectBuilder = {
             count: count,
             response: result,
         });
-        return { table_slug: req.table_slug, data: response, custom_message: customMessage }
+        const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
+        return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
@@ -797,7 +798,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
 
         let params = struct.decode(req?.data)
-        
+
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -809,12 +810,20 @@ let objectBuilder = {
             throw new Error("table not found")
         }
         let keys = Object.keys(params)
-        let order = params.order
+        let order = params.order || {}
+        
         let fields = tableInfo.fields
         let with_relations = params.with_relations
-        const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
-        console.log(":::::::::::::::::::::::: >>>>>>>>> params", params)
+        const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+
+        if(currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: 1 }
+        } else if (!currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: -1 }
+        }
+
+        const permissionTable = allTables["record_permission"]
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -828,7 +837,7 @@ let objectBuilder = {
         // console.log("TEST::::::::::4")
         // console.time("TIME_LOGGING:::is_have_condition")
         if (permission?.is_have_condition) {
-            const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
+            const automaticFilterTable = allTables["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
                 $and: [
                     {
@@ -879,10 +888,10 @@ let objectBuilder = {
             if (params.view_fields.length && params.search !== "") {
                 let replacedSearch = ""
                 let empty = ""
-                for(let el of params.search) {
-                    if(el == "(" ) {
+                for (let el of params.search) {
+                    if (el == "(") {
                         empty += "\\("
-                    } else if(el == ")") {
+                    } else if (el == ")") {
                         empty += "\\)"
                     } else {
                         empty += el
@@ -907,7 +916,7 @@ let objectBuilder = {
         // console.time("TIME_LOGGING:::client_type_id")
         if (clientTypeId) {
             // console.log("\n\n>>>> client type ", clientTypeId);
-            const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
+            const clientTypeTable = allTables["client_type"]
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
@@ -921,12 +930,12 @@ let objectBuilder = {
         // console.log("TEST::::::3")
         let views = tableInfo.views;
         // console.time("TIME_LOGGING:::app_id")
-        for(let view of views){
+        for (let view of views) {
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,
                 role_id: params.role_id_from_token
             }).lean() || {}
-            view.attributes ? view.attributes.view_permission = permission : null
+            view.attributes ? view.attributes.view_permission = permission : view.attributes = { view_permission: permission }
         }
         // console.timeEnd("TIME_LOGGING:::app_id")
         // add regExp to params for filtering
@@ -1004,7 +1013,7 @@ let objectBuilder = {
                             } else {
                                 table_slug = field.slug.slice(0, -4)
                             }
-                            
+
                             childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
                             if (childRelation) {
                                 for (const view_field of childRelation.view_fields) {
@@ -1066,15 +1075,15 @@ let objectBuilder = {
                 }
             }
         }
-        
+
         let populateArr = []
 
         // check soft deleted datas
-        if(params.$or) {
+        if (params.$or) {
             params.$and = [
                 { $or: params.$or },
-                { 
-                    $or:  [
+                {
+                    $or: [
                         { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
                         { deleted_at: null }
                     ]
@@ -1468,7 +1477,7 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
-        const tableResp = await table.findOne({slug: req.table_slug}) || {is_cached: false}
+        const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
     }),
@@ -1479,7 +1488,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
         const table = mongoConn.models['Table']
         const data = struct.decode(req.data)
-        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
         }
@@ -1634,10 +1643,10 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
 
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            const tableInfo = allTables[req.table_slug]
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
 
-            if(!tableModel.soft_delete) {
+            if (!tableModel.soft_delete) {
                 const response = await tableInfo.models.deleteOne({ guid: data.id });
                 let event = {}
                 let table = {}
@@ -1650,8 +1659,8 @@ let objectBuilder = {
 
                 return { table_slug: req.table_slug, data: response };
             } else if (tableModel.soft_delete) {
-                
-                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, {$set: {deleted_at: new Date()}})
+
+                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
                 console.log(">>>>>>>>> ", response)
 
                 return { table_slug: req.table_slug, data: response };
@@ -1709,7 +1718,7 @@ let objectBuilder = {
                     //             }
                     //         ];
 
-                    //         const resultFormula = await (await ObjectBuilder(true, req.project_id))[attributes.table_from].models.aggregate(pipelines)
+                    //         const resultFormula = await allTables[attributes.table_from].models.aggregate(pipelines)
 
                     //         if (resultFormula.length) {
                     //             obj[field.slug] = resultFormula[0].res
@@ -1987,7 +1996,7 @@ let objectBuilder = {
 
             const limit = params.limit
             const offset = params.offset
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            const tableInfo = allTables[req.table_slug]
             let keys = Object.keys(params)
             let order = params.order
             let fields = tableInfo.fields

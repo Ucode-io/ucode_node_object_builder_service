@@ -37,6 +37,12 @@ const MenuSchema = mongoose.Schema(
         },
         menu_settings_id: {
             type: String,
+        },
+        label_uz: {
+            type: String,
+        },
+        label_en: {
+            type: String,
         }
     },
     {

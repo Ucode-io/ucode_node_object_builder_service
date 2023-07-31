@@ -622,6 +622,7 @@ let permission = {
                     id: "$id",
                     table_slug: "$table_slug",
                     layout_id: "$layout_id",
+                    relation_id: "$relation_id",
                     view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
                 }
             }

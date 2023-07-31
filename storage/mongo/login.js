@@ -598,15 +598,15 @@ let loginStore = {
     }),
     getConnetionOptions: catchWrapDbObjectBuilder(`${NAMESPACE}.loginDataByUserId`, async (req) => {
         let options = []
-        console.log("req::", req);
         const connection = await (await ObjectBuilder(true, req.resource_environment_id))["connections"].models.findOne({ guid: req.connection_id }).lean()
-        console.log("connection::", connection);
         if (connection && connection.table_slug && connection.field_slug) {
             const clientType = await (await ObjectBuilder(true, req.resource_environment_id))["client_type"].models.findOne({ guid: connection.client_type_id }).lean()
             if (clientType) {
-                const user = await (await ObjectBuilder(true, req.resource_environment_id))[clientType.table_slug || "user"].models.findOne({ guid: req.user_id }).lean()
-                console.log("connection ", connection);
-                console.log("user ", user);
+                let tableSlug = "user"
+                if (clientType.table_slug) {
+                    tableSlug = clientType.table_slug
+                }
+                const user = await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug].models.findOne({ guid: req.user_id }).lean()
                 if (user && user[connection.field_slug]) {
                     let params = {}
                     if (Array.isArray(user[connection.field_slug])) {
@@ -614,8 +614,7 @@ let loginStore = {
                     } else {
                         params["guid"] = RegExp(user[connection.field_slug], "i")
                     }
-                    console.log("params:", params);
-                    options = await (await ObjectBuilder(true, req.resource_environment_id))[connection.table_slug].models.find(params, { "__v": 0, "_id": 0}).lean()
+                    options = await (await ObjectBuilder(true, req.resource_environment_id))[connection.table_slug].models.find(params, { "__v": 0, "_id": 0 }).lean()
                 }
             }
         }

@@ -13023,4 +13023,35 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> 0558450f66f1734b9b0e949b492416d1e9cc04d9
+=======
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'role_id')",
+  level: 'error',
+  timestamp: '2023-07-31T08:52:04.862Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'role_id')",
+  level: 'error',
+  timestamp: '2023-07-31T08:54:09.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-07-31T08:59:14.766Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-07-31T09:08:28.676Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 1b5129428c179cf180b07d1fa516e16974ad3b22

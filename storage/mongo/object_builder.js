@@ -1655,61 +1655,32 @@ let objectBuilder = {
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {
-            console.log(">>>>>>>>>>.")
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
             const allTables = await ObjectBuilder(true, req.project_id)
 
             const tableInfo = allTables[req.table_slug]
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
-            let response = await allTables[req.table_slug].models.findOne({
-                guid: data.id
-            })
-            if (response) {
-                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                    let tableAttributes = struct.decode(tableModel.attributes)
+            let response
+            if (!tableModel.soft_delete) {
+                response = await tableInfo.models.deleteOne({ guid: data.id });
+            } else if (tableModel.soft_delete) {
+                response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
 
-                    const dataBeforeDelete = await tableInfo.models.findOne({ guid: data.id })
-                    if (dataBeforeDelete && dataBeforeDelete.is_system) {
-                        throw new Error("This document is system document")
-                    }
-
-                    if (!tableModel.soft_delete) {
-                        const response = await tableInfo.models.deleteOne({ guid: data.id });
-                        let event = {}
-                        let table = {}
-                        table.guid = data.id
-                        table.table_slug = req.table_slug
-                        event.payload = table
-
-                        return { table_slug: req.table_slug, data: response };
-                    } else if (tableModel.soft_delete) {
-
-                        const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
-                        // console.log(">>>>>>>>> ", response)
-
-                        return { table_slug: req.table_slug, data: response };
-                    }
-                    if (!tableModel.soft_delete) {
-                        await allTables[req.table_slug].models.deleteOne({ guid: data.id });
-                    } else if (tableModel.soft_delete) {
-                        await allTables[req.table_slug].models.updateOne({ guid: data.id }, { $set: { deleted_at: new Date() } })
-                    }
-
-                    const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
-                    let customMessage = ""
-                    if (tableWithVersion) {
-                        const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
-                            code: 200,
-                            table_id: tableWithVersion.id,
-                            action_type: "DELETE",
-                        })
-                        if (customErrMsg) { customMessage = customErrMsg.message }
-                    }
-
-                    return { table_slug: req.table_slug, data: response, custom_message: customMessage };
-                }
             }
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "DELETE",
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+
+            return { table_slug: req.table_slug, data: response, custom_message: customMessage };
+
         } catch (err) {
             throw err
         }

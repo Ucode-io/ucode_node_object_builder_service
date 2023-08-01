@@ -13105,3 +13105,10 @@
 >>>>>>> 1b5129428c179cf180b07d1fa516e16974ad3b22
 =======
 >>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
+{
+  message: 'service.object_builder.delete: failed with error: response is not defined',
+  level: 'error',
+  timestamp: '2023-08-01T07:10:18.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

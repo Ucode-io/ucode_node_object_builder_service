@@ -4618,8 +4618,84 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0
-	},
-]
+	}, {
+		"id": "04b4921f-323f-45ce-835c-8f5ad5486634",
+		"required": false,
+		"slug": "main_table_slug",
+		"label": "Main Table Slug",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"is_system": true,
+		"__v": 0
+	}, {
+		"id": "71e5f87f-de45-40ee-baa7-a8654b1c4eff",
+		"required": false,
+		"slug": "field_slug",
+		"label": "Field Slug",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"disabled": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"is_system": true,
+		"__v": 0
+	}
+	]
 
 	return fields
 }

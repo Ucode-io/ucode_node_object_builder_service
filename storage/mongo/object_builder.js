@@ -1660,21 +1660,10 @@ let objectBuilder = {
 
             if (!tableModel.soft_delete) {
                 const response = await tableInfo.models.deleteOne({ guid: data.id });
-                let event = {}
-                let table = {}
-                table.guid = data.id
-                table.table_slug = req.table_slug
-                event.payload = table
-
-                event.project_id = req.project_id
-                // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
-
                 return { table_slug: req.table_slug, data: response };
             } else if (tableModel.soft_delete) {
 
                 const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
-                // console.log(">>>>>>>>> ", response)
-
                 return { table_slug: req.table_slug, data: response };
             }
 

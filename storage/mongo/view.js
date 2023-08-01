@@ -217,15 +217,14 @@ let viewStore = {
 
             const object_builder = await ObjectBuilder(true, data.project_id)
 
-            console.log("TEST:::::::::::::1")
+            // console.log("TEST:::::::::::::1")
             let filename = "document_" + Math.floor(Date.now() / 1000) + ".pdf"
             link = "https://" + cfg.minioEndpoint + "/docs/" + filename
-            console.log("minio_endpoint:::::::", cfg.minioEndpoint)
 
             var html = data.html
             let patientIdField;
             let output;
-            console.log("TEST:::::::::::::2")
+            // console.log("TEST:::::::::::::2")
             if (decodedData.linked_table_slug && decodedData.linked_object_id) {
                 data.html = data.html.replaceAll('[??', '{')
                 data.html = data.html.replaceAll('??]', '}')
@@ -561,7 +560,7 @@ let viewStore = {
                         output[key] = numberFormatter(output[key])
                     }
                 }
-                console.log("TEST::::::::8", output)
+                // console.log("TEST::::::::8", output)
                 html = Eta.render(data.html, output)
                 console.log("TEST::::::::9")
                 html = html.replaceAll('[??', '{')

@@ -47,7 +47,7 @@ async function insertCollections(conn, userId, projectId) {
             });
     })
 
-    console.log('available collections', collections)
+    // console.log('available collections', collections)
 
 
     if (!collections['apps']) {

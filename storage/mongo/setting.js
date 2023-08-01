@@ -60,12 +60,12 @@ let settingStore = {
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
-            console.log("data:::::", data)
+            // console.log("data:::::", data)
             const mongoConn = await mongoPool.get(data.project_id)
             var collection
             switch(data.type) {
                 case "LANGUAGE":
-                    console.log("here")
+                    // console.log("here")
                     collection = mongoConn.models['Setting.Languages']
                     break
                 case "CURRENCY":
@@ -86,7 +86,7 @@ let settingStore = {
                     }
                 }
             }
-            console.log(filter)
+            // console.log(filter)
             const res = await collection.find(
                 filter,
             {
@@ -98,7 +98,7 @@ let settingStore = {
             .limit(data.limit+data.offset)
             .skip(data.offset)
             .lean()
-            console.log(res)
+            // console.log(res)
 
             const count = await collection.countDocuments(filter)
 
@@ -117,14 +117,14 @@ let settingStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             var collection
-            console.log("TEST::::::1")
+            // console.log("TEST::::::1")
             switch(data.type) {
                 case "LANGUAGE":
-                    console.log("here")
+                    // console.log("here")
                     collection = mongoConn.models['Setting.Languages']
                     break
                 case "CURRENCY":
-                    console.log("TEST::::::2")
+                    // console.log("TEST::::::2")
                     collection = mongoConn.models['Setting.Currencies']
                     break
                 case "TIMEZONE":
@@ -133,7 +133,7 @@ let settingStore = {
                 default:
                     throw new Error("type is not valid")
             }
-            console.log("TEST::::::3")
+            // console.log("TEST::::::3")
             await collection.updateOne(
                 {
                     id: data.id

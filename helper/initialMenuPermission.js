@@ -36,7 +36,7 @@ module.exports = async function (data) {
     let menu_permission_slug = "menu_permission"
     let menu_permission_id = "08a391b2-1c78-4f3e-b84a-9d745e7d528f"
 
-    let menu_tables = table_data.filter(el => {
+    let menu_tables = table_data.find(el => {
         if (el.id == menu_permission_id) {
             return true
         }
@@ -78,11 +78,10 @@ module.exports = async function (data) {
         }
     })
 
-    const a = await Table.find({ slug: menu_permission_slug })
 
-    const exist_tables = await Table.find({ id: { $in: [menu_permission_id] } })
-    if (!exist_tables.length) {
-        await Table.insertMany(menu_tables)
+    const exist_tables = await Table.findOne({ id: menu_permission_id, slug: "menu_permission", deleted_at: "1970-01-01T18:00:00.000+00:00" })
+    if (!exist_tables && menu_tables) {
+        await Table.create(menu_tables)
     }
 
     const exist_fields = await Field.find({ id: { $in: menu_field_ids } })

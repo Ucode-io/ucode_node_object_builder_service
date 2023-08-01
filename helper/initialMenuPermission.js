@@ -80,7 +80,7 @@ module.exports = async function (data) {
 
     const a = await Table.find({ slug: menu_permission_slug })
 
-    const exist_tables = await Table.find({ id: { $in: menu_permission_id } })
+    const exist_tables = await Table.find({ id: { $in: [menu_permission_id] } })
     if (!exist_tables.length) {
         await Table.insertMany(menu_tables)
     }

@@ -180,7 +180,6 @@ let tableStore = {
             let tables = [], tableSlugs = [];
             if (data.role_id) {
                 let tablePermissions = await TablePermissions.models.find({ role_id: data.role_id, read: 'Yes' }).populate({ path: 'role_id_data' })
-                console.log("tablePermissions", tablePermissions);
                 let isDefaultAdmin = false
                 for (const permission of tablePermissions) {
                     if (permission?.role_id_data?.name === 'DEFAULT ADMIN') {
@@ -258,7 +257,7 @@ let tableStore = {
                     }
                 }
             }
-            console.log(":::::::::::::::::::: test 1", table)
+            // console.log(":::::::::::::::::::: test 1", table)
             return table
         } catch (err) {
             throw err

@@ -505,7 +505,6 @@ let relationStore = {
             });
             let viewRelationPermissions = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             const res = await viewRelationPermissions.models.updateMany({ relation_id: data.id, table_slug: data.relation_table_slug }, { $set: { label: data.title } })
-            console.log("res::", res);
             if (isViewExists) {
                 console.log(" >>>> is data ", data)
                 const view = await View.updateOne(
@@ -760,7 +759,7 @@ let relationStore = {
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
-            console.log(">>>> invoke function")
+            // console.log(">>>> invoke function")
             const mongoConn = await mongoPool.get(data.project_id);
             const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
@@ -904,7 +903,7 @@ let relationStore = {
                     relation_buttons: relations[i].relation_buttons
                 };
                 if (view) {
-                    console.log("creatable:", view.creatable);
+                    // console.log("creatable:", view.creatable);
                     responseRelation["title"] = view.name;
                     responseRelation["columns"] = view.columns;
                     responseRelation["quick_filters"] = view.quick_filters;

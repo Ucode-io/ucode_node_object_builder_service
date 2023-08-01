@@ -26,7 +26,7 @@ let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
 
-            console.log('data-->', data)
+            // console.log('data-->', data)
             if (!data.user_id) {
                 throw new Error('Error user_id is required')
             }
@@ -223,9 +223,9 @@ let projectStore = {
         if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
 
         let reconnect_data = await client.autoConn(config.k8s_namespace);
-        console.log("PROJECT-CRED >> ", reconnect_data.res.length, reconnect_data.res)
+        // console.log("PROJECT-CRED >> ", reconnect_data.res.length, reconnect_data.res)
         for (let it of reconnect_data.res) {
-            console.log("credentials:::", it.resource_type)
+            // console.log("credentials:::", it.resource_type)
             if (it.resource_type !== "MONGODB") continue
             // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
             try {

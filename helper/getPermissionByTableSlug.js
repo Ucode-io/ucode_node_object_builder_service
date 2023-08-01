@@ -75,7 +75,7 @@ module.exports = async (req) => {
     }
 
     const table = tables[0]
-    console.log(">>>>>>>> test #2 ", new Date())
+    // console.log(">>>>>>>> test #2 ", new Date())
 
     if (!table) {
         console.log('WARNING apps not found')
@@ -268,13 +268,13 @@ module.exports = async (req) => {
 
     let fields = await Field.aggregate(fieldPipeline)
 
-    console.log(">>>>>>>> test #3 ", new Date())
+    // console.log(">>>>>>>> test #3 ", new Date())
     let viewPermissions = await Tab.aggregate(tabPipeline)
 
-    console.log(">>>>>>>> test #4 ", new Date())
+    // console.log(">>>>>>>> test #4 ", new Date())
     let actionPermissions = await CustomEvent.aggregate(getListActionPermissions)
 
-    console.log(">>>>>>>> test #5 ", new Date())
+    // console.log(">>>>>>>> test #5 ", new Date())
     table.field_permissions = fields
     table.view_permissions = viewPermissions
     table.action_permissions = actionPermissions

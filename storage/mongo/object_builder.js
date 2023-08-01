@@ -811,13 +811,13 @@ let objectBuilder = {
         }
         let keys = Object.keys(params)
         let order = params.order || {}
-        
+
         let fields = tableInfo.fields
         let with_relations = params.with_relations
 
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
 
-        if(currentTable.order_by && !Object.keys(order).length) {
+        if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
         } else if (!currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: -1 }
@@ -1488,6 +1488,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
         const table = mongoConn.models['Table']
         const data = struct.decode(req.data)
+        const allTables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -1642,27 +1643,16 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
+            const allTables = await ObjectBuilder(true, req.project_id)
 
             const tableInfo = allTables[req.table_slug]
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
 
             if (!tableModel.soft_delete) {
                 const response = await tableInfo.models.deleteOne({ guid: data.id });
-                let event = {}
-                let table = {}
-                table.guid = data.id
-                table.table_slug = req.table_slug
-                event.payload = table
-
-                event.project_id = req.project_id
-                // await sendMessageToTopic(conkafkaTopic.TopicObjectDeleteV1, event)
-
                 return { table_slug: req.table_slug, data: response };
             } else if (tableModel.soft_delete) {
-
                 const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
-                console.log(">>>>>>>>> ", response)
-
                 return { table_slug: req.table_slug, data: response };
             }
 
@@ -1949,15 +1939,15 @@ let objectBuilder = {
                 }).lean()
                 if (modelTo[data.table_from + "_ids"]?.length) {
                     if (!modelTo[data.table_from + "_ids"].includes(data.id_from)) {
-                        console.log("Debug >> test #1", modelTo)
-                        console.log("Debug >> test #2", data.table_from + "_ids")
-                        console.log("Debug >> test #3", modelTo[data.table_from + "_ids"])
+                        // console.log("Debug >> test #1", modelTo)
+                        // console.log("Debug >> test #2", data.table_from + "_ids")
+                        // console.log("Debug >> test #3", modelTo[data.table_from + "_ids"])
                         modelTo[data.table_from + "_ids"].push(data.id_from)
                     }
                 } else {
                     modelTo[data.table_from + "_ids"] = [data.id_from]
                 }
-                console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
+                // console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
                 await toTableModel.models.updateOne({
                     guid: el,
                 },

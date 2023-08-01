@@ -17,7 +17,7 @@ let excelStore = {
     ExcelRead: catchWrapDb(`${NAMESPACE}.read`, async (data) => {
         const createFilePath = "./"+data.id+".xlsx"
         let ssl = true
-        console.log("ssl::", cfg.minioSSL, "typeof:::", typeof cfg.minioSSL);
+        // console.log("ssl::", cfg.minioSSL, "typeof:::", typeof cfg.minioSSL);
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
         }
@@ -59,7 +59,7 @@ let excelStore = {
     ),
     ExcelToDb: catchWrapDb(`${NAMESPACE}.create`, async (req) => {
         const datas = struct.decode(req.data)
-        console.log("test project id:::", req.project_id);
+        // console.log("test project id:::", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -68,7 +68,7 @@ let excelStore = {
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
         }
-        console.log("ssl::", ssl, "type::", typeof cfg.minioSSL);
+        // console.log("ssl::", ssl, "type::", typeof cfg.minioSSL);
         const createFilePath = "./"+req.id+".xlsx"
         let minioClient = new Minio.Client({
             accessKey: cfg.minioAccessKeyID,
@@ -77,7 +77,7 @@ let excelStore = {
             useSSL: ssl,
             pathStyle: true,
         });
-        console.log("test ", 111);
+        // console.log("test ", 111);
         let bucketName = "docs";
         let fileStream = fs.createWriteStream(createFilePath);
         let fileObjectKey = req.id+".xlsx";
@@ -89,7 +89,7 @@ let excelStore = {
                 object.on("data", (chunk) => fileStream.write(chunk));
                 object.on("end", () => console.log(`Reading ${fileObjectKey} finished`))
                 xlsxFile(createFilePath).then(async (rows) => {
-                    console.log("test 0");
+                    // console.log("test 0");
                     let i = 0;
                     let objectsToDb = []
                     for (const row of rows) {
@@ -99,7 +99,7 @@ let excelStore = {
                             i++;
                             continue;
                         }
-                        console.log("test 1");
+                        // console.log("test 1");
                         let objectToDb = {}
                         for (const column_slug of exColumnSlugs) {
                             let id = datas[column_slug]
@@ -109,23 +109,23 @@ let excelStore = {
                                 viewFieldIds = splitedRelationFieldId.slice(1, splitedRelationFieldId.length)
                                 id = splitedRelationFieldId[0]
                             }
-                            console.log("test 2");
+                            // console.log("test 2");
                             const field = await Field.findOne({
                                 id: id
                             })
                             if (!field) {
-                                console.log("test 3");
+                                // console.log("test 3");
                                 continue;
                             }
                             let value = row[rows[0].indexOf(column_slug)]
-                            console.log("VALUE:::::::::::::", value)
+                            // console.log("VALUE:::::::::::::", value)
                             if (value === null) {
                                 con.NUMBER_TYPES.includes(field.type) ? value = 0 :
                                 con.STRING_TYPES.includes(field.type) ? value = "" :
                                 con.BOOLEAN_TYPES.includes(field.type) ? value = "false" : ""
                             }
                             let options = []
-                            console.log("test 4");
+                            // console.log("test 4");
                             if (field.type == "MULTISELECT" && value !== null && value.length) {
                                 if (field.attributes) {
                                     field.attributes = struct.decode(field.attributes)
@@ -170,12 +170,12 @@ let excelStore = {
                                     let params = {}
                                     if (viewFields.length && viewFields.length > 1) {
                                         let values = row[rows[0].indexOf(column_slug)].split(" ")
-                                        console.log("val::", values);
+                                        // console.log("val::", values);
                                         for (let i = 0; i < viewFields.length; i++) {
                                             if (typeof values[i] === "string") {
                                                 values[i] = values[i].replaceAll(")", "\)")
                                                 values[i] = values[i].replaceAll("(", "\(")
-                                                console.log("val::", values[i]);
+                                                // console.log("val::", values[i]);
                                                 params[viewFields[i].slug] =  RegExp(values[i],"i")
                                             } else {
                                                 params[viewFields[i].slug] =  values[i]
@@ -190,7 +190,7 @@ let excelStore = {
                                                     val = val.replaceAll(")", "\\)")
                                                     val = val.replaceAll("(", "\\(")
                                                 }
-                                                console.log("val2222::", val);
+                                                // console.log("val2222::", val);
                                                 params[viewField.slug] =  RegExp(val ,"i")
                                             } else {
                                                 params[viewField.slug] =  row[rows[0].indexOf(column_slug)]
@@ -198,7 +198,7 @@ let excelStore = {
                                             
                                         }
                                     }
-                                    console.log(" rel params::", params);
+                                    // console.log(" rel params::", params);
                                     if (params !== {}) {
                                         const tableTo = (await ObjectBuilder(true, req.project_id))[relation.table_to]
                                         const objectFromObjectBuilder = await tableTo.models.findOne({
@@ -222,14 +222,14 @@ let excelStore = {
                                 value=i
                                 
                             } else if (con.STRING_TYPES.includes(field.type)) {
-                                console.log("EXCEL::::::::::::::::::::::::::::::::::::::", value)
+                                // console.log("EXCEL::::::::::::::::::::::::::::::::::::::", value)
                                 if (field.type === "DATE_TIME" || field.type === "DATE") {
                                     let i = ""
                                     try {
                                         let toDate = new Date(value).toISOString()
-                                        console.log("TODATE::::::::::::", toDate)
+                                        // console.log("TODATE::::::::::::", toDate)
                                         i = toDate
-                                        console.log("DATE_TIME::::::::::::::::::", value)
+                                        // console.log("DATE_TIME::::::::::::::::::", value)
                                     } catch(error) {
                                         logger.error("value: ", strNumber, "error: ", error);
                                         i = ""
@@ -248,7 +248,7 @@ let excelStore = {
                             //     data: struct.encode(objectToDb)
                             // })
                     }
-                    console.log("excel write::::", objectsToDb);
+                    // console.log("excel write::::", objectsToDb);
                     await obj.multipleInsert({
                         table_slug: req.table_slug,
                         data: struct.encode({objects: objectsToDb}),

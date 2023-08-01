@@ -247,7 +247,7 @@ let permission = {
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
         // return { project_id: "okok", data: {} }
         let start = new Date()
-        console.log(">>>>> permission with role ", new Date())
+        // console.log(">>>>> permission with role ", new Date())
         const mongoConn = await mongoPool.get(req.project_id)
         const App = mongoConn.models['App']
         const Role = (await ObjectBuilder(true, req.project_id))['role'].models
@@ -269,7 +269,7 @@ let permission = {
             null,
             { sort: { createdAt: -1 } }
         )
-        console.log(">>>>>>>> test #1 ", new Date(), role) 
+        // console.log(">>>>>>>> test #1 ", new Date(), role) 
         if (!role) {
             console.log('WARNING role not found')
             throw new Error('Error role not found')
@@ -332,7 +332,7 @@ let permission = {
 
         const tables = await Table.aggregate(tablePipeline)
 
-        console.log(">>>>>>>> test #2 ", new Date())
+        // console.log(">>>>>>>> test #2 ", new Date())
 
         if (!tables || !tables.length) {
             console.log('WARNING apps not found')
@@ -688,7 +688,7 @@ let permission = {
             }
         })
 
-        console.log(">>>>>>>> test #3 ", new Date())
+        // console.log(">>>>>>>> test #3 ", new Date())
         let viewPermissions = await Tab.aggregate(tabPipeline)
         let viewPermission = {}
         viewPermissions.forEach(el => {
@@ -698,13 +698,13 @@ let permission = {
                 viewPermission[el.table_slug].push(el)
             }
         })
-        console.log(">>>>>>>> test #4 ", new Date())
+        // console.log(">>>>>>>> test #4 ", new Date())
         let actionPermissions = await CustomEvent.aggregate(getListActionPermissions)
         let actionPermission = actionPermissions[0]
-        console.log(">>>>>>>> test #5 ", new Date())
+        // console.log(">>>>>>>> test #5 ", new Date())
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
-        console.log(">>>>>>>> test #6", new Date())
+        // console.log(">>>>>>>> test #6", new Date())
 
         let tablesList = []
         for (let table of tables) {
@@ -732,7 +732,7 @@ let permission = {
                     is_public: false
                 }
             }
-            console.log(table.record_permissions)
+            // console.log(table.record_permissions)
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
@@ -824,14 +824,14 @@ let permission = {
             }
             tablesList.push(tableCopy)
         }
-        console.log(">>>>>>>> test #7 ", new Date())
+        // console.log(">>>>>>>> test #7 ", new Date())
         // appCopy.tables = tablesList
         // appsList.push(appCopy)
         let end = new Date()
-        console.log("tablesList length:::", tablesList.length);
+        // console.log("tablesList length:::", tablesList.length);
         roleCopy.tables = tablesList
         roleCopy.global_permission = await CustomPermission?.findOne({role_id: roleCopy.guid}) || {}
-        console.log("\n\n time ", start, "\n", end, "\n", end - start)
+        // console.log("\n\n time ", start, "\n", end, "\n", end - start)
         return { project_id: req.project_id, data: roleCopy }
 
     }),
@@ -1098,7 +1098,7 @@ let permission = {
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {
         const start = new Date()
-        console.log(">>>>>>>>>>>>>> test #1 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #1 ", new Date())
         const ErrRoleNotFound = new Error('role_id is required')
         const ErrWhileUpdate = new Error('error while updating')
 
@@ -1119,7 +1119,7 @@ let permission = {
         const ActionPermission = mongoConn.models['action_permission']
         const CustomPermission = mongoConn.models['global_permission']
         const TableViewPermission = mongoConn.models['view_permission']
-        console.log(">>>>>>>>>>>>>> test #2 ",  new Date())
+        // console.log(">>>>>>>>>>>>>> test #2 ",  new Date())
 
         let role = await Role.findOneAndUpdate(
             {
@@ -1134,14 +1134,14 @@ let permission = {
                 upsert: false
             }
         )
-        console.log(">>>>>>>>>>>>>> test #3 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #3 ", new Date())
         if (!role) {
             throw ErrRoleNotFound
         }
         let fieldPermissions = [], viewPermissions = [], actionPermissions = [],  tableViewPermissions = []
         let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [], bulkWriteTableViewPermissions = [];
         let automaticFilters = {}
-        console.log(">>>>>>>>>>>>>> test #4 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #4 ", new Date())
         for (let table of req?.data?.tables) {
             let isHaveCondition = false
             if (table?.automatic_filters?.read?.length ||
@@ -1180,7 +1180,7 @@ let permission = {
             actionPermissions = [...actionPermissions, ...table.action_permissions]
             tableViewPermissions = [...tableViewPermissions, ...table.table_view_permissions]
         }
-        console.log(">>>>>>>>>>>>>> test #5 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #5 ", new Date())
         for (let field_permission of (fieldPermissions || [])) {
 
             let documentFieldPermission = {
@@ -1203,7 +1203,7 @@ let permission = {
                 }
             })
         }
-        console.log(">>>>>>>>>>>>>> test #6 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #6 ", new Date())
         for (let view_permission of (viewPermissions || [])) {
             let document = {
                 view_permission: view_permission.view_permission || false,
@@ -1247,7 +1247,7 @@ let permission = {
                 }
             })
         }
-        console.log(">>>>>>>>>>>>>> test #7 ",  new Date())
+        // console.log(">>>>>>>>>>>>>> test #7 ",  new Date())
         for (let action_permission of (actionPermissions || [])) {
             
             let documentActionPermission = {
@@ -1268,7 +1268,7 @@ let permission = {
                 }
             })
         }
-        console.log(">>>>>>>>>>>>>> test #8 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #8 ", new Date())
         let tableFilters = []
         for (const tableSlug of Object.keys(automaticFilters)) {
             if (automaticFilters[tableSlug]) {
@@ -1318,21 +1318,21 @@ let permission = {
             $set: req.data.global_permission
         }, { upsert: true }) 
 
-        console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
+        // console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
 
         await AutomaticFilter.deleteMany({role_id: roleId})
         if (tableFilters.length) {
             await AutomaticFilter.insertMany(tableFilters)
         }
-        console.log(">>>>>>>>>>>>>> test #10 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #10 ", new Date())
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
-        console.log(">>>>>>>>>>>>>> test #11 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #11 ", new Date())
         bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
-        console.log(">>>>>>>>>>>>>> test #12 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #12 ", new Date())
         bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
-        console.log(">>>>>>>>>>>>>> test #13 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #13 ", new Date())
         bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
-        console.log(">>>>>>>>>>>>>> test #14 ",  new Date(), bulkWriteTableViewPermissions, bulkWriteTableViewPermissions[0].updateOne)
+        // console.log(">>>>>>>>>>>>>> test #14 ",  new Date(), bulkWriteTableViewPermissions, bulkWriteTableViewPermissions[0].updateOne)
         bulkWriteTableViewPermissions.length && await TableViewPermission.bulkWrite(bulkWriteTableViewPermissions)
         return {}
 
@@ -1468,7 +1468,7 @@ let permission = {
     }),
     getAllMenuPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.gettAllMenuPermissions`, async (data) => {
         try {
-            console.log("data:", data);
+            // console.log("data:", data);
 
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
 
@@ -1564,7 +1564,7 @@ let permission = {
 
     }),
     getPermissionsByTableSlug: catchWrapDbObjectBuilder(`${NAMESPACE}.getPermissionsByTableSlug`, async (req) => {
-        console.log(">>>>> permission with role ", new Date())
+        // console.log(">>>>> permission with role ", new Date())
         const current_user_permission = await getPermissionByTableSlug(
             {
                 role_id: req.current_role_id,
@@ -1585,7 +1585,7 @@ let permission = {
         return {current_user_permission, selected_user_permission}
     }),
     updatePermissionsByTableSlug: catchWrapDbObjectBuilder(`${NAMESPACE}.updatePermissionsByTableSlug`, async (req) => {
-        console.log(">>>>>>>>>>>>>> test #1 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #1 ", new Date())
         const ErrRoleNotFound = new Error('role_id is required')
 
         const roleId = req?.guid || ''
@@ -1599,20 +1599,20 @@ let permission = {
         const FieldPermission = mongoConn.models['field_permission']
         const ViewPermission = mongoConn.models['view_relation_permission']
         const ActionPermission = mongoConn.models['action_permission']
-        console.log(">>>>>>>>>>>>>> test #2 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #2 ", new Date())
 
         let role = await Role.findOne(
             {
                 guid: roleId
             },
         )
-        console.log(">>>>>>>>>>>>>> test #3 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #3 ", new Date())
         if (!role) {
             throw ErrRoleNotFound
         }
         let bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [];
 
-        console.log(">>>>>>>>>>>>>> test #4 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #4 ", new Date())
         await RecordPermission.updateOne({ role_id: roleId, table_slug: req.table.slug },
             {
                 $set: req.table.record_permissions
@@ -1640,7 +1640,7 @@ let permission = {
                 }
             })
         }
-        console.log(">>>>>>>>>>>>>> test #6 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #6 ", new Date())
         for (let view_permission of (req?.table?.view_permissions || [])) {
             let document = {
                 view_permission: view_permission.view_permission || false,
@@ -1664,7 +1664,7 @@ let permission = {
                 }
             })
         }
-        console.log(">>>>>>>>>>>>>> test #7 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #7 ", new Date())
         for (let action_permission of (req.table.action_permissions || [])) {
 
             let documentActionPermission = {
@@ -1686,11 +1686,11 @@ let permission = {
             })
         }
 
-        console.log(">>>>>>>>>>>>>> test #11 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #11 ", new Date())
         bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
-        console.log(">>>>>>>>>>>>>> test #12 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #12 ", new Date())
         bulkWriteViewPermissions.length && await ViewPermission.bulkWrite(bulkWriteViewPermissions)
-        console.log(">>>>>>>>>>>>>> test #13 ", new Date())
+        // console.log(">>>>>>>>>>>>>> test #13 ", new Date())
         bulkWriteActionPermissions.length && await ActionPermission.bulkWrite(bulkWriteActionPermissions)
         return {}
     }),

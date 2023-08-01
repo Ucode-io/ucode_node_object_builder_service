@@ -23,7 +23,7 @@ let prepareFunction = {
         if (data.guid) {
             ownGuid = data.guid
         }
-        console.log("project id::", req.project_id);
+        // console.log("project id::", req.project_id);
         // console.log("project id::", data);
         const allTableInfos = (await ObjectBuilder(true, req.project_id))
         const tableInfo = allTableInfos[req.table_slug]

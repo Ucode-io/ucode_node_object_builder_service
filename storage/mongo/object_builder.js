@@ -1502,6 +1502,7 @@ let objectBuilder = {
         const Relation = mongoConn.models['Relation']
         const table = mongoConn.models['Table']
         const data = struct.decode(req.data)
+        const allTables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -1657,9 +1658,11 @@ let objectBuilder = {
             console.log(">>>>>>>>>>.")
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
-            const allTableInfo = (await ObjectBuilder(true, req.project_id))
+            const allTables = await ObjectBuilder(true, req.project_id)
+
+            const tableInfo = allTables[req.table_slug]
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
-            let response = await allTableInfo[req.table_slug].models.findOne({
+            let response = await allTables[req.table_slug].models.findOne({
                 guid: data.id
             })
             if (response) {
@@ -1679,45 +1682,34 @@ let objectBuilder = {
                         table.table_slug = req.table_slug
                         event.payload = table
 
-                        let authInfo = tableAttributes.auth_info
-                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                            throw new Error('This table is auth table. Auth information not fully given')
-                        }
-                        let loginTable = allTableInfo['client_type']?.models?.findOne({
-                            client_type_id: response[authInfo['client_type_id']],
-                            table_slug: tableModel.slug
-                        })
-                        if (loginTable) {
-                            let authDeleteUserRequest = {
-                                client_type_id: response[authInfo['client_type_id']],
-                                role_id: response[authInfo['role_id']],
-                                project_id: data['company_service_project_id'],
-                                user_id: response['guid']
-                            }
-                            await grpcClient.deleteUserAuth(authDeleteUserRequest)
-                        }
+                        return { table_slug: req.table_slug, data: response };
+                    } else if (tableModel.soft_delete) {
+
+                        const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
+                        // console.log(">>>>>>>>> ", response)
+
+                        return { table_slug: req.table_slug, data: response };
                     }
+                    if (!tableModel.soft_delete) {
+                        await allTables[req.table_slug].models.deleteOne({ guid: data.id });
+                    } else if (tableModel.soft_delete) {
+                        await allTables[req.table_slug].models.updateOne({ guid: data.id }, { $set: { deleted_at: new Date() } })
+                    }
+
+                    const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+                    let customMessage = ""
+                    if (tableWithVersion) {
+                        const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                            code: 200,
+                            table_id: tableWithVersion.id,
+                            action_type: "DELETE",
+                        })
+                        if (customErrMsg) { customMessage = customErrMsg.message }
+                    }
+
+                    return { table_slug: req.table_slug, data: response, custom_message: customMessage };
                 }
             }
-            if (!tableModel.soft_delete) {
-                await allTableInfo[req.table_slug].models.deleteOne({ guid: data.id });
-            } else if (tableModel.soft_delete) {
-                await allTableInfo[req.table_slug].models.updateOne({ guid: data.id }, { $set: { deleted_at: new Date() } })
-            }
-
-            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
-            let customMessage = ""
-            if (tableWithVersion) {
-                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
-                    code: 200,
-                    table_id: tableWithVersion.id,
-                    action_type: "DELETE",
-                })
-                if (customErrMsg) { customMessage = customErrMsg.message }
-            }
-
-            return { table_slug: req.table_slug, data: response, custom_message: customMessage };
-
         } catch (err) {
             throw err
         }
@@ -2001,15 +1993,15 @@ let objectBuilder = {
                 }).lean()
                 if (modelTo[data.table_from + "_ids"]?.length) {
                     if (!modelTo[data.table_from + "_ids"].includes(data.id_from)) {
-                        console.log("Debug >> test #1", modelTo)
-                        console.log("Debug >> test #2", data.table_from + "_ids")
-                        console.log("Debug >> test #3", modelTo[data.table_from + "_ids"])
+                        // console.log("Debug >> test #1", modelTo)
+                        // console.log("Debug >> test #2", data.table_from + "_ids")
+                        // console.log("Debug >> test #3", modelTo[data.table_from + "_ids"])
                         modelTo[data.table_from + "_ids"].push(data.id_from)
                     }
                 } else {
                     modelTo[data.table_from + "_ids"] = [data.id_from]
                 }
-                console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
+                // console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
                 await toTableModel.models.updateOne({
                     guid: el,
                 },

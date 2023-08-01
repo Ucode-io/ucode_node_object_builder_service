@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 {
   message: 'Error while auto connecting',
   level: 'error',
@@ -438,6 +439,12 @@
   message: 'mongo connection error Authentication failed.',
   level: 'error',
   timestamp: '2023-05-22T05:53:37.339Z',
+=======
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-08-01T04:15:41.075Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -465,7 +472,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T05:53:39.004Z',
+=======
+  timestamp: '2023-08-01T04:26:44.422Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -493,7 +504,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T05:53:39.622Z',
+=======
+  timestamp: '2023-08-01T04:35:24.292Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -521,7 +536,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T05:53:40.226Z',
+=======
+  timestamp: '2023-08-01T04:41:53.107Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -549,7 +568,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T05:55:14.038Z',
+=======
+  timestamp: '2023-08-01T04:47:01.431Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -577,7 +600,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T05:55:14.363Z',
+=======
+  timestamp: '2023-08-01T04:53:48.030Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -605,7 +632,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T05:55:14.696Z',
+=======
+  timestamp: '2023-08-01T04:57:29.824Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -633,7 +664,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T05:55:15.025Z',
+=======
+  timestamp: '2023-08-01T05:10:26.377Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -661,7 +696,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T05:55:15.349Z',
+=======
+  timestamp: '2023-08-01T05:15:29.538Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -689,7 +728,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T07:08:37.520Z',
+=======
+  timestamp: '2023-08-01T05:19:59.894Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -717,7 +760,11 @@
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
+<<<<<<< HEAD
   timestamp: '2023-05-22T07:08:37.961Z',
+=======
+  timestamp: '2023-08-01T05:24:34.601Z',
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
   label: 'object_builder_service',
   metadata: {
     ok: 0,
@@ -742,6 +789,7 @@
   },
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
+<<<<<<< HEAD
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',
@@ -13055,3 +13103,5 @@
   metadata: {}
 }
 >>>>>>> 1b5129428c179cf180b07d1fa516e16974ad3b22
+=======
+>>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c

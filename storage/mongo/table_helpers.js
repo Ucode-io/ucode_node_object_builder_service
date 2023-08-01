@@ -158,11 +158,6 @@ let tableHelpers = {
             ssl = false
         }
 
-        console.log(`--->MongoCredentials -->>> 
-            endpoint: ${cfg.minioEndpoint}, 
-            ssl: ${ssl},
-            accessId: ${cfg.minioAccessKeyID},
-            secretkey:  ${cfg.minioSecretAccessKey}`);
 
         var minioClient = new Minio.Client({
             endPoint: cfg.minioEndpoint,

@@ -29,9 +29,9 @@ let formulaFunction = {
             }
             computedFormula = computedFormula.replaceAll(`${el.slug}`, `${value}`)
         })
-        console.log(">> Replaced formula ", computedFormula)
+        // console.log(">> Replaced formula ", computedFormula)
         const {error, result} = parser.parse(computedFormula)
-        console.log(">>>>> error formula frontend", error, result)
+        // console.log(">>>>> error formula frontend", error, result)
         newValue = error ?? result
         return newValue
     },

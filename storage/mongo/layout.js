@@ -37,13 +37,13 @@ let layoutStore = {
                 layoutReq.id = v4()
                 let layout = new Layout(layoutReq);
                 layout.table_id = data.id;
-                console.log("\n.>>> layout ", layout)
+                // console.log("\n.>>> layout ", layout)
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
                     tabReq.id = v4()
                     let tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
-                    console.log("\n>>>>> tab", tab)
+                    // console.log("\n>>>>> tab", tab)
                     tabs.push({
                         id: tab.id,
                         order: tab.order,
@@ -58,7 +58,7 @@ let layoutStore = {
                         sectionReq.id = v4()
                         const section = new Section(sectionReq);
                         section.tab_id = tab.id;
-                        console.log("\n>>>>> section", section)
+                        // console.log("\n>>>>> section", section)
                         sections.push(section);
                     }
                 }
@@ -74,7 +74,7 @@ let layoutStore = {
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
-            console.log(":::::::::::TEST:::::::::::::::::::1")
+            // console.log(":::::::::::TEST:::::::::::::::::::1")
             const mongoConn = await mongoPool.get(data.project_id)
             const Tab = mongoConn.models['Tab']
             const Table = mongoConn.models['Table']
@@ -101,33 +101,33 @@ let layoutStore = {
                 }
                 layoutIds.push(layout.id)
             }
-            console.log(":::::::::::TEST:::::::::::::::::::2")
-            console.log(tabIds, layoutIds)
+            // console.log(":::::::::::TEST:::::::::::::::::::2")
+            // console.log(tabIds, layoutIds)
             if (tabIds.length) {
                 const b = await Section.deleteMany(
                     {
                         tab_id: { $in: tabIds },
                     }
                 )
-                console.log(b);
+                // console.log(b);
             }
-            console.log(":::::::::::TEST:::::::::::::::::::3",)
+            // console.log(":::::::::::TEST:::::::::::::::::::3",)
             if (layoutIds.length) {
                 const a = await Tab.deleteMany(
                     {
                         layout_id: { $in: layoutIds }
                     }
                 )
-                console.log(a);
+                // console.log(a);
             }
-            console.log(":::::::::::TEST:::::::::::::::::::4")
+            // console.log(":::::::::::TEST:::::::::::::::::::4")
             const c = await Layout.deleteMany(
                 {
                     table_id: data.table_id,
                 }
             )
-            console.log(c);
-            console.log(":::::::::::TEST:::::::::::::::::::5")
+            // console.log(c);
+            // console.log(":::::::::::TEST:::::::::::::::::::5")
             let layouts = [], sections = [], tabs = [], relationIds = [];
             for (const layoutReq of data.layouts) {
                 layoutReq.id = v4()
@@ -169,11 +169,11 @@ let layoutStore = {
                 }
             }
             insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
-            console.log(":::::::::::TEST:::::::::::::::::::6", tabs)
+            // console.log(":::::::::::TEST:::::::::::::::::::6", tabs)
             await Layout.insertMany(layouts)
             await Tab.insertMany(tabs)
             await Section.insertMany(sections)
-            console.log(":::::::::::TEST:::::::::::::::::::7")
+            // console.log(":::::::::::TEST:::::::::::::::::::7")
             return;
         } catch (err) {
             throw err
@@ -614,7 +614,7 @@ let layoutStore = {
                             role_id: data.role_id,
                             table_slug: table.slug
                         })
-                    console.log("relations:", relation);
+                    // console.log("relations:", relation);
                     tab.relation = relation ? relation : {}
                 }
 

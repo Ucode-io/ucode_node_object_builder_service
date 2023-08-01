@@ -80,7 +80,7 @@ module.exports = async (mongoConn, projectId) => {
             }
         }
 
-        console.log(">>>>> ", existRecordPermissions);
+        // console.log(">>>>> ", existRecordPermissions);
     
     } catch (err) {
         throw Error(err)

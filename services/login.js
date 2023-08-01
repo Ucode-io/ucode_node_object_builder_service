@@ -8,6 +8,7 @@ const loginService = {
     LoginWithEmailOtp: catchWrapServiceObjectBuilder("service.loginStore.loginWithEmailOtp", loginStore.loginWithEmailOtp),
     GetUserUpdatedPermission: catchWrapServiceObjectBuilder("service.loginStore.getUserUpdatedPermission", loginStore.getUserUpdatedPermission),
     LoginDataByUserId: catchWrapServiceObjectBuilder("service.loginStore.loginDataByUserId", loginStore.loginDataByUserId),
+    GetConnetionOptions: catchWrapServiceObjectBuilder("service.loginStore.getConnetionOptions", loginStore.getConnetionOptions)
 };
 
 module.exports = loginService;  

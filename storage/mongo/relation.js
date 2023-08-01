@@ -424,6 +424,8 @@ let relationStore = {
                     data.type = data.view_type;
                     data["relation_id"] = relation.id;
                     data["name"] = data.title;
+                    data["name_uz"] = data.title_uz;
+                    data["name_en"] = data.title_en
                     data["relation_table_slug"] = dynamicTable.table_slug;
                     if (!data.columns || !data.columns.length) {
                         data.columns = [];
@@ -437,6 +439,8 @@ let relationStore = {
                 data.type = data.view_type;
                 data["relation_id"] = relation.id;
                 data["name"] = data.title;
+                data["name_uz"] = data.title_uz;
+                data["name_en"] = data.title_en;
                 const view = new View(data);
                 const responseView = await view.save();
                 tableSlugs.push(data.table_to);
@@ -525,12 +529,16 @@ let relationStore = {
                             default_editable: data.default_editable,
                             creatable: data.creatable,
                             function_path: data.function_path,
+                            name_uz: data.title_uz,
+                            name_en: data.title_en,
                         },
                     }
                 );
             } else {
                 data.type = data.view_type;
                 data["name"] = data.title;
+                data["name_uz"] = data.title_uz;
+                data["name_en"] = data.title_en;
                 data["relation_id"] = data.id;
                 data.id = v4();
                 const view = new View(data);
@@ -677,7 +685,8 @@ let relationStore = {
                                 responseRelation["default_editable"] = view.default_editable;
                                 responseRelation["creatable"] = view.creatable;
                                 responseRelation["function_path"] = view.function_path;
-
+                                responseRelation["title_uz"] = view.name_uz;
+                                responseRelation["title_en"] = view.name_en;
                             }
                             responseRelations.push(responseRelation);
                         }
@@ -735,6 +744,8 @@ let relationStore = {
                     responseRelation["default_editable"] = view.default_editable;
                     responseRelation["creatable"] = view.creatable;
                     responseRelation["function_path"] = view.function_path;
+                    responseRelation["title_uz"] = view.name_uz;
+                    responseRelation["title_en"] = view.name_en;
                 }
                 responseRelations.push(responseRelation);
             }
@@ -857,6 +868,8 @@ let relationStore = {
                         responseRelation["creatable"] = view.creatable;
                         responseRelation["default_editable"] = view.default_editable;
                         responseRelation["function_path"] = view.function_path;
+                        responseRelation["title_uz"] = view.name_uz;
+                        responseRelation["title_en"] = view.name_en;
                     }
                     responseRelations.push(responseRelation);
                     continue;
@@ -915,6 +928,8 @@ let relationStore = {
                     responseRelation["creatable"] = view.creatable;
                     responseRelation["default_editable"] = view.default_editable;
                     responseRelation["function_path"] = view.function_path;
+                    responseRelation["title_uz"] = view.name_uz;
+                    responseRelation["title_en"] = view.name_en;
                 }
                 responseRelations.push(responseRelation);
             }
@@ -1136,7 +1151,7 @@ let relationStore = {
                                 relation.cascading_tree_field_slug,
                         };
                         if (view) {
-                            responseRelation["title"] = view.name;
+                            responseRelation["title"] = view.name;    
                             responseRelation["columns"] = view.columns;
                             responseRelation["quick_filters"] =
                                 view.quick_filters;
@@ -1162,6 +1177,8 @@ let relationStore = {
                                 view.multiple_insert_field;
                             responseRelation["updated_fields"] =
                                 view.updated_fields;
+                            responseRelation["title_uz"] = view.name_uz;
+                            responseRelation["title_en"] = view.name_en;
                         }
                     }
                 }
@@ -1210,6 +1227,8 @@ let relationStore = {
                 responseRelation["multiple_insert_field"] =
                     view.multiple_insert_field;
                 responseRelation["updated_fields"] = view.updated_fields;
+                responseRelation["title_uz"] = view.name_uz;
+                responseRelation["title_en"] = view.name_en;
             }
             const relationTabWithPermission = await AddPermission.toRelationTab(responseRelation, data.role_id, data.table_slug, data.project_id)
             return { relation: relationTabWithPermission };

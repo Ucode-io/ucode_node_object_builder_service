@@ -104,7 +104,13 @@ const ViewSchema = mongoose.Schema(
         order: {
             type: Number,
             default: 0
-        }
+        },
+        name_uz: {
+            type: String,
+        },
+        name_en: {
+            type: String,
+        },
         // commit_id: {
         //     type: Number,
         //     required: [true, "commit_id is required"],

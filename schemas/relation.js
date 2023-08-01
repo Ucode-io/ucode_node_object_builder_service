@@ -63,10 +63,6 @@ const RelationSchema = mongoose.Schema(
         cascading_tree_field_slug: {
             type: String
         },
-        // commit_id: {
-        //     type: Number,
-        //     required: [true, "commit_id is required"],
-        // },
         commit_id: {
             type: String,
             required: false

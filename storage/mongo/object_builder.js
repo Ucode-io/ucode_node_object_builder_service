@@ -1662,7 +1662,6 @@ let objectBuilder = {
                 const response = await tableInfo.models.deleteOne({ guid: data.id });
                 return { table_slug: req.table_slug, data: response };
             } else if (tableModel.soft_delete) {
-
                 const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
                 return { table_slug: req.table_slug, data: response };
             }

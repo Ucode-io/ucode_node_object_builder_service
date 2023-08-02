@@ -319,6 +319,8 @@ let sectionStore = {
                     if (fieldReq.id.includes("#")) {
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
+                        field.label_uz = fieldReq.field_name_uz
+                        field.label_en = fieldReq.field_name_en
                         field.order = fieldReq.order
                         field.relation_type = fieldReq.relation_type
                         field.show_label = fieldReq.show_label || false

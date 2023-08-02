@@ -84,6 +84,8 @@ message RelationForSection {
     bool default_editable = 23;
     string function_path = 24;
     bool relation_buttons = 25;
+    string title_uz = 26;
+    string title_en = 27;
 }
 
 message ActionRelationForSection {
@@ -149,6 +151,8 @@ message SectionResponse {
     repeated FieldResponse fields = 5;
     string icon = 6;
     bool is_summary_section = 7;
+    string label_uz = 8;
+    string label_en = 9;
 }
 
 message FieldResponse {
@@ -166,6 +170,8 @@ message FieldResponse {
     string relation_type = 12;
     bool show_label = 13;
     bool enable_multilanguage = 14;
+    string label_uz = 15;
+    string label_en = 16;
 } 
 
 message FieldForSection {
@@ -175,6 +181,8 @@ message FieldForSection {
     string field_name = 4;
     string relation_type = 5;
     bool show_label = 6;
+    string field_name_uz = 7;
+    string field_name_en = 8;
 }
 
 message UpdateSectionsRequest {

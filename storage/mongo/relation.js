@@ -230,7 +230,7 @@ let relationStore = {
                     for (const role of roles) {
                         let fieldPermission = {
                             field_id: res.id,
-                            table_slug: data.table_to,
+                            table_slug: data.table_from,
                             view_permission: true,
                             edit_permission: true,
                             guid: v4(),

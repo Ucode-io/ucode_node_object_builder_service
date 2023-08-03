@@ -4770,7 +4770,7 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0
-	}, , {
+	}, {
 		"id": "04b4921f-323f-45ce-835c-8f5ad5486634",
 		"required": false,
 		"slug": "main_table_slug",

@@ -309,6 +309,7 @@ module.exports = async function (data) {
             }
         )
     })
+    
     await Field.bulkWrite(bulkWriteFields)
     // update role and view relation permission table
     await Table.updateMany({

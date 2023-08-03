@@ -69,12 +69,9 @@ const TableSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
-        label_uz: {
-            type: String,
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
         },
-        label_en: {
-            type: String,
-        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

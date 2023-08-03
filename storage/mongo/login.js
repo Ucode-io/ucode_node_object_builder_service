@@ -474,7 +474,7 @@ let loginStore = {
             }
         ).lean()
 
-        const global_permission = await globalPermission?.models.findOne({role_id: user.role_id}) || {}
+        const global_permission = await globalPermission?.models.findOne({ role_id: user.role_id }) || {}
         // console.log(global_permission)
 
         //@TODO:: check user can login with this login strategy
@@ -597,7 +597,7 @@ let loginStore = {
 
         return response
     }),
-    getConnetionOptions: catchWrapDbObjectBuilder(`${NAMESPACE}.loginDataByUserId`, async (req) => {
+    getConnetionOptions: catchWrapDbObjectBuilder(`${NAMESPACE}.getConnetionOptions`, async (req) => {
         let options = []
         const connection = await (await ObjectBuilder(true, req.resource_environment_id))["connections"].models.findOne({ guid: req.connection_id }).lean()
         if (connection && connection.table_slug && connection.field_slug) {

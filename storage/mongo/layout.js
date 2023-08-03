@@ -631,7 +631,7 @@ let layoutStore = {
                     layout.tabs = map_tab[layout.id]
                 }
             }
-
+            
             return { layouts: layouts }
 
         } catch (error) {

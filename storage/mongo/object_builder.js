@@ -1943,10 +1943,10 @@ let objectBuilder = {
 
 
 
+            const modelTo = await toTableModel.models.findOne({
+                guid: el,
+            }).lean()
             for (const el of data.id_to) {
-                const modelTo = await toTableModel.models.findOne({
-                    guid: el,
-                }).lean()
                 if (modelTo[data.table_from + "_ids"]?.length) {
                     if (!modelTo[data.table_from + "_ids"].includes(data.id_from)) {
                         // console.log("Debug >> test #1", modelTo)
@@ -1958,15 +1958,15 @@ let objectBuilder = {
                     modelTo[data.table_from + "_ids"] = [data.id_from]
                 }
                 // console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
-                await toTableModel.models.updateOne({
-                    guid: el,
-                },
-                    {
-                        $set: {
-                            [data.table_from + "_ids"]: modelTo[data.table_from + "_ids"]
-                        }
-                    })
             }
+            await toTableModel.models.updateOne({
+                guid: el,
+            },
+                {
+                    $set: {
+                        [data.table_from + "_ids"]: modelTo[data.table_from + "_ids"]
+                    }
+                })
             const tableWithVersion = await tableVersion(mongoConn, { slug: data.table_from })
             let customMessage = ""
             if (tableWithVersion) {

@@ -428,6 +428,7 @@ let relationStore = {
                     if (!data.columns || !data.columns.length) {
                         data.columns = [];
                     }
+                    data["attributes"] = data.attributes || {}
                     const view = new View(data);
                     const responseView = await view.save();
                     tableSlugs.push(dynamicTable.table_slug);
@@ -437,6 +438,7 @@ let relationStore = {
                 data.type = data.view_type;
                 data["relation_id"] = relation.id;
                 data["name"] = data.title;
+                data["attributes"] = data.attributes || {}
                 const view = new View(data);
                 const responseView = await view.save();
                 tableSlugs.push(data.table_to);
@@ -524,6 +526,7 @@ let relationStore = {
                             default_editable: data.default_editable,
                             creatable: data.creatable,
                             function_path: data.function_path,
+                            attributes: data.attributes,
                         },
                     }
                 );
@@ -531,6 +534,7 @@ let relationStore = {
                 data.type = data.view_type;
                 data["name"] = data.title;
                 data["relation_id"] = data.id;
+                data["attributes"] = data.attributes
                 data.id = v4();
                 const view = new View(data);
                 const response = await view.save();
@@ -676,6 +680,7 @@ let relationStore = {
                                 responseRelation["default_editable"] = view.default_editable;
                                 responseRelation["creatable"] = view.creatable;
                                 responseRelation["function_path"] = view.function_path;
+                                responseRelation["attributes"] = view.attributes;
 
                             }
                             responseRelations.push(responseRelation);
@@ -734,6 +739,7 @@ let relationStore = {
                     responseRelation["default_editable"] = view.default_editable;
                     responseRelation["creatable"] = view.creatable;
                     responseRelation["function_path"] = view.function_path;
+                    responseRelation["attributes"] = view.attributes;
                 }
                 responseRelations.push(responseRelation);
             }
@@ -856,6 +862,7 @@ let relationStore = {
                         responseRelation["creatable"] = view.creatable;
                         responseRelation["default_editable"] = view.default_editable;
                         responseRelation["function_path"] = view.function_path;
+                        responseRelation["attributes"] = view.attributes;
                     }
                     responseRelations.push(responseRelation);
                     continue;
@@ -914,6 +921,7 @@ let relationStore = {
                     responseRelation["creatable"] = view.creatable;
                     responseRelation["default_editable"] = view.default_editable;
                     responseRelation["function_path"] = view.function_path;
+                    responseRelation["attributes"] = view.attributes;
                 }
                 responseRelations.push(responseRelation);
             }
@@ -1161,6 +1169,7 @@ let relationStore = {
                                 view.multiple_insert_field;
                             responseRelation["updated_fields"] =
                                 view.updated_fields;
+                            responseRelation["attributes"] = view.attributes;
                         }
                     }
                 }
@@ -1209,6 +1218,7 @@ let relationStore = {
                 responseRelation["multiple_insert_field"] =
                     view.multiple_insert_field;
                 responseRelation["updated_fields"] = view.updated_fields;
+                responseRelation["attributes"] = view.attributes;
             }
             const relationTabWithPermission = await AddPermission.toRelationTab(responseRelation, data.role_id, data.table_slug, data.project_id)
             return { relation: relationTabWithPermission };

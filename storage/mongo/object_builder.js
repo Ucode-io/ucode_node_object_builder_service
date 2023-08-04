@@ -1923,7 +1923,7 @@ let objectBuilder = {
                 guid: data.id_from,
             }).lean()
             for (const el of data.id_to) {
-                if (modelFrom[data.table_to + "_ids"]?.length) {
+                if (Array.isArray(modelFrom[data.table_to + "_ids"])) {
                     if (!modelFrom[data.table_to + "_ids"].includes(el)) {
                         modelFrom[data.table_to + "_ids"].push(el)
                     }
@@ -1947,7 +1947,7 @@ let objectBuilder = {
                 const modelTo = await toTableModel.models.findOne({
                     guid: el,
                 }).lean()
-                if (modelTo[data.table_from + "_ids"]?.length) {
+                if (Array.isArray(modelTo[data.table_from + "_ids"])) {
                     if (!modelTo[data.table_from + "_ids"].includes(data.id_from)) {
                         // console.log("Debug >> test #1", modelTo)
                         // console.log("Debug >> test #2", data.table_from + "_ids")

@@ -62,7 +62,7 @@ const reConn = async (k8s_namespace, project_id) => {
     return new Promise((resolve, reject) => {
         ResourceService().AutoConnectByProjectId({ k8s_namespace: k8s_namespace, project_id: project_id }, (err, res) => {
             if (err) {
-                logger.error("Error while auto connecting", {
+                logger.error("Error while auto connecting by project id", {
                     function: "autoConn",
                     error: err
                 });

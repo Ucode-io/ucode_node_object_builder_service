@@ -1642,6 +1642,10 @@
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> f896b7b19ea4fafb07a48573320617c1e2d32be4
 {
   message: 'mongo connection error Authentication failed.',
   level: 'error',

@@ -508,7 +508,7 @@ async function buildModels(is_build = true, project_id) {
         // delete mongooseObject[project_id]
 
         mongooseObject[project_id][model.slug] = {};
-        mongooseObject[project_id][model.slug].models = mongoDBConn.model(model.slug, model.model);
+        mongooseObject[project_id][model.slug].models = mongoDBConn?.model(model?.slug, model?.model);
         mongooseObject[project_id][model.slug].fields = model.field;
         mongooseObject[project_id][model.slug].relations = model.relation;
         mongooseObject[project_id][model.slug].views = model.view;

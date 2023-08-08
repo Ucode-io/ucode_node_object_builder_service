@@ -37,6 +37,12 @@ const MenuSchema = mongoose.Schema(
         },
         menu_settings_id: {
             type: String,
+        },
+        report_settings_id: {
+            type: String,
+        },
+        pivot_templates_id: {
+            type: String,
         }
     },
     {

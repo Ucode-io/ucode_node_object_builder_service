@@ -57,6 +57,74 @@ module.exports = async function (data) {
                 "type": "FOLDER"
             })
         }
+        let adminMenu = await Menu.findOne({
+            id: "c57eedc3-a954-4262-a0af-376c65b5a280",
+        })
+        if (!adminMenu) {
+            await Menu.create({
+                "label": "Admin",
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+        let analyticsMenu = await Menu.findOne({
+            id: "c57eedc3-a954-4262-a0af-376c65b5a278"
+        })
+        if (!analyticsMenu) {
+            await Menu.create({
+                "label": "Analytics",
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a278",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+        let pivotMenu = await Menu.findOne({
+            id: "c57eedc3-a954-4262-a0af-376c65b5a276"
+        })
+        if (!pivotMenu) {
+            await Menu.create({
+                "label": "Pivot",
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a276",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a278",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+        let reportSettingsMenu = await Menu.findOne({
+            id: "c57eedc3-a954-4262-a0af-376c65b5a274"
+        })
+        if (!reportSettingsMenu) {
+            await Menu.create({
+                "label": "Report Settings",
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a274",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a278",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
 
         console.log("done creating default menu")
 

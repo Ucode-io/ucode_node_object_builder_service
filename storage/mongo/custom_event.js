@@ -177,20 +177,23 @@ let customEventStore = {
             const tableInfo = (await ObjectBuilder(true, data.project_id))[
                 custom_event.table_slug
             ];
-            // for (const id of data.object_ids) {
-            //     let object = await tableInfo.models.findOne({
-            //         guid: id,
-            //     });
-            //     object[field_slug] = true;
-            //     const objectUpdate = await tableInfo.models.updateOne(
-            //         {
-            //             guid: id,
-            //         },
-            //         {
-            //             $set: object,
-            //         }
-            //     );
-            // }
+            for (const id of data.object_ids) {
+                // let object = await tableInfo.models.findOne({
+                //     guid: id,
+                // });
+                // let object = {
+                //     [field_slug]: true
+                // }
+                // object[field_slug] = true;
+                await tableInfo.models.findOneAndUpdate(
+                    {
+                        guid: id,
+                    },
+                    {
+                        $set: { [data.field_slug]: true },
+                    }
+                );
+            }
             // custom_event = await CustomEvent.updateMany(
             //     {
             //         table_slug: custom_event.table_slug,
@@ -202,8 +205,8 @@ let customEventStore = {
             //         },
             //     }
             // );
-            // return custom_event;
             return {};
+            // return {};
         }
     ),
 };

@@ -877,6 +877,7 @@ let permission = {
         roleCopy.tables = tablesList
         roleCopy.global_permission = await CustomPermission?.findOne({role_id: roleCopy.guid}) || {}
         // console.log("\n\n time ", start, "\n", end, "\n", end - start)
+        return {project_id: "asd", data: {}}
         return { project_id: req.project_id, data: roleCopy }
 
     }),

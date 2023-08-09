@@ -13108,6 +13108,7 @@
 }
 >>>>>>> 1b5129428c179cf180b07d1fa516e16974ad3b22
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
 {
@@ -13119,3 +13120,12 @@
 }
 =======
 >>>>>>> e9c96645f7dc7f1350a8a4a93c06a908fe95ff9f
+=======
+{
+  message: 'service.object_builder.getList: failed with error: id is not defined',
+  level: 'error',
+  timestamp: '2023-08-09T16:32:45.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 0b1dfe7167e0b1bf5b00660e8b05a5fb77e11c8c

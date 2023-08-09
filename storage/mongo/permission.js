@@ -746,6 +746,7 @@ let permission = {
                 actionPermission[el.table_slug].push(el?.action_permissions)
             }
         })
+        console.log(">>> action permission ", actionPermission)
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
         

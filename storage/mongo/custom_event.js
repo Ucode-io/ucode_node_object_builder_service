@@ -173,36 +173,19 @@ let customEventStore = {
                     },
                 }
             );
-            let field_slug = data.field_slug;
             const tableInfo = (await ObjectBuilder(true, data.project_id))[
                 custom_event.table_slug
             ];
-            // for (const id of data.object_ids) {
-            //     let object = await tableInfo.models.findOne({
-            //         guid: id,
-            //     });
-            //     object[field_slug] = true;
-            //     const objectUpdate = await tableInfo.models.updateOne(
-            //         {
-            //             guid: id,
-            //         },
-            //         {
-            //             $set: object,
-            //         }
-            //     );
-            // }
-            // custom_event = await CustomEvent.updateMany(
-            //     {
-            //         table_slug: custom_event.table_slug,
-            //         event_path: { $ne: data.function_id },
-            //     },
-            //     {
-            //         $set: {
-            //             disable: false,
-            //         },
-            //     }
-            // );
-            // return custom_event;
+            for (const id of data.object_ids) {
+                await tableInfo.models.findOneAndUpdate(
+                    {
+                        guid: id,
+                    },
+                    {
+                        $set: { [data.field_slug]: true },
+                    }
+                );
+            }
             return {};
         }
     ),

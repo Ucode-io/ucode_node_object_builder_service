@@ -738,19 +738,17 @@ let permission = {
         })
         // console.log(">>>>>>>> test #4 ", new Date())
         let actionPermissions = await CustomEvent.aggregate(actionPermissionPipeline)
-        let actionPermission = actionPermissions[0]
-        // console.log(">>>>>>>> test #5 ", new Date())
-        let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
-        let automaticFilter = {}
-        automaticFilters.forEach(el => {
-            if (!automaticFilter[el.table_slug]) {
-                automaticFilter[el.table_slug] = [el]
+        let actionPermission = {}
+        actionPermissions.forEach(el => {
+            if (!actionPermission[el.table_slug]) {
+                actionPermission[el.table_slug] = [el?.action_permissions]
             } else {
-                automaticFilter[el.table_slug].push(el)
+                actionPermission[el.table_slug].push(el?.action_permissions)
             }
         })
-        // console.log(">>>>>>>> test #6", new Date())
-
+        let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
+        let automaticFilter = automaticFilters[0]
+        
         let tablesList = []
         for (let table of tables) {
             let tableCopy = {

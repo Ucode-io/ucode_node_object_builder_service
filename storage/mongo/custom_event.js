@@ -173,18 +173,10 @@ let customEventStore = {
                     },
                 }
             );
-            let field_slug = data.field_slug;
             const tableInfo = (await ObjectBuilder(true, data.project_id))[
                 custom_event.table_slug
             ];
             for (const id of data.object_ids) {
-                // let object = await tableInfo.models.findOne({
-                //     guid: id,
-                // });
-                // let object = {
-                //     [field_slug]: true
-                // }
-                // object[field_slug] = true;
                 await tableInfo.models.findOneAndUpdate(
                     {
                         guid: id,
@@ -194,19 +186,7 @@ let customEventStore = {
                     }
                 );
             }
-            // custom_event = await CustomEvent.updateMany(
-            //     {
-            //         table_slug: custom_event.table_slug,
-            //         event_path: { $ne: data.function_id },
-            //     },
-            //     {
-            //         $set: {
-            //             disable: false,
-            //         },
-            //     }
-            // );
             return {};
-            // return {};
         }
     ),
 };

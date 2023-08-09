@@ -504,48 +504,49 @@ async function buildModels(is_build = true, project_id) {
     // build mongoose schemas for tables
     for (const model of tempArray) {
         // delete previous mongoose schema for a table, if new fields are added or fields are deleted, schema has to renewed
+        if (model?.slug) {
+            delete mongoDBConn.models[model.slug]
 
-        delete mongoDBConn.models[model.slug]
-        // delete mongooseObject[project_id]
+            mongooseObject[project_id][model.slug] = {};
+            mongooseObject[project_id][model.slug].models = mongoDBConn.model(model.slug, model.model);
+            mongooseObject[project_id][model.slug].fields = model.field;
+            mongooseObject[project_id][model.slug].relations = model.relation;
+            mongooseObject[project_id][model.slug].views = model.view;
 
-        mongooseObject[project_id][model.slug] = {};
-        mongooseObject[project_id][model.slug].models = mongoDBConn.model(model.slug, model.model);
-        mongooseObject[project_id][model.slug].fields = model.field;
-        mongooseObject[project_id][model.slug].relations = model.relation;
-        mongooseObject[project_id][model.slug].views = model.view;
+            // delete mongoDBConn.models[model.slug]
+            // delete mongooseObject[model.slug]
+            // mongooseObject[model.slug] = {};
+            // mongooseObject[model.slug].models = mongoDBConn.model(model.slug, model.model);
+            // mongooseObject[model.slug].fields = model.field;
+            // mongooseObject[model.slug].relations = model.relation;
+            // mongooseObject[model.slug].views = model.view;
 
-        // delete mongoDBConn.models[model.slug]
-        // delete mongooseObject[model.slug]
-        // mongooseObject[model.slug] = {};
-        // mongooseObject[model.slug].models = mongoDBConn.model(model.slug, model.model);
-        // mongooseObject[model.slug].fields = model.field;
-        // mongooseObject[model.slug].relations = model.relation;
-        // mongooseObject[model.slug].views = model.view;
-
-        // drop indexes if unique is disabled
-        let index_list, dropIndexes;
-        try {
-            index_list = await mongooseObject[project_id][model.slug].models.collection.getIndexes()
-            dropIndexes = model.dropIndex
-            for (const index_name in dropIndexes) {
-                if (!(index_name.concat('_1') in index_list)) {
-                    delete dropIndexes[index_name]
+            // drop indexes if unique is disabled
+            let index_list, dropIndexes;
+            try {
+                index_list = await mongooseObject[project_id][model.slug].models.collection.getIndexes()
+                dropIndexes = model.dropIndex
+                for (const index_name in dropIndexes) {
+                    if (!(index_name.concat('_1') in index_list)) {
+                        delete dropIndexes[index_name]
+                    }
                 }
+            } catch (error) {
+                logger.info("error while get index");
             }
-        } catch (error) {
-            logger.info("error while get index");
+            if (dropIndexes && Object.keys(dropIndexes).length > 0) {
+                mongooseObject[project_id][model.slug].models.collection.dropIndex(dropIndexes);
+            }
+            const resp = await Table.updateOne({
+                slug: model.slug,
+            },
+                {
+                    $set: {
+                        is_changed: false
+                    }
+                })
         }
-        if (dropIndexes && Object.keys(dropIndexes).length > 0) {
-            mongooseObject[project_id][model.slug].models.collection.dropIndex(dropIndexes);
-        }
-        const resp = await Table.updateOne({
-            slug: model.slug,
-        },
-            {
-                $set: {
-                    is_changed: false
-                }
-            })
+
     }
     return mongooseObject[project_id]
 }

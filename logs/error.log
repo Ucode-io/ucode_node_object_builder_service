@@ -3436,3 +3436,10 @@
   metadata: {}
 }
 >>>>>>> 1b5129428c179cf180b07d1fa516e16974ad3b22
+{
+  message: 'service.object_builder.getList: failed with error: id is not defined',
+  level: 'error',
+  timestamp: '2023-08-09T16:32:45.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

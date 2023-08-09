@@ -1916,3 +1916,10 @@
   metadata: {}
 }
 >>>>>>> 1b5129428c179cf180b07d1fa516e16974ad3b22
+{
+  message: 'failed to find object in table user with given id: fcff8ec0-1864-4a58-892b-6b7d1998549900',
+  level: 'error',
+  timestamp: '2023-08-09T05:16:18.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -37,6 +37,9 @@ describe('Object testing', function () {
                 name: "unit test user"
             })
         })
+
+        const data = struct.decode(res.data)
+        assert.equal(data.data.guid, "fcff8ec0-1864-4a58-892b-6b7d19985499")
     })
 
     it('Get List object', async () => {
@@ -45,6 +48,9 @@ describe('Object testing', function () {
             table_slug: "user",
             data: struct.encode({})
         })
+
+        const data = struct.decode(res.data)
+        assert.property(data, "response")
     })
 
     it('Get Single object', async () => {
@@ -56,6 +62,10 @@ describe('Object testing', function () {
                 table_slug: "user"
             })
         })
+
+        const data = struct.decode(res.data)
+        assert.property(data, "response")
+
     })
 
     it('Update object', async () => {
@@ -70,6 +80,9 @@ describe('Object testing', function () {
                 name: "unit test user after update test case"
             })
         })
+
+        const data = struct.decode(res.data)
+        assert.equal(data.guid, "fcff8ec0-1864-4a58-892b-6b7d19985499")
     })
 
     it('Delete object', async () => {

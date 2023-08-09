@@ -388,7 +388,6 @@ let menuStore = {
         }
 
     }),
-
     createMenuTemplate: catchWrapDb(`${NAMESPACE}.createMenuTemplate`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

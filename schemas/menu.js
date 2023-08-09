@@ -38,10 +38,10 @@ const MenuSchema = mongoose.Schema(
         menu_settings_id: {
             type: String,
         },
-        report_settings_id: {
+        report_setting_id: {
             type: String,
         },
-        pivot_templates_id: {
+        pivot_template_id: {
             type: String,
         }
     },

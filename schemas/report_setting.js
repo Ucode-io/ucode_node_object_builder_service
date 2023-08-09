@@ -99,9 +99,6 @@ const ReportSettingSchema = mongoose.Schema(
     }
 );
 
-const PivotTemplateSetting = mongoose.model("pivot_template_setting", PivotTemplateSettingSchema);
-const ReportSetting = mongoose.model("report_setting", ReportSettingSchema);
-
 module.exports = {
     PivotTemplateSettingSchema,
     ReportSettingSchema

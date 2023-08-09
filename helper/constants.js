@@ -5,14 +5,14 @@ module.exports = {
     BOOLEAN_TYPES: ["CHECKBOX", "SWITCH"],
     MIXED_TYPES: ["MULTISELECT", "LOOKUPS", "DYNAMIC", "FORMULA", "FORMULA_FRONTEND", "LANGUAGE_TYPE"],
     DYNAMIC_TYPES: ["AUTOFILL"],
-    MENU_TYPES: ["TABLE", "LAYOUT", "FOLDER", "MICROFRONTEND", "FAVOURITE", "HIDE", "WEBPAGE", "PIVOT"],
+    MENU_TYPES: ["TABLE", "LAYOUT", "FOLDER", "MICROFRONTEND", "FAVOURITE", "HIDE", "WEBPAGE", "PIVOT", "REPORT_SETTING"],
     STATIC_MENU_IDS: [
-        "c57eedc3-a954-4262-a0af-376c65b5a284", 
-        "c57eedc3-a954-4262-a0af-376c65b5a282", 
-        "c57eedc3-a954-4262-a0af-376c65b5a280", 
-        "c57eedc3-a954-4262-a0af-376c65b5a278", 
-        "c57eedc3-a954-4262-a0af-376c65b5a276", 
-        "c57eedc3-a954-4262-a0af-376c65b5a274",
+        "c57eedc3-a954-4262-a0af-376c65b5a284", //root
+        "c57eedc3-a954-4262-a0af-376c65b5a282", //favorite
+        "c57eedc3-a954-4262-a0af-376c65b5a280", //admin
+        "c57eedc3-a954-4262-a0af-376c65b5a278", //analytics
+        "c57eedc3-a954-4262-a0af-376c65b5a276", //pivot
+        "c57eedc3-a954-4262-a0af-376c65b5a274", //report setting
     ],
 
 

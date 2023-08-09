@@ -740,13 +740,13 @@ let permission = {
         let actionPermissions = await CustomEvent.aggregate(actionPermissionPipeline)
         let actionPermission = {}
         actionPermissions.forEach(el => {
-            if (!actionPermission[el.table_slug]) {
+            if (!actionPermission[el.table_slug] && el?.action_permissions) {
                 actionPermission[el.table_slug] = [el?.action_permissions]
-            } else {
+            } else if (el?.action_permissions){
                 actionPermission[el.table_slug].push(el?.action_permissions)
             }
         })
-        console.log(">>> action permission ", actionPermission)
+    
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
         
@@ -859,6 +859,7 @@ let permission = {
             })
 
             if (actionPermission && actionPermission[table.slug]) {
+                // console.log(">>>>>>>>>>.. ", actionPermission[table.slug])
                 tableCopy.action_permissions = actionPermission[table.slug]
             } else {
                 tableCopy.action_permissions = []

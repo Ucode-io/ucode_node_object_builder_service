@@ -737,10 +737,10 @@ let permission = {
             }
         })
         // console.log(">>>>>>>> test #4 ", new Date())
-        let actionPermissions = await CustomEvent.aggregate(getListActionPermissions)
+        let actionPermissions = await CustomEvent.aggregate(actionPermissionPipeline)
         let actionPermission = actionPermissions[0]
         // console.log(">>>>>>>> test #5 ", new Date())
-        let automaticFilters = await AutomaticFilter.aggregate(actionPermissionPipeline)
+        let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = {}
         automaticFilters.forEach(el => {
             if (!automaticFilter[el.table_slug]) {

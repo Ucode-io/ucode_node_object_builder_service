@@ -667,6 +667,44 @@ let permission = {
               }
             }
         ]
+        const actionPermissionPipeline = [
+            {
+                $project: {
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
+                }
+            },
+            {
+                $lookup: {
+                    from: 'action_permissions',
+                    let: { custonEventID: '$id' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$custom_event_id', '$$custonEventID'] },
+                                        { $eq: ['$role_id', role.guid] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
+                        }
+                    ],
+                    as: 'action_permissions'
+                }
+            },
+            {
+                $project: {
+                    table_slug: "$table_slug",
+                    action_permissions: { $arrayElemAt: ['$action_permissions', 0] }
+                }
+            }
+        ]
 
         let testFieldResp = await Field.aggregate(fieldPipeline)
         let fields = {}
@@ -699,13 +737,19 @@ let permission = {
             }
         })
         // console.log(">>>>>>>> test #4 ", new Date())
-        let actionPermissions = await CustomEvent.aggregate(getListActionPermissions)
-        let actionPermission = actionPermissions[0]
-        // console.log(">>>>>>>> test #5 ", new Date())
+        let actionPermissions = await CustomEvent.aggregate(actionPermissionPipeline)
+        let actionPermission = {}
+        actionPermissions.forEach(el => {
+            if (!actionPermission[el.table_slug]) {
+                actionPermission[el.table_slug] = [el?.action_permissions]
+            } else {
+                actionPermission[el.table_slug].push(el?.action_permissions)
+            }
+        })
+        console.log(">>> action permission ", actionPermission)
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
-        // console.log(">>>>>>>> test #6", new Date())
-
+        
         let tablesList = []
         for (let table of tables) {
             let tableCopy = {
@@ -1705,4 +1749,3 @@ let permission = {
 }
 
 module.exports = permission
-// 

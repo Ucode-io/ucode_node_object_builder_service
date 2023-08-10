@@ -45,6 +45,9 @@ let menuStore = {
                 await menuPermissionTable.insertMany(permissions)
             }
 
+            if(!response.attributes) {
+                response.attributes = {"ok": "abc"}
+            }
             return response;
         } catch (err) {
             throw err

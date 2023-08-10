@@ -2,16 +2,16 @@ const reportSettingStore = require("../storage/mongo/report_setting");
 const catchWrapService = require("../helper/catchWrapService");
 
 const reportSettingService = {
-    GetByIdReportSetting: catchWrapService(`service.field.getByIdReportSetting`, reportSettingStore.getByIdReportSetting),
-    GetListReportSetting: catchWrapService(`service.field.getListReportSetting`, reportSettingStore.getListReportSetting),
-    UpsertReportSetting: catchWrapService(`service.field.upsertReportSetting`, reportSettingStore.upsertReportSetting),
-    DeleteReportSetting: catchWrapService(`service.field.deleteReportSetting`, reportSettingStore.deleteReportSetting),
+    GetByIdReportSetting: catchWrapService(`service.report_setting.getByIdReportSetting`, reportSettingStore.getByIdReportSetting),
+    GetListReportSetting: catchWrapService(`service.report_setting.getListReportSetting`, reportSettingStore.getListReportSetting),
+    UpsertReportSetting: catchWrapService(`service.report_setting.upsertReportSetting`, reportSettingStore.upsertReportSetting),
+    DeleteReportSetting: catchWrapService(`service.report_setting.deleteReportSetting`, reportSettingStore.deleteReportSetting),
 
-    SavePivotTemplate: catchWrapService(`service.field.savePivotTemplate`, reportSettingStore.savePivotTemplate),
-    GetByIdPivotTemplate: catchWrapService(`service.field.getByIdPivotTemplate`, reportSettingStore.getByIdPivotTemplate),
-    GetListPivotTemplate: catchWrapService(`service.field.getListPivotTemplate`, reportSettingStore.getListPivotTemplate),
-    UpsertPivotTemplate: catchWrapService(`service.field.UpsertPivotTemplate`, reportSettingStore.upsertPivotTemplate),
-    RemovePivotTemplate: catchWrapService(`service.field.removePivotTemplate`, reportSettingStore.removePivotTemplate)
+    SavePivotTemplate: catchWrapService(`service.report_setting.savePivotTemplate`, reportSettingStore.savePivotTemplate),
+    GetByIdPivotTemplate: catchWrapService(`service.report_setting.getByIdPivotTemplate`, reportSettingStore.getByIdPivotTemplate),
+    GetListPivotTemplate: catchWrapService(`service.report_setting.getListPivotTemplate`, reportSettingStore.getListPivotTemplate),
+    UpsertPivotTemplate: catchWrapService(`service.report_setting.UpsertPivotTemplate`, reportSettingStore.upsertPivotTemplate),
+    RemovePivotTemplate: catchWrapService(`service.report_setting.removePivotTemplate`, reportSettingStore.removePivotTemplate)
 };
 
 module.exports = reportSettingService;

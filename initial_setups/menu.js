@@ -65,6 +65,28 @@ async function createMenu() {
         "table_id": "",
         "layout_id": "",
         "type": "FOLDER"
+    }, {
+        "label": "Saved",
+        "icon": "folder.svg",
+        "id": "7c26b15e-2360-4f17-8539-449c8829003f",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
+        "table_id": "",
+        "layout_id": "",
+        "type": "FOLDER"
+    }, {
+        "label": "History",
+        "icon": "folder.svg",
+        "id": "e96b654a-1692-43ed-89a8-de4d2357d891",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
+        "table_id": "",
+        "layout_id": "",
+        "type": "FOLDER"
     }]
 
     return menu

@@ -125,6 +125,40 @@ module.exports = async function (data) {
                 "type": "FOLDER"
             })
         }
+        let savedPivotMenu = await Menu.findOne({
+            id: "7c26b15e-2360-4f17-8539-449c8829003f"
+        })
+        if (!savedPivotMenu) {
+            await Menu.create({
+                "label": "Saved",
+                "icon": "folder.svg",
+                "id": "7c26b15e-2360-4f17-8539-449c8829003f",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+        let historyPivotMenu = await Menu.findOne({
+            id: "e96b654a-1692-43ed-89a8-de4d2357d891"
+        })
+        if (!historyPivotMenu) {
+            await Menu.create({
+                "label": "History",
+                "icon": "folder.svg",
+                "id": "e96b654a-1692-43ed-89a8-de4d2357d891",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
 
         console.log("done creating default menu")
 

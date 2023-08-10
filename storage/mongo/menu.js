@@ -114,7 +114,7 @@ let menuStore = {
                 },
                 {
                     '$lookup': {
-                        'from': '',
+                        'from': 'function_service.functions',
                         'localField': 'microfrontend_id',
                         'foreignField': 'id',
                         'as': 'microfrontend'
@@ -153,6 +153,34 @@ let menuStore = {
                             },
                         ],
                         as: "webpage"
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'pivottemplates',
+                        'localField': 'pivot_template_id',
+                        'foreignField': 'id',
+                        'as': 'pivot_template'
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'reportsettings',
+                        'localField': 'pivot_template_id',
+                        'foreignField': 'id',
+                        'as': 'reportsetting'
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$reportsetting',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$pivot_template',
+                        'preserveNullAndEmptyArrays': true
                     }
                 },
                 {

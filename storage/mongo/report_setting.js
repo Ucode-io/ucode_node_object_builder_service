@@ -28,7 +28,7 @@ let reportSettingStore = {
     upsertReportSetting: catchWrapDb(`${NAMESPACE}.upsertReportSetting`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id)
         const ReportSetting = mongoConn.models['ReportSetting']
-        const Menu = mongoConn.models['menu']
+        const Menu = mongoConn.models['object_builder_service.menu']
 
         if (!data) { throw new Error("empty object") }
         if (!data.id) { data.id = v4() }
@@ -86,6 +86,7 @@ let reportSettingStore = {
     savePivotTemplate: catchWrapDb(`${NAMESPACE}.savePivotTemplate`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id)
         const PivotTemplateSetting = mongoConn.models['PivotTemplate']
+        const Menu = mongoConn.models['object_builder_service.menu']
 
         if (!data) { throw new Error("empty object") }
 
@@ -117,6 +118,18 @@ let reportSettingStore = {
         )
 
         let response = await PivotTemplateSetting.findOne({ pivot_table_slug: data.pivot_table_slug })
+
+        let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.main_table_label }, { new: true })
+            if (!menu) {
+                menuStore.create({
+                    project_id: data.project_id,
+                    type: "HISTORY",
+                    label: data.main_table_label,
+                    parent_id: "e96b654a-1692-43ed-89a8-de4d2357d891", //saved pivot folder id
+                    pivot_template_id: data.id,
+                    icon: "chart-simple.svg"
+                })
+            }
 
         return response;
     }),
@@ -178,6 +191,7 @@ let reportSettingStore = {
 
         const mongoConn = await mongoPool.get(data.project_id)
         const PivotTemplateSetting = mongoConn.models['PivotTemplate']
+        const Menu = mongoConn.models['object_builder_service.menu']
 
         if (!data) { throw new Error("empty object") }
 
@@ -207,7 +221,32 @@ let reportSettingStore = {
             },
             { upsert: true }
         )
-
+        if (data.status === 'HISTORY') {
+            let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.main_table_label }, { new: true })
+            if (!menu) {
+                menuStore.create({
+                    project_id: data.project_id,
+                    type: "PIVOT",
+                    label: data.main_table_label,
+                    parent_id: "7c26b15e-2360-4f17-8539-449c8829003f", //history pivot folder id
+                    pivot_template_id: data.id,
+                    icon: "chart-simple.svg"
+                })
+            }
+        } else if (data.status === "SAVED") {
+            let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.main_table_label }, { new: true })
+            if (!menu) {
+                menuStore.create({
+                    project_id: data.project_id,
+                    type: "PIVOT",
+                    label: data.main_table_label,
+                    // icon: "gear.svg",
+                    parent_id: "e96b654a-1692-43ed-89a8-de4d2357d891", //saved pivot folder id
+                    pivot_template_id: data.id,
+                    icon: "chart-simple.svg"
+                })
+            }
+        }
         if (data.instance_id && data.pivot_table_slug != "DEFAULT") {
             await PivotTemplateSetting.updateOne(
                 { id: data.instance_id },
@@ -239,12 +278,18 @@ let reportSettingStore = {
 
         const mongoConn = await mongoPool.get(data.project_id)
         const PivotTemplateSetting = mongoConn.models['PivotTemplate']
+        const Menu = mongoConn.models['object_builder_service.menu']
+        const MenuPermission = mongoConn.models['menu_permission']
 
         if (!data) { throw new Error("empty object") }
 
         if (!data.id) { throw new Error("empty object id") }
 
         await PivotTemplateSetting.deleteOne({ id: data.id })
+        let menuItem = await Menu.findOneAndDelete({ pivot_template_id: data.id })
+        if (menuItem && menuItem.id) {
+            MenuPermission.deleteMany({ menu_id: menuItem.id })
+        }
 
         return {}
     })

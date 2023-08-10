@@ -13,6 +13,8 @@ module.exports = {
         "c57eedc3-a954-4262-a0af-376c65b5a278", //analytics
         "c57eedc3-a954-4262-a0af-376c65b5a276", //pivot
         "c57eedc3-a954-4262-a0af-376c65b5a274", //report setting
+        "7c26b15e-2360-4f17-8539-449c8829003f", //saved pivot
+        "e96b654a-1692-43ed-89a8-de4d2357d891", //history pivot
     ],
 
 

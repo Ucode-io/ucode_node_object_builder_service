@@ -237,6 +237,8 @@ let prepareFunction = {
             console.log("ownd Guid:", ownGuid);
             payload.guid = ownGuid
             data.guid = ownGuid
+        } else {
+            data.guid = payload.guid
         }
         console.log("payload:", payload);
         let fields = await Field.find(

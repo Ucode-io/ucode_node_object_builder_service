@@ -40,7 +40,7 @@ describe('Menu testing', function () {
         assert.equal(res.id, id)
     })
 
-    it('Update object', async () => {
+    it('Update menu', async () => {
         const res = await menuStorage.update({
             id: id,
             project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
@@ -52,7 +52,7 @@ describe('Menu testing', function () {
         assert.equal(res.label, "Unit test label after update")
     })
 
-    it('Delete object', async () => {
+    it('Delete menu', async () => {
         const res = await menuStorage.delete({
             project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
             id: id

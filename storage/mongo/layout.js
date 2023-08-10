@@ -629,16 +629,6 @@ let layoutStore = {
                     }
                 }
             }
-<<<<<<< HEAD
-=======
-
-            if (Object.keys(map_tab).length > 0) {
-                for (let layout of layouts) {
-                    layout.tabs = map_tab[layout.id]
-                }
-            }
-            
->>>>>>> afa80335b825cbae24c519814b4072b11e90213c
             return { layouts: layouts }
 
         } catch (error) {

@@ -66,12 +66,15 @@ let menuStore = {
                 if (!data.label) data.label = table?.label
             }
 
-            const menu = await Menu.updateOne(
+            const menu = await Menu.findOneAndUpdate(
                 {
                     id: data.id,
                 },
                 {
                     $set: data
+                },
+                {
+                    new: true
                 }
             )
 
@@ -267,7 +270,7 @@ let menuStore = {
             }
             const Menu = mongoConn.models['object_builder_service.menu']
 
-            const menu = await Menu.deleteOne({ id: data.id });
+            const menu = await Menu.findOneAndDelete({ id: data.id }, {new: true});
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
             return menu;

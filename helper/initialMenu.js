@@ -57,6 +57,108 @@ module.exports = async function (data) {
                 "type": "FOLDER"
             })
         }
+        let adminMenu = await Menu.findOne({
+            id: "c57eedc3-a954-4262-a0af-376c65b5a280",
+        })
+        if (!adminMenu) {
+            await Menu.create({
+                "label": "Admin",
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+        let analyticsMenu = await Menu.findOne({
+            id: "c57eedc3-a954-4262-a0af-376c65b5a278"
+        })
+        if (!analyticsMenu) {
+            await Menu.create({
+                "label": "Analytics",
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a278",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+        let pivotMenu = await Menu.findOne({
+            id: "c57eedc3-a954-4262-a0af-376c65b5a276"
+        })
+        if (!pivotMenu) {
+            await Menu.create({
+                "label": "Pivot",
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a276",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a278",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+        let reportSettingsMenu = await Menu.findOne({
+            id: "c57eedc3-a954-4262-a0af-376c65b5a274"
+        })
+        if (!reportSettingsMenu) {
+            await Menu.create({
+                "label": "Report Settings",
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a274",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a278",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+        let savedPivotMenu = await Menu.findOne({
+            id: "7c26b15e-2360-4f17-8539-449c8829003f"
+        })
+        if (!savedPivotMenu) {
+            await Menu.create({
+                "label": "Saved",
+                "icon": "folder.svg",
+                "id": "7c26b15e-2360-4f17-8539-449c8829003f",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+        let historyPivotMenu = await Menu.findOne({
+            id: "e96b654a-1692-43ed-89a8-de4d2357d891"
+        })
+        if (!historyPivotMenu) {
+            await Menu.create({
+                "label": "History",
+                "icon": "folder.svg",
+                "id": "e96b654a-1692-43ed-89a8-de4d2357d891",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
 
         console.log("done creating default menu")
 

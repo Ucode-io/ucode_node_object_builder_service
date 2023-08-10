@@ -114,6 +114,14 @@ let menuStore = {
                 },
                 {
                     '$lookup': {
+                        'from': 'function_service.functions',
+                        'localField': 'microfrontend_id',
+                        'foreignField': 'id',
+                        'as': 'microfrontend'
+                    }
+                },
+                {
+                    '$lookup': {
                         from: "web_pages.web_page",
                         let: {
                             webpage_id: "$webpage_id",
@@ -145,6 +153,34 @@ let menuStore = {
                             },
                         ],
                         as: "webpage"
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'pivottemplates',
+                        'localField': 'pivot_template_id',
+                        'foreignField': 'id',
+                        'as': 'pivot_template'
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'reportsettings',
+                        'localField': 'pivot_template_id',
+                        'foreignField': 'id',
+                        'as': 'reportsetting'
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$reportsetting',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$pivot_template',
+                        'preserveNullAndEmptyArrays': true
                     }
                 },
                 {
@@ -262,7 +298,7 @@ let menuStore = {
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            if (data.id === "c57eedc3-a954-4262-a0af-376c65b5a284" || data.id === "c57eedc3-a954-4262-a0af-376c65b5a282") {
+            if (constants.STATIC_MENU_IDS.includes(data.id)) {
                 throw new Error("Cannot delete default menu")
             }
             const Menu = mongoConn.models['object_builder_service.menu']
@@ -298,7 +334,6 @@ let menuStore = {
             throw err
         }
     }),
-
     createMenuSettings: catchWrapDb(`${NAMESPACE}.createMenuSettings`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -381,7 +416,6 @@ let menuStore = {
         }
 
     }),
-
     createMenuTemplate: catchWrapDb(`${NAMESPACE}.createMenuTemplate`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

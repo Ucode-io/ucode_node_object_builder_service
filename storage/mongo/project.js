@@ -82,6 +82,8 @@ let projectStore = {
                 mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                 mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
                 mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
+                mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
+                mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)
@@ -152,6 +154,8 @@ let projectStore = {
                         mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                         mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
                         mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
+                        mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
+                        mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                         await objectBuilder(false, data.project_id)
                         console.log(">>>>>>>> ")
                         await defaultRoles(mongoDBConn, data?.project_id)

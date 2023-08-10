@@ -41,6 +41,12 @@ const MenuSchema = mongoose.Schema(
         attributes: {
             type: mongoose.Schema.Types.Mixed
         },
+        report_setting_id: {
+            type: String,
+        },
+        pivot_template_id: {
+            type: String,
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -849,7 +849,7 @@ let permission = {
                         view_permission: false,
                         edit_permission: false,
                         create_permission: false,
-                        delete_permission: false,roleCopy
+                        delete_permission: false,
                         name: el.name,
                         view_id: el.id
                     })

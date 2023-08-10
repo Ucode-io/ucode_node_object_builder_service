@@ -36,7 +36,10 @@ const LayoutSchema = mongoose.Schema(
         },
         is_default: {
             type: Boolean,
-        }
+        },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -52,7 +52,8 @@ let layoutStore = {
                         type: tab.type,
                         layout_id: layout.id,
                         relation_id: tab.relation_id,
-                        table_slug: resp?.slug
+                        table_slug: resp?.slug,
+                        attributes: tab.attributes,
                     });
                     for (const sectionReq of tabReq.sections) {
                         sectionReq.id = v4()
@@ -628,6 +629,16 @@ let layoutStore = {
                     }
                 }
             }
+<<<<<<< HEAD
+=======
+
+            if (Object.keys(map_tab).length > 0) {
+                for (let layout of layouts) {
+                    layout.tabs = map_tab[layout.id]
+                }
+            }
+            
+>>>>>>> afa80335b825cbae24c519814b4072b11e90213c
             return { layouts: layouts }
 
         } catch (error) {

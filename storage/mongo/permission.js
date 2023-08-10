@@ -739,9 +739,9 @@ let permission = {
         let actionPermissions = await CustomEvent.aggregate(actionPermissionPipeline)
         let actionPermission = {}
         actionPermissions.forEach(el => {
-            if (!actionPermission[el.table_slug]) {
+            if (!actionPermission[el.table_slug] && el?.action_permissions) {
                 actionPermission[el.table_slug] = [el?.action_permissions]
-            } else {
+            } else if(el?.action_permissions) {
                 actionPermission[el.table_slug].push(el?.action_permissions)
             }
         })
@@ -849,7 +849,7 @@ let permission = {
                         view_permission: false,
                         edit_permission: false,
                         create_permission: false,
-                        delete_permission: false,
+                        delete_permission: false,roleCopy
                         name: el.name,
                         view_id: el.id
                     })

@@ -7,7 +7,7 @@ let NAMESPACE = "storage.report_setting";
 
 let reportSettingStore = {
     getByIdReportSetting: catchWrapDb(`${NAMESPACE}.getByIdReportSetting`, async (data) => {
-        const mongoConn = await mongoPool.get(data.project_id)
+        const mongoConn = await mongoPool.get(data.resource_environment_id)
         const ReportSetting = mongoConn.models['ReportSetting']
 
         if (!data.id) { throw new Error("required id") }
@@ -17,7 +17,7 @@ let reportSettingStore = {
     }),
     getListReportSetting: catchWrapDb(`${NAMESPACE}.getListReportSetting`, async (data) => {
 
-        const mongoConn = await mongoPool.get(data.project_id)
+        const mongoConn = await mongoPool.get(data.resource_environment_id)
         const ReportSetting = mongoConn.models['ReportSetting']
 
         let count = await ReportSetting.countDocuments()
@@ -26,7 +26,7 @@ let reportSettingStore = {
         return { count: count, report_settings: response };
     }),
     upsertReportSetting: catchWrapDb(`${NAMESPACE}.upsertReportSetting`, async (data) => {
-        const mongoConn = await mongoPool.get(data.project_id)
+        const mongoConn = await mongoPool.get(data.resource_environment_id)
         const ReportSetting = mongoConn.models['ReportSetting']
         const Menu = mongoConn.models['object_builder_service.menu']
 
@@ -35,7 +35,7 @@ let reportSettingStore = {
         let menu = await Menu.findOneAndUpdate({ report_setting_id: data.id }, { label: data.main_table_label }, { new: true })
         if (!menu) {
             menuStore.create({
-                project_id: data.project_id,
+                project_id: data.resource_environment_id,
                 report_setting_id: data.id,
                 type: "REPORT_SETTING",
                 label: data.main_table_label,
@@ -66,7 +66,7 @@ let reportSettingStore = {
     }),
     deleteReportSetting: catchWrapDb(`${NAMESPACE}.deleteReportSetting`, async (data) => {
 
-        const mongoConn = await mongoPool.get(data.project_id)
+        const mongoConn = await mongoPool.get(data.resource_environment_id)
         const ReportSetting = mongoConn.models['ReportSetting']
         const Menu = mongoConn.models['menu']
         const MenuPermission = mongoConn.models['menu_permission']
@@ -84,7 +84,7 @@ let reportSettingStore = {
         return {}
     }),
     savePivotTemplate: catchWrapDb(`${NAMESPACE}.savePivotTemplate`, async (data) => {
-        const mongoConn = await mongoPool.get(data.project_id)
+        const mongoConn = await mongoPool.get(data.resource_environment_id)
         const PivotTemplateSetting = mongoConn.models['PivotTemplate']
         const Menu = mongoConn.models['object_builder_service.menu']
 
@@ -122,7 +122,7 @@ let reportSettingStore = {
         let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.main_table_label }, { new: true })
             if (!menu) {
                 menuStore.create({
-                    project_id: data.project_id,
+                    project_id: data.resource_environment_id,
                     type: "HISTORY",
                     label: data.main_table_label,
                     parent_id: "e96b654a-1692-43ed-89a8-de4d2357d891", //saved pivot folder id
@@ -135,7 +135,7 @@ let reportSettingStore = {
     }),
     getByIdPivotTemplate: catchWrapDb(`${NAMESPACE}.getByIdPivotTemplate`, async (data) => {
 
-        const mongoConn = await mongoPool.get(data.project_id)
+        const mongoConn = await mongoPool.get(data.resource_environment_id)
         const PivotTemplateSetting = mongoConn.models['PivotTemplate']
 
         if (!data.id) { throw new Error("empty object id") }
@@ -169,7 +169,7 @@ let reportSettingStore = {
     }),
     getListPivotTemplate: catchWrapDb(`${NAMESPACE}.getListPivotTemplate`, async (data) => {
 
-        const mongoConn = await mongoPool.get(data.project_id)
+        const mongoConn = await mongoPool.get(data.resource_environment_id)
         const PivotTemplateSetting = mongoConn.models['PivotTemplate']
         if (data.status == "HISTORY") {
             let response = await PivotTemplateSetting.find({ status: data.status }).sort({ pivot_table_slug: 1 })
@@ -189,7 +189,7 @@ let reportSettingStore = {
     }),
     upsertPivotTemplate: catchWrapDb(`${NAMESPACE}.upsertPivotTemplate`, async (data) => {
 
-        const mongoConn = await mongoPool.get(data.project_id)
+        const mongoConn = await mongoPool.get(data.resource_environment_id)
         const PivotTemplateSetting = mongoConn.models['PivotTemplate']
         const Menu = mongoConn.models['object_builder_service.menu']
 
@@ -225,7 +225,7 @@ let reportSettingStore = {
             let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.main_table_label }, { new: true })
             if (!menu) {
                 menuStore.create({
-                    project_id: data.project_id,
+                    project_id: data.resource_environment_id,
                     type: "PIVOT",
                     label: data.main_table_label,
                     parent_id: "7c26b15e-2360-4f17-8539-449c8829003f", //history pivot folder id
@@ -237,7 +237,7 @@ let reportSettingStore = {
             let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.main_table_label }, { new: true })
             if (!menu) {
                 menuStore.create({
-                    project_id: data.project_id,
+                    project_id: data.resource_environment_id,
                     type: "PIVOT",
                     label: data.main_table_label,
                     // icon: "gear.svg",
@@ -276,7 +276,7 @@ let reportSettingStore = {
     }),
     removePivotTemplate: catchWrapDb(`${NAMESPACE}.removePivotTemplate`, async (data) => {
 
-        const mongoConn = await mongoPool.get(data.project_id)
+        const mongoConn = await mongoPool.get(data.resource_environment_id)
         const PivotTemplateSetting = mongoConn.models['PivotTemplate']
         const Menu = mongoConn.models['object_builder_service.menu']
         const MenuPermission = mongoConn.models['menu_permission']

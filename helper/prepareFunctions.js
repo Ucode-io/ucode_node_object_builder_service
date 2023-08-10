@@ -169,7 +169,10 @@ let prepareFunction = {
         let payload = new tableInfo.models(data);
         if (ownGuid) {
             payload.guid = ownGuid
+        } else {
+            data.guid = payload.guid
         }
+        
         let fields = await Field.find(
             {
                 table_id: tableData?.id

@@ -30,7 +30,7 @@ const autoConn = async (k8s_namespace) => {
                     function: "autoConn",
                     error: err
                 });
-                console.log("err: ", err)
+                console.log("err: >> while company service", err)
                 reject(err);
                 return;
             }

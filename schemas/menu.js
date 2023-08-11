@@ -37,6 +37,9 @@ const MenuSchema = mongoose.Schema(
         },
         menu_settings_id: {
             type: String,
+        },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed,
         }
     },
     {

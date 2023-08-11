@@ -213,7 +213,7 @@ let objectBuilder = {
                     if (resultFormula.length) {
                         if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
                             if (!isNaN(resultFormula[0].res)) {
-                                resultFormula[0]?.res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                                resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
                             }
                         }
                         if (resultFormula[0]?.res && output[field.slug] !== resultFormula[0].res) {
@@ -1656,7 +1656,7 @@ let objectBuilder = {
                     if (resultFormula.length) {
                         if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
                             if (!isNaN(resultFormula[0].res)) {
-                                output[field.slug] = resultFormula[0].res.toFixed(attributes.number_of_rounds)
+                                resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
                             }
                         } else {
                             output[field.slug] = resultFormula[0].res

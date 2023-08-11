@@ -24,6 +24,7 @@ service ReportSettingService {
 // Report settings messages
 message AppReportSettingPrimaryKey {
     string id = 1;
+    string resource_environment_id = 2;
 }
 
 message TableSetting {
@@ -96,6 +97,7 @@ message AppReportSetting {
 
 message UpsertAppReportSettingRequest {
     string id = 1;
+    string resource_environment_id = 2;
     string main_table_label = 3;
     string main_table_slug = 4;
     repeated TableSetting rows = 5;
@@ -107,8 +109,9 @@ message UpsertAppReportSettingRequest {
 }
 
 message GetListReportSettingRequest {
-    int32 limit = 1;
+    string resource_environment_id = 1;
     int32 offset = 2;
+    int32 limit = 3;
 }
 
 message GetListReportSettingResponse {
@@ -119,11 +122,13 @@ message GetListReportSettingResponse {
 // Template messages
 message PivotTemplatePrimaryKey {
     string id = 1;
+    string resource_environment_id = 2;
     string from_date = 3;
     string to_date = 4;
 }
 
 message SavePivotTemplateRequest {
+    string resource_environment_id = 1;
     string pivot_table_slug = 2;
     string from_date = 3;
     string to_date = 4;
@@ -134,6 +139,7 @@ message SavePivotTemplateRequest {
 
 message PivotTemplateSetting {
     string id = 1;
+    string resource_environment_id = 2;
     string pivot_table_slug = 3;
     string main_table_label = 4;
     string main_table_slug = 5;
@@ -182,9 +188,11 @@ message FilterPivotTemplateSetting {
 
 message RemovePivotTemplateSettingRequest {
     string id = 1;
+    string resource_environment_id = 2;
 }
 
 message GetListPivotTemplateRequest {
+    string resource_environment_id = 1;
     string status = 2; // history, saved
 }
 

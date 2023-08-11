@@ -200,7 +200,6 @@ let fieldStore = {
             tableRes.fields = fields
             event.payload = tableRes
             event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldCreateV1, event)
 
 
             return response;
@@ -254,12 +253,15 @@ let fieldStore = {
                 }
             }
             // console.log("DATA::::::::::", data)
-            const field = await Field.updateOne(
+            const field = await Field.findOneAndUpdate(
                 {
                     id: data.id,
                 },
                 {
                     $set: data
+                },
+                {
+                    new: true
                 }
             )
             let fieldPermissions = (await ObjectBuilder(true, data.project_id))["field_permission"]
@@ -294,7 +296,6 @@ let fieldStore = {
             event.payload = fieldRes
 
             event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldUpdateV1, event)
 
             return field;
         } catch (err) {
@@ -530,7 +531,7 @@ let fieldStore = {
             const deletedField = await Field.findOne({ id: data.id })
             // const table = await Table.findOne({ id: deletedField.table_id,  })
             const table = await tableVersion(mongoConn, { id: deletedField.table_id }, data.version_id, true)
-            const field = await Field.deleteOne({ id: data.id });
+            const field = await Field.findOneAndDelete({ id: data.id }, {new: true});
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const response = await fieldPermissionTable?.models.deleteMany({
                 field_id: data.id
@@ -551,7 +552,6 @@ let fieldStore = {
             event.payload = fieldRes
 
             event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldDeleteV1, event)
 
             return field;
 

@@ -24,7 +24,7 @@ describe('Field testing', function () {
         assert.equal(res.id, id)
     })
    
-    it('Get List getAll', async () => {
+    it('Get List field', async () => {
         const res = await fieldStorage.getAll({
             project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
             offset: 0,

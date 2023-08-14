@@ -316,17 +316,17 @@ let permission = {
                 }
             },
             {
-              $project: {
-                id: "$id",
-                slug: '$slug',
-                label: "$label",
-                show_in_menu: "$show_in_menu",
-                is_changed: "$is_cached",
-                icon: "$icon",
-                is_changed: "$is_cached",
-                is_system: "$is_system",
-                record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
-              }
+                $project: {
+                    id: "$id",
+                    slug: '$slug',
+                    label: "$label",
+                    show_in_menu: "$show_in_menu",
+                    is_changed: "$is_cached",
+                    icon: "$icon",
+                    is_changed: "$is_cached",
+                    is_system: "$is_system",
+                    record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
+                }
             }
         ]
 
@@ -629,42 +629,42 @@ let permission = {
         ]
         const viewPipeline = [
             {
-              $project: {
-                __v: 0,
-                _id: 0,
-                created_at: 0,
-                updated_at: 0
-              }
+                $project: {
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
+                }
             },
             {
-              $lookup: {
-                from: 'view_permissions', 
-                let: { viewID: '$id' },
-                pipeline: [
-                  {
-                    $match: {
-                      $expr: {
-                        $and: [
-                          { $eq: ['$view_id', '$$viewID'] },
-                          { $eq: ['$role_id', role.guid] }
-                        ]
-                      }
-                    }
-                  },
-                  {
-                    $limit: 1
-                  }
-                ],
-                as: 'view_permissions'
-              }
+                $lookup: {
+                    from: 'view_permissions',
+                    let: { viewID: '$id' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$view_id', '$$viewID'] },
+                                        { $eq: ['$role_id', role.guid] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
+                        }
+                    ],
+                    as: 'view_permissions'
+                }
             },
             {
-              $project: {
-                name: "$name",
-                id: "$id",
-                table_slug: "$table_slug",
-                view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
-              }
+                $project: {
+                    name: "$name",
+                    id: "$id",
+                    table_slug: "$table_slug",
+                    view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
+                }
             }
         ]
         const actionPermissionPipeline = [
@@ -742,14 +742,14 @@ let permission = {
         actionPermissions.forEach(el => {
             if (!actionPermission[el.table_slug] && el?.action_permissions) {
                 actionPermission[el.table_slug] = [el?.action_permissions]
-            } else if (el?.action_permissions){
+            } else if (el?.action_permissions) {
                 actionPermission[el.table_slug].push(el?.action_permissions)
             }
         })
-    
+
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
-        
+
         let tablesList = []
         for (let table of tables) {
             let tableCopy = {
@@ -875,7 +875,7 @@ let permission = {
         let end = new Date()
         // console.log("tablesList length:::", tablesList.length);
         roleCopy.tables = tablesList
-        roleCopy.global_permission = await CustomPermission?.findOne({role_id: roleCopy.guid}) || {}
+        roleCopy.global_permission = await CustomPermission?.findOne({ role_id: roleCopy.guid }) || {}
         // console.log("\n\n time ", start, "\n", end, "\n", end - start)
         // return {project_id: "asd", data: {}}
         return { project_id: req.project_id, data: roleCopy }
@@ -1184,7 +1184,7 @@ let permission = {
         if (!role) {
             throw ErrRoleNotFound
         }
-        let fieldPermissions = [], viewPermissions = [], actionPermissions = [],  tableViewPermissions = []
+        let fieldPermissions = [], viewPermissions = [], actionPermissions = [], tableViewPermissions = []
         let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteViewPermissions = [], bulkWriteActionPermissions = [], bulkWriteTableViewPermissions = [];
         let automaticFilters = {}
         // console.log(">>>>>>>>>>>>>> test #4 ", new Date())
@@ -1295,7 +1295,7 @@ let permission = {
         }
         // console.log(">>>>>>>>>>>>>> test #7 ",  new Date())
         for (let action_permission of (actionPermissions || [])) {
-            
+
             let documentActionPermission = {
                 permission: action_permission.permission,
                 custom_event_id: action_permission.custom_event_id,
@@ -1362,11 +1362,11 @@ let permission = {
             role_id: roleId,
         }, {
             $set: req.data.global_permission
-        }, { upsert: true }) 
+        }, { upsert: true })
 
         // console.log(">>>>>>>>>>>>>> test #9 ",  new Date())
 
-        await AutomaticFilter.deleteMany({role_id: roleId})
+        await AutomaticFilter.deleteMany({ role_id: roleId })
         if (tableFilters.length) {
             await AutomaticFilter.insertMany(tableFilters)
         }
@@ -1619,7 +1619,7 @@ let permission = {
             }
         )
         if (!req.role_id || req.role_id === req.current_role_id) {
-            return {current_user_permission}
+            return { current_user_permission }
         }
         const selected_user_permission = await getPermissionByTableSlug(
             {
@@ -1628,7 +1628,7 @@ let permission = {
                 project_id: req.project_id
             }
         )
-        return {current_user_permission, selected_user_permission}
+        return { current_user_permission, selected_user_permission }
     }),
     updatePermissionsByTableSlug: catchWrapDbObjectBuilder(`${NAMESPACE}.updatePermissionsByTableSlug`, async (req) => {
         // console.log(">>>>>>>>>>>>>> test #1 ", new Date())
@@ -1744,9 +1744,24 @@ let permission = {
         const mongoConn = await mongoPool.get(req.project_id)
         const GlobalPermission = mongoConn.models['global_permission']
 
-        const resp = await GlobalPermission?.findOne({role_id: req.role_id}).lean() || {}
+        const resp = await GlobalPermission?.findOne({ role_id: req.role_id }).lean() || {}
 
         return resp
+    }),
+    getTablePermission: catchWrapDbObjectBuilder(`${NAMESPACE}.getTablePermission`, async (req) => {
+        const mongoConn = await mongoPool.get(req.resource_environment_id)
+        const tablePermission = mongoConn.models['record_permission']
+        const resp = await tablePermission?.findOne(
+            {
+                role_id: req.role_id,
+                [req.method]: "Yes",
+                table_slug: req.table_slug
+            }).lean()
+        if (resp) {
+            return { is_have_permission: true }
+        } else {
+            return { is_have_permission: false }
+        }
     }),
 }
 

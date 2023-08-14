@@ -799,7 +799,7 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        console.log("test before::", new Date());
+        console.log("test get-list before::", new Date(), req.table_slug);
         const mongoConn = await mongoPool.get(req.project_id)
         // console.log("test prod obj builder");
 
@@ -813,7 +813,7 @@ let objectBuilder = {
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-        const allTables = (await ObjectBuilder(true, req.project_id))
+        const allTables = (await c(true, req.project_id))
         const viewPermission = allTables["view_permission"]
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
@@ -1532,9 +1532,9 @@ let objectBuilder = {
         }
 
         const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
-        console.log("test after::", new Date());
+        console.log("test get-list after::", new Date(), req.table_slug);
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-        return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
+        return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage

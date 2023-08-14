@@ -804,7 +804,7 @@ let objectBuilder = {
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-        const allTables = (await c(true, req.project_id))
+        const allTables = (await ObjectBuilder(true, req.project_id))
         const viewPermission = allTables["view_permission"]
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {

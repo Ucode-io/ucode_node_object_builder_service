@@ -46,13 +46,13 @@ module.exports = async function (data) {
         }
         await ViewPermission.bulkWrite(bulkWriteViewPermissions)
 
-        await RecordPermission.updateMany({}, {
-            view_create: "Yes",
-            language_btn: "Yes",
-            automation: "Yes",
-            settings: "Yes",
-            share_modal: "Yes"
-        })
+        // await RecordPermission.updateMany({}, {
+        //     view_create: "Yes",
+        //     language_btn: "Yes",
+        //     automation: "Yes",
+        //     settings: "Yes",
+        //     share_modal: "Yes"
+        // })
         console.log("Check permission function done")
     } catch (err) {
         console.log("checkPermission err >>", err)

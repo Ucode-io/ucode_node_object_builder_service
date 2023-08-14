@@ -799,6 +799,7 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
+        console.log("test before::", new Date());
         const mongoConn = await mongoPool.get(req.project_id)
         // console.log("test prod obj builder");
 
@@ -915,7 +916,7 @@ let objectBuilder = {
                                 if (!many2manyRelation) {
                                     params[autoFilter.custom_field] = objFromAuth.object_id
                                 } else {
-                                    params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    params[autoFilter.custom_field] = { $in: objFromAuth.object_id }
                                 }
                             } else {
                                 params["guid"] = objFromAuth.object_id
@@ -1531,6 +1532,7 @@ let objectBuilder = {
         }
 
         const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
+        console.log("test after::", new Date());
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
     }),

@@ -208,10 +208,15 @@ let objectBuilder = {
                     }
                     const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                     if (resultFormula.length) {
-                        if (output[field.slug] !== resultFormula[0].res) {
+                        if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                            if (!isNaN(resultFormula[0].res)) {
+                                resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                            }
+                        }
+                        if (resultFormula[0]?.res && output[field.slug] !== resultFormula[0].res) {
+                            output[field.slug] = resultFormula[0].res
                             isChanged = true
                         }
-                        output[field.slug] = resultFormula[0].res
                     } else {
                         output[field.slug] = 0
                         isChanged = true
@@ -1461,10 +1466,16 @@ let objectBuilder = {
                         }
                         const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                         if (resultFormula.length) {
-                            if (res[field.slug] !== resultFormula[0].res) {
+                            if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                                if (!isNaN(resultFormula[0].res)) {
+                                    resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                                }
+                            }
+                            if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
+                                res[field.slug] = resultFormula[0].res
                                 isChanged = true
                             }
-                            res[field.slug] = resultFormula[0].res
+
                         } else {
                             res[field.slug] = 0
                             isChanged = true
@@ -1639,7 +1650,13 @@ let objectBuilder = {
                     }
                     const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                     if (resultFormula.length) {
-                        output[field.slug] = resultFormula[0].res
+                        if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                            if (!isNaN(resultFormula[0].res)) {
+                                resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                            }
+                        } else {
+                            output[field.slug] = resultFormula[0].res
+                        }
                     } else {
                         output[field.slug] = 0
                     }

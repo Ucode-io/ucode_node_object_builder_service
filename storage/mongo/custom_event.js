@@ -29,6 +29,7 @@ let customEventStore = {
         const table = await Table.findOne({
             slug: data.table_slug,
         });
+        
         const fieldRequest = {
             id: v4(),
             slug: func.path + "_disable",
@@ -72,12 +73,15 @@ let customEventStore = {
             data.attributes = struct.decode(data.attributes);
         }
 
-        const custom_event = await CustomEvent.updateOne(
+        const custom_event = await CustomEvent.findOneAndUpdate(
             {
                 id: data.id,
             },
             {
                 $set: data,
+            },
+            {
+                new: true
             }
         );
         let actionPermissions = (await ObjectBuilder(true, data.project_id))["action_permission"]
@@ -148,7 +152,7 @@ let customEventStore = {
 
         const resp = await CustomEvent.findOne({ id: data.id });
         const table = await Table.findOne({ slug: resp.table_slug });
-        const custom_event = await CustomEvent.deleteOne({ id: data.id });
+        const custom_event = await CustomEvent.findOneAndDelete({ id: data.id });
         const func = await Function.findOne({ id: resp.event_path });
         await Field.deleteOne({
             table_id: table.id,

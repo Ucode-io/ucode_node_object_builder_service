@@ -166,7 +166,7 @@ let menuStore = {
                 {
                     '$lookup': {
                         'from': 'reportsettings',
-                        'localField': 'pivot_template_id',
+                        'localField': 'report_setting_id',
                         'foreignField': 'id',
                         'as': 'reportsetting'
                     }

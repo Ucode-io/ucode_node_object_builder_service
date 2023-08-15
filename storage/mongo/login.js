@@ -388,7 +388,7 @@ let loginStore = {
         // console.log("TEST:::::::::2", JSON.stringify(clientType, null, 2))
         let params = {}
         params["guid"] = req.user_id
-        params["project_id"] = req.project_id
+        // params["project_id"] = req.project_id
         params["client_type_id"] = req.client_type
 
         const userTable = allTables["user"]

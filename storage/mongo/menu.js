@@ -114,14 +114,6 @@ let menuStore = {
                 },
                 {
                     '$lookup': {
-                        'from': 'function_service.functions',
-                        'localField': 'microfrontend_id',
-                        'foreignField': 'id',
-                        'as': 'microfrontend'
-                    }
-                },
-                {
-                    '$lookup': {
                         from: "web_pages.web_page",
                         let: {
                             webpage_id: "$webpage_id",
@@ -249,6 +241,8 @@ let menuStore = {
                     '$addFields': {
                         'data': {
                             'table': '$table',
+                            'pivot_template': '$pivot_template',
+                            'reportsetting': '$reportsetting',
                             'microfrontend': '$microfrontend',
                             'webpage': '$webpage.webpage',
                             'permission': '$permission'

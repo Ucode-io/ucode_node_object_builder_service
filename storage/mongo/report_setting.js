@@ -68,7 +68,7 @@ let reportSettingStore = {
 
         const mongoConn = await mongoPool.get(data.resource_environment_id)
         const ReportSetting = mongoConn.models['ReportSetting']
-        const Menu = mongoConn.models['menu']
+        const Menu = mongoConn.models['object_builder_service.menu']
         const MenuPermission = mongoConn.models['menu_permission']
 
         if (!data) { throw new Error("empty object") }

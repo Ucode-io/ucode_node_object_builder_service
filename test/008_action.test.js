@@ -24,7 +24,7 @@ describe('Action testing', function () {
         const res = await actionStorage.create({
             project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
             id: id,
-            table_slug: "setting.timezones",
+            table_slug: "client_platform",
             disable: false,
             label: "Unit test label",
             type: "SINGLE_LINE",
@@ -43,7 +43,7 @@ describe('Action testing', function () {
             project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
             offset: 0,
             limit: 5,
-            table_slug: "setting.timezones"
+            table_slug: "client_platform"
         })
       
         assert.ok(res.count > 0, "Response must have count")
@@ -54,7 +54,7 @@ describe('Action testing', function () {
         const res = await actionStorage.update({
             project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
             id: id,
-            table_slug: "setting.timezones",
+            table_slug: "client_platform",
             disable: false,
             label: "Unit test action label after update",
             type: "SINGLE_LINE",
@@ -69,9 +69,15 @@ describe('Action testing', function () {
     })
 
     it('Delete action', async () => {
+
         const res = await actionStorage.delete({
             project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
             id: id
+        })
+
+        await funcStorage.delete({
+            project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
+            id: "unit_test_action_event_path"
         })
 
         assert.equal(res.id, id)

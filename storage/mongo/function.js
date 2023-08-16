@@ -101,9 +101,9 @@ let functionStore = {
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            const Function = mongoConn.models['function_service.function.functionction']
+            const Function = mongoConn.models['function_service.function']
 
-            const func = await Function.deleteOne({ id: data.id });
+            const func = await Function.findOneAndDelete({ id: data.id }, {new: true});
 
             return func;
 

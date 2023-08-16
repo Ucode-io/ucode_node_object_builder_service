@@ -21,11 +21,11 @@ describe('Relation testing', function () {
             let payload = {
                 project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
                 id: id,
-                "table_from": "setting.timezones",
+                "table_from": "client_platform",
                 "auto_filters": [],
                 "action_relations": [],
                 "attributes": {},
-                "table_to": "setting.languages",
+                "table_to": "role",
                 "type": type,
                 "default_limit": "",
                 "multiple_insert": false,
@@ -902,7 +902,7 @@ describe('Relation testing', function () {
                     }
                 ],
                 "view_fields": [],
-                "relation_table_slug": "setting.timezones",
+                "relation_table_slug": "client_platform",
                 "columns": [],
                 "quick_filters": [],
                 "default_values": [],
@@ -924,7 +924,7 @@ describe('Relation testing', function () {
             project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
             offset: 0,
             limit: 5,
-            table_slug: "setting.languages"
+            table_slug: "client_platform"
         })
         
         assert.ok(res.relations?.length >= 5, "Response must have length in menus key")
@@ -935,11 +935,11 @@ describe('Relation testing', function () {
             const res = await relationStorage.update({
                 project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
                 id: id,
-                "table_from": "setting.timezones",
+                "table_from": "client_platform",
                 "auto_filters": [],
                 "action_relations": [],
                 "attributes": {},
-                "table_to": "setting.languages",
+                "table_to": "role",
                 "default_limit": "Unit test default limit after update",
                 "multiple_insert": false,
                 "filtersList": [
@@ -1815,7 +1815,7 @@ describe('Relation testing', function () {
                     }
                 ],
                 "view_fields": ["something"],
-                "relation_table_slug": "setting.timezones",
+                "relation_table_slug": "client_platform",
                 "columns": [],
                 "quick_filters": [],
                 "default_values": [],

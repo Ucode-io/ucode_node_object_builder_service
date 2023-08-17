@@ -151,7 +151,7 @@ let fieldStore = {
             }
             const field = new Field(data);
             const response = await field.save();
-            const resp = await Table.updateOne({
+            await Table.updateOne({
                 id: data.table_id,
 
             },
@@ -180,27 +180,27 @@ let fieldStore = {
                 const fieldPermission = new fieldPermissionTable.models(permission)
                 let resp = fieldPermission.save()
             }
-            let event = {}
-            let tableRes = {}
-            let fields = []
-            tableRes.slug = table.slug
+            // let event = {}
+            // let tableRes = {}
+            // let fields = []
+            // tableRes.slug = table.slug
 
-            let type = converter(field.type);
-            if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
-                type = "String"
-            }
-            if (field.slug !== "guid") {
-                fields.push({
-                    slug: field.slug,
-                    type: type,
-                })
-            }
+            // let type = converter(field.type);
+            // if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
+            //     type = "String"
+            // }
+            // if (field.slug !== "guid") {
+            //     fields.push({
+            //         slug: field.slug,
+            //         type: type,
+            //     })
+            // }
 
 
-            tableRes.fields = fields
-            event.payload = tableRes
-            event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldCreateV1, event)
+            // tableRes.fields = fields
+            // event.payload = tableRes
+            // event.project_id = data.project_id
+            // await sendMessageToTopic(topics.TopicFieldCreateV1, event)
 
 
             return response;
@@ -265,7 +265,7 @@ let fieldStore = {
             let fieldPermissions = (await ObjectBuilder(true, data.project_id))["field_permission"]
             await fieldPermissions.models.updateMany({ field_id: data.id }, { $set: { label: data.label } })
 
-            const resp = await Table.updateOne({
+            await Table.updateOne({
                 id: data.table_id,
             },
                 {
@@ -273,28 +273,28 @@ let fieldStore = {
                         is_changed: true
                     }
                 })
-            const table = await Table.findOne({
-                id: data.table_id,
+            // const table = await Table.findOne({
+            //     id: data.table_id,
 
-            });
-            let event = {}
-            let fieldRes = {}
-            let fieldToAnalytics = {}
-            let type = converter(data.type);
-            fieldRes.table_slug = table.slug
-            fieldRes.older_field_name = fieldBeforUpdate.slug
+            // });
+            // let event = {}
+            // let fieldRes = {}
+            // let fieldToAnalytics = {}
+            // let type = converter(data.type);
+            // fieldRes.table_slug = table.slug
+            // fieldRes.older_field_name = fieldBeforUpdate.slug
 
-            if (field.slug !== "guid") {
-                fieldToAnalytics = {
-                    slug: data.slug,
-                    type: type,
-                }
-            }
-            fieldRes.field = fieldToAnalytics
-            event.payload = fieldRes
+            // if (field.slug !== "guid") {
+            //     fieldToAnalytics = {
+            //         slug: data.slug,
+            //         type: type,
+            //     }
+            // }
+            // fieldRes.field = fieldToAnalytics
+            // event.payload = fieldRes
 
-            event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldUpdateV1, event)
+            // event.project_id = data.project_id
+            // await sendMessageToTopic(topics.TopicFieldUpdateV1, event)
 
             return field;
         } catch (err) {
@@ -536,22 +536,22 @@ let fieldStore = {
                 field_id: data.id
             })
 
-            let event = {}
-            let fieldRes = {}
-            let fieldToAnalytics = {}
-            let type = converter(deletedField.type);
-            fieldRes.table_slug = table.slug
-            if (field.slug !== "guid") {
-                fieldToAnalytics = {
-                    slug: deletedField.slug,
-                    type: type,
-                }
-            }
-            fieldRes.field = fieldToAnalytics
-            event.payload = fieldRes
+            // let event = {}
+            // let fieldRes = {}
+            // let fieldToAnalytics = {}
+            // let type = converter(deletedField.type);
+            // fieldRes.table_slug = table.slug
+            // if (field.slug !== "guid") {
+            //     fieldToAnalytics = {
+            //         slug: deletedField.slug,
+            //         type: type,
+            //     }
+            // }
+            // fieldRes.field = fieldToAnalytics
+            // event.payload = fieldRes
 
-            event.project_id = data.project_id
-            await sendMessageToTopic(topics.TopicFieldDeleteV1, event)
+            // event.project_id = data.project_id
+            // await sendMessageToTopic(topics.TopicFieldDeleteV1, event)
 
             return field;
 

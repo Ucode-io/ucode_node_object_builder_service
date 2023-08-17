@@ -10,7 +10,7 @@ let formulaFunction = {
        
         let parser = new Parser()
         let computedFormula = attributes.formula
-        console.log("test #00 >> ", computedFormula)
+        // console.log("test #00 >> ", computedFormula)
         let newValue
         sortedFields.forEach(el => {
             let value = object[el.slug] ?? 0;

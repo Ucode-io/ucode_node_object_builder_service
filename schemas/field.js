@@ -90,5 +90,6 @@ FieldSchema.virtual("field_permissions", {
     justOne: true,
 })
 
-FieldSchema.index({ id: 1, commit_id: -1 }, { unique: true })
+FieldSchema.index({id: 1, commit_id: -1}, {unique: true})
+FieldSchema.index({ slug: 1, table_id: 1, }, { unique: true });
 module.exports = FieldSchema

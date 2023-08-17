@@ -741,10 +741,11 @@ let permission = {
         actionPermissions.forEach(el => {
             if (!actionPermission[el.table_slug] && el?.action_permissions) {
                 actionPermission[el.table_slug] = [el?.action_permissions]
-            } else if(el?.action_permissions) {
+            } else if (el?.action_permissions){
                 actionPermission[el.table_slug].push(el?.action_permissions)
             }
         })
+    
         let automaticFilters = await AutomaticFilter.aggregate(getAutoFilters)
         let automaticFilter = automaticFilters[0]
         
@@ -857,6 +858,7 @@ let permission = {
             })
 
             if (actionPermission && actionPermission[table.slug]) {
+                // console.log(">>>>>>>>>>.. ", actionPermission[table.slug])
                 tableCopy.action_permissions = actionPermission[table.slug]
             } else {
                 tableCopy.action_permissions = []
@@ -874,6 +876,7 @@ let permission = {
         roleCopy.tables = tablesList
         roleCopy.global_permission = await CustomPermission?.findOne({role_id: roleCopy.guid}) || {}
         // console.log("\n\n time ", start, "\n", end, "\n", end - start)
+        // return {project_id: "asd", data: {}}
         return { project_id: req.project_id, data: roleCopy }
 
     }),

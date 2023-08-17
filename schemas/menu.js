@@ -39,8 +39,8 @@ const MenuSchema = mongoose.Schema(
             type: String,
         },
         attributes: {
-            type: mongoose.Schema.Types.Mixed,
-        }
+            type: mongoose.Schema.Types.Mixed
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

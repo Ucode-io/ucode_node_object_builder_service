@@ -13128,4 +13128,35 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> 0b1dfe7167e0b1bf5b00660e8b05a5fb77e11c8c
+=======
+{
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "8e692351-cf27-472d-8cc4-5ec1907aecbd", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-08-17T05:13:00.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "8e692351-cf27-472d-8cc4-5ec1907aecbd", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-08-17T05:18:18.265Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "8e692351-cf27-472d-8cc4-5ec1907aecbd", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-08-17T05:54:07.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.update: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-08-17T05:55:44.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 5f770448ba78a015ab19fae39cc78a7c02c1df40

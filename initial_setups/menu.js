@@ -33,7 +33,7 @@ async function createMenu() {
         "table_id": "",
         "layout_id": "",
         "type": "FOLDER"
-    },{
+    }, {
         "label": "Analytics",
         "icon": "folder.svg",
         "id": "c57eedc3-a954-4262-a0af-376c65b5a278",
@@ -88,7 +88,63 @@ async function createMenu() {
         "table_id": "",
         "layout_id": "",
         "type": "FOLDER"
-    }]
+    }, {
+        "label": "User and Permission",
+        "icon": "users.svg",
+        "id": "a8de4296-c8c3-48d6-bef0-ee17057733d6",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+        "table_id": "",
+        "layout_id": "",
+        "type": "FOLDER"
+    }, {
+        "label": "Database",
+        "icon": "database.svg",
+        "id": "d1b3b349-4200-4ba9-8d06-70299795d5e6",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+        "table_id": "",
+        "layout_id": "",
+        "type": "FOLDER"
+    }, {
+        "label": "Code",
+        "icon": "code.svg",
+        "id": "f7d1fa7d-b857-4a24-a18c-402345f65df8",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+        "table_id": "",
+        "layout_id": "",
+        "type": "FOLDER"
+    }, {
+        "label": "Resource",
+        "icon": "code.svg",
+        "id": "f313614f-f018-4ddc-a0ce-10a1f5716401",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+        "table_id": "",
+        "layout_id": "",
+        "type": "FOLDER"
+    }, {
+        "label": "API",
+        "icon": "code.svg",
+        "id": "db4ffda3-7696-4f56-9f1f-be128d82ae68",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+        "table_id": "",
+        "layout_id": "",
+        "type": "FOLDER"
+    },
+    ]
 
     return menu
 }

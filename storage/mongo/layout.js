@@ -414,9 +414,8 @@ let layoutStore = {
             const Field = mongoConn.models['Field']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-
             let table = {};
-            if (data.table_id === "") {
+            if (!data.table_id) {
                 table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
                 data.table_id = table.id;
             } else {

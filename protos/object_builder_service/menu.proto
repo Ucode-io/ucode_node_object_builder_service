@@ -147,6 +147,8 @@ message MenuForGetAll {
     string webpage_id = 11;
     MenuPermission permission = 12;
     google.protobuf.Struct attributes = 13;
+    string report_setting_id = 14;
+    string pivot_template_id = 15;
 }
 
 message GetAllMenusResponse {

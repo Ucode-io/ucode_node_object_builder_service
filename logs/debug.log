@@ -6966,14 +6966,22 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-08-17T02:55:38.811Z',
+=======
+  timestamp: '2023-08-16T08:03:39.619Z',
+>>>>>>> 585e8dc5bc82192b501100ef74423877b4a035f6
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-08-17T02:55:38.813Z',
+=======
+  timestamp: '2023-08-16T08:03:39.632Z',
+>>>>>>> 585e8dc5bc82192b501100ef74423877b4a035f6
   label: 'object_builder_service',
   metadata: {}
 }
@@ -6989,20 +6997,29 @@
     '  }\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-08-17T02:55:38.813Z',
+=======
+  timestamp: '2023-08-16T08:03:39.633Z',
+>>>>>>> 585e8dc5bc82192b501100ef74423877b4a035f6
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-08-17T02:55:38.813Z',
+=======
+  timestamp: '2023-08-16T08:03:39.635Z',
+>>>>>>> 585e8dc5bc82192b501100ef74423877b4a035f6
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-08-17T02:55:39.347Z',
   label: 'object_builder_service',
   metadata: {}
@@ -7048,24 +7065,36 @@
   message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'info',
   timestamp: '2023-08-17T04:38:50.344Z',
+=======
+  timestamp: '2023-08-16T08:03:40.259Z',
+>>>>>>> 585e8dc5bc82192b501100ef74423877b4a035f6
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-08-17T04:39:58.085Z',
+=======
+  timestamp: '2023-08-16T08:04:57.713Z',
+>>>>>>> 585e8dc5bc82192b501100ef74423877b4a035f6
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-08-17T04:39:58.089Z',
+=======
+  timestamp: '2023-08-16T08:04:57.720Z',
+>>>>>>> 585e8dc5bc82192b501100ef74423877b4a035f6
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2023-08-17T04:49:01.880Z',
@@ -8938,6 +8967,11 @@
   message: 'service.field.update: succeeded',
   level: 'info',
   timestamp: '2023-08-17T05:57:31.109Z',
+=======
+  message: 'service.app.updateRoleAppTablePermissions: succeeded',
+  level: 'info',
+  timestamp: '2023-08-16T08:13:55.619Z',
+>>>>>>> 585e8dc5bc82192b501100ef74423877b4a035f6
   label: 'object_builder_service',
   metadata: {}
 }

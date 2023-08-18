@@ -119,14 +119,14 @@ let reportSettingStore = {
 
         let response = await PivotTemplateSetting.findOne({ pivot_table_slug: data.pivot_table_slug })
 
-        let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.main_table_label }, { new: true })
+        let menu = await Menu.findOneAndUpdate({ pivot_template_id: response.id }, { label: data.pivot_table_slug }, { new: true })
             if (!menu) {
                 menuStore.create({
                     project_id: data.resource_environment_id,
-                    type: "HISTORY",
-                    label: data.main_table_label,
-                    parent_id: "e96b654a-1692-43ed-89a8-de4d2357d891", //saved pivot folder id
-                    pivot_template_id: data.id,
+                    type: "PIVOT",
+                    label: data.pivot_table_slug,
+                    parent_id: "7c26b15e-2360-4f17-8539-449c8829003f", //saved pivot folder id
+                    pivot_template_id: response.id,
                     icon: "chart-simple.svg"
                 })
             }
@@ -222,26 +222,26 @@ let reportSettingStore = {
             { upsert: true }
         )
         if (data.status === 'HISTORY') {
-            let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.main_table_label }, { new: true })
+            let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label:  data.pivot_table_slug }, { new: true })
             if (!menu) {
                 menuStore.create({
                     project_id: data.resource_environment_id,
                     type: "PIVOT",
-                    label: data.main_table_label,
-                    parent_id: "7c26b15e-2360-4f17-8539-449c8829003f", //history pivot folder id
+                    label: data.pivot_table_slug,
+                    parent_id: "e96b654a-1692-43ed-89a8-de4d2357d891", //history pivot folder id
                     pivot_template_id: data.id,
                     icon: "chart-simple.svg"
                 })
             }
         } else if (data.status === "SAVED") {
-            let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.main_table_label }, { new: true })
+            let menu = await Menu.findOneAndUpdate({ pivot_template_id: data.id }, { label: data.pivot_table_slug }, { new: true })
             if (!menu) {
                 menuStore.create({
                     project_id: data.resource_environment_id,
                     type: "PIVOT",
-                    label: data.main_table_label,
+                    label: data.pivot_table_slug,
                     // icon: "gear.svg",
-                    parent_id: "e96b654a-1692-43ed-89a8-de4d2357d891", //saved pivot folder id
+                    parent_id: "7c26b15e-2360-4f17-8539-449c8829003f", //saved pivot folder id
                     pivot_template_id: data.id,
                     icon: "chart-simple.svg"
                 })

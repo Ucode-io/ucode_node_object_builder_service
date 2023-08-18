@@ -52,6 +52,20 @@ module.exports = async function (data) {
                 return true
             }
         })
+        let menu_add_field_ids = []
+        let menu_add_fields = field_data.filter(el => {
+            if (
+                [
+                    "e1b087b1-a72a-4ac7-9738-559084e96f45",
+                    "b374dede-bdc1-4477-b9ad-9dc62cc42cbb",
+                    "ee0e255f-f442-4493-9d9b-d0263dd76ab5",
+                    "fafa6c40-71ad-4372-a8ca-1a3e0846582e",
+                ].includes(el.id)
+            ) {
+                menu_add_field_ids.push(el.id)
+                return true
+            }
+        })
         let menu_relation_ids = []
         let menu_relations = relation_data.filter(el => {
             if (
@@ -76,6 +90,10 @@ module.exports = async function (data) {
         const exist_fields = await Field.find({ id: { $in: menu_field_ids } })
         if (!exist_fields.length) {
             await Field.insertMany(menu_fields)
+        }
+        const exist_add_fields = await Field.find({ id: { $in: menu_add_field_ids } })
+        if (!exist_add_fields.length) {
+            await Field.insertMany(menu_add_fields)
         }
         const exist_relations = await Relation.find({ id: { $in: menu_relation_ids } })
         if (!exist_relations.length) {

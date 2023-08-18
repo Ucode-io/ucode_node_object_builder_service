@@ -356,8 +356,7 @@ let sectionStore = {
                                 relation_id: relation.id,
                                 relation_table_slug: data.table_slug
                             })
-                            console.log(">>> view ", view_of_relation);
-
+                            console.log(">>>>>>>>>>>. ", view_of_relation.attributes)
                         }
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
@@ -439,7 +438,11 @@ let sectionStore = {
                                 }
                             }
                         } else {
+                            if (view_of_relation) {
+                                originalAttributes = {... (originalAttributes.attributes || {})}
+                            }
                             originalAttributes = {
+                                ...originalAttributes,
                                 autofill: autofillFields,
                                 view_fields: fieldAsAttribute,
                                 auto_filters: relation?.auto_filters,

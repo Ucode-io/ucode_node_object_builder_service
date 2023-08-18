@@ -436,7 +436,7 @@ let sectionStore = {
                             }
                         } else {
                             if (view_of_relation) {
-                                originalAttributes = {... (originalAttributes.attributes || {})}
+                                originalAttributes = {... struct.decode(view_of_relation.attributes || {})}
                             }
                             originalAttributes = {
                                 ...originalAttributes,
@@ -461,7 +461,6 @@ let sectionStore = {
                         }
                         originalAttributes = JSON.stringify(originalAttributes)
                         originalAttributes = JSON.parse(originalAttributes)
-
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)

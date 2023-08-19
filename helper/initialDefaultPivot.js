@@ -24,6 +24,7 @@ module.exports = async function (data) {
             icon: "chart-simple.svg",
             parent_id: "7c26b15e-2360-4f17-8539-449c8829003f",
             type: "PIVOT",
+            pivot_template_id: id,
         })
     }
     console.log(": Default pivot checking done...")

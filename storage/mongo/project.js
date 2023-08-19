@@ -19,8 +19,8 @@ const initialViewPermission = require("../../helper/initialViewPermission");
 const addFields = require("../../helper/addFields");
 const systemChecker = require("../../helper/systemChecker");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
-const ceckPermissionScript = require("../../helper/checkPermissionScript")
-const actionPermission = require("../../helper/autoCreateActionPermission")
+const ceckPermissionScript = require("../../helper/checkPermissionScript");
+const initialDefaultPivot = require("../../helper/initialDefaultPivot");
 
 
 let NAMESPACE = "storage.project";
@@ -172,6 +172,7 @@ let projectStore = {
                         await fieldPermissionIndexChecker(mongoDBConn)
                         await addFields({ project_id: data.project_id })
                         await ceckPermissionScript({ project_id: data.project_id })
+                        await initialDefaultPivot({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

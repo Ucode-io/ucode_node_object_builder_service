@@ -2,9 +2,20 @@ include:
   - .gitlab/ci/*.gitlab-ci.yml
 
 stages:
+  - test
   - build
   - deploy
   - rollback
+
+
+test-dev:
+  stage: test
+  image: node:19.4-alpine3.17
+  script:
+    - npm install
+    - npm test
+  only:
+    - dev 
 
 build-staging:
   stage: build

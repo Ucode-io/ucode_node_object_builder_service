@@ -81,7 +81,10 @@ describe('Layout testing', function () {
             table_id: "53edfff0-2a31-4c73-b230-06a134afa50b",
             layouts: [],
         })
-    })
 
+        console.log("--- Test stoped #1", new Date(), " ---")
+    })
+    console.log("--- Test stoped #2", new Date(), " ---")
 })
+console.log("--- Test stoped #3", new Date(), " ---")
 

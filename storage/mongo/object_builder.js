@@ -1534,7 +1534,6 @@ let objectBuilder = {
         }
 
         const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
-        console.log("test get-list after::", new Date(), req.table_slug);
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
     }),

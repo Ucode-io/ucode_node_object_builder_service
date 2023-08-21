@@ -802,7 +802,6 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        console.log("test get-list before::", new Date(), req.table_slug);
         const mongoConn = await mongoPool.get(req.project_id)
         // console.log("test prod obj builder");
 

@@ -1,6 +1,6 @@
 const projectStorage = require('../storage/mongo/project'); 
 
-
+console.log("--- Test started ", new Date(), " ---")
 before( function (done) {
     this.timeout('9000s')
     projectStorage.reconnect({

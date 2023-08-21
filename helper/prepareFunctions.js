@@ -165,7 +165,6 @@ let prepareFunction = {
                     decodedFields.push(elementField)
             }
         };
-        console.log("decodedElements: ", decodedFields)
         for (let el of tableInfo.fields) {
             if (!data[el.slug] && el.autofill_table && el.autofill_field) {
                 const AutiFillTable = allTableInfos[el.autofill_table]
@@ -234,13 +233,11 @@ let prepareFunction = {
             }
         }
         if (ownGuid) {
-            console.log("ownd Guid:", ownGuid);
             payload.guid = ownGuid
             data.guid = ownGuid
         } else {
             data.guid = payload.guid
         }
-        console.log("payload:", payload);
         let fields = await Field.find(
             {
                 table_id: tableData?.id
@@ -347,7 +344,6 @@ let prepareFunction = {
                     decodedFields.push(elementField)
             }
         };
-        console.log("decodedElements: ", decodedFields)
         let event = {}
         let field_types = {}
         event.payload = {}

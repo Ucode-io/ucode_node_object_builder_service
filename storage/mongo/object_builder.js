@@ -73,6 +73,9 @@ let objectBuilder = {
             }
 
             const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
+            if(!response) {
+                throw new Error('Object not found with given id')
+            }
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
             }
@@ -1710,10 +1713,13 @@ let objectBuilder = {
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
             let response
             if (!tableModel.soft_delete) {
-                response = await tableInfo.models.deleteOne({ guid: data.id });
+                const response = await tableInfo.models.findOneAndDelete({ guid: data.id });
+                if(!response) throw new Error("Object not found with given id")
+                return { table_slug: req.table_slug, data: response };
             } else if (tableModel.soft_delete) {
-                response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
-
+                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
+                if(!response) throw new Error("Object not found with given id")
+                return { table_slug: req.table_slug, data: response };
             }
             const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""

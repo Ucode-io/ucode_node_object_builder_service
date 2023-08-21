@@ -285,7 +285,11 @@ let tableStore = {
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
 
-            const table = await Table.findOne({ id: data.id })
+            let payload = { id: data.id}
+            if (data.version_id) {
+                payload.version_ids = { $in: [data.version_id] }
+            }
+            const table = await Table.findOne(payload)
             if (!table) throw new Error("Table not found with given parameters")
             if(table.is_system) {
                 throw  new Error("This table is system table")

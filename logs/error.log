@@ -13110,6 +13110,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7bb537b948118603f67ebc830ce1a44b2d86c21c
 {
@@ -13136,10 +13137,17 @@
   message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "8e692351-cf27-472d-8cc4-5ec1907aecbd", commit_id: "" }',
   level: 'error',
   timestamp: '2023-08-17T05:13:00.402Z',
+=======
+{
+  message: 'failed to find object in table user with given id: fcff8ec0-1864-4a58-892b-6b7d1998549900',
+  level: 'error',
+  timestamp: '2023-08-09T05:16:18.096Z',
+>>>>>>> 1a595db63f4670345d02898a5cedc220c4f819e1
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "8e692351-cf27-472d-8cc4-5ec1907aecbd", commit_id: "" }',
   level: 'error',
   timestamp: '2023-08-17T05:18:18.265Z',
@@ -13225,3 +13233,24 @@
   }
 }
 >>>>>>> 6ed7042becff49dcebf39f94e7663c11c4d132e0
+=======
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-08-15T09:07:42.925Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+>>>>>>> 1a595db63f4670345d02898a5cedc220c4f819e1

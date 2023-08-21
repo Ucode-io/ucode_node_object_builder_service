@@ -88,12 +88,15 @@ let viewStore = {
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
             }
-            const view = await View.updateOne(
+            const view = await View.findOneAndUpdate(
                 {
                     id: data.id,
                 },
                 {
                     $set: data
+                },
+                {
+                    new: true
                 }
             )
 
@@ -197,7 +200,7 @@ let viewStore = {
 
             const resp = await View.deleteOne({ id: data.id });
 
-            return resp;
+            return vieww;
 
         } catch (err) {
             throw err

@@ -48,7 +48,6 @@ async function newMongoConn(Config, shouldCompileModels = true) {
     conn.on("error", async function (err) {
         console.log(`Error while connecting to ${Config.mongoHost}: ${err}`);
     });
-
     if (shouldCompileModels) {
         conn.model('App', require('../schemas/app'))
         conn.model('CustomEvent', require('../schemas/custom_event'))
@@ -75,10 +74,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         conn.model('object_builder_service.menu.settings', require('../schemas/menu_settings'))
         conn.model('object_builder_service.menu', require('../schemas/menu'))
         conn.model('object_builder_service.menu.templates', require('../schemas/menu_template'))
-        conn.model(
-            "function_service.function",
-            require("../schemas/function_service.function")
-        );
+        conn.model('function_service.function', require("../schemas/function_service_function.js"));
     }
     return conn;
 }

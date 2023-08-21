@@ -14,6 +14,7 @@ test-dev:
   script:
     - npm install
     - npm test
+    - echo "Tests Successfully Passed!!!"
   only:
     - dev 
 

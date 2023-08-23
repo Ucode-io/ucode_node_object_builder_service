@@ -8470,3 +8470,681 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-08-23T06:49:43.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-08-23T06:49:43.155Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T06:49:43.155Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-08-23T06:49:43.156Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-08-23T06:49:43.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T06:50:41.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-08-23T06:50:41.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T06:52:27.779Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-08-23T06:52:27.780Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-08-23T06:52:28.278Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T06:53:09.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T06:53:15.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-08-23T06:53:27.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-08-23T06:53:27.658Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T06:53:27.658Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-08-23T06:53:27.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-08-23T06:53:28.321Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T06:54:35.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-08-23T06:54:35.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T06:55:04.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-08-23T06:55:04.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-08-23T06:55:04.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T06:55:45.684Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-08-23T06:55:58.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-08-23T06:55:58.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T06:55:58.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-08-23T06:55:58.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-08-23T06:55:58.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T06:56:40.770Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-08-23T06:56:40.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: requested - {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-08-23T07:11:00.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: requested, {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T07:11:00.497Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T07:11:00.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:11:00.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupReportTables: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:11:01.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: requested - {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-08-23T07:11:36.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: requested, {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T07:11:36.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T07:11:37.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:11:37.176Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupReportTables: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:11:37.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: requested - {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-08-23T07:12:00.042Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: requested, {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T07:12:00.044Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T07:12:00.220Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:12:00.221Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupReportTables: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:12:00.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: requested - {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-08-23T07:13:20.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: requested, {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T07:13:20.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T07:13:20.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:13:20.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupReportTables: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:13:21.202Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: requested - {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-08-23T07:15:13.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: requested, {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T07:15:13.309Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T07:15:13.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:15:13.493Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupReportTables: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:15:14.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: requested - {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-08-23T07:17:38.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: requested, {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T07:17:38.548Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T07:17:38.720Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:17:38.721Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupReportTables: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:17:39.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: requested - {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-08-23T07:20:03.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: requested, {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T07:20:03.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T07:20:03.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:20:03.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupReportTables: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:20:04.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: requested - {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-08-23T07:29:34.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: requested, {\n' +
+    '  "id": "5c4e333c-4830-4d00-a0c6-b50be0a6fd40",\n' +
+    '  "resource_environment_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "from_date": "2023-07-23",\n' +
+    '  "to_date": "2023-08-23"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-23T07:29:34.812Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-23T07:29:35.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.report_setting.getByIdPivotTemplate: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:29:35.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupReportTables: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:29:35.574Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:30:21.526Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T07:56:26.898Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T08:01:29.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T08:03:20.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T08:04:03.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T08:07:03.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupByField: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T08:07:04.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T08:12:02.794Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getGroupByField: succeeded',
+  level: 'info',
+  timestamp: '2023-08-23T08:12:03.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

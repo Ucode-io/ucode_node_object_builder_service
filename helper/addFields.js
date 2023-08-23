@@ -176,72 +176,31 @@ module.exports = async function (data) {
         "__v": 0,
         "is_system": true,
     }, {
-        "id": "d440d8fa-f36f-4290-857d-73a8bb969d1e",
+        "id": "82f75cc2-1b68-4fe9-8680-7820376fcba7",
+        "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
         "required": false,
-        "slug": "type",
-        "label": "Тип",
+        "slug": "table_slug",
+        "label": "Таблица",
         "default": "",
         "type": "SINGLE_LINE",
         "index": "string",
         "attributes": {
             "fields": {
-                "disabled": {
-                    "boolValue": false,
-                    "kind": "boolValue"
-                },
-                "icon": {
-                    "stringValue": "",
-                    "kind": "stringValue"
-                },
-                "placeholder": {
-                    "stringValue": "",
-                    "kind": "stringValue"
-                },
-                "showTooltip": {
+                "show_label": {
                     "boolValue": false,
                     "kind": "boolValue"
                 },
                 "defaultValue": {
                     "stringValue": "",
                     "kind": "stringValue"
-                }
-            }
-        },
-        "is_visible": false,
-        "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "is_system": true,
-        "__v": 0
-    }, {
-        "id": "04b4921f-323f-45ce-835c-8f5ad5486634",
-        "required": false,
-        "slug": "main_table_slug",
-        "label": "Main Table Slug",
-        "default": "",
-        "type": "SINGLE_LINE",
-        "index": "string",
-        "attributes": {
-            "fields": {
-                "disabled": {
-                    "boolValue": false,
-                    "kind": "boolValue"
                 },
                 "icon": {
-                    "stringValue": "",
-                    "kind": "stringValue"
-                },
-                "placeholder": {
                     "stringValue": "",
                     "kind": "stringValue"
                 },
                 "showTooltip": {
                     "boolValue": false,
                     "kind": "boolValue"
-                },
-                "defaultValue": {
-                    "stringValue": "",
-                    "kind": "stringValue"
                 }
             }
         },
@@ -309,7 +268,7 @@ module.exports = async function (data) {
     await Field.bulkWrite(bulkWriteFields)
     // update role and view relation permission table
     await Table.updateMany({
-        id: { $in: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad", "0ade55f8-c84d-42b7-867f-6418e1314e28"] }
+        id: { $in: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad", "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"] }
     }, { $set: { is_changed: true } })
 
     console.log("done creating additional field for view_relaiton_permission and role")

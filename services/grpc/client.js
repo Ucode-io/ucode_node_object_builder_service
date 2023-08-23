@@ -1,25 +1,43 @@
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
-const { k8s_namespace, companyServiceHost, companyServicePort } = require("../../config");
+const { k8s_namespace, companyServiceHost, companyServicePort, authServiceHost, authServicePort } = require("../../config");
 
 const logger = require('../../config/logger')
 
 const ResourceService = () => {
     const PROTO_PATH = __dirname + '/../../protos/company_service/resource_service.proto';
-    
+
     const packageDefinition = protoLoader.loadSync(
         PROTO_PATH,
         {
-         keepCase: true,
-         longs: String,
-         enums: String,
-         defaults: true,
-         oneofs: true
+            keepCase: true,
+            longs: String,
+            enums: String,
+            defaults: true,
+            oneofs: true
         });
-        
+
     const resource_service = grpc.loadPackageDefinition(packageDefinition).company_service;
     console.log(companyServiceHost, companyServicePort)
     return new resource_service.ResourceService(`${companyServiceHost}${companyServicePort}`, grpc.credentials.createInsecure());
+};
+
+const SyncUserService = () => {
+    const PROTO_PATH = __dirname + '/../../protos/auth_service/sync_user.proto';
+
+    const packageDefinition = protoLoader.loadSync(
+        PROTO_PATH,
+        {
+            keepCase: true,
+            longs: String,
+            enums: String,
+            defaults: true,
+            oneofs: true
+        });
+
+    const sync_user_with_auth_service = grpc.loadPackageDefinition(packageDefinition).auth_service;
+    console.log(companyServiceHost, companyServicePort)
+    return new sync_user_with_auth_service.SyncUserService(`${authServiceHost}${authServicePort}`, grpc.credentials.createInsecure());
 };
 
 const autoConn = async (k8s_namespace) => {

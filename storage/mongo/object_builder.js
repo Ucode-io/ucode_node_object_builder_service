@@ -3099,6 +3099,47 @@ let objectBuilder = {
         response = struct.encode({ count: responseRow.length, rows: responseRow, columns: responseColumn, values: responseValues, total_values: responseTotalValues });
         return { table_slug: req.table_slug, data: response }
     }),
+    getGroupByField: catchWrapDbObjectBuilder(`${NAMESPACE}.getGroupByField`, async (req) => {
+
+        const params = struct.decode(req.data)
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
+        if (params.match["$match"]["updatedAt"] && params.match["$match"]["updatedAt"]["$gte"]) {
+            const datetime = params.match["$match"]["updatedAt"]["$gte"]
+            const date = new Date(datetime);
+            params.match["$match"]["updatedAt"]["$gte"] = date
+            console.log(params.match["$match"]);
+        }
+
+        let aggregationPipeline = [];
+
+        if (params.date_filter) {
+            let dateFromStringQuery = { [params.date_filter.match_date_field]: { $cond: [{ $or: [{ $eq: ["$" + params.date_filter.match_date_field, ""] }, { $eq: ["$" + params.date_filter.match_date_field, null] }] }, null, { $dateFromString: { dateString: "$" + params.date_filter.match_date_field } }] } }
+            let sortValuesQuery = { [params.date_filter.match_date_field]: 1 }
+            params.match.$match = { ...params.match.$match, [params.date_filter.match_date_field]: { $gte: new Date(params.date_filter.from_date), $lt: new Date(params.date_filter.to_date), $ne: "", $exists: true } }
+            aggregationPipeline.push({ $addFields: { ...dateFromStringQuery } }, { $sort: { ...sortValuesQuery } })
+        }
+
+        aggregationPipeline.push(
+            { ...params.match },
+            { ...params.query },
+            ...(params.lookups || []),
+        )
+
+        if (params.second_match) { aggregationPipeline.push({ $match: params.second_match }); }
+        if (params.project && Object.keys(params.project).length > 0) { aggregationPipeline.push({ ...params.project }); }
+        if (params.sort && Object.keys(params.sort).length > 0) { aggregationPipeline.push({ ...params.sort }); }
+
+        let countResult = await tableInfo.models.aggregate(aggregationPipeline);
+
+        if (params.limit) { aggregationPipeline.push({ $limit: params.limit }); }
+        if (params.offset) { aggregationPipeline.push({ $skip: params.offset }); }
+
+        results = await tableInfo.models.aggregate(aggregationPipeline);
+        response = struct.encode({ count: countResult.length, response: results, });
+
+        return { table_slug: req.table_slug, data: response }
+    }),
 }
 
 module.exports = objectBuilder;

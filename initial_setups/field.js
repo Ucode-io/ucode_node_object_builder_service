@@ -3984,10 +3984,47 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true
-	},
-
-
-	{
+	}, {
+		"id": "43f4ca6b-0d98-4829-ac87-15bbcaf7af3f",
+		"required": false,
+		"slug": "table_id",
+		"label": "Table Id",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"defaultValue": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"icon": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				},
+				"show_label": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"unique": false,
+		"automatic": false,
+		"commit_id": "",
+		"is_system": false,
+		"show_label": true,
+		"table_id": "eca81c06-c4fc-4242-8dc9-ecca575e1762",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"is_system": true,
+		"__v": 0,
+		"is_system": true
+	}, {
 		"required": false,
 		"slug": "guid",
 		"label": "ID",

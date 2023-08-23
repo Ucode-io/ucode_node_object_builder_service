@@ -17,16 +17,14 @@ var { addMonths, addDays, addYears } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
 
 const RangeDate = require("../../helper/rangeDate");
-const generators = require("../../helper/generator")
 const ObjectBuilder = require("../../models/object_builder");
 const FormulaFunction = require("../../helper/calculateFormulaFields");
-
-const { exists } = require("../../models/table");
 
 
 const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
+const grpcClient = require("../../services/grpc/client");
 
 
 let NAMESPACE = "storage.object_builder";
@@ -239,12 +237,13 @@ let objectBuilder = {
                 data: struct.encode(output)
             })
         }
-
-        for (const relation of relatedTable) {
-            if (relation in output) {
-                nameWithDollarSign = "$" + relation
-                output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
-                delete output[relation]
+        if (output) {
+            for (const relation of relatedTable) {
+                if (relation in output) {
+                    nameWithDollarSign = "$" + relation
+                    output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
+                    delete output[relation]
+                }
             }
         }
         let decodedFields = []
@@ -1690,19 +1689,43 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
-            const allTables = await ObjectBuilder(true, req.project_id)
-
-            const tableInfo = allTables[req.table_slug]
+            const allTableInfo = (await ObjectBuilder(true, req.project_id))
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
-
-            if (!tableModel.soft_delete) {
-                const response = await tableInfo.models.deleteOne({ guid: data.id });
-                return { table_slug: req.table_slug, data: response };
-            } else if (tableModel.soft_delete) {
-                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
-                return { table_slug: req.table_slug, data: response };
+            let response = await allTableInfo[req.table_slug].models.findOne({
+                guid: data.id
+            })
+            if (response) {
+                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                    let tableAttributes = struct.decode(tableModel.attributes)
+    
+                    if (tableAttributes && tableAttributes.auth_info) {
+    
+                        let authInfo = tableAttributes.auth_info
+                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                            throw new Error('This table is auth table. Auth information not fully given')
+                        }
+                        let loginTable = allTableInfo['client_type']?.models?.findOne({
+                            client_type_id: response[authInfo['client_type_id']],
+                            table_slug: tableModel.slug
+                        })
+                        if (loginTable) {
+                            let authDeleteUserRequest = {
+                                client_type_id: response[authInfo['client_type_id']],
+                                role_id: response[authInfo['role_id']],
+                                project_id: data['company_service_project_id'],
+                                user_id: response['guid']
+                            }
+                            await grpcClient.deleteUserAuth(authDeleteUserRequest)
+                        }
+                    }
+                }
             }
-
+            if (!tableModel.soft_delete) {
+                await allTableInfo[req.table_slug].models.findOneAndDelete({ guid: data.id });
+            } else if (tableModel.soft_delete) {
+                await allTableInfo[req.table_slug].models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
+            }
+            return { table_slug: req.table_slug, data: response };
         } catch (err) {
             throw err
         }

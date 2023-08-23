@@ -309,7 +309,7 @@ module.exports = async function (data) {
     await Field.bulkWrite(bulkWriteFields)
     // update role and view relation permission table
     await Table.updateMany({
-        id: { $in: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad", "0ade55f8-c84d-42b7-867f-6418e1314e28"] }
+        id: { $in: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad", "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"] }
     }, { $set: { is_changed: true } })
 
     console.log("done creating additional field for view_relaiton_permission and role")

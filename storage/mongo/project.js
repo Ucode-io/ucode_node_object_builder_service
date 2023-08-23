@@ -12,6 +12,7 @@ const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
 const initialCustomMessage = require("../../helper/initialCustomMessage")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
+const initialUserLoginTable = require("../../helper/initialUserLoginTable");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
 const initialGlobalPermission = require("../../helper/initialCustomPermission");
 const initialViewPermission = require("../../helper/initialViewPermission");
@@ -153,17 +154,17 @@ let projectStore = {
                         mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                         mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                         await objectBuilder(false, data.project_id)
+                        console.log(">>>>>>>> ")
+                        await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
                         await initialCustomMessage({ project_id: data.project_id })
-                        await initialTableFolder({ project_id: data.project_id })
                         await initialMenuPermission({ project_id: data.project_id })
                         await initialGlobalPermission({ project_id: data.project_id })
                         await initialViewPermission({ project_id: data.project_id })
                         // await createIndexPermissionTables({ project_id: data.project_id })
                         await fieldPermissionIndexChecker(mongoDBConn)
                         await addFields({ project_id: data.project_id })
-                        await ceckPermissionScript({ project_id: data.project_id })
-                        await actionPermission({ project_id: data.project_id })
+                        await initialUserLoginTable({ project_id: data.project_id })
                         console.log("Object builder has successfully runned for", data.project_id);
                         resolve()
                     });

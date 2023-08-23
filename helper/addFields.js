@@ -175,6 +175,48 @@ module.exports = async function (data) {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true,
+    },{
+        "id": "82f75cc2-1b68-4fe9-8680-7820376fcba7",
+        "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
+        "required": false,
+        "slug": "table_slug",
+        "label": "Таблица",
+        "default": "",
+        "type": "SINGLE_LINE",
+        "index": "string",
+        "attributes": {
+            "fields": {
+                "show_label": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                },
+                "defaultValue": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                },
+                "icon": {
+                    "stringValue": "",
+                    "kind": "stringValue"
+                },
+                "showTooltip": {
+                    "boolValue": false,
+                    "kind": "boolValue"
+                }
+            }
+        },
+        "is_visible": false,
+        "autofill_field": "",
+        "autofill_table": "",
+        "unique": false,
+        "automatic": false,
+        "commit_id": "",
+        "relation_field": "",
+        "is_system": false,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "relation_id": "",
+        "is_system": true,
     }, {
         "id": "d440d8fa-f36f-4290-857d-73a8bb969d1e",
         "required": false,

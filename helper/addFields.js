@@ -205,7 +205,6 @@ module.exports = async function (data) {
             }
         },
         "is_visible": false,
-        "table_id": "0ade55f8-c84d-42b7-867f-6418e1314e28",
         "created_at": new Date(),
         "updated_at": new Date(),
         "is_system": true,

@@ -11993,8 +11993,11 @@
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> dc0936bbbe6ba420aa8c05dc791b79adbfae1299
 =======
+=======
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
 {
   message: 'service.view.getList: failed with error: Unable to infer type for "Thu Jun 08 2023 16:43:46 GMT+0500 (Uzbekistan Standard Time)".',
   level: 'error',
@@ -12005,7 +12008,11 @@
   message: 'service.object_builder.create: failed with error: This table is auth table. Auth information not fully given',
   level: 'error',
   timestamp: '2023-07-13T05:59:23.000Z',
+<<<<<<< HEAD
 >>>>>>> c924c9a1591fec6ba7bc2610e576f1fd919269de
+=======
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
@@ -12014,6 +12021,7 @@
   message: 'service.view.updateViewOrder: failed with error: Table is not defined',
   level: 'error',
   timestamp: '2023-07-12T05:36:48.433Z',
+<<<<<<< HEAD
   label: 'object_builder_service',
   metadata: {}
 }
@@ -12021,9 +12029,12 @@
 <<<<<<< HEAD
 >>>>>>> e05dffb2a0c3199458194af38ac40af417f23641
 =======
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
+=======
   message: 'service.object_builder.create: failed with error: This table is auth table. Auth information not fully given',
   level: 'error',
   timestamp: '2023-07-13T06:07:51.483Z',
+<<<<<<< HEAD
 =======
 {
 <<<<<<< HEAD
@@ -12031,11 +12042,16 @@
   level: 'error',
   timestamp: '2023-07-17T06:33:13.548Z',
 >>>>>>> 14de80a2d179ee8dbdd4eed4189a86926173722a
+=======
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   message: 'service.object_builder.create: failed with error: sync_user_with_auth_service.SyncUserWithAuthService is not a constructor',
   level: 'error',
   timestamp: '2023-07-13T07:03:43.462Z',
@@ -12413,12 +12429,16 @@
   level: 'error',
   timestamp: '2023-07-17T06:36:18.102Z',
 >>>>>>> 14de80a2d179ee8dbdd4eed4189a86926173722a
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'Error while auto connecting',
   level: 'error',
+<<<<<<< HEAD
+  timestamp: '2023-07-14T16:33:01.476Z',
+=======
   timestamp: '2023-07-17T11:21:22.951Z',
 =======
 {
@@ -12428,6 +12448,10 @@
   level: 'error',
   timestamp: '2023-07-14T16:33:01.476Z',
 >>>>>>> ac8cab3b9e80ec008005f229292ee9493c2362aa
+<<<<<<< HEAD
+=======
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',
@@ -12446,6 +12470,12 @@
 }
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
 {
   message: 'Error while auto connecting',
   level: 'error',
@@ -12593,21 +12623,34 @@
   metadata: {}
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+{
+  message: 'service.loginStore.getConnetionOptions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-27T10:32:43.330Z',
+=======
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
 >>>>>>> ac8cab3b9e80ec008005f229292ee9493c2362aa
 {
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-18T10:06:06.673Z',
+<<<<<<< HEAD
 =======
 {
   message: 'service.loginStore.getConnetionOptions: failed with error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-07-27T10:32:43.330Z',
 >>>>>>> 0558450f66f1734b9b0e949b492416d1e9cc04d9
+=======
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
@@ -12617,10 +12660,21 @@
   level: 'error',
   timestamp: '2023-07-27T10:34:35.325Z',
 >>>>>>> 0558450f66f1734b9b0e949b492416d1e9cc04d9
+=======
+  message: 'service.loginStore.getConnetionOptions: failed with error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-07-27T10:34:35.325Z',
+=======
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-18T10:06:06.930Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
@@ -12640,6 +12694,54 @@
   level: 'error',
   timestamp: '2023-07-27T10:37:25.214Z',
 >>>>>>> 0558450f66f1734b9b0e949b492416d1e9cc04d9
+=======
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of undefined (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-07-27T10:37:25.214Z',
+=======
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-18T10:07:17.283Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+<<<<<<< HEAD
+  message: 'failed to find object in table undefined with given id: 921743b1-9315-4eb9-b180-244bcbeb67cb',
+  level: 'error',
+  timestamp: '2023-07-20T06:42:55.069Z',
+=======
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of undefined (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-07-27T10:39:13.297Z',
+=======
+  message: 'failed to find object in table undefined with given id: 921743b1-9315-4eb9-b180-244bcbeb67cb',
+  level: 'error',
+  timestamp: '2023-07-20T06:42:55.069Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: "service.object_builder.getSingle: failed with error: Cannot use 'in' operator to search for 'client_platform_ids_data' in null",
+  level: 'error',
+  timestamp: '2023-07-20T06:42:55.073Z',
+=======
+<<<<<<< HEAD
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'role_id')",
+  level: 'error',
+  timestamp: '2023-07-31T08:52:04.862Z',
+=======
+  message: "service.object_builder.getSingle: failed with error: Cannot use 'in' operator to search for 'client_platform_ids_data' in null",
+  level: 'error',
+  timestamp: '2023-07-20T06:42:55.073Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
@@ -12647,60 +12749,199 @@
 <<<<<<< HEAD
   message: 'failed to find object in table undefined with given id: 921743b1-9315-4eb9-b180-244bcbeb67cb',
   level: 'error',
-  timestamp: '2023-07-20T06:42:55.069Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: "service.object_builder.getSingle: failed with error: Cannot use 'in' operator to search for 'client_platform_ids_data' in null",
+  timestamp: '2023-07-20T06:45:35.253Z',
+=======
+<<<<<<< HEAD
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'role_id')",
   level: 'error',
-  timestamp: '2023-07-20T06:42:55.073Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
+  timestamp: '2023-07-31T08:54:09.976Z',
+=======
   message: 'failed to find object in table undefined with given id: 921743b1-9315-4eb9-b180-244bcbeb67cb',
   level: 'error',
   timestamp: '2023-07-20T06:45:35.253Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.getSingle: failed with error: Cannot use 'in' operator to search for 'client_platform_ids_data' in null",
   level: 'error',
   timestamp: '2023-07-20T06:45:35.256Z',
+=======
+<<<<<<< HEAD
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-07-31T08:59:14.766Z',
+=======
+  message: "service.object_builder.getSingle: failed with error: Cannot use 'in' operator to search for 'client_platform_ids_data' in null",
+  level: 'error',
+  timestamp: '2023-07-20T06:45:35.256Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'failed to find object in table undefined with given id: 921743b1-9315-4eb9-b180-244bcbeb67cb',
   level: 'error',
   timestamp: '2023-07-20T06:46:33.308Z',
+=======
+<<<<<<< HEAD
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-07-31T09:08:28.676Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 1b5129428c179cf180b07d1fa516e16974ad3b22
+{
+<<<<<<< HEAD
+  message: 'service.object_builder.getList: failed with error: id is not defined',
+  level: 'error',
+  timestamp: '2023-08-09T16:32:45.453Z',
+=======
+  message: 'failed to find object in table undefined with given id: 921743b1-9315-4eb9-b180-244bcbeb67cb',
+  level: 'error',
+  timestamp: '2023-07-20T06:46:33.308Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.getSingle: failed with error: Cannot use 'in' operator to search for 'client_platform_ids_data' in null",
   level: 'error',
   timestamp: '2023-07-20T06:46:33.309Z',
+=======
+<<<<<<< HEAD
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "8e692351-cf27-472d-8cc4-5ec1907aecbd", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-08-17T05:13:00.402Z',
+=======
+  message: "service.object_builder.getSingle: failed with error: Cannot use 'in' operator to search for 'client_platform_ids_data' in null",
+  level: 'error',
+  timestamp: '2023-07-20T06:46:33.309Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-20T06:56:30.994Z',
+=======
+<<<<<<< HEAD
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "8e692351-cf27-472d-8cc4-5ec1907aecbd", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-08-17T05:18:18.265Z',
+=======
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-20T06:56:30.994Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getSingle: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-20T06:56:30.996Z',
+=======
+<<<<<<< HEAD
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "8e692351-cf27-472d-8cc4-5ec1907aecbd", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-08-17T05:54:07.681Z',
+=======
+  message: 'service.object_builder.getSingle: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-07-20T06:56:30.996Z',
+>>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  message: "service.field.update: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-08-17T05:55:44.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+=======
+  message: 'connection timed out',
+  level: 'error',
+  timestamp: '2023-08-18T03:25:10.558Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '65.109.239.69:30027' => ServerDescription {
+          address: '65.109.239.69:30027',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 844564444,
+          lastWriteDate: 0,
+          error: MongoNetworkTimeoutError: connection timed out
+              at connectionFailureError (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)
+              at Socket.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:641:28)
+              at Socket.emit (node:events:527:28)
+              at Socket._onTimeout (node:net:516:8)
+              at listOnTimeout (node:internal/timers:559:17)
+              at processTimers (node:internal/timers:502:7) {
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: connection timed out\n' +
+      '    at NativeConnection.Connection.openUri (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/config/mongoConn.js:43:33)\n' +
+      '    at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/storage/mongo/project.js:127:39\n' +
+      '    at Object.reconnect (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/test.js:29:30\n' +
+      '    at processTicksAndRejections (node:internal/process/task_queues:96:5)'
+  }
+>>>>>>> 13e51dc0cbd4b4b78be8639b39e6df800c5cebf5
+}
+=======
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-20T06:56:31.413Z',
@@ -12947,6 +13188,7 @@
 }
 >>>>>>> Stashed changes
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+<<<<<<< HEAD
 {
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
@@ -13254,3 +13496,5 @@
   }
 }
 >>>>>>> 1a595db63f4670345d02898a5cedc220c4f819e1
+=======
+>>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f

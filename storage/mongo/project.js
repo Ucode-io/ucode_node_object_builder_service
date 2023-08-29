@@ -158,8 +158,6 @@ let projectStore = {
                         mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                         await objectBuilder(false, data.project_id)
                         console.log(">>>>>>>> ")
-                        await defaultRoles(mongoDBConn, data?.project_id)
-                        await initialCustomMessage({ project_id: data.project_id })
                         await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
                         await initialCustomMessage({ project_id: data.project_id })

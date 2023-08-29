@@ -395,7 +395,7 @@ let loginStore = {
         }
         
 
-        const userTable = allTables["user"]
+        const userTable = (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]
         let user = await userTable.models.findOne(params).lean()
 
         let user_found = false

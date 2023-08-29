@@ -371,12 +371,21 @@ let objectBuilder = {
         if (!tableInfo) {
             throw new Error("table not found")
         }
+        
 
         let keys = Object.keys(params)
-        let order = params.order
+        let order = params.order || {}
         let fields = tableInfo.fields
         let with_relations = params.with_relations
         const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
+
+        const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+
+        if (currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: 1 }
+        } else if (!currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: -1 }
+        }
 
         // const permission = await permissionTable.models.findOne({
         //     $and: [

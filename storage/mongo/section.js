@@ -437,7 +437,11 @@ let sectionStore = {
                                 }
                             }
                         } else {
+                            if (view_of_relation) {
+                                originalAttributes = {... struct.decode(view_of_relation.attributes || {})}
+                            }
                             originalAttributes = {
+                                ...originalAttributes,
                                 autofill: autofillFields,
                                 view_fields: fieldAsAttribute,
                                 auto_filters: relation?.auto_filters,

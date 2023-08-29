@@ -1751,7 +1751,7 @@ let objectBuilder = {
                 await allTableInfo[req.table_slug].models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
             }
 
-            return { table_slug: req.table_slug, data: response, custom_message: customMessage };
+            return { table_slug: req.table_slug, data: response};
 
         } catch (err) {
             throw err

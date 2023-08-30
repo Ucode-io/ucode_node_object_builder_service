@@ -46861,3 +46861,66 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-08-30T13:54:19.443Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-08-30T13:54:19.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T13:54:19.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "path": "k8s/ucode-test/368b73a9-beb3-4c92-ba9f-3188ee387103/1acd7a8f-a038-4e07-91cb-b689c368d855/29b028a4-1250-4792-a285-aae4705a39fc/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "19ad6e31-6b86-4271-98c3-a1d57e915687",\n' +
+    '  "environment_id": "29b028a4-1250-4792-a285-aae4705a39fc",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T13:54:20.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-08-30T13:54:20.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-08-30T13:54:21.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

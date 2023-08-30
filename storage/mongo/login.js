@@ -385,7 +385,6 @@ let loginStore = {
                 ]
             }
         ).lean()
-        console.log("TEST:::::::::2", JSON.stringify(clientType, null, 2))
         let params = {}, tableSlug = "user"
         params["guid"] = req.user_id
         // params["project_id"] = req.project_id

@@ -158,7 +158,7 @@ let projectStore = {
                         // await initialGlobalPermission({ project_id: data.project_id })
                         // await initialViewPermission({ project_id: data.project_id })
                         // await createIndexPermissionTables({ project_id: data.project_id })
-                        await fieldPermissionIndexChecker(mongoDBConn)
+                        // await fieldPermissionIndexChecker(mongoDBConn)
                         // await addFields({ project_id: data.project_id })
                         // await ceckPermissionScript({ project_id: data.project_id })
                         // await initialDefaultPivot({ project_id: data.project_id })

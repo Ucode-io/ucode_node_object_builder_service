@@ -359,7 +359,7 @@ let objectBuilder = {
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
-        console.log("test login table slug::", req.table_slug);
+        console.log("test get list slim table slug::", req.table_slug);
         const mongoConn = await mongoPool.get(req.project_id)
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -2682,7 +2682,6 @@ let objectBuilder = {
         const params = struct.decode(req.data)
         const allTables = (await ObjectBuilder(true, req.project_id))
 
-        console.log(params)
 
         let responseRow = []
         let responseColumn = []
@@ -2923,7 +2922,6 @@ let objectBuilder = {
             const datetime = params.match["$match"]["updatedAt"]["$gte"]
             const date = new Date(datetime);
             params.match["$match"]["updatedAt"]["$gte"] = date
-            console.log(params.match["$match"]);
         }
 
         let aggregationPipeline = [];

@@ -15,7 +15,9 @@ module.exports = (namespace, fn) => {
         let projectId = call.request.resource_environment_id || call.request.project_id
         try {
             await mongoPool.get(projectId)
+            console.log("found project mongo pool");
         } catch (error) {
+            console.log("not found project mongo pool");
             if (error.message === "db conn with given projectId does not exist") {
                 const resource = await grpcClient.reConn(config.k8s_namespace, projectId)
                 console.log("resource::", resource);

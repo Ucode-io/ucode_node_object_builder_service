@@ -230,7 +230,7 @@ let projectStore = {
         // console.log("PROJECT-CRED >> ", reconnect_data.res.length, reconnect_data.res)
         for (let it of reconnect_data.res) {
             // console.log("credentials:::", it.resource_type)
-            if (it.resource_type !== "MONGODB") continue
+            if (it.resource_type !== "MONGODB" || it.credentials.database !== "premium_plaza_lounges_plaza_object_builder_service") continue
             // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
             try {
                 await projectStore.reconnect(it)

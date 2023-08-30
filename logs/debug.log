@@ -46487,3 +46487,377 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-08-30T07:05:08.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-08-30T07:05:08.878Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T07:05:08.878Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "path": "k8s/ucode-test/368b73a9-beb3-4c92-ba9f-3188ee387103/1acd7a8f-a038-4e07-91cb-b689c368d855/29b028a4-1250-4792-a285-aae4705a39fc/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "19ad6e31-6b86-4271-98c3-a1d57e915687",\n' +
+    '  "environment_id": "29b028a4-1250-4792-a285-aae4705a39fc",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T07:05:10.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-08-30T07:05:10.140Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-08-30T07:05:10.843Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-30T07:07:19.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "medion_medion_object_builder_service",\n' +
+    '    "database": "medion_medion_object_builder_service",\n' +
+    '    "password": "MkuPQ4onfT"\n' +
+    '  },\n' +
+    '  "id": "c3f80cbf-8c78-40e2-8004-981aabc5a7c0",\n' +
+    '  "project_id": "c3f80cbf-8c78-40e2-8004-981aabc5a7c0",\n' +
+    '  "path": "k8s/ucode-test/a211f1c8-3269-4af7-80f6-2d4a17955897/48d754bb-96d2-4952-b9e9-81fd8cdd166b/39f81968-f559-4ce1-8c55-f11063f06105/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "839a56db-dd56-4d07-ab51-8871c2e1c43b",\n' +
+    '  "environment_id": "39f81968-f559-4ce1-8c55-f11063f06105",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T07:07:19.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://medion_medion_object_builder_service:MkuPQ4onfT@142.93.164.37:27017/medion_medion_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-08-30T07:07:19.024Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://medion_medion_object_builder_service:MkuPQ4onfT@142.93.164.37:27017/medion_medion_object_builder_service',
+  level: 'info',
+  timestamp: '2023-08-30T07:07:19.663Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "username": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "password": "uEzqO8YsIt"\n' +
+    '  },\n' +
+    '  "project_id": "e460eac8-4b0a-44d7-94b5-b41894a4f87d"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T07:07:43.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-08-30T07:07:43.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'info',
+  timestamp: '2023-08-30T07:07:44.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-30T07:08:00.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "transasia_transasia_object_builder_service",\n' +
+    '    "database": "transasia_transasia_object_builder_service",\n' +
+    '    "password": "d12FE41f"\n' +
+    '  },\n' +
+    '  "id": "217283cf-58d3-4218-9f9a-db4f66b92899",\n' +
+    '  "project_id": "217283cf-58d3-4218-9f9a-db4f66b92899",\n' +
+    '  "path": "k8s/ucode-test/90d33fe1-b996-481c-aad0-e52b1e8cff6c/caf1dfc0-3f77-4ee4-beec-fef5467b645c/73ac2eed-798d-46dc-90be-7defb7be4915/MONGODB",\n' +
+    '  "title": "Ucode Resource",\n' +
+    '  "resource_id": "0b7f044f-7635-423b-9d3f-6b48c0f5bff6",\n' +
+    '  "environment_id": "73ac2eed-798d-46dc-90be-7defb7be4915",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T07:08:00.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transasia_transasia_object_builder_service:d12FE41f@142.93.164.37:27017/transasia_transasia_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-08-30T07:08:00.274Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transasia_transasia_object_builder_service:d12FE41f@142.93.164.37:27017/transasia_transasia_object_builder_service',
+  level: 'info',
+  timestamp: '2023-08-30T07:08:00.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-30T07:10:14.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "service_type": "BUILDER_SERVICE",\n' +
+    '  "resource_type": "MONGODB",\n' +
+    '  "credentials": {\n' +
+    '    "host": "161.35.26.178",\n' +
+    '    "port": "27017",\n' +
+    '    "username": "udevs_ufinance_object_builder_service",\n' +
+    '    "database": "udevs_ufinance_object_builder_service",\n' +
+    '    "password": "Lh8a3kz9"\n' +
+    '  },\n' +
+    '  "id": "7df00d27-65d7-44db-9c27-0b4be0d3e253",\n' +
+    '  "project_id": "7df00d27-65d7-44db-9c27-0b4be0d3e253",\n' +
+    '  "path": "k8s/ucode-test/8ebd2712-8135-4432-ba8b-b89f40cfb13b/da10fd63-707a-4bc0-ac19-923d240882d8/aa1ae6ba-4456-4bfa-9ea9-68ea403694a8/MONGODB",\n' +
+    '  "title": "",\n' +
+    '  "resource_id": "fd2d6ea4-0f8f-4c3a-861d-ddd1ef7bf47c",\n' +
+    '  "environment_id": "aa1ae6ba-4456-4bfa-9ea9-68ea403694a8",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T07:10:14.918Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_ufinance_object_builder_service:Lh8a3kz9@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-08-30T07:10:14.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-08-30T07:13:33.986Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-08-30T07:13:33.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "username": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "password": "uEzqO8YsIt"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T07:13:33.988Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-08-30T07:13:33.988Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'info',
+  timestamp: '2023-08-30T07:13:34.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-08-30T07:14:12.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-08-30T07:14:12.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "e460eac8-4b0a-44d7-94b5-b41894a4f87d",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "username": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "password": "uEzqO8YsIt"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T07:14:12.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-08-30T07:14:12.089Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'info',
+  timestamp: '2023-08-30T07:14:12.730Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-08-30T07:19:13.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-08-30T07:19:13.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "e460eac8-4b0a-44d7-94b5-b41894a4f87d",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "username": "rizo-company_rizo-company_object_builder_service",\n' +
+    '    "password": "uEzqO8YsIt"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-08-30T07:19:13.133Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-08-30T07:19:13.133Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service',
+  level: 'info',
+  timestamp: '2023-08-30T07:19:13.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-08-30T07:25:36.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-08-30T07:25:36.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2023-08-30T07:26:02.765Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

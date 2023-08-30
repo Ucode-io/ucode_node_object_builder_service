@@ -12,24 +12,24 @@ module.exports = (namespace, fn) => {
         // logger.info(
         //     `${namespace}: requested - ${JSON.stringify(call.request, null, 2)}`
         // );
-        let projectId = call.request.resource_environment_id || call.request.project_id
-        try {
-            await mongoPool.get(projectId)
-        } catch (error) {
-            if (error.message === "db conn with given projectId does not exist") {
-                const resource = await grpcClient.reConn(config.k8s_namespace, projectId)
-                await projectStore.reconnect({
-                    credentials: {
-                        host: resource.res.credentials.host,
-                        port: resource.res.credentials.port,
-                        database: resource.res.credentials.database,
-                        username: resource.res.credentials.username,
-                        password: resource.res.credentials.password,
-                    },
-                    project_id: projectId
-                })
-            }
-        }
+        // let projectId = call.request.resource_environment_id || call.request.project_id
+        // try {
+        //     await mongoPool.get(projectId)
+        // } catch (error) {
+        //     if (error.message === "db conn with given projectId does not exist") {
+        //         const resource = await grpcClient.reConn(config.k8s_namespace, projectId)
+        //         await projectStore.reconnect({
+        //             credentials: {
+        //                 host: resource.res.credentials.host,
+        //                 port: resource.res.credentials.port,
+        //                 database: resource.res.credentials.database,
+        //                 username: resource.res.credentials.username,
+        //                 password: resource.res.credentials.password,
+        //             },
+        //             project_id: projectId
+        //         })
+        //     }
+        // }
 
         try {
             const resp = await fn(call.request);

@@ -451,7 +451,6 @@ let viewStore = {
             data.html = data.html.replaceAll('&amp;', '&')
             data.html = data.html.replaceAll('&quot;', '"')
             data.html = data.html.replaceAll('&apos;', `'`)
-            // console.log(data.html)
 
             if (decodedData.linked_table_slug && decodedData.linked_object_id) {
                 // data.html = data.html.replace('[??', '{')
@@ -477,7 +476,6 @@ let viewStore = {
                 console.log("TEST::::::::4")
                 let relatedTable = []
                 for (const relation of relations) {
-                    // console.log("m2o:::::", relation)
                     const field = await Field.findOne({
                         relation_id: relation.id
                     })
@@ -486,7 +484,6 @@ let viewStore = {
                     }
                 }
                 for (const relation of relationsM2M) {
-                    console.log("m2m:::::", relation)
                     if (relation.table_to === decodedData.linked_table_slug) {
                         relation.field_from = relation.field_to
                     }
@@ -494,12 +491,10 @@ let viewStore = {
                         slug: relation.field_from,
                         relation_id: relation.id
                     })
-                    console.log(field, relation.field_from, relation.id)
                     if (field) {
                         relatedTable.push(field?.slug + "_data")
                     }
                 }
-                console.log("TEST::::::::5", relatedTable)
                 let output = await tableInfo.models.findOne({
                     guid: decodedData.linked_object_id
                 },
@@ -512,9 +507,6 @@ let viewStore = {
                         __v: 0
                     }).populate(relatedTable).lean();
 
-                // console.log("output:::::::", output)
-                console.log("TEST::::::::6")
-                // console.log("tableInfo::::", tableInfo)
                 for (const it of tableInfo.fields) {
                     if (it.type === "CODABAR") {
                         JsBarcode(svgNode, output[it.slug], {

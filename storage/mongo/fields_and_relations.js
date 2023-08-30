@@ -161,7 +161,6 @@ let fieldsRelationsStore = {
                             await fieldPermissionWithModel.save()
                         }
 
-                        console.log("response from field create while creating relation", response)
                         break;
                     case 'Many2Dynamic':
                         relationReq.field_from = relationReq.relation_field_slug
@@ -196,7 +195,6 @@ let fieldsRelationsStore = {
                             await fieldPermissionWithModel.save()
                         }
 
-                        console.log("response from field create while creating relation", output);
                         break;
                     case 'Many2Many':
                         relationReq.field_from = relationReq.table_to + "_ids";
@@ -284,7 +282,6 @@ let fieldsRelationsStore = {
                             await fieldPermissionWithModel.save()
                         }
 
-                        console.log("response from field create while creating relation", res)
                         await sendMessageToTopic(con.TopicRelationToCreateV1, eventTo)
                         type = converter(field.type);
                         let fieldsTo = []
@@ -339,7 +336,6 @@ let fieldsRelationsStore = {
                             await fieldPermissionWithModel.save()
                         }
 
-                        console.log("response from field create while creating recursive relation======>", responsee)
 
                         let typeRecursive = converter(field.type);
                         let tableRecursive = {}
@@ -394,7 +390,6 @@ let fieldsRelationsStore = {
                             await fieldPermissionWithModel.save()
                         }
 
-                        console.log("response from field create while creating relation", resp);
                         let typeMany2One = converter(field.type);
                         let tableMany2One = {}
                         let eventMany2One = {}

@@ -280,11 +280,10 @@ module.exports = async (req) => {
     table.action_permissions = actionPermissions
     role.table = table
     role.project_id = req.project_id
-    console.log("keys", Object.keys(role))
-    for (const key of Object.keys(role)) {
-        console.log("aaa::::Bbbb", role[key])
-        console.log("aaa::::key", key)
-    }
+    // for (const key of Object.keys(role)) {
+    //     console.log("aaa::::Bbbb", role[key])
+    //     console.log("aaa::::key", key)
+    // }
     // console.log("\n\n time ", start, "\n", end, "\n", end - start)
     return role
 }

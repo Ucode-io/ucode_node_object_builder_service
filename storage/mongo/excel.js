@@ -83,7 +83,6 @@ let excelStore = {
         let fileObjectKey = req.id+".xlsx";
             minioClient.getObject(bucketName, fileObjectKey, async function(err, object) {
                 if (err) {
-                    console.log("errrr::::", err)
                     throw err
                 }
                 object.on("data", (chunk) => fileStream.write(chunk));

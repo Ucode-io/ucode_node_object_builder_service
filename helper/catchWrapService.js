@@ -15,10 +15,8 @@ module.exports = (namespace, fn) => {
             try {
                 await mongoPool.get(projectId)
             } catch (error) {
-                console.log("error getting Mongo");
                 if (error.message === "db conn with given projectId does not exist") {
                     const resource = await grpcClient.reConn(config.k8s_namespace, projectId)
-                    console.log("resource::", resource);
                     await projectStore.reconnect({
                         credentials: {
                             host: resource.res.credentials.host,

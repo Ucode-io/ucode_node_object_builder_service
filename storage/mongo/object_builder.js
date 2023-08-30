@@ -359,6 +359,7 @@ let objectBuilder = {
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
+        console.log("test login table slug::", req.table_slug);
         const mongoConn = await mongoPool.get(req.project_id)
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']

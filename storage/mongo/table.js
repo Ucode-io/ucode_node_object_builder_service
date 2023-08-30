@@ -87,7 +87,6 @@ let tableStore = {
 
             data.is_changed = true
 
-            let del_payload = { id: data.id, version_ids: [] }
             let tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id,
             })
@@ -135,8 +134,6 @@ let tableStore = {
                 }
             }
 
-
-            // await sendMessageToTopic(con.TopicTableUpdeteV1, event)
             return table;
         } catch (err) {
             throw err
@@ -257,7 +254,6 @@ let tableStore = {
                     }
                 }
             }
-            // console.log(":::::::::::::::::::: test 1", table)
             return table
         } catch (err) {
             throw err

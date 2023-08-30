@@ -21,12 +21,14 @@ const config = {
     minioEndpoint: getConf("MINIO_ENDPOINT", "minio-endpoint"),
     minioPort: getConf("MINIO_PORT", 9001),
     minioSSL: getConf("MINIO_SSL", true),
-    
+
     ucodeDefaultProjectID: "ucode_default_project_id",
     k8s_namespace: "cp-region-type-id",
 
-    companyServiceHost : getConf("COMPANY_SERVICE_HOST", "localhost"),
-    companyServicePort : getConf("COMPANY_GRPC_PORT", ":8092")
+    companyServiceHost: getConf("COMPANY_SERVICE_HOST", "localhost"),
+    companyServicePort: getConf("COMPANY_GRPC_PORT", ":8092"),
+    authServiceHost: getConf("AUTH_SERVICE_HOST", "localhost"),
+    authServicePort: getConf("AUTH_GRPC_PORT", ":9103")
 };
 
 function getConf(name, def = "") {

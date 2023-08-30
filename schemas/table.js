@@ -47,6 +47,13 @@ const TableSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
+        is_login_table: {
+            type: Boolean,
+            default: false
+        },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
+        },
         soft_delete: {
             type: Boolean,
             default: false
@@ -54,7 +61,10 @@ const TableSchema = mongoose.Schema(
         order_by: {
             type: Boolean,
             default: false
-        }
+        },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

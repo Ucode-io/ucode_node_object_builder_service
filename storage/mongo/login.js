@@ -385,13 +385,16 @@ let loginStore = {
                 ]
             }
         ).lean()
-        // console.log("TEST:::::::::2", JSON.stringify(clientType, null, 2))
-        let params = {}
+        let params = {}, tableSlug = "user"
         params["guid"] = req.user_id
-        params["project_id"] = req.project_id
+        // params["project_id"] = req.project_id
         params["client_type_id"] = req.client_type
+        if (clientType && clientType.table_slug) {
+            tableSlug = clientType.table_slug
+        }
+        
 
-        const userTable = allTables["user"]
+        const userTable = (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]
         let user = await userTable.models.findOne(params).lean()
 
         let user_found = false
@@ -480,8 +483,8 @@ let loginStore = {
             app_permissions: appPermissions,
             role: role,
             permissions: permissions,
-            login_table_slug: 'user',
-            global_permission: global_permission
+            global_permission: global_permission,
+            login_table_slug: tableSlug
         }
         // console.log("TEST:::::::::10", JSON.stringify(response, null, 2))
 

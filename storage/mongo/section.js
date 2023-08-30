@@ -353,7 +353,6 @@ let sectionStore = {
                                 relation_id: relation.id,
                                 relation_table_slug: data.table_slug
                             })
-
                         }
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
@@ -435,7 +434,11 @@ let sectionStore = {
                                 }
                             }
                         } else {
+                            if (view_of_relation) {
+                                originalAttributes = {... struct.decode(view_of_relation.attributes || {})}
+                            }
                             originalAttributes = {
+                                ...originalAttributes,
                                 autofill: autofillFields,
                                 view_fields: fieldAsAttribute,
                                 auto_filters: relation?.auto_filters,
@@ -457,7 +460,6 @@ let sectionStore = {
                         }
                         originalAttributes = JSON.stringify(originalAttributes)
                         originalAttributes = JSON.parse(originalAttributes)
-
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)

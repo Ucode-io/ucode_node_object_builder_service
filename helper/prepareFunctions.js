@@ -1,12 +1,10 @@
 const { struct } = require('pb-util');
-
-const catchWrapDbObjectBuilder = require("./catchWrapDbObjectBuilder")
-const { v4 } = require("uuid");
 const con = require("./constants");
 const converter = require("./converter");
 const generators = require("./generator")
 const ObjectBuilder = require("./../models/object_builder");
-const { de } = require('date-fns/locale');
+const grpcClient = require("./../services/grpc/client");
+const uuid = require('uuid');
 
 
 
@@ -90,7 +88,6 @@ let prepareFunction = {
             table_id: tableData?.id,
             type: "INCREMENT_ID"
         })
-
         if (incrementField) {
             let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
             let attributes = struct.decode(incrementField.attributes)
@@ -167,9 +164,43 @@ let prepareFunction = {
         }
 
         let payload = new tableInfo.models(data);
-        if (ownGuid) {
-            payload.guid = ownGuid
+        if (tableData && tableData.is_login_table && !data.from_auth_service) {
+            let tableAttributes = struct.decode(tableData.attributes)
+            if (tableAttributes && tableAttributes.auth_info) {
+                let authInfo = tableAttributes.auth_info
+                if (!data[authInfo['client_type_id']]
+                    || !data[authInfo['role_id']]
+                    || !(data[authInfo['login']] || data[authInfo['email']] || data[authInfo['phone']])
+                ) {
+                    throw new Error('This table is auth table. Auth information not fully given')
+                }
+                let loginTable = await allTableInfos['client_type']?.models?.findOne({
+                    client_type_id: data[authInfo['client_type_id']],
+                    table_slug: tableData.slug
+                })
+                if (loginTable) {
+                    let authCheckRequest = {
+                        client_type_id: data['client_type_id'],
+                        role_id: data['role_id'],
+                        login: data[authInfo['login']],
+                        email: data[authInfo['email']],
+                        phone: data[authInfo['phone']],
+                        project_id: data['company_service_project_id'],
+                        company_id: data['company_service_company_id'],
+                        password: data[authInfo['password']],
+                        resource_environment_id: req.project_id
+                    }
+                    const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
+                    ownGuid = responseFromAuth.user_id
+                }
+            }
         }
+        if (ownGuid) {
+            console.log("ownd Guid:", ownGuid);
+            payload.guid = ownGuid
+            data.guid = ownGuid
+        }
+        console.log("payload:", payload);
         let fields = await Field.find(
             {
                 table_id: tableData?.id

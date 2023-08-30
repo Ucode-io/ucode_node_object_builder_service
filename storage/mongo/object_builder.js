@@ -17,16 +17,14 @@ var { addMonths, addDays, addYears } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
 
 const RangeDate = require("../../helper/rangeDate");
-const generators = require("../../helper/generator")
 const ObjectBuilder = require("../../models/object_builder");
 const FormulaFunction = require("../../helper/calculateFormulaFields");
-
-const { exists } = require("../../models/table");
 
 
 const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
+const grpcClient = require("../../services/grpc/client");
 
 
 let NAMESPACE = "storage.object_builder";
@@ -208,10 +206,15 @@ let objectBuilder = {
                     }
                     const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                     if (resultFormula.length) {
-                        if (output[field.slug] !== resultFormula[0].res) {
+                        if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                            if (!isNaN(resultFormula[0].res)) {
+                                resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                            }
+                        }
+                        if (resultFormula[0]?.res && output[field.slug] !== resultFormula[0].res) {
+                            output[field.slug] = resultFormula[0].res
                             isChanged = true
                         }
-                        output[field.slug] = resultFormula[0].res
                     } else {
                         output[field.slug] = 0
                         isChanged = true
@@ -234,12 +237,13 @@ let objectBuilder = {
                 data: struct.encode(output)
             })
         }
-
-        for (const relation of relatedTable) {
-            if (relation in output) {
-                nameWithDollarSign = "$" + relation
-                output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
-                delete output[relation]
+        if (output) {
+            for (const relation of relatedTable) {
+                if (relation in output) {
+                    nameWithDollarSign = "$" + relation
+                    output[nameWithDollarSign] = output[relation] // on object create new key name. Assign old value to this
+                    delete output[relation]
+                }
             }
         }
         let decodedFields = []
@@ -355,6 +359,7 @@ let objectBuilder = {
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
+        console.log("test get list slim table slug::", req.table_slug);
         const mongoConn = await mongoPool.get(req.project_id)
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -367,60 +372,19 @@ let objectBuilder = {
         if (!tableInfo) {
             throw new Error("table not found")
         }
+        
 
         let keys = Object.keys(params)
-        let order = params.order
-        let fields = tableInfo.fields
+        let order = params.order || {}
         let with_relations = params.with_relations
-        const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
-        // const permission = await permissionTable.models.findOne({
-        //     $and: [
-        //         {
-        //             role_id: params["role_id_from_token"]
-        //         },
-        //         {
-        //             table_slug: req.table_slug
-        //         }
-        //     ]
-        // })
-        // if (permission?.is_have_condition) {
-        //     const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
-        //     const automatic_filters = await automaticFilterTable.models.find({
-        //         $and: [
-        //             {
-        //                 role_id: params["role_id_from_token"]
-        //             },
-        //             {
-        //                 table_slug: req.table_slug
-        //             }
-        //         ]
+        const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
 
-        //     })
-        //     if (automatic_filters.length) {
-        //         for (const autoFilter of automatic_filters) {
-        //             if (autoFilter.custom_field === "user_id") {
-        //                 if (autoFilter.object_field !== req.table_slug) {
-        //                     params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
-        //                     params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
-        //                 } else {
-        //                     params["guid"] = params["user_id_from_token"]
-        //                 }
-        //             } else {
-        //                 let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
-        //                 let objFromAuth = params.tables.find(obj => obj.table_slug === connectionTableSlug)
-        //                 if (objFromAuth) {
-        //                     if (connectionTableSlug !== req.table_slug) {
-        //                         params[autoFilter.custom_field] = objFromAuth.object_id
-        //                         params[autoFilter.custom_field + "s"] = { $in: params["user_id_from_token"] }
-        //                     } else {
-        //                         params["guid"] = objFromAuth.object_id
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        if (currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: 1 }
+        } else if (!currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: -1 }
+        }
 
         for (const key of keys) {
             if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
@@ -440,7 +404,6 @@ let objectBuilder = {
         }
 
         let relations = []
-        let relationsFields = []
         if (with_relations) {
             const relationsResp = await Relation.find({
                 $or: [{
@@ -455,103 +418,9 @@ let objectBuilder = {
                 ]
             })
             relations = relationsResp
-            for (const relation of relations) {
-                if (relation.type !== "Many2Dynamic") {
-                    if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
-                        relation.table_to = relation.table_from
-                    }
-                    let relationTable = await table.findOne({ slug: relation.table_to })
-                    let relationFields = await Field.find(
-                        {
-                            table_id: relationTable?.id
-                        },
-                        {
-                            createdAt: 0,
-                            updatedAt: 0,
-                            created_at: 0,
-                            updated_at: 0,
-                            _id: 0,
-                            __v: 0
-                        })
-                    for (const field of relationFields) {
-                        let changedField = {}
-                        if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
-                            let viewFields = []
-                            let table_slug
-                            if (field.type === "LOOKUP") {
-                                table_slug = field.slug.slice(0, -3)
-                            } else {
-                                table_slug = field.slug.slice(0, -4)
-                            }
-                            childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
-                            if (childRelation) {
-                                for (const view_field of childRelation.view_fields) {
-                                    let viewField = await Field.findOne(
-                                        {
-                                            id: view_field
-                                        },
-                                        {
-                                            createdAt: 0,
-                                            updatedAt: 0,
-                                            created_at: 0,
-                                            updated_at: 0,
-                                            _id: 0,
-                                            __v: 0
-                                        })
-                                    if (viewField) {
-                                        if (viewField.attributes) {
-                                            viewField.attributes = struct.decode(viewField.attributes)
-                                        }
-                                        viewFields.push(viewField._doc)
-                                    }
-                                }
-                            }
-                            field._doc.view_fields = viewFields
-                            let childRelationTable = await table.findOne({ slug: table_slug })
-                            field._doc.table_label = relationTable?.label
-                            field.label = childRelationTable?.label
-                            changedField = field
-                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
-                            changedField._doc.table_slug = table_slug
-                            relationsFields.push(changedField._doc)
-                        } else {
-                            if (field.attributes) {
-                                field.attributes = struct.decode(field.attributes)
-                            }
-                            field._doc.table_label = relationTable?.label
-                            changedField = field
-                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
-                            relationsFields.push(changedField._doc)
-                        }
-                    }
-
-                }
-
-            }
         }
 
         let result = [], count;
-        let searchByField = []
-        if (params.search) {
-            for (const field of tableInfo.fields) {
-                if (con.STRING_TYPES.includes(field.type)) {
-                    let searchField = { [field.slug]: RegExp(params.search, "i") }
-                    searchByField.push(searchField)
-                }
-            }
-        }
-
-        if (params.phone_number) {
-            let temp = params.phone_number.toString()
-            let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-            params.phone_number = phone
-        } else if (params.phone) {
-            let temp = params.phone.toString()
-            let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-            params.phone = phone
-        }
         let populateArr = []
         if (limit !== 0) {
             if (relations.length == 0) {
@@ -718,65 +587,13 @@ let objectBuilder = {
             let prev = result.length
             count = count - (prev - result.length)
         }
-
-        // let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
-        // for (const res of result) {
-        //     for (const field of formulaFields) {
-        //         let attributes = struct.decode(field.attributes)
-        //         if (field.type === "FORMULA") {
-        //             if (attributes.table_from && attributes.sum_field) {
-        //                 let filters = {}
-        //                 if (attributes.formula_filters) {
-        //                     attributes.formula_filters.forEach(el => {
-        //                         filters[el.key.split("#")[0]] = el.value
-        //                         if (Array.isArray(el.value)) {
-        //                             filters[el.key.split("#")[0]] = { $in: el.value }
-        //                         }
-        //                     })
-        //                 }
-        //                 const relationFieldTable = await table.findOne({
-        //                     slug: attributes.table_from.split('#')[0],
-        //                     deleted_at: "1970-01-01T18:00:00.000+00:00"
-        //                 })
-        //                 const relationField = await Field.findOne({
-        //                     relation_id: attributes.table_from.split('#')[1],
-        //                     table_id: relationFieldTable.id
-        //                 })
-        //                 if (!relationField || !relationFieldTable) {
-        //                     res[field.slug] = 0
-        //                     continue
-        //                 }
-        //                 const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
-        //                 let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-        //                 if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-        //                     matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-        //                 }
-        //                 let matchParams = {
-        //                     [matchField]: { '$eq': res.guid },
-        //                     ...filters
-        //                 }
-        //                 const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
-        //                 if (resultFormula.length) {
-        //                     res[field.slug] = resultFormula[0].res
-        //                 } else {
-        //                     res[field.slug] = 0
-        //                 }
-        //             }
-        //         } else {
-        //             if (attributes && attributes.formula) {
-        //                 const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-        //                 res[field.slug] = resultFormula
-        //             }
-        //         }
-        //     }
-        // }
         const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
         if (tableWithVersion) {
             const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                 code: 200,
                 table_id: tableWithVersion.id,
-                action_type: "GET_SINGLE_SLIM"
+                action_type: "GET_LIST_SLIM"
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
@@ -792,7 +609,7 @@ let objectBuilder = {
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
         console.log("test get-list before::", new Date(), req.table_slug);
         const mongoConn = await mongoPool.get(req.project_id)
-        // console.log("test prod obj builder");
+        console.log("table slug in get list::", req.table_slug);
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -1462,10 +1279,16 @@ let objectBuilder = {
                         }
                         const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                         if (resultFormula.length) {
-                            if (res[field.slug] !== resultFormula[0].res) {
+                            if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                                if (!isNaN(resultFormula[0].res)) {
+                                    resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                                }
+                            }
+                            if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
+                                res[field.slug] = resultFormula[0].res
                                 isChanged = true
                             }
-                            res[field.slug] = resultFormula[0].res
+
                         } else {
                             res[field.slug] = 0
                             isChanged = true
@@ -1641,7 +1464,13 @@ let objectBuilder = {
                     }
                     const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
                     if (resultFormula.length) {
-                        output[field.slug] = resultFormula[0].res
+                        if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                            if (!isNaN(resultFormula[0].res)) {
+                                resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                            }
+                        } else {
+                            output[field.slug] = resultFormula[0].res
+                        }
                     } else {
                         output[field.slug] = 0
                     }
@@ -1683,19 +1512,43 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
-            const allTables = await ObjectBuilder(true, req.project_id)
-
-            const tableInfo = allTables[req.table_slug]
+            const allTableInfo = (await ObjectBuilder(true, req.project_id))
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
-
-            if (!tableModel.soft_delete) {
-                const response = await tableInfo.models.deleteOne({ guid: data.id });
-                return { table_slug: req.table_slug, data: response };
-            } else if (tableModel.soft_delete) {
-                const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
-                return { table_slug: req.table_slug, data: response };
+            let response = await allTableInfo[req.table_slug].models.findOne({
+                guid: data.id
+            })
+            if (response) {
+                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                    let tableAttributes = struct.decode(tableModel.attributes)
+    
+                    if (tableAttributes && tableAttributes.auth_info) {
+    
+                        let authInfo = tableAttributes.auth_info
+                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                            throw new Error('This table is auth table. Auth information not fully given')
+                        }
+                        let loginTable = allTableInfo['client_type']?.models?.findOne({
+                            client_type_id: response[authInfo['client_type_id']],
+                            table_slug: tableModel.slug
+                        })
+                        if (loginTable) {
+                            let authDeleteUserRequest = {
+                                client_type_id: response[authInfo['client_type_id']],
+                                role_id: response[authInfo['role_id']],
+                                project_id: data['company_service_project_id'],
+                                user_id: response['guid']
+                            }
+                            await grpcClient.deleteUserAuth(authDeleteUserRequest)
+                        }
+                    }
+                }
             }
-
+            if (!tableModel.soft_delete) {
+                await allTableInfo[req.table_slug].models.findOneAndDelete({ guid: data.id });
+            } else if (tableModel.soft_delete) {
+                await allTableInfo[req.table_slug].models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
+            }
+            return { table_slug: req.table_slug, data: response };
         } catch (err) {
             throw err
         }
@@ -2825,7 +2678,283 @@ let objectBuilder = {
 
             throw err
         }
-    })
+    }),
+    getGroupReportTables: catchWrapDbObjectBuilder(`${NAMESPACE}.getGroupReportTables`, async (req) => {
+
+        const params = struct.decode(req.data)
+        const allTables = (await ObjectBuilder(true, req.project_id))
+
+
+        let responseRow = []
+        let responseColumn = []
+        let responseValues = []
+        let responseTotalValues = []
+        let row_ids = []
+        let row_relation_ids = []
+        let column_ids = []
+
+        // Rows...
+        if (Object.keys(params.rows).length) {
+            let row_data = await allTables[req.table_slug].models.aggregate([
+                { ...params.rows.match },
+                { ...params.rows.group }
+            ])
+
+            for (let row of row_data) { row_ids.push(row._id) }
+
+            const rowTableInfo = allTables[params.rows.row_table_slug]
+            responseRow = await rowTableInfo.models.aggregate([
+                { $match: { guid: { $in: row_ids } } },
+                { $addFields: { table_slug: params.rows.row_table_slug + "_id" } },
+                ...params.rows.lookups,
+                { $project: { ...params.rows.project } },
+                { $sort: { ...params.rows.sort } }
+            ])
+        } else if (Object.keys(params.rows_relation).length) {
+            let inside_relation_table_exists = {}
+            for (let inside_relation_table of params.rows_relation.inside_relation_tables) {
+                const insideRelationTableInfo =allTables[inside_relation_table]
+                insideRelationTableData = await insideRelationTableInfo.models.aggregate([{ ...params.rows_relation.match }, { $project: { _id: 1 } }])
+                if (insideRelationTableData.length > 0) {
+                    inside_relation_table_exists = { [inside_relation_table]: true, ...inside_relation_table_exists }
+                }
+            }
+            responseRow.push(inside_relation_table_exists)
+        } else if (Object.keys(params.rows_inside_relation).length) {
+            // Rows-Relation...
+            let inside_row_data = []
+            if (params.rows_inside_relation.row_inside_relation_table_slug) {
+                const insideRelationTableInfo = allTables[params.rows_inside_relation.row_inside_relation_table_slug]
+                inside_row_data = await insideRelationTableInfo.models.aggregate([{ ...params.rows_inside_relation.inside_relation_match }])
+            }
+
+            for (let inside_row of inside_row_data) { row_relation_ids.push(inside_row[params.rows_inside_relation.row_relation_table_slug + "_id"]) }
+
+            let rows_inside_relation_match_query = Object.assign({}, params.rows_inside_relation.match)
+
+            if (row_relation_ids.length > 0) { rows_inside_relation_match_query.$match = { guid: { $in: row_relation_ids }, ...rows_inside_relation_match_query.$match } }
+
+            const relationTableInfo = allTables[params.rows_inside_relation.row_relation_table_slug]
+            responseRow = await relationTableInfo.models.aggregate([
+                { ...rows_inside_relation_match_query },
+                { $addFields: { table_slug: params.rows_inside_relation.row_relation_table_slug + "_id" } },
+                ...params.rows_inside_relation.lookups,
+                { $project: { ...params.rows_inside_relation.project } },
+                { $sort: { ...params.rows_inside_relation.sort } }
+            ])
+        } else if (Object.keys(params.rows_relation_nested).length) {
+            // Rows-Relation-Nested...
+            const rowRelationTableInfo = allTables[params.rows_relation_nested.row_relation_table_slug]
+            let rowRelationTableData = await rowRelationTableInfo.models.aggregate([{ ...params.rows_relation_nested.match_relation_table }])
+
+            const rowInsideRelationTableInfo = allTables[params.rows_relation_nested.row_inside_relation_table_slug]
+            let rowInsideRelationTableData = await rowInsideRelationTableInfo.models.aggregate([{ ...params.rows_relation_nested.match_inside_relation_table }])
+
+            if (rowRelationTableData.length > 0) {
+                let row_relation_ids = []
+                for (let rowRelation of rowRelationTableData) { row_relation_ids.push(rowRelation[params.rows_relation_nested.row_relation_nested_table_slug + "_id"]) }
+
+                const rowRelationNestedTableInfo = allTables[params.rows_relation_nested.row_relation_nested_table_slug]
+                responseRow = await rowRelationNestedTableInfo.models.aggregate([
+                    { $match: { guid: { $in: row_relation_ids } } },
+                    { $addFields: { table_slug: params.rows_relation_nested.row_relation_nested_table_slug + "_id" } },
+                    { $project: { ...params.rows_relation_nested.project } },
+                    { $sort: { ...params.rows_relation_nested.sort } }
+                ])
+            } else if (rowInsideRelationTableData.length > 0) {
+                let row_inside_relation_ids = []
+                for (let rowInsideRelation of rowInsideRelationTableData) { row_inside_relation_ids.push(rowInsideRelation[params.rows_relation_nested.row_relation_nested_table_slug + "_id"]) }
+
+                const rowRelationNestedTableInfo = allTables[params.rows_relation_nested.row_relation_nested_table_slug]
+                responseRow = await rowRelationNestedTableInfo.models.aggregate([
+                    { $match: { guid: { $in: row_inside_relation_ids } } },
+                    { $addFields: { table_slug: params.rows_relation_nested.row_relation_nested_table_slug + "_id" } },
+                    { $project: { ...params.rows_relation_nested.project } },
+                    { $sort: { ...params.rows_relation_nested.sort } }
+                ])
+            }
+        }
+
+        // Columns...
+        if (Object.keys(params.columns).length) {
+            let column_data = await allTables[req.table_slug].models.aggregate([
+                { ...params.columns.match },
+                { ...params.columns.group }
+            ])
+
+            for (let column of column_data) { column_ids.push(column._id) }
+
+            const columnTableInfo = allTables[params.columns.column_table_slug]
+            responseColumn = await columnTableInfo.models.aggregate([
+                { $match: { guid: { $in: column_ids } } },
+                { $project: { ...params.columns.project } },
+                { $sort: { ...params.columns.sort } }
+            ])
+        }
+
+        // Values...
+        if (Object.keys(params.values).length) {
+            for (let [key, value] of Object.entries(params.values)) {
+
+                let matchQuery = {}
+                let dateFromStringQuery = {}
+                let sortValuesQuery = { guid: 1 }
+                if (value.match_date_field) {
+                    dateFromStringQuery = { [value.match_date_field]: { $cond: [{ $or: [{ $eq: ["$" + value.match_date_field, ""] }, { $eq: ["$" + value.match_date_field, null] }] }, null, { $dateFromString: { dateString: "$" + value.match_date_field } }] } }
+                    matchQuery = { [value.match_date_field]: { $gte: new Date(value.match_from_date), $lt: new Date(value.match_to_date), $ne: "", $exists: true } }
+                    sortValuesQuery = { [value.match_date_field]: 1 }
+                }
+
+                if (Object.keys(params.rows).length) { matchQuery = { ...matchQuery, ...params.rows.match.$match } }
+                if (Object.keys(params.rows_relation).length) { matchQuery = { ...matchQuery, ...params.rows_relation.match.$match } }
+                if (Object.keys(params.rows_inside_relation).length) { matchQuery = { ...matchQuery, ...params.rows_inside_relation.match.$match } }
+
+                if (value.match_row_guid) { matchQuery = { ...matchQuery, [value.match_row_guid]: { $in: row_ids } } }
+                if (value.match_row_relation_guid) { matchQuery = { ...matchQuery, [value.match_row_relation_guid]: { $in: row_relation_ids } } }
+                if (value.match_column_guid) { matchQuery = { ...matchQuery, [value.match_column_guid]: { $in: column_ids } } }
+
+                const keyTableInfo = allTables[key]
+                let vals = await keyTableInfo.models.aggregate([
+                    { $addFields: { ...dateFromStringQuery } },
+                    { $sort: { ...sortValuesQuery } },
+                    { $match: { ...matchQuery } },
+                    { ...value.group },
+                    { $project: { _id: 0 } }
+                ])
+
+                let values = {}
+                if (value.match_row_guid) {
+                    for (let val of vals) {
+                        let rowValues = values[val.row_id]
+                        if (rowValues) { if (val.column_id) { rowValues = { ...rowValues, [val.column_id]: val } } else { rowValues = { ...rowValues, val } } }
+                        else { if (val.column_id) { rowValues = { [val.column_id]: val } } else { rowValues = val } }
+                        values = { ...values, [val.row_id]: rowValues }
+                    }
+                } else if (value.match_row_relation_guid) {
+                    for (let val of vals) {
+                        let rowRelationValues = values[val.row_relatoin_id]
+                        if (rowRelationValues) { if (val.column_id) { rowRelationValues = { ...rowValues, [val.column_id]: val } } else { rowRelationValues = { ...rowRelationValues, val } } }
+                        else { if (val.column_id) { rowRelationValues = { [val.column_id]: val } } else { rowRelationValues = val } }
+                        values = { ...values, [val.row_relatoin_id]: rowRelationValues }
+                    }
+                } else if (Object.keys(params.rows_relation).length) {
+                    if (Object.keys(params.columns).length) {
+                        let relation_vals = {}
+                        for (let val of vals) { relation_vals = { [val.column_id]: val, ...relation_vals } }
+                        if (vals.length > 0) { values = relation_vals }
+                    } else {
+                        if (vals.length > 0) { values = vals[0] }
+                    }
+                } else if (value.match_column_guid) {
+                    for (let val of vals) {
+                        let columnValues = values[val.column_id]
+                        if (columnValues) { columnValues = { ...columnValues, val } } else { columnValues = val }
+                        values = { ...values, [val.column_id]: columnValues }
+                    }
+                } else { values = vals }
+
+                responseValues.push({ [key]: values })
+            }
+        }
+
+        // Total Values...
+        if (Object.keys(params.total_values).length) {
+            for (let [key, value] of Object.entries(params.total_values)) {
+
+                let matchQuery = {}
+                let dateFromStringQuery = {}
+                let sortValuesQuery = { guid: 1 }
+                if (value.match_date_field) {
+                    dateFromStringQuery = { [value.match_date_field]: { $cond: [{ $or: [{ $eq: ["$" + value.match_date_field, ""] }, { $eq: ["$" + value.match_date_field, null] }] }, null, { $dateFromString: { dateString: "$" + value.match_date_field } }] } }
+                    matchQuery = { [value.match_date_field]: { $gte: new Date(value.match_from_date), $lt: new Date(value.match_to_date), $ne: "", $exists: true } }
+                    sortValuesQuery = { [value.match_date_field]: 1 }
+                }
+
+                if (Object.keys(params.rows).length) { matchQuery = { ...matchQuery, ...params.rows.match.$match } }
+                if (Object.keys(params.rows_relation).length) { matchQuery = { ...matchQuery, ...params.rows_relation.match.$match } }
+                if (Object.keys(params.rows_inside_relation).length) { matchQuery = { ...matchQuery, ...params.rows_inside_relation.match.$match } }
+
+                if (value.match_row_guid) { matchQuery = { ...matchQuery, [value.match_row_guid]: { $in: row_ids } } }
+                if (value.match_row_relation_guid) { matchQuery = { ...matchQuery, [value.match_row_relation_guid]: { $in: row_relation_ids } } }
+
+                const keyTableInfo = allTables[key]
+                let total_vals = await keyTableInfo.models.aggregate([
+                    { $addFields: { ...dateFromStringQuery } },
+                    { $match: { ...matchQuery } },
+                    { ...value.group },
+                    { $project: { _id: 0 } }
+                ])
+
+                let total_values = {}
+                if (value.match_row_guid) {
+                    for (let total_val of total_vals) {
+                        let rowValues = total_values[total_val.row_id]
+                        if (rowValues) {
+                            rowValues = { ...rowValues, total_val }
+                        }
+                        else {
+                            rowValues = total_val
+                        }
+                        total_values = { ...total_values, [total_val.row_id]: rowValues }
+                    }
+                } else if (value.match_row_relation_guid) {
+                    for (let total_val of total_vals) {
+                        let rowRelationValues = total_values[total_val.row_relatoin_id]
+                        if (rowRelationValues) { rowRelationValues = { ...rowRelationValues, total_val } }
+                        else { rowRelationValues = total_val }
+                        total_values = { ...total_values, [total_val.row_relatoin_id]: rowRelationValues }
+                    }
+                } else if (Object.keys(params.rows_relation).length) {
+                    if (total_vals.length > 0) { total_values = total_vals[0] }
+                } else { total_values = total_vals }
+
+                responseTotalValues.push({ [key]: total_values })
+            }
+        }
+
+        response = struct.encode({ count: responseRow.length, rows: responseRow, columns: responseColumn, values: responseValues, total_values: responseTotalValues });
+        return { table_slug: req.table_slug, data: response }
+    }),
+    getGroupByField: catchWrapDbObjectBuilder(`${NAMESPACE}.getGroupByField`, async (req) => {
+
+        const params = struct.decode(req.data)
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
+        if (params.match["$match"]["updatedAt"] && params.match["$match"]["updatedAt"]["$gte"]) {
+            const datetime = params.match["$match"]["updatedAt"]["$gte"]
+            const date = new Date(datetime);
+            params.match["$match"]["updatedAt"]["$gte"] = date
+        }
+
+        let aggregationPipeline = [];
+
+        if (params.date_filter) {
+            let dateFromStringQuery = { [params.date_filter.match_date_field]: { $cond: [{ $or: [{ $eq: ["$" + params.date_filter.match_date_field, ""] }, { $eq: ["$" + params.date_filter.match_date_field, null] }] }, null, { $dateFromString: { dateString: "$" + params.date_filter.match_date_field } }] } }
+            let sortValuesQuery = { [params.date_filter.match_date_field]: 1 }
+            params.match.$match = { ...params.match.$match, [params.date_filter.match_date_field]: { $gte: new Date(params.date_filter.from_date), $lt: new Date(params.date_filter.to_date), $ne: "", $exists: true } }
+            aggregationPipeline.push({ $addFields: { ...dateFromStringQuery } }, { $sort: { ...sortValuesQuery } })
+        }
+
+        aggregationPipeline.push(
+            { ...params.match },
+            { ...params.query },
+            ...(params.lookups || []),
+        )
+
+        if (params.second_match) { aggregationPipeline.push({ $match: params.second_match }); }
+        if (params.project && Object.keys(params.project).length > 0) { aggregationPipeline.push({ ...params.project }); }
+        if (params.sort && Object.keys(params.sort).length > 0) { aggregationPipeline.push({ ...params.sort }); }
+
+        let countResult = await tableInfo.models.aggregate(aggregationPipeline);
+
+        if (params.limit) { aggregationPipeline.push({ $limit: params.limit }); }
+        if (params.offset) { aggregationPipeline.push({ $skip: params.offset }); }
+
+        results = await tableInfo.models.aggregate(aggregationPipeline);
+        response = struct.encode({ count: countResult.length, response: results, });
+
+        return { table_slug: req.table_slug, data: response }
+    }),
 }
 
 module.exports = objectBuilder;

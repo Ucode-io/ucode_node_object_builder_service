@@ -39,7 +39,13 @@ const MenuSchema = mongoose.Schema(
             type: String,
         },
         attributes: {
-            type: mongoose.Schema.Types.Mixed,
+            type: mongoose.Schema.Types.Mixed
+        },
+        report_setting_id: {
+            type: String,
+        },
+        pivot_template_id: {
+            type: String,
         }
     },
     {

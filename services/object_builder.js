@@ -6,8 +6,8 @@ const objectBuilderService = {
     Update: catchWrapServiceObjectBuilder(`service.object_builder.update`, objectBuilderStore.update),
     GetSingle: catchWrapServiceObjectBuilder(`service.object_builder.getSingle`, objectBuilderStore.getSingle),
     GetList: catchWrapServiceObjectBuilder(`service.object_builder.getList`, objectBuilderStore.getList),
-    GetSingleSlim: catchWrapServiceObjectBuilder(`service.object_builder.getSingle`, objectBuilderStore.getSingleSlim),
-    GetListSlim: catchWrapServiceObjectBuilder(`service.object_builder.getList`, objectBuilderStore.getListSlim),
+    GetSingleSlim: catchWrapServiceObjectBuilder(`service.object_builder.getSingleSlim`, objectBuilderStore.getSingleSlim),
+    GetListSlim: catchWrapServiceObjectBuilder(`service.object_builder.getListSlim`, objectBuilderStore.getListSlim),
     GetListInExcel: catchWrapServiceObjectBuilder(`service.object_builder.getListInExcel`, objectBuilderStore.getListInExcel),
     Delete: catchWrapServiceObjectBuilder(`service.object_builder.delete`, objectBuilderStore.delete),
     ManyToManyAppend: catchWrapServiceObjectBuilder(`service.object_builder.appendManyToMany`, objectBuilderStore.appendManyToMany),
@@ -16,6 +16,8 @@ const objectBuilderService = {
     Batch: catchWrapServiceObjectBuilder("service.object_builder.batch", objectBuilderStore.batch),
     MultipleUpdate: catchWrapServiceObjectBuilder("service.object_builder.multipleUpdate", objectBuilderStore.multipleUpdate),
     GetFinancialAnalytics: catchWrapServiceObjectBuilder("service.object_builder.getFinancialAnalytics", objectBuilderStore.getFinancialAnalytics),
+    GetGroupReportTables: catchWrapServiceObjectBuilder("service.object_builder.getGroupReportTables", objectBuilderStore.getGroupReportTables),
+    GetGroupByField: catchWrapServiceObjectBuilder("service.object_builder.getGroupByField", objectBuilderStore.getGroupByField),
 };
 
 module.exports = objectBuilderService;  

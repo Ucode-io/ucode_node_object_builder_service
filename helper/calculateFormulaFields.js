@@ -10,11 +10,9 @@ let formulaFunction = {
        
         let parser = new Parser()
         let computedFormula = attributes.formula
-        console.log("test #00 >> ", computedFormula)
         let newValue
         sortedFields.forEach(el => {
             let value = object[el.slug] ?? 0;
-            console.log("test #1 >> ", el.slug, value, typeof value)
             if (typeof value === "boolean") {
                 value = JSON.stringify(value).toUpperCase()
             }
@@ -29,9 +27,7 @@ let formulaFunction = {
             }
             computedFormula = computedFormula.replaceAll(`${el.slug}`, `${value}`)
         })
-        // console.log(">> Replaced formula ", computedFormula)
         const {error, result} = parser.parse(computedFormula)
-        // console.log(">>>>> error formula frontend", error, result)
         newValue = error ?? result
         return newValue
     },
@@ -64,8 +60,6 @@ let formulaFunction = {
                 }
             }
         ];  
-        // console.log("pipe::",  pipelines);  
-            
         const resultFormula = await (await ObjectBuilder(true, project_id))[attributes.table_from.split('#')[0]].models.aggregate(pipelines)
         return resultFormula
     }

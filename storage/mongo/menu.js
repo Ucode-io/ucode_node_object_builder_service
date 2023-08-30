@@ -114,6 +114,14 @@ let menuStore = {
                 },
                 {
                     '$lookup': {
+                        'from': 'pivottemplates',
+                        'localField': 'pivot_template_id',
+                        'foreignField': 'id',
+                        'as': 'pivot'
+                    }
+                },
+                {
+                    '$lookup': {
                         from: "web_pages.web_page",
                         let: {
                             webpage_id: "$webpage_id",
@@ -156,6 +164,12 @@ let menuStore = {
                 {
                     '$unwind': {
                         'path': '$microfrontend',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$pivot',
                         'preserveNullAndEmptyArrays': true
                     }
                 },
@@ -215,7 +229,8 @@ let menuStore = {
                             'table': '$table',
                             'microfrontend': '$microfrontend',
                             'webpage': '$webpage.webpage',
-                            'permission': '$permission'
+                            'permission': '$permission',
+                            'pivot': '$pivot',
                         }
                     }
                 },
@@ -262,7 +277,7 @@ let menuStore = {
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            if (data.id === "c57eedc3-a954-4262-a0af-376c65b5a284" || data.id === "c57eedc3-a954-4262-a0af-376c65b5a282") {
+            if (constants.STATIC_MENU_IDS.includes(data.id)) {
                 throw new Error("Cannot delete default menu")
             }
             const Menu = mongoConn.models['object_builder_service.menu']
@@ -298,7 +313,6 @@ let menuStore = {
             throw err
         }
     }),
-
     createMenuSettings: catchWrapDb(`${NAMESPACE}.createMenuSettings`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -320,7 +334,7 @@ let menuStore = {
             let resp = await MenuSettings.find({}).skip(data.offset || 0).limit(data.limit || 1000);
             let count = await MenuSettings.count()
 
-            return {menu_settings: resp, count: count};
+            return { menu_settings: resp, count: count };
         } catch (err) {
             throw err
         }
@@ -332,13 +346,13 @@ let menuStore = {
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
-            let resp = await MenuSettings.findOne({id: data.id}).lean()
-            if(!resp) {
+            let resp = await MenuSettings.findOne({ id: data.id }).lean()
+            if (!resp) {
                 throw Error("Menu Templete not found with given id!")
             }
-            if(data.template_id) {
-                const template = await MenuTemplate.findOne({id: data.template_id}).lean()
-                if(template){
+            if (data.template_id) {
+                const template = await MenuTemplate.findOne({ id: data.template_id }).lean()
+                if (template) {
                     resp.menu_template = template
                 }
             }
@@ -354,8 +368,8 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
 
-            let resp = await MenuSettings.findOneAndUpdate({id: data.id}, {$set: data}, {new: true})
-            if(!resp) {
+            let resp = await MenuSettings.findOneAndUpdate({ id: data.id }, { $set: data }, { new: true })
+            if (!resp) {
                 throw Error("Menu Templete not found with given id!")
             }
 
@@ -370,8 +384,8 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
 
-            let resp = await MenuSettings.findOneAndDelete({id: data.id})
-            if(!resp) {
+            let resp = await MenuSettings.findOneAndDelete({ id: data.id })
+            if (!resp) {
                 throw Error("Menu Templete not found with given id!")
             }
 
@@ -381,7 +395,6 @@ let menuStore = {
         }
 
     }),
-
     createMenuTemplate: catchWrapDb(`${NAMESPACE}.createMenuTemplate`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -403,7 +416,7 @@ let menuStore = {
             let resp = await MenuTemplate.find({}).skip(data.offset || 0).limit(data.limit || 1000);
             const count = await MenuTemplate.count({})
 
-            return {menu_templates: resp, count};
+            return { menu_templates: resp, count };
         } catch (err) {
             throw err
         }
@@ -411,11 +424,10 @@ let menuStore = {
     }),
     getByIDMenuTemplate: catchWrapDb(`${NAMESPACE}.getByIDMenuTemplate`, async (data) => {
         try {
-            console.log(":::::::::::::::DATA getByIDMenuTemplate::::::::::::::::::::::::", data)
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
-            let resp = await MenuTemplate.findOne({id: data.id})
+            let resp = await MenuTemplate.findOne({ id: data.id })
             // if(!resp) {
             //     throw Error("Menu Templete not found with given id!")
             // }
@@ -430,8 +442,8 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
-            let resp = await MenuTemplate.findOneAndUpdate({id: data.id}, {$set: data}, {new: true})
-            if(!resp) {
+            let resp = await MenuTemplate.findOneAndUpdate({ id: data.id }, { $set: data }, { new: true })
+            if (!resp) {
                 throw Error("Menu Templete not found with given id!")
             }
 
@@ -446,8 +458,8 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
-            let resp = await MenuTemplate.findOneAndDelete({id: data.id})
-            if(!resp) {
+            let resp = await MenuTemplate.findOneAndDelete({ id: data.id })
+            if (!resp) {
                 throw Error("Menu Templete not found with given id!")
             }
 

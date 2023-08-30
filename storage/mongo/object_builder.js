@@ -718,7 +718,7 @@ let objectBuilder = {
                         }
                     } else {
                         let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
-                        let objFromAuth = params.tables.find(obj => obj.table_slug === autoFilter.object_field)
+                        let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
                         if (objFromAuth) {
                             if (connectionTableSlug !== req.table_slug) {
                                 if (!many2manyRelation) {

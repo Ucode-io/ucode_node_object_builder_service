@@ -618,7 +618,10 @@ let objectBuilder = {
 
         let params = struct.decode(req?.data)
 
-        const limit = params.limit
+        const limit = params.limit > 100 ? 100 : params.limit
+        if (params.limit > 100) {
+            console.log("\n\n\n Limit gt ->", req.project_id, req.table_slug)
+        }
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]

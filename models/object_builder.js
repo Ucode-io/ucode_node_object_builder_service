@@ -16,7 +16,6 @@ async function buildModels(is_build = true, project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }
     // console.log("TEST:::::::::::1")
-    console.log("START BUILDING::: ", new Date(), " PROJECT ID:: ", project_id);
     const mongoDBConn = await mongoPool.get(project_id)
 
     const Table = mongoDBConn.models['Table']
@@ -556,7 +555,6 @@ async function buildModels(is_build = true, project_id) {
     } else {
         console.log("\n\n\n Object builder time -> ", project_id, " -> ", startAt, endAt, " -> ", endAt - startAt, "\n\n\n")
     }
-    console.log("END BUILDING::: ", new Date(), " PROJECT ID:: ", project_id);
     return mongooseObject[project_id]
 }
 

@@ -11,7 +11,7 @@ let mongooseObject = {};
 async function buildModels(is_build = true, project_id) {
 
     // console.log('REQUEST CAME TO MODELS BUILDER FOR', project_id)
-
+    const startAt = new Date()
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }
@@ -547,6 +547,12 @@ async function buildModels(is_build = true, project_id) {
                 })
         }
 
+    }
+    const endAt = new Date()
+    if (!is_build) {
+        console.log("\n\n\n Object builder first time build -> ", project_id, " -> ", startAt, endAt, " -> ", endAt - startAt, "\n\n\n")
+    } else {
+        console.log("\n\n\n Object builder time -> ", project_id, " -> ", startAt, endAt, " -> ", endAt - startAt, "\n\n\n")
     }
     return mongooseObject[project_id]
 }

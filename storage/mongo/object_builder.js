@@ -607,6 +607,7 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
+        const startAt = new Date()
         console.log("test get-list before::", new Date(), req.table_slug);
         const mongoConn = await mongoPool.get(req.project_id)
         console.log("table slug in get list::", req.table_slug);
@@ -1340,7 +1341,9 @@ let objectBuilder = {
         }
 
         const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
-        console.log("test get-list after::", new Date(), req.table_slug);
+
+        const endAt = new Date()
+        console.log("\n\n\n Get List time -> ", req.project_id, " -> ", req.table_slug, " -> ", startAt, endAt, " -> ", endAt - startAt, "\n\n\n")
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
     }),

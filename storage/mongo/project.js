@@ -233,9 +233,7 @@ let projectStore = {
             if (it.resource_type !== "MONGODB") continue
             // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
             try {
-                console.log("PROJECT START BUILDING :: ", new Date(), " database:: ", it.credentials.database)
                 await projectStore.reconnect(it)
-                console.log("PROJECT END BUILDING :: ", new Date(), " database:: ", it.credentials.database)
             } catch (err) {
                 logger.info(`autoconnecting to resources failed: ${err}`);
             }

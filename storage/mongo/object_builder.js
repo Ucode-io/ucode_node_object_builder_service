@@ -359,7 +359,6 @@ let objectBuilder = {
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
-        console.log("test get list slim table slug::", req.table_slug);
         const mongoConn = await mongoPool.get(req.project_id)
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -607,27 +606,18 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        const startAt = new Date()
-        console.log("test get-list before::", new Date(), req.table_slug);
         const mongoConn = await mongoPool.get(req.project_id)
-        console.log("table slug in get list::", req.table_slug);
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
         let params = struct.decode(req?.data)
-
-        const limit = params.limit > 100 ? 100 : params.limit
-        if (params.limit > 100) {
-            console.log("\n\n\n Limit gt ->", req.project_id, req.table_slug)
-        }
+        const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-        console.log(`\n\n test ${req.project_id} #1 -> ${req.table_slug}`, new Date())
         const allTables = (await ObjectBuilder(true, req.project_id))
-        console.log(`\n\n test ${req.project_id} #2 -> ${req.table_slug}`, new Date())
         const viewPermission = allTables["view_permission"]
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
@@ -640,7 +630,6 @@ let objectBuilder = {
         let with_relations = params.with_relations
 
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
-        console.log(`\n\n test ${req.project_id} #3 -> ${req.table_slug}`, new Date())
 
         if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
@@ -659,7 +648,6 @@ let objectBuilder = {
                 }
             ]
         })
-        console.log(`\n\n test ${req.project_id} #4 -> ${req.table_slug}`, new Date())
         const relations = await Relation.find({
             $or: [{
                 table_from: req.table_slug,
@@ -672,10 +660,6 @@ let objectBuilder = {
             }
             ]
         })
-        console.log(`\n\n test ${req.project_id} #5 -> ${req.table_slug}`, new Date())
-        // console.log("TEST::::::::::4")
-        // console.time("TIME_LOGGING:::is_have_condition")
-        // console.log(">>>>>>>>>>>>>>>>>>>> Permisions", permission)
         if (permission?.is_have_condition) {
             const automaticFilterTable = allTables["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -692,9 +676,6 @@ let objectBuilder = {
                 ]
 
             })
-            // console.log("TEST::::::::::5")
-            // console.log(":::::::::::::::::::::::; LENGTH", automatic_filters.length)
-            console.log(`\n\n test ${req.project_id} #5.1 -> ${req.table_slug}`, new Date())
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
                     let many2manyRelation = false
@@ -743,7 +724,6 @@ let objectBuilder = {
                     }
                 }
             }
-            console.log(`\n\n test ${req.project_id} #5.2 -> ${req.table_slug}`, new Date())
         } else {
             let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
             if (objFromAuth) {
@@ -800,7 +780,6 @@ let objectBuilder = {
         // console.log("TEST::::::3")
         let views = tableInfo.views;
         // console.time("TIME_LOGGING:::app_id")
-        console.log(`\n\n test ${req.project_id} #6 -> ${req.table_slug}`, new Date())
         for (let view of views) {
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,
@@ -808,7 +787,6 @@ let objectBuilder = {
             }).lean() || {}
             view.attributes ? view.attributes.view_permission = permission : view.attributes = { view_permission: permission }
         }
-        console.log(`\n\n test ${req.project_id} #7 -> ${req.table_slug}`, new Date())
         // console.timeEnd("TIME_LOGGING:::app_id")
         // add regExp to params for filtering
         // console.time("TIME_LOGGING:::key_of_keys")
@@ -846,7 +824,6 @@ let objectBuilder = {
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
         if (with_relations) {
-            console.log(`\n\n test ${req.project_id} #8 -> ${req.table_slug}`, new Date())
             for (const relation of relations) {
                 if (relation.type !== "Many2Dynamic") {
                     if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
@@ -1143,10 +1120,8 @@ let objectBuilder = {
         // console.log("TEST::::::11")
         // console.time("TIME_LOGGING:::toField")
         // this function add field permission for each field by role id
-        console.log(`\n\n test ${req.project_id} #9 -> ${req.table_slug}`, new Date())
         let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
-        console.log(`\n\n test ${req.project_id} #10 -> ${req.table_slug}`, new Date())
         // below for loop is in order to decode FIELD.ATTRIBUTES from proto struct to normal object
         for (const element of fieldsWithPermissions) {
             if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
@@ -1161,7 +1136,6 @@ let objectBuilder = {
                 decodedFields.push(elementField)
             }
         };
-        console.log(`\n\n test ${req.project_id} #11 -> ${req.table_slug}`, new Date())
         // console.timeEnd("TIME_LOGGING:::toField")
         // console.log("TEST::::::12")
         // console.time("TIME_LOGGING:::decodedFields")
@@ -1194,7 +1168,6 @@ let objectBuilder = {
                 field.view_fields = viewFields
             }
         }
-        console.log(`\n\n test ${req.project_id} #12 -> ${req.table_slug}`, new Date())
         // console.log("TEST::::::::::14")
         // console.timeEnd("TIME_LOGGING:::decodedFields")
         // console.log("TEST::::::13")
@@ -1255,7 +1228,6 @@ let objectBuilder = {
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         // console.time("TIME_LOGGING:::res_of_result")
-        console.log(`\n\n test ${req.project_id} #13 -> ${req.table_slug}`, new Date())
         for (const res of result) {
             let isChanged = false
             for (const field of formulaFields) {
@@ -1329,7 +1301,6 @@ let objectBuilder = {
         }
         // console.log("TEST::::::::::16")
 
-        console.log(`\n\n test ${req.project_id} #14 -> ${req.table_slug}`, new Date())
         // console.time("TIME_LOGGING:::length")
         if (updatedObjects.length) {
             await objectBuilder.multipleUpdateV2({
@@ -1349,7 +1320,6 @@ let objectBuilder = {
         });
         const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
-        console.log(`\n\n test ${req.project_id} #15 -> ${req.table_slug}`, new Date())
         if (tableWithVersion) {
             const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                 code: 200,
@@ -1358,11 +1328,6 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
-        console.log(`\n\n test ${req.project_id} #16 -> ${req.table_slug}`, new Date())
-        const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
-
-        const endAt = new Date()
-        console.log("\n\n\n Get List time -> ", req.project_id, " -> ", req.table_slug, " -> ", startAt, endAt, " -> ", endAt - startAt, "\n\n\n")
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
     }),

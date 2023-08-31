@@ -11,7 +11,7 @@ let mongooseObject = {};
 async function buildModels(is_build = true, project_id) {
 
     // console.log('REQUEST CAME TO MODELS BUILDER FOR', project_id)
-
+    const startAt = new Date()
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }
@@ -41,6 +41,7 @@ async function buildModels(is_build = true, project_id) {
 
     // console.log("TEST:::::::::::3", tables)
     let tempArray = []
+    
     for (const table of tables) {
         // declare isReferences var to indicate that fields related to a table were added to schema
         let isReferenced = false
@@ -346,6 +347,7 @@ async function buildModels(is_build = true, project_id) {
 
                         resField.table_slug = relationTableSlug
                         if (view) {
+                            resField.attributes.creatable = view.creatable
                             resField.attributes.function_path = view.function_path
                             if (view.default_values && view.default_values.length) {
                                 resField.attributes["default_values"] = view.default_values

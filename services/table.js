@@ -24,9 +24,11 @@ const tableService = {
 
             call.request.id = response.id
             const resp = await fieldStore.createAll(call.request);
+            // console.log("it is createAllFields response", resp)
 
 
             const sectionResp = await layoutStore.createAll(call.request);
+            // console.log("it is createAllsections response", sectionResp)
 
             // const customErrMsgResp = await customErrorMessageStore.createAll(call.request)
             // console.log("it is createAllCustomErrorMessage response", customErrMsgResp)

@@ -264,7 +264,6 @@ let tableStore = {
                     }
                 }
             }
-            // console.log(":::::::::::::::::::: test 1", table)
             return table
         } catch (err) {
             throw err

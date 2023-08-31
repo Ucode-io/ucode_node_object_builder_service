@@ -16,7 +16,6 @@ module.exports = setInterval(async function () {
                 slug: table.slug
             })
         }
-        console.log("collecition and objects of these tables are deleted: ", deletedTables)
     } catch (error) {
         console.log(`delete collections failed: ${error}`);
     }

@@ -58,7 +58,6 @@ async function insertCollections(conn, userId, projectId) {
         const app = await appCreate()
         await conn.collection('apps').insertMany(app, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Apps : ", result.insertedCount)
         })
     }
 

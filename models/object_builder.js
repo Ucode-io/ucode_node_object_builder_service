@@ -350,6 +350,7 @@ async function buildModels(is_build = true, project_id) {
 
                         resField.table_slug = relationTableSlug
                         if (view) {
+                            resField.attributes.creatable = view.creatable
                             resField.attributes.function_path = view.function_path
                             if (view.default_values && view.default_values.length) {
                                 resField.attributes["default_values"] = view.default_values

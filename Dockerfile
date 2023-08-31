@@ -26,4 +26,4 @@ COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/libwkhtmltox.so /bin/
 
 COPY . .
 EXPOSE 3000
-CMD ["node", "index.js"]
+CMD ["node", "--max-old-space-size=4096", "index.js"]

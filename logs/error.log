@@ -13189,6 +13189,7 @@
 >>>>>>> Stashed changes
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
 <<<<<<< HEAD
+<<<<<<< HEAD
 {
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
@@ -13498,3 +13499,12 @@
 >>>>>>> 1a595db63f4670345d02898a5cedc220c4f819e1
 =======
 >>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
+=======
+{
+  message: 'service.object_builder.deleteMany: failed with error: tableAttributes is not defined',
+  level: 'error',
+  timestamp: '2023-09-04T11:58:05.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131

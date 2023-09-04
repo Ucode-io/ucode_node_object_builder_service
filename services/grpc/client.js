@@ -129,4 +129,22 @@ const deleteUserAuth = async (data) => {
         });
     });
 };
-module.exports = { autoConn, createUserAuth, updateUserAuth, deleteUserAuth, reConn };
+
+const deleteUsersAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserService().DeleteManyUser(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize users with auth service", {
+                    function: "deleteUsersAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+module.exports = { autoConn, createUserAuth, updateUserAuth, deleteUserAuth, reConn, deleteUsersAuth };

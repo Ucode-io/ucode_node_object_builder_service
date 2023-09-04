@@ -2815,3 +2815,10 @@
 }
 >>>>>>> Stashed changes
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+{
+  message: 'service.object_builder.deleteMany: failed with error: tableAttributes is not defined',
+  level: 'error',
+  timestamp: '2023-09-04T11:58:05.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

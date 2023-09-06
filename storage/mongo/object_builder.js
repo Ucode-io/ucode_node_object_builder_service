@@ -744,18 +744,20 @@ let objectBuilder = {
         // console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
-                let replacedSearch = ""
+                
                 let empty = ""
-                for (let el of params.search) {
-                    if (el == "(") {
-                        empty += "\\("
-                    } else if (el == ")") {
-                        empty += "\\)"
-                    } else {
-                        empty += el
+                if (typeof params.search === "string") {
+                    for (let el of params.search) {
+                        if (el == "(") {
+                            empty += "\\("
+                        } else if (el == ")") {
+                            empty += "\\)"
+                        } else {
+                            empty += el
+                        }
                     }
+                    params.search = empty
                 }
-                params.search = empty
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))

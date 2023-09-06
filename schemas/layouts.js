@@ -37,6 +37,12 @@ const LayoutSchema = mongoose.Schema(
         attributes: {
             type: mongoose.Schema.Types.Mixed
         },
+        is_visible_section: {
+            type: Boolean,
+        },
+        is_modal: {
+            type: Boolean,
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

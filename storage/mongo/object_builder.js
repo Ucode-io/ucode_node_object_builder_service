@@ -25,6 +25,7 @@ const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
+const constants = require('../../helper/constants');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -744,7 +745,7 @@ let objectBuilder = {
         // console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
-                
+
                 let empty = ""
                 if (typeof params.search === "string") {
                     for (let el of params.search) {
@@ -761,9 +762,12 @@ let objectBuilder = {
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))
-                    if (field.type !== "NUMBER" && field.type !== "SWITCH") {
-                        let obj = {};
+                    let obj = {};
+                    if (!constants.NUMBER_TYPES.includes(field.type) && !constants.BOOLEAN_TYPES.includes(field.type)) {
                         obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }
+                        arrayOfViewFields.push(obj)
+                    } else if (constants.NUMBER_TYPES.includes(field.type)) {
+                        obj[view_field] = params.search
                         arrayOfViewFields.push(obj)
                     }
                 }
@@ -948,7 +952,6 @@ let objectBuilder = {
                 { deleted_at: null }
             ]
         }
-
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({

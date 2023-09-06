@@ -2815,3 +2815,10 @@
 }
 >>>>>>> Stashed changes
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+{
+  message: 'service.object_builder.getList: failed with error: obj is not defined',
+  level: 'error',
+  timestamp: '2023-09-06T13:57:26.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

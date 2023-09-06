@@ -18,7 +18,7 @@ const ResourceService = () => {
         });
 
     const resource_service = grpc.loadPackageDefinition(packageDefinition).company_service;
-    console.log(companyServiceHost, companyServicePort)
+    // console.log(companyServiceHost, companyServicePort)
     return new resource_service.ResourceService(`${companyServiceHost}${companyServicePort}`, grpc.credentials.createInsecure());
 };
 
@@ -36,7 +36,7 @@ const SyncUserService = () => {
         });
 
     const sync_user_with_auth_service = grpc.loadPackageDefinition(packageDefinition).auth_service;
-    console.log(companyServiceHost, companyServicePort)
+    // console.log(companyServiceHost, companyServicePort)
     return new sync_user_with_auth_service.SyncUserService(`${authServiceHost}${authServicePort}`, grpc.credentials.createInsecure());
 };
 

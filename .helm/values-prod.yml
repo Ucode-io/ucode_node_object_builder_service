@@ -133,10 +133,10 @@ ingress:
           hosts:
             - ""
 
-# resources:
-#    limits:
-#      cpu: 150m
-#      memory: 256Mi
+              #resources:
+              #  limits:
+              #    cpu: 150m
+              #    memory: 4096Mi
 #    requests:
 #      cpu: 100m
 #      memory: 200Mi
@@ -157,7 +157,7 @@ affinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
         - matchExpressions:
-            - key: kubernetes.io/ucode-prod
+            - key: kubernetes.io/object-builder
               operator: In
               values:
                 - "true"

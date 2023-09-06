@@ -24,11 +24,11 @@ const tableService = {
 
             call.request.id = response.id
             const resp = await fieldStore.createAll(call.request);
-            console.log("it is createAllFields response", resp)
+            // console.log("it is createAllFields response", resp)
 
 
             const sectionResp = await layoutStore.createAll(call.request);
-            console.log("it is createAllsections response", sectionResp)
+            // console.log("it is createAllsections response", sectionResp)
 
             // const customErrMsgResp = await customErrorMessageStore.createAll(call.request)
             // console.log("it is createAllCustomErrorMessage response", customErrMsgResp)
@@ -40,7 +40,7 @@ const tableService = {
             viewData.project_id = call.request.project_id
             call.view = viewData
             const viewResp = await viewStore.create(call.view);
-            console.log("it is createViews response", viewResp)
+            // console.log("it is createViews response", viewResp)
 
 
             let event = {}

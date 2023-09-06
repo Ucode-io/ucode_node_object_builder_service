@@ -375,9 +375,7 @@ let objectBuilder = {
 
         let keys = Object.keys(params)
         let order = params.order || {}
-        let fields = tableInfo.fields
         let with_relations = params.with_relations
-        const permissionTable = (await ObjectBuilder(true, req.project_id))["record_permission"]
 
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
 
@@ -386,54 +384,6 @@ let objectBuilder = {
         } else if (!currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: -1 }
         }
-
-        // const permission = await permissionTable.models.findOne({
-        //     $and: [
-        //         {
-        //             role_id: params["role_id_from_token"]
-        //         },
-        //         {
-        //             table_slug: req.table_slug
-        //         }
-        //     ]
-        // })
-        // if (permission?.is_have_condition) {
-        //     const automaticFilterTable = (await ObjectBuilder(true, req.project_id))["automatic_filter"]
-        //     const automatic_filters = await automaticFilterTable.models.find({
-        //         $and: [
-        //             {
-        //                 role_id: params["role_id_from_token"]
-        //             },
-        //             {
-        //                 table_slug: req.table_slug
-        //             }
-        //         ]
-
-        //     })
-        //     if (automatic_filters.length) {
-        //         for (const autoFilter of automatic_filters) {
-        //             if (autoFilter.custom_field === "user_id") {
-        //                 if (autoFilter.object_field !== req.table_slug) {
-        //                     params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
-        //                     params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
-        //                 } else {
-        //                     params["guid"] = params["user_id_from_token"]
-        //                 }
-        //             } else {
-        //                 let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
-        //                 let objFromAuth = params.tables.find(obj => obj.table_slug === connectionTableSlug)
-        //                 if (objFromAuth) {
-        //                     if (connectionTableSlug !== req.table_slug) {
-        //                         params[autoFilter.custom_field] = objFromAuth.object_id
-        //                         params[autoFilter.custom_field + "s"] = { $in: params["user_id_from_token"] }
-        //                     } else {
-        //                         params["guid"] = objFromAuth.object_id
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
 
         for (const key of keys) {
             if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
@@ -453,7 +403,6 @@ let objectBuilder = {
         }
 
         let relations = []
-        let relationsFields = []
         if (with_relations) {
             const relationsResp = await Relation.find({
                 $or: [{
@@ -468,103 +417,9 @@ let objectBuilder = {
                 ]
             })
             relations = relationsResp
-            for (const relation of relations) {
-                if (relation.type !== "Many2Dynamic") {
-                    if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
-                        relation.table_to = relation.table_from
-                    }
-                    let relationTable = await table.findOne({ slug: relation.table_to })
-                    let relationFields = await Field.find(
-                        {
-                            table_id: relationTable?.id
-                        },
-                        {
-                            createdAt: 0,
-                            updatedAt: 0,
-                            created_at: 0,
-                            updated_at: 0,
-                            _id: 0,
-                            __v: 0
-                        })
-                    for (const field of relationFields) {
-                        let changedField = {}
-                        if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
-                            let viewFields = []
-                            let table_slug
-                            if (field.type === "LOOKUP") {
-                                table_slug = field.slug.slice(0, -3)
-                            } else {
-                                table_slug = field.slug.slice(0, -4)
-                            }
-                            childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
-                            if (childRelation) {
-                                for (const view_field of childRelation.view_fields) {
-                                    let viewField = await Field.findOne(
-                                        {
-                                            id: view_field
-                                        },
-                                        {
-                                            createdAt: 0,
-                                            updatedAt: 0,
-                                            created_at: 0,
-                                            updated_at: 0,
-                                            _id: 0,
-                                            __v: 0
-                                        })
-                                    if (viewField) {
-                                        if (viewField.attributes) {
-                                            viewField.attributes = struct.decode(viewField.attributes)
-                                        }
-                                        viewFields.push(viewField._doc)
-                                    }
-                                }
-                            }
-                            field._doc.view_fields = viewFields
-                            let childRelationTable = await table.findOne({ slug: table_slug })
-                            field._doc.table_label = relationTable?.label
-                            field.label = childRelationTable?.label
-                            changedField = field
-                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
-                            changedField._doc.table_slug = table_slug
-                            relationsFields.push(changedField._doc)
-                        } else {
-                            if (field.attributes) {
-                                field.attributes = struct.decode(field.attributes)
-                            }
-                            field._doc.table_label = relationTable?.label
-                            changedField = field
-                            changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
-                            relationsFields.push(changedField._doc)
-                        }
-                    }
-
-                }
-
-            }
         }
 
         let result = [], count;
-        let searchByField = []
-        if (params.search) {
-            for (const field of tableInfo.fields) {
-                if (con.STRING_TYPES.includes(field.type)) {
-                    let searchField = { [field.slug]: RegExp(params.search, "i") }
-                    searchByField.push(searchField)
-                }
-            }
-        }
-
-        if (params.phone_number) {
-            let temp = params.phone_number.toString()
-            let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-            params.phone_number = phone
-        } else if (params.phone) {
-            let temp = params.phone.toString()
-            let tempPhone = temp.substring(5, temp.length - 2)
-            let phone = `\(` + temp.substring(2, 4) + `\)` + tempPhone
-            params.phone = phone
-        }
         let populateArr = []
         if (limit !== 0) {
             if (relations.length == 0) {
@@ -731,65 +586,13 @@ let objectBuilder = {
             let prev = result.length
             count = count - (prev - result.length)
         }
-
-        let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
-        for (const res of result) {
-            for (const field of formulaFields) {
-                let attributes = struct.decode(field.attributes)
-                if (field.type === "FORMULA") {
-                    if (attributes.table_from && attributes.sum_field) {
-                        let filters = {}
-                        if (attributes.formula_filters) {
-                            attributes.formula_filters.forEach(el => {
-                                filters[el.key.split("#")[0]] = el.value
-                                if (Array.isArray(el.value)) {
-                                    filters[el.key.split("#")[0]] = { $in: el.value }
-                                }
-                            })
-                        }
-                        const relationFieldTable = await table.findOne({
-                            slug: attributes.table_from.split('#')[0],
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        })
-                        const relationField = await Field.findOne({
-                            relation_id: attributes.table_from.split('#')[1],
-                            table_id: relationFieldTable.id
-                        })
-                        if (!relationField || !relationFieldTable) {
-                            res[field.slug] = 0
-                            continue
-                        }
-                        const dynamicRelation = await Relation.findOne({id: attributes.table_from.split('#')[1]})
-                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                        }
-                        let matchParams = {
-                            [matchField]: { '$eq': res.guid },
-                            ...filters
-                        }
-                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
-                        if (resultFormula.length) {
-                            res[field.slug] = resultFormula[0].res
-                        } else {
-                            res[field.slug] = 0
-                        }
-                    }
-                } else {
-                    if (attributes && attributes.formula) {
-                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-                        res[field.slug] = resultFormula
-                    }
-                }
-            }
-        }
         const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
         if (tableWithVersion) {
             const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                 code: 200,
                 table_id: tableWithVersion.id,
-                action_type: "GET_LIST"
+                action_type: "GET_LIST_SLIM"
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
@@ -804,14 +607,12 @@ let objectBuilder = {
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
         const mongoConn = await mongoPool.get(req.project_id)
-        // console.log("test prod obj builder");
 
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
 
         let params = struct.decode(req?.data)
-
         const limit = params.limit
         const offset = params.offset
         let clientTypeId = params["client_type_id_from_token"]
@@ -859,8 +660,6 @@ let objectBuilder = {
             }
             ]
         })
-        // console.log("TEST::::::::::4")
-        // console.time("TIME_LOGGING:::is_have_condition")
         if (permission?.is_have_condition) {
             const automaticFilterTable = allTables["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -877,7 +676,6 @@ let objectBuilder = {
                 ]
 
             })
-            
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
                     let many2manyRelation = false
@@ -911,7 +709,7 @@ let objectBuilder = {
                         }
                     } else {
                         let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
-                        let objFromAuth = params.tables.find(obj => obj.table_slug === autoFilter.object_field)
+                        let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
                         if (objFromAuth) {
                             if (connectionTableSlug !== req.table_slug) {
                                 if (!many2manyRelation) {
@@ -1497,7 +1295,6 @@ let objectBuilder = {
         }
         // console.log("TEST::::::::::16")
 
-
         // console.time("TIME_LOGGING:::length")
         if (updatedObjects.length) {
             await objectBuilder.multipleUpdateV2({
@@ -1525,10 +1322,8 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
-
-        const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-        return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
+        return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage
@@ -2870,7 +2665,6 @@ let objectBuilder = {
         const params = struct.decode(req.data)
         const allTables = (await ObjectBuilder(true, req.project_id))
 
-        console.log(params)
 
         let responseRow = []
         let responseColumn = []
@@ -3111,7 +2905,6 @@ let objectBuilder = {
             const datetime = params.match["$match"]["updatedAt"]["$gte"]
             const date = new Date(datetime);
             params.match["$match"]["updatedAt"]["$gte"] = date
-            console.log(params.match["$match"]);
         }
 
         let aggregationPipeline = [];

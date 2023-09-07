@@ -1182,8 +1182,8 @@ let objectBuilder = {
                     const view = await View.findOne({relation_id: relation.id})
                     if(view) {
                         field.attributes = {
-                            ...field?.attributes ,
-                            ...struct.decode(view?.attributes)
+                            ...(field.attributes || {}) ,
+                            ...struct.decode(view.attributes || {})
                         }
                     }
                 }

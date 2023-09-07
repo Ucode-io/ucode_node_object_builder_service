@@ -1180,7 +1180,10 @@ let objectBuilder = {
                     }
 
                     const view = await View.findOne({relation_id: relation.id})
-                    field.attributes = {...view.attributes}
+                    if(view) {
+
+                        field.attributes = {...view?.attributes}
+                    }
                 }
                 field.view_fields = viewFields
             }

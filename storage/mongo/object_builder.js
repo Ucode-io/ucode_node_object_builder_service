@@ -371,7 +371,7 @@ let objectBuilder = {
         if (!tableInfo) {
             throw new Error("table not found")
         }
-        
+
 
         let keys = Object.keys(params)
         let order = params.order || {}
@@ -1507,9 +1507,9 @@ let objectBuilder = {
             if (response) {
                 if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                     let tableAttributes = struct.decode(tableModel.attributes)
-    
+
                     if (tableAttributes && tableAttributes.auth_info) {
-    
+
                         let authInfo = tableAttributes.auth_info
                         if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                             throw new Error('This table is auth table. Auth information not fully given')
@@ -2700,7 +2700,7 @@ let objectBuilder = {
         } else if (Object.keys(params.rows_relation).length) {
             let inside_relation_table_exists = {}
             for (let inside_relation_table of params.rows_relation.inside_relation_tables) {
-                const insideRelationTableInfo =allTables[inside_relation_table]
+                const insideRelationTableInfo = allTables[inside_relation_table]
                 insideRelationTableData = await insideRelationTableInfo.models.aggregate([{ ...params.rows_relation.match }, { $project: { _id: 1 } }])
                 if (insideRelationTableData.length > 0) {
                     inside_relation_table_exists = { [inside_relation_table]: true, ...inside_relation_table_exists }
@@ -2941,6 +2941,114 @@ let objectBuilder = {
         response = struct.encode({ count: countResult.length, response: results, });
 
         return { table_slug: req.table_slug, data: response }
+    }),
+    groupByColumns: catchWrapDbObjectBuilder(`${NAMESPACE}.groupByColumns`, async (req) => {
+        // const mongoConn = await mongoPool.get(req.project_id)
+        const params = struct.decode(req.data)
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        // Replace these variables with your actual grouping fields
+        console.log("params::", params);
+        const groupByCountry = params.group_by_country ?? false;
+        const groupByYear = params.group_by_year ?? false;
+
+        const pipeline = [];
+
+        if (groupByCountry) {
+            pipeline.push({
+                $group: {
+                    _id: { country: "$country", year: { $cond: [groupByYear, "$year", null] } },
+                    data: {
+                        $push: {
+                            company: "$company",
+                            athlete: "$athlete",
+                            year: { $cond: [!groupByYear, "$year", null] }
+                        }
+                    },
+                    gold: { $sum: "$gold" },     // Sum the gold field
+                    silver: { $sum: "$silver" }, // Sum the silver field
+                    bronze: { $sum: "$bronze" }
+                }
+            });
+
+            if (groupByYear) {
+                pipeline.push({
+                    $group: {
+                        _id: "$_id.country",
+                        year: {
+                            $push: {
+                                year: "$_id.year",
+                                data: "$data",
+                                gold: "$gold",
+                                silver: "$silver",
+                                bronze: "$bronze",
+                            }
+                        },
+                        gold: { $sum: "$gold" },     // Calculate the total gold for the country
+                        silver: { $sum: "$silver" }, // Calculate the total silver for the country
+                        bronze: { $sum: "$bronze" }
+                    }
+                });
+            } else {
+                pipeline.push({
+                    $project: {
+                        _id: 0,
+                        country: "$_id.country",
+                        data: "$data"
+                    }
+                });
+            }
+        } else {
+            pipeline.push({
+                $group: {
+                    _id: null,
+                    country: {
+                        $push: {
+                            country: "$country",
+                            year: "$year",
+                            data: {
+                                company: "$company",
+                                athlete: "$athlete"
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        const response = await tableInfo.models.aggregate(pipeline)
+        [
+            {
+                country: 'USA',
+                year: [
+                    {
+                        year: 2016,
+                        data: [{
+                            company: 'Football',
+                            athlete: 'John',
+                        }],
+                        gold: 1,
+                        silver: 2,
+                        bronze: 4
+                    },
+                    {
+                        year: 2017,
+                        data: [{
+                            company: 'Basketball',
+                            athlete: 'Cobe Bryant',
+                        }],
+                        gold: 14,
+                        silver: 21,
+                        bronze: 45
+                    },
+                    { year: 2018, data: [] },
+                ],
+                gold: 11,
+                silver: 11,
+                bronze: 11
+            }
+        ]
+        const data = struct.encode({ response: response });
+        return { table_slug: req.table_slug, data: data }
+        return {}
     }),
 }
 

@@ -18,6 +18,7 @@ const objectBuilderService = {
     GetFinancialAnalytics: catchWrapServiceObjectBuilder("service.object_builder.getFinancialAnalytics", objectBuilderStore.getFinancialAnalytics),
     GetGroupReportTables: catchWrapServiceObjectBuilder("service.object_builder.getGroupReportTables", objectBuilderStore.getGroupReportTables),
     GetGroupByField: catchWrapServiceObjectBuilder("service.object_builder.getGroupByField", objectBuilderStore.getGroupByField),
+    GroupByColumns: catchWrapServiceObjectBuilder("service.object_builder.groupByColumns", objectBuilderStore.groupByColumns),
 };
 
 module.exports = objectBuilderService;  

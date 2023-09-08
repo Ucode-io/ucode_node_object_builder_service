@@ -188,7 +188,11 @@ let prepareFunction = {
                         project_id: data['company_service_project_id'],
                         company_id: data['company_service_company_id'],
                         password: data[authInfo['password']],
-                        resource_environment_id: req.project_id
+                        resource_environment_id: req.project_id,
+                        invite: data['invite']
+                    }
+                    if (data['invite']) {
+                        authCheckRequest.environment_id = data["company_service_environment_id"]
                     }
                     const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
                     ownGuid = responseFromAuth.user_id

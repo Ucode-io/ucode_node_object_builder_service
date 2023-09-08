@@ -611,6 +611,7 @@ let objectBuilder = {
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
+        const View = mongoConn.models['View']
 
         let params = struct.decode(req?.data)
         const limit = params.limit
@@ -1162,6 +1163,14 @@ let objectBuilder = {
                                 viewField.attributes = struct.decode(viewField.attributes)
                             }
                             viewFields.push(viewField._doc)
+                        }
+                    }
+
+                    const view = await View.findOne({relation_id: relation.id})
+                    if(view) {
+                        field.attributes = {
+                            ...(field.attributes || {}) ,
+                            ...struct.decode(view.attributes || {})
                         }
                     }
                 }

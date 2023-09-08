@@ -36,7 +36,7 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
 
-            let { payload, data, event, appendMany2ManyObjects, decodedFields } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
+            let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
 
             for (const appendMany2Many of appendMany2ManyObjects) {
@@ -66,17 +66,9 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 
-            const dataBeforeUpdate = await tableInfo.models.findOne({ guid: data.id })
-            if (dataBeforeUpdate && dataBeforeUpdate.is_system) {
-                throw new Error("This document is system document")
-            }
-
-            const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
-            if(!response) {
-                throw new Error('Object not found with given id')
-            }
+            let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
             }

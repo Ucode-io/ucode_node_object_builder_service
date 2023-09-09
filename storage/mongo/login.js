@@ -484,7 +484,8 @@ let loginStore = {
             role: role,
             permissions: permissions,
             global_permission: global_permission,
-            login_table_slug: tableSlug
+            login_table_slug: tableSlug,
+            user_data: user
         }
         // console.log("TEST:::::::::10", JSON.stringify(response, null, 2))
 

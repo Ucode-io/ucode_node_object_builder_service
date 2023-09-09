@@ -35,7 +35,7 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
 
-            let { payload, data, event, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
+            let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
 
             for (const appendMany2Many of appendMany2ManyObjects) {
@@ -66,8 +66,8 @@ let objectBuilder = {
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-            let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
-            const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
+            let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
             }

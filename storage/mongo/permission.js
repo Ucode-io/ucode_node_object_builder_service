@@ -756,7 +756,7 @@ let permission = {
 
         let tablesList = []
         for (let table of tables) {
-            console.log(">>>>>>>>>>>> table attributes ", table.attributes)
+            console.log(">>>>>>>>>>>> table attributes ", table)
             let tableCopy = {
                 ...table,
                 record_permissions: table.record_permissions || null,

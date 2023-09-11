@@ -756,6 +756,7 @@ let permission = {
 
         let tablesList = []
         for (let table of tables) {
+            console.log(">>>>>>>>>>>> table attributes ", table.attributes)
             let tableCopy = {
                 ...table,
                 record_permissions: table.record_permissions || null,
@@ -784,6 +785,7 @@ let permission = {
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
+                console.log(">>>>>>>>>>>> field attributes ", fieldID.attributes)
                 if (field.field_permissions) {
                     const temp = field.field_permissions
                     tableCopy.field_permissions.push({
@@ -812,6 +814,7 @@ let permission = {
             let tableRelationViews = viewPermission[table.slug]
             tableCopy.view_permissions = []
             tableRelationViews && tableRelationViews.length && tableRelationViews.forEach(el => {
+                console.log(">>>>>>>>>>>> view attributes ", el.attributes)
                 if (el.view_permissions) {
                     const temp = el.view_permissions
                     tableCopy.view_permissions.push({
@@ -843,6 +846,7 @@ let permission = {
             let tableViews = tableViewPermission[table.slug]
             tableCopy.table_view_permissions = []
             tableViews && tableViews.length && tableViews.forEach(el => {
+                console.log(">>>>>>>>>>>> tab attributes ", el.attributes)
                 if (el.view_permissions) {
                     const temp = el.view_permissions
                     tableCopy.table_view_permissions.push({

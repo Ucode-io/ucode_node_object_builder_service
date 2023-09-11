@@ -785,7 +785,7 @@ let permission = {
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
-                console.log(">>>>>>>>>>>> field attributes ", fieldID.attributes)
+                console.log(">>>>>>>>>>>> field attributes ", field.attributes)
                 if (field.field_permissions) {
                     const temp = field.field_permissions
                     tableCopy.field_permissions.push({

@@ -356,6 +356,7 @@ let sectionStore = {
                                 relation_id: relation.id,
                                 relation_table_slug: data.table_slug
                             })
+                            field.is_editable = relation.is_editable
                         }
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []

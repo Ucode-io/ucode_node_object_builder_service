@@ -2815,3 +2815,24 @@
 }
 >>>>>>> Stashed changes
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+{
+  message: "service.object_builder.groupByColumns: failed with error: The field 'country' must be an accumulator object",
+  level: 'error',
+  timestamp: '2023-09-12T10:31:32.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Array',
+  level: 'error',
+  timestamp: '2023-09-12T10:59:53.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-09-12T12:30:34.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

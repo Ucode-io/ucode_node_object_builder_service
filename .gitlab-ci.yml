@@ -10,7 +10,7 @@ stages:
 
 test-dev:
   stage: test
-  image: gitlab.udevs.io:5050/docker/node:18.16.0-alpine as builder
+  image: gitlab.udevs.io:5050/docker/node:18.16.0-alpine
   script:
     - npm install
     - npm test

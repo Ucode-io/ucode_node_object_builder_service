@@ -3014,6 +3014,194 @@ let objectBuilder = {
             throw err
         }
     }),
+    groupByColumns: catchWrapDbObjectBuilder(`${NAMESPACE}.groupByColumns`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id)
+        const View = mongoConn.models['View']
+        const params = struct.decode(req.data)
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const view = await View.findOne({
+            id: params.builder_service_view_id,
+        })
+        if (!view) {
+            throw new Error("View not found")
+        }
+        let groupColumnIds = []
+        if (view.attributes && view.attributes.group_by_columns && view.attributes.group_by_columns.length) {
+            // console.log("view attributes::", view.attributes);
+            groupColumnIds = view.attributes.group_by_columns
+        }
+        // console.log("group columns ids, ", groupColumnIds);
+        const fields = tableInfo?.fields || []
+        const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))
+        const groupColumns = fields.filter(el => groupColumnIds.includes(el.id))
+        const projectColumns = fields.filter(el => (!groupColumnIds.includes(el.id) && !(constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA"))))
+        const sumFieldWithDollorSign = {}
+        const numberfieldWithDollorSign = {}
+        const projectColumnsWithDollorSign = {}
+        numberColumns.forEach(el => {
+            sumFieldWithDollorSign[el.slug] = { $sum: "$" + el.slug }
+            numberfieldWithDollorSign[el.slug] = "$" + el.slug
+        })
+        projectColumns.forEach(el => {
+            projectColumnsWithDollorSign[el.slug] = "$" + el.slug
+        })
+        // console.log("sum fields:", sumFieldWithDollorSign);
+        // console.log("number fields:", numberfieldWithDollorSign);
+        const firstGroup = {}
+        groupColumns.forEach(el => {
+            firstGroup[el.slug] = "$" + el.slug
+        })
+        // const pipeline = [];
+        const copyPipeline = []
+        let lastGroupField
+        for (const id of groupColumnIds) {
+            let field = fields.find(el => el.id === id)
+            // console.log("field:", field);
+            // console.log("field slug:::", field.slug);
+            // console.log("last group field::", lastGroupField);
+            if (lastGroupField) {
+                copyPipeline.push({
+                    $group: {
+                        _id: `$_id.${lastGroupField}`,
+                        [lastGroupField]: { $first: `$_id.${lastGroupField}` },
+                        [field.slug]: {
+                            $push: {
+                                [field.slug]: `$_id.${[field.slug]}`,
+                                data: '$data',
+                                ...numberfieldWithDollorSign,
+                            }
+                        },
+                        ...sumFieldWithDollorSign
+                    }
+                })
+            } else {
+                copyPipeline.push({
+                    $group: {
+                        _id: firstGroup,
+                        data: {
+                            $push: {
+                                ...projectColumnsWithDollorSign,
+                                ...numberfieldWithDollorSign,
+                            }
+                        },
+                        ...sumFieldWithDollorSign
+                    }
+                })
+            }
+
+            lastGroupField = field.slug
+        }
+
+
+        // fs.writeFile('./test.json', JSON.stringify(copyPipeline), err => {
+        //     if (err) {
+        //         console.error(err);
+        //     }
+        //     // file written successfully
+        // });
+
+        // if (groupByCountry) {
+        //     pipeline.push({
+        //         $group: {
+        //             _id: { country: "$country", year: { $cond: [groupByYear, "$year", null] } },
+        //             data: {
+        //                 $push: {
+        //                     company: "$company",
+        //                     athlete: "$athlete",
+        //                     year: { $cond: [!groupByYear, "$year", ""] }
+        //                 }
+        //             },
+        //             ...sumFieldWithDollorSign
+        //         }
+        //     });
+
+        //     if (groupByYear) {
+        //         pipeline.push({
+        //             $group: {
+        //                 _id: "$_id.country",
+        //                 country: { $first: "$_id.country" },
+        //                 year: {
+        //                     $push: {
+        //                         year: "$_id.year",
+        //                         data: "$data",
+        //                         ...numberfieldWithDollorSign,
+        //                     }
+        //                 },
+        //                 ...sumFieldWithDollorSign
+        //             }
+        //         });
+        //         pipeline.push({
+        //             $project: {
+        //                 _id: 0,
+        //             }
+        //         })
+        //     } else {
+        //         pipeline.push({
+        //             $project: {
+        //                 _id: 0,
+        //                 country: "$_id.country",
+        //                 data: "$data"
+        //             }
+        //         });
+        //     }
+        // } else {
+        //     pipeline.push({
+        //         $group: {
+        //             _id: null,
+        //             country: {
+        //                 $push: {
+        //                     country: "$country",
+        //                     year: "$year",
+        //                     data: {
+        //                         company: "$company",
+        //                         athlete: "$athlete"
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     });
+        // }
+        const response = await tableInfo.models.aggregate(copyPipeline)
+        // [
+        //     {
+        //         country: 'USA',
+        //         year: [
+        //             {
+        //                 year: 2016,
+        //                 data: [{
+        //                     company: 'Football',
+        //                     athlete: 'John',
+        //                 }],
+        //                 gold: 1,
+        //                 silver: 2,
+        //                 bronze: 4
+        //             },
+        //             {
+        //                 year: 2017,
+        //                 data: [{
+        //                     company: 'Basketball',
+        //                     athlete: 'Cobe Bryant',
+        //                 }],
+        //                 gold: 14,
+        //                 silver: 21,
+        //                 bronze: 45
+        //             },
+        //             { year: 2018, data: [] },
+        //         ],
+        //         gold: 11,
+        //         silver: 11,
+        //         bronze: 11
+        //     }
+        // ]
+        // fs.writeFile('./test_1.json', JSON.stringify(response), err => {
+        //     if (err) {
+        //         console.error(err);
+        //     }
+        //     // file written successfully
+        // });
+        const data = struct.encode({ response: response });
+        return { table_slug: req.table_slug, data: data }
+    }),
 }
 
 module.exports = objectBuilder;

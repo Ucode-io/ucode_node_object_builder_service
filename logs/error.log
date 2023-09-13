@@ -13191,23 +13191,37 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-25T06:00:59.481Z',
+=======
+{
+  message: "service.object_builder.groupByColumns: failed with error: The field 'country' must be an accumulator object",
+  level: 'error',
+  timestamp: '2023-09-12T10:31:32.500Z',
+>>>>>>> 341475fc7637e0dd2f30411eff3a80a30df39967
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.loginStore.login_data: failed with error: tableSlug is not defined',
   level: 'error',
   timestamp: '2023-07-25T06:01:38.240Z',
 =======
 >>>>>>> 17ef3310ed8dadf63e9db4fa272b45d23ffbe82d
+=======
+  message: 'service.object_builder.groupByColumns: failed with error: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Array',
+  level: 'error',
+  timestamp: '2023-09-12T10:59:53.774Z',
+>>>>>>> 341475fc7637e0dd2f30411eff3a80a30df39967
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'Error while auto connecting',
   level: 'error',
   timestamp: '2023-07-26T04:34:27.900Z',
@@ -13518,3 +13532,11 @@
   metadata: {}
 }
 >>>>>>> 2d934cbfeb3d7a48906cc5db19d7b996f6885930
+=======
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-09-12T12:30:34.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 341475fc7637e0dd2f30411eff3a80a30df39967

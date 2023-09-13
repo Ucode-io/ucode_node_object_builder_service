@@ -325,7 +325,8 @@ let permission = {
                     icon: "$icon",
                     is_changed: "$is_cached",
                     is_system: "$is_system",
-                    record_permissions: { $arrayElemAt: ['$record_permissions', 0] }
+                    record_permissions: { $arrayElemAt: ['$record_permissions', 0] },
+                    attributes: "$attributes",
                 }
             }
         ]
@@ -375,7 +376,8 @@ let permission = {
                     label: "$label",
                     id: "$id",
                     table_id: "$table_id",
-                    field_permissions: { $arrayElemAt: ['$field_permissions', 0] }
+                    field_permissions: { $arrayElemAt: ['$field_permissions', 0] },
+                    attributes: "$attributes",
                 }
             }
         ]
@@ -623,7 +625,8 @@ let permission = {
                     table_slug: "$table_slug",
                     layout_id: "$layout_id",
                     relation_id: "$relation_id",
-                    view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
+                    view_permissions: { $arrayElemAt: ['$view_permissions', 0] },
+                    attributes: "$attributes",
                 }
             }
         ]
@@ -663,7 +666,8 @@ let permission = {
                     name: "$name",
                     id: "$id",
                     table_slug: "$table_slug",
-                    view_permissions: { $arrayElemAt: ['$view_permissions', 0] }
+                    view_permissions: { $arrayElemAt: ['$view_permissions', 0] },
+                    attributes: "$attributes",
                 }
             }
         ]
@@ -752,6 +756,7 @@ let permission = {
 
         let tablesList = []
         for (let table of tables) {
+            console.log(">>>>>>>>>>>> table attributes ", table)
             let tableCopy = {
                 ...table,
                 record_permissions: table.record_permissions || null,
@@ -780,6 +785,7 @@ let permission = {
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
+                console.log(">>>>>>>>>>>> field attributes ", field.attributes)
                 if (field.field_permissions) {
                     const temp = field.field_permissions
                     tableCopy.field_permissions.push({
@@ -789,6 +795,7 @@ let permission = {
                         edit_permission: temp.edit_permission,
                         role_id: req.role_id,
                         label: field.label,
+                        attributes: field.attributes
                     })
                 } else {
                     tableCopy.field_permissions.push({
@@ -798,7 +805,8 @@ let permission = {
                         edit_permission: false,
                         role_id: req.role_id,
                         label: field.label,
-                        guid: ""
+                        guid: "",
+                        attributes: field.attributes
                     })
                 }
             })
@@ -806,6 +814,7 @@ let permission = {
             let tableRelationViews = viewPermission[table.slug]
             tableCopy.view_permissions = []
             tableRelationViews && tableRelationViews.length && tableRelationViews.forEach(el => {
+                console.log(">>>>>>>>>>>> view attributes ", el.attributes)
                 if (el.view_permissions) {
                     const temp = el.view_permissions
                     tableCopy.view_permissions.push({
@@ -817,6 +826,7 @@ let permission = {
                         create_permission: temp.create_permission,
                         delete_permission: temp.delete_permission,
                         label: el.label,
+                        attributes: el.attributes
                     })
                 } else {
                     tableCopy.view_permissions.push({
@@ -828,6 +838,7 @@ let permission = {
                         create_permission: false,
                         delete_permission: false,
                         label: el.label,
+                        attributes: el.attributes
                     })
                 }
             })
@@ -835,6 +846,7 @@ let permission = {
             let tableViews = tableViewPermission[table.slug]
             tableCopy.table_view_permissions = []
             tableViews && tableViews.length && tableViews.forEach(el => {
+                console.log(">>>>>>>>>>>> tab attributes ", el.attributes)
                 if (el.view_permissions) {
                     const temp = el.view_permissions
                     tableCopy.table_view_permissions.push({
@@ -843,7 +855,8 @@ let permission = {
                         edit: temp.edit,
                         delete: temp.delete,
                         name: el.name,
-                        view_id: temp.view_id
+                        view_id: temp.view_id,
+                        attributes: el.attributes
                     })
                 } else {
                     tableCopy.table_view_permissions.push({
@@ -853,7 +866,8 @@ let permission = {
                         create_permission: false,
                         delete_permission: false,
                         name: el.name,
-                        view_id: el.id
+                        view_id: el.id,
+                        attributes: el.attributes
                     })
                 }
             })

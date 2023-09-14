@@ -2957,6 +2957,7 @@ let objectBuilder = {
         response = struct.encode({ count: countResult.length, response: results, });
 
         return { table_slug: req.table_slug, data: response }
+        
     }),
     deleteMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteMany`, async (req) => {
         try {

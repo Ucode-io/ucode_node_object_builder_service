@@ -144,6 +144,26 @@ async function createMenu() {
         "layout_id": "",
         "type": "FOLDER"
     },
+    {
+        "label": "Profil settings",
+        "icon": "user.svg",
+        "id": "3b74ee68-26e3-48c8-bc95-257ca7d6aa5c",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+        "table_id": "",
+        "layout_id": "",
+        "type": "LINK",
+        "attributes": {
+            "fields": {
+              "link": {
+                "stringValue": "/main/fadc103a-b411-4a1a-b47c-e794c33f85f6/object/{login_table_slug}/{user_id}",
+                "kind": "stringValue"
+              },
+            }
+          },
+    },
     ]
 
     return menu

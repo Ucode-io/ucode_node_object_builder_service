@@ -109168,3 +109168,1196 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-14T05:37:26.006Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-14T05:37:26.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T05:37:26.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-14T05:37:26.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-14T05:37:26.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T05:38:15.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-14T05:38:15.094Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "AUTOFILL",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Bus Name",\n' +
+    '  "slug": "bus_name",\n' +
+    '  "table_id": "e5cf742e-3b81-4d99-ad4b-34691216320e",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ru": {\n' +
+    '        "stringValue": "Bus Name",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "validation_message": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "validation": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "creatable": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "disabled": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_uz": {\n' +
+    '        "stringValue": "Bus Name",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "5c659d9a-f45b-41cd-a7ed-13a3928d69c4",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "bus#bus_id",\n' +
+    '  "autofill_field": "name",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-14T05:38:31.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "default": "",\n' +
+    '  "type": "AUTOFILL",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Bus Name",\n' +
+    '  "slug": "bus_name",\n' +
+    '  "table_id": "e5cf742e-3b81-4d99-ad4b-34691216320e",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ru": {\n' +
+    '        "stringValue": "Bus Name",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "validation_message": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "validation": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "creatable": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "disabled": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_uz": {\n' +
+    '        "stringValue": "Bus Name",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "5c659d9a-f45b-41cd-a7ed-13a3928d69c4",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "bus#bus_id",\n' +
+    '  "autofill_field": "name",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T05:38:31.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T05:38:33.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T05:38:33.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "AUTOFILL",\n' +
+    '  "index": "string",\n' +
+    '  "label": "bus name 2",\n' +
+    '  "slug": "bus_name_2",\n' +
+    '  "table_id": "e5cf742e-3b81-4d99-ad4b-34691216320e",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label_uz": {\n' +
+    '        "stringValue": "bus name 2",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "validation_message": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "creatable": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ru": {\n' +
+    '        "stringValue": "bus name 2",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "validation": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "disabled": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "bus#bus_id_2",\n' +
+    '  "autofill_field": "name",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-14T05:58:08.604Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "default": "",\n' +
+    '  "type": "AUTOFILL",\n' +
+    '  "index": "string",\n' +
+    '  "label": "bus name 2",\n' +
+    '  "slug": "bus_name_2",\n' +
+    '  "table_id": "e5cf742e-3b81-4d99-ad4b-34691216320e",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label_uz": {\n' +
+    '        "stringValue": "bus name 2",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "validation_message": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "creatable": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ru": {\n' +
+    '        "stringValue": "bus name 2",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "validation": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "disabled": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "bus#bus_id_2",\n' +
+    '  "autofill_field": "name",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T05:58:08.610Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T05:58:11.106Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T05:58:11.106Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "AUTOFILL",\n' +
+    '  "index": "string",\n' +
+    '  "label": "bus name 2",\n' +
+    '  "slug": "bus_name_2",\n' +
+    '  "table_id": "e5cf742e-3b81-4d99-ad4b-34691216320e",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "creatable": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "disabled": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "label_uz": {\n' +
+    '        "stringValue": "bus name 2",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "validation_message": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ru": {\n' +
+    '        "stringValue": "bus name 2",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "validation": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "a55efae3-481f-4375-8ec6-c307434c38d1",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "bus#bus_id_2",\n' +
+    '  "autofill_field": "name",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-14T05:59:25.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "default": "",\n' +
+    '  "type": "AUTOFILL",\n' +
+    '  "index": "string",\n' +
+    '  "label": "bus name 2",\n' +
+    '  "slug": "bus_name_2",\n' +
+    '  "table_id": "e5cf742e-3b81-4d99-ad4b-34691216320e",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "creatable": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "disabled": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "label_uz": {\n' +
+    '        "stringValue": "bus name 2",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "validation_message": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ru": {\n' +
+    '        "stringValue": "bus name 2",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "validation": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "a55efae3-481f-4375-8ec6-c307434c38d1",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "bus#bus_id_2",\n' +
+    '  "autofill_field": "name",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T05:59:25.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T05:59:27.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T05:59:27.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-14T06:03:43.708Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-14T06:03:43.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:03:43.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-14T06:03:43.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-14T06:03:44.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:04:26.118Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-14T06:04:26.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-14T06:05:42.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:05:42.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "23d20ce2-e48b-488e-bec7-763fae479442",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "bus_directions"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:05:42.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:05:45.383Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:05:45.383Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T06:05:45.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-14T06:14:40.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-14T06:14:40.131Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:14:40.131Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-14T06:14:40.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-14T06:14:40.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-14T06:16:49.780Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-14T06:16:49.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:16:49.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-14T06:16:49.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-14T06:16:50.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:17:32.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-14T06:17:32.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-14T06:17:56.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:17:56.590Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "23d20ce2-e48b-488e-bec7-763fae479442",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "bus_directions"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:17:56.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:17:59.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:17:59.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T06:17:59.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-14T06:18:02.098Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:18:02.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "23d20ce2-e48b-488e-bec7-763fae479442",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "bus_directions"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:18:02.419Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:18:05.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:18:05.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T06:18:05.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-14T06:19:40.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-14T06:19:40.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:19:40.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-14T06:19:40.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-14T06:19:40.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:20:23.718Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-14T06:20:23.722Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-14T06:20:48.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:20:48.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "23d20ce2-e48b-488e-bec7-763fae479442",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "bus_directions"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:20:49.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:20:52.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:20:52.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T06:20:52.216Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-14T06:21:47.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-14T06:21:47.432Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:21:47.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-14T06:21:47.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-14T06:21:47.954Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:22:31.390Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-14T06:22:31.396Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-14T06:23:49.571Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "bus_directions",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:23:49.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "23d20ce2-e48b-488e-bec7-763fae479442",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "bus_directions"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:23:49.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:23:53.565Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:23:53.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T06:23:53.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-14T06:25:59.057Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-14T06:25:59.059Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-14T06:25:59.059Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-14T06:25:59.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-14T06:25:59.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-14T06:26:41.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-14T06:26:41.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T06:26:45.323Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-14T06:26:47.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

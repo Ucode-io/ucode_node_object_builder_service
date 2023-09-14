@@ -35,7 +35,7 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
 
-            let { payload, data, event, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
+            let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
 
             for (const appendMany2Many of appendMany2ManyObjects) {
@@ -66,8 +66,8 @@ let objectBuilder = {
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-            let { data, event, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
-            const response = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
+            let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
             for (const resAppendM2M of appendMany2Many) {
                 await objectBuilder.appendManyToMany(resAppendM2M)
             }
@@ -611,6 +611,7 @@ let objectBuilder = {
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
+        const View = mongoConn.models['View']
 
         let params = struct.decode(req?.data)
         const limit = params.limit
@@ -1162,6 +1163,14 @@ let objectBuilder = {
                                 viewField.attributes = struct.decode(viewField.attributes)
                             }
                             viewFields.push(viewField._doc)
+                        }
+                    }
+
+                    const view = await View.findOne({relation_id: relation.id})
+                    if(view) {
+                        field.attributes = {
+                            ...(field.attributes || {}) ,
+                            ...struct.decode(view.attributes || {})
                         }
                     }
                 }
@@ -2935,6 +2944,7 @@ let objectBuilder = {
         response = struct.encode({ count: countResult.length, response: results, });
 
         return { table_slug: req.table_slug, data: response }
+        
     }),
 }
 

@@ -363,8 +363,10 @@ let sectionStore = {
                         let autofillFields = []
                         for (const field of tableFields) {
                             let autoFillTable = field.autofill_table
+                            let splitedAutoFillTable = []
                             if (field?.autofill_table?.includes('#')) {
-                                autoFillTable = field.autofill_table.split('#')[0]
+                                splitedAutoFillTable = field.autofill_table.split('#')
+                                autoFillTable = splitedAutoFillTable[0]
                             }
                             if (field.autofill_field && autoFillTable && autoFillTable === fieldReq.id.split("#")[0]) {
                                 let autofill = {
@@ -372,7 +374,9 @@ let sectionStore = {
                                     field_to: field.slug,
                                     automatic: field.automatic,
                                 }
-                                autofillFields.push(autofill)
+                                if (fieldResp.slug === splitedAutoFillTable[1]) {
+                                    autofillFields.push(autofill)
+                                }
                             }
                         }
                         let originalAttributes = {}

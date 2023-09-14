@@ -280,8 +280,10 @@ async function buildModels(is_build = true, project_id) {
                             })
                             for (const field of tableElementFields) {
                                 let autoFillTable = field.autofill_table
+                                let splitedAutoFillTable = []
                                 if (field?.autofill_table?.includes('#')) {
-                                    autoFillTable = field.autofill_table.split('#')[0]
+                                    splitedAutoFillTable = field.autofill_table.split('#')
+                                    autoFillTable = splitedAutoFillTable[0]
                                 }
                                 if (field.autofill_field && autoFillTable && autoFillTable === relationTableSlug) {
 
@@ -290,7 +292,9 @@ async function buildModels(is_build = true, project_id) {
                                         field_to: field.slug,
                                         automatic: field.automatic,
                                     }
-                                    autofillFields.push(autofill)
+                                    if (resField.slug === splitedAutoFillTable[1]) {
+                                        autofillFields.push(autofill)
+                                    }
                                 }
                             }
                         } else {

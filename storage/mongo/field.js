@@ -121,7 +121,11 @@ let fieldStore = {
                 //     slug: data.autofill_table,
 
                 // })
-                let autoFillTable = await tableVersion(mongoConn, { slug: data.autofill_table }, data.version_id, true)
+                let autoFillTableSlug = data.autofill_table
+                if (data.autofill_table.includes("#")) {
+                    autoFillTableSlug = data.autofill_table.split("#")[0]
+                }
+                let autoFillTable = await tableVersion(mongoConn, { slug: autoFillTableSlug }, data.version_id, true)
                 let autoFillFieldSlug = "", autoFillField = {}
                 if (data.autofill_field.includes(".")) {
                     let splitedAutofillField = data.autofill_field.split(".")

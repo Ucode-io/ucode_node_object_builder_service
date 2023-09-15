@@ -2993,7 +2993,7 @@ let objectBuilder = {
                     $group: {
                         _id: `$_id.${lastGroupField}`,
                         [lastGroupField]: { $first: `$_id.${lastGroupField}` },
-                        [field.slug]: {
+                        data: {
                             $push: {
                                 [field.slug]: `$_id.${[field.slug]}`,
                                 data: '$data',

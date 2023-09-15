@@ -68,12 +68,17 @@ let objectBuilder = {
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
+ 
+            let funcs = []
             for (const resAppendM2M of appendMany2Many) {
-                await objectBuilder.appendManyToMany(resAppendM2M)
+                funcs.push(objectBuilder.appendManyToMany(resAppendM2M))
             }
             for (const resDeleteM2M of deleteMany2Many) {
-                await objectBuilder.deleteManyToMany(resDeleteM2M)
+                funcs.push(objectBuilder.deleteManyToMany(resDeleteM2M))
             }
+
+            await Promise.all(funcs)
+
             // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
             const table = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""

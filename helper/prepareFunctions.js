@@ -278,6 +278,24 @@ let prepareFunction = {
         event.payload.table_slug = req.table_slug
         let dataToAnalytics = {}
         let appendMany2Many = [], deleteMany2Many = []
+
+        let relation_ids = []
+        for (const field of tableInfo.fields) {
+            if (field.type === "LOOKUPS") {
+                relation_ids.push(field.relation_id)
+            }
+        }
+
+        const relations = await Relation.find({
+            id: { $in: relation_ids }
+        })
+
+        let relationMap = {}
+
+        for (const relation of relations) {
+            relationMap[relation.id] = relation
+        }
+
         for (const field of tableInfo.fields) {
             let type = converter(field.type);
             if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
@@ -297,9 +315,7 @@ let prepareFunction = {
                     }
                 }
 
-                const relation = await Relation.findOne({
-                    id: field.relation_id
-                })
+                const relation = relationMap[field.relation_id]
 
                 if (newIds.length) {
                     let appendMany2ManyObj = {

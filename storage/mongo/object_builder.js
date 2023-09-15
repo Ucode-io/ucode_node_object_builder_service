@@ -3082,7 +3082,7 @@ let objectBuilder = {
                 copyPipeline.push({
                     $group: {
                         _id: firstGroup,
-                        [field.slug]: `$${[field.slug]}`,
+                        [field.slug]: { $first: `$${[field.slug]}` },
                         data: {
                             $push: {
                                 ...projectColumnsWithDollorSign,

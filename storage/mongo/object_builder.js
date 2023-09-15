@@ -25,6 +25,7 @@ const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
+const constants = require('../../helper/constants');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -376,7 +377,7 @@ let objectBuilder = {
         if (!tableInfo) {
             throw new Error("table not found")
         }
-        
+
 
         let keys = Object.keys(params)
         let order = params.order || {}
@@ -742,24 +743,29 @@ let objectBuilder = {
         console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
-                let replacedSearch = ""
+
                 let empty = ""
-                for (let el of params.search) {
-                    if (el == "(") {
-                        empty += "\\("
-                    } else if (el == ")") {
-                        empty += "\\)"
-                    } else {
-                        empty += el
+                if (typeof params.search === "string") {
+                    for (let el of params.search) {
+                        if (el == "(") {
+                            empty += "\\("
+                        } else if (el == ")") {
+                            empty += "\\)"
+                        } else {
+                            empty += el
+                        }
                     }
+                    params.search = empty
                 }
-                params.search = empty
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))
-                    if (field.type !== "NUMBER" && field.type !== "SWITCH") {
-                        let obj = {};
+                    let obj = {};
+                    if (!constants.NUMBER_TYPES.includes(field.type) && !constants.BOOLEAN_TYPES.includes(field.type)) {
                         obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }
+                        arrayOfViewFields.push(obj)
+                    } else if (constants.NUMBER_TYPES.includes(field.type) && typeof params.search === "number") {
+                        obj[view_field] = params.search
                         arrayOfViewFields.push(obj)
                     }
                 }
@@ -942,7 +948,6 @@ let objectBuilder = {
                 { deleted_at: null }
             ]
         }
-
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -1515,9 +1520,9 @@ let objectBuilder = {
             if (response) {
                 if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                     let tableAttributes = struct.decode(tableModel.attributes)
-    
+
                     if (tableAttributes && tableAttributes.auth_info) {
-    
+
                         let authInfo = tableAttributes.auth_info
                         if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                             throw new Error('This table is auth table. Auth information not fully given')
@@ -2708,7 +2713,7 @@ let objectBuilder = {
         } else if (Object.keys(params.rows_relation).length) {
             let inside_relation_table_exists = {}
             for (let inside_relation_table of params.rows_relation.inside_relation_tables) {
-                const insideRelationTableInfo =allTables[inside_relation_table]
+                const insideRelationTableInfo = allTables[inside_relation_table]
                 insideRelationTableData = await insideRelationTableInfo.models.aggregate([{ ...params.rows_relation.match }, { $project: { _id: 1 } }])
                 if (insideRelationTableData.length > 0) {
                     inside_relation_table_exists = { [inside_relation_table]: true, ...inside_relation_table_exists }

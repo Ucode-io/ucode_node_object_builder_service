@@ -152,7 +152,7 @@ let projectStore = {
                         await objectBuilder(false, data.project_id)
                         console.log(">>>>>>>> ")
                         // await initialTableFolder({ project_id: data.project_id })
-                        // await initialMenu({ project_id: data.project_id })
+                        await initialMenu({ project_id: data.project_id })
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })
                         // await initialGlobalPermission({ project_id: data.project_id })

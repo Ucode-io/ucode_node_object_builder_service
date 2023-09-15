@@ -26,6 +26,11 @@ const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
 
+const TableStorage = require('./table')
+const FieldStorage = require('./field')
+const RelationStorage = require('./relation')
+const ViewStorage = require('./view.js')
+
 
 let NAMESPACE = "storage.object_builder";
 
@@ -2123,7 +2128,6 @@ let objectBuilder = {
             throw err
         }
     }),
-
     multipleInsert: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
         //if you will be change this function, you need to change create function
         try {
@@ -2952,6 +2956,137 @@ let objectBuilder = {
         return { table_slug: req.table_slug, data: response }
         
     }),
+    copyFromProject: catchWrapDbObjectBuilder(`${NAMESPACE}.copyFromProject`, async (req) => {
+        let table_ids = req.menus?.map(el => {
+            if(el.type === "TABLE") {
+                return el.table_id
+            }
+        })
+        
+        let menu_ids = req.menus?.map(el => el.id)
+
+        try {
+            const allTablesTo = (await ObjectBuilder(true, req.project_id))[req.project_id]
+            const allTablesFrom = (await ObjectBuilder(true, req.project_id))[req.from_project_id]
+
+            // connection to database
+            const mongoConnTo = await mongoPool.get(req.project_id)
+            const mongoConnFrom = await mongoPool.get(req.from_project_id)
+
+            // collections to db
+            const T_TableModel = mongoConnTo.models['Table']
+            const T_MenuModel = mongoConnTo.models['object_builder_service.menu']
+            const T_TabModel = mongoConnFrom.models['Tab']
+            const T_SectionModel = mongoConnFrom.models['Section']
+            const T_LayoutModel = mongoConnFrom.models['Layout']
+
+            //collections from db
+            const F_TableModel = mongoConnFrom.models['Table']
+            const F_FieldModel = mongoConnFrom.models['Field']
+            const F_RelationModel = mongoConnFrom.models["Relation"]
+            const F_ViewModel = mongoConnFrom.models["View"]
+            const F_TabModel = mongoConnFrom.models['Tab']
+            const F_SectionModel = mongoConnFrom.models['Section']
+            const F_LayoutModel = mongoConnFrom.models['Layout']
+
+            // copy tables
+            const tables_from = await F_TableModel.find({ id: { $in: table_ids } })
+            let table_slugs = tables_from.map(el => el.slug)
+            if (tables_from.length) {
+                await TableStorage.CreateAll({tables: tables_from, project_id: req.project_id, table_ids, table_slugs})
+                console.log(`Copied ${tables_from.length} tables from ${req.from_project_id} -> ${req.project_id}`)
+            } else {
+                console.log(`Copied 0 tables from ${req.from_project_id} -> ${req.project_id}`)
+            }
+
+            // copy menus
+            await T_MenuModel.deleteMany({id: {$in: menu_ids}})
+            await T_MenuModel.insertMany(req.menus)
+
+            // copy fields
+            const fields_from = await F_FieldModel.find({table_id: { $in: table_ids }})
+            console.log("fields_from", fields_from.length)
+            if (tables_from.length) {
+                await FieldStorage.CopyFields({project_id: req.project_id, fields: fields_from, table_ids})
+                console.log(`Copied ${fields_from.length} fields from ${req.from_project_id} -> ${req.project_id}`)
+            } else {
+                console.log(`Copied 0 fields from ${req.from_project_id} -> ${req.project_id}`)
+            }
+
+            // copy relation and relation_views
+            const relations_from = await F_RelationModel.find({$or: [{table_from: {$in: table_slugs}}, {field_from: {$in: table_slugs}}]})
+            const relation_ids = relations_from.map(el => el.id)
+            const relation_views_from = await F_ViewModel.find({relation_id: {$in: relation_ids}})
+            await RelationStorage.CopyRelations({project_id: req.project_id, relations: relations_from, views: relation_views_from})
+
+
+            // copy table views
+            const views_from = await F_ViewModel.find({table_slug: {$in: table_slugs}})
+            await objectBuilder.copyViews({project_id: req.project_id, views: views_from})
+
+
+            // copy layouts
+            const layouts_from = await F_LayoutModel.find({table_id: {$in: table_ids}})
+            const layout_ids = layouts_from.map(el => el.id)
+            await T_LayoutModel.deleteMany({id: {$in: layout_ids}})
+            await T_LayoutModel.insertMany(layouts_from)
+
+            // copy tabs
+            const tabs_from = await F_TabModel.find({layout_id: {$in: layout_ids}})
+            const tab_ids = tabs_from.map(el => el.id)
+            await T_TabModel.deleteMany({layout_id: {$in: layout_ids}})
+            await T_TabModel.insertMany(tabs_from)
+
+            // copy sections
+            const sections_from = await F_SectionModel.find({tab_id: {$in: tab_ids}})
+            await T_SectionModel.deleteMany({tab_id: {$in: tab_ids}})
+            await T_SectionModel.insertMany(sections_from)
+
+
+            return {}
+        } catch (err) {
+            console.log(err)
+            throw err
+        }
+
+    }),
+    copyViews: catchWrapDbObjectBuilder(`${NAMESPACE}.CopyViews`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const ViewModel = mongoConn.models['View']
+            const AllTables = (await ObjectBuilder(true, data.project_id))
+            const ViewPermissionModel = AllTables["view_permission"]
+            const RoleModel = AllTables["role"]
+
+            const roles = await RoleModel?.models.find().lean()
+
+            let view_permission = [];
+            let view_ids = []
+            for (const view of data.views) {
+                view_ids.push(view.id)
+                for (const role of roles) {
+                    view_permission.push({
+                        guid: v4(),
+                        view: true,
+                        edit: true,
+                        delete: true,
+                        role_id: role.guid,
+                        view_id: view.id
+                    })
+                }
+            }
+
+            await ViewModel.deleteMany({id: {$in: view_ids}})
+            await ViewPermissionModel.models.deleteMany({view_id: {$in: view_ids}})
+
+            await ViewModel.insertMany(data.views)
+            await ViewPermissionModel.models.insertMany(view_permission)
+
+            return data.views;
+        } catch (err) {
+            throw err
+        }
+    })
 }
 
 module.exports = objectBuilder;

@@ -506,6 +506,44 @@ let tableStore = {
             throw err
         }
     }),
+    CreateAll: catchWrapDb(`${NAMESPACE}.CreateAll`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const TableModel = mongoConn.models['Table']
+            const AllTables = (await ObjectBuilder(true, data.project_id))
+            const RecordPermissionModel = AllTables["record_permission"]
+            const RoleModel = AllTables["role"]
+
+            const roles = await RoleModel?.models.find().lean()
+
+            let record_permissions = [];
+            for (const table of data.tables) {
+                for (const role of roles) {
+                    record_permissions.push({
+                        delete: "Yes",
+                        write: "Yes",
+                        table_slug: table?.slug,
+                        update: "Yes",
+                        read: "Yes",
+                        is_have_condition: false,
+                        role_id: role.guid,
+                        guid: v4()
+                    })
+                }
+            }
+
+            await TableModel.deleteMany({id: data.table_ids})
+            await RecordPermissionModel.models.deleteMany({table_slug: {$in: data.table_slugs}})
+
+            await TableModel.insertMany(data.tables)
+            await RecordPermissionModel.models.insertMany(record_permissions)
+
+            return data.tables;
+        } catch (err) {
+            throw err
+        }
+
+    })
 };
 
 module.exports = tableStore;

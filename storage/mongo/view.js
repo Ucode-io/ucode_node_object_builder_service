@@ -113,7 +113,6 @@ let viewStore = {
             throw err
         }
     }),
-
     getList: catchWrapDb(`${NAMESPACE}.getList`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -152,7 +151,6 @@ let viewStore = {
         }
     }
     ),
-
     getSingle: catchWrapDb(`${NAMESPACE}.getList`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -598,7 +596,7 @@ let viewStore = {
         } catch (err) {
             throw err
         }
-    }),
+    })
 };
 
 module.exports = viewStore;

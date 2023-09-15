@@ -7,6 +7,7 @@ const config = require('./config/index')
 // const collectionDeleteInterval = require("./helper/collectionDeleteInterval"); 
 const grpcConnection = require("./config/grpcConnection");
 const logger = require("./config/logger");
+const { count } = require('./models/relation');
 
 (async function () {
     try {
@@ -28,14 +29,14 @@ const logger = require("./config/logger");
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
             "credentials": {
-              "host": "65.109.239.69",
-              "port": "30027",
-              "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
-              "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
-              "password": "dhQXmMIX3N"
+                "host": "65.109.239.69",
+                "port": "30027",
+                "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
+                "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
+                "password": "dhQXmMIX3N"
             },
             "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"
-          })
+        })
         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
 
         // await projectStorage.autoConnect(

@@ -532,7 +532,7 @@ let tableStore = {
                 }
             }
 
-            await TableModel.deleteMany({id: data.table_ids})
+            await TableModel.deleteMany({id: {$in: data.table_ids}})
             await RecordPermissionModel.models.deleteMany({table_slug: {$in: data.table_slugs}})
 
             await TableModel.insertMany(data.tables)

@@ -29,7 +29,7 @@ const grpcClient = require("../../services/grpc/client");
 const TableStorage = require('./table')
 const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
-const ViewStorage = require('./view.js')
+const MenuStorage = require('./menu')
 
 
 let NAMESPACE = "storage.object_builder";
@@ -2957,12 +2957,14 @@ let objectBuilder = {
         
     }),
     copyFromProject: catchWrapDbObjectBuilder(`${NAMESPACE}.copyFromProject`, async (req) => {
-        let table_ids = req.menus?.map(el => {
+        let table_ids = []
+        req.menus?.map(el => {
             if(el.type === "TABLE") {
-                return el.table_id
+                el.is_changed = true
+                table_ids.push(el.table_id)
             }
         })
-        
+        console.log(">>> table_ids ", table_ids)
         let menu_ids = req.menus?.map(el => el.id)
 
         try {
@@ -2976,9 +2978,9 @@ let objectBuilder = {
             // collections to db
             const T_TableModel = mongoConnTo.models['Table']
             const T_MenuModel = mongoConnTo.models['object_builder_service.menu']
-            const T_TabModel = mongoConnFrom.models['Tab']
-            const T_SectionModel = mongoConnFrom.models['Section']
-            const T_LayoutModel = mongoConnFrom.models['Layout']
+            const T_TabModel = mongoConnTo.models['Tab']
+            const T_SectionModel = mongoConnTo.models['Section']
+            const T_LayoutModel = mongoConnTo.models['Layout']
 
             //collections from db
             const F_TableModel = mongoConnFrom.models['Table']
@@ -3000,12 +3002,10 @@ let objectBuilder = {
             }
 
             // copy menus
-            await T_MenuModel.deleteMany({id: {$in: menu_ids}})
-            await T_MenuModel.insertMany(req.menus)
+            await MenuStorage.CopyMenus({project_id: req.project_id, menus: req.menus, menu_ids})
 
             // copy fields
             const fields_from = await F_FieldModel.find({table_id: { $in: table_ids }})
-            console.log("fields_from", fields_from.length)
             if (tables_from.length) {
                 await FieldStorage.CopyFields({project_id: req.project_id, fields: fields_from, table_ids})
                 console.log(`Copied ${fields_from.length} fields from ${req.from_project_id} -> ${req.project_id}`)
@@ -3022,6 +3022,7 @@ let objectBuilder = {
 
             // copy table views
             const views_from = await F_ViewModel.find({table_slug: {$in: table_slugs}})
+            console.log(">>>. views", views_from)
             await objectBuilder.copyViews({project_id: req.project_id, views: views_from})
 
 
@@ -3042,6 +3043,7 @@ let objectBuilder = {
             await T_SectionModel.deleteMany({tab_id: {$in: tab_ids}})
             await T_SectionModel.insertMany(sections_from)
 
+            await ObjectBuilder(true, req.project_id)
 
             return {}
         } catch (err) {

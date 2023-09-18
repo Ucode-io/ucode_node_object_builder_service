@@ -3277,14 +3277,13 @@ let objectBuilder = {
 
             // copy table views
             const views_from = await F_ViewModel.find({table_slug: {$in: table_slugs}})
-            console.log(">>>. views", views_from)
             await objectBuilder.copyViews({project_id: req.project_id, views: views_from})
 
 
             // copy layouts
             const layouts_from = await F_LayoutModel.find({table_id: {$in: table_ids}})
             const layout_ids = layouts_from.map(el => el.id)
-            await T_LayoutModel.deleteMany({id: {$in: layout_ids}})
+            await T_LayoutModel.deleteMany({table_id: {$in: table_ids}})
             await T_LayoutModel.insertMany(layouts_from)
 
             // copy tabs

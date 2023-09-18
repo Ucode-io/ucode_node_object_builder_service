@@ -47490,10 +47490,14 @@
   message: 'grpc server is running at 9102',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:14:12.318Z',
 =======
   timestamp: '2023-09-06T13:56:14.835Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:27:13.351Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
@@ -47501,10 +47505,14 @@
   message: 'autoconnecting to resources',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:14:12.321Z',
 =======
   timestamp: '2023-09-06T13:56:14.837Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:27:13.353Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
@@ -47521,10 +47529,14 @@
     '}',
   level: 'debug',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:14:12.321Z',
 =======
   timestamp: '2023-09-06T13:56:14.838Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:27:13.353Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
@@ -47532,10 +47544,14 @@
   message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'debug',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:14:12.322Z',
 =======
   timestamp: '2023-09-06T13:56:14.838Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:27:13.353Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
@@ -47543,10 +47559,14 @@
   message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:14:12.843Z',
 =======
   timestamp: '2023-09-06T13:56:15.347Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:27:13.885Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
@@ -47554,10 +47574,14 @@
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:14:48.962Z',
 =======
   timestamp: '2023-09-06T13:56:51.003Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:27:49.993Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
@@ -47565,10 +47589,14 @@
   message: 'autoconnected successfully done!!!',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:14:48.966Z',
 =======
   timestamp: '2023-09-06T13:56:51.014Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:27:49.994Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
@@ -47576,40 +47604,173 @@
   message: 'service.permissionStore.getTablePermission: succeeded',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:17:03.963Z',
 =======
   timestamp: '2023-09-06T13:57:25.757Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:47:33.326Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-<<<<<<< HEAD
-  message: 'service.custom_event.getList: requested - {\n' +
-    '  "table_slug": "clients",\n' +
-    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
-    '  "method": "CREATE",\n' +
-    '  "role_id": "",\n' +
-    '  "version_id": ""\n' +
-    '}',
+  message: 'service.permissionStore.getTablePermission: succeeded',
   level: 'info',
-  timestamp: '2023-09-08T06:17:04.278Z',
-=======
-  message: 'service.object_builder.getList: failed with error: obj is not defined',
-  level: 'error',
-  timestamp: '2023-09-06T13:57:26.405Z',
+  timestamp: '2023-09-04T11:47:58.711Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
-  timestamp: '2023-09-06T13:58:00.722Z',
->>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+  timestamp: '2023-09-04T11:56:01.821Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-04T11:56:01.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-04T11:56:01.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-04T11:56:01.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-04T11:56:02.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-04T11:56:38.475Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-04T11:56:38.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-04T11:56:55.687Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-04T11:58:05.184Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+<<<<<<< HEAD
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "clients",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "method": "CREATE",\n' +
+=======
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "bus",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "method": "DELETE_MANY",\n' +
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-09-08T06:17:04.278Z',
+=======
+  message: 'service.object_builder.getList: failed with error: obj is not defined',
+  level: 'error',
+  timestamp: '2023-09-06T13:57:26.405Z',
+=======
+  timestamp: '2023-09-04T11:58:05.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: requested, {\n' +
+    '  "table_slug": "bus",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "method": "DELETE_MANY",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-04T11:58:05.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.custom_event.getList: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-04T11:58:05.513Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-04T11:58:05.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.deleteMany: failed with error: tableAttributes is not defined',
+  level: 'error',
+  timestamp: '2023-09-04T11:58:05.861Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-09-06T13:58:00.722Z',
+>>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:58:31.484Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'storage.custom_event.getList: requested, {\n' +
     '  "table_slug": "clients",\n' +
@@ -47624,6 +47785,11 @@
   message: 'autoconnecting to resources',
   level: 'info',
   timestamp: '2023-09-06T13:58:00.724Z',
+=======
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-04T11:58:31.485Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
@@ -47639,6 +47805,7 @@
     '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-06T13:58:00.724Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
   label: 'object_builder_service',
@@ -47702,35 +47869,54 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-06T13:58:08.258Z',
+=======
+  timestamp: '2023-09-04T11:58:31.486Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-06T13:58:08.258Z',
+=======
+  timestamp: '2023-09-04T11:58:31.486Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-06T13:58:08.763Z',
+=======
+  timestamp: '2023-09-04T11:58:32.002Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-06T13:58:44.671Z',
+=======
+  timestamp: '2023-09-04T11:59:08.626Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-06T13:58:44.674Z',
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  timestamp: '2023-09-04T11:59:08.631Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
@@ -47738,51 +47924,84 @@
   message: 'service.permissionStore.getTablePermission: succeeded',
   level: 'info',
 <<<<<<< HEAD
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:17:31.882Z',
+=======
+  timestamp: '2023-09-04T11:59:11.726Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.custom_event.getList: requested - {\n' +
+<<<<<<< HEAD
     '  "table_slug": "clients",\n' +
     '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
     '  "method": "CREATE",\n' +
+=======
+    '  "table_slug": "bus",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "method": "DELETE_MANY",\n' +
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
     '  "role_id": "",\n' +
     '  "version_id": ""\n' +
     '}',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:17:32.043Z',
+=======
+  timestamp: '2023-09-04T11:59:11.900Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.custom_event.getList: requested, {\n' +
+<<<<<<< HEAD
     '  "table_slug": "clients",\n' +
     '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
     '  "method": "CREATE",\n' +
+=======
+    '  "table_slug": "bus",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "method": "DELETE_MANY",\n' +
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
     '  "role_id": "",\n' +
     '  "version_id": ""\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:17:32.044Z',
+=======
+  timestamp: '2023-09-04T11:59:11.900Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.custom_event.getList: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:17:32.192Z',
+=======
+  timestamp: '2023-09-04T11:59:12.057Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'service.custom_event.getList: succeeded',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-08T06:17:32.192Z',
+=======
+  timestamp: '2023-09-04T11:59:12.058Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: succeeded',
   level: 'info',
   timestamp: '2023-09-08T06:17:32.938Z',
@@ -50314,6 +50533,11 @@
 =======
   timestamp: '2023-09-14T04:47:16.670Z',
 >>>>>>> 54d30083cbd564806220ac646d5c488687639d08
+=======
+  message: 'service.object_builder.deleteMany: succeeded',
+  level: 'info',
+  timestamp: '2023-09-04T11:59:12.476Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
   label: 'object_builder_service',
   metadata: {}
 }

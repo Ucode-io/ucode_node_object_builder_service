@@ -13192,6 +13192,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
@@ -13432,13 +13433,52 @@
   message: 'connection timed out',
   level: 'error',
   timestamp: '2023-08-18T03:25:10.558Z',
+=======
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-09-15T11:58:30.009Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'getaddrinfo EAI_AGAIN localllll',
+  level: 'error',
+  timestamp: '2023-09-15T12:04:15.028Z',
+>>>>>>> c2b1dce9e998402a6e294aba22f2bd12e6b64659
   label: 'object_builder_service',
   metadata: {
     reason: TopologyDescription {
       type: 'Unknown',
       servers: Map(1) {
+<<<<<<< HEAD
         '65.109.239.69:30027' => ServerDescription {
           address: '65.109.239.69:30027',
+=======
+        'localllll:3000' => ServerDescription {
+          address: 'localllll:3000',
+>>>>>>> c2b1dce9e998402a6e294aba22f2bd12e6b64659
           type: 'Unknown',
           hosts: [],
           passives: [],
@@ -13447,6 +13487,7 @@
           minWireVersion: 0,
           maxWireVersion: 0,
           roundTripTime: -1,
+<<<<<<< HEAD
           lastUpdateTime: 844564444,
           lastWriteDate: 0,
           error: MongoNetworkTimeoutError: connection timed out
@@ -13457,6 +13498,25 @@
               at Socket._onTimeout (node:net:516:8)
               at listOnTimeout (node:internal/timers:559:17)
               at processTimers (node:internal/timers:502:7) {
+=======
+          lastUpdateTime: 26518780,
+          lastWriteDate: 0,
+          error: MongoNetworkError: getaddrinfo EAI_AGAIN localllll
+              at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:387:20)
+              at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:628:26)
+              at Socket.emit (node:events:513:28)
+              at emitErrorNT (node:internal/streams/destroy:151:8)
+              at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+              at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+            cause: Error: getaddrinfo EAI_AGAIN localllll
+                at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26) {
+              errno: -3001,
+              code: 'EAI_AGAIN',
+              syscall: 'getaddrinfo',
+              hostname: 'localllll'
+            },
+>>>>>>> c2b1dce9e998402a6e294aba22f2bd12e6b64659
             [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
           },
           topologyVersion: null,
@@ -13480,6 +13540,7 @@
       logicalSessionTimeoutMinutes: null
     },
     code: undefined,
+<<<<<<< HEAD
     stack: 'MongooseServerSelectionError: connection timed out\n' +
       '    at NativeConnection.Connection.openUri (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
       '    at Mongoose.createConnection (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
@@ -13540,3 +13601,213 @@
   metadata: {}
 }
 >>>>>>> 341475fc7637e0dd2f30411eff3a80a30df39967
+=======
+    stack: 'MongooseServerSelectionError: getaddrinfo EAI_AGAIN localllll\n' +
+      '    at Connection.openUri (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/config/mongoConn.js:43:33)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:128:39\n' +
+      '    at Object.reconnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:236:36\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+      '    at async Object.autoConnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:24)\n' +
+      '    at async /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/index.js:34:9'
+  }
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-09-15T13:21:06.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: menuTableTo is not defined',
+  level: 'error',
+  timestamp: '2023-09-15T13:24:43.611Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: data.tables is not iterable',
+  level: 'error',
+  timestamp: '2023-09-15T13:28:21.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: data.tables is not iterable',
+  level: 'error',
+  timestamp: '2023-09-15T13:33:20.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "web_user", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-09-15T13:40:03.886Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.copyFromProject: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: _id_ dup key: { _id: ObjectId('64f96174df4b0794ca3ed78c') }",
+  level: 'error',
+  timestamp: '2023-09-15T13:41:07.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: RecordPermissionModel.insertMany is not a function',
+  level: 'error',
+  timestamp: '2023-09-15T13:42:21.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: req is not defined',
+  level: 'error',
+  timestamp: '2023-09-15T13:51:55.325Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: roles is not defined',
+  level: 'error',
+  timestamp: '2023-09-15T13:54:46.574Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.object_builder_service.menus index: id_1 dup key: { id: "ad8cd734-b851-4f26-ae14-e3c9e78431e7" }',
+  level: 'error',
+  timestamp: '2023-09-15T13:57:44.240Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
+  level: 'error',
+  timestamp: '2023-09-15T14:01:39.611Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
+  level: 'error',
+  timestamp: '2023-09-15T14:12:08.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
+  level: 'error',
+  timestamp: '2023-09-15T14:14:44.544Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
+  level: 'error',
+  timestamp: '2023-09-15T14:40:58.684Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
+  level: 'error',
+  timestamp: '2023-09-15T14:48:35.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
+  level: 'error',
+  timestamp: '2023-09-15T14:59:11.549Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: req is not defined',
+  level: 'error',
+  timestamp: '2023-09-15T15:03:00.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: Parameter "filter" to deleteMany() must be an object, got b14f47c3-bcb0-4317-add1-44cfce4dcd14,30d8fd84-74d0-476a-965c-622c36529dd1,e198833b-24e6-465a-ae4e-b5e540531d3b,71dd17b9-8303-4560-8efe-18c0a868a7f8,9b8e1c97-bb06-4932-b970-eba826215e20,40939997-1628-48b7-9461-a7399cf1c4ab,250e78d0-3cfe-4bc1-9caf-3ee6b564af72,dfb0b5c7-c987-49cb-b709-d59df73d12b9,edd03a39-2fce-461c-9590-9d7f3692115f,4a22ee10-a550-41f9-a07d-be3ba3b26014,afcb55e0-e90d-4717-84bc-91a5d0f57fbc,acfab7c7-5492-4ad4-8837-8975548768cc,3cd7d421-3977-4609-935d-a1a86df68d61,be113ef1-2e22-4693-8216-d2eff24750ae,48155452-075d-4c93-b14b-2d6045b2b1c2,adb1ddb4-8215-4a50-b88e-67ccec25cf5f,293e1cde-5d5f-42b6-b1f5-7e81cb8b2630,9fb1c4c4-e625-4772-afc6-479c5da0dbed,af8b139a-1b0a-4b7d-ab76-76677af0b97a,c947794f-45d2-4545-a097-9893f9a74a72,ed744ed4-e2d0-422d-9628-1dcbe96f3867,76a9261a-73ab-4b65-99cf-9fd59467e861,e44e0d89-c375-4c07-986f-baae76321ff9',
+  level: 'error',
+  timestamp: '2023-09-15T15:16:31.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: Parameter "filter" to deleteMany() must be an object, got b14f47c3-bcb0-4317-add1-44cfce4dcd14,30d8fd84-74d0-476a-965c-622c36529dd1,e198833b-24e6-465a-ae4e-b5e540531d3b,71dd17b9-8303-4560-8efe-18c0a868a7f8,9b8e1c97-bb06-4932-b970-eba826215e20,40939997-1628-48b7-9461-a7399cf1c4ab,250e78d0-3cfe-4bc1-9caf-3ee6b564af72,dfb0b5c7-c987-49cb-b709-d59df73d12b9,edd03a39-2fce-461c-9590-9d7f3692115f,4a22ee10-a550-41f9-a07d-be3ba3b26014,afcb55e0-e90d-4717-84bc-91a5d0f57fbc,acfab7c7-5492-4ad4-8837-8975548768cc,3cd7d421-3977-4609-935d-a1a86df68d61,be113ef1-2e22-4693-8216-d2eff24750ae,48155452-075d-4c93-b14b-2d6045b2b1c2,adb1ddb4-8215-4a50-b88e-67ccec25cf5f,293e1cde-5d5f-42b6-b1f5-7e81cb8b2630,9fb1c4c4-e625-4772-afc6-479c5da0dbed,af8b139a-1b0a-4b7d-ab76-76677af0b97a,c947794f-45d2-4545-a097-9893f9a74a72,ed744ed4-e2d0-422d-9628-1dcbe96f3867,76a9261a-73ab-4b65-99cf-9fd59467e861,e44e0d89-c375-4c07-986f-baae76321ff9',
+  level: 'error',
+  timestamp: '2023-09-15T15:30:12.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
+  level: 'error',
+  timestamp: '2023-09-15T15:32:50.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
+  level: 'error',
+  timestamp: '2023-09-15T15:37:49.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
+  level: 'error',
+  timestamp: '2023-09-15T15:40:31.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
+  level: 'error',
+  timestamp: '2023-09-15T15:43:24.622Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
+  level: 'error',
+  timestamp: '2023-09-15T15:45:47.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
+  level: 'error',
+  timestamp: '2023-09-15T15:48:07.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
+  level: 'error',
+  timestamp: '2023-09-15T15:50:57.859Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: this.copyViews is not a function',
+  level: 'error',
+  timestamp: '2023-09-15T16:02:33.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.copyFromProject: failed with error: req is not defined',
+  level: 'error',
+  timestamp: '2023-09-15T16:05:14.859Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> c2b1dce9e998402a6e294aba22f2bd12e6b64659

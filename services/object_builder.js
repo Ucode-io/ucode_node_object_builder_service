@@ -20,6 +20,7 @@ const objectBuilderService = {
     GetGroupByField: catchWrapServiceObjectBuilder("service.object_builder.getGroupByField", objectBuilderStore.getGroupByField),
     DeleteMany: catchWrapServiceObjectBuilder("service.object_builder.deleteMany", objectBuilderStore.deleteMany),
     GroupByColumns: catchWrapServiceObjectBuilder("service.object_builder.groupByColumns", objectBuilderStore.groupByColumns),
+    CopyFromProject: catchWrapServiceObjectBuilder("service.object_builder.copyFromProject", objectBuilderStore.copyFromProject),
 };
 
 module.exports = objectBuilderService;  

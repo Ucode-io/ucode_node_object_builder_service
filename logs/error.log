@@ -13194,6 +13194,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 {
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: table not found',
   level: 'error',
   timestamp: '2023-07-25T06:00:59.481Z',
@@ -13203,6 +13204,17 @@
   level: 'error',
   timestamp: '2023-09-12T10:31:32.500Z',
 >>>>>>> 341475fc7637e0dd2f30411eff3a80a30df39967
+=======
+<<<<<<< HEAD
+  message: 'service.object_builder.getList: failed with error: obj is not defined',
+  level: 'error',
+  timestamp: '2023-09-06T13:57:26.405Z',
+=======
+  message: 'service.object_builder.deleteMany: failed with error: tableAttributes is not defined',
+  level: 'error',
+  timestamp: '2023-09-04T11:58:05.861Z',
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
+>>>>>>> f641d3e975579b8fe83c8ec7ab3a8753da40861c
   label: 'object_builder_service',
   metadata: {}
 }

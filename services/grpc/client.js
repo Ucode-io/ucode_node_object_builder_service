@@ -94,6 +94,24 @@ const createUserAuth = async (data) => {
     });
 };
 
+const createUsersAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserService().CreateUsers(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize user with auth service", {
+                    function: "createUsersAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+
 const updateUserAuth = async (data) => {
     return new Promise((resolve, reject) => {
         SyncUserService().UpdateteUser(data, (err, res) => {
@@ -147,4 +165,4 @@ const deleteUsersAuth = async (data) => {
         });
     });
 };
-module.exports = { autoConn, createUserAuth, updateUserAuth, deleteUserAuth, reConn, deleteUsersAuth };
+module.exports = { autoConn, createUsersAuth, createUserAuth, updateUserAuth, deleteUserAuth, reConn, deleteUsersAuth };

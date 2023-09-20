@@ -92,7 +92,7 @@ let objectBuilder = {
             if (tableData) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 201,
-                    table_id: table.id,
+                    table_id: tableData.id,
                     action_type: "CREATE"
 
                 })

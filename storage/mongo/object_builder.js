@@ -34,7 +34,7 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleInsert function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-
+            const table = await tableVersion(mongoConn, { slug: req.table_slug })
             let allTableInfos = await ObjectBuilder(true, req.project_id)
             const tableInfo = allTableInfos[req.table_slug]
             let tableData = await table.findOne(
@@ -92,7 +92,7 @@ let objectBuilder = {
                 }
             }
             const object = struct.encode({ data });
-            const table = await tableVersion(mongoConn, { slug: req.table_slug })
+            
             let customMessage = ""
             if (table) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({

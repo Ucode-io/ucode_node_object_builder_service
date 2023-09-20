@@ -329,6 +329,7 @@ let prepareFunction = {
                         deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
                     }
                 }
+                
 
                 const relation = relationMap[field.relation_id]
 

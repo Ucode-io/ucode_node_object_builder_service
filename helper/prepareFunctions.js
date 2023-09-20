@@ -254,12 +254,20 @@ let prepareFunction = {
         }
         const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
 
+        const relations = await Relation.find({
+            id: { $in: relation_ids }
+        })
+        let relationMap = {}
+
+        for (const relation of relations) {
+            relationMap[relation.id] = relation
+        }
         let decodedFields = []
         for (const element of tableInfo.fields) {
             if (element.attributes && (element.type === "LOOKUP" || element.type === "LOOKUPS")) {
                 let autofillFields = []
                 let elementField = { ...element }
-                const relation = relations.find(val => (val.id === elementField.relation_id))
+                const relation = relationMap[elementField.relation_id]
 
                 let relationTableSlug;
                 if (relation) {
@@ -301,16 +309,6 @@ let prepareFunction = {
             if (field.type === "LOOKUPS") {
                 relation_ids.push(field.relation_id)
             }
-        }
-
-        const relations = await Relation.find({
-            id: { $in: relation_ids }
-        })
-
-        let relationMap = {}
-
-        for (const relation of relations) {
-            relationMap[relation.id] = relation
         }
 
         for (const field of tableInfo.fields) {

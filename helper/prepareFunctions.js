@@ -238,7 +238,6 @@ let prepareFunction = {
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {
         const Relation = mongoConn.models['Relation']
-        const Field = mongoConn.models['Field']
 
         const data = struct.decode(req.data)
         if (!data.guid) {
@@ -253,49 +252,6 @@ let prepareFunction = {
             throw new Error("table not found")
         }
         const objectBeforeUpdate = await tableInfo.models.findOne({ guid: data.guid });
-
-        const relations = await Relation.find({
-            id: { $in: relation_ids }
-        })
-        let relationMap = {}
-
-        for (const relation of relations) {
-            relationMap[relation.id] = relation
-        }
-        let decodedFields = []
-        for (const element of tableInfo.fields) {
-            if (element.attributes && (element.type === "LOOKUP" || element.type === "LOOKUPS")) {
-                let autofillFields = []
-                let elementField = { ...element }
-                const relation = relationMap[elementField.relation_id]
-
-                let relationTableSlug;
-                if (relation) {
-                    if (relation?.table_from === req.table_slug) {
-                        relationTableSlug = relation?.table_to
-                    } else {
-                        relationTableSlug = relation?.table_from
-                    }
-                    elementField.table_slug = relationTableSlug
-                }
-                elementField.attributes = struct.decode(element.attributes)
-                const tableElement = await tableVersion(mongoConn, { slug: req.table_slug }, data.version_id, true)
-                const tableElementFields = await Field.find({
-                    table_id: tableElement.id
-                })
-                for (const field of tableElementFields) {
-                    if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
-                        let autofill = {
-                            field_from: field.autofill_field,
-                            field_to: field.slug,
-                        }
-                        autofillFields.push(autofill)
-                    }
-                }
-                elementField.attributes["autofill"] = autofillFields,
-                    decodedFields.push(elementField)
-            }
-        };
         let event = {}
         let field_types = {}
         event.payload = {}
@@ -309,6 +265,16 @@ let prepareFunction = {
             if (field.type === "LOOKUPS") {
                 relation_ids.push(field.relation_id)
             }
+        }
+
+        const relations = await Relation.find({
+            id: { $in: relation_ids }
+        })
+
+        let relationMap = {}
+
+        for (const relation of relations) {
+            relationMap[relation.id] = relation
         }
 
         for (const field of tableInfo.fields) {
@@ -368,7 +334,7 @@ let prepareFunction = {
         event.payload.field_types = field_types
         event.payload.data = dataToAnalytics
         event.project_id = req.project_id
-        return { data, event, appendMany2Many, deleteMany2Many, decodedFields }
+        return { data, event, appendMany2Many, deleteMany2Many }
     },
 }
 

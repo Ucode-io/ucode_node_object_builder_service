@@ -13600,6 +13600,7 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> 341475fc7637e0dd2f30411eff3a80a30df39967
 =======
     stack: 'MongooseServerSelectionError: getaddrinfo EAI_AGAIN localllll\n' +
@@ -13618,192 +13619,355 @@
   message: 'service.object_builder.copyFromProject: failed with error: data is not defined',
   level: 'error',
   timestamp: '2023-09-15T13:21:06.090Z',
+=======
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-19T04:43:01.124Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: menuTableTo is not defined',
   level: 'error',
   timestamp: '2023-09-15T13:24:43.611Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T03:52:25.912Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: data.tables is not iterable',
   level: 'error',
   timestamp: '2023-09-15T13:28:21.823Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T03:56:31.649Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: data.tables is not iterable',
   level: 'error',
   timestamp: '2023-09-15T13:33:20.869Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T03:56:41.913Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "web_user", deleted_at: new Date(64800000) }',
   level: 'error',
   timestamp: '2023-09-15T13:40:03.886Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T03:59:14.007Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.copyFromProject: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: _id_ dup key: { _id: ObjectId('64f96174df4b0794ca3ed78c') }",
   level: 'error',
   timestamp: '2023-09-15T13:41:07.533Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T04:02:30.418Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: RecordPermissionModel.insertMany is not a function',
   level: 'error',
   timestamp: '2023-09-15T13:42:21.816Z',
+=======
+  message: 'service.object_builder.groupByColumns: failed with error: unknown argument to $lookup: result',
+  level: 'error',
+  timestamp: '2023-09-20T04:02:32.775Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: req is not defined',
   level: 'error',
   timestamp: '2023-09-15T13:51:55.325Z',
+=======
+  message: 'service.object_builder.groupByColumns: failed with error: unknown argument to $lookup: result',
+  level: 'error',
+  timestamp: '2023-09-20T04:02:32.783Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: roles is not defined',
   level: 'error',
   timestamp: '2023-09-15T13:54:46.574Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T04:07:01.734Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.object_builder_service.menus index: id_1 dup key: { id: "ad8cd734-b851-4f26-ae14-e3c9e78431e7" }',
   level: 'error',
   timestamp: '2023-09-15T13:57:44.240Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T04:10:36.155Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
   level: 'error',
   timestamp: '2023-09-15T14:01:39.611Z',
+=======
+  message: 'service.object_builder.groupByColumns: failed with error: $bus_id_data is not defined',
+  level: 'error',
+  timestamp: '2023-09-20T04:10:38.504Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
   level: 'error',
   timestamp: '2023-09-15T14:12:08.088Z',
+=======
+  message: 'service.object_builder.groupByColumns: failed with error: $bus_id_data is not defined',
+  level: 'error',
+  timestamp: '2023-09-20T04:10:38.568Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
   level: 'error',
   timestamp: '2023-09-15T14:14:44.544Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T04:12:24.924Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
   level: 'error',
   timestamp: '2023-09-15T14:40:58.684Z',
+=======
+  message: 'service.object_builder.groupByColumns: failed with error: Unable to infer type for "Mon Sep 04 2023 16:45:55 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2023-09-20T04:12:27.653Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
   level: 'error',
   timestamp: '2023-09-15T14:48:35.976Z',
+=======
+  message: 'service.object_builder.groupByColumns: failed with error: Unable to infer type for "Mon Sep 04 2023 16:45:55 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2023-09-20T04:12:27.667Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: Field validation failed: label: Field must have label, slug: Field must have slug, table_id: Field must have table_id',
   level: 'error',
   timestamp: '2023-09-15T14:59:11.549Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T04:13:54.841Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: req is not defined',
   level: 'error',
   timestamp: '2023-09-15T15:03:00.129Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T04:20:48.611Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: Parameter "filter" to deleteMany() must be an object, got b14f47c3-bcb0-4317-add1-44cfce4dcd14,30d8fd84-74d0-476a-965c-622c36529dd1,e198833b-24e6-465a-ae4e-b5e540531d3b,71dd17b9-8303-4560-8efe-18c0a868a7f8,9b8e1c97-bb06-4932-b970-eba826215e20,40939997-1628-48b7-9461-a7399cf1c4ab,250e78d0-3cfe-4bc1-9caf-3ee6b564af72,dfb0b5c7-c987-49cb-b709-d59df73d12b9,edd03a39-2fce-461c-9590-9d7f3692115f,4a22ee10-a550-41f9-a07d-be3ba3b26014,afcb55e0-e90d-4717-84bc-91a5d0f57fbc,acfab7c7-5492-4ad4-8837-8975548768cc,3cd7d421-3977-4609-935d-a1a86df68d61,be113ef1-2e22-4693-8216-d2eff24750ae,48155452-075d-4c93-b14b-2d6045b2b1c2,adb1ddb4-8215-4a50-b88e-67ccec25cf5f,293e1cde-5d5f-42b6-b1f5-7e81cb8b2630,9fb1c4c4-e625-4772-afc6-479c5da0dbed,af8b139a-1b0a-4b7d-ab76-76677af0b97a,c947794f-45d2-4545-a097-9893f9a74a72,ed744ed4-e2d0-422d-9628-1dcbe96f3867,76a9261a-73ab-4b65-99cf-9fd59467e861,e44e0d89-c375-4c07-986f-baae76321ff9',
   level: 'error',
   timestamp: '2023-09-15T15:16:31.763Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T04:57:36.604Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: Parameter "filter" to deleteMany() must be an object, got b14f47c3-bcb0-4317-add1-44cfce4dcd14,30d8fd84-74d0-476a-965c-622c36529dd1,e198833b-24e6-465a-ae4e-b5e540531d3b,71dd17b9-8303-4560-8efe-18c0a868a7f8,9b8e1c97-bb06-4932-b970-eba826215e20,40939997-1628-48b7-9461-a7399cf1c4ab,250e78d0-3cfe-4bc1-9caf-3ee6b564af72,dfb0b5c7-c987-49cb-b709-d59df73d12b9,edd03a39-2fce-461c-9590-9d7f3692115f,4a22ee10-a550-41f9-a07d-be3ba3b26014,afcb55e0-e90d-4717-84bc-91a5d0f57fbc,acfab7c7-5492-4ad4-8837-8975548768cc,3cd7d421-3977-4609-935d-a1a86df68d61,be113ef1-2e22-4693-8216-d2eff24750ae,48155452-075d-4c93-b14b-2d6045b2b1c2,adb1ddb4-8215-4a50-b88e-67ccec25cf5f,293e1cde-5d5f-42b6-b1f5-7e81cb8b2630,9fb1c4c4-e625-4772-afc6-479c5da0dbed,af8b139a-1b0a-4b7d-ab76-76677af0b97a,c947794f-45d2-4545-a097-9893f9a74a72,ed744ed4-e2d0-422d-9628-1dcbe96f3867,76a9261a-73ab-4b65-99cf-9fd59467e861,e44e0d89-c375-4c07-986f-baae76321ff9',
   level: 'error',
   timestamp: '2023-09-15T15:30:12.519Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T04:59:25.357Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
   level: 'error',
   timestamp: '2023-09-15T15:32:50.567Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T05:02:13.292Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
   level: 'error',
   timestamp: '2023-09-15T15:37:49.376Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T05:04:17.757Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
   level: 'error',
   timestamp: '2023-09-15T15:40:31.723Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T05:06:47.430Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
   level: 'error',
   timestamp: '2023-09-15T15:43:24.622Z',
+=======
+  message: 'service.object_builder.groupByColumns: failed with error: Aggregate has empty pipeline',
+  level: 'error',
+  timestamp: '2023-09-20T05:08:07.592Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
   level: 'error',
   timestamp: '2023-09-15T15:45:47.357Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T05:10:23.388Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
   level: 'error',
   timestamp: '2023-09-15T15:48:07.338Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T05:16:28.123Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: ViewStorage.CopyViews is not a function',
   level: 'error',
   timestamp: '2023-09-15T15:50:57.859Z',
+=======
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T05:22:18.445Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: this.copyViews is not a function',
   level: 'error',
   timestamp: '2023-09-15T16:02:33.450Z',
+=======
+  message: "service.object_builder.groupByColumns: failed with error: The field 'bus_id_data' must be an accumulator object",
+  level: 'error',
+  timestamp: '2023-09-20T05:22:20.937Z',
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.copyFromProject: failed with error: req is not defined',
   level: 'error',
   timestamp: '2023-09-15T16:05:14.859Z',
@@ -13811,3 +13975,88 @@
   metadata: {}
 }
 >>>>>>> c2b1dce9e998402a6e294aba22f2bd12e6b64659
+=======
+  message: "service.object_builder.groupByColumns: failed with error: The field 'bus_id_data' must be an accumulator object",
+  level: 'error',
+  timestamp: '2023-09-20T05:22:20.959Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T05:25:46.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Callback must be a function. Received undefined',
+  level: 'error',
+  timestamp: '2023-09-20T05:30:59.948Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-20T06:00:41.973Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-09-20T06:00:42.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-09-20T06:00:43.194Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: PlanExecutor error during aggregation :: caused by :: $first's argument must be an array, but is object",
+  level: 'error',
+  timestamp: '2023-09-20T06:10:22.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: PlanExecutor error during aggregation :: caused by :: $first's argument must be an array, but is object",
+  level: 'error',
+  timestamp: '2023-09-20T06:10:24.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: The field 'bus_id_data' must be an accumulator object",
+  level: 'error',
+  timestamp: '2023-09-20T06:11:58.513Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: The field 'bus_id_data' must be an accumulator object",
+  level: 'error',
+  timestamp: '2023-09-20T06:12:00.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: The $first accumulator is a unary operator',
+  level: 'error',
+  timestamp: '2023-09-20T06:14:40.183Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: The $first accumulator is a unary operator',
+  level: 'error',
+  timestamp: '2023-09-20T06:14:41.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9

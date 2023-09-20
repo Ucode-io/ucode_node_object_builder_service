@@ -2,30 +2,24 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const Minio = require('minio');
 const { struct } = require('pb-util');
-
 const cfg = require("../../config/index");
 const logger = require("../../config/logger");
 const catchWrapDbObjectBuilder = require("../../helper/catchWrapDbObjectBuilder")
 const { v4 } = require("uuid");
 const con = require("../../helper/constants");
-// const sendMessageToTopic = require("../../config/kafka");
-// const conkafkaTopic = require("../../config/kafkaTopics");
-const converter = require("../../helper/converter");
 const tableVersion = require('../../helper/table_version')
 var fns_format = require('date-fns/format');
-var { addMonths, addDays, addYears } = require('date-fns');
+var { addDays } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
-
 const RangeDate = require("../../helper/rangeDate");
 const ObjectBuilder = require("../../models/object_builder");
 const FormulaFunction = require("../../helper/calculateFormulaFields");
-
-
 const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
 const constants = require('../../helper/constants');
+const pluralize = require('pluralize');
 
 const TableStorage = require('./table')
 const FieldStorage = require('./field')
@@ -3025,20 +3019,28 @@ let objectBuilder = {
     groupByColumns: catchWrapDbObjectBuilder(`${NAMESPACE}.groupByColumns`, async (req) => {
         const mongoConn = await mongoPool.get(req.project_id)
         const View = mongoConn.models['View']
+        const Relation = mongoConn.models['Relation']
         const params = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
         const view = await View.findOne({
             id: params.builder_service_view_id,
         })
+        let order = params.order || {}
+        const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+
+        if (currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: 1 }
+        } else if (!currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: -1 }
+        }
         if (!view) {
             throw new Error("View not found")
         }
         let groupColumnIds = []
         if (view.attributes && view.attributes.group_by_columns && view.attributes.group_by_columns.length) {
-            // console.log("view attributes::", view.attributes);
+
             groupColumnIds = view.attributes.group_by_columns
         }
-        // console.log("group columns ids, ", groupColumnIds);
         const fields = tableInfo?.fields || []
         const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))
         const groupColumns = fields.filter(el => groupColumnIds.includes(el.id))
@@ -3053,20 +3055,79 @@ let objectBuilder = {
         projectColumns.forEach(el => {
             projectColumnsWithDollorSign[el.slug] = "$" + el.slug
         })
-        // console.log("sum fields:", sumFieldWithDollorSign);
-        // console.log("number fields:", numberfieldWithDollorSign);
         const firstGroup = {}
         groupColumns.forEach(el => {
             firstGroup[el.slug] = "$" + el.slug
         })
-        // const pipeline = [];
+
+        const relations = await Relation.find({
+            $or: [
+                {
+                    table_from: req.table_slug,
+                    type: 'Many2One'
+                },
+                {
+                    table_from: req.table_slug,
+                    type: 'Many2Dynamic'
+                }
+            ]
+        })
+        let lookups = [], unwinds = [], lookupFields = {}, lookupFieldsWithAccumulator = {};
+        for (const relation of relations) {
+            if (relation.type === 'Many2One') {
+                let table_to_slug = ""
+                const field = fields?.find(val => (val.relation_id === relation?.id))
+                console.log("field::", field);
+                if (field) {
+                    table_to_slug = field.slug + "_data"
+                }
+                if (table_to_slug === "") {
+                    continue
+                }
+                let from = pluralize.plural(relation.table_to)
+                lookupFields[table_to_slug] = "$" + table_to_slug
+                lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+                lookups.push({
+                    $lookup: {
+                        from: from,
+                        localField: field.slug,
+                        foreignField: "guid",
+                        as: table_to_slug
+                    }
+                })
+                unwinds.push({
+                    $unwind: {
+                        path: '$' + table_to_slug,
+                        preserveNullAndEmptyArrays: true
+                    }
+                })
+            } else {
+                for (dynamic_table of relation.dynamic_tables) {
+                    let table_to_slug = relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data"
+                    let from = pluralize.plural(dynamic_table.table_slug)
+                    lookupFields[table_to_slug] = "$" + table_to_slug
+                    lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+                    lookups.push({
+                        $lookup: {
+                            from: from,
+                            localField: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id",
+                            foreignField: "guid",
+                            as: table_to_slug
+                        }
+                    })
+                    unwinds.push({
+                        $unwind: {
+                            path: '$' + table_to_slug,
+                            preserveNullAndEmptyArrays: true
+                        }
+                    })
+                }
+            }
+        }
         const copyPipeline = []
         let lastGroupField
         for (const id of groupColumnIds) {
             let field = fields.find(el => el.id === id)
-            // console.log("field:", field);
-            // console.log("field slug:::", field.slug);
-            // console.log("last group field::", lastGroupField);
             if (lastGroupField) {
                 copyPipeline.push({
                     $group: {
@@ -3077,138 +3138,45 @@ let objectBuilder = {
                                 [field.slug]: `$_id.${[field.slug]}`,
                                 data: '$data',
                                 ...numberfieldWithDollorSign,
+                                "guid": "$guid",
+                                ...lookupFields
+                                // ...lookupFieldsWithAccumulator,
                             }
                         },
-                        ...sumFieldWithDollorSign
+                        ...sumFieldWithDollorSign,
                     }
+                }, {
+                    $sort: order
                 })
             } else {
-                copyPipeline.push({
-                    $group: {
-                        _id: firstGroup,
-                        [field.slug]: { $first: `$${[field.slug]}` },
-                        data: {
-                            $push: {
-                                ...projectColumnsWithDollorSign,
-                                ...numberfieldWithDollorSign,
-                            }
-                        },
-                        ...sumFieldWithDollorSign
-                    }
+                copyPipeline.push(
+                    ...lookups,
+                    ...unwinds,
+                    {
+                        $group: {
+                            _id: firstGroup,
+                            [field.slug]: { $first: `$${[field.slug]}` },
+                            data: {
+                                $push: {
+                                    ...projectColumnsWithDollorSign,
+                                    ...numberfieldWithDollorSign,
+                                    "guid": "$guid",
+                                    // ...lookupFields,
+                                }
+                            },
+                            ...sumFieldWithDollorSign,
+                            ...lookupFieldsWithAccumulator
+                        }
+                    }, {
+                    $sort: order
                 })
             }
 
             lastGroupField = field.slug
         }
-
-
-        // fs.writeFile('./test.json', JSON.stringify(copyPipeline), err => {
-        //     if (err) {
-        //         console.error(err);
-        //     }
-        //     // file written successfully
-        // });
-
-        // if (groupByCountry) {
-        //     pipeline.push({
-        //         $group: {
-        //             _id: { country: "$country", year: { $cond: [groupByYear, "$year", null] } },
-        //             data: {
-        //                 $push: {
-        //                     company: "$company",
-        //                     athlete: "$athlete",
-        //                     year: { $cond: [!groupByYear, "$year", ""] }
-        //                 }
-        //             },
-        //             ...sumFieldWithDollorSign
-        //         }
-        //     });
-
-        //     if (groupByYear) {
-        //         pipeline.push({
-        //             $group: {
-        //                 _id: "$_id.country",
-        //                 country: { $first: "$_id.country" },
-        //                 year: {
-        //                     $push: {
-        //                         year: "$_id.year",
-        //                         data: "$data",
-        //                         ...numberfieldWithDollorSign,
-        //                     }
-        //                 },
-        //                 ...sumFieldWithDollorSign
-        //             }
-        //         });
-        //         pipeline.push({
-        //             $project: {
-        //                 _id: 0,
-        //             }
-        //         })
-        //     } else {
-        //         pipeline.push({
-        //             $project: {
-        //                 _id: 0,
-        //                 country: "$_id.country",
-        //                 data: "$data"
-        //             }
-        //         });
-        //     }
-        // } else {
-        //     pipeline.push({
-        //         $group: {
-        //             _id: null,
-        //             country: {
-        //                 $push: {
-        //                     country: "$country",
-        //                     year: "$year",
-        //                     data: {
-        //                         company: "$company",
-        //                         athlete: "$athlete"
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     });
-        // }
         const response = await tableInfo.models.aggregate(copyPipeline)
-        // [
-        //     {
-        //         country: 'USA',
-        //         year: [
-        //             {
-        //                 year: 2016,
-        //                 data: [{
-        //                     company: 'Football',
-        //                     athlete: 'John',
-        //                 }],
-        //                 gold: 1,
-        //                 silver: 2,
-        //                 bronze: 4
-        //             },
-        //             {
-        //                 year: 2017,
-        //                 data: [{
-        //                     company: 'Basketball',
-        //                     athlete: 'Cobe Bryant',
-        //                 }],
-        //                 gold: 14,
-        //                 silver: 21,
-        //                 bronze: 45
-        //             },
-        //             { year: 2018, data: [] },
-        //         ],
-        //         gold: 11,
-        //         silver: 11,
-        //         bronze: 11
-        //     }
-        // ]
-        // fs.writeFile('./test_1.json', JSON.stringify(response), err => {
-        //     if (err) {
-        //         console.error(err);
-        //     }
-        //     // file written successfully
-        // });
-        const data = struct.encode({ response: response });
+        res = JSON.parse(JSON.stringify(response))
+        const data = struct.encode({ response: res });
         return { table_slug: req.table_slug, data: data }
     }),
     copyFromProject: catchWrapDbObjectBuilder(`${NAMESPACE}.copyFromProject`, async (req) => {

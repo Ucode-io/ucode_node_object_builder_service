@@ -36,6 +36,7 @@
     "node-vault-client": "^0.6.1",
     "nodemon": "^2.0.16",
     "pb-util": "^1.0.3",
+    "pluralize": "^8.0.0",
     "read-excel-file": "^5.5.0",
     "uuid": "^8.3.2",
     "winston": "^3.7.2",

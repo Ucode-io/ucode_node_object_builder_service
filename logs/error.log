@@ -4428,6 +4428,7 @@
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: 'Error while auto connecting',
   level: 'error',
   timestamp: '2023-08-29T04:50:21.214Z',
@@ -4453,4 +4454,11 @@
   label: 'object_builder_service',
   metadata: {}
 >>>>>>> f0dc6164c4d9b104059012edb3e0c15aa2e00afa
+=======
+  message: 'service.object_builder.deleteMany: failed with error: tableAttributes is not defined',
+  level: 'error',
+  timestamp: '2023-09-04T11:58:05.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> 7ebd37a83d55b10bc6a334b087fd339e286c7131
 }

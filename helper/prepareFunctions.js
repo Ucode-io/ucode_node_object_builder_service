@@ -175,7 +175,7 @@ let prepareFunction = {
                     throw new Error('This table is auth table. Auth information not fully given')
                 }
                 let loginTable = await allTableInfos['client_type']?.models?.findOne({
-                    client_type_id: data[authInfo['client_type_id']],
+                    guid: data[authInfo['client_type_id']],
                     table_slug: tableData.slug
                 })
                 if (loginTable) {

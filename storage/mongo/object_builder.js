@@ -620,6 +620,7 @@ let objectBuilder = {
         let params = struct.decode(req?.data)
         const limit = params.limit
         const offset = params.offset
+        const languageSetting = params.language_setting
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
         const allTables = (await ObjectBuilder(true, req.project_id))
@@ -1133,7 +1134,7 @@ let objectBuilder = {
         let decodedFields = []
         // below for loop is in order to decode FIELD.ATTRIBUTES from proto struct to normal object
         for (const element of fieldsWithPermissions) {
-            if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
+            if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS" || element.type === "DYNAMIC")) {
                 let field = { ...element }
                 field.attributes = struct.decode(element.attributes)
                 decodedFields.push(field)
@@ -1142,53 +1143,57 @@ let objectBuilder = {
                 if (element.attributes) {
                     elementField.attributes = struct.decode(element.attributes)
                 }
+                if (elementField?.attributes?.view_fields?.length) {
+                    if (languageSetting) {
+                        elementField.attributes.view_fields = elementField.attributes.view_fields.filter(
+                            el => (el.slug.endsWith("_" + languageSetting) && el.enable_multilanguage)
+                        )
+                    }
+                }
                 decodedFields.push(elementField)
             }
         };
-        // console.timeEnd("TIME_LOGGING:::toField")
-        // console.log("TEST::::::12")
-        // console.time("TIME_LOGGING:::decodedFields")
-        for (const field of decodedFields) {
-            if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
-                let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
-                let viewFields = []
-                if (relation) {
-                    for (const view_field of relation.view_fields) {
-                        let viewField = await Field.findOne(
-                            {
-                                id: view_field
-                            },
-                            {
-                                createdAt: 0,
-                                updatedAt: 0,
-                                created_at: 0,
-                                updated_at: 0,
-                                _id: 0,
-                                __v: 0
-                            })
-                        if (viewField) {
-                            if (viewField.attributes) {
-                                viewField.attributes = struct.decode(viewField.attributes)
-                            }
-                            viewFields.push(viewField._doc)
-                        }
-                    }
+        
+        // comment this login, we switch it to buildModels function
+        
+        // for (const field of decodedFields) {
+        //     if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
+        //         let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
+        //         let viewFields = []
+        //         if (relation) {
+        //             for (const view_field of relation.view_fields) {
+        //                 let viewField = await Field.findOne(
+        //                     {
+        //                         id: view_field
+        //                     },
+        //                     {
+        //                         createdAt: 0,
+        //                         updatedAt: 0,
+        //                         created_at: 0,
+        //                         updated_at: 0,
+        //                         _id: 0,
+        //                         __v: 0
+        //                     })
+        //                 if (viewField) {
+        //                     if (viewField.attributes) {
+        //                         viewField.attributes = struct.decode(viewField.attributes)
+        //                     }
+        //                     viewFields.push(viewField._doc)
+        //                 }
+        //             }
 
-                    const view = await View.findOne({relation_id: relation.id})
-                    if(view) {
-                        field.attributes = {
-                            ...(field.attributes || {}) ,
-                            ...struct.decode(view.attributes || {})
-                        }
-                    }
-                }
-                field.view_fields = viewFields
-            }
-        }
-        // console.log("TEST::::::::::14")
-        // console.timeEnd("TIME_LOGGING:::decodedFields")
-        // console.log("TEST::::::13")
-        // console.time("TIME_LOGGING:::additional_request")
+        //             const view = await View.findOne({ relation_id: relation.id })
+        //             if (view) {
+        //                 field.attributes = {
+        //                     ...(field.attributes || {}),
+        //                     ...struct.decode(view.attributes || {})
+        //                 }
+        //             }
+        //         }
+        //         field.view_fields = viewFields
+        //     }
+        // }
+        
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
             const additional_param = {};
@@ -2958,7 +2963,7 @@ let objectBuilder = {
         response = struct.encode({ count: countResult.length, response: results, });
 
         return { table_slug: req.table_slug, data: response }
-        
+
     }),
     deleteMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteMany`, async (req) => {
         try {

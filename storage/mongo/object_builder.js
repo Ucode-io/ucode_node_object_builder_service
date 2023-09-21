@@ -1197,6 +1197,8 @@ let objectBuilder = {
                                 viewFields.push(el)
                             }
                         })
+                    } else {
+                        viewFields = elementField?.attributes?.view_fields
                     }
                 }
                 elementField.view_fields = viewFields

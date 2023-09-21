@@ -13220,6 +13220,7 @@
 }
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: 'service.loginStore.login_data: failed with error: tableSlug is not defined',
   level: 'error',
   timestamp: '2023-07-25T06:01:38.240Z',
@@ -13230,10 +13231,16 @@
   level: 'error',
   timestamp: '2023-09-12T10:59:53.774Z',
 >>>>>>> 341475fc7637e0dd2f30411eff3a80a30df39967
+=======
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T07:01:56.218Z',
+>>>>>>> 45720a503bdb43770ba6e07265810b5dc3f5e51f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   message: 'Error while auto connecting',
   level: 'error',
@@ -13278,10 +13285,16 @@
   message: "service.field.update: failed with error: Cannot read properties of null (reading 'slug')",
   level: 'error',
   timestamp: '2023-07-26T04:37:31.207Z',
+=======
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T07:22:58.000Z',
+>>>>>>> 45720a503bdb43770ba6e07265810b5dc3f5e51f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.field.update: failed with error: Cannot read properties of null (reading 'slug')",
   level: 'error',
   timestamp: '2023-07-26T04:39:11.523Z',
@@ -14072,3 +14085,11 @@
   metadata: {}
 }
 >>>>>>> eaf7bf0d9096ef2366750f6c08bc106973c1a1f9
+=======
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T07:24:28.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 45720a503bdb43770ba6e07265810b5dc3f5e51f

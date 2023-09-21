@@ -337,8 +337,19 @@ let sectionStore = {
                         const relation = await Relation.findOne({ id: relationID })
                         let fieldAsAttribute = []
                         let view_of_relation;
+                        view_of_relation = await View.findOne({
+                            relation_id: relation.id,
+                            relation_table_slug: data.table_slug
+                        })
+                        let viewFieldIds = relation.view_fields
+                        if (view_of_relation) {
+                            if (view_of_relation.view_fields && view_of_relation.view_fields.length) {
+                                viewFieldIds = view_of_relation.view_fields
+                            }
+                        }
+                        console.log(viewFieldIds);
                         if (relation) {
-                            for (const fieldID of relation.view_fields) {
+                            for (const fieldID of viewFieldIds) {
                                 let field = await Field.findOne({
                                     id: fieldID
                                 },
@@ -350,14 +361,20 @@ let sectionStore = {
                                         _id: 0,
                                         __v: 0
                                     }).lean();
-                                fieldAsAttribute.push(field)
+                                if (field) {
+                                    if (data.language_setting && field.enable_multilanguage) {
+                                        if (field?.slug.endsWith("_" + data.language_setting)) {
+                                            fieldAsAttribute.push(field)
+                                        } else {
+                                            continue
+                                        }
+                                    } else {
+                                        fieldAsAttribute.push(field)
+                                    }
+                                }
                             }
-                            view_of_relation = await View.findOne({
-                                relation_id: relation.id,
-                                relation_table_slug: data.table_slug
-                            })
-                            field.is_editable = view_of_relation?.is_editable || false
-                            // console.log(">>>>> field", field)
+
+                            field.is_editable = view_of_relation?.is_editable
                         }
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
@@ -385,26 +402,20 @@ let sectionStore = {
                             if (relation.dynamic_tables.length) {
                                 let dynamicTableToAttribute;
                                 for (const dynamic_table of relation.dynamic_tables) {
-                                    // const dynamicTableInfo = await Table.findOne(
-                                    //     {
-                                    //         slug: dynamic_table.table_slug,
-                                    //     },
-                                    //     {
-                                    //         deletedAt: 0,
-                                    //         deleted_at: 0,
-                                    //         createdAt: 0,
-                                    //         updatedAt: 0,
-                                    //         created_at: 0,
-                                    //         updated_at: 0,
-                                    //         _id: 0,
-                                    //         __v: 0
-                                    //     }
-                                    // )
                                     const dynamicTableInfo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
                                     dynamicTableToAttribute = dynamic_table
+                                    let viewFieldsOfDynamicRelation = dynamicTableToAttribute.view_fields;
+                                    const viewOfDynamicRelation = await View.findOne({
+                                        relation_id: relation.id,
+                                        relation_table_slug: dynamic_table.table_slug
+                                    })
+                                    if (viewOfDynamicRelation && viewOfDynamicRelation.view_fields && viewOfDynamicRelation.view_fields.length) {
+                                        viewFieldsOfDynamicRelation = viewOfDynamicRelation.view_fields
+                                    }
+
                                     dynamicTableToAttribute["table"] = dynamicTableInfo._doc
                                     viewFieldsInDynamicTable = []
-                                    for (const fieldId of dynamicTableToAttribute.view_fields) {
+                                    for (const fieldId of viewFieldsOfDynamicRelation) {
                                         let view_field = await Field.findOne(
                                             {
                                                 id: fieldId
@@ -422,7 +433,16 @@ let sectionStore = {
                                             if (view_field.attributes) {
                                                 view_field.attributes = struct.decode(view_field.attributes)
                                             }
-                                            viewFieldsInDynamicTable.push(view_field._doc)
+                                            if (data.language_setting && view_field.enable_multilanguage) {
+                                                if (view_field.slug.endsWith("_" + data.language_setting)) {
+                                                    viewFieldsInDynamicTable.push(view_field._doc)
+                                                } else {
+                                                    continue
+                                                }
+                                            } else {
+                                                viewFieldsInDynamicTable.push(view_field._doc)
+                                            }
+
                                         }
                                     }
                                     dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
@@ -444,7 +464,7 @@ let sectionStore = {
                             }
                         } else {
                             if (view_of_relation) {
-                                originalAttributes = {... struct.decode(view_of_relation.attributes || {})}
+                                originalAttributes = { ...struct.decode(view_of_relation.attributes || {}) }
                             }
                             originalAttributes = {
                                 ...originalAttributes,

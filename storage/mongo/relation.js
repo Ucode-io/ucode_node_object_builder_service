@@ -477,9 +477,9 @@ let relationStore = {
                 ],
             });
             let viewRelationPermissions = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
-            const res = await viewRelationPermissions.models.updateMany({ relation_id: data.id, table_slug: data.relation_table_slug }, { $set: { label: data.title } })
+            await viewRelationPermissions.models.updateMany({ relation_id: data.id, table_slug: data.relation_table_slug }, { $set: { label: data.title } })
             if (isViewExists) {
-                const view = await View.updateOne(
+                await View.updateOne(
                     {
                         $and: [
                             { relation_table_slug: data.relation_table_slug },
@@ -507,6 +507,7 @@ let relationStore = {
                             default_editable: data.default_editable,
                             creatable: data.creatable,
                             function_path: data.function_path,
+                            view_fields: data.view_fields,
                             attributes: data.attributes,
                         },
                     }
@@ -520,7 +521,7 @@ let relationStore = {
                 data["attributes"] = data.attributes
                 data.id = v4();
                 const view = new View(data);
-                const response = await view.save();
+                await view.save();
             }
 
             return relation;

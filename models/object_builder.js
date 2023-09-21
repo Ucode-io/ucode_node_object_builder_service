@@ -375,6 +375,8 @@ async function buildModels(is_build = true, project_id) {
                                 resField.attributes["default_values"] = view.default_values
                             }
                         }
+                        resField.attributes = JSON.stringify(resField.attributes)
+                        resField.attributes = JSON.parse(resField.attributes)
                         resField.attributes = struct.encode(resField.attributes)
                         fieldsModel.push(resField)
                     }

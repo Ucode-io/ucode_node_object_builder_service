@@ -367,6 +367,7 @@ async function buildModels(is_build = true, project_id) {
                         resField.attributes["auto_filters"] = relation?.auto_filters
                         resField.attributes["is_user_id_default"] = relation?.is_user_id_default
                         resField.attributes["object_id_from_jwt"] = relation?.object_id_from_jwt
+                        resField.attributes["relation_data"] = relation
 
                         resField.table_slug = relationTableSlug
                         if (view) {

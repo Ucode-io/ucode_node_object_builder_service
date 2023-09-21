@@ -35,20 +35,65 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleInsert function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
+            const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
+            let allTableInfos = await ObjectBuilder(true, req.project_id)
+            const tableInfo = allTableInfos[req.table_slug]
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
-
+            let ownGuid = payload.guid;
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
+            if (tableData && tableData.is_login_table && !data.from_auth_service) {
+                let tableAttributes = struct.decode(tableData.attributes)
+                if (tableAttributes && tableAttributes.auth_info) {
+                    let authInfo = tableAttributes.auth_info
+                    if (!data[authInfo['client_type_id']]
+                        || !data[authInfo['role_id']]
+                        || !(data[authInfo['login']] || data[authInfo['email']] || data[authInfo['phone']])
+                    ) {
+                        throw new Error('This table is auth table. Auth information not fully given')
+                    }
+                    let loginTable = await allTableInfos['client_type']?.models?.findOne({
+                        guid: data[authInfo['client_type_id']],
+                        table_slug: tableData.slug
+                    })
+                    if (loginTable) {
+                        let authCheckRequest = {
+                            client_type_id: data['client_type_id'],
+                            role_id: data['role_id'],
+                            login: data[authInfo['login']],
+                            email: data[authInfo['email']],
+                            phone: data[authInfo['phone']],
+                            project_id: data['company_service_project_id'],
+                            company_id: data['company_service_company_id'],
+                            password: data[authInfo['password']],
+                            resource_environment_id: req.project_id,
+                            invite: data['invite']
+                        }
+                        if (data['invite']) {
+                            authCheckRequest.environment_id = data["company_service_environment_id"]
+                        }
+                        const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
+                        if (responseFromAuth) {
+                            data.guid = responseFromAuth.user_id
+                            await tableInfo.models.updateOne({
+                                guid: ownGuid
+                            }, {
+                                $set: { guid: responseFromAuth.user_id }
+                            })
+                        }
+                    }
+                }
+            }
             const object = struct.encode({ data });
-            const table = await tableVersion(mongoConn, { slug: req.table_slug })
+            
             let customMessage = ""
-            if (table) {
+            if (tableData) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 201,
-                    table_id: table.id,
+                    table_id: tableData.id,
                     action_type: "CREATE"
 
                 })
@@ -2152,10 +2197,34 @@ let objectBuilder = {
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
+            let tableData = await table.findOne(
+                {
+                    slug: req.table_slug
+                }
+            )
+            let isLoginTable = false
+            let authInfo = {}
+            if (tableData && tableData.is_login_table && !data.from_auth_service) {
+                let tableAttributes = struct.decode(tableData.attributes)
+                if (tableAttributes && tableAttributes.auth_info) {
+                    authInfo = tableAttributes.auth_info
+                    let loginTable = await allTableInfos['client_type']?.models?.findOne({
+                        guid: objects[0][authInfo['client_type_id']],
+                        table_slug: tableData.slug
+                    })
+                    if (loginTable) {
+                        isLoginTable = true
+                    } else {
+                        throw new Error('Login table not found with given client type id', objects[0][authInfo['client_type_id']])
+                    }
+                }
+            }
+            const allTableInfos = (await ObjectBuilder(true, req.project_id))
+
 
             const data = struct.decode(req.data)
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            let objects = [], appendMany2ManyObj = []
+            const tableInfo = allTableInfos[req.table_slug]
+            let objects = [], appendMany2ManyObj = [], authCheckRequests = [], guids = []
             for (const object of data.objects) {
                 //this condition used for object.guid may be exists
                 if (!object.guid) {
@@ -2166,22 +2235,54 @@ let objectBuilder = {
                     table_slug: req.table_slug,
                     project_id: req.project_id
                 }
-                let { payload, data, event, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(request, mongoConn)
+                let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(request, mongoConn)
+                guids.push(payload.guid)
+                if (isLoginTable) {
+                    if (!data[authInfo['client_type_id']]
+                        || !data[authInfo['role_id']]
+                        || !(data[authInfo['login']] || data[authInfo['email']] || data[authInfo['phone']])
+                    ) {
+                        throw new Error('This table is auth table. Auth information not fully given')
+                    }
+
+                    let authCheckRequest = {
+                        client_type_id: data['client_type_id'],
+                        role_id: data['role_id'],
+                        login: data[authInfo['login']],
+                        email: data[authInfo['email']],
+                        phone: data[authInfo['phone']],
+                        project_id: data['company_service_project_id'],
+                        company_id: data['company_service_company_id'],
+                        password: data[authInfo['password']],
+                        resource_environment_id: req.project_id,
+                        invite: data['invite']
+                    }
+                    if (data['invite']) {
+                        authCheckRequest.environment_id = data["company_service_environment_id"]
+                    }
+                    authCheckRequests.push(authCheckRequest)
+                }
                 appendMany2ManyObj = appendMany2ManyObjects
                 objects.push(payload)
-
-                // await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
-
-
-                req.current_data = event?.payload?.data
-                // await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
-                //     payload: {
-                //         current_data: event?.payload?.data,
-                //         table_slug: req.table_slug
-                //     }
-                // })
             }
             await tableInfo.models.insertMany(objects)
+            const responseFromAuth = await grpcClient.createUsersAuth(authCheckRequests)
+            let bulkWriteGuids = [];
+            if (responseFromAuth?.user_ids && responseFromAuth?.user_ids?.length === guids.length) {
+                for (let i = 0; i < guids.length; i++) {
+                    bulkWriteGuids.push({
+                        updateOne: {
+                            filter: { guid: el },
+                            update: {
+                                $set: {
+                                    guid: responseFromAuth.user_ids[i]
+                                }
+                            }
+                        }
+                    })
+                }
+            }
+            await tableInfo.models.bulkWrite(bulkWriteGuids)
             for (const appendMany2Many of appendMany2ManyObj) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }

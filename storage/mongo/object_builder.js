@@ -1194,6 +1194,7 @@ let objectBuilder = {
                         )
                     }
                 }
+                elementField.view_fields = elementField.attributes.view_fields
                 decodedFields.push(elementField)
             }
         };

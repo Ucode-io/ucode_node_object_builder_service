@@ -1191,9 +1191,9 @@ let objectBuilder = {
                 if (elementField?.attributes?.view_fields?.length) {
                     if (languageSetting) {
                         elementField.attributes.view_fields = elementField.attributes.view_fields.forEach(el => {
-                            if (el.slug.endsWith("_" + languageSetting) && el.enable_multilanguage) {
+                            if (el && el?.slug && el.slug.endsWith("_" + languageSetting) && el.enable_multilanguage) {
                                 viewFields.push(el)
-                            } else if (!el.enable_multilanguage) {
+                            } else if (el && !el.enable_multilanguage) {
                                 viewFields.push(el)
                             }
                         })

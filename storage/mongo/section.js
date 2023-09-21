@@ -287,7 +287,9 @@ let sectionStore = {
                 // });
                 table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
                 // console.log("bbbbb::", table);
+                console.log("test 11");
                 data.table_id = table.id;
+                console.log("test 12");
             }
             // console.log("table id:::: " + table?.id);
             // console.log("table:::: " + table);
@@ -316,7 +318,7 @@ let sectionStore = {
                     let guid;
                     let field = {};
                     let encodedAttributes = {};
-                    if (fieldReq.id.includes("#")) {
+                    if (fieldReq?.id?.includes("#")) {
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order
@@ -335,16 +337,15 @@ let sectionStore = {
                         let fieldAsAttribute = []
                         let view_of_relation;
                         view_of_relation = await View.findOne({
-                            relation_id: relation.id,
+                            relation_id: relation?.id,
                             relation_table_slug: data.table_slug
                         })
-                        let viewFieldIds = relation.view_fields
+                        let viewFieldIds = relation?.view_fields
                         if (view_of_relation) {
                             if (view_of_relation.view_fields && view_of_relation.view_fields.length) {
                                 viewFieldIds = view_of_relation.view_fields
                             }
                         }
-                        console.log(viewFieldIds);
                         if (relation) {
                             for (const fieldID of viewFieldIds) {
                                 let field = await Field.findOne({
@@ -489,7 +490,7 @@ let sectionStore = {
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)
-                    } else if (fieldReq.id.includes("@")) {
+                    } else if (fieldReq?.id?.includes("@")) {
                         field.id = fieldReq.id
                     } else {
                         guid = fieldReq.id
@@ -502,7 +503,6 @@ let sectionStore = {
                             field.id = fieldReq.id;
                             field.relation_type = fieldReq.relation_type;
                             fieldsRes.push(field);
-
                         }
                     }
                 }

@@ -53344,3 +53344,803 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T13:59:32.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T13:59:32.653Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T13:59:32.653Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T13:59:32.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T13:59:33.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:00:20.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:00:21.003Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:00:56.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:00:56.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:00:56.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:00:57.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:02:05.062Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:02:05.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:02:05.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:02:05.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:02:05.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:02:52.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:02:52.839Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:03:02.932Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:03:02.933Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:03:03.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:03:04.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:03:22.355Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:03:22.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:03:22.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:03:22.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:03:22.992Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:10.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:10.828Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:15.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:15.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:16.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:04:17.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:57.391Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:57.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:57.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:57.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:58.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:05:45.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:05:45.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:05:48.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:05:48.024Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:05:48.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:05:49.539Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:01.767Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:01.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:06:01.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:06:01.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:02.411Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:19.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:19.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:06:19.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:06:19.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:19.917Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:07:07.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:07:07.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:07:10.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:07:10.183Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:07:10.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:07:11.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:00.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:00.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:00.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:00.118Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:00.726Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:47.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:47.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:50.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:50.789Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:51.204Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'view_fields')",
+  level: 'error',
+  timestamp: '2023-09-21T14:08:52.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:05.779Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:05.781Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:05.781Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:05.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:06.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:54.032Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:54.036Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:57.248Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:57.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:57.664Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:59.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:59.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:59.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

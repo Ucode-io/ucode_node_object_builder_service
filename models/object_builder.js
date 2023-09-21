@@ -41,7 +41,7 @@ async function buildModels(is_build = true, project_id) {
 
     // console.log("TEST:::::::::::3", tables)
     let tempArray = []
-    
+
     for (const table of tables) {
         // declare isReferences var to indicate that fields related to a table were added to schema
         let isReferenced = false
@@ -242,16 +242,31 @@ async function buildModels(is_build = true, project_id) {
                     resField.required = field.required
                     resField.slug = field.slug
                     resField.attributes = field.attributes
-                    let fieldAsAttribute = []
+                    let fieldAsAttribute = [];
+                    let viewFieldIds = [];
                     let autofillFields = [];
                     let relationTableSlug;
                     let dynamicTables = []
                     if (!resField.attributes) {
                         resField.attributes = {}
                     }
+                    
                     if (relation) {
+                        viewFieldIds = relation.view_fields
+                        let viewOfRelation = await View.findOne({
+                            relation_id: field.relation_id,
+                            relation_table_slug: table.slug
+                        })
+                        if (viewOfRelation && viewOfRelation.view_fields && viewOfRelation.view_fields.length) {
+                            viewFieldIds = viewOfRelation.view_fields
+                            resField.attributes = {
+                                ...(resField.attributes || {}) ,
+                                ...struct.decode(viewOfRelation.attributes || {})
+                            }
+                        }
+
                         if (relation.type !== "Many2Dynamic") {
-                            for (const fieldID of relation.view_fields) {
+                            for (const fieldID of viewFieldIds) {
                                 let field = await Field.findOne({
                                     id: fieldID
                                 },
@@ -263,6 +278,7 @@ async function buildModels(is_build = true, project_id) {
                                         _id: 0,
                                         __v: 0
                                     }).lean();
+                                
                                 fieldAsAttribute.push(field)
 
                             }
@@ -359,6 +375,8 @@ async function buildModels(is_build = true, project_id) {
                                 resField.attributes["default_values"] = view.default_values
                             }
                         }
+                        resField.attributes = JSON.stringify(resField.attributes)
+                        resField.attributes = JSON.parse(resField.attributes)
                         resField.attributes = struct.encode(resField.attributes)
                         fieldsModel.push(resField)
                     }

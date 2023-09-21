@@ -1187,20 +1187,25 @@ let objectBuilder = {
                 if (element.attributes) {
                     elementField.attributes = struct.decode(element.attributes)
                 }
+                viewFields = []
                 if (elementField?.attributes?.view_fields?.length) {
                     if (languageSetting) {
-                        elementField.attributes.view_fields = elementField.attributes.view_fields.filter(
-                            el => (el.slug.endsWith("_" + languageSetting) && el.enable_multilanguage)
-                        )
+                        elementField.attributes.view_fields = elementField.attributes.view_fields.forEach(el => {
+                            if (el.slug.endsWith("_" + languageSetting) && el.enable_multilanguage) {
+                                viewFields.push(el)
+                            } else if (!el.enable_multilanguage) {
+                                viewFields.push(el)
+                            }
+                        })
                     }
                 }
-                elementField.view_fields = elementField.attributes.view_fields
+                elementField.view_fields = viewFields
                 decodedFields.push(elementField)
             }
         };
-        
+
         // comment this login, we switch it to buildModels function
-        
+
         // for (const field of decodedFields) {
         //     if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
         //         let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
@@ -1238,7 +1243,7 @@ let objectBuilder = {
         //         field.view_fields = viewFields
         //     }
         // }
-        
+
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
             const additional_param = {};

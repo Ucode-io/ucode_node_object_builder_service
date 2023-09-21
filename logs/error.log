@@ -2849,3 +2849,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T11:12:21.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of null (reading 'enable_multilanguage')",
+  level: 'error',
+  timestamp: '2023-09-21T11:16:48.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

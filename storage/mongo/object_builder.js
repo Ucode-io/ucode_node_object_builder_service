@@ -35,14 +35,9 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleInsert function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-
+            const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
             let allTableInfos = await ObjectBuilder(true, req.project_id)
             const tableInfo = allTableInfos[req.table_slug]
-            let tableData = await table.findOne(
-                {
-                    slug: req.table_slug
-                }
-            )
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
@@ -93,12 +88,12 @@ let objectBuilder = {
                 }
             }
             const object = struct.encode({ data });
-            const table = await tableVersion(mongoConn, { slug: req.table_slug })
+            
             let customMessage = ""
-            if (table) {
+            if (tableData) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 201,
-                    table_id: table.id,
+                    table_id: tableData.id,
                     action_type: "CREATE"
 
                 })

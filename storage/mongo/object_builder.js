@@ -25,6 +25,7 @@ const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
+const constants = require('../../helper/constants');
 
 const TableStorage = require('./table')
 const FieldStorage = require('./field')
@@ -39,20 +40,65 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleInsert function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
+            const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
+            let allTableInfos = await ObjectBuilder(true, req.project_id)
+            const tableInfo = allTableInfos[req.table_slug]
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
-
+            let ownGuid = payload.guid;
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
+            if (tableData && tableData.is_login_table && !data.from_auth_service) {
+                let tableAttributes = struct.decode(tableData.attributes)
+                if (tableAttributes && tableAttributes.auth_info) {
+                    let authInfo = tableAttributes.auth_info
+                    if (!data[authInfo['client_type_id']]
+                        || !data[authInfo['role_id']]
+                        || !(data[authInfo['login']] || data[authInfo['email']] || data[authInfo['phone']])
+                    ) {
+                        throw new Error('This table is auth table. Auth information not fully given')
+                    }
+                    let loginTable = await allTableInfos['client_type']?.models?.findOne({
+                        guid: data[authInfo['client_type_id']],
+                        table_slug: tableData.slug
+                    })
+                    if (loginTable) {
+                        let authCheckRequest = {
+                            client_type_id: data['client_type_id'],
+                            role_id: data['role_id'],
+                            login: data[authInfo['login']],
+                            email: data[authInfo['email']],
+                            phone: data[authInfo['phone']],
+                            project_id: data['company_service_project_id'],
+                            company_id: data['company_service_company_id'],
+                            password: data[authInfo['password']],
+                            resource_environment_id: req.project_id,
+                            invite: data['invite']
+                        }
+                        if (data['invite']) {
+                            authCheckRequest.environment_id = data["company_service_environment_id"]
+                        }
+                        const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
+                        if (responseFromAuth) {
+                            data.guid = responseFromAuth.user_id
+                            await tableInfo.models.updateOne({
+                                guid: ownGuid
+                            }, {
+                                $set: { guid: responseFromAuth.user_id }
+                            })
+                        }
+                    }
+                }
+            }
             const object = struct.encode({ data });
-            const table = await tableVersion(mongoConn, { slug: req.table_slug })
+            
             let customMessage = ""
-            if (table) {
+            if (tableData) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 201,
-                    table_id: table.id,
+                    table_id: tableData.id,
                     action_type: "CREATE"
 
                 })
@@ -73,12 +119,15 @@ let objectBuilder = {
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
+            let funcs = []
             for (const resAppendM2M of appendMany2Many) {
-                await objectBuilder.appendManyToMany(resAppendM2M)
+                funcs.push(objectBuilder.appendManyToMany(resAppendM2M))
             }
             for (const resDeleteM2M of deleteMany2Many) {
-                await objectBuilder.deleteManyToMany(resDeleteM2M)
+                funcs.push(objectBuilder.deleteManyToMany(resDeleteM2M))
             }
+
+            await Promise.all(funcs)
             // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
             const table = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
@@ -376,7 +425,7 @@ let objectBuilder = {
         if (!tableInfo) {
             throw new Error("table not found")
         }
-        
+
 
         let keys = Object.keys(params)
         let order = params.order || {}
@@ -621,6 +670,7 @@ let objectBuilder = {
         let params = struct.decode(req?.data)
         const limit = params.limit
         const offset = params.offset
+        const languageSetting = params.language_setting
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
         const allTables = (await ObjectBuilder(true, req.project_id))
@@ -742,24 +792,29 @@ let objectBuilder = {
         // console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
-                let replacedSearch = ""
+
                 let empty = ""
-                for (let el of params.search) {
-                    if (el == "(") {
-                        empty += "\\("
-                    } else if (el == ")") {
-                        empty += "\\)"
-                    } else {
-                        empty += el
+                if (typeof params.search === "string") {
+                    for (let el of params.search) {
+                        if (el == "(") {
+                            empty += "\\("
+                        } else if (el == ")") {
+                            empty += "\\)"
+                        } else {
+                            empty += el
+                        }
                     }
+                    params.search = empty
                 }
-                params.search = empty
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))
-                    if (field.type !== "NUMBER" && field.type !== "SWITCH") {
-                        let obj = {};
+                    let obj = {};
+                    if (!constants.NUMBER_TYPES.includes(field.type) && !constants.BOOLEAN_TYPES.includes(field.type)) {
                         obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }
+                        arrayOfViewFields.push(obj)
+                    } else if (constants.NUMBER_TYPES.includes(field.type) && typeof params.search === "number") {
+                        obj[view_field] = params.search
                         arrayOfViewFields.push(obj)
                     }
                 }
@@ -944,7 +999,6 @@ let objectBuilder = {
                 { deleted_at: null }
             ]
         }
-
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -1130,7 +1184,7 @@ let objectBuilder = {
         let decodedFields = []
         // below for loop is in order to decode FIELD.ATTRIBUTES from proto struct to normal object
         for (const element of fieldsWithPermissions) {
-            if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS")) {
+            if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS" || element.type === "DYNAMIC")) {
                 let field = { ...element }
                 field.attributes = struct.decode(element.attributes)
                 decodedFields.push(field)
@@ -1139,53 +1193,65 @@ let objectBuilder = {
                 if (element.attributes) {
                     elementField.attributes = struct.decode(element.attributes)
                 }
+                viewFields = []
+                if (elementField?.attributes?.view_fields?.length) {
+                    if (languageSetting) {
+                        elementField.attributes.view_fields = elementField.attributes.view_fields.forEach(el => {
+                            if (el && el?.slug && el.slug.endsWith("_" + languageSetting) && el.enable_multilanguage) {
+                                viewFields.push(el)
+                            } else if (el && !el.enable_multilanguage) {
+                                viewFields.push(el)
+                            }
+                        })
+                    } else {
+                        viewFields = elementField?.attributes?.view_fields
+                    }
+                }
+                elementField.view_fields = viewFields
                 decodedFields.push(elementField)
             }
         };
-        // console.timeEnd("TIME_LOGGING:::toField")
-        // console.log("TEST::::::12")
-        // console.time("TIME_LOGGING:::decodedFields")
-        for (const field of decodedFields) {
-            if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
-                let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
-                let viewFields = []
-                if (relation) {
-                    for (const view_field of relation.view_fields) {
-                        let viewField = await Field.findOne(
-                            {
-                                id: view_field
-                            },
-                            {
-                                createdAt: 0,
-                                updatedAt: 0,
-                                created_at: 0,
-                                updated_at: 0,
-                                _id: 0,
-                                __v: 0
-                            })
-                        if (viewField) {
-                            if (viewField.attributes) {
-                                viewField.attributes = struct.decode(viewField.attributes)
-                            }
-                            viewFields.push(viewField._doc)
-                        }
-                    }
 
-                    const view = await View.findOne({relation_id: relation.id})
-                    if(view) {
-                        field.attributes = {
-                            ...(field.attributes || {}) ,
-                            ...struct.decode(view.attributes || {})
-                        }
-                    }
-                }
-                field.view_fields = viewFields
-            }
-        }
-        // console.log("TEST::::::::::14")
-        // console.timeEnd("TIME_LOGGING:::decodedFields")
-        // console.log("TEST::::::13")
-        // console.time("TIME_LOGGING:::additional_request")
+        // comment this login, we switch it to buildModels function
+
+        // for (const field of decodedFields) {
+        //     if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
+        //         let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
+        //         let viewFields = []
+        //         if (relation) {
+        //             for (const view_field of relation.view_fields) {
+        //                 let viewField = await Field.findOne(
+        //                     {
+        //                         id: view_field
+        //                     },
+        //                     {
+        //                         createdAt: 0,
+        //                         updatedAt: 0,
+        //                         created_at: 0,
+        //                         updated_at: 0,
+        //                         _id: 0,
+        //                         __v: 0
+        //                     })
+        //                 if (viewField) {
+        //                     if (viewField.attributes) {
+        //                         viewField.attributes = struct.decode(viewField.attributes)
+        //                     }
+        //                     viewFields.push(viewField._doc)
+        //                 }
+        //             }
+
+        //             const view = await View.findOne({ relation_id: relation.id })
+        //             if (view) {
+        //                 field.attributes = {
+        //                     ...(field.attributes || {}),
+        //                     ...struct.decode(view.attributes || {})
+        //                 }
+        //             }
+        //         }
+        //         field.view_fields = viewFields
+        //     }
+        // }
+
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
             const additional_param = {};
@@ -1521,15 +1587,15 @@ let objectBuilder = {
             if (response) {
                 if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                     let tableAttributes = struct.decode(tableModel.attributes)
-    
+
                     if (tableAttributes && tableAttributes.auth_info) {
-    
+
                         let authInfo = tableAttributes.auth_info
                         if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                             throw new Error('This table is auth table. Auth information not fully given')
                         }
                         let loginTable = allTableInfo['client_type']?.models?.findOne({
-                            client_type_id: response[authInfo['client_type_id']],
+                            guid: response[authInfo['client_type_id']],
                             table_slug: tableModel.slug
                         })
                         if (loginTable) {
@@ -2135,10 +2201,34 @@ let objectBuilder = {
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
+            let tableData = await table.findOne(
+                {
+                    slug: req.table_slug
+                }
+            )
+            let isLoginTable = false
+            let authInfo = {}
+            if (tableData && tableData.is_login_table && !data.from_auth_service) {
+                let tableAttributes = struct.decode(tableData.attributes)
+                if (tableAttributes && tableAttributes.auth_info) {
+                    authInfo = tableAttributes.auth_info
+                    let loginTable = await allTableInfos['client_type']?.models?.findOne({
+                        guid: objects[0][authInfo['client_type_id']],
+                        table_slug: tableData.slug
+                    })
+                    if (loginTable) {
+                        isLoginTable = true
+                    } else {
+                        throw new Error('Login table not found with given client type id', objects[0][authInfo['client_type_id']])
+                    }
+                }
+            }
+            const allTableInfos = (await ObjectBuilder(true, req.project_id))
+
 
             const data = struct.decode(req.data)
-            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
-            let objects = [], appendMany2ManyObj = []
+            const tableInfo = allTableInfos[req.table_slug]
+            let objects = [], appendMany2ManyObj = [], authCheckRequests = [], guids = []
             for (const object of data.objects) {
                 //this condition used for object.guid may be exists
                 if (!object.guid) {
@@ -2149,22 +2239,54 @@ let objectBuilder = {
                     table_slug: req.table_slug,
                     project_id: req.project_id
                 }
-                let { payload, data, event, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(request, mongoConn)
+                let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(request, mongoConn)
+                guids.push(payload.guid)
+                if (isLoginTable) {
+                    if (!data[authInfo['client_type_id']]
+                        || !data[authInfo['role_id']]
+                        || !(data[authInfo['login']] || data[authInfo['email']] || data[authInfo['phone']])
+                    ) {
+                        throw new Error('This table is auth table. Auth information not fully given')
+                    }
+
+                    let authCheckRequest = {
+                        client_type_id: data['client_type_id'],
+                        role_id: data['role_id'],
+                        login: data[authInfo['login']],
+                        email: data[authInfo['email']],
+                        phone: data[authInfo['phone']],
+                        project_id: data['company_service_project_id'],
+                        company_id: data['company_service_company_id'],
+                        password: data[authInfo['password']],
+                        resource_environment_id: req.project_id,
+                        invite: data['invite']
+                    }
+                    if (data['invite']) {
+                        authCheckRequest.environment_id = data["company_service_environment_id"]
+                    }
+                    authCheckRequests.push(authCheckRequest)
+                }
                 appendMany2ManyObj = appendMany2ManyObjects
                 objects.push(payload)
-
-                // await sendMessageToTopic(conkafkaTopic.TopicObjectCreateV1, event)
-
-
-                req.current_data = event?.payload?.data
-                // await sendMessageToTopic(conkafkaTopic.TopicEventCreateV1, {
-                //     payload: {
-                //         current_data: event?.payload?.data,
-                //         table_slug: req.table_slug
-                //     }
-                // })
             }
             await tableInfo.models.insertMany(objects)
+            const responseFromAuth = await grpcClient.createUsersAuth(authCheckRequests)
+            let bulkWriteGuids = [];
+            if (responseFromAuth?.user_ids && responseFromAuth?.user_ids?.length === guids.length) {
+                for (let i = 0; i < guids.length; i++) {
+                    bulkWriteGuids.push({
+                        updateOne: {
+                            filter: { guid: el },
+                            update: {
+                                $set: {
+                                    guid: responseFromAuth.user_ids[i]
+                                }
+                            }
+                        }
+                    })
+                }
+            }
+            await tableInfo.models.bulkWrite(bulkWriteGuids)
             for (const appendMany2Many of appendMany2ManyObj) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
@@ -2713,7 +2835,7 @@ let objectBuilder = {
         } else if (Object.keys(params.rows_relation).length) {
             let inside_relation_table_exists = {}
             for (let inside_relation_table of params.rows_relation.inside_relation_tables) {
-                const insideRelationTableInfo =allTables[inside_relation_table]
+                const insideRelationTableInfo = allTables[inside_relation_table]
                 insideRelationTableData = await insideRelationTableInfo.models.aggregate([{ ...params.rows_relation.match }, { $project: { _id: 1 } }])
                 if (insideRelationTableData.length > 0) {
                     inside_relation_table_exists = { [inside_relation_table]: true, ...inside_relation_table_exists }
@@ -2954,7 +3076,63 @@ let objectBuilder = {
         response = struct.encode({ count: countResult.length, response: results, });
 
         return { table_slug: req.table_slug, data: response }
-        
+
+    }),
+    deleteMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteMany`, async (req) => {
+        try {
+            const mongoConn = await mongoPool.get(req.project_id)
+            const data = struct.decode(req.data)
+            const allTableInfo = (await ObjectBuilder(true, req.project_id))
+            const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
+            let response = []
+            if (data.ids && data.ids.length) {
+                response = await allTableInfo[req.table_slug].models.find({
+                    guid: { $in: data.ids }
+                })
+            }
+            if (response && response.length) {
+                let tableAttributes = struct.decode(tableModel.attributes)
+                if (tableAttributes && tableAttributes.auth_info) {
+                    let readyForAuth = [];
+                    for (const obj of response) {
+                        if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+
+                            let authInfo = tableAttributes.auth_info
+                            if (!obj[authInfo['client_type_id']] || !obj[authInfo['role_id']]) {
+                                throw new Error('This table is auth table. Auth information not fully given')
+                            }
+                            let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                guid: obj[authInfo['client_type_id']],
+                                table_slug: tableModel.slug
+                            })
+                            if (loginTable) {
+                                readyForAuth.push({
+                                    client_type_id: obj[authInfo['client_type_id']],
+                                    role_id: obj[authInfo['role_id']],
+                                    user_id: obj['guid']
+                                })
+
+                            }
+                        }
+                    }
+                    if (response.length !== readyForAuth.length) {
+                        throw new Error('This table is auth table. Auth information not fully given for delete many users')
+                    }
+                    await grpcClient.deleteUsersAuth({
+                        users: readyForAuth,
+                        project_id: data['company_service_project_id'],
+                    })
+                }
+                if (!tableModel.soft_delete) {
+                    data.ids.length && await allTableInfo[req.table_slug].models.deleteMany({ guid: { $in: data.ids } });
+                } else if (tableModel.soft_delete) {
+                    data.ids.length && await allTableInfo[req.table_slug].models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
+                }
+            }
+            return { table_slug: req.table_slug, data: {} };
+        } catch (err) {
+            throw err
+        }
     }),
     copyFromProject: catchWrapDbObjectBuilder(`${NAMESPACE}.copyFromProject`, async (req) => {
         let table_ids = []

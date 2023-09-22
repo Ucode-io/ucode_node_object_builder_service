@@ -92,6 +92,11 @@ let menuStore = {
                 parent_id: data.parent_id,
                 label: RegExp(data.search, "i")
             }
+            if (data.for_template) {
+                query.id = {
+                    $nin: constants.STATIC_MENU_IDS
+                }
+            }
             const pipelines = [
                 {
                     '$match': query

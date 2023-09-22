@@ -153,6 +153,7 @@ let projectStore = {
                         console.log(">>>>>>>> ")
                         // await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
+                        await addFields({ project_id: data.project_id })
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })
                         // await initialGlobalPermission({ project_id: data.project_id })

@@ -729,6 +729,9 @@ let objectBuilder = {
             })
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
+                    if (autoFilter.not_use_in_tab && params.from_tab) {
+                        continue
+                    }
                     let many2manyRelation = false
                     if (autoFilter?.object_field?.includes('#')) {
                         let splitedElement = autoFilter.object_field.split('#')

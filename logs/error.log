@@ -5177,6 +5177,7 @@
   level: 'error',
   timestamp: '2023-09-21T11:16:48.939Z',
 >>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
+<<<<<<< HEAD
   label: 'object_builder_service',
   metadata: {}
 }
@@ -5255,48 +5256,86 @@
   level: 'error',
   timestamp: '2023-09-21T14:08:52.397Z',
 >>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
+=======
+>>>>>>> eab917a79cf734c99ebb3cb4295cdc9c35f5b717
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.object_builder.groupByColumns: failed with error: Aggregate has empty pipeline',
+  level: 'error',
+  timestamp: '2023-09-22T14:08:09.004Z',
+=======
   message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
   level: 'error',
   timestamp: '2023-09-21T14:00:57.825Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.object_builder.groupByColumns: failed with error: Aggregate has empty pipeline',
+  level: 'error',
+  timestamp: '2023-09-22T14:08:09.020Z',
+=======
   message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
   level: 'error',
   timestamp: '2023-09-21T14:03:04.477Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.object_builder.groupByColumns: failed with error: Aggregate has empty pipeline',
+  level: 'error',
+  timestamp: '2023-09-22T14:08:39.525Z',
+=======
   message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
   level: 'error',
   timestamp: '2023-09-21T14:04:17.503Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.object_builder.groupByColumns: failed with error: Aggregate has empty pipeline',
+  level: 'error',
+  timestamp: '2023-09-22T14:08:42.452Z',
+=======
   message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
   level: 'error',
   timestamp: '2023-09-21T14:05:49.539Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.object_builder.groupByColumns: failed with error: Aggregate has empty pipeline',
+  level: 'error',
+  timestamp: '2023-09-22T14:08:46.893Z',
+=======
   message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
   level: 'error',
   timestamp: '2023-09-21T14:07:11.733Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-09-22T14:08:49.960Z',
+=======
   message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'view_fields')",
   level: 'error',
   timestamp: '2023-09-21T14:08:52.397Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }

@@ -29,11 +29,11 @@ const { count } = require('./models/relation');
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
             "credentials": {
-                "host": "65.109.239.69",
-                "port": "30027",
-                "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
-                "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
-                "password": "dhQXmMIX3N"
+                "host": "142.93.164.37",
+                "port": "27017",
+                "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",
+                "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",
+                "password": "uraIcZhkLf"
             },
             "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"
         })

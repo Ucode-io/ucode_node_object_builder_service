@@ -2,30 +2,24 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const Minio = require('minio');
 const { struct } = require('pb-util');
-
 const cfg = require("../../config/index");
 const logger = require("../../config/logger");
 const catchWrapDbObjectBuilder = require("../../helper/catchWrapDbObjectBuilder")
 const { v4 } = require("uuid");
 const con = require("../../helper/constants");
-// const sendMessageToTopic = require("../../config/kafka");
-// const conkafkaTopic = require("../../config/kafkaTopics");
-const converter = require("../../helper/converter");
 const tableVersion = require('../../helper/table_version')
 var fns_format = require('date-fns/format');
-var { addMonths, addDays, addYears } = require('date-fns');
+var { addDays } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
-
 const RangeDate = require("../../helper/rangeDate");
 const ObjectBuilder = require("../../models/object_builder");
 const FormulaFunction = require("../../helper/calculateFormulaFields");
-
-
 const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
 const constants = require('../../helper/constants');
+const pluralize = require('pluralize');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -3123,6 +3117,178 @@ let objectBuilder = {
         } catch (err) {
             throw err
         }
+    }),
+    groupByColumns: catchWrapDbObjectBuilder(`${NAMESPACE}.groupByColumns`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id)
+        const View = mongoConn.models['View']
+        const Relation = mongoConn.models['Relation']
+        const params = struct.decode(req.data)
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const view = await View.findOne({
+            id: params.builder_service_view_id,
+        })
+        let order = params.order || {}
+        const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+
+        if (currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: 1 }
+        } else if (!currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: -1 }
+        }
+        if (!view) {
+            throw new Error("View not found")
+        }
+        let groupColumnIds = []
+        if (view.attributes && view.attributes.group_by_columns && view.attributes.group_by_columns.length) {
+
+            groupColumnIds = view.attributes.group_by_columns
+        }
+        const fields = tableInfo?.fields || []
+        const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))
+        const groupColumns = fields.filter(el => groupColumnIds.includes(el.id))
+        const projectColumns = fields.filter(el => (!groupColumnIds.includes(el.id) && !(constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA"))))
+        const sumFieldWithDollorSign = {}
+        const numberfieldWithDollorSign = {}
+        const projectColumnsWithDollorSign = {}
+        numberColumns.forEach(el => {
+            sumFieldWithDollorSign[el.slug] = { $sum: "$" + el.slug }
+            numberfieldWithDollorSign[el.slug] = "$" + el.slug
+        })
+        projectColumns.forEach(el => {
+            projectColumnsWithDollorSign[el.slug] = "$" + el.slug
+        })
+        const firstGroup = {}
+        groupColumns.forEach(el => {
+            firstGroup[el.slug] = "$" + el.slug
+        })
+
+        const relations = await Relation.find({
+            $or: [
+                {
+                    table_from: req.table_slug,
+                    type: 'Many2One'
+                },
+                {
+                    table_from: req.table_slug,
+                    type: 'Many2Dynamic'
+                }
+            ]
+        })
+        let lookups = [], unwinds = [], lookupFields = {}, lookupFieldsWithAccumulator = {}, lookupGroupField = {};
+        for (const relation of relations) {
+            if (relation.type === 'Many2One') {
+                let table_to_slug = ""
+                const field = fields?.find(val => (val.relation_id === relation?.id))
+                if (field) {
+                    table_to_slug = field.slug + "_data"
+                }
+                if (table_to_slug === "") {
+                    continue
+                }
+                let from = pluralize.plural(relation.table_to)
+                if (groupColumnIds.includes(field.id)) {
+                    lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
+                } else {
+                    lookupFields[table_to_slug] = "$" + table_to_slug
+                    lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+                }
+                lookups.push({
+                    $lookup: {
+                        from: from,
+                        localField: field.slug,
+                        foreignField: "guid",
+                        as: table_to_slug
+                    }
+                })
+                unwinds.push({
+                    $unwind: {
+                        path: '$' + table_to_slug,
+                        preserveNullAndEmptyArrays: true
+                    }
+                })
+            } else {
+                for (dynamic_table of relation.dynamic_tables) {
+                    let table_to_slug = relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data"
+                    let from = pluralize.plural(dynamic_table.table_slug)
+                    if (groupColumnIds.includes(relation.relation_field_slug + "." + dynamic_table.table_slug + "_id")) {
+                        lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
+                    } else {
+                        lookupFields[table_to_slug] = "$" + table_to_slug
+                        lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+                    }
+                    lookups.push({
+                        $lookup: {
+                            from: from,
+                            localField: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id",
+                            foreignField: "guid",
+                            as: table_to_slug
+                        }
+                    })
+                    unwinds.push({
+                        $unwind: {
+                            path: '$' + table_to_slug,
+                            preserveNullAndEmptyArrays: true
+                        }
+                    })
+                }
+            }
+        }
+        const copyPipeline = []
+        let lastGroupField
+        for (const id of groupColumnIds) {
+            let field = fields.find(el => el.id === id)
+            if (lastGroupField) {
+                delete lookupFields[lastGroupField + "_data"]
+                copyPipeline.push({
+                    $group: {
+                        _id: `$_id.${lastGroupField}`,
+                        [lastGroupField]: { $first: `$_id.${lastGroupField}` },
+                        [lastGroupField + "_data"]: { $first: "$" + lastGroupField + "_data" },
+                        data: {
+                            $push: {
+                                [field.slug]: `$_id.${[field.slug]}`,
+                                data: '$data',
+                                ...numberfieldWithDollorSign,
+                                "guid": "$guid",
+                                ...lookupFields,
+                                [field.slug + "_data"]: "$" + [field.slug + "_data"]
+                            }
+                        },
+                        ...sumFieldWithDollorSign,
+                    }
+                }, {
+                    $sort: order
+                })
+            } else {
+                copyPipeline.push(
+                    ...lookups,
+                    ...unwinds,
+                    {
+                        $group: {
+                            _id: firstGroup,
+                            [field.slug]: { $first: `$${[field.slug]}` },
+                            data: {
+                                $push: {
+                                    ...projectColumnsWithDollorSign,
+                                    ...numberfieldWithDollorSign,
+                                    "guid": "$guid",
+                                    ...lookupFields,
+                                }
+                            },
+                            ...sumFieldWithDollorSign,
+                            ...lookupGroupField
+                        }
+                    }, {
+                    $sort: order
+                })
+            }
+
+            lastGroupField = field.slug
+        }
+        const response = await tableInfo.models.aggregate(copyPipeline)
+        res = JSON.parse(JSON.stringify(response))
+        const data = struct.encode({ response: res });
+        return { table_slug: req.table_slug, data: data }
     }),
 }
 

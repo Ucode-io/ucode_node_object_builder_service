@@ -54,7 +54,7 @@ async function override(projectId, dbConn) {
     }
 
     if (pool.has(projectId)) {
-        console.warn('WARNING:: Overriding project in pool...', projectId)
+        console.warn('WARNING:: Overriding project in pool... ->', projectId)
     }
 
     pool.set(projectId, dbConn)

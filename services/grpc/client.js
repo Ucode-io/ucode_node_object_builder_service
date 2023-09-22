@@ -42,7 +42,7 @@ const SyncUserService = () => {
 
 const autoConn = async (k8s_namespace) => {
     return new Promise((resolve, reject) => {
-        ResourceService().AutoConnect({k8s_namespace: k8s_namespace}, (err, res) => {
+        ResourceService().AutoConnect({ k8s_namespace: k8s_namespace }, (err, res) => {
             if (err) {
                 logger.error("Error while auto connecting", {
                     function: "autoConn",
@@ -94,6 +94,24 @@ const createUserAuth = async (data) => {
     });
 };
 
+const createUsersAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserService().CreateUsers(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize user with auth service", {
+                    function: "createUsersAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+
 const updateUserAuth = async (data) => {
     return new Promise((resolve, reject) => {
         SyncUserService().UpdateteUser(data, (err, res) => {
@@ -129,4 +147,22 @@ const deleteUserAuth = async (data) => {
         });
     });
 };
-module.exports = { autoConn, createUserAuth, updateUserAuth, deleteUserAuth, reConn };
+
+const deleteUsersAuth = async (data) => {
+    return new Promise((resolve, reject) => {
+        SyncUserService().DeleteManyUser(data, (err, res) => {
+            if (err) {
+                logger.error("Error synchronize users with auth service", {
+                    function: "deleteUsersAuth",
+                    error: err
+                });
+                console.log("err: ", err)
+                reject(err);
+                return;
+            }
+
+            resolve(res);
+        });
+    });
+};
+module.exports = { autoConn, createUsersAuth, createUserAuth, updateUserAuth, deleteUserAuth, reConn, deleteUsersAuth };

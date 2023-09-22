@@ -22,8 +22,6 @@ let prepareFunction = {
         if (data.guid) {
             ownGuid = data.guid
         }
-        // console.log("project id::", req.project_id);
-        // console.log("project id::", data);
         let allTableInfos = await ObjectBuilder(true, req.project_id)
         const tableInfo = allTableInfos[req.table_slug]
         if (!tableInfo) {
@@ -164,63 +162,19 @@ let prepareFunction = {
         }
 
         let payload = new tableInfo.models(data);
-        if (tableData && tableData.is_login_table && !data.from_auth_service) {
-            let tableAttributes = struct.decode(tableData.attributes)
-            if (tableAttributes && tableAttributes.auth_info) {
-                let authInfo = tableAttributes.auth_info
-                if (!data[authInfo['client_type_id']]
-                    || !data[authInfo['role_id']]
-                    || !(data[authInfo['login']] || data[authInfo['email']] || data[authInfo['phone']])
-                ) {
-                    throw new Error('This table is auth table. Auth information not fully given')
-                }
-                let loginTable = await allTableInfos['client_type']?.models?.findOne({
-                    client_type_id: data[authInfo['client_type_id']],
-                    table_slug: tableData.slug
-                })
-                if (loginTable) {
-                    let authCheckRequest = {
-                        client_type_id: data['client_type_id'],
-                        role_id: data['role_id'],
-                        login: data[authInfo['login']],
-                        email: data[authInfo['email']],
-                        phone: data[authInfo['phone']],
-                        project_id: data['company_service_project_id'],
-                        company_id: data['company_service_company_id'],
-                        password: data[authInfo['password']],
-                        resource_environment_id: req.project_id
-                    }
-                    const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
-                    ownGuid = responseFromAuth.user_id
-                }
-            }
-        }
+        
         if (ownGuid) {
-            console.log("ownd Guid:", ownGuid);
             payload.guid = ownGuid
-            data.guid = ownGuid
         }
-        console.log("payload:", payload);
         let fields = await Field.find(
             {
                 table_id: tableData?.id
             }
         )
 
-        // TODO::: move kafka to service level
-        let event = {}
-        let field_types = {}
-        event.payload = {}
-        let dataToAnalytics = {};
-
-        event.payload.table_slug = req.table_slug
+        //deleted kafka to send topic to analytics
         let appendMany2ManyObjects = []
-
         for (const field of fields) {
-            let type = converter(field.type);
-            if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
-                type = "String"
-            }
             if (field.type === "LOOKUPS") {
                 if (data[field.slug] && data[field.slug]?.length) {
                     const relation = await Relation.findOne({
@@ -241,15 +195,9 @@ let prepareFunction = {
                     appendMany2ManyObjects.push(appendMany2Many)
                 }
             }
-            field_types[field.slug] = type
-            dataToAnalytics[field.slug] = data[field.slug]
         }
-        field_types.guid = "String"
-        event.payload.data = dataToAnalytics
-        event.payload.field_types = field_types
-        event.project_id = req.project_id
 
-        return { payload, data, event, appendMany2ManyObjects }
+        return { payload, data, appendMany2ManyObjects }
     },
     prepareToUpdateInObjectBuilder: async (req, mongoConn) => {
         const Relation = mongoConn.models['Relation']
@@ -274,6 +222,24 @@ let prepareFunction = {
         event.payload.table_slug = req.table_slug
         let dataToAnalytics = {}
         let appendMany2Many = [], deleteMany2Many = []
+
+        let relation_ids = []
+        for (const field of tableInfo.fields) {
+            if (field.type === "LOOKUPS") {
+                relation_ids.push(field.relation_id)
+            }
+        }
+
+        const relations = await Relation.find({
+            id: { $in: relation_ids }
+        })
+
+        let relationMap = {}
+
+        for (const relation of relations) {
+            relationMap[relation.id] = relation
+        }
+
         for (const field of tableInfo.fields) {
             let type = converter(field.type);
             if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
@@ -292,10 +258,9 @@ let prepareFunction = {
                         deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
                     }
                 }
+                
 
-                const relation = await Relation.findOne({
-                    id: field.relation_id
-                })
+                const relation = relationMap[field.relation_id]
 
                 if (newIds.length) {
                     let appendMany2ManyObj = {

@@ -392,7 +392,7 @@ let loginStore = {
         if (clientType && clientType.table_slug) {
             tableSlug = clientType.table_slug
         }
-        
+
 
         const userTable = (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]
         let user = await userTable.models.findOne(params).lean()
@@ -484,7 +484,8 @@ let loginStore = {
             role: role,
             permissions: permissions,
             global_permission: global_permission,
-            login_table_slug: tableSlug
+            login_table_slug: tableSlug,
+            user_data: struct.encode(user)
         }
         // console.log("TEST:::::::::10", JSON.stringify(response, null, 2))
 
@@ -617,6 +618,38 @@ let loginStore = {
             }
         }
         return { table_slug: connection.table_slug, data: struct.encode({ response: options }) }
+    }),
+    updateUserPassword: catchWrapDbObjectBuilder(`${NAMESPACE}.updateUserPassword`, async (req) => {
+        const mongoConn = await mongoPool.get(req.resource_environment_id)
+        const clientType = await (await ObjectBuilder(true, req.resource_environment_id))["client_type"].models.findOne({ guid: req.client_type_id }).lean()
+        if (clientType) {
+            let tableSlug = "user"
+            let field = "password"
+            if (clientType.table_slug && clientType.table_slug !== "") {
+                tableSlug = clientType.table_slug
+            }
+            let table = mongoConn.models["Table"].findOne({
+                slug: tableSlug
+            })
+            if (table && table.is_login_table) {
+                let tableAttributes = struct.decode(table.attributes)
+                if (tableAttributes && tableAttributes.auth_info) {
+                    if (tableAttributes.auth_info.password) {
+                        field = tableAttributes.auth_info.password
+                    }
+                }
+            }
+            await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]?.models?.updateOne(
+                {
+                    guid: req.guid
+                }, 
+                {
+                    $set: {
+                        [field]: req.password
+                    }
+                }
+            )
+        }
     })
 }
 

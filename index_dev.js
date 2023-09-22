@@ -27,13 +27,13 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "1", // youtube dev
+            project_id: "4e37de38-dd34-4a00-b011-d0c3dd55fdfd", // asadbek_udevs
             credentials: {
-                host: "65.109.239.69",
-                port: 30027,
                 database: "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
+                password: "dhQXmMIX3N",
                 username: "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
-                password: "dhQXmMIX3N"
+                port: 30027,
+                host: "65.109.239.69"
             }
         })
         //mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/?authMechanism=DEFAULT&authSource=asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs

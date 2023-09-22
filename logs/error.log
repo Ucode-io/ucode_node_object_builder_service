@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {
   message: 'Error while auto connecting',
   level: 'error',
@@ -14155,3 +14156,5 @@
   metadata: {}
 }
 >>>>>>> c472084b4352b7872191ec9b2adca0d081ca2667
+=======
+>>>>>>> 163e55df0036dc1dde48a629ed6bbe955d85bb31

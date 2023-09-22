@@ -3189,12 +3189,11 @@ let objectBuilder = {
                 }
             ]
         })
-        let lookups = [], unwinds = [], lookupFields = {}, lookupFieldsWithAccumulator = {};
+        let lookups = [], unwinds = [], lookupFields = {}, lookupFieldsWithAccumulator = {}, lookupGroupField = {};
         for (const relation of relations) {
             if (relation.type === 'Many2One') {
                 let table_to_slug = ""
                 const field = fields?.find(val => (val.relation_id === relation?.id))
-                console.log("field::", field);
                 if (field) {
                     table_to_slug = field.slug + "_data"
                 }
@@ -3202,8 +3201,12 @@ let objectBuilder = {
                     continue
                 }
                 let from = pluralize.plural(relation.table_to)
-                lookupFields[table_to_slug] = "$" + table_to_slug
-                lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+                if (groupColumnIds.includes(field.id)) {
+                    lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
+                } else {
+                    lookupFields[table_to_slug] = "$" + table_to_slug
+                    lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+                }
                 lookups.push({
                     $lookup: {
                         from: from,
@@ -3222,8 +3225,12 @@ let objectBuilder = {
                 for (dynamic_table of relation.dynamic_tables) {
                     let table_to_slug = relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data"
                     let from = pluralize.plural(dynamic_table.table_slug)
-                    lookupFields[table_to_slug] = "$" + table_to_slug
-                    lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+                    if (groupColumnIds.includes(relation.relation_field_slug + "." + dynamic_table.table_slug + "_id")) {
+                        lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
+                    } else {
+                        lookupFields[table_to_slug] = "$" + table_to_slug
+                        lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+                    }
                     lookups.push({
                         $lookup: {
                             from: from,
@@ -3246,18 +3253,20 @@ let objectBuilder = {
         for (const id of groupColumnIds) {
             let field = fields.find(el => el.id === id)
             if (lastGroupField) {
+                delete lookupFields[lastGroupField + "_data"]
                 copyPipeline.push({
                     $group: {
                         _id: `$_id.${lastGroupField}`,
                         [lastGroupField]: { $first: `$_id.${lastGroupField}` },
+                        [lastGroupField + "_data"]: { $first: "$" + lastGroupField + "_data" },
                         data: {
                             $push: {
                                 [field.slug]: `$_id.${[field.slug]}`,
                                 data: '$data',
                                 ...numberfieldWithDollorSign,
                                 "guid": "$guid",
-                                ...lookupFields
-                                // ...lookupFieldsWithAccumulator,
+                                ...lookupFields,
+                                [field.slug + "_data"]: "$" + [field.slug + "_data"]
                             }
                         },
                         ...sumFieldWithDollorSign,
@@ -3278,11 +3287,11 @@ let objectBuilder = {
                                     ...projectColumnsWithDollorSign,
                                     ...numberfieldWithDollorSign,
                                     "guid": "$guid",
-                                    // ...lookupFields,
+                                    ...lookupFields,
                                 }
                             },
                             ...sumFieldWithDollorSign,
-                            ...lookupFieldsWithAccumulator
+                            ...lookupGroupField
                         }
                     }, {
                     $sort: order

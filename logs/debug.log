@@ -50544,14 +50544,22 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:21:15.605Z',
+=======
+  timestamp: '2023-09-21T06:55:07.957Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:21:15.606Z',
+=======
+  timestamp: '2023-09-21T06:55:07.958Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
@@ -50567,49 +50575,77 @@
     '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:21:15.607Z',
+=======
+  timestamp: '2023-09-21T06:55:07.959Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:21:15.607Z',
+=======
+  timestamp: '2023-09-21T06:55:07.959Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:21:16.591Z',
+=======
+  timestamp: '2023-09-21T06:55:08.459Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:22:03.366Z',
+=======
+  timestamp: '2023-09-21T06:55:53.137Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:22:03.373Z',
+=======
+  timestamp: '2023-09-21T06:55:53.140Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:24:17.374Z',
+=======
+  timestamp: '2023-09-21T06:59:28.357Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:24:17.376Z',
+=======
+  timestamp: '2023-09-21T06:59:28.359Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
@@ -50625,20 +50661,29 @@
     '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:24:17.376Z',
+=======
+  timestamp: '2023-09-21T06:59:28.359Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:24:17.377Z',
+=======
+  timestamp: '2023-09-21T06:59:28.360Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:24:17.940Z',
   label: 'object_builder_service',
   metadata: {}
@@ -50684,34 +50729,101 @@
   message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'info',
   timestamp: '2023-09-21T06:25:25.174Z',
+=======
+  timestamp: '2023-09-21T06:59:28.886Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:26:10.748Z',
+=======
+  timestamp: '2023-09-21T07:00:14.110Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:26:10.749Z',
+=======
+  timestamp: '2023-09-21T07:00:14.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:01:55.228Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:01:55.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "eaa3dd5c-ea1d-4799-9193-24ca855c046c",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:01:55.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T07:01:56.218Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:26:26.324Z',
+=======
+  timestamp: '2023-09-21T07:03:33.574Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:26:26.326Z',
+=======
+  timestamp: '2023-09-21T07:03:33.576Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
@@ -50727,35 +50839,3436 @@
     '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:26:26.326Z',
+=======
+  timestamp: '2023-09-21T07:03:33.576Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:26:26.327Z',
+=======
+  timestamp: '2023-09-21T07:03:33.577Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:26:26.847Z',
+=======
+  timestamp: '2023-09-21T07:03:34.111Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:27:12.707Z',
+=======
+  timestamp: '2023-09-21T07:04:19.157Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-21T06:27:12.714Z',
+=======
+  timestamp: '2023-09-21T07:04:19.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:22:56.413Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:22:56.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "eaa3dd5c-ea1d-4799-9193-24ca855c046c",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:22:57.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T07:22:58.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T07:23:39.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T07:23:39.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:23:39.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T07:23:39.443Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T07:23:39.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:24:25.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T07:24:25.722Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:24:27.945Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:24:27.945Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "eaa3dd5c-ea1d-4799-9193-24ca855c046c",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:24:28.274Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T07:24:28.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T07:24:46.156Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T07:24:46.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:24:46.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T07:24:46.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T07:24:46.690Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:25:32.985Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T07:25:32.990Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:25:36.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:25:36.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "eaa3dd5c-ea1d-4799-9193-24ca855c046c",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:25:36.380Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:25:39.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: requested, {\n' +
+    '  "id": "e5225b17-5d3c-48b5-90ee-7477c030b703",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:25:39.183Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:25:40.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:25:40.024Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T07:25:40.024Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T07:26:47.973Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T07:26:47.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:26:47.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T07:26:47.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T07:26:48.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T07:26:58.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T07:26:58.923Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:26:58.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T07:26:58.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T07:26:59.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:27:46.796Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T07:27:46.801Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:27:59.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:27:59.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "eaa3dd5c-ea1d-4799-9193-24ca855c046c",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:28:00.135Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:28:02.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: requested, {\n' +
+    '  "id": "e5225b17-5d3c-48b5-90ee-7477c030b703",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:28:02.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:28:03.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:28:03.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T07:28:03.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T07:28:39.834Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T07:28:39.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:28:39.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T07:28:39.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T07:28:40.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:29:30.810Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T07:29:30.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:29:50.581Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:29:50.582Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "eaa3dd5c-ea1d-4799-9193-24ca855c046c",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:29:50.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:29:53.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: requested, {\n' +
+    '  "id": "e5225b17-5d3c-48b5-90ee-7477c030b703",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:29:53.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:29:54.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:29:54.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T07:29:54.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T07:30:18.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T07:30:18.577Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:30:18.577Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T07:30:18.577Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T07:30:19.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:31:07.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T07:31:07.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:31:12.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:31:12.943Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "eaa3dd5c-ea1d-4799-9193-24ca855c046c",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:31:13.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:31:15.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: requested, {\n' +
+    '  "id": "e5225b17-5d3c-48b5-90ee-7477c030b703",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:31:15.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:31:16.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:31:16.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T07:31:16.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T07:33:28.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T07:33:28.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:33:28.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T07:33:28.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T07:33:29.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:34:19.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T07:34:19.118Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:34:36.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:34:36.138Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "eaa3dd5c-ea1d-4799-9193-24ca855c046c",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:34:36.607Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:34:39.463Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: requested, {\n' +
+    '  "id": "e5225b17-5d3c-48b5-90ee-7477c030b703",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:34:39.463Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:34:40.236Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:34:40.237Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T07:34:40.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:35:34.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:35:34.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "826aea9f-3a9a-4195-baf4-3d1ea550d98e",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:35:34.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:35:37.278Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: requested, {\n' +
+    '  "id": "e5225b17-5d3c-48b5-90ee-7477c030b703",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:35:37.278Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:35:38.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:35:38.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T07:35:38.070Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T07:40:26.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T07:40:26.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:40:26.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T07:40:26.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T07:40:27.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:41:17.429Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T07:41:17.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.update: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "2c0c4fdd-5073-4307-b439-76371c9a62b0",\n' +
+    '    "b492a1aa-c298-4e23-81a9-fdd74cbd51bf"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "id": "d076e989-3db5-417c-b9b8-f918bce9e308",\n' +
+    '  "table_from": "order",\n' +
+    '  "table_to": "clients",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Client",\n' +
+    '  "relation_table_slug": "order",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": true,\n' +
+    '  "default_editable": true,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "additional_parameters": {\n' +
+    '        "listValue": {\n' +
+    '          "values": []\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "title_ru": {\n' +
+    '        "stringValue": "Client",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "title_uz": {\n' +
+    '        "stringValue": "Client",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:42:15.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.update: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "2c0c4fdd-5073-4307-b439-76371c9a62b0",\n' +
+    '    "b492a1aa-c298-4e23-81a9-fdd74cbd51bf"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "id": "d076e989-3db5-417c-b9b8-f918bce9e308",\n' +
+    '  "table_from": "order",\n' +
+    '  "table_to": "clients",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Client",\n' +
+    '  "relation_table_slug": "order",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": true,\n' +
+    '  "default_editable": true,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "additional_parameters": {\n' +
+    '        "listValue": {\n' +
+    '          "values": []\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "title_ru": {\n' +
+    '        "stringValue": "Client",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "title_uz": {\n' +
+    '        "stringValue": "Client",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:42:15.395Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:42:16.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.update: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T07:42:16.344Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T07:43:59.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T07:43:59.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:43:59.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T07:43:59.816Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T07:44:00.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:44:45.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T07:44:45.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.update: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "2c0c4fdd-5073-4307-b439-76371c9a62b0",\n' +
+    '    "b492a1aa-c298-4e23-81a9-fdd74cbd51bf"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "id": "d076e989-3db5-417c-b9b8-f918bce9e308",\n' +
+    '  "table_from": "order",\n' +
+    '  "table_to": "clients",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Client",\n' +
+    '  "relation_table_slug": "order",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": true,\n' +
+    '  "default_editable": true,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "additional_parameters": {\n' +
+    '        "listValue": {\n' +
+    '          "values": []\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "title_ru": {\n' +
+    '        "stringValue": "Client",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "title_uz": {\n' +
+    '        "stringValue": "Client",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:44:55.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.update: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "2c0c4fdd-5073-4307-b439-76371c9a62b0",\n' +
+    '    "b492a1aa-c298-4e23-81a9-fdd74cbd51bf"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "id": "d076e989-3db5-417c-b9b8-f918bce9e308",\n' +
+    '  "table_from": "order",\n' +
+    '  "table_to": "clients",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Client",\n' +
+    '  "relation_table_slug": "order",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": true,\n' +
+    '  "default_editable": true,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "additional_parameters": {\n' +
+    '        "listValue": {\n' +
+    '          "values": []\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      },\n' +
+    '      "title_ru": {\n' +
+    '        "stringValue": "Client",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "title_uz": {\n' +
+    '        "stringValue": "Client",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:44:55.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.update: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:44:56.250Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.update: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T07:44:56.250Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T07:45:10.757Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "order",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": false,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:45:10.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "826aea9f-3a9a-4195-baf4-3d1ea550d98e",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order",\n' +
+    '  "language_setting": "ru"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:45:11.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:45:13.726Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: requested, {\n' +
+    '  "id": "e5225b17-5d3c-48b5-90ee-7477c030b703",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "table_slug": "order"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T07:45:13.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.getSingleViewForRelation: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:45:14.523Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T07:45:14.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T07:45:14.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:15:45.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:15:45.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:15:45.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:15:45.344Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:15:45.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:17:22.987Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:17:22.988Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:17:22.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:17:22.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:17:23.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T08:18:10.396Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T08:18:10.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:19:19.250Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:19:20.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:22:14.616Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:22:14.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:22:14.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:22:14.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:22:15.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:22:22.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:22:22.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:22:22.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:22:22.740Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:22:23.250Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T08:23:11.719Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T08:23:11.725Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:23:54.480Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:23:55.773Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:24:18.179Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:24:18.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:24:18.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:24:18.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:24:18.698Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T08:25:06.493Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T08:25:06.496Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:25:20.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:25:21.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:27:48.841Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:27:50.106Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:28:25.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:28:25.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:28:25.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:28:25.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:28:25.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T08:29:13.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T08:29:13.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:29:16.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:29:17.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:29:53.386Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:29:53.388Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:29:53.388Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:29:53.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:29:53.900Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T08:30:42.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T08:30:42.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:30:49.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:30:51.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:36:43.877Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:36:43.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:36:43.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:36:43.880Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:36:44.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T08:37:32.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T08:37:32.592Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:46:12.509Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T08:46:15.693Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:52:45.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:52:45.441Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:52:45.441Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:52:45.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:52:46.250Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T08:53:36.142Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T08:53:36.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T08:53:36.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T08:53:36.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T08:53:37.018Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T08:54:54.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T08:54:54.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T09:00:50.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T09:00:53.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T09:01:34.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T09:01:34.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T09:01:34.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T09:01:34.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T09:01:35.515Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T09:02:51.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T09:02:51.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T09:03:18.686Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T09:03:20.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T09:04:09.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T09:04:09.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T09:04:09.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T09:04:09.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T09:04:10.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T09:05:26.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T09:05:26.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T09:05:29.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T09:05:32.828Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T09:07:01.300Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T09:07:01.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T09:07:01.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T09:07:01.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T09:07:02.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T09:08:22.466Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T09:08:22.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T09:08:29.350Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T09:08:31.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T11:10:09.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T11:10:09.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T11:10:09.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T11:10:09.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T11:10:09.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T11:11:32.831Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T11:11:32.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T11:12:19.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T11:12:21.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T11:12:51.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T11:12:51.202Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T11:12:51.202Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T11:12:51.202Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T11:12:52.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T11:14:17.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T11:14:17.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T11:16:47.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of null (reading 'enable_multilanguage')",
+  level: 'error',
+  timestamp: '2023-09-21T11:16:48.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T11:16:59.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T11:16:59.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T11:16:59.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T11:16:59.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T11:16:59.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T11:17:28.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T11:17:28.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": "30027",\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T11:17:28.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T11:17:28.373Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T11:17:29.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T11:18:47.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T11:18:47.280Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T11:19:01.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T11:19:03.716Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T13:59:32.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T13:59:32.653Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T13:59:32.653Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T13:59:32.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T13:59:33.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:00:20.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:00:21.003Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:00:56.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:00:56.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:00:56.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:00:57.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:02:05.062Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:02:05.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:02:05.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:02:05.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:02:05.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:02:52.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:02:52.839Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:03:02.932Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:03:02.933Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:03:03.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:03:04.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:03:22.355Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:03:22.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:03:22.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:03:22.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:03:22.992Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:10.823Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:10.828Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:15.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:15.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:16.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:04:17.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:57.391Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:57.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:57.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:04:57.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:04:58.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:05:45.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:05:45.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:05:48.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:05:48.024Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:05:48.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:05:49.539Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:01.767Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:01.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:06:01.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:06:01.769Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:02.411Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:19.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:19.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:06:19.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:06:19.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:06:19.917Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:07:07.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:07:07.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:07:10.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:07:10.183Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:07:10.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:07:11.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:00.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:00.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:00.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:00.118Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:00.726Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:47.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:47.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:08:50.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:50.789Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:08:51.204Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'view_fields')",
+  level: 'error',
+  timestamp: '2023-09-21T14:08:52.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:05.779Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:05.781Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "username": "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",\n' +
+    '    "password": "uraIcZhkLf"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:05.781Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:05.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:06.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:54.032Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:54.036Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:57.248Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: requested, {\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:57.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "tab_id": "b358ccc9-61b6-4769-ad74-d3ff83f144f1",\n' +
+    '  "role_id": "",\n' +
+    '  "table_slug": "client_users",\n' +
+    '  "language_setting": "en"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:57.664Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.section.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:59.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'layout.getAll: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-21T14:09:59.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-09-21T14:09:59.359Z',
+>>>>>>> 7fd477b4850383ba5059a3f71f4a91cf06f8adef
   label: 'object_builder_service',
   metadata: {}
 }

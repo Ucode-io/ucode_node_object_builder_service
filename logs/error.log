@@ -2828,3 +2828,80 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T07:01:56.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T07:22:58.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T07:24:28.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of null (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-09-21T11:12:21.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of null (reading 'enable_multilanguage')",
+  level: 'error',
+  timestamp: '2023-09-21T11:16:48.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:00:57.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:03:04.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:04:17.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:05:49.539Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-09-21T14:07:11.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'view_fields')",
+  level: 'error',
+  timestamp: '2023-09-21T14:08:52.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

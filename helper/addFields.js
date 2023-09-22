@@ -248,6 +248,63 @@ module.exports = async function (data) {
             "updated_at": new Date(),
             "is_system": true,
             "__v": 0
+        },{
+            "id": "9cebaca0-5198-4369-8951-e5b8ce820b08",
+            "table_id": "4c1f5c95-1528-4462-8d8c-cd377c23f7f7",
+            "required": false,
+            "slug": "not_use_in_tab",
+            "label": "Не использовать в таб",
+            "default": "",
+            "type": "SWITCH",
+            "index": "string",
+            "attributes": {
+                "fields": {
+                    "defaultValue": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "icon": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "label_ru": {
+                        "stringValue": "Не использовать в таб",
+                        "kind": "stringValue"
+                    },
+                    "label_uz": {
+                        "stringValue": "Tab da ishlatilmasin",
+                        "kind": "stringValue"
+                    },
+                    "number_of_rounds": {
+                        "nullValue": "NULL_VALUE",
+                        "kind": "nullValue"
+                    },
+                    "showTooltip": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    },
+                    "show_label": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    }
+                }
+            },
+            "is_visible": false,
+            "autofill_field": "",
+            "autofill_table": "",
+            "unique": false,
+            "automatic": false,
+            "commit_id": "",
+            "relation_field": "",
+            "show_label": false,
+            "enable_multilanguage": false,
+            "hide_multilanguage": false,
+            "label_uz": "",
+            "label_en": "",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "is_system": true,
+            "__v": 0
         }]
         let bulkWriteFields = []
         fields.forEach(field => {
@@ -268,7 +325,7 @@ module.exports = async function (data) {
         await Field.bulkWrite(bulkWriteFields)
         // update role and view relation permission table
         await Table.updateMany({
-            id: { $in: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad", "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea"] }
+            id: { $in: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad", "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea", "4c1f5c95-1528-4462-8d8c-cd377c23f7f7"] }
         }, { $set: { is_changed: true } })
 
         console.log("done creating additional field for view_relaiton_permission and role")

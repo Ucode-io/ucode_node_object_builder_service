@@ -31,7 +31,7 @@ let formulaFunction = {
         newValue = error ?? result
         return newValue
     },
-    calculateFormulaBackend: async (attributes, matchField, matchParams, project_id) => {
+    calculateFormulaBackend: async (attributes, matchField, matchParams, project_id, allTables) => {
         let groupByWithDollorSign = '$' + matchField
         let sumFieldWithDollowSign = '$' + attributes["sum_field"]
         let aggregateFunction = '$sum';
@@ -59,9 +59,14 @@ let formulaFunction = {
                     }
                 }
             }
-        ];  
-        const resultFormula = await (await ObjectBuilder(true, project_id))[attributes.table_from.split('#')[0]].models.aggregate(pipelines)
-        return resultFormula
+        ];
+        if (allTables){
+            const resultFormula = await allTables[attributes.table_from.split('#')[0]].models.aggregate(pipelines)
+            return resultFormula
+        } else {
+            const resultFormula = await (await ObjectBuilder(true,project_id))[attributes.table_from.split('#')[0]].models.aggregate(pipelines)
+            return resultFormula
+        }
     }
 }
 

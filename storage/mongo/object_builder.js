@@ -140,7 +140,8 @@ let objectBuilder = {
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         const data = struct.decode(req.data)
-        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const tables = (await ObjectBuilder(true, req.project_id))
+        const tableInfo = tables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
         }
@@ -210,8 +211,53 @@ let objectBuilder = {
                 __v: 0
             }).populate(relatedTable).lean();
 
-        if (!output) { logger.error(`failed to find object in table ${data.table_slug} with given id: ${data.id}`) };
+        if (!output) { logger.error(`failed to find object in table ${req.table_slug} with given id: ${data.id}`) };
         let isChanged = false
+        let attribute_table_from_slugs = []
+        let attribute_table_from_relation_ids = []
+        for (const field of tableInfo.fields) {
+          let attributes = struct.decode(field.attributes);
+          if (field.type === "FORMULA") {
+            if (attributes.table_from && attributes.sum_field) {
+              attribute_table_from_slugs.push(
+                attributes.table_from.split("#")[0]
+              );
+              attribute_table_from_relation_ids.push(
+                attributes.table_from.split("#")[1]
+              );
+            }
+          }
+        }
+        // console.log("attribute_table_from_slugs:",attribute_table_from_slugs)
+        // console.log("attribute_table_from_relation_ids:",attribute_table_from_relation_ids)
+        const relationFieldTables = await tableVersion(
+          mongoConn,
+          {
+            slug: {$in:attribute_table_from_slugs},
+            deleted_at: "1970-01-01T18:00:00.000+00:00",
+          },
+          data.version_id,
+          false
+        );
+        let relationFieldTablesMap={}
+        let relationFieldTableIds=[]
+        for (const table of relationFieldTables) {
+            relationFieldTablesMap[table.slug]=table
+            relationFieldTableIds.push(table.id)
+        }
+        const relationFields = await Field.find({
+          relation_id: {$in:attribute_table_from_relation_ids},
+          table_id: {$in:relationFieldTableIds},
+        });
+        let relationFieldsMap={}
+        for (const relationField of relationFields) {
+            relationFieldsMap[relationField.relation_id+"_"+relationField.table_id]=relationField
+        }
+        const dynamicRelations = await Relation.find({ id: {$in:attribute_table_from_relation_ids}})
+        let dynamicRelationsMap={}
+        for (const dynamicRelation of dynamicRelations) {
+            dynamicRelationsMap[dynamicRelation.id]=dynamicRelation
+        }
         for (const field of tableInfo.fields) {
             let attributes = struct.decode(field.attributes)
             if (field.type === "FORMULA") {
@@ -229,16 +275,20 @@ let objectBuilder = {
                     //     slug: attributes.table_from.split('#')[0],
                     //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                     // })
-                    const relationFieldTable = await tableVersion(mongoConn, { slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                    const relationField = await Field.findOne({
-                        relation_id: attributes.table_from.split('#')[1],
-                        table_id: relationFieldTable.id
-                    })
+                    const relation_id=attributes.table_from.split('#')[1]
+                    const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
+                    const relationField=relationFieldsMap[relation_id+"_"+relationFieldTable.id]
+                    // const relationFieldTable = await tableVersion(mongoConn, { slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
+                    // const relationField = await Field.findOne({
+                    //     relation_id: attributes.table_from.split('#')[1],
+                    //     table_id: relationFieldTable.id
+                    // })
                     if (!relationField || !relationFieldTable) {
                         output[field.slug] = 0
                         continue
                     }
-                    const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
+                    const dynamicRelation = dynamicRelationsMap[relation_id]
+                    // const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
                     let matchField = relationField ? relationField.slug : req.table_slug + "_id"
                     if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
                         matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
@@ -247,7 +297,7 @@ let objectBuilder = {
                         [matchField]: { '$eq': data.id },
                         ...filters
                     }
-                    const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
+                    const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id,tables)
                     if (resultFormula.length) {
                         if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
                             if (!isNaN(resultFormula[0].res)) {
@@ -655,7 +705,6 @@ let objectBuilder = {
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         const View = mongoConn.models['View']
-
         let params = struct.decode(req?.data)
         const limit = params.limit
         const offset = params.offset
@@ -681,7 +730,6 @@ let objectBuilder = {
         } else if (!currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: -1 }
         }
-
         const permissionTable = allTables["record_permission"]
         const permission = await permissionTable.models.findOne({
             $and: [
@@ -1294,12 +1342,132 @@ let objectBuilder = {
             additional_results = additional_results.filter(obj => !result_ids.includes(obj.guid))
             result = result.concat(additional_results)
         }
+
         // console.log("TEST::::::::::15")
         // console.timeEnd("TIME_LOGGING:::additional_request")
         // console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
+        /////////////
+        
+        let attribute_table_from_slugs = []
+        let attribute_table_from_relation_ids = []
+        for (const field of formulaFields) {
+          let attributes = struct.decode(field.attributes);
+          if (field.type === "FORMULA") {
+            if (attributes.table_from && attributes.sum_field) {
+              attribute_table_from_slugs.push(
+                attributes.table_from.split("#")[0]
+              );
+              attribute_table_from_relation_ids.push(
+                attributes.table_from.split("#")[1]
+              );
+            }
+          }
+        }
+        // console.log("attribute_table_from_slugs:",attribute_table_from_slugs)
+        // console.log("attribute_table_from_relation_ids:",attribute_table_from_relation_ids)
+        const relationFieldTables = await tableVersion(
+          mongoConn,
+          {
+            slug: {$in:attribute_table_from_slugs},
+            deleted_at: "1970-01-01T18:00:00.000+00:00",
+          },
+          params.version_id,
+          false
+        );
+        let relationFieldTablesMap={}
+        let relationFieldTableIds=[]
+        for (const table of relationFieldTables) {
+            relationFieldTablesMap[table.slug]=table
+            relationFieldTableIds.push(table.id)
+        }
+        const relationFields = await Field.find({
+          relation_id: {$in:attribute_table_from_relation_ids},
+          table_id: {$in:relationFieldTableIds},
+        });
+        let relationFieldsMap={}
+        for (const relationField of relationFields) {
+            relationFieldsMap[relationField.relation_id+"_"+relationField.table_id]=relationField
+        }
+        const dynamicRelations = await Relation.find({ id: {$in:attribute_table_from_relation_ids}})
+        let dynamicRelationsMap={}
+        for (const dynamicRelation of dynamicRelations) {
+            dynamicRelationsMap[dynamicRelation.id]=dynamicRelation
+        }
+        // console.log("relationFieldTablesMap:",relationFieldTablesMap)
+        // console.log("relationFieldsMap:",relationFieldsMap)
+        // return
+        for (const res of result) {
+            let isChanged = false
+            for (const field of formulaFields) {
+                let attributes = struct.decode(field.attributes)
+                console.log("formula calculation --->>>", field.type, new Date())
+                if (field.type === "FORMULA") {
+                    if (attributes.table_from && attributes.sum_field) {
+                        let filters = {}
+                        if (attributes.formula_filters) {
+                            attributes.formula_filters.forEach(el => {
+                                filters[el.key.split("#")[0]] = el.value
+                                if (Array.isArray(el.value)) {
+                                    filters[el.key.split("#")[0]] = { $in: el.value }
+                                }
+                            })
+                        }
+                        const relation_id=attributes.table_from.split('#')[1]
+                        const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
+                        const relationField=relationFieldsMap[relation_id+"_"+relationFieldTable.id]
+                        // console.log("rel table::", relationFieldTable)
+                        // console.log("field:::", relationField);
+                        if (!relationField || !relationFieldTable) {
+                            // console.log("relation field not found")
+                            res[field.slug] = 0
+                            continue
+                        }
+                        const dynamicRelation = dynamicRelationsMap[relation_id]
+                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                        }
+                        let matchParams = {
+                            [matchField]: { '$eq': res.guid },
+                            ...filters
+                        }
+                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id,allTables)
+                        if (resultFormula.length) {
+                            if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                                if (!isNaN(resultFormula[0].res)) {
+                                    resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                                }
+                            }
+                            if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
+                                res[field.slug] = resultFormula[0].res
+                                isChanged = true
+                            }
+
+                        } else {
+                            res[field.slug] = 0
+                            isChanged = true
+                        }
+                    }
+                } else {
+                    if (attributes && attributes.formula) {
+                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
+                        if (res[field.slug] !== resultFormula) {
+                            isChanged = true
+                        }
+                        res[field.slug] = resultFormula
+                    }
+                }
+                console.log("formula calculation --->>>2", field.type, new Date())
+            }
+            if (isChanged) {
+                updatedObjects.push(res)
+            }
+        }
+        ///////////
         // console.time("TIME_LOGGING:::res_of_result")
+        /*
         for (const res of result) {
             let isChanged = false
             for (const field of formulaFields) {
@@ -1371,6 +1539,7 @@ let objectBuilder = {
                 updatedObjects.push(res)
             }
         }
+        */
         // console.log("TEST::::::::::16")
 
         // console.time("TIME_LOGGING:::length")

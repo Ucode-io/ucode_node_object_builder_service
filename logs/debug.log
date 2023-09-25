@@ -98199,3 +98199,2090 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T05:30:42.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T05:30:42.671Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T05:30:42.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T05:30:42.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T05:30:43.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T05:32:02.042Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T05:32:02.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T05:36:09.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T05:53:24.666Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T05:53:24.671Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T05:53:24.671Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T05:53:24.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T05:53:25.390Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T05:54:43.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T05:54:43.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T05:56:42.981Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T05:57:32.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T05:57:32.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T05:57:32.437Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T05:57:32.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T05:57:33.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T06:03:17.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T06:03:17.087Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T06:03:17.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T06:03:17.089Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T06:03:17.812Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T06:04:35.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T06:04:35.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T06:08:10.352Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T06:13:43.093Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T06:13:43.098Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T06:13:43.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T06:13:43.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T06:13:43.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T06:15:02.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T06:15:02.231Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T06:17:12.956Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T06:36:55.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T06:36:56.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T06:36:56.003Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T06:36:56.004Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T06:36:56.693Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T06:37:29.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T06:37:29.161Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T06:37:29.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T06:37:29.163Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T06:37:29.856Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T06:38:49.990Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T06:38:49.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T06:40:17.240Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T06:40:17.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T06:40:17.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T06:40:17.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T06:40:18.151Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-09-23T06:41:03.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T06:41:36.590Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T06:41:36.591Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T06:52:27.092Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T06:52:27.101Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T06:52:27.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T06:52:27.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T06:52:27.850Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T06:53:46.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T06:53:46.307Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T07:11:41.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T07:11:41.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T07:11:41.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T07:11:41.868Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T07:11:42.579Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T07:13:04.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T07:13:04.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot set properties of undefined (setting 'attribute_table_from_slugs')",
+  level: 'error',
+  timestamp: '2023-09-23T07:13:18.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T07:15:38.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T07:15:38.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T07:15:38.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T07:15:38.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T07:15:39.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T07:16:57.308Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T07:16:57.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T07:17:17.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T07:22:53.509Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T07:22:53.515Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T07:22:53.515Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T07:22:53.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T07:22:54.257Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T07:23:51.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T07:23:51.773Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T07:23:51.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T07:23:51.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T07:23:52.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T07:25:13.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T07:25:13.255Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T07:25:26.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T07:40:10.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T07:40:10.388Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T07:40:10.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T07:40:10.390Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T07:40:11.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T07:41:29.286Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T07:41:29.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: field_params is not defined',
+  level: 'error',
+  timestamp: '2023-09-23T07:42:34.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T07:43:41.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T07:43:41.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T07:43:41.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T07:43:41.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T07:43:42.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T07:45:02.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T07:45:02.453Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T07:45:11.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T07:48:42.864Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T07:48:42.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T07:48:42.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T07:48:42.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T07:48:43.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T07:50:02.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T07:50:02.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T07:51:41.523Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T07:57:08.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T07:57:08.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T07:57:08.557Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T07:57:08.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T07:57:09.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T07:58:29.250Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T07:58:29.258Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T07:59:26.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T08:05:28.970Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T08:05:28.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T08:05:28.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T08:05:28.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T08:05:29.669Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T08:06:49.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T08:06:49.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T08:14:43.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T08:14:43.207Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T08:14:43.209Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T08:14:43.211Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T08:14:43.959Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T08:16:02.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T08:16:02.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T08:16:42.605Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T08:32:24.333Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T08:32:24.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T08:32:24.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T08:32:24.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T08:32:25.063Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T08:33:43.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T08:33:43.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T08:34:26.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T09:07:29.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T09:07:29.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T09:07:29.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T09:07:29.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T09:07:30.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T09:08:48.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T09:08:48.207Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T09:09:50.849Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T09:11:15.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T09:11:15.390Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T09:11:15.391Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T09:11:15.392Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T09:11:16.136Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T09:12:35.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T09:12:35.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T09:14:46.895Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T10:14:34.790Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T10:14:34.796Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T10:14:34.797Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T10:14:34.798Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T10:14:35.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T10:15:53.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T10:15:53.879Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: f88c4d8a-613a-4f49-bb6c-eefbe4853e9c',
+  level: 'error',
+  timestamp: '2023-09-23T10:16:54.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: formulaFields is not defined',
+  level: 'error',
+  timestamp: '2023-09-23T10:16:54.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: 1738a9e3-1bdd-4420-af39-dd7a808ca212',
+  level: 'error',
+  timestamp: '2023-09-23T10:18:25.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: formulaFields is not defined',
+  level: 'error',
+  timestamp: '2023-09-23T10:18:25.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T10:23:54.033Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T10:23:54.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T10:23:54.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T10:23:54.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T10:23:54.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T10:25:15.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T10:25:15.600Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table cleints with given id: 1738a9e3-1bdd-4420-af39-dd7a808ca212',
+  level: 'error',
+  timestamp: '2023-09-23T10:25:27.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: params is not defined',
+  level: 'error',
+  timestamp: '2023-09-23T10:25:27.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T10:27:36.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T10:27:36.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T10:27:36.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T10:27:36.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T10:27:37.256Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T10:28:56.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T10:28:56.695Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table cleints with given id: 1738a9e3-1bdd-4420-af39-dd7a808ca212',
+  level: 'error',
+  timestamp: '2023-09-23T10:29:04.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot set properties of null (setting 'best_distance')",
+  level: 'error',
+  timestamp: '2023-09-23T10:29:04.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T10:42:04.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T10:42:04.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T10:42:04.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T10:42:04.622Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T10:42:05.328Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T10:43:23.726Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T10:43:23.731Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table cleints with given id: 5451e196-b146-4fa6-97e1-5fc322501eca',
+  level: 'error',
+  timestamp: '2023-09-23T10:43:34.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot set properties of null (setting 'best_distance')",
+  level: 'error',
+  timestamp: '2023-09-23T10:43:34.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table cleints with given id: 92460e62-debe-4dce-87d0-13a60fb6f61e',
+  level: 'error',
+  timestamp: '2023-09-23T10:44:16.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot set properties of null (setting 'best_distance')",
+  level: 'error',
+  timestamp: '2023-09-23T10:44:17.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T10:50:01.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T10:52:02.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T10:52:02.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T10:52:02.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T10:52:02.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T10:52:03.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T10:53:21.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T10:53:21.439Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T10:53:38.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-23T10:55:10.820Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-23T10:55:10.826Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-23T10:55:10.826Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-23T10:55:10.827Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-23T10:55:11.528Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-23T10:56:29.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-23T10:56:29.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T10:59:18.396Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T10:59:44.695Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T10:59:49.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T10:59:54.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-09-23T10:59:59.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-25T04:35:53.194Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-25T04:35:53.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-25T04:35:53.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-25T04:35:53.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-25T04:35:53.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-25T04:37:16.169Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-25T04:37:16.173Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-25T04:40:22.871Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-25T04:42:02.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-25T04:42:02.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-25T04:42:02.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-25T04:42:02.377Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-25T04:42:03.156Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-09-25T04:42:14.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-09-25T04:42:25.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-25T04:43:25.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-25T04:43:25.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-25T04:44:08.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-25T04:49:28.407Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-25T04:49:28.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-25T04:49:28.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-25T04:49:28.417Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-25T04:49:29.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-25T04:50:52.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-25T04:50:52.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-25T04:51:53.155Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-09-25T04:53:16.959Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-25T04:57:02.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-25T04:57:02.790Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "a4dc1f1c-d20f-4c1a-abf5-b819076604bc",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "username": "cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs",\n' +
+    '    "password": "DqZ2tJdciA"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-25T04:57:02.791Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-25T04:57:02.792Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-25T04:57:03.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

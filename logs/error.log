@@ -3607,3 +3607,122 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-09-23T06:41:03.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot set properties of undefined (setting 'attribute_table_from_slugs')",
+  level: 'error',
+  timestamp: '2023-09-23T07:13:18.428Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: field_params is not defined',
+  level: 'error',
+  timestamp: '2023-09-23T07:42:34.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: f88c4d8a-613a-4f49-bb6c-eefbe4853e9c',
+  level: 'error',
+  timestamp: '2023-09-23T10:16:54.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: formulaFields is not defined',
+  level: 'error',
+  timestamp: '2023-09-23T10:16:54.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table undefined with given id: 1738a9e3-1bdd-4420-af39-dd7a808ca212',
+  level: 'error',
+  timestamp: '2023-09-23T10:18:25.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: formulaFields is not defined',
+  level: 'error',
+  timestamp: '2023-09-23T10:18:25.384Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table cleints with given id: 1738a9e3-1bdd-4420-af39-dd7a808ca212',
+  level: 'error',
+  timestamp: '2023-09-23T10:25:27.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: params is not defined',
+  level: 'error',
+  timestamp: '2023-09-23T10:25:27.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table cleints with given id: 1738a9e3-1bdd-4420-af39-dd7a808ca212',
+  level: 'error',
+  timestamp: '2023-09-23T10:29:04.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot set properties of null (setting 'best_distance')",
+  level: 'error',
+  timestamp: '2023-09-23T10:29:04.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table cleints with given id: 5451e196-b146-4fa6-97e1-5fc322501eca',
+  level: 'error',
+  timestamp: '2023-09-23T10:43:34.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot set properties of null (setting 'best_distance')",
+  level: 'error',
+  timestamp: '2023-09-23T10:43:34.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table cleints with given id: 92460e62-debe-4dce-87d0-13a60fb6f61e',
+  level: 'error',
+  timestamp: '2023-09-23T10:44:16.857Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getSingle: failed with error: Cannot set properties of null (setting 'best_distance')",
+  level: 'error',
+  timestamp: '2023-09-23T10:44:17.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-09-25T04:42:14.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-09-25T04:42:25.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

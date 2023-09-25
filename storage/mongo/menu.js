@@ -92,6 +92,11 @@ let menuStore = {
                 parent_id: data.parent_id,
                 label: RegExp(data.search, "i")
             }
+            if (data.for_template) {
+                query.id = {
+                    $nin: constants.STATIC_MENU_IDS
+                }
+            }
             const pipelines = [
                 {
                     '$match': query
@@ -469,7 +474,41 @@ let menuStore = {
         }
 
     }),
+    CopyMenus: catchWrapDb(`${NAMESPACE}.CopyMenus`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const MenuModel = mongoConn.models['object_builder_service.menu']
+            const MenuPermissionModel = mongoConn.models["menu_permission"]
+            const RoleModel = mongoConn.models["role"]
 
+            const roles = await RoleModel?.find().lean()
+
+            let menu_permissions = [];
+            for (const menu of data.menus) {
+                for (const role of roles) {
+                    menu_permissions.push({
+                        guid: v4(),
+                        menu_id: menu?.id,
+                        role_id: role.guid,
+                        delete: true,
+                        write: true,
+                        update: true,
+                        read: true,
+                    })
+                }
+            }
+
+            await MenuModel.deleteMany({id: {$in: data.menu_ids}})
+            await MenuPermissionModel.deleteMany({menu_id: {$in: data.menu_ids}})
+
+            await MenuModel.insertMany(data.menus)
+            await MenuPermissionModel.insertMany(menu_permissions)
+
+            return data.tables;
+        } catch (err) {
+            throw err
+        }
+    }),
 };
 
 module.exports = menuStore;

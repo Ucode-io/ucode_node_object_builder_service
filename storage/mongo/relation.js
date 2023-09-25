@@ -1696,6 +1696,26 @@ let relationStore = {
             throw err;
         }
     }),
+    CopyRelations: catchWrapDb(`${NAMESPACE}.CopyRelations`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id);
+            const Relation = mongoConn.models["Relation"];
+            const View = mongoConn.models["View"];
+
+            const relation_ids = data.relations.map(el => el.id)
+            const view_ids = data.views.map(el => el.id)
+
+            await Relation.deleteMany({id: {$in: relation_ids}})
+            await View.deleteMany({id: {$in: view_ids}})
+
+            await Relation.insertMany(data.relations)
+            await View.insertMany(data.views)
+
+            return {};
+        } catch (err) {
+            throw err;
+        }
+    })
 };
 
 module.exports = relationStore;

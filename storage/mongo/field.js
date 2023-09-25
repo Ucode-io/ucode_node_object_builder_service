@@ -542,7 +542,6 @@ let fieldStore = {
             throw err
         }
     }),
-
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
@@ -583,6 +582,54 @@ let fieldStore = {
 
             return field;
 
+        } catch (err) {
+            throw err
+        }
+
+    }),
+    CopyFields: catchWrapDb(`${NAMESPACE}.CopyFields`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const FieldModel = mongoConn.models['Field']
+            const TabledModel = mongoConn.models['Table']
+            const AllTables = (await ObjectBuilder(true, data.project_id))
+            const FieldPermissionModel = AllTables["field_permission"]
+            const RoleModel = AllTables["role"]
+
+            const table_map = {}
+            const tables = await TabledModel.find({id: {$in: data.table_ids}}).lean()
+            tables.map(el => {
+                table_map[el.id] = el.slug
+            })
+
+            const field_map = {}
+            data.fields.map(el => {
+                field_map[el.id] = table_map[el.table_id]
+            })
+
+            let field_permissions = [];
+            const roles = await RoleModel?.models.find().lean()
+            let field_ids = []
+            for (const field of data.fields) {
+                field_ids.push(field.id)
+                for (const role of roles) {
+                    field_permissions.push({
+                        view_permission: true,
+                        edit_permission: true,
+                        table_slug: field_map[field.id],
+                        field_id: field.id,
+                        label: field.label,
+                        role_id: role.guid
+                    })
+                }
+            }
+            await FieldModel.deleteMany({id: {$in: field_ids}})
+            await FieldPermissionModel.models.deleteMany({field_id: {$in: field_ids}})
+
+            await FieldModel.insertMany(data.fields)
+            await FieldPermissionModel.models.insertMany(field_permissions)
+            
+            return data.fields;
         } catch (err) {
             throw err
         }

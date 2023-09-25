@@ -3610,3 +3610,49 @@
 }
 =======
 >>>>>>> 163e55df0036dc1dde48a629ed6bbe955d85bb31
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-09-25T12:58:42.047Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: no rows in result set
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-09-25T13:13:33.621Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: no rows in result set
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ module.exports = (namespace, fn) => {
         logger.info(
             `${namespace}: requested - ${JSON.stringify(call.request, null, 2)}`
         );
-        if (namespace !== "service.project.register" || namespace !== "service.project.reconnect") {//
+        if (namespace !== "service.project.register" && namespace !== "service.project.reconnect") {//
             let projectId = call.request.resource_environment_id || call.request.project_id
             try {
                 await mongoPool.get(projectId)

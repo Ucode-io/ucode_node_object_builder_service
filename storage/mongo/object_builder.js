@@ -856,7 +856,7 @@ let objectBuilder = {
                     if (!constants.NUMBER_TYPES.includes(field.type) && !constants.BOOLEAN_TYPES.includes(field.type)) {
                         obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }
                         arrayOfViewFields.push(obj)
-                    } else if (constants.NUMBER_TYPES.includes(field.type) && typeof params.search === "number") {
+                    } else if (constants.NUMBER_TYPES.includes(field.type) && !isNaN(params.search)) {
                         obj[view_field] = params.search
                         arrayOfViewFields.push(obj)
                     }

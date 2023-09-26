@@ -68773,3 +68773,2635 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T04:34:23.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T04:34:23.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T04:34:23.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T04:34:23.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T04:34:24.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:11:03.724Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:11:03.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:11:03.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:11:03.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T05:11:04.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 4",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T05:11:31.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-09-26T05:11:31.524Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:11:55.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T05:11:55.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:13:29.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:13:29.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:13:29.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:13:29.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T05:13:29.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:14:21.024Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T05:14:21.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 4",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T05:14:36.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-09-26T05:14:36.627Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:21:33.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:21:33.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:21:33.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:21:33.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T05:21:34.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:22:28.460Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T05:22:28.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T05:25:33.563Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-09-26T05:25:33.594Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:27:52.652Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:27:52.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:27:52.655Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:27:52.655Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:33:02.705Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:33:02.709Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:33:02.709Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-09-26T05:33:02.723Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-09-26T05:33:02.725Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:33:13.950Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:33:13.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:33:13.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:33:13.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T05:33:14.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:34:05.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T05:34:05.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T05:35:20.805Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:35:20.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:35:26.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T05:35:26.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:37:46.799Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:37:46.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:37:46.803Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:37:46.803Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T05:37:47.328Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:38:40.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T05:38:40.089Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T05:38:59.263Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:38:59.264Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:39:05.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T05:39:05.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:41:53.761Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:41:53.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:41:53.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-09-26T05:41:53.777Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-09-26T05:41:53.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:41:58.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:41:58.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:41:58.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:41:58.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T05:41:59.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:42:51.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T05:42:51.761Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T05:43:13.805Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:43:13.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:43:14.755Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T05:43:14.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:44:47.510Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:44:47.512Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:44:47.512Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:44:47.513Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T05:44:48.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:45:41.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T05:45:41.660Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T05:46:17.994Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:46:17.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:46:23.966Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T05:46:23.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:49:53.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:49:53.316Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:49:53.317Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:49:53.317Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T05:49:53.834Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:50:48.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T05:50:48.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T05:50:53.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:50:53.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:50:59.878Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T05:50:59.880Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T05:51:49.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T05:51:49.373Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:51:49.373Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T05:51:49.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T05:51:49.886Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:52:44.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T05:52:44.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T05:52:50.619Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T05:52:50.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T05:52:56.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T05:52:56.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T06:09:25.761Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T06:09:25.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:09:25.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T06:09:25.764Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T06:09:26.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:10:29.551Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T06:10:29.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T06:20:39.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T06:20:39.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:20:39.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T06:20:39.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T06:20:39.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:21:42.974Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T06:21:42.974Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T06:22:02.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:22:02.841Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:22:09.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T06:22:09.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T06:22:24.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:22:24.882Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:22:27.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T06:22:27.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T06:45:58.355Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T06:45:58.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:45:58.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T06:45:58.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T06:45:59.014Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T06:47:33.318Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T06:47:33.322Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:47:33.322Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T06:47:33.322Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T06:48:00.730Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T06:49:25.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T06:49:25.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:49:25.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T06:49:25.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T06:49:26.234Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:50:20.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T06:50:20.463Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T06:50:28.940Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:50:28.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:50:34.874Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T06:50:34.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T06:50:54.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:50:54.542Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:50:56.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T06:50:56.515Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-26T06:52:53.285Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-26T06:52:53.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:52:53.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-09-26T06:52:53.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-09-26T06:52:53.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:53:44.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-26T06:53:44.652Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T06:53:53.329Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:53:53.335Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:53:59.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T06:53:59.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T06:54:17.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:54:17.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:54:19.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T06:54:19.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-26T06:54:33.248Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "copy_bus_directions",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "copy_bus_directions",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-26T06:54:33.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-26T06:54:35.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-26T06:54:35.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -27,22 +27,21 @@ async function checkRelationFieldExists (field_name, table_id, project_id) {
             __v: 0
         },
         {
-            sort: {slug: 1}
+            sort: {slug: -1}
         }
     );
     let lastField = ""
     if (relationFields.length) {
         let i = 2;
-        for (const relationField of relationFields) {
-            if (relationField.slug === field_name) {
+            if (relationFields[0].slug === field_name) {
                 lastField = field_name + "_" + i.toString();
-                let splitedFieldSlug = relationField.slug.split("_")
-                if (splitedFieldSlug[splitedFieldSlug.length - 1] === i.toString()) {
-                    i++;
-                    lastField = field_name+"_" + i.toString()
-                }
+            } else {
+                let splittedSlug = relationFields[0].slug.split("_")
+                let j = splittedSlug[splittedSlug.length - 1]
+                idIndex = parseInt(j)
+                idIndex++
+                lastField = field_name + "_" + idIndex
             }
-        };
         if (lastField !== "") {
             return {exists: true, lastField: lastField}
         }

@@ -69,10 +69,8 @@ let objectBuilder = {
                             company_id: data['company_service_company_id'],
                             password: data[authInfo['password']],
                             resource_environment_id: req.project_id,
-                            invite: data['invite']
-                        }
-                        if (data['invite']) {
-                            authCheckRequest.environment_id = data["company_service_environment_id"]
+                            invite: data['invite'],
+                            environment_id: data["company_service_environment_id"]
                         }
                         const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
                         if (responseFromAuth) {
@@ -87,7 +85,7 @@ let objectBuilder = {
                 }
             }
             const object = struct.encode({ data });
-            
+
             let customMessage = ""
             if (tableData) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
@@ -221,47 +219,47 @@ let objectBuilder = {
         let attribute_table_from_slugs = []
         let attribute_table_from_relation_ids = []
         for (const field of tableInfo.fields) {
-          let attributes = struct.decode(field.attributes);
-          if (field.type === "FORMULA") {
-            if (attributes.table_from && attributes.sum_field) {
-              attribute_table_from_slugs.push(
-                attributes.table_from.split("#")[0]
-              );
-              attribute_table_from_relation_ids.push(
-                attributes.table_from.split("#")[1]
-              );
+            let attributes = struct.decode(field.attributes);
+            if (field.type === "FORMULA") {
+                if (attributes.table_from && attributes.sum_field) {
+                    attribute_table_from_slugs.push(
+                        attributes.table_from.split("#")[0]
+                    );
+                    attribute_table_from_relation_ids.push(
+                        attributes.table_from.split("#")[1]
+                    );
+                }
             }
-          }
         }
         // console.log("attribute_table_from_slugs:",attribute_table_from_slugs)
         // console.log("attribute_table_from_relation_ids:",attribute_table_from_relation_ids)
         const relationFieldTables = await tableVersion(
-          mongoConn,
-          {
-            slug: {$in:attribute_table_from_slugs},
-            deleted_at: "1970-01-01T18:00:00.000+00:00",
-          },
-          data.version_id,
-          false
+            mongoConn,
+            {
+                slug: { $in: attribute_table_from_slugs },
+                deleted_at: "1970-01-01T18:00:00.000+00:00",
+            },
+            data.version_id,
+            false
         );
-        let relationFieldTablesMap={}
-        let relationFieldTableIds=[]
+        let relationFieldTablesMap = {}
+        let relationFieldTableIds = []
         for (const table of relationFieldTables) {
-            relationFieldTablesMap[table.slug]=table
+            relationFieldTablesMap[table.slug] = table
             relationFieldTableIds.push(table.id)
         }
         const relationFields = await Field.find({
-          relation_id: {$in:attribute_table_from_relation_ids},
-          table_id: {$in:relationFieldTableIds},
+            relation_id: { $in: attribute_table_from_relation_ids },
+            table_id: { $in: relationFieldTableIds },
         });
-        let relationFieldsMap={}
+        let relationFieldsMap = {}
         for (const relationField of relationFields) {
-            relationFieldsMap[relationField.relation_id+"_"+relationField.table_id]=relationField
+            relationFieldsMap[relationField.relation_id + "_" + relationField.table_id] = relationField
         }
-        const dynamicRelations = await Relation.find({ id: {$in:attribute_table_from_relation_ids}})
-        let dynamicRelationsMap={}
+        const dynamicRelations = await Relation.find({ id: { $in: attribute_table_from_relation_ids } })
+        let dynamicRelationsMap = {}
         for (const dynamicRelation of dynamicRelations) {
-            dynamicRelationsMap[dynamicRelation.id]=dynamicRelation
+            dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
         }
         for (const field of tableInfo.fields) {
             let attributes = struct.decode(field.attributes)
@@ -280,9 +278,9 @@ let objectBuilder = {
                     //     slug: attributes.table_from.split('#')[0],
                     //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                     // })
-                    const relation_id=attributes.table_from.split('#')[1]
+                    const relation_id = attributes.table_from.split('#')[1]
                     const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
-                    const relationField=relationFieldsMap[relation_id+"_"+relationFieldTable.id]
+                    const relationField = relationFieldsMap[relation_id + "_" + relationFieldTable.id]
                     // const relationFieldTable = await tableVersion(mongoConn, { slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     // const relationField = await Field.findOne({
                     //     relation_id: attributes.table_from.split('#')[1],
@@ -302,7 +300,7 @@ let objectBuilder = {
                         [matchField]: { '$eq': data.id },
                         ...filters
                     }
-                    const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id,tables)
+                    const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, tables)
                     if (resultFormula.length) {
                         if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
                             if (!isNaN(resultFormula[0].res)) {
@@ -1354,51 +1352,51 @@ let objectBuilder = {
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
         /////////////
-        
+
         let attribute_table_from_slugs = []
         let attribute_table_from_relation_ids = []
         for (const field of formulaFields) {
-          let attributes = struct.decode(field.attributes);
-          if (field.type === "FORMULA") {
-            if (attributes.table_from && attributes.sum_field) {
-              attribute_table_from_slugs.push(
-                attributes.table_from.split("#")[0]
-              );
-              attribute_table_from_relation_ids.push(
-                attributes.table_from.split("#")[1]
-              );
+            let attributes = struct.decode(field.attributes);
+            if (field.type === "FORMULA") {
+                if (attributes.table_from && attributes.sum_field) {
+                    attribute_table_from_slugs.push(
+                        attributes.table_from.split("#")[0]
+                    );
+                    attribute_table_from_relation_ids.push(
+                        attributes.table_from.split("#")[1]
+                    );
+                }
             }
-          }
         }
         // console.log("attribute_table_from_slugs:",attribute_table_from_slugs)
         // console.log("attribute_table_from_relation_ids:",attribute_table_from_relation_ids)
         const relationFieldTables = await tableVersion(
-          mongoConn,
-          {
-            slug: {$in:attribute_table_from_slugs},
-            deleted_at: "1970-01-01T18:00:00.000+00:00",
-          },
-          params.version_id,
-          false
+            mongoConn,
+            {
+                slug: { $in: attribute_table_from_slugs },
+                deleted_at: "1970-01-01T18:00:00.000+00:00",
+            },
+            params.version_id,
+            false
         );
-        let relationFieldTablesMap={}
-        let relationFieldTableIds=[]
+        let relationFieldTablesMap = {}
+        let relationFieldTableIds = []
         for (const table of relationFieldTables) {
-            relationFieldTablesMap[table.slug]=table
+            relationFieldTablesMap[table.slug] = table
             relationFieldTableIds.push(table.id)
         }
         const relationFields = await Field.find({
-          relation_id: {$in:attribute_table_from_relation_ids},
-          table_id: {$in:relationFieldTableIds},
+            relation_id: { $in: attribute_table_from_relation_ids },
+            table_id: { $in: relationFieldTableIds },
         });
-        let relationFieldsMap={}
+        let relationFieldsMap = {}
         for (const relationField of relationFields) {
-            relationFieldsMap[relationField.relation_id+"_"+relationField.table_id]=relationField
+            relationFieldsMap[relationField.relation_id + "_" + relationField.table_id] = relationField
         }
-        const dynamicRelations = await Relation.find({ id: {$in:attribute_table_from_relation_ids}})
-        let dynamicRelationsMap={}
+        const dynamicRelations = await Relation.find({ id: { $in: attribute_table_from_relation_ids } })
+        let dynamicRelationsMap = {}
         for (const dynamicRelation of dynamicRelations) {
-            dynamicRelationsMap[dynamicRelation.id]=dynamicRelation
+            dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
         }
         // console.log("relationFieldTablesMap:",relationFieldTablesMap)
         // console.log("relationFieldsMap:",relationFieldsMap)
@@ -1419,9 +1417,9 @@ let objectBuilder = {
                                 }
                             })
                         }
-                        const relation_id=attributes.table_from.split('#')[1]
+                        const relation_id = attributes.table_from.split('#')[1]
                         const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
-                        const relationField=relationFieldsMap[relation_id+"_"+relationFieldTable.id]
+                        const relationField = relationFieldsMap[relation_id + "_" + relationFieldTable.id]
                         // console.log("rel table::", relationFieldTable)
                         // console.log("field:::", relationField);
                         if (!relationField || !relationFieldTable) {
@@ -1438,7 +1436,7 @@ let objectBuilder = {
                             [matchField]: { '$eq': res.guid },
                             ...filters
                         }
-                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id,allTables)
+                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, allTables)
                         if (resultFormula.length) {
                             if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
                                 if (!isNaN(resultFormula[0].res)) {
@@ -1763,7 +1761,8 @@ let objectBuilder = {
                                 client_type_id: response[authInfo['client_type_id']],
                                 role_id: response[authInfo['role_id']],
                                 project_id: data['company_service_project_id'],
-                                user_id: response['guid']
+                                user_id: response['guid'],
+                                environment_id: data['company_service_environment_id']
                             }
                             await grpcClient.deleteUserAuth(authDeleteUserRequest)
                         }
@@ -2419,10 +2418,8 @@ let objectBuilder = {
                         company_id: data['company_service_company_id'],
                         password: data[authInfo['password']],
                         resource_environment_id: req.project_id,
-                        invite: data['invite']
-                    }
-                    if (data['invite']) {
-                        authCheckRequest.environment_id = data["company_service_environment_id"]
+                        invite: data['invite'],
+                        environment_id: data["company_service_environment_id"]
                     }
                     authCheckRequests.push(authCheckRequest)
                 }
@@ -3281,6 +3278,7 @@ let objectBuilder = {
                     await grpcClient.deleteUsersAuth({
                         users: readyForAuth,
                         project_id: data['company_service_project_id'],
+                        environment_id: data['company_service_environment_id'],
                     })
                 }
                 if (!tableModel.soft_delete) {
@@ -3469,7 +3467,7 @@ let objectBuilder = {
     copyFromProject: catchWrapDbObjectBuilder(`${NAMESPACE}.copyFromProject`, async (req) => {
         let table_ids = []
         req.menus?.map(el => {
-            if(el.type === "TABLE") {
+            if (el.type === "TABLE") {
                 el.is_changed = true
                 table_ids.push(el.table_id)
             }
@@ -3505,52 +3503,52 @@ let objectBuilder = {
             const tables_from = await F_TableModel.find({ id: { $in: table_ids } })
             let table_slugs = tables_from.map(el => el.slug)
             if (tables_from.length) {
-                await TableStorage.CreateAll({tables: tables_from, project_id: req.project_id, table_ids, table_slugs})
+                await TableStorage.CreateAll({ tables: tables_from, project_id: req.project_id, table_ids, table_slugs })
                 console.log(`Copied ${tables_from.length} tables from ${req.from_project_id} -> ${req.project_id}`)
             } else {
                 console.log(`Copied 0 tables from ${req.from_project_id} -> ${req.project_id}`)
             }
 
             // copy menus
-            await MenuStorage.CopyMenus({project_id: req.project_id, menus: req.menus, menu_ids})
+            await MenuStorage.CopyMenus({ project_id: req.project_id, menus: req.menus, menu_ids })
 
             // copy fields
-            const fields_from = await F_FieldModel.find({table_id: { $in: table_ids }})
+            const fields_from = await F_FieldModel.find({ table_id: { $in: table_ids } })
             if (tables_from.length) {
-                await FieldStorage.CopyFields({project_id: req.project_id, fields: fields_from, table_ids})
+                await FieldStorage.CopyFields({ project_id: req.project_id, fields: fields_from, table_ids })
                 console.log(`Copied ${fields_from.length} fields from ${req.from_project_id} -> ${req.project_id}`)
             } else {
                 console.log(`Copied 0 fields from ${req.from_project_id} -> ${req.project_id}`)
             }
 
             // copy relation and relation_views
-            const relations_from = await F_RelationModel.find({$or: [{table_from: {$in: table_slugs}}, {field_from: {$in: table_slugs}}]})
+            const relations_from = await F_RelationModel.find({ $or: [{ table_from: { $in: table_slugs } }, { field_from: { $in: table_slugs } }] })
             const relation_ids = relations_from.map(el => el.id)
-            const relation_views_from = await F_ViewModel.find({relation_id: {$in: relation_ids}})
-            await RelationStorage.CopyRelations({project_id: req.project_id, relations: relations_from, views: relation_views_from})
+            const relation_views_from = await F_ViewModel.find({ relation_id: { $in: relation_ids } })
+            await RelationStorage.CopyRelations({ project_id: req.project_id, relations: relations_from, views: relation_views_from })
 
 
             // copy table views
-            const views_from = await F_ViewModel.find({table_slug: {$in: table_slugs}})
+            const views_from = await F_ViewModel.find({ table_slug: { $in: table_slugs } })
             console.log(">>>. views", views_from)
-            await objectBuilder.copyViews({project_id: req.project_id, views: views_from})
+            await objectBuilder.copyViews({ project_id: req.project_id, views: views_from })
 
 
             // copy layouts
-            const layouts_from = await F_LayoutModel.find({table_id: {$in: table_ids}})
+            const layouts_from = await F_LayoutModel.find({ table_id: { $in: table_ids } })
             const layout_ids = layouts_from.map(el => el.id)
-            await T_LayoutModel.deleteMany({id: {$in: layout_ids}})
+            await T_LayoutModel.deleteMany({ id: { $in: layout_ids } })
             await T_LayoutModel.insertMany(layouts_from)
 
             // copy tabs
-            const tabs_from = await F_TabModel.find({layout_id: {$in: layout_ids}})
+            const tabs_from = await F_TabModel.find({ layout_id: { $in: layout_ids } })
             const tab_ids = tabs_from.map(el => el.id)
-            await T_TabModel.deleteMany({layout_id: {$in: layout_ids}})
+            await T_TabModel.deleteMany({ layout_id: { $in: layout_ids } })
             await T_TabModel.insertMany(tabs_from)
 
             // copy sections
-            const sections_from = await F_SectionModel.find({tab_id: {$in: tab_ids}})
-            await T_SectionModel.deleteMany({tab_id: {$in: tab_ids}})
+            const sections_from = await F_SectionModel.find({ tab_id: { $in: tab_ids } })
+            await T_SectionModel.deleteMany({ tab_id: { $in: tab_ids } })
             await T_SectionModel.insertMany(sections_from)
 
             await ObjectBuilder(true, req.project_id)
@@ -3588,8 +3586,8 @@ let objectBuilder = {
                 }
             }
 
-            await ViewModel.deleteMany({id: {$in: view_ids}})
-            await ViewPermissionModel.models.deleteMany({view_id: {$in: view_ids}})
+            await ViewModel.deleteMany({ id: { $in: view_ids } })
+            await ViewPermissionModel.models.deleteMany({ view_id: { $in: view_ids } })
 
             await ViewModel.insertMany(data.views)
             await ViewPermissionModel.models.insertMany(view_permission)

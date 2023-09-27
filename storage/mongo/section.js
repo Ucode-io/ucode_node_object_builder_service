@@ -321,21 +321,20 @@ let sectionStore = {
                     if (fieldReq?.id?.includes("#")) {
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
-                        field.label_uz = fieldReq.field_name_uz
-                        field.label_en = fieldReq.field_name_en
                         field.order = fieldReq.order
                         field.relation_type = fieldReq.relation_type
-                        field.show_label = fieldReq.show_label || false
                         let relationID = fieldReq.id.split("#")[1]
                         const fieldResp = await Field.findOne({
                             relation_id: relationID,
                             table_id: data.table_id
                         })
+
+                        if (!fieldResp) continue
+
                         if (fieldResp) {
                             field.slug = fieldResp.slug
                             field.required = fieldResp.required
                         }
-
                         const relation = await Relation.findOne({ id: relationID })
                         let fieldAsAttribute = []
                         let view_of_relation;
@@ -386,7 +385,7 @@ let sectionStore = {
                                 splitedAutoFillTable = field.autofill_table.split('#')
                                 autoFillTable = splitedAutoFillTable[0]
                             }
-                            if (field.autofill_field && autoFillTable && autoFillTable === fieldReq.id.split("#")[0]) {
+                            if (field && field.autofill_field && autoFillTable && autoFillTable === fieldReq.id.split("#")[0]) {
                                 let autofill = {
                                     field_from: field.autofill_field,
                                     field_to: field.slug,

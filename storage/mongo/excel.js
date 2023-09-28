@@ -59,11 +59,18 @@ let excelStore = {
     ),
     ExcelToDb: catchWrapDb(`${NAMESPACE}.create`, async (req) => {
         const datas = struct.decode(req.data)
+        console.log("dataset: " + datas);
         // console.log("test project id:::", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         let exColumnSlugs = Object.keys(datas)
+        const allTables = await ObjectBuilder(true, req.project_id)
+        const fields = allTables[req.table_slug].fields
+        let fieldsMap = {}
+        for (const field of fields) {
+            fieldsMap[field.id] = field
+        }
         let ssl = true
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
@@ -109,9 +116,7 @@ let excelStore = {
                             id = splitedRelationFieldId[0]
                         }
                         // console.log("test 2");
-                        const field = await Field.findOne({
-                            id: id
-                        })
+                        const field = fieldsMap[id]
                         if (!field) {
                             // console.log("test 3");
                             continue;
@@ -167,6 +172,7 @@ let excelStore = {
                                     id: { $in: viewFieldIds }
                                 })
                                 let params = {}
+                                let payload = {}
                                 if (viewFields.length && viewFields.length > 1) {
                                     let values = row[rows[0].indexOf(column_slug)].split(" ")
                                     // console.log("val::", values);
@@ -176,8 +182,10 @@ let excelStore = {
                                             values[i] = values[i].replaceAll("(", "\(")
                                             // console.log("val::", values[i]);
                                             params[viewFields[i].slug] = RegExp(values[i], "i")
+                                            payload[viewFields[i].slug] = values[i]
                                         } else {
                                             params[viewFields[i].slug] = values[i]
+                                            payload[viewFields[i].slug] = values[i]
                                         }
 
                                     }
@@ -191,19 +199,40 @@ let excelStore = {
                                             }
                                             // console.log("val2222::", val);
                                             params[viewField.slug] = RegExp(val, "i")
+                                            payload[viewField.slug] = val
                                         } else {
                                             params[viewField.slug] = row[rows[0].indexOf(column_slug)]
+                                            payload[viewField.slug] = row[rows[0].indexOf(column_slug)]
                                         }
 
                                     }
                                 }
                                 // console.log(" rel params::", params);
-                                if (params !== {}) {
+                                if (Object.keys(params).length > 0) {
                                     const tableTo = (await ObjectBuilder(true, req.project_id))[relation.table_to]
                                     const objectFromObjectBuilder = await tableTo.models.findOne({
                                         $and: [params]
                                     })
-                                    objectToDb[field?.slug] = objectFromObjectBuilder?.guid
+                                    if (objectFromObjectBuilder) {
+                                        if (field.attributes) {
+                                            let fieldAttributes = struct.decode(field.attributes)
+                                            if (fieldAttributes && fieldAttributes.auto_fill && fieldAttributes.auto_fill.length) {
+                                                for (const autoFill of fieldAttributes.auto_fill) {
+                                                    objectToDb[autoFill.field_to] = objectFromObjectBuilder[autoFill.field_from]
+                                                }
+                                            }
+                                        }
+                                        objectToDb[field?.slug] = objectFromObjectBuilder?.guid
+                                    } else {
+                                        res = await obj.create({
+                                            project_id: req.project_id,
+                                            table_slug: relation.table_to,
+                                            data: struct.encode(payload)
+                                        })
+                                        let result = struct.decode(res.data)
+                                        objectToDb[field?.slug] = result?.guid
+                                    }
+                                    console.log("object to db", objectToDb);
                                     continue
                                 }
 

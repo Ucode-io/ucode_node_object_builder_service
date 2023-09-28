@@ -1,5 +1,5 @@
-const ObjectBuilder = require("../../models/object_builder");
-const mongoPool = require('../../pkg/pool');
+const ObjectBuilder = require("../models/object_builder");
+const mongoPool = require('../pkg/pool');
 
 let getSingleWithRelations = {
     getSingleWithRelations: async (req) => {

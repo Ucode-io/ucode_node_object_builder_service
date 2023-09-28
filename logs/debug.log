@@ -72554,3 +72554,1253 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-28T12:24:08.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-28T12:24:08.387Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:24:08.387Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-28T12:24:08.388Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-28T12:24:09.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-28T12:26:25.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-28T12:26:25.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T12:26:30.951Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:26:30.951Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-09-28T12:26:31.294Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUsersAuth',
+    error: Error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.excel.create: failed with error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+  level: 'error',
+  timestamp: '2023-09-28T12:26:31.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-28T12:28:46.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-28T12:28:46.874Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:28:46.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-28T12:28:46.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-28T12:28:47.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-28T12:31:00.579Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-28T12:31:00.582Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T12:31:19.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:31:19.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-09-28T12:31:19.512Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUsersAuth',
+    error: Error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.excel.create: failed with error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+  level: 'error',
+  timestamp: '2023-09-28T12:31:19.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-28T12:33:55.293Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-28T12:33:55.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:33:55.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-28T12:33:55.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-28T12:33:55.946Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-28T12:36:11.853Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-28T12:36:11.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T12:36:21.469Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:36:21.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: rows[0].indexOf is not a function',
+  level: 'error',
+  timestamp: '2023-09-28T12:36:21.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-28T12:38:12.160Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-28T12:38:12.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:38:12.163Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-28T12:38:12.163Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-28T12:38:12.808Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-28T12:40:25.873Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-28T12:40:25.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T12:40:39.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:40:39.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: country_id: Path `country_id` is required., city_id: Path `city_id` is required., category_id: Path `category_id` is required., city_code: Path `city_code` is required., country_code: Path `country_code` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T12:40:40.851Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-28T12:46:49.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-28T12:46:49.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:46:49.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-28T12:46:49.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-28T12:46:50.239Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-28T12:49:03.744Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-28T12:49:03.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T12:49:23.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:49:23.272Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: country_id: Path `country_id` is required., city_id: Path `city_id` is required., category_id: Path `category_id` is required., city_code: Path `city_code` is required., country_code: Path `country_code` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T12:49:25.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-28T12:50:25.812Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-28T12:50:25.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:50:25.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-28T12:50:25.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-28T12:50:26.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-28T12:52:38.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-28T12:52:38.730Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T12:52:43.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:52:43.826Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: country_id: Path `country_id` is required., city_id: Path `city_id` is required., category_id: Path `category_id` is required., city_code: Path `city_code` is required., country_code: Path `country_code` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T12:52:45.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-28T12:53:39.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-28T12:53:39.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:53:39.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-28T12:53:39.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-28T12:53:39.882Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-28T12:55:52.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-28T12:55:52.074Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T12:55:56.003Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:55:56.004Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: category_id: Path `category_id` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T12:55:57.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-28T12:57:16.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-28T12:57:16.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T12:57:16.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-28T12:57:16.142Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-28T12:57:16.750Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-28T12:59:29.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-28T12:59:29.241Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T13:02:28.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T13:02:28.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: category_id: Path `category_id` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T13:02:31.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Category": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T13:03:38.131Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Category": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T13:03:38.133Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-09-28T13:03:40.209Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUsersAuth',
+    error: Error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.excel.create: failed with error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+  level: 'error',
+  timestamp: '2023-09-28T13:03:40.211Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-28T13:05:53.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-28T13:05:53.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T13:05:53.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-28T13:05:53.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-28T13:05:54.098Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-28T13:08:05.216Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-28T13:08:05.219Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Category": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T13:08:39.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Category": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T13:08:39.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: createFilePath is not defined',
+  level: 'error',
+  timestamp: '2023-09-28T13:08:41.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Category": {\n' +
+    '        "stringValue": "d2974ccb-2da8-4af8-8b49-e9f138add5fd,0de89cc9-515f-4afb-a038-2f0012313a87",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T13:12:38.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Category": {\n' +
+    '        "stringValue": "d2974ccb-2da8-4af8-8b49-e9f138add5fd,0de89cc9-515f-4afb-a038-2f0012313a87",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T13:12:38.725Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: category_id: Path `category_id` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T13:12:40.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Category": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-28T13:17:56.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.excel.create: requested, {\n' +
+    '  "id": "test product",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport": {\n' +
+    '        "stringValue": "dd2ec88f-260d-4e26-af89-c30c62fc6d03,2b55739f-b186-4361-afd5-611a41ddf703",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Category": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-28T13:17:56.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: createFilePath is not defined',
+  level: 'error',
+  timestamp: '2023-09-28T13:17:58.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

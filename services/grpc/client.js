@@ -98,7 +98,7 @@ const createUsersAuth = async (data) => {
     return new Promise((resolve, reject) => {
         SyncUserService().CreateUsers(data, (err, res) => {
             if (err) {
-                logger.error("Error synchronize user with auth service", {
+                logger.error("Error synchronize users with auth service", {
                     function: "createUsersAuth",
                     error: err
                 });

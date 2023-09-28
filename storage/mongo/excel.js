@@ -59,11 +59,18 @@ let excelStore = {
     ),
     ExcelToDb: catchWrapDb(`${NAMESPACE}.create`, async (req) => {
         const datas = struct.decode(req.data)
+        console.log("dataset: " + datas);
         // console.log("test project id:::", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         let exColumnSlugs = Object.keys(datas)
+        const allTables = await ObjectBuilder(true, req.project_id)
+        const fields = allTables[req.table_slug].fields
+        let fieldsMap = {}
+        for (const field of fields) {
+            fieldsMap[field.id] = field
+        }
         let ssl = true
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
@@ -109,9 +116,7 @@ let excelStore = {
                             id = splitedRelationFieldId[0]
                         }
                         // console.log("test 2");
-                        const field = await Field.findOne({
-                            id: id
-                        })
+                        const field = fieldsMap[id]
                         if (!field) {
                             // console.log("test 3");
                             continue;
@@ -204,6 +209,15 @@ let excelStore = {
                                         $and: [params]
                                     })
                                     objectToDb[field?.slug] = objectFromObjectBuilder?.guid
+                                    if (field.attributes) {
+                                        let fieldAttributes = struct.decode(field.attributes)
+                                        if (fieldAttributes && fieldAttributes.auto_fill && fieldAttributes.auto_fill.length) {
+                                            for (const autoFill of fieldAttributes.auto_fill) {
+                                                objectToDb[autoFill.field_to] = objectFromObjectBuilder[autoFill.field_from]
+                                            }
+                                        }
+                                    }
+                                    console.log("object to db", objectToDb);
                                     continue
                                 }
 

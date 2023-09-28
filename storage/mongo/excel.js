@@ -216,16 +216,16 @@ let excelStore = {
                                         project_id: req.project_id,
                                         data: params
                                     })
-                                    if (objectFromObjectBuilder) {
+                                    if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                         if (field.attributes) {
                                             let fieldAttributes = struct.decode(field.attributes)
                                             if (fieldAttributes && fieldAttributes.auto_fill && fieldAttributes.auto_fill.length) {
                                                 for (const autoFill of fieldAttributes.auto_fill) {
-                                                    objectToDb[autoFill.field_to] = objectFromObjectBuilder[autoFill.field_from]
+                                                    objectToDb[autoFill.field_to] = objectFromObjectBuilder.data[autoFill.field_from]
                                                 }
                                             }
                                         }
-                                        objectToDb[field?.slug] = objectFromObjectBuilder?.guid
+                                        objectToDb[field?.slug] = objectFromObjectBuilder.data.guid
                                     } else {
                                         res = await obj.create({
                                             project_id: req.project_id,

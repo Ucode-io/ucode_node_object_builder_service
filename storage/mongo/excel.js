@@ -1,7 +1,7 @@
-const catchWrapDb = require("../../helper/catchWrapDb");
 const cfg = require('../../config/index')
 const xlsxFile = require('read-excel-file/node');
 const fs = require("fs");
+const catchWrapDb = require("../../helper/catchWrapDb");
 const Minio = require("minio");
 const obj = require("./object_builder");
 const { struct } = require("pb-util/build");
@@ -10,6 +10,7 @@ const con = require("../../helper/constants");
 const logger = require("../../config/logger");
 const mongoPool = require('../../pkg/pool');
 var fns_format = require('date-fns/format');
+const { getSingleWithRelations } = require('../../helper/getSingleWithRelations');
 
 let NAMESPACE = "storage.excel";
 
@@ -209,9 +210,11 @@ let excelStore = {
                                 }
                                 // console.log(" rel params::", params);
                                 if (Object.keys(params).length > 0) {
-                                    const tableTo = (await ObjectBuilder(true, req.project_id))[relation.table_to]
-                                    const objectFromObjectBuilder = await tableTo.models.findOne({
-                                        $and: [params]
+                                    // const tableTo = (await ObjectBuilder(true, req.project_id))[relation.table_to]
+                                    const objectFromObjectBuilder = await getSingleWithRelations({
+                                        table_slug: tableTo,
+                                        project_id: req.project_id,
+                                        data: params
                                     })
                                     if (objectFromObjectBuilder) {
                                         if (field.attributes) {

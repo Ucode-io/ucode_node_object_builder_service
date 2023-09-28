@@ -212,7 +212,7 @@ let excelStore = {
                                 if (Object.keys(params).length > 0) {
                                     // const tableTo = (await ObjectBuilder(true, req.project_id))[relation.table_to]
                                     const objectFromObjectBuilder = await getSingleWithRelations({
-                                        table_slug: tableTo,
+                                        table_slug: relation.table_to,
                                         project_id: req.project_id,
                                         data: params
                                     })

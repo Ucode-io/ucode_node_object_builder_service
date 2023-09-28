@@ -719,7 +719,6 @@ let objectBuilder = {
         }
         let keys = Object.keys(params)
         let order = params.order || {}
-
         let fields = tableInfo.fields
         let with_relations = params.with_relations
 
@@ -767,7 +766,6 @@ let objectBuilder = {
                         method: "read"
                     }
                 ]
-
             })
             if (automatic_filters.length) {
                 for (const autoFilter of automatic_filters) {
@@ -924,7 +922,175 @@ let objectBuilder = {
         // console.log("TEST::::::5")
         let relationsFields = []
         // console.time("TIME_LOGGING:::with_relations")
-        if (with_relations) {
+
+        //new code
+        
+        if (with_relations && params.new_code) {
+          let relation_table_to_slugs = [];
+          for (const relation of relations) {
+            if (relation.type !== "Many2Dynamic") {
+              if (
+                relation.type === "Many2Many" &&
+                relation.table_to === req.table_slug
+              ) {
+                relation.table_to = relation.table_from;
+              }
+              relation_table_to_slugs.push(relation.table_to);
+            }
+          }
+          let relationTableIds = [];
+          let relationTablesMap = {};
+          if (relation_table_to_slugs.length>0){
+              let relationTables = await tableVersion(
+                mongoConn,
+                { slug: { $in: relation_table_to_slugs } },
+                params.version_id,
+                false
+              );
+              for (const relationTable of relationTables) {
+                relationTableIds.push(relationTable.id);
+                relationTablesMap[relationTable.slug] = relationTable;
+              }
+          }
+          let relationFieldSlugsR = [];
+          let relationFieldsR = [];
+          if (relationTableIds.length>0){
+              const relationFieldsR = await Field.find(
+                {
+                  table_id: relationTableIds,
+                },
+                {
+                  createdAt: 0,
+                  updatedAt: 0,
+                  created_at: 0,
+                  updated_at: 0,
+                  _id: 0,
+                  __v: 0,
+                }
+              );
+
+              for (const field of relationFieldsR) {
+                if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
+                  let table_slug;
+                  if (field.type === "LOOKUP") {
+                    table_slug = field.slug.slice(0, -3);
+                  } else {
+                    table_slug = field.slug.slice(0, -4);
+                  }
+                  relationFieldSlugsR.push(table_slug);
+                } 
+              }
+          }
+
+
+          let childRelationsMap = {};
+          let view_field_ids = [];
+          if (relation_table_to_slugs.length>0 && relationFieldSlugsR.length>0){
+              const childRelations = await Relation.find({
+                table_from: { $in: relation_table_to_slugs },
+                table_to: { $in: relationFieldSlugsR },
+              });
+              for (const childRelation of childRelations) {
+                childRelationsMap[childRelation.table_from+"_"+childRelation.table_to] = childRelation;
+                for (const view_field_id of childRelation.view_fields) {
+                  view_field_ids.push(view_field_id);
+                }
+              }
+          }
+          let viewFieldsMap = {};
+          if (view_field_ids.length>0){
+              const viewFields = await Field.find(
+                {
+                  id: { $in: view_field_ids },
+                },
+                {
+                  createdAt: 0,
+                  updatedAt: 0,
+                  created_at: 0,
+                  updated_at: 0,
+                  _id: 0,
+                  __v: 0,
+                }
+              );
+              for (const view_field of viewFields) {
+                viewFieldsMap[view_field.id] = view_field;
+              }
+          }
+          let childRelationTablesMap = {};
+          if (relationFieldSlugsR.length>0){
+              const childRelationTables = await tableVersion(
+                mongoConn,
+                { slug: { $in: relationFieldSlugsR } },
+                params.version_id,
+                false
+              );
+              for (const childRelationTable of childRelationTables) {
+                childRelationTablesMap[childRelationTable.slug] = childRelationTable;
+              }
+          }
+
+          for (const relation of relations) {
+            if (relation.type !== "Many2Dynamic") {
+              if (
+                relation.type === "Many2Many" &&
+                relation.table_to === req.table_slug
+              ) {
+                relation.table_to = relation.table_from;
+              }
+              let relationTable = relationTablesMap[relation.table_to];
+
+              for (const field of relationFieldsR) {
+                let changedField = {};
+                if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
+                  let viewFields = [];
+                  let table_slug;
+                  if (field.type === "LOOKUP") {
+                    table_slug = field.slug.slice(0, -3);
+                  } else {
+                    table_slug = field.slug.slice(0, -4);
+                  }
+
+                  const childRelation =childRelationsMap[relationTable.slug+"_"+table_slug]; 
+                   if (childRelation) {
+                    for (const view_field of childRelation.view_fields) {
+                      let viewField = viewFieldsMap[view_field];
+                      if (viewField) {
+                        if (viewField.attributes) {
+                          viewField.attributes = struct.decode(
+                            viewField.attributes
+                          );
+                        }
+                        viewFields.push(viewField._doc);
+                      }
+                    }
+                  }
+                  field._doc.view_fields = viewFields;
+                  let childRelationTable = childRelationTablesMap[table_slug]; 
+                  field._doc.table_label = relationTable?.label;
+                  field.label = childRelationTable?.label;
+                  changedField = field;
+                  changedField._doc.path_slug =
+                    relationTable?.slug + "_id_data" + "." + field.slug;
+                  changedField._doc.table_slug = table_slug;
+                  relationsFields.push(changedField._doc);
+                } else {
+                  if (field.attributes) {
+                    field.attributes = struct.decode(field.attributes);
+                  }
+                  field._doc.table_label = relationTable?.label;
+                  changedField = field;
+                  changedField._doc.path_slug =
+                    relationTable?.slug + "_id_data" + "." + field.slug;
+                  relationsFields.push(changedField._doc);
+                }
+              }
+            }
+          }
+        }
+        
+        //////old code
+
+        if (with_relations && !params.new_code) {
             for (const relation of relations) {
                 if (relation.type !== "Many2Dynamic") {
                     if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
@@ -1001,7 +1167,7 @@ let objectBuilder = {
                 }
 
             }
-        }
+        }  
         // console.timeEnd("TIME_LOGGING:::with_relations")
         // console.log("TEST::::::6")
         // console.log("TEST::::::::::10")
@@ -1348,8 +1514,7 @@ let objectBuilder = {
         // console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
-        /////////////
-        
+
         let attribute_table_from_slugs = []
         let attribute_table_from_relation_ids = []
         for (const field of formulaFields) {
@@ -1365,8 +1530,6 @@ let objectBuilder = {
             }
           }
         }
-        // console.log("attribute_table_from_slugs:",attribute_table_from_slugs)
-        // console.log("attribute_table_from_relation_ids:",attribute_table_from_relation_ids)
         const relationFieldTables = await tableVersion(
           mongoConn,
           {
@@ -1395,9 +1558,6 @@ let objectBuilder = {
         for (const dynamicRelation of dynamicRelations) {
             dynamicRelationsMap[dynamicRelation.id]=dynamicRelation
         }
-        // console.log("relationFieldTablesMap:",relationFieldTablesMap)
-        // console.log("relationFieldsMap:",relationFieldsMap)
-        // return
         for (const res of result) {
             let isChanged = false
             for (const field of formulaFields) {
@@ -1417,10 +1577,7 @@ let objectBuilder = {
                         const relation_id=attributes.table_from.split('#')[1]
                         const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
                         const relationField=relationFieldsMap[relation_id+"_"+relationFieldTable.id]
-                        // console.log("rel table::", relationFieldTable)
-                        // console.log("field:::", relationField);
                         if (!relationField || !relationFieldTable) {
-                            // console.log("relation field not found")
                             res[field.slug] = 0
                             continue
                         }
@@ -1459,15 +1616,13 @@ let objectBuilder = {
                         res[field.slug] = resultFormula
                     }
                 }
-                console.log("formula calculation --->>>2", field.type, new Date())
             }
             if (isChanged) {
                 updatedObjects.push(res)
             }
         }
-        ///////////
-        // console.time("TIME_LOGGING:::res_of_result")
         /*
+        //eskisi
         for (const res of result) {
             let isChanged = false
             for (const field of formulaFields) {

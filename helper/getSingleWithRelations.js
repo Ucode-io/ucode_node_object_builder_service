@@ -75,16 +75,12 @@ let getSingleWithRelations = {
                     }
                 }
             }
-            // console.log("TEST::::::8")
             for (const relation of relations) {
                 if (relation.type === "One2Many") {
                     relation.table_to = relation.table_from
                 } else if (relation.type === "Many2Many") {
                     continue
                 }
-                // else if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
-                //     relation.field_to = relation.field_from
-                // }
                 let table_to_slug = ""
                 let deepRelations = []
                 const field = tableInfo.fields.find(val => (val.relation_id === relation?.id))
@@ -119,8 +115,6 @@ let getSingleWithRelations = {
                 }
                 populateArr.push(papulateTable)
             }
-            // console.log("\n\n-----> T3\n\n", tableInfo, params)
-            // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
             result = await tableInfo.models.findOne({
                 ...params
             },
@@ -136,11 +130,8 @@ let getSingleWithRelations = {
                 .populate(populateArr)
                 .lean()
 
-            // console.log("\n\n-----> T4\n\n", tableParams)
-            result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
 
         }
-        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: result }
     }
 }

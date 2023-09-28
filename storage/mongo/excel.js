@@ -76,7 +76,6 @@ let excelStore = {
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
         }
-        // console.log("ssl::", ssl, "type::", typeof cfg.minioSSL);
         const createFilePath = "./" + req.id + ".xlsx"
         let minioClient = new Minio.Client({
             accessKey: cfg.minioAccessKeyID,
@@ -85,7 +84,6 @@ let excelStore = {
             useSSL: ssl,
             pathStyle: true,
         });
-        // console.log("test ", 111);
         let bucketName = "docs";
         let fileStream = fs.createWriteStream(createFilePath);
         let fileObjectKey = req.id + ".xlsx";
@@ -208,21 +206,26 @@ let excelStore = {
 
                                     }
                                 }
-                                // console.log(" rel params::", params);
                                 if (Object.keys(params).length > 0) {
-                                    // const tableTo = (await ObjectBuilder(true, req.project_id))[relation.table_to]
                                     const objectFromObjectBuilder = await getSingleWithRelations({
                                         table_slug: relation.table_to,
                                         project_id: req.project_id,
                                         data: params
                                     })
-                                    console.log("objectFromObjectBuilder::", objectFromObjectBuilder.data);
                                     if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                         if (field.attributes) {
                                             let fieldAttributes = struct.decode(field.attributes)
-                                            if (fieldAttributes && fieldAttributes.auto_fill && fieldAttributes.auto_fill.length) {
-                                                for (const autoFill of fieldAttributes.auto_fill) {
-                                                    objectToDb[autoFill.field_to] = objectFromObjectBuilder.data[autoFill.field_from]
+                                            
+                                            if (fieldAttributes && fieldAttributes.autofill && fieldAttributes.autofill.length) {
+                                                for (const autoFill of fieldAttributes.autofill) {
+                                                    if (autoFill?.field_from?.includes('.')) {
+                                                        let splitedAutoFillField = autoFill.field_from.split('.')
+                                                        if (splitedAutoFillField && splitedAutoFillField.length) {
+                                                            objectToDb[autoFill.field_to] = objectFromObjectBuilder.data[splitedAutoFillField[0]][splitedAutoFillField[1]]
+                                                        }
+                                                    } else {
+                                                        objectToDb[autoFill.field_to] = objectFromObjectBuilder.data[autoFill.field_from]
+                                                    }
                                                 }
                                             }
                                         }
@@ -277,12 +280,7 @@ let excelStore = {
                     objectToDb['company_service_project_id'] = datas['company_service_project_id']
                     objectToDb['company_service_environment_id'] = datas['company_service_environment_id']
                     objectsToDb.push(objectToDb)
-                    // await obj.create({
-                    //     table_slug: req.table_slug,
-                    //     data: struct.encode(objectToDb)
-                    // })
                 }
-                // console.log("excel write::::", objectsToDb);
                 await obj.multipleInsert({
                     table_slug: req.table_slug,
                     data: struct.encode({ objects: objectsToDb }),

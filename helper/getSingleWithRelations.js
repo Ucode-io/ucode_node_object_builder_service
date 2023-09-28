@@ -4,7 +4,6 @@ const mongoPool = require('../pkg/pool');
 let getSingleWithRelations = {
     getSingleWithRelations: async (req) => {
         const mongoConn = await mongoPool.get(req.project_id)
-        const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         let params = req?.data
         delete params["client_type_id_from_token"]
@@ -94,57 +93,6 @@ let getSingleWithRelations = {
                 }
                 if (table_to_slug === "") {
                     continue
-                }
-
-                if (with_relations) {
-                    if (relation.type === "Many2Dynamic") {
-                        // for(dynamic_table of relation.dynamic_tables){
-                        //     deepPopulateRelations = await Relation.find({table_from:dynamic_table.table_slug})
-                        //     for (const deepRelation of deepPopulateRelations) {
-                        //         if (deepRelation.table_to !== dynamic_table.table_slug) {
-                        //             let deepPopulate = {
-                        //                 path: deepRelation.table_to
-                        //             }
-                        //             deepRelations.push(deepPopulate)
-                        //         }
-                        //     }
-                        // }
-                        // console.log("it's dynamic relations");
-                    } else {
-                        deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
-                        for (const deepRelation of deepPopulateRelations) {
-                            if (deepRelation.type === "One2Many") {
-                                deepRelation.table_to = deepRelation.table_from
-                            } else if (deepRelation.type === "Many2Many") {
-                                continue
-                            } else if (deepRelation.type === "Many2Dynamic") {
-                                continue
-                            } else {
-                                let deep_table_to_slug = "";
-                                const field = await Field.findOne({
-                                    relation_id: deepRelation?.id
-                                })
-                                if (field) {
-                                    deep_table_to_slug = field.slug + "_data"
-                                }
-                                if (deep_table_to_slug === "") {
-                                    continue
-                                }
-
-                                if (deep_table_to_slug !== deepRelation.field_to + "_data") {
-                                    let deepPopulate = {
-                                        path: deep_table_to_slug
-                                    }
-                                    deepRelations.push(deepPopulate)
-                                }
-                            }
-                            // else if (deepRelation.type === "Many2Many" && deepRelation.table_to === relation.table_to) {
-                            //     deepRelation.field_to = deepRelation.field_from
-                            // }
-
-
-                        }
-                    }
                 }
                 // console.log("TEST::::::9")
                 if (tableParams[table_to_slug]) {

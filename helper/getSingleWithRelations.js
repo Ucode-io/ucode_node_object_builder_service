@@ -5,10 +5,7 @@ let getSingleWithRelations = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
-        let params = struct.decode(req?.data)
-        const limit = params.limit
-        const offset = params.offset
-        const languageSetting = params.language_setting
+        let params = req?.data
         delete params["client_type_id_from_token"]
         const allTables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = allTables[req.table_slug]
@@ -16,7 +13,6 @@ let getSingleWithRelations = {
             throw new Error("table not found")
         }
 
-        let fields = tableInfo.fields
 
         const relations = await Relation.find({
             $or: [{
@@ -46,10 +42,8 @@ let getSingleWithRelations = {
                         updated_at: 0,
                         _id: 0,
                         __v: 0
-                    }, { sort: order }
-                ).skip(offset)
-                    .limit(limit)
-                    .lean();
+                    }
+                ).lean();
                 count = await tableInfo.models.countDocuments(params);
             } else {
                 tableParams = []
@@ -188,10 +182,8 @@ let getSingleWithRelations = {
                         updated_at: 0,
                         _id: 0,
                         __v: 0
-                    }, { sort: order }
+                    }
                 )
-                    .skip(offset)
-                    .limit(limit)
                     .populate(populateArr)
                     .lean()
 

@@ -216,6 +216,7 @@ let excelStore = {
                                         project_id: req.project_id,
                                         data: params
                                     })
+                                    console.log("objectFromObjectBuilder::", objectFromObjectBuilder.data);
                                     if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                         if (field.attributes) {
                                             let fieldAttributes = struct.decode(field.attributes)

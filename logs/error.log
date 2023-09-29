@@ -5647,4 +5647,151 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> 631a433ebf8b30ffd05cd68cf1cdbc2164fc0dda
+=======
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-09-28T12:26:31.294Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUsersAuth',
+    error: Error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.excel.create: failed with error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+  level: 'error',
+  timestamp: '2023-09-28T12:26:31.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-09-28T12:31:19.512Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUsersAuth',
+    error: Error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.excel.create: failed with error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+  level: 'error',
+  timestamp: '2023-09-28T12:31:19.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: rows[0].indexOf is not a function',
+  level: 'error',
+  timestamp: '2023-09-28T12:36:21.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: country_id: Path `country_id` is required., city_id: Path `city_id` is required., category_id: Path `category_id` is required., city_code: Path `city_code` is required., country_code: Path `country_code` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T12:40:40.851Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: country_id: Path `country_id` is required., city_id: Path `city_id` is required., category_id: Path `category_id` is required., city_code: Path `city_code` is required., country_code: Path `country_code` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T12:49:25.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: country_id: Path `country_id` is required., city_id: Path `city_id` is required., category_id: Path `category_id` is required., city_code: Path `city_code` is required., country_code: Path `country_code` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T12:52:45.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: category_id: Path `category_id` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T12:55:57.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: category_id: Path `category_id` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T13:02:31.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-09-28T13:03:40.209Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'createUsersAuth',
+    error: Error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead
+        at Object.callErrorFromStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 13,
+      details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.excel.create: failed with error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+  level: 'error',
+  timestamp: '2023-09-28T13:03:40.211Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: createFilePath is not defined',
+  level: 'error',
+  timestamp: '2023-09-28T13:08:41.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: product validation failed: category_id: Path `category_id` is required.',
+  level: 'error',
+  timestamp: '2023-09-28T13:12:40.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: failed with error: createFilePath is not defined',
+  level: 'error',
+  timestamp: '2023-09-28T13:17:58.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> e16f25d915c6565cfaac1773f4f9c0bacb84616e

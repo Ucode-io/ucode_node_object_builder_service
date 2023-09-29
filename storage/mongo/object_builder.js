@@ -32,11 +32,11 @@ let NAMESPACE = "storage.object_builder";
 let objectBuilder = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
         //if you will be change this function, you need to change multipleInsert function
+        let allTableInfos = await ObjectBuilder(true, req.project_id)
+        const tableInfo = allTableInfos[req.table_slug]
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
-            let allTableInfos = await ObjectBuilder(true, req.project_id)
-            const tableInfo = allTableInfos[req.table_slug]
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
@@ -99,6 +99,7 @@ let objectBuilder = {
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
+            tableInfo.models.deleteOne({ guid: payload.guid })
             throw err
         }
     }),
@@ -2427,9 +2428,12 @@ let objectBuilder = {
                 objects.push(payload)
             }
             await tableInfo.models.insertMany(objects)
-            const responseFromAuth = await grpcClient.createUsersAuth(authCheckRequests)
+            let responseFromAuth
+            if (isLoginTable) {
+                responseFromAuth = await grpcClient.createUsersAuth(authCheckRequests)
+            }
             let bulkWriteGuids = [];
-            if (responseFromAuth?.user_ids && responseFromAuth?.user_ids?.length === guids.length) {
+            if (responseFromAuth && responseFromAuth?.user_ids && responseFromAuth?.user_ids?.length === guids.length) {
                 for (let i = 0; i < guids.length; i++) {
                     bulkWriteGuids.push({
                         updateOne: {

@@ -469,6 +469,8 @@ let objectBuilder = {
         const limit = params.limit
         const offset = params.offset
         delete params["client_type_id_from_token"]
+        delete params["limit"]
+        delete params["offset"]
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -716,6 +718,8 @@ let objectBuilder = {
         let params = struct.decode(req?.data)
         const limit = params.limit
         const offset = params.offset
+        delete params["offset"]
+        delete params["limit"]
         const languageSetting = params.language_setting
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]

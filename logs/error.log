@@ -4049,3 +4049,38 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: premium_plaza_lounges_plaza_object_builder_service.agent_employees index: guid_1 dup key: { guid: "7b3deb88-7a62-4998-8ff4-8eb1813f2641" }',
+  level: 'error',
+  timestamp: '2023-09-29T13:13:15.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'guid')",
+  level: 'error',
+  timestamp: '2023-09-29T13:19:49.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: guids is not defined',
+  level: 'error',
+  timestamp: '2023-09-29T13:27:09.206Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: premium_plaza_lounges_plaza_object_builder_service.agent_employees index: guid_1 dup key: { guid: "7b3deb88-7a62-4998-8ff4-8eb1813f2641" }',
+  level: 'error',
+  timestamp: '2023-09-29T13:30:00.864Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: premium_plaza_lounges_plaza_object_builder_service.agent_employees index: guid_1 dup key: { guid: "7b3deb88-7a62-4998-8ff4-8eb1813f2641" }',
+  level: 'error',
+  timestamp: '2023-09-29T14:02:16.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

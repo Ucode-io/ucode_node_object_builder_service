@@ -35,7 +35,7 @@ const { count } = require('./models/relation');
                 "username": "premium_plaza_lounges_plaza_object_builder_service",
                 "password": "BCie5TDrVJ"
             },
-            "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"
+            "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4"
         })
         //premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service
         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service

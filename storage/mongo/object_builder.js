@@ -24,7 +24,8 @@ const pluralize = require('pluralize');
 const TableStorage = require('./table')
 const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
-const MenuStorage = require('./menu')
+const MenuStorage = require('./menu');
+const { data } = require('../../config/logger');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -34,7 +35,7 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleInsert function
         let allTableInfos = await ObjectBuilder(true, req.project_id)
         const tableInfo = allTableInfos[req.table_slug]
-        let ownGuid = ""
+        let ownGuid = "";
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
@@ -42,7 +43,6 @@ let objectBuilder = {
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
             ownGuid = payload.guid;
-            data.guid = ownGuid
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
@@ -75,6 +75,7 @@ let objectBuilder = {
                             environment_id: data["company_service_environment_id"]
                         }
                         const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
+                        console.log("responseFromAuth", responseFromAuth);
                         if (responseFromAuth) {
                             data.guid = responseFromAuth.user_id
                             await tableInfo.models.updateOne({
@@ -82,11 +83,12 @@ let objectBuilder = {
                             }, {
                                 $set: { guid: responseFromAuth.user_id }
                             })
-                            ownGuid = responseFromAuth.user_id
+                            data.guid = responseFromAuth.user_id
                         }
                     }
                 }
             }
+            
             const object = struct.encode({ data });
 
             let customMessage = ""
@@ -102,7 +104,7 @@ let objectBuilder = {
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
-            tableInfo.models.deleteOne({ guid: ownGuid })
+            await tableInfo.models.deleteOne({ guid: ownGuid })
             throw err
         }
     }),

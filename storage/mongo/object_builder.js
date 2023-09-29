@@ -968,7 +968,7 @@ let objectBuilder = {
                   __v: 0,
                 }
               );
-              
+
               for (const field of relationFieldsR) {
                 if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                   let table_slug;
@@ -1042,51 +1042,53 @@ let objectBuilder = {
                 relation.table_to = relation.table_from;
               }
               let relationTable = relationTablesMap[relation.table_to];
-
-              for (const field of relationFieldsMap[relationTable?.id]) {
-                let changedField = {};
-                if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
-                  let viewFields = [];
-                  let table_slug;
-                  if (field.type === "LOOKUP") {
-                    table_slug = field.slug.slice(0, -3);
-                  } else {
-                    table_slug = field.slug.slice(0, -4);
-                  }
-
-                  const childRelation =childRelationsMap[relationTable.slug+"_"+table_slug]; 
-                   if (childRelation) {
-                    for (const view_field of childRelation.view_fields) {
-                      let viewField = viewFieldsMap[view_field];
-                      if (viewField) {
-                        if (viewField.attributes) {
-                          viewField.attributes = struct.decode(
-                            viewField.attributes
-                          );
-                        }
-                        viewFields.push(viewField._doc);
+              const relationFields=relationFieldsMap[relationTable?.id]
+              if (relationFields){
+                  for (const field of relationFieldsMap[relationTable?.id]) {
+                    let changedField = {};
+                    if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
+                      let viewFields = [];
+                      let table_slug;
+                      if (field.type === "LOOKUP") {
+                        table_slug = field.slug.slice(0, -3);
+                      } else {
+                        table_slug = field.slug.slice(0, -4);
                       }
+    
+                      const childRelation =childRelationsMap[relationTable.slug+"_"+table_slug]; 
+                       if (childRelation) {
+                        for (const view_field of childRelation.view_fields) {
+                          let viewField = viewFieldsMap[view_field];
+                          if (viewField) {
+                            if (viewField.attributes) {
+                              viewField.attributes = struct.decode(
+                                viewField.attributes
+                              );
+                            }
+                            viewFields.push(viewField._doc);
+                          }
+                        }
+                      }
+                      field._doc.view_fields = viewFields;
+                      let childRelationTable = childRelationTablesMap[table_slug]; 
+                      field._doc.table_label = relationTable?.label;
+                      field.label = childRelationTable?.label;
+                      changedField = field;
+                      changedField._doc.path_slug =
+                        relationTable?.slug + "_id_data" + "." + field.slug;
+                      changedField._doc.table_slug = table_slug;
+                      relationsFields.push(changedField._doc);
+                    } else {
+                      if (field.attributes) {
+                        field.attributes = struct.decode(field.attributes);
+                      }
+                      field._doc.table_label = relationTable?.label;
+                      changedField = field;
+                      changedField._doc.path_slug =
+                        relationTable?.slug + "_id_data" + "." + field.slug;
+                      relationsFields.push(changedField._doc);
                     }
                   }
-                  field._doc.view_fields = viewFields;
-                  let childRelationTable = childRelationTablesMap[table_slug]; 
-                  field._doc.table_label = relationTable?.label;
-                  field.label = childRelationTable?.label;
-                  changedField = field;
-                  changedField._doc.path_slug =
-                    relationTable?.slug + "_id_data" + "." + field.slug;
-                  changedField._doc.table_slug = table_slug;
-                  relationsFields.push(changedField._doc);
-                } else {
-                  if (field.attributes) {
-                    field.attributes = struct.decode(field.attributes);
-                  }
-                  field._doc.table_label = relationTable?.label;
-                  changedField = field;
-                  changedField._doc.path_slug =
-                    relationTable?.slug + "_id_data" + "." + field.slug;
-                  relationsFields.push(changedField._doc);
-                }
               }
             }
           }

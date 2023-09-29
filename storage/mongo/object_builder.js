@@ -709,7 +709,6 @@ let objectBuilder = {
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
         const mongoConn = await mongoPool.get(req.project_id)
-
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']

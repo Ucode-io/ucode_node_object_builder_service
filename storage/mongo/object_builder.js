@@ -3564,6 +3564,8 @@ let objectBuilder = {
 
             await ObjectBuilder(true, req.project_id)
 
+            await T_TableModel.updateMany({id: {$in: table_ids}}, {$set: {is_changed: true}})
+
             return {}
         } catch (err) {
             console.log(err)

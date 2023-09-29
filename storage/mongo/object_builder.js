@@ -953,11 +953,11 @@ let objectBuilder = {
               }
           }
           let relationFieldSlugsR = [];
-          let relationFieldsR = [];
+          let relationFieldsMap = {};
           if (relationTableIds.length>0){
-              const relationFieldsR = await Field.find(
+               const relationFieldsR = await Field.find(
                 {
-                  table_id: relationTableIds,
+                  table_id: {$in:relationTableIds},
                 },
                 {
                   createdAt: 0,
@@ -968,7 +968,7 @@ let objectBuilder = {
                   __v: 0,
                 }
               );
-
+              
               for (const field of relationFieldsR) {
                 if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                   let table_slug;
@@ -979,9 +979,13 @@ let objectBuilder = {
                   }
                   relationFieldSlugsR.push(table_slug);
                 } 
+                if (relationFieldsMap[field.table_id]){
+                  relationFieldsMap[field.table_id].push(field)
+                }else{
+                  relationFieldsMap[field.table_id]=[field]
+                }
               }
           }
-
 
           let childRelationsMap = {};
           let view_field_ids = [];
@@ -1039,7 +1043,7 @@ let objectBuilder = {
               }
               let relationTable = relationTablesMap[relation.table_to];
 
-              for (const field of relationFieldsR) {
+              for (const field of relationFieldsMap[relationTable?.id]) {
                 let changedField = {};
                 if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                   let viewFields = [];

@@ -34,14 +34,15 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleInsert function
         let allTableInfos = await ObjectBuilder(true, req.project_id)
         const tableInfo = allTableInfos[req.table_slug]
+        let ownGuid = ""
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
-            let ownGuid = payload.guid;
-            data.guid = payload.guid
+            ownGuid = payload.guid;
+            data.guid = ownGuid
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
@@ -81,6 +82,7 @@ let objectBuilder = {
                             }, {
                                 $set: { guid: responseFromAuth.user_id }
                             })
+                            ownGuid = responseFromAuth.user_id
                         }
                     }
                 }
@@ -100,7 +102,7 @@ let objectBuilder = {
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
-            tableInfo.models.deleteOne({ guid: payload.guid })
+            tableInfo.models.deleteOne({ guid: ownGuid })
             throw err
         }
     }),

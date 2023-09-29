@@ -41,6 +41,7 @@ let objectBuilder = {
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
             let ownGuid = payload.guid;
+            data.guid = payload.guid
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }

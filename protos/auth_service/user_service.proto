@@ -36,10 +36,9 @@ service UserService {
     rpc RegisterUserViaEmail(CreateUserRequest) returns (User) {}
     rpc RegisterWithGoogle(RegisterWithGoogleRequest) returns (User) {}
     rpc GetListSetting(GetListSettingReq) returns (Setting) {}
-    rpc GetUserByUsername(GetUserByUsernameRequest) returns (User) {}
     rpc GetUserProjects(UserPrimaryKey) returns (GetUserProjectsRes) {}
+    rpc GetUserByUsername(GetUserByUsernameRequest) returns (User) {}
 }
-
 
 message GetUserByUsernameRequest {
     string username = 1;
@@ -112,7 +111,6 @@ message AddUserToProjectReq {
     int32 resource_type = 6;
     string client_type_id = 7;
     string table_slug = 8;
-    string env_id = 9;
 }
 
 message AddUserToProjectRes {
@@ -122,7 +120,6 @@ message AddUserToProjectRes {
     string table_slug = 4;
     string client_type_id = 5;
     string role_id = 6;
-    string env_id = 7;
 }
 
 message UpsertUserInfoRequest {
@@ -157,10 +154,9 @@ message UserPrimaryKey {
     string id = 1;
     string resource_environment_id = 2;
     int32 resource_type = 3;
-    bool is_test = 4;
+    string client_type_id = 4;
     string company_id = 5;
     string project_id = 6;
-    string client_type_id = 7;
 }
 
 message UserPrimaryKeyList {

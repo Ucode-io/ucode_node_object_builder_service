@@ -1536,39 +1536,46 @@ let objectBuilder = {
               attribute_table_from_slugs.push(
                 attributes.table_from.split("#")[0]
               );
-              attribute_table_from_relation_ids.push(
-                attributes.table_from.split("#")[1]
-              );
+              const id=attributes.table_from.split("#")[1]
+              if (id){
+                  attribute_table_from_relation_ids.push(id);
+              }
             }
           }
         }
-        const relationFieldTables = await tableVersion(
-          mongoConn,
-          {
-            slug: {$in:attribute_table_from_slugs},
-            deleted_at: "1970-01-01T18:00:00.000+00:00",
-          },
-          params.version_id,
-          false
-        );
         let relationFieldTablesMap={}
         let relationFieldTableIds=[]
-        for (const table of relationFieldTables) {
-            relationFieldTablesMap[table.slug]=table
-            relationFieldTableIds.push(table.id)
+        if (attribute_table_from_slugs.length>0){
+            const relationFieldTables = await tableVersion(
+              mongoConn,
+              {
+                slug: {$in:attribute_table_from_slugs},
+                deleted_at: "1970-01-01T18:00:00.000+00:00",
+              },
+              params.version_id,
+              false
+            );
+            for (const table of relationFieldTables) {
+                relationFieldTablesMap[table.slug]=table
+                relationFieldTableIds.push(table.id)
+            }
         }
-        const relationFields = await Field.find({
-          relation_id: {$in:attribute_table_from_relation_ids},
-          table_id: {$in:relationFieldTableIds},
-        });
         let relationFieldsMap={}
-        for (const relationField of relationFields) {
-            relationFieldsMap[relationField.relation_id+"_"+relationField.table_id]=relationField
+        if (attribute_table_from_relation_ids.length>0 && relationFieldTableIds.length>0){
+            const relationFields = await Field.find({
+              relation_id: {$in:attribute_table_from_relation_ids},
+              table_id: {$in:relationFieldTableIds},
+            });
+            for (const relationField of relationFields) {
+                relationFieldsMap[relationField.relation_id+"_"+relationField.table_id]=relationField
+            }
         }
-        const dynamicRelations = await Relation.find({ id: {$in:attribute_table_from_relation_ids}})
         let dynamicRelationsMap={}
-        for (const dynamicRelation of dynamicRelations) {
-            dynamicRelationsMap[dynamicRelation.id]=dynamicRelation
+        if (attribute_table_from_relation_ids.length>0){
+            const dynamicRelations = await Relation.find({ id: {$in:attribute_table_from_relation_ids}})
+            for (const dynamicRelation of dynamicRelations) {
+                dynamicRelationsMap[dynamicRelation.id]=dynamicRelation
+            }
         }
         for (const res of result) {
             let isChanged = false

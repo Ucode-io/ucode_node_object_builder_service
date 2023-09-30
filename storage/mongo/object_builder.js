@@ -949,7 +949,9 @@ let objectBuilder = {
               );
               for (const relationTable of relationTables) {
                 relationTableIds.push(relationTable.id);
-                relationTablesMap[relationTable.slug] = relationTable;
+                if (!relationTablesMap[relationTable.slug]){
+                    relationTablesMap[relationTable.slug] = relationTable;
+                }
               }
           }
           let relationFieldSlugsR = [];
@@ -995,7 +997,9 @@ let objectBuilder = {
                 table_to: { $in: relationFieldSlugsR },
               });
               for (const childRelation of childRelations) {
-                childRelationsMap[childRelation.table_from+"_"+childRelation.table_to] = childRelation;
+                if (!childRelationsMap[childRelation.table_from+"_"+childRelation.table_to]){
+                    childRelationsMap[childRelation.table_from+"_"+childRelation.table_to] = childRelation;
+                }
                 for (const view_field_id of childRelation.view_fields) {
                   view_field_ids.push(view_field_id);
                 }
@@ -1029,7 +1033,9 @@ let objectBuilder = {
                 false
               );
               for (const childRelationTable of childRelationTables) {
-                childRelationTablesMap[childRelationTable.slug] = childRelationTable;
+                if (!childRelationTablesMap[childRelationTable.slug]){
+                    childRelationTablesMap[childRelationTable.slug] = childRelationTable;
+                }
               }
           }
 
@@ -1042,9 +1048,9 @@ let objectBuilder = {
                 relation.table_to = relation.table_from;
               }
               let relationTable = relationTablesMap[relation.table_to];
-              const relationFields=relationFieldsMap[relationTable?.id]
-              if (relationFields){
-                  for (const field of relationFieldsMap[relationTable?.id]) {
+              const tableRelationFields=relationFieldsMap[relationTable?.id]
+              if (tableRelationFields){
+                for (const field of tableRelationFields) {
                     let changedField = {};
                     if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                       let viewFields = [];
@@ -1055,12 +1061,12 @@ let objectBuilder = {
                         table_slug = field.slug.slice(0, -4);
                       }
     
-                      const childRelation =childRelationsMap[relationTable.slug+"_"+table_slug]; 
+                      const childRelation = childRelationsMap[relationTable.slug+"_"+table_slug]; 
                        if (childRelation) {
                         for (const view_field of childRelation.view_fields) {
-                          let viewField = viewFieldsMap[view_field];
+                          let viewField = viewFieldsMap[view_field]
                           if (viewField) {
-                            if (viewField.attributes) {
+                            if (viewField.attributes && viewField.attributes.fields) {
                               viewField.attributes = struct.decode(
                                 viewField.attributes
                               );
@@ -1079,7 +1085,7 @@ let objectBuilder = {
                       changedField._doc.table_slug = table_slug;
                       relationsFields.push(changedField._doc);
                     } else {
-                      if (field.attributes) {
+                      if (field.attributes && field.attributes.fields) {
                         field.attributes = struct.decode(field.attributes);
                       }
                       field._doc.table_label = relationTable?.label;
@@ -1088,12 +1094,12 @@ let objectBuilder = {
                         relationTable?.slug + "_id_data" + "." + field.slug;
                       relationsFields.push(changedField._doc);
                     }
-                  }
-              }
+                }
+            }
             }
           }
         }
-        
+
         //////old code
 
         if (with_relations && !params.new_code) {

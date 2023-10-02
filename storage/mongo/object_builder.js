@@ -1414,7 +1414,6 @@ let objectBuilder = {
             let isChanged = false
             for (const field of formulaFields) {
                 let attributes = struct.decode(field.attributes)
-                console.log("formula calculation --->>>", field.type, new Date())
                 if (field.type === "FORMULA") {
                     if (attributes.table_from && attributes.sum_field) {
                         let filters = {}
@@ -1471,7 +1470,6 @@ let objectBuilder = {
                         res[field.slug] = resultFormula
                     }
                 }
-                console.log("formula calculation --->>>2", field.type, new Date())
             }
             if (isChanged) {
                 updatedObjects.push(res)

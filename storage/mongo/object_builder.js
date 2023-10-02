@@ -1400,7 +1400,7 @@ let objectBuilder = {
         // console.log("TEST::::::::::12")
         // console.timeEnd("TIME_LOGGING:::limit")
         // console.log("TEST::::::10")
-        
+
         count = await tableInfo.models.count(params);
         // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
@@ -1652,112 +1652,113 @@ let objectBuilder = {
                     updatedObjects.push(res)
                 }
             }
-            /*
-            //eskisi
-            for (const res of result) {
-                let isChanged = false
-                for (const field of formulaFields) {
-                    let attributes = struct.decode(field.attributes)
-                    if (field.type === "FORMULA") {
-                        if (attributes.table_from && attributes.sum_field) {
-                            let filters = {}
-                            if (attributes.formula_filters) {
-                                attributes.formula_filters.forEach(el => {
-                                    filters[el.key.split("#")[0]] = el.value
-                                    if (Array.isArray(el.value)) {
-                                        filters[el.key.split("#")[0]] = { $in: el.value }
-                                    }
-                                })
-                            }
-                            // const relationFieldTable = await table.findOne({
-                            //     slug: attributes.table_from.split('#')[0],
-                            //     deleted_at: "1970-01-01T18:00:00.000+00:00"
-                            // })
-                            const relationFieldTable = await tableVersion(mongoConn, { slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00" }, params.version_id, true)
-                            const relationField = await Field.findOne({
-                                relation_id: attributes.table_from.split('#')[1],
-                                table_id: relationFieldTable.id
+        }
+        /*
+        //eskisi
+        for (const res of result) {
+            let isChanged = false
+            for (const field of formulaFields) {
+                let attributes = struct.decode(field.attributes)
+                if (field.type === "FORMULA") {
+                    if (attributes.table_from && attributes.sum_field) {
+                        let filters = {}
+                        if (attributes.formula_filters) {
+                            attributes.formula_filters.forEach(el => {
+                                filters[el.key.split("#")[0]] = el.value
+                                if (Array.isArray(el.value)) {
+                                    filters[el.key.split("#")[0]] = { $in: el.value }
+                                }
                             })
-                            // console.log("rel table::", relationFieldTable)
-                            // console.log("field:::", relationField);
-                            if (!relationField || !relationFieldTable) {
-                                // console.log("relation field not found")
-                                res[field.slug] = 0
-                                continue
-                            }
-                            const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
-                            let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                            if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                                matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                            }
-                            let matchParams = {
-                                [matchField]: { '$eq': res.guid },
-                                ...filters
-                            }
-                            const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
-                            if (resultFormula.length) {
-                                if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
-                                    if (!isNaN(resultFormula[0].res)) {
-                                        resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
-                                    }
-                                }
-                                if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
-                                    res[field.slug] = resultFormula[0].res
-                                    isChanged = true
-                                }
-    
-                            } else {
-                                res[field.slug] = 0
-                                isChanged = true
-                            }
                         }
-                    } else {
-                        if (attributes && attributes.formula) {
-                            const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-                            if (res[field.slug] !== resultFormula) {
+                        // const relationFieldTable = await table.findOne({
+                        //     slug: attributes.table_from.split('#')[0],
+                        //     deleted_at: "1970-01-01T18:00:00.000+00:00"
+                        // })
+                        const relationFieldTable = await tableVersion(mongoConn, { slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00" }, params.version_id, true)
+                        const relationField = await Field.findOne({
+                            relation_id: attributes.table_from.split('#')[1],
+                            table_id: relationFieldTable.id
+                        })
+                        // console.log("rel table::", relationFieldTable)
+                        // console.log("field:::", relationField);
+                        if (!relationField || !relationFieldTable) {
+                            // console.log("relation field not found")
+                            res[field.slug] = 0
+                            continue
+                        }
+                        const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
+                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                        }
+                        let matchParams = {
+                            [matchField]: { '$eq': res.guid },
+                            ...filters
+                        }
+                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
+                        if (resultFormula.length) {
+                            if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                                if (!isNaN(resultFormula[0].res)) {
+                                    resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                                }
+                            }
+                            if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
+                                res[field.slug] = resultFormula[0].res
                                 isChanged = true
                             }
-                            res[field.slug] = resultFormula
+ 
+                        } else {
+                            res[field.slug] = 0
+                            isChanged = true
                         }
                     }
+                } else {
+                    if (attributes && attributes.formula) {
+                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
+                        if (res[field.slug] !== resultFormula) {
+                            isChanged = true
+                        }
+                        res[field.slug] = resultFormula
+                    }
                 }
-                if (isChanged) {
-                    updatedObjects.push(res)
-                }
             }
-            */
-            // console.log("TEST::::::::::16")
-
-            // console.time("TIME_LOGGING:::length")
-            if (updatedObjects.length) {
-                await objectBuilder.multipleUpdateV2({
-                    table_slug: req.table_slug,
-                    project_id: req.project_id,
-                    data: struct.encode({ objects: updatedObjects })
-                })
+            if (isChanged) {
+                updatedObjects.push(res)
             }
-            // console.timeEnd("TIME_LOGGING:::length")
-            // console.log("TEST::::::15")
-            const response = struct.encode({
-                count: count,
-                response: result,
-                fields: decodedFields,
-                views: views,
-                relation_fields: relationsFields,
-            });
-            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
-            let customMessage = ""
-            if (tableWithVersion) {
-                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
-                    code: 200,
-                    table_id: tableWithVersion.id,
-                    action_type: "GET_LIST"
-                })
-                if (customErrMsg) { customMessage = customErrMsg.message }
-            }
-            // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-            return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
         }
+        */
+        // console.log("TEST::::::::::16")
+
+        // console.time("TIME_LOGGING:::length")
+        if (updatedObjects.length) {
+            await objectBuilder.multipleUpdateV2({
+                table_slug: req.table_slug,
+                project_id: req.project_id,
+                data: struct.encode({ objects: updatedObjects })
+            })
+        }
+        // console.timeEnd("TIME_LOGGING:::length")
+        // console.log("TEST::::::15")
+        const response = struct.encode({
+            count: count,
+            response: result,
+            fields: decodedFields,
+            views: views,
+            relation_fields: relationsFields,
+        });
+        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+        let customMessage = ""
+        if (tableWithVersion) {
+            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                code: 200,
+                table_id: tableWithVersion.id,
+                action_type: "GET_LIST"
+            })
+            if (customErrMsg) { customMessage = customErrMsg.message }
+        }
+        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
+        return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
+
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage

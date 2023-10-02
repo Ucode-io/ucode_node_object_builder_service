@@ -1490,7 +1490,7 @@ let objectBuilder = {
             additional_param[params.additional_request.additional_field] = { $in: params.additional_request.additional_values }
 
             if (relations.length == 0) {
-                // console.log("test 111/:::");
+                console.log("test 111/:::");
                 additional_results = await tableInfo.models.find({
                     ...additional_param
                 },
@@ -1556,103 +1556,104 @@ let objectBuilder = {
                     }
                 }
             }
-            let relationFieldTablesMap = {}
-            let relationFieldTableIds = []
-            if (attribute_table_from_slugs.length > 0) {
-                const relationFieldTables = await tableVersion(
-                    mongoConn,
-                    {
-                        slug: { $in: attribute_table_from_slugs },
-                        deleted_at: "1970-01-01T18:00:00.000+00:00",
-                    },
-                    params.version_id,
-                    false
-                );
-                for (const table of relationFieldTables) {
-                    relationFieldTablesMap[table.slug] = table
-                    relationFieldTableIds.push(table.id)
-                }
-            }
-            let relationFieldsMap = {}
-            if (attribute_table_from_relation_ids.length > 0 && relationFieldTableIds.length > 0) {
-                const relationFields = await Field.find({
-                    relation_id: { $in: attribute_table_from_relation_ids },
-                    table_id: { $in: relationFieldTableIds },
-                });
-                for (const relationField of relationFields) {
-                    relationFieldsMap[relationField.relation_id + "_" + relationField.table_id] = relationField
-                }
-            }
-            let dynamicRelationsMap = {}
-            if (attribute_table_from_relation_ids.length > 0) {
-                const dynamicRelations = await Relation.find({ id: { $in: attribute_table_from_relation_ids } })
-                for (const dynamicRelation of dynamicRelations) {
-                    dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
-                }
-            }
-            for (const res of result) {
-                let isChanged = false
-                for (const field of formulaFields) {
-                    let attributes = struct.decode(field.attributes)
-                    if (field.type === "FORMULA") {
-                        if (attributes.table_from && attributes.sum_field) {
-                            let filters = {}
-                            if (attributes.formula_filters) {
-                                attributes.formula_filters.forEach(el => {
-                                    filters[el.key.split("#")[0]] = el.value
-                                    if (Array.isArray(el.value)) {
-                                        filters[el.key.split("#")[0]] = { $in: el.value }
-                                    }
-                                })
-                            }
-                            const relation_id = attributes.table_from.split('#')[1]
-                            const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
-                            const relationField = relationFieldsMap[relation_id + "_" + relationFieldTable.id]
-                            if (!relationField || !relationFieldTable) {
-                                res[field.slug] = 0
-                                continue
-                            }
-                            const dynamicRelation = dynamicRelationsMap[relation_id]
-                            let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                            if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                                matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                            }
-                            let matchParams = {
-                                [matchField]: { '$eq': res.guid },
-                                ...filters
-                            }
-                            const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, allTables)
-                            if (resultFormula.length) {
-                                if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
-                                    if (!isNaN(resultFormula[0].res)) {
-                                        resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
-                                    }
-                                }
-                                if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
-                                    res[field.slug] = resultFormula[0].res
-                                    isChanged = true
-                                }
-
-                            } else {
-                                res[field.slug] = 0
-                                isChanged = true
-                            }
-                        }
-                    } else {
-                        if (attributes && attributes.formula) {
-                            const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-                            if (res[field.slug] !== resultFormula) {
-                                isChanged = true
-                            }
-                            res[field.slug] = resultFormula
-                        }
-                    }
-                }
-                if (isChanged) {
-                    updatedObjects.push(res)
-                }
+        }
+        let relationFieldTablesMap = {}
+        let relationFieldTableIds = []
+        if (attribute_table_from_slugs.length > 0) {
+            const relationFieldTables = await tableVersion(
+                mongoConn,
+                {
+                    slug: { $in: attribute_table_from_slugs },
+                    deleted_at: "1970-01-01T18:00:00.000+00:00",
+                },
+                params.version_id,
+                false
+            );
+            for (const table of relationFieldTables) {
+                relationFieldTablesMap[table.slug] = table
+                relationFieldTableIds.push(table.id)
             }
         }
+        let relationFieldsMap = {}
+        if (attribute_table_from_relation_ids.length > 0 && relationFieldTableIds.length > 0) {
+            const relationFields = await Field.find({
+                relation_id: { $in: attribute_table_from_relation_ids },
+                table_id: { $in: relationFieldTableIds },
+            });
+            for (const relationField of relationFields) {
+                relationFieldsMap[relationField.relation_id + "_" + relationField.table_id] = relationField
+            }
+        }
+        let dynamicRelationsMap = {}
+        if (attribute_table_from_relation_ids.length > 0) {
+            const dynamicRelations = await Relation.find({ id: { $in: attribute_table_from_relation_ids } })
+            for (const dynamicRelation of dynamicRelations) {
+                dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
+            }
+        }
+        for (const res of result) {
+            let isChanged = false
+            for (const field of formulaFields) {
+                let attributes = struct.decode(field.attributes)
+                if (field.type === "FORMULA") {
+                    if (attributes.table_from && attributes.sum_field) {
+                        let filters = {}
+                        if (attributes.formula_filters) {
+                            attributes.formula_filters.forEach(el => {
+                                filters[el.key.split("#")[0]] = el.value
+                                if (Array.isArray(el.value)) {
+                                    filters[el.key.split("#")[0]] = { $in: el.value }
+                                }
+                            })
+                        }
+                        const relation_id = attributes.table_from.split('#')[1]
+                        const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
+                        const relationField = relationFieldsMap[relation_id + "_" + relationFieldTable.id]
+                        if (!relationField || !relationFieldTable) {
+                            res[field.slug] = 0
+                            continue
+                        }
+                        const dynamicRelation = dynamicRelationsMap[relation_id]
+                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                        }
+                        let matchParams = {
+                            [matchField]: { '$eq': res.guid },
+                            ...filters
+                        }
+                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, allTables)
+                        if (resultFormula.length) {
+                            if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                                if (!isNaN(resultFormula[0].res)) {
+                                    resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                                }
+                            }
+                            if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
+                                res[field.slug] = resultFormula[0].res
+                                isChanged = true
+                            }
+
+                        } else {
+                            res[field.slug] = 0
+                            isChanged = true
+                        }
+                    }
+                } else {
+                    if (attributes && attributes.formula) {
+                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
+                        if (res[field.slug] !== resultFormula) {
+                            isChanged = true
+                        }
+                        res[field.slug] = resultFormula
+                    }
+                }
+            }
+            if (isChanged) {
+                updatedObjects.push(res)
+            }
+        }
+
         /*
         //eskisi
         for (const res of result) {

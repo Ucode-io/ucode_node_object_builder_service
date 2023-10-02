@@ -4084,3 +4084,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2023-10-02T12:44:57.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

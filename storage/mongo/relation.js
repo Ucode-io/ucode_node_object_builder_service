@@ -94,11 +94,6 @@ let relationStore = {
                             new fieldPermissionTableOne.models(fieldPermission);
                         fieldPermissionWithModel.save();
                     }
-
-                    console.log(
-                        "response from field create while creating relation",
-                        response
-                    );
                     break;
                 case 'Many2Dynamic':
                     data.field_from = data.relation_field_slug
@@ -137,11 +132,6 @@ let relationStore = {
                             );
                         fieldPermissionWithModel.save();
                     }
-
-                    console.log(
-                        "response from field create while creating relation",
-                        output
-                    );
                     break;
                 case "Many2Many":
                     data.field_from = data.table_to + "_ids";
@@ -316,11 +306,6 @@ let relationStore = {
                         fieldPermissionWithModel.save();
                     }
 
-                    console.log(
-                        "response from field create while creating recursive relation======>",
-                        responsee
-                    );
-
                     let typeRecursive = converter(field.type);
                     let tableRecursive = {};
                     let event = {};
@@ -381,10 +366,6 @@ let relationStore = {
                         fieldPermissionWithModel.save();
                     }
 
-                    console.log(
-                        "response from field create while creating relation",
-                        resp
-                    );
                     let typeMany2One = converter(field.type);
                     let tableMany2One = {};
                     let eventMany2One = {};
@@ -408,14 +389,14 @@ let relationStore = {
                     data.type = data.view_type;
                     data["relation_id"] = relation.id;
                     data["name"] = data.title;
-                    data["relation_table_slug"] = dynamicTable.table_slug;
+                    data["relation_table_slug"] = dynamicTable?.table_slug;
                     if (!data.columns || !data.columns.length) {
                         data.columns = [];
                     }
                     data["attributes"] = data.attributes || {}
                     const view = new View(data);
                     const responseView = await view.save();
-                    tableSlugs.push(dynamicTable.table_slug);
+                    tableSlugs.push(dynamicTable?.table_slug);
                 }
             } else {
                 data.id = v4();
@@ -460,12 +441,15 @@ let relationStore = {
                 throw Error("This relation is system relation, you can't change it!")
             }
 
-            const relation = await Relation.updateOne(
+            const relation = await Relation.findOneAndUpdate(
                 {
                     id: data.id,
                 },
                 {
                     $set: data,
+                },
+                {
+                    new: true
                 }
             );
 
@@ -1445,7 +1429,7 @@ let relationStore = {
                 //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                 // });
                 table = await tableVersion(mongoConn, { slug: relation.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                resp = await Field.deleteOne({
+                resp = await Field.findOneAndDelete({
                     table_id: table.id,
                     slug: relation.field_to,
                     relation_id: relation.id,
@@ -1460,7 +1444,7 @@ let relationStore = {
                 //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                 // });
                 table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                resp = await Field.deleteOne({
+                resp = await Field.findOneAndDelete({
                     table_id: table.id,
                     slug: relation.field_from,
                     relation_id: relation.id,
@@ -1476,7 +1460,7 @@ let relationStore = {
                 //     deleted_at: '1970-01-01T18:00:00.000+00:00'
                 // });
                 table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                resp = await Field.deleteOne({
+                resp = await Field.findOneAndDelete({
                     table_id: table.id,
                     slug: relation.field_to,
                     relation_id: relation.id,
@@ -1492,7 +1476,7 @@ let relationStore = {
                 //     deleted_at: '1970-01-01T18:00:00.000+00:00'
                 // });
                 table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                resp = await Field.deleteOne({
+                resp = await Field.findOneAndDelete({
                     table_id: table.id,
                     slug: relation.field_from,
                     relation_id: relation.id,
@@ -1516,7 +1500,7 @@ let relationStore = {
             await View.deleteMany({
                 relation_id: relation.id,
             });
-            resp = await Relation.deleteOne({ id: data.id });
+            resp = await Relation.findOneAndDelete({ id: data.id });
             let count = await Tab.countDocuments({ relation_id: data.id })
             count && await Tab.deleteMany({ relation_id: data.id })
             return resp;

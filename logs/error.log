@@ -4036,6 +4036,7 @@
 >>>>>>> 1b5129428c179cf180b07d1fa516e16974ad3b22
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: id is not defined',
   level: 'error',
   timestamp: '2023-08-09T16:32:45.453Z',
@@ -4044,6 +4045,11 @@
   level: 'error',
   timestamp: '2023-07-20T06:46:33.308Z',
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+=======
+  message: 'failed to find object in table user with given id: fcff8ec0-1864-4a58-892b-6b7d1998549900',
+  level: 'error',
+  timestamp: '2023-08-09T05:16:18.096Z',
+>>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8
   label: 'object_builder_service',
   metadata: {}
 }
@@ -4051,9 +4057,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: 'Error while auto connecting',
   level: 'error',
   timestamp: '2023-08-10T11:06:16.858Z',
+=======
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-08-15T09:07:42.925Z',
+>>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',
@@ -4069,6 +4081,7 @@
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
     }
   }
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
@@ -5795,3 +5808,6 @@
   metadata: {}
 }
 >>>>>>> e16f25d915c6565cfaac1773f4f9c0bacb84616e
+=======
+}
+>>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8

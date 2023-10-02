@@ -1772,9 +1772,9 @@ let objectBuilder = {
                 }
             }
             if (!tableModel.soft_delete) {
-                await allTableInfo[req.table_slug].models.findOneAndDelete({ guid: data.id });
+                response = await allTableInfo[req.table_slug].models.findOneAndDelete({ guid: data.id });
             } else if (tableModel.soft_delete) {
-                await allTableInfo[req.table_slug].models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
+                response = await allTableInfo[req.table_slug].models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
             }
             return { table_slug: req.table_slug, data: response };
         } catch (err) {

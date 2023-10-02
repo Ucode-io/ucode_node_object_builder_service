@@ -13,10 +13,13 @@ async function checkRelationFieldExists (field_name, table_id, project_id) {
     const table = await Table.findOne({
         id: table_id
     })
+
+    let filter  = new RegExp(`^${field_name}`)
     const relationFields = await Field.find(
         {
             table_id: table_id,
-            slug: {$regex: field_name+"*"}
+            slug: filter
+            // slug: {$regex: field_name+"*"}
         },
         {
             createdAt: 0, 

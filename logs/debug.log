@@ -71408,14 +71408,22 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:18:29.118Z',
+=======
+  timestamp: '2023-09-27T09:48:49.230Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:18:29.122Z',
+=======
+  timestamp: '2023-09-27T09:48:49.233Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
@@ -71431,49 +71439,185 @@
     '  }\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:18:29.122Z',
+=======
+  timestamp: '2023-09-27T09:48:49.233Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:18:29.122Z',
+=======
+  timestamp: '2023-09-27T09:48:49.234Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:18:29.664Z',
+=======
+  timestamp: '2023-09-27T09:48:49.773Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:19:20.155Z',
+=======
+  timestamp: '2023-09-27T09:49:42.956Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:19:20.156Z',
+=======
+  timestamp: '2023-09-27T09:49:42.957Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "15fefbcb-8370-4af7-9255-7b86793a99b3"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus_copy",\n' +
+    '  "table_to": "bus",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 6",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus_copy",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-09-27T09:51:09.969Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "15fefbcb-8370-4af7-9255-7b86793a99b3"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus_copy",\n' +
+    '  "table_to": "bus",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "bus 6",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus_copy",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-27T09:51:09.969Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-27T09:51:16.074Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-09-27T09:51:16.074Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:46:32.480Z',
+=======
+  timestamp: '2023-09-27T10:14:50.982Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:46:32.484Z',
+=======
+  timestamp: '2023-09-27T10:14:50.986Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
@@ -71489,39 +71633,60 @@
     '  }\n' +
     '}',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:46:32.484Z',
+=======
+  timestamp: '2023-09-27T10:14:50.986Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:46:32.484Z',
+=======
+  timestamp: '2023-09-27T10:14:50.987Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:46:33.024Z',
+=======
+  timestamp: '2023-09-27T10:14:51.515Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:47:24.001Z',
+=======
+  timestamp: '2023-09-27T10:19:27.724Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-26T10:47:24.002Z',
+=======
+  timestamp: '2023-09-27T10:19:27.725Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.layout.getAll: requested - {\n' +
     '  "table_slug": "bus_directions",\n' +
     '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
@@ -71532,10 +71697,16 @@
     '}',
   level: 'info',
   timestamp: '2023-09-26T10:47:31.903Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-09-29T13:43:21.258Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'layout.getAll: requested, {\n' +
     '  "table_slug": "bus_directions",\n' +
     '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
@@ -71546,10 +71717,32 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-26T10:47:31.904Z',
+=======
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-09-29T13:43:21.265Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-29T13:43:21.266Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
   message: 'storage.section.getAll: requested, {\n' +
     '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
     '  "tab_id": "654a58fe-028e-4a0e-81de-69b2a7445aab",\n' +
@@ -71559,10 +71752,67 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-26T10:47:32.241Z',
+=======
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-09-29T13:43:21.266Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-09-29T13:43:21.931Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-09-29T13:45:36.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-09-29T13:45:36.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-02T10:09:12.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-02T10:09:12.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "port": 30027,\n' +
+    '    "host": "65.109.239.69"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:09:12.777Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
   message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
   level: 'error',
   timestamp: '2023-09-26T10:47:39.627Z',
@@ -72674,11 +72924,273 @@
         at processTicksAndRejections (node:internal/process/task_queues:78:11) {
       code: 13,
       details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+=======
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-02T10:09:12.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Server selection timed out after 30000 ms',
+  level: 'error',
+  timestamp: '2023-10-02T10:09:42.788Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '65.109.239.69:30027' => ServerDescription {
+          address: '65.109.239.69:30027',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 611593427,
+          lastWriteDate: 0,
+          error: null,
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: Server selection timed out after 30000 ms\n' +
+      '    at Connection.openUri (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:356:10)\n' +
+      '    at newMongoConn (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/config/mongoConn.js:43:33)\n' +
+      '    at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/storage/mongo/project.js:128:39\n' +
+      '    at Object.reconnect (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/index_dev.js:30:30\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: Server selection timed out after 30000 ms',
+  level: 'info',
+  timestamp: '2023-10-02T10:09:42.792Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-02T10:11:13.308Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-02T10:11:13.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:11:13.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:BCie5TDrVJ@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-02T10:11:13.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-10-02T10:11:13.912Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:231:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:514:28)\n' +
+      '    at processIncomingData (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:399:12)\n' +
+      '    at _write (node:internal/streams/writable:340:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:344:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:785:22)\n' +
+      '    at Socket.emit (node:events:514:28)\n' +
+      '    at addChunk (node:internal/streams/readable:343:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:316:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:253:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'autoconnecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-10-02T10:11:13.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-02T10:11:36.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-02T10:11:36.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:11:36.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-02T10:11:36.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-02T10:11:37.005Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T10:13:22.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-02T10:13:22.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T10:20:55.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-02T10:20:55.894Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
     }
   }
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: failed with error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
   level: 'error',
   timestamp: '2023-09-28T12:26:31.296Z',
@@ -72689,18 +73201,28 @@
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2023-09-28T12:28:46.872Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-02T10:21:38.913Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:28:46.874Z',
+=======
+  timestamp: '2023-10-02T10:21:38.916Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -72712,38 +73234,72 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T12:28:46.875Z',
+=======
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:21:38.916Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
   timestamp: '2023-09-28T12:28:46.876Z',
+=======
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-02T10:21:38.916Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
   timestamp: '2023-09-28T12:28:47.502Z',
+=======
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-02T10:21:39.448Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:31:00.579Z',
+=======
+  timestamp: '2023-10-02T10:22:36.781Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:31:00.582Z',
+=======
+  timestamp: '2023-10-02T10:22:36.782Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: requested - {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -72763,10 +73319,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-28T12:31:19.174Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T10:22:49.892Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.excel.create: requested, {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -72805,11 +73407,29 @@
         at processTicksAndRejections (node:internal/process/task_queues:78:11) {
       code: 13,
       details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+=======
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-02T10:22:49.914Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
     }
   }
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: failed with error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
   level: 'error',
   timestamp: '2023-09-28T12:31:19.514Z',
@@ -72820,18 +73440,28 @@
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2023-09-28T12:33:55.293Z',
+=======
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-02T10:23:14.612Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:33:55.294Z',
+=======
+  timestamp: '2023-10-02T10:23:14.614Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -72843,38 +73473,72 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T12:33:55.295Z',
+=======
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:23:14.615Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
   timestamp: '2023-09-28T12:33:55.295Z',
+=======
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-02T10:23:14.615Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
   timestamp: '2023-09-28T12:33:55.946Z',
+=======
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-02T10:23:15.143Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:36:11.853Z',
+=======
+  timestamp: '2023-10-02T10:24:11.930Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:36:11.855Z',
+=======
+  timestamp: '2023-10-02T10:24:11.930Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: requested - {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -72894,10 +73558,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-28T12:36:21.469Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T10:24:27.552Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.excel.create: requested, {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -72917,32 +73627,99 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T12:36:21.470Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:24:27.553Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: failed with error: rows[0].indexOf is not a function',
   level: 'error',
   timestamp: '2023-09-28T12:36:21.572Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T10:24:28.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T10:24:28.495Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:38:12.160Z',
+=======
+  timestamp: '2023-10-02T10:28:22.897Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:38:12.162Z',
+=======
+  timestamp: '2023-10-02T10:28:22.902Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -72954,38 +73731,72 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T12:38:12.163Z',
+=======
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:28:22.902Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
   timestamp: '2023-09-28T12:38:12.163Z',
+=======
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-02T10:28:22.902Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
   timestamp: '2023-09-28T12:38:12.808Z',
+=======
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-02T10:28:23.416Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:40:25.873Z',
+=======
+  timestamp: '2023-10-02T10:29:20.325Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:40:25.875Z',
+=======
+  timestamp: '2023-10-02T10:29:20.325Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: requested - {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73005,10 +73816,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-28T12:40:39.109Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T10:29:27.451Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.excel.create: requested, {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73028,32 +73885,99 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T12:40:39.110Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:29:27.452Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: failed with error: product validation failed: country_id: Path `country_id` is required., city_id: Path `city_id` is required., category_id: Path `category_id` is required., city_code: Path `city_code` is required., country_code: Path `country_code` is required.',
   level: 'error',
   timestamp: '2023-09-28T12:40:40.851Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T10:29:33.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T10:29:33.453Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:46:49.587Z',
+=======
+  timestamp: '2023-10-02T10:31:36.305Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:46:49.589Z',
+=======
+  timestamp: '2023-10-02T10:31:36.309Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -73065,38 +73989,72 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T12:46:49.589Z',
+=======
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:31:36.309Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
   timestamp: '2023-09-28T12:46:49.589Z',
+=======
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-02T10:31:36.309Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
   timestamp: '2023-09-28T12:46:50.239Z',
+=======
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-02T10:31:36.840Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:49:03.744Z',
+=======
+  timestamp: '2023-10-02T10:32:32.683Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:49:03.746Z',
+=======
+  timestamp: '2023-10-02T10:32:32.684Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: requested - {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73116,10 +74074,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-28T12:49:23.271Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T10:32:38.265Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.excel.create: requested, {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73139,31 +74143,91 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T12:49:23.272Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:32:38.267Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: failed with error: product validation failed: country_id: Path `country_id` is required., city_id: Path `city_id` is required., category_id: Path `category_id` is required., city_code: Path `city_code` is required., country_code: Path `country_code` is required.',
   level: 'error',
   timestamp: '2023-09-28T12:49:25.028Z',
+=======
+  message: "service.relation.create: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2023-10-02T10:32:43.844Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:50:25.812Z',
+=======
+  timestamp: '2023-10-02T10:34:38.682Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T12:50:25.814Z',
+=======
+  timestamp: '2023-10-02T10:34:38.685Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.reconnect: requested, {\n' +
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
@@ -73176,10 +74240,20 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T12:50:25.814Z',
+=======
+  message: 'storage.project.autoConnect: requested, {\n' +
+    '  "request": {\n' +
+    '    "k8s_namespace": "cp-region-type-id"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:34:38.685Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
   timestamp: '2023-09-28T12:50:25.814Z',
@@ -73552,33 +74626,65 @@
         at processTicksAndRejections (node:internal/process/task_queues:78:11) {
       code: 13,
       details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
+=======
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-10-02T10:34:38.698Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
     }
   }
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: failed with error: 13 INTERNAL: Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
   level: 'error',
   timestamp: '2023-09-28T13:03:40.211Z',
+=======
+  message: 'auto connecting to resources failed: Error: 14 UNAVAILABLE: No connection established',
+  level: 'info',
+  timestamp: '2023-10-02T10:34:38.700Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T13:05:53.450Z',
+=======
+  timestamp: '2023-10-02T10:34:49.308Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T13:05:53.452Z',
+=======
+  timestamp: '2023-10-02T10:34:49.310Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -73590,38 +74696,72 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T13:05:53.452Z',
+=======
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:34:49.311Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
   timestamp: '2023-09-28T13:05:53.452Z',
+=======
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-02T10:34:49.311Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
   timestamp: '2023-09-28T13:05:54.098Z',
+=======
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-02T10:34:49.833Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-28T13:08:05.216Z',
+=======
+  timestamp: '2023-10-02T10:35:45.455Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-28T13:08:05.219Z',
+=======
+  timestamp: '2023-10-02T10:35:45.456Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: requested - {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73645,10 +74785,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-28T13:08:39.247Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T10:36:03.256Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.excel.create: requested, {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73672,17 +74858,69 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T13:08:39.247Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:36:03.259Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: failed with error: createFilePath is not defined',
   level: 'error',
   timestamp: '2023-09-28T13:08:41.282Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T10:36:09.284Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: requested - {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73706,10 +74944,63 @@
     '}',
   level: 'info',
   timestamp: '2023-09-28T13:12:38.723Z',
+=======
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T10:36:09.285Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T10:36:29.197Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
   message: 'storage.excel.create: requested, {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73733,17 +75024,69 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T13:12:38.725Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:36:29.198Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: failed with error: product validation failed: category_id: Path `category_id` is required.',
   level: 'error',
   timestamp: '2023-09-28T13:12:40.451Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T10:36:30.558Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: requested - {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73767,10 +75110,63 @@
     '}',
   level: 'info',
   timestamp: '2023-09-28T13:17:56.522Z',
+=======
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T10:36:30.559Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T10:37:39.244Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
   message: 'storage.excel.create: requested, {\n' +
     '  "id": "test product",\n' +
     '  "table_slug": "product",\n' +
@@ -73794,32 +75190,99 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-28T13:17:56.525Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "1677a472-4684-47bd-ae81-64e4e8007157"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "bus",\n' +
+    '  "table_to": "bus_copy",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "test 2",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "bus",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T10:37:39.246Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.excel.create: failed with error: createFilePath is not defined',
   level: 'error',
   timestamp: '2023-09-28T13:17:58.842Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T10:37:41.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T10:37:41.175Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:05:21.955Z',
+=======
+  timestamp: '2023-10-02T11:03:01.510Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:05:21.957Z',
+=======
+  timestamp: '2023-10-02T11:03:01.514Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -73831,38 +75294,68 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-29T13:05:21.957Z',
+=======
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:03:01.515Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:05:21.957Z',
+=======
+  timestamp: '2023-10-02T11:03:01.515Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:05:22.602Z',
+=======
+  timestamp: '2023-10-02T11:03:02.156Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:07:46.668Z',
+=======
+  timestamp: '2023-10-02T11:05:21.522Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:07:46.673Z',
+=======
+  timestamp: '2023-10-02T11:05:21.522Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.reconnect: requested, {\n' +
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
@@ -74011,10 +75504,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-29T13:13:12.936Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T11:05:28.498Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.custom_event.getList: requested, {\n' +
     '  "table_slug": "agent_employees",\n' +
     '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
@@ -74047,23 +75586,52 @@
   timestamp: '2023-09-29T13:13:15.965Z',
   label: 'object_builder_service',
   metadata: {}
+=======
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-02T11:05:28.522Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:16:08.697Z',
+=======
+  timestamp: '2023-10-02T11:06:03.922Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:16:08.699Z',
+=======
+  timestamp: '2023-10-02T11:06:03.924Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -74075,38 +75643,68 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-29T13:16:08.699Z',
+=======
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:06:03.925Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:16:08.700Z',
+=======
+  timestamp: '2023-10-02T11:06:03.925Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:16:09.407Z',
+=======
+  timestamp: '2023-10-02T11:06:04.558Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:18:33.918Z',
+=======
+  timestamp: '2023-10-02T11:08:23.217Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:18:33.921Z',
+=======
+  timestamp: '2023-10-02T11:08:23.217Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.permissionStore.getTablePermission: succeeded',
   level: 'info',
   timestamp: '2023-09-29T13:19:47.096Z',
@@ -74123,10 +75721,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-29T13:19:47.363Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T11:08:30.958Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.custom_event.getList: requested, {\n' +
     '  "table_slug": "agent_employees",\n' +
     '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
@@ -74136,46 +75780,219 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-29T13:19:47.364Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:08:30.959Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.custom_event.getList: succeeded',
   level: 'debug',
   timestamp: '2023-09-29T13:19:47.975Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T11:08:32.202Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.custom_event.getList: succeeded',
   level: 'info',
   timestamp: '2023-09-29T13:19:47.975Z',
+=======
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T11:08:32.202Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'guid')",
   level: 'error',
   timestamp: '2023-09-29T13:19:49.832Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T11:11:11.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:11:11.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T11:11:12.321Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T11:11:12.322Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:21:36.246Z',
+=======
+  timestamp: '2023-10-02T11:12:44.685Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:21:36.249Z',
+=======
+  timestamp: '2023-10-02T11:12:44.688Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -74187,126 +76004,676 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-29T13:21:36.251Z',
+=======
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:12:44.688Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:21:36.251Z',
+=======
+  timestamp: '2023-10-02T11:12:44.688Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:21:36.969Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-09-29T13:23:27.847Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-09-29T13:23:27.849Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
-    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
-    '    "password": "BCie5TDrVJ"\n' +
-    '  },\n' +
-    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4"\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-09-29T13:23:27.849Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-09-29T13:23:27.850Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
-  level: 'info',
-  timestamp: '2023-09-29T13:23:28.494Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2023-09-29T13:24:31.961Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnecting to resources',
-  level: 'info',
-  timestamp: '2023-09-29T13:24:31.963Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'storage.project.reconnect: requested, {\n' +
-    '  "credentials": {\n' +
-    '    "host": "142.93.164.37",\n' +
-    '    "port": "27017",\n' +
-    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
-    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
-    '    "password": "BCie5TDrVJ"\n' +
-    '  },\n' +
-    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4"\n' +
-    '}',
-  level: 'debug',
-  timestamp: '2023-09-29T13:24:31.963Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
-  level: 'debug',
-  timestamp: '2023-09-29T13:24:31.963Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
-  level: 'info',
-  timestamp: '2023-09-29T13:24:32.646Z',
+=======
+  timestamp: '2023-10-02T11:12:45.340Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
-  timestamp: '2023-09-29T13:26:56.360Z',
+  timestamp: '2023-10-02T11:15:02.729Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
-  timestamp: '2023-09-29T13:26:56.363Z',
+  timestamp: '2023-10-02T11:15:02.729Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T11:15:22.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:15:22.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T11:15:31.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T11:15:31.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T11:34:46.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:34:46.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T11:34:48.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T11:34:48.008Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T11:37:08.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:37:08.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T11:37:09.588Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T11:37:09.590Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:23:27.847Z',
+=======
+  timestamp: '2023-10-02T11:38:16.621Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:23:27.849Z',
+=======
+  timestamp: '2023-10-02T11:38:16.624Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-29T13:23:27.849Z',
+=======
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:38:16.625Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:23:27.850Z',
+=======
+  timestamp: '2023-10-02T11:38:16.625Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:23:28.494Z',
+=======
+  timestamp: '2023-10-02T11:38:17.279Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T11:40:45.261Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-02T11:40:45.261Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T11:40:54.611Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:40:54.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T11:41:03.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T11:41:03.216Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:24:31.961Z',
+=======
+  timestamp: '2023-10-02T11:59:06.895Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:24:31.963Z',
+=======
+  timestamp: '2023-10-02T11:59:06.899Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": "27017",\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  },\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-09-29T13:24:31.963Z',
+=======
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T11:59:06.899Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:24:31.963Z',
+=======
+  timestamp: '2023-10-02T11:59:06.900Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:24:32.646Z',
+=======
+  timestamp: '2023-10-02T11:59:07.557Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:26:56.360Z',
+=======
+  timestamp: '2023-10-02T12:01:24.653Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+<<<<<<< HEAD
+  timestamp: '2023-09-29T13:26:56.363Z',
+=======
+  timestamp: '2023-10-02T12:01:24.654Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
   message: 'service.permissionStore.getTablePermission: succeeded',
   level: 'info',
   timestamp: '2023-09-29T13:26:59.337Z',
@@ -74323,10 +76690,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-29T13:26:59.549Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T12:01:26.799Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.custom_event.getList: requested, {\n' +
     '  "table_slug": "agent_employees",\n' +
     '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
@@ -74336,46 +76749,219 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-29T13:26:59.549Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:01:26.800Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.custom_event.getList: succeeded',
   level: 'debug',
   timestamp: '2023-09-29T13:27:07.304Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T12:01:35.458Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.custom_event.getList: succeeded',
   level: 'info',
   timestamp: '2023-09-29T13:27:07.305Z',
+=======
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T12:01:35.460Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: guids is not defined',
   level: 'error',
   timestamp: '2023-09-29T13:27:09.206Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T12:01:48.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:01:48.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T12:01:55.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T12:01:55.344Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:27:20.104Z',
+=======
+  timestamp: '2023-10-02T12:04:13.945Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:27:20.106Z',
+=======
+  timestamp: '2023-10-02T12:04:13.949Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -74387,38 +76973,68 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-29T13:27:20.106Z',
+=======
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:04:13.949Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:27:20.107Z',
+=======
+  timestamp: '2023-10-02T12:04:13.950Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:27:20.827Z',
+=======
+  timestamp: '2023-10-02T12:04:14.591Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:29:43.309Z',
+=======
+  timestamp: '2023-10-02T12:06:33.001Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:29:43.311Z',
+=======
+  timestamp: '2023-10-02T12:06:33.002Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.permissionStore.getTablePermission: succeeded',
   level: 'info',
   timestamp: '2023-09-29T13:29:50.965Z',
@@ -74435,10 +77051,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-29T13:29:51.185Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T12:06:42.612Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.custom_event.getList: requested, {\n' +
     '  "table_slug": "agent_employees",\n' +
     '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
@@ -74448,46 +77110,327 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-29T13:29:51.185Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:06:42.613Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.custom_event.getList: succeeded',
   level: 'debug',
   timestamp: '2023-09-29T13:29:59.002Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T12:06:43.877Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.custom_event.getList: succeeded',
   level: 'info',
   timestamp: '2023-09-29T13:29:59.004Z',
+=======
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T12:06:43.878Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: premium_plaza_lounges_plaza_object_builder_service.agent_employees index: guid_1 dup key: { guid: "7b3deb88-7a62-4998-8ff4-8eb1813f2641" }',
   level: 'error',
   timestamp: '2023-09-29T13:30:00.864Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T12:06:50.921Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:06:50.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T12:06:52.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T12:06:52.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T12:07:20.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:07:20.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T12:07:22.180Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T12:07:22.182Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:31:06.584Z',
+=======
+  timestamp: '2023-10-02T12:09:24.672Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnecting to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:31:06.586Z',
+=======
+  timestamp: '2023-10-02T12:09:24.674Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: requested, {\n' +
+<<<<<<< HEAD
     '  "credentials": {\n' +
     '    "host": "142.93.164.37",\n' +
     '    "port": "27017",\n' +
@@ -74499,19 +77442,37 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-29T13:31:06.587Z',
+=======
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "credentials": {\n' +
+    '    "host": "142.93.164.37",\n' +
+    '    "port": 27017,\n' +
+    '    "database": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "username": "premium_plaza_lounges_plaza_object_builder_service",\n' +
+    '    "password": "BCie5TDrVJ"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:09:24.674Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:31:06.588Z',
+=======
+  timestamp: '2023-10-02T12:09:24.675Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T13:31:07.254Z',
   label: 'object_builder_service',
   metadata: {}
@@ -74557,24 +77518,36 @@
   message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
   level: 'info',
   timestamp: '2023-09-29T13:59:23.783Z',
+=======
+  timestamp: '2023-10-02T12:09:25.321Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2023-09-29T14:01:53.691Z',
+=======
+  timestamp: '2023-10-02T12:11:44.203Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2023-09-29T14:01:53.696Z',
+=======
+  timestamp: '2023-10-02T12:11:44.204Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.permissionStore.getTablePermission: succeeded',
   level: 'info',
   timestamp: '2023-09-29T14:02:13.897Z',
@@ -74591,10 +77564,56 @@
     '}',
   level: 'info',
   timestamp: '2023-09-29T14:02:14.123Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T12:11:47.251Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.custom_event.getList: requested, {\n' +
     '  "table_slug": "agent_employees",\n' +
     '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
@@ -74604,24 +77623,82 @@
     '}',
   level: 'debug',
   timestamp: '2023-09-29T14:02:14.123Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:11:47.252Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.custom_event.getList: succeeded',
   level: 'debug',
   timestamp: '2023-09-29T14:02:14.625Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T12:11:55.943Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.custom_event.getList: succeeded',
   level: 'info',
   timestamp: '2023-09-29T14:02:14.626Z',
+=======
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T12:11:55.944Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: premium_plaza_lounges_plaza_object_builder_service.agent_employees index: guid_1 dup key: { guid: "7b3deb88-7a62-4998-8ff4-8eb1813f2641" }',
   level: 'error',
   timestamp: '2023-09-29T14:02:16.776Z',
@@ -74632,10 +77709,56 @@
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2023-10-02T12:40:36.681Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T12:12:00.577Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'autoconnecting to resources',
   level: 'info',
   timestamp: '2023-10-02T12:40:36.683Z',
@@ -74655,24 +77778,82 @@
     '}',
   level: 'debug',
   timestamp: '2023-10-02T12:40:36.683Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:12:00.578Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
   level: 'debug',
   timestamp: '2023-10-02T12:40:36.684Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T12:12:01.826Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
   level: 'info',
   timestamp: '2023-10-02T12:40:37.432Z',
+=======
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T12:12:01.826Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
   timestamp: '2023-10-02T12:41:51.831Z',
@@ -74683,10 +77864,56 @@
   message: 'autoconnected successfully done!!!',
   level: 'info',
   timestamp: '2023-10-02T12:41:51.833Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T12:12:07.098Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.permissionStore.getTablePermission: succeeded',
   level: 'info',
   timestamp: '2023-10-02T12:43:37.601Z',
@@ -74741,24 +77968,82 @@
     '}',
   level: 'debug',
   timestamp: '2023-10-02T12:46:01.141Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:12:07.100Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
   level: 'debug',
   timestamp: '2023-10-02T12:46:01.141Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T12:12:14.386Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
   level: 'info',
   timestamp: '2023-10-02T12:46:01.869Z',
+=======
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T12:12:14.388Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'storage.project.reconnect: succeeded',
   level: 'debug',
   timestamp: '2023-10-02T12:47:13.653Z',
@@ -74769,10 +78054,56 @@
   message: 'autoconnected successfully done!!!',
   level: 'info',
   timestamp: '2023-10-02T12:47:13.657Z',
+=======
+  message: 'service.relation.create: requested - {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-02T12:12:18.754Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2023-10-02T12:47:56.613Z',
@@ -74799,17 +78130,69 @@
     '}',
   level: 'debug',
   timestamp: '2023-10-02T12:47:56.616Z',
+=======
+  message: 'storage.relation.create: requested, {\n' +
+    '  "view_fields": [\n' +
+    '    "fc7ea0fc-165d-4d4d-acda-9a483d255d1b"\n' +
+    '  ],\n' +
+    '  "summaries": [],\n' +
+    '  "columns": [],\n' +
+    '  "quick_filters": [],\n' +
+    '  "group_fields": [],\n' +
+    '  "dynamic_tables": [],\n' +
+    '  "auto_filters": [],\n' +
+    '  "default_values": [],\n' +
+    '  "cascadings": [],\n' +
+    '  "action_relations": [],\n' +
+    '  "updated_fields": [],\n' +
+    '  "table_from": "commerse_group_products",\n' +
+    '  "table_to": "product",\n' +
+    '  "type": "Many2One",\n' +
+    '  "editable": false,\n' +
+    '  "is_editable": false,\n' +
+    '  "title": "Product",\n' +
+    '  "view_type": "",\n' +
+    '  "relation_table_slug": "commerse_group_products",\n' +
+    '  "relation_field_slug": "",\n' +
+    '  "is_user_id_default": false,\n' +
+    '  "object_id_from_jwt": false,\n' +
+    '  "cascading_tree_table_slug": "",\n' +
+    '  "cascading_tree_field_slug": "",\n' +
+    '  "default_limit": "",\n' +
+    '  "multiple_insert": false,\n' +
+    '  "multiple_insert_field": "",\n' +
+    '  "project_id": "f490de67-46e0-4ec3-a226-0abf71aa5ad4",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "creatable": false,\n' +
+    '  "default_editable": false,\n' +
+    '  "function_path": "",\n' +
+    '  "relation_buttons": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-02T12:12:18.756Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
   level: 'debug',
   timestamp: '2023-10-02T12:47:56.617Z',
+=======
+  message: 'storage.relation.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-02T12:12:25.675Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs',
   level: 'info',
   timestamp: '2023-10-02T12:47:57.393Z',
@@ -74855,6 +78238,11 @@
   message: 'service.object_builder.getList: succeeded',
   level: 'info',
   timestamp: '2023-10-02T12:49:35.853Z',
+=======
+  message: 'service.relation.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-02T12:12:25.676Z',
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
   label: 'object_builder_service',
   metadata: {}
 }

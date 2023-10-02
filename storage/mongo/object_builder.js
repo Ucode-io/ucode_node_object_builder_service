@@ -1399,6 +1399,7 @@ let objectBuilder = {
         // console.log("TEST::::::::::12")
         // console.timeEnd("TIME_LOGGING:::limit")
         // console.log("TEST::::::10")
+        
         count = await tableInfo.models.count(params);
         // console.time("TIME_LOGGING:::result")
         if (result && result.length) {

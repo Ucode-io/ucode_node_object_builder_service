@@ -597,12 +597,14 @@ let loginStore = {
     }),
     getConnetionOptions: catchWrapDbObjectBuilder(`${NAMESPACE}.getConnetionOptions`, async (req) => {
         let options = []
+        console.log("req", req);
         const connection = await (await ObjectBuilder(true, req.resource_environment_id))["connections"].models.findOne({ guid: req.connection_id }).lean()
         if (connection && connection.table_slug && connection.field_slug) {
+            console.log("test connection: " + connection);
             const clientType = await (await ObjectBuilder(true, req.resource_environment_id))["client_type"].models.findOne({ guid: connection.client_type_id }).lean()
             if (clientType) {
                 let tableSlug = "user"
-                if (clientType.table_slug) {
+                if (clientType) {
                     tableSlug = clientType.table_slug
                 }
                 const user = await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug].models.findOne({ guid: req.user_id }).lean()
@@ -617,7 +619,7 @@ let loginStore = {
                 }
             }
         }
-        return { table_slug: connection.table_slug, data: struct.encode({ response: options }) }
+        return { table_slug: connection.table_slug || "", data: struct.encode({ response: options }) }
     }),
     updateUserPassword: catchWrapDbObjectBuilder(`${NAMESPACE}.updateUserPassword`, async (req) => {
         const mongoConn = await mongoPool.get(req.resource_environment_id)

@@ -4288,3 +4288,31 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-10-03T06:02:38.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-10-03T06:06:07.600Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-10-03T06:09:31.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-10-03T06:14:10.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -15010,6 +15010,10 @@
 >>>>>>> e05930d402953c5db5b945395c90cca9ad88a438
 =======
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9f894f8dc42503316e3ae86a3af011b75f10d17b
   message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'slug')",
   level: 'error',
   timestamp: '2023-09-26T10:47:39.627Z',
@@ -15057,7 +15061,10 @@
       code: 13,
       details: 'Request message serialization failure: Failed to serialize message: expected object with CreateSyncUsersRequest structure, got array instead',
 =======
+<<<<<<< HEAD
 {
+=======
+>>>>>>> 9f894f8dc42503316e3ae86a3af011b75f10d17b
   message: 'Server selection timed out after 30000 ms',
   level: 'error',
   timestamp: '2023-10-02T10:09:42.788Z',
@@ -15326,7 +15333,51 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> e16f25d915c6565cfaac1773f4f9c0bacb84616e
+=======
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: premium_plaza_lounges_plaza_object_builder_service.agent_employees index: guid_1 dup key: { guid: "7b3deb88-7a62-4998-8ff4-8eb1813f2641" }',
+  level: 'error',
+  timestamp: '2023-09-29T13:13:15.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.create: failed with error: Cannot read properties of undefined (reading 'guid')",
+  level: 'error',
+  timestamp: '2023-09-29T13:19:49.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: guids is not defined',
+  level: 'error',
+  timestamp: '2023-09-29T13:27:09.206Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: premium_plaza_lounges_plaza_object_builder_service.agent_employees index: guid_1 dup key: { guid: "7b3deb88-7a62-4998-8ff4-8eb1813f2641" }',
+  level: 'error',
+  timestamp: '2023-09-29T13:30:00.864Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: E11000 duplicate key error collection: premium_plaza_lounges_plaza_object_builder_service.agent_employees index: guid_1 dup key: { guid: "7b3deb88-7a62-4998-8ff4-8eb1813f2641" }',
+  level: 'error',
+  timestamp: '2023-09-29T14:02:16.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList: failed with error: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2023-10-02T12:44:57.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> 9f894f8dc42503316e3ae86a3af011b75f10d17b
 =======
   message: 'Error while auto connecting by project id',
   level: 'error',
@@ -15346,5 +15397,72 @@
       metadata: Metadata { internalRepr: Map(0) {}, options: {} }
     }
   }
+<<<<<<< HEAD
+=======
+>>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-10-03T05:06:17.586Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:527:28)\n' +
+      '    at processIncomingData (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/Users/muhammadjonvaliyev/go/src/gitlab.com/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:389:12)\n' +
+      '    at _write (node:internal/streams/writable:330:10)\n' +
+      '    at MessageStream.Writable.write (node:internal/streams/writable:334:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:754:22)\n' +
+      '    at Socket.emit (node:events:527:28)\n' +
+      '    at addChunk (node:internal/streams/readable:315:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:289:9)\n' +
+      '    at Socket.Readable.push (node:internal/streams/readable:228:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'service.object_builder.getList: failed with error: Unable to infer type for "undefined".',
+  level: 'error',
+  timestamp: '2023-10-03T05:18:59.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-10-03T06:02:38.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-10-03T06:06:07.600Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-10-03T06:09:31.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2023-10-03T06:14:10.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> 9f894f8dc42503316e3ae86a3af011b75f10d17b
 }
 >>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc

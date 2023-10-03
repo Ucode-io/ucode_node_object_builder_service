@@ -27,13 +27,13 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "f490de67-46e0-4ec3-a226-0abf71aa5ad4", // youtube dev
+            project_id: "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf", // youtube dev
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "premium_plaza_lounges_plaza_object_builder_service",
-                username: "premium_plaza_lounges_plaza_object_builder_service",
-                password: "BCie5TDrVJ"
+                database: "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
+                username: "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
+                password: "UAQljhZlWm"
             }
         })
         //mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/?authMechanism=DEFAULT&authSource=asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs

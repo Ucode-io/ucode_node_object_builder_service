@@ -31,11 +31,11 @@ const { count } = require('./models/relation');
             "credentials": {
                 "host": "142.93.164.37",
                 "port": "27017",
-                "database": "premium_plaza_lounges_plaza_object_builder_service",
-                "username": "premium_plaza_lounges_plaza_object_builder_service",
-                "password": "BCie5TDrVJ"
+                "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
+                "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
+                "password": "UAQljhZlWm"
             },
-            "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"
+            "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf"
         })
         //premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service
         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service

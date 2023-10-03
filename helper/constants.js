@@ -53,6 +53,46 @@ module.exports = {
     // EVENT 
     TopicEventCreateV1: "v1.event_service.event.create",
     TopicEventDeleteV1: "v1.event_service.event.delete",
-    TopicEventUpdateV1: "v1.event_service.event.update"
+    TopicEventUpdateV1: "v1.event_service.event.update",
+
+    // FOR UNIT TESTING
+    UnitTestData: {
+        dev: {
+            dbCred: {
+                project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81", // youtube dev
+                credentials: {
+                    host: "65.109.239.69",
+                    port: 30027,
+                    database: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
+                    username: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
+                    password: "bLjkGFjiva"
+                }
+            }
+        },
+        staging: {
+            dbCred: {
+                project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81", // youtube dev
+                credentials: {
+                    host: "65.109.239.69",
+                    port: 30027,
+                    database: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
+                    username: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
+                    password: "bLjkGFjiva"
+                }
+            }
+        },
+        master: {
+            dbCred: {
+                project_id: "b8c69f43-5972-4c4f-908f-0a4d49b0f909", // byd_admin
+                credentials: {
+                    host: "142.93.164.37",
+                    port: 27017,
+                    database: "byd_admin_a1e63e80ded14979be80b39be5449def_p_obj_build_svcs",
+                    username: "byd_admin_a1e63e80ded14979be80b39be5449def_p_obj_build_svcs",
+                    password: "0kZ8wyr6OG"
+                }
+            }
+        }
+    }
 };
 

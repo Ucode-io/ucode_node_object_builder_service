@@ -268,7 +268,7 @@ let tableStore = {
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
 
-            let payload = { id: data.id, version_ids: [] }
+            let payload = { id: data.id}
             if (data.version_id) {
                 payload.version_ids = { $in: [data.version_id] }
             }

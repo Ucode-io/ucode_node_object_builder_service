@@ -4311,3 +4311,20 @@
 }
 =======
 >>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8
+{
+  message: 'service.field.getAll: failed with error: Unable to infer type for "undefined".',
+  level: 'error',
+  timestamp: '2023-10-03T13:49:58.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getAll: failed with error: Unable to infer type for "function(v) {\n' +
+    '  this._mongooseOptions.lean = arguments.length ? v : true;\n' +
+    '  return this;\n' +
+    '}".',
+  level: 'error',
+  timestamp: '2023-10-03T13:58:58.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

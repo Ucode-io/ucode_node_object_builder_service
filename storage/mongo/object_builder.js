@@ -709,7 +709,7 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
+        // console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -2597,9 +2597,9 @@ let objectBuilder = {
                 }
             }
             if (!tableModel.soft_delete) {
-                await allTableInfo[req.table_slug].models.findOneAndDelete({ guid: data.id });
+                response = await allTableInfo[req.table_slug].models.findOneAndDelete({ guid: data.id });
             } else if (tableModel.soft_delete) {
-                await allTableInfo[req.table_slug].models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
+                response = await allTableInfo[req.table_slug].models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
             }
 
             return { table_slug: req.table_slug, data: response};

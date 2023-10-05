@@ -321,10 +321,6 @@ let relationStore = {
                     });
                     tableRecursive.fields = fields;
                     event.payload = tableRecursive;
-                    // await sendMessageToTopic(
-                    //     con.TopicRecursiveRelationCreateV1,
-                    //     event
-                    // );
                     break;
                 case "Many2One":
                 case "One2One":

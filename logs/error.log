@@ -12803,6 +12803,10 @@
 >>>>>>> 1b5129428c179cf180b07d1fa516e16974ad3b22
 {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6d38d42875f1869a35fc51e6ee249216c08d4e0b
+<<<<<<< HEAD
   message: 'service.object_builder.getList: failed with error: id is not defined',
   level: 'error',
   timestamp: '2023-08-09T16:32:45.453Z',
@@ -12811,16 +12815,22 @@
   level: 'error',
   timestamp: '2023-07-20T06:46:33.308Z',
 >>>>>>> 21be9db894556a3356f73956bfed7e99aca0fcbb
+<<<<<<< HEAD
 >>>>>>> 3234b6b27a83d4974daad5c6cdab06f9b170586f
+=======
+>>>>>>> 6d38d42875f1869a35fc51e6ee249216c08d4e0b
   label: 'object_builder_service',
   metadata: {}
 }
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: "service.object_builder.getSingle: failed with error: Cannot use 'in' operator to search for 'client_platform_ids_data' in null",
   level: 'error',
   timestamp: '2023-07-20T06:46:33.309Z',
 =======
+=======
+>>>>>>> 6d38d42875f1869a35fc51e6ee249216c08d4e0b
 <<<<<<< HEAD
   message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "8e692351-cf27-472d-8cc4-5ec1907aecbd", commit_id: "" }',
   level: 'error',
@@ -14297,10 +14307,16 @@
   message: 'service.object_builder.getList: failed with error: Cannot populate path `clients_id_data.client_type_id_data` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
   timestamp: '2023-09-22T11:50:24.001Z',
+=======
+  message: 'failed to find object in table user with given id: fcff8ec0-1864-4a58-892b-6b7d1998549900',
+  level: 'error',
+  timestamp: '2023-08-09T05:16:18.096Z',
+>>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
   level: 'error',
   timestamp: '2023-09-22T11:52:01.824Z',
@@ -14969,15 +14985,28 @@
   message: 'Error while auto connecting',
   level: 'error',
   timestamp: '2023-09-26T05:33:02.723Z',
+=======
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-08-15T09:07:42.925Z',
+>>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8
   label: 'object_builder_service',
   metadata: {
     function: 'autoConn',
     error: Error: 14 UNAVAILABLE: No connection established
+<<<<<<< HEAD
         at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
         at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
         at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
         at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
         at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+=======
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+>>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8
         at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
       code: 14,
       details: 'No connection established',
@@ -14985,6 +15014,7 @@
     }
   }
 }
+<<<<<<< HEAD
 {
   message: 'Error while auto connecting',
   level: 'error',
@@ -15436,14 +15466,24 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 {
   message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
   level: 'error',
   timestamp: '2023-10-03T06:02:38.358Z',
+=======
+=======
+>>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8
+{
+  message: 'service.field.getAll: failed with error: Unable to infer type for "undefined".',
+  level: 'error',
+  timestamp: '2023-10-03T13:49:58.599Z',
+>>>>>>> 6d38d42875f1869a35fc51e6ee249216c08d4e0b
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
   level: 'error',
   timestamp: '2023-10-03T06:06:07.600Z',
@@ -15466,3 +15506,14 @@
 >>>>>>> 9f894f8dc42503316e3ae86a3af011b75f10d17b
 }
 >>>>>>> 75216c5c08c2ba37b1af0313e3f9dfb4a17c83bc
+=======
+  message: 'service.field.getAll: failed with error: Unable to infer type for "function(v) {\n' +
+    '  this._mongooseOptions.lean = arguments.length ? v : true;\n' +
+    '  return this;\n' +
+    '}".',
+  level: 'error',
+  timestamp: '2023-10-03T13:58:58.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 6d38d42875f1869a35fc51e6ee249216c08d4e0b

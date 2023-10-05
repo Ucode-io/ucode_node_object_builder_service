@@ -498,11 +498,14 @@ let fieldStore = {
                                             updated_at: 0,
                                             _id: 0,
                                             __v: 0
-                                        })
-                                    if (viewField.attributes) {
-                                        viewField.attributes = struct.decode(viewField.attributes)
+                                        }).lean()
+                                       
+                                    if(viewField) {
+                                        if (viewField.attributes) {
+                                            viewField.attributes = struct.decode(viewField.attributes)
+                                        }
+                                        viewFields.push(viewField)
                                     }
-                                    viewFields.push(viewField._doc)
                                 }
                             }
 

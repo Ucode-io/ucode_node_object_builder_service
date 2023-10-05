@@ -1,5 +1,6 @@
 const mongoPool = require('../pkg/pool');
 const { v4 } = require("uuid")
+const bucket = require("./addMinioBucket")
 
 module.exports = async function (data) {
     try {
@@ -158,6 +159,27 @@ module.exports = async function (data) {
                 "layout_id": "",
                 "type": "FOLDER"
             })
+        }
+        let files = await Menu.findOne({
+            id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
+        })
+        if (!files) {
+            await bucket.createMinioBucket(data.project_id)
+            await Menu.create({
+                "label": "Files",
+                "icon": "file-pdf.svg",
+                "id": "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER",
+                "bucket_path": data.project_id
+            })
+
+            
         }
         let staticMenus = [{
             "label": "User and Permission",

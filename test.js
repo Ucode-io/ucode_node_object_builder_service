@@ -31,11 +31,11 @@ const { count } = require('./models/relation');
             "credentials": {
                 "host": "142.93.164.37",
                 "port": "27017",
-                "database": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
-                "username": "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
-                "password": "UAQljhZlWm"
+                "database": "vertebra_vertebra_object_builder_service",
+                "username": "vertebra_vertebra_object_builder_service",
+                "password": "f7NJv0ZaKr"
             },
-            "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf"
+            "project_id": "7994468b-eb5e-405a-b3d8-95f23b9217a4"
         })
         //premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service
         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service

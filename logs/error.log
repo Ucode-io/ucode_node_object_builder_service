@@ -15517,3 +15517,10 @@
   metadata: {}
 }
 >>>>>>> 6d38d42875f1869a35fc51e6ee249216c08d4e0b
+{
+  message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2023-10-05T07:09:49.590Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

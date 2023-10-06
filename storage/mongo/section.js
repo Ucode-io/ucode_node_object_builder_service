@@ -447,10 +447,12 @@ let sectionStore = {
                                     }
                                     dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
                                     dynamicTables.push(dynamicTableToAttribute)
+
+                                    if (viewOfDynamicRelation) {
+                                        originalAttributes = { ...struct.decode(viewOfDynamicRelation.attributes || {}) }
+                                    }
                                 }
-                                if (viewOfDynamicRelation) {
-                                    originalAttributes = { ...struct.decode(viewOfDynamicRelation.attributes || {}) }
-                                }
+                                
                                 originalAttributes = {
                                     ...originalAttributes,
                                     autofill: autofillFields,

@@ -258,7 +258,7 @@ async function buildModels(is_build = true, project_id) {
                             relation_id: field.relation_id,
                             relation_table_slug: table.slug
                         })
-                        if (viewOfRelation && viewOfRelation.view_fields && viewOfRelation.view_fields.length) {
+                        if (viewOfRelation && ((viewOfRelation.view_fields && viewOfRelation.view_fields.length) || (field.type == "DYNAMIC")) ) {
                             viewFieldIds = viewOfRelation.view_fields
                             resField.attributes = {
                                 ...(resField.attributes || {}),

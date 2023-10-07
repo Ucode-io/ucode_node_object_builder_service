@@ -79172,3 +79172,706 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-06T13:07:10.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-06T13:07:10.628Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-06T13:07:10.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-06T13:07:10.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-06T13:07:11.666Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-06T13:08:53.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-06T13:08:53.236Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-06T15:39:14.506Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-06T15:39:14.510Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-06T15:39:14.510Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-06T15:39:14.510Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-06T15:39:15.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-06T15:42:11.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-06T15:42:11.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "PHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Photo",\n' +
+    '  "slug": "phot_juju",\n' +
+    '  "table_id": "ab466149-6fa0-4dbb-8e14-02b8dc64ee42",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_aa": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ak": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "9f47ff8c-a671-430c-88f8-ad322ee4d46a",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-06T15:42:44.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "default": "",\n' +
+    '  "type": "PHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Photo",\n' +
+    '  "slug": "phot_juju",\n' +
+    '  "table_id": "ab466149-6fa0-4dbb-8e14-02b8dc64ee42",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_aa": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ak": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "9f47ff8c-a671-430c-88f8-ad322ee4d46a",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-06T15:42:44.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "9f47ff8c-a671-430c-88f8-ad322ee4d46a", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-10-06T15:42:44.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "PHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Photo",\n' +
+    '  "slug": "phot_juju",\n' +
+    '  "table_id": "ab466149-6fa0-4dbb-8e14-02b8dc64ee42",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_aa": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ak": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "9f47ff8c-a671-430c-88f8-ad322ee4d46a",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-06T15:44:26.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "default": "",\n' +
+    '  "type": "PHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Photo",\n' +
+    '  "slug": "phot_juju",\n' +
+    '  "table_id": "ab466149-6fa0-4dbb-8e14-02b8dc64ee42",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_aa": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ak": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "9f47ff8c-a671-430c-88f8-ad322ee4d46a",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-06T15:44:26.527Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-06T15:44:36.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-06T15:44:36.636Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "PHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Photo",\n' +
+    '  "slug": "phot_juju",\n' +
+    '  "table_id": "ab466149-6fa0-4dbb-8e14-02b8dc64ee42",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_aa": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ak": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "9f47ff8c-a671-430c-88f8-ad322ee4d46a",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-06T15:50:47.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "default": "",\n' +
+    '  "type": "PHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Photo",\n' +
+    '  "slug": "phot_juju",\n' +
+    '  "table_id": "ab466149-6fa0-4dbb-8e14-02b8dc64ee42",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_aa": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ak": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "9f47ff8c-a671-430c-88f8-ad322ee4d46a",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": ""\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-06T15:50:47.306Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-06T15:50:58.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-06T15:50:58.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-07T07:33:44.985Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-07T07:33:44.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "credentials": {\n' +
+    '    "host": "65.109.239.69",\n' +
+    '    "port": 30027,\n' +
+    '    "database": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "username": "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",\n' +
+    '    "password": "bLjkGFjiva"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-07T07:33:44.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-07T07:33:44.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-07T07:33:45.526Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-07T07:34:49.285Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-07T07:34:49.286Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "PHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Photo",\n' +
+    '  "slug": "phot_juju",\n' +
+    '  "table_id": "ab466149-6fa0-4dbb-8e14-02b8dc64ee42",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_aa": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ak": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "9f47ff8c-a671-430c-88f8-ad322ee4d46a",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": "images"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-07T07:41:06.377Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: requested, {\n' +
+    '  "default": "",\n' +
+    '  "type": "PHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Photo",\n' +
+    '  "slug": "phot_juju",\n' +
+    '  "table_id": "ab466149-6fa0-4dbb-8e14-02b8dc64ee42",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "icon": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_aa": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_ak": {\n' +
+    '        "stringValue": "Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "showTooltip": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "show_label": {\n' +
+    '        "boolValue": false,\n' +
+    '        "kind": "boolValue"\n' +
+    '      },\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "9f47ff8c-a671-430c-88f8-ad322ee4d46a",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": false,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": "images"\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-07T07:41:06.380Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.field.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-07T07:41:09.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-07T07:41:09.125Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

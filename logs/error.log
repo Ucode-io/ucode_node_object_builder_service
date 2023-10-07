@@ -4308,3 +4308,10 @@
     }
   }
 }
+{
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "9f47ff8c-a671-430c-88f8-ad322ee4d46a", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-10-06T15:42:44.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

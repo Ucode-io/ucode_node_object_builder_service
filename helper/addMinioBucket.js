@@ -1,5 +1,8 @@
+require('dotenv').config({ path: '/app/.env' });
+require("dotenv").config({ path: "./.env" })
 const Minio = require('minio')
 const cfg = require('../config/index')
+
 
 
 
@@ -14,7 +17,7 @@ const minioClient = new Minio.Client({
     useSSL: true, 
 })
 
-function createMinioBucket(bucketName) {
+async function createMinioBucket(bucketName) {
     minioClient.bucketExists(bucketName, function(err, exists) {
         if (err) {
           throw new Error(err)
@@ -32,7 +35,7 @@ function createMinioBucket(bucketName) {
       })
 }
 
-function createFolderToBucket(bucketName, folderName) {
+async function createFolderToBucket(bucketName, folderName) {
   minioClient.putObject(bucketName, folderName+'/', '', 0, function(err) {
     console.log("CREATING FOLDER")
     if (err) {

@@ -1,6 +1,6 @@
 const projectStorage = require('../storage/mongo/project'); 
 require('dotenv').config({ path: '../app/.env' });
-require("dotenv").config({ path: "../.env" })
+// require("dotenv").config({ path: "../.env" })
 const config = require('../config/index')
 const constants = require("../helper/constants")
 console.log(" ~~ environment ~>", config.environment)

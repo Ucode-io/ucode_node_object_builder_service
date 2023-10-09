@@ -1,5 +1,4 @@
 require('dotenv').config({ path: '/app/.env' });
-require("dotenv").config({ path: "./.env" })
 const Minio = require('minio')
 const cfg = require('../config/index')
 

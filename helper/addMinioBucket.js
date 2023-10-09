@@ -2,8 +2,6 @@
 const Minio = require('minio')
 const cfg = require('../config/index')
 
-console.log("dot env::", a);
-
 
 
 

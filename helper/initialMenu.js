@@ -167,6 +167,9 @@ module.exports = async function (data) {
         let files = await Menu.findOne({
             id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
         })
+        if (files) {
+            await bucket.createMinioBucket(data.project_id)
+        }
         if (!files) {
             await bucket.createMinioBucket(data.project_id)
             await Menu.create({

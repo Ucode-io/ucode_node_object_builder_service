@@ -1,15 +1,8 @@
-const a = require('dotenv').config({ path: '../app/.env' });
 const Minio = require('minio')
-const cfg = require('../config/index')
 
-console.log("dot env::", a);
-
-
-
-
-const endpoint = cfg.minioEndpoint
-const accessKey = cfg.minioAccessKeyID
-const secretKey = cfg.minioSecretAccessKey
+const endpoint = 'dev-cdn-api.ucode.run';
+const accessKey = 'Mouch0aij8hui2Aivie7Weethoobee3o';
+const secretKey = 'eezei5eaJah7mohNgohxo1Eb3wiex1sh';
 
 const minioClient = new Minio.Client({
     endPoint: endpoint,

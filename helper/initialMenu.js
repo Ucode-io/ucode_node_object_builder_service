@@ -1,5 +1,6 @@
 const mongoPool = require('../pkg/pool');
 const { v4 } = require("uuid")
+const bucket = require("./addMinioBucket")
 
 module.exports = async function (data) {
     try {
@@ -163,42 +164,39 @@ module.exports = async function (data) {
                 "type": "FOLDER"
             })
         }
-
-        const UserAndPermissinMenu = await Menu.findOne({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
-        if(UserAndPermissinMenu) {
-            await Menu.findOneAndDelete({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
-        }
-
-        const userMenu = await Menu.findOne({id:"9e988322-cffd-484c-9ed6-460d8701551b"})
-        if(!userMenu) {
+        let files = await Menu.findOne({
+            id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
+        })
+        if (!files) {
+            await bucket.createMinioBucket(data.project_id)
             await Menu.create({
-                "label": "Users",
-                "icon": "folder.svg",
-                "id": "9e988322-cffd-484c-9ed6-460d8701551b",
+                "label": "Files",
+                "icon": "file-pdf.svg",
+                "id": "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
                 "created_at": new Date(),
                 "updated_at": new Date(),
                 "__v": 0,
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
+                "bucket_path": data.project_id
             })
-        }
 
-        let staticMenus = [
-            // {
-            //     "label": "User and Permission",
-            //     "icon": "users.svg",
-            //     "id": "a8de4296-c8c3-48d6-bef0-ee17057733d6",
-            //     "created_at": new Date(),
-            //     "updated_at": new Date(),
-            //     "__v": 0,
-            //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
-            //     "table_id": "",
-            //     "layout_id": "",
-            //     "type": "FOLDER"
-            // }, 
-        {
+            
+        }
+        let staticMenus = [{
+            "label": "User and Permission",
+            "icon": "users.svg",
+            "id": "a8de4296-c8c3-48d6-bef0-ee17057733d6",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0,
+            "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+            "table_id": "",
+            "layout_id": "",
+            "type": "FOLDER"
+        }, {
             "label": "Database",
             "icon": "database.svg",
             "id": "d1b3b349-4200-4ba9-8d06-70299795d5e6",

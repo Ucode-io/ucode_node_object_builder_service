@@ -80,10 +80,7 @@ const FieldSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
-        label_uz: {
-            type: String,
-        },
-        label_en: {
+        minio_folder: {
             type: String,
         }
     },

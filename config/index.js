@@ -1,5 +1,5 @@
 const config = {
-    environment: getConf("NODE_ENV", "dev"),
+    environment: getConf("NODE_ENV", "aaa"),
 
     mongoHost: getConf("MONGO_HOST", "161.35.26.178"),
     mongoPort: getConf("MONGO_PORT", "27017"),

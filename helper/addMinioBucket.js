@@ -1,4 +1,4 @@
-const a = require('dotenv').config({ path: '../app/.env' });
+// const a = require('dotenv').config({ path: '../app/.env' });
 const Minio = require('minio')
 const cfg = require('../config/index')
 

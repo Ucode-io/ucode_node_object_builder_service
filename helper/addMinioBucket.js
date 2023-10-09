@@ -1,10 +1,11 @@
 const Minio = require('minio')
+const cfg = require('../config/index')
 
 
 
-const endpoint = 'cdn.api.milliontv.uz'
-const accessKey = 'eiGeiCoy2puucheengooSaegie4IeRoo'
-const secretKey = 'aedup2cook6Coos1Wo5eeGhoo6uoy3sh'
+const endpoint = cfg.minioEndpoint
+const accessKey = cfg.minioAccessKeyID
+const secretKey = cfg.minioSecretAccessKey
 
 const minioClient = new Minio.Client({
     endPoint: endpoint,

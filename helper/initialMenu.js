@@ -199,7 +199,7 @@ module.exports = async function (data) {
             //     "type": "FOLDER"
             // }, 
         {
-            "label": "Database",
+            "label": "Data",
             "icon": "database.svg",
             "id": "d1b3b349-4200-4ba9-8d06-70299795d5e6",
             "created_at": new Date(),

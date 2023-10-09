@@ -20,9 +20,11 @@ function createMinioBucket(bucketName) {
           throw new Error(err)
         } else {
           if (exists) {
+            console.log("MINIO CREDENTIALS", cfg.minioEndpoint, cfg.minioAccessKeyID, cfg.minioSecretAccessKey)
             console.log(`Bucket '${bucketName}' exists.`)
           } else {
             minioClient.makeBucket(bucketName, '', function(err) {
+            console.log("MINIO CREDENTIALS", cfg.minioEndpoint, cfg.minioAccessKeyID, cfg.minioSecretAccessKey)
                 if (err) {
                   throw new Error(err)
                 }

@@ -276,12 +276,15 @@ let fieldStore = {
                 }
             }
             // console.log("DATA::::::::::", data)
-            const field = await Field.updateOne(
+            const field = await Field.findOneAndUpdate(
                 {
                     id: data.id,
                 },
                 {
                     $set: data
+                },
+                {
+                    new: true
                 }
             )
             let fieldPermissions = (await ObjectBuilder(true, data.project_id))["field_permission"]
@@ -498,11 +501,14 @@ let fieldStore = {
                                             updated_at: 0,
                                             _id: 0,
                                             __v: 0
-                                        })
-                                    if (viewField.attributes) {
-                                        viewField.attributes = struct.decode(viewField.attributes)
+                                        }).lean()
+                                       
+                                    if(viewField) {
+                                        if (viewField.attributes) {
+                                            viewField.attributes = struct.decode(viewField.attributes)
+                                        }
+                                        viewFields.push(viewField)
                                     }
-                                    viewFields.push(viewField._doc)
                                 }
                             }
 
@@ -557,7 +563,7 @@ let fieldStore = {
             }
             // const table = await Table.findOne({ id: deletedField.table_id,  })
             const table = await tableVersion(mongoConn, { id: deletedField.table_id }, data.version_id, true)
-            const field = await Field.deleteOne({ id: data.id });
+            const field = await Field.findOneAndDelete({ id: data.id }, {new: true});
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const response = await fieldPermissionTable?.models.deleteMany({
                 field_id: data.id

@@ -237,7 +237,7 @@ let excelStore = {
                                             data: struct.encode(payload)
                                         })
                                         let result = struct.decode(res.data)
-                                        objectToDb[field?.slug] = result?.guid
+                                        objectToDb[field?.slug] = result?.data?.guid
                                     }
                                     console.log("object to db", objectToDb);
                                     continue

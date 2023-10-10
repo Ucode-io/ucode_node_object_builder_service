@@ -19,6 +19,7 @@ const xmlSerializer = new XMLSerializer();
 const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
+console.log()
 // const mongoConn = await mongoPool.get(data.project_id)
 // const Table = mongoConn.models['Table']
 // const Field = mongoConn.models['Field']
@@ -88,12 +89,15 @@ let viewStore = {
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
             }
-            const view = await View.updateOne(
+            const view = await View.findOneAndUpdate(
                 {
                     id: data.id,
                 },
                 {
                     $set: data
+                },
+                {
+                    new: true
                 }
             )
 
@@ -195,7 +199,7 @@ let viewStore = {
 
             const resp = await View.deleteOne({ id: data.id });
 
-            return resp;
+            return vieww;
 
         } catch (err) {
             throw err

@@ -58,11 +58,11 @@ module.exports = async function (data) {
             })
         }
         let adminMenu = await Menu.findOne({
-            id: "c57eedc3-a954-4262-a0af-376c65b5a280",
+            id: "c57eedc3-a954-4262-a0af-376c65b5a280"
         })
         if (!adminMenu) {
             await Menu.create({
-                "label": "Admin",
+                "label": "Settings", // Admin ~> changed to Settings
                 "icon": "folder.svg",
                 "id": "c57eedc3-a954-4262-a0af-376c65b5a280",
                 "created_at": new Date(),
@@ -73,6 +73,10 @@ module.exports = async function (data) {
                 "layout_id": "",
                 "type": "FOLDER"
             })
+        } else {
+            if (adminMenu.label != "Settings") {
+                await Menu.findOneAndUpdate({id: "c57eedc3-a954-4262-a0af-376c65b5a280"}, {$set: {label: "Settings"}})
+            }
         }
         let analyticsMenu = await Menu.findOne({
             id: "c57eedc3-a954-4262-a0af-376c65b5a278"
@@ -159,19 +163,43 @@ module.exports = async function (data) {
                 "type": "FOLDER"
             })
         }
-        let staticMenus = [{
-            "label": "User and Permission",
-            "icon": "users.svg",
-            "id": "a8de4296-c8c3-48d6-bef0-ee17057733d6",
-            "created_at": new Date(),
-            "updated_at": new Date(),
-            "__v": 0,
-            "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
-            "table_id": "",
-            "layout_id": "",
-            "type": "FOLDER"
-        }, {
-            "label": "Database",
+
+        const UserAndPermissinMenu = await Menu.findOne({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
+        if(UserAndPermissinMenu) {
+            await Menu.findOneAndDelete({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
+        }
+
+        const userMenu = await Menu.findOne({id:"9e988322-cffd-484c-9ed6-460d8701551b"})
+        if(!userMenu) {
+            await Menu.create({
+                "label": "Users",
+                "icon": "folder.svg",
+                "id": "9e988322-cffd-484c-9ed6-460d8701551b",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+
+        let staticMenus = [
+            // {
+            //     "label": "User and Permission",
+            //     "icon": "users.svg",
+            //     "id": "a8de4296-c8c3-48d6-bef0-ee17057733d6",
+            //     "created_at": new Date(),
+            //     "updated_at": new Date(),
+            //     "__v": 0,
+            //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+            //     "table_id": "",
+            //     "layout_id": "",
+            //     "type": "FOLDER"
+            // }, 
+        {
+            "label": "Data",
             "icon": "database.svg",
             "id": "d1b3b349-4200-4ba9-8d06-70299795d5e6",
             "created_at": new Date(),

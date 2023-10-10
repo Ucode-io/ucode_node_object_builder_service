@@ -19,13 +19,10 @@ let functionStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            const Function = mongoConn.models['Function']
+            const Function = mongoConn.models['function_service.function']
 
-
-            const func = new Function(data);
-
-            const response = await func.save();
-
+            const response = await Function.create(data);
+            
             return response;
         } catch (err) {
             throw err
@@ -35,7 +32,7 @@ let functionStore = {
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            const Function = mongoConn.models['Function']
+            const Function = mongoConn.models['function_service.function']
 
             const func = await Function.updateOne(
                 {
@@ -56,7 +53,7 @@ let functionStore = {
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            const Function = mongoConn.models['Function']
+            const Function = mongoConn.models['function_service.function']
 
             let query = {
                 name: RegExp(data.search, "i"),
@@ -90,7 +87,7 @@ let functionStore = {
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            const Function = mongoConn.models['Function']
+            const Function = mongoConn.models['function_service.function']
 
 
             const func = await Function.findOne({ id: data.id });
@@ -104,9 +101,9 @@ let functionStore = {
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            const Function = mongoConn.models['Function']
+            const Function = mongoConn.models['function_service.function']
 
-            const func = await Function.deleteOne({ id: data.id });
+            const func = await Function.findOneAndDelete({ id: data.id }, {new: true});
 
             return func;
 

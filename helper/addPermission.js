@@ -22,6 +22,7 @@ let permissionFunctions = {
             let table = {}, fieldResp = {};
             for (const field of fields) {
                 if (field.id.includes("#")) {
+                    console.log("enter field with # in get list");
                     table = await Table.findOne({
                         slug: tableSlug
                     });

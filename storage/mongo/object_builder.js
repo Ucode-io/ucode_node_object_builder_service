@@ -2124,9 +2124,6 @@ let objectBuilder = {
                                         deepRelations.push(deepPopulate)
                                     }
                                 }
-                                // else if (deepRelation.type === "Many2Many" && deepRelation.table_to === relation.table_to) {
-                                //     deepRelation.field_to = deepRelation.field_from
-                                // }
 
 
                             }
@@ -2214,14 +2211,6 @@ let objectBuilder = {
                     )
                         .lean();
                 } else {
-                    // for (const key of Object.keys(params)) {
-                    //     if (key.includes('.')) {
-                    //         tableParams[key.split('.')[0]] = {
-                    //             [key.split('.')[1]]: { $regex: params[key] },
-                    //             select: '-_id'
-                    //         }
-                    //     }
-                    // }
                     additional_results = await tableInfo.models.find({
                         ...additional_param
                     },
@@ -2378,9 +2367,6 @@ let objectBuilder = {
         const response = struct.encode({
             count: count,
             response: result,
-            // fields: decodedFields,
-            // views: views,
-            // relation_fields: relationsFields,
         });
         const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
@@ -2392,7 +2378,6 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
-        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),

@@ -185,28 +185,44 @@ module.exports = async function (data) {
                 "type": "FOLDER",
                 "bucket_path": data.project_id
             })
+        }
 
-            const UserAndPermissinMenu = await Menu.findOne({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
-            if(UserAndPermissinMenu) {
-                await Menu.findOneAndDelete({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
-            }
-    
-            const userMenu = await Menu.findOne({id:"9e988322-cffd-484c-9ed6-460d8701551b"})
-            if(!userMenu) {
-                await Menu.create({
-                    "label": "Users",
-                    "icon": "folder.svg",
-                    "id": "9e988322-cffd-484c-9ed6-460d8701551b",
-                    "created_at": new Date(),
-                    "updated_at": new Date(),
-                    "__v": 0,
-                    "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
-                    "table_id": "",
-                    "layout_id": "",
-                    "type": "FOLDER"
-                })
-            }
-    
+        const UserAndPermissinMenu = await Menu.findOne({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
+        if(UserAndPermissinMenu) {
+            await Menu.findOneAndDelete({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
+        }
+
+        const userMenu = await Menu.findOne({id:"9e988322-cffd-484c-9ed6-460d8701551b"})
+        if(!userMenu) {
+            await Menu.create({
+                "label": "Users",
+                "icon": "folder.svg",
+                "id": "9e988322-cffd-484c-9ed6-460d8701551b",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
+
+        const documentsMenu = await Menu.findOne({id:"31a91a86-7ad3-47a6-a172-d33ceaebb35f"})
+        if(!documentsMenu) {
+            await Menu.create({
+                "label": "Documents",
+                "icon": "folder.svg",
+                "id": "31a91a86-7ad3-47a6-a172-d33ceaebb35f",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER"
+            })
+        }
     
 
         let staticMenus = [
@@ -300,7 +316,7 @@ module.exports = async function (data) {
 
         console.log("done creating default menu")
 
-    }} catch (error) {
+    } catch (error) {
         console.log("error creating default menu:", error)
     }
 }

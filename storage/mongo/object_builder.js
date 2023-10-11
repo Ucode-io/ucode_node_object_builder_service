@@ -870,7 +870,7 @@ let objectBuilder = {
                 tableRelationFields[field.relation_id] = field
             }
         })
-        console.log("tableRelationFields::", tableRelationFields);
+        
         let with_relations = params.with_relations
 
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
@@ -1335,6 +1335,9 @@ let objectBuilder = {
         // console.log("TEST::::::6")
         // console.log("TEST::::::::::10")
 
+        let {fieldsWithPermissions, unusedFieldsSlugs} = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
+        let decodedFields = []
+
         let result = [], count;
         let searchByField = []
         // console.time("TIME_LOGGING:::search")
@@ -1379,7 +1382,8 @@ let objectBuilder = {
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
-                        __v: 0
+                        __v: 0,
+                        ...unusedFieldsSlugs
                     }, { sort: order }
                 ).skip(offset)
                     .limit(limit)
@@ -1523,7 +1527,8 @@ let objectBuilder = {
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
-                        __v: 0
+                        __v: 0,
+                        ...unusedFieldsSlugs
                     }, { sort: order }
                 )
                     .skip(offset)
@@ -1550,8 +1555,8 @@ let objectBuilder = {
         // console.log("TEST::::::11")
         // console.time("TIME_LOGGING:::toField")
         // this function add field permission for each field by role id
-        let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
-        let decodedFields = []
+        // let {fieldsWithPermissions} = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
+        // let decodedFields = []
         // below for loop is in order to decode FIELD.ATTRIBUTES from proto struct to normal object
         for (const element of fieldsWithPermissions) {
             if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS" || element.type === "DYNAMIC")) {
@@ -3264,7 +3269,7 @@ let objectBuilder = {
             }
         }
         // this function add field permission for each field by role id
-        let fieldsWithPermissions = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
+        let {fieldsWithPermissions} = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
         // below for loop is in order to decode FIELD.ATTRIBUTES from proto struct to normal object
         for (const element of fieldsWithPermissions) {

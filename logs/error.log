@@ -6102,10 +6102,13 @@
     '}".',
   level: 'error',
   timestamp: '2023-10-03T13:58:58.090Z',
+<<<<<<< HEAD
   label: 'object_builder_service',
   metadata: {}
 }
 >>>>>>> ed03a6cc7fff0b71f051851c208c1601c7be12a2
+=======
+>>>>>>> fbfa88327d8599a780592b114d1c4091de0a5ba1
 =======
   message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
   level: 'error',
@@ -6124,6 +6127,10 @@
   message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
   level: 'error',
   timestamp: '2023-10-03T06:14:10.967Z',
+<<<<<<< HEAD
+=======
+>>>>>>> 4f8aadf1b40d44a1fc08c2055ad89adcb32c701a
+>>>>>>> fbfa88327d8599a780592b114d1c4091de0a5ba1
   label: 'object_builder_service',
   metadata: {}
 }

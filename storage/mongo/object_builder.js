@@ -1645,7 +1645,8 @@ let objectBuilder = {
                             created_at: 0,
                             updated_at: 0,
                             _id: 0,
-                            __v: 0
+                            __v: 0,
+                            ...unusedFieldsSlugs
                         }, { sort: order }
                     )
                         .lean();
@@ -1667,7 +1668,8 @@ let objectBuilder = {
                             created_at: 0,
                             updated_at: 0,
                             _id: 0,
-                            __v: 0
+                            __v: 0,
+                            ...unusedFieldsSlugs
                         }, { sort: order }
                     )
                         .populate(populateArr)

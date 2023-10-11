@@ -7,6 +7,8 @@ const config = require('../config/index')
 let permissionFunctions = {
     toField: async (fields, roleId, tableSlug, project_id) => {
 
+        let unusedFieldsSlugs = {}
+
         try {
             if (!project_id) {
                 console.warn('WARNING:: Using default project id in checkRelationFieldExists...')
@@ -80,10 +82,17 @@ let permissionFunctions = {
                         let encodedAttributes = struct.encode(attributes);
                         field["attributes"] = encodedAttributes;
                     }
+                    if (!fieldPer.view_permission) {
+                        console.log("~~>> unused field slugs ", field.slug)
+                        unusedFieldsSlugs[field.slug] = 0
+                        continue
+                    }
+                    fieldsWithPermissions.push(field);
+                } else {
+                    unusedFieldsSlugs[field.slug] = 0
                 }
-                fieldsWithPermissions.push(field);
             }
-            return fieldsWithPermissions;
+            return {fieldsWithPermissions, unusedFieldsSlugs};
 
         } catch (err) {
             throw err

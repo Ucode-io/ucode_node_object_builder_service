@@ -60,6 +60,10 @@ let objectBuilder = {
                         table_slug: tableData.slug
                     })
                     if (loginTable) {
+                        let loginStrategy = ['login']
+                        if (authInfo['login_strategy'] && authInfo['login_strategy'].length) {
+                            loginStrategy = authInfo['login_strategy']
+                        }
                         let authCheckRequest = {
                             client_type_id: data['client_type_id'],
                             role_id: data['role_id'],
@@ -71,7 +75,8 @@ let objectBuilder = {
                             password: data[authInfo['password']],
                             resource_environment_id: req.project_id,
                             invite: data['invite'],
-                            environment_id: data["company_service_environment_id"]
+                            environment_id: data["company_service_environment_id"],
+                            login_strategy: loginStrategy
                         }
                         const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
                         console.log("responseFromAuth", responseFromAuth);
@@ -3423,6 +3428,7 @@ let objectBuilder = {
                 }
             )
             let isLoginTable = false
+            let loginStrategy = ['login']
             let authInfo = {}
             if (tableData && tableData.is_login_table && !data.from_auth_service) {
                 let tableAttributes = struct.decode(tableData.attributes)
@@ -3434,6 +3440,9 @@ let objectBuilder = {
                     })
                     if (loginTable) {
                         isLoginTable = true
+                        if (authInfo['login_strategy'] && authInfo['login_strategy'].length) {
+                            loginStrategy = authInfo['login_strategy']
+                        }
                     } else {
                         throw new Error('Login table not found with given client type id', objects[0][authInfo['client_type_id']])
                     }
@@ -3476,7 +3485,8 @@ let objectBuilder = {
                         password: data[authInfo['password']],
                         resource_environment_id: req.project_id,
                         invite: data['invite'],
-                        environment_id: data["company_service_environment_id"]
+                        environment_id: data["company_service_environment_id"],
+                        login_strategy: loginStrategy
                     }
                     authCheckRequests.push(authCheckRequest)
                 }

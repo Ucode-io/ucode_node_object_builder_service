@@ -223,7 +223,6 @@ module.exports = async function (data) {
                 "type": "FOLDER"
             })
         }
-    
 
         let staticMenus = [
             // {

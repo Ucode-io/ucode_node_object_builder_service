@@ -607,7 +607,7 @@ let loginStore = {
             const clientType = await (await ObjectBuilder(true, req.resource_environment_id))["client_type"]?.models?.findOne({ guid: connection.client_type_id }).lean()
             if (clientType) {
                 let tableSlug = "user"
-                if (clientType) {
+                if (clientType.table_slug) {
                     tableSlug = clientType.table_slug
                 }
                 const user = await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]?.models?.findOne({ guid: req.user_id }).lean()

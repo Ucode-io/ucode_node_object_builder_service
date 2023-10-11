@@ -88,6 +88,8 @@ let permissionFunctions = {
                         continue
                     }
                     fieldsWithPermissions.push(field);
+                } else if (!roleId) {
+                    fieldsWithPermissions.push(field);
                 } else {
                     unusedFieldsSlugs[field.slug] = 0
                 }

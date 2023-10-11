@@ -237,7 +237,7 @@ let permissionFunctions = {
             throw err
         }
     }
-
+    
 }
 
 module.exports = permissionFunctions

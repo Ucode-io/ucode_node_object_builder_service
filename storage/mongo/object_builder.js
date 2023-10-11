@@ -2128,7 +2128,8 @@ let objectBuilder = {
             }
         }
 
-
+        let {unusedFieldsSlugs} = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
+        let decodedFields = []
 
         let result = [], count;
         let populateArr = []
@@ -2163,7 +2164,8 @@ let objectBuilder = {
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
-                        __v: 0
+                        __v: 0,
+                        ...unusedFieldsSlugs
                     }, { sort: order }
                 ).skip(offset)
                     .limit(limit)
@@ -2304,7 +2306,8 @@ let objectBuilder = {
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
-                        __v: 0
+                        __v: 0,
+                        ...unusedFieldsSlugs
                     }, { sort: order }
                 )
                     .skip(offset)
@@ -2345,7 +2348,8 @@ let objectBuilder = {
                             created_at: 0,
                             updated_at: 0,
                             _id: 0,
-                            __v: 0
+                            __v: 0,
+                            ...unusedFieldsSlugs
                         }, { sort: order }
                     )
                         .lean();
@@ -2359,7 +2363,8 @@ let objectBuilder = {
                             created_at: 0,
                             updated_at: 0,
                             _id: 0,
-                            __v: 0
+                            __v: 0,
+                            ...unusedFieldsSlugs
                         }, { sort: order }
                     )
                         .populate(populateArr)

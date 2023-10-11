@@ -60,7 +60,7 @@ let objectBuilder = {
                         table_slug: tableData.slug
                     })
                     if (loginTable) {
-                        let loginStrategy = ['login']
+                        let loginStrategy = ['login', 'email', 'phone']
                         if (authInfo['login_strategy'] && authInfo['login_strategy'].length) {
                             loginStrategy = authInfo['login_strategy']
                         }
@@ -3428,7 +3428,7 @@ let objectBuilder = {
                 }
             )
             let isLoginTable = false
-            let loginStrategy = ['login']
+            let loginStrategy = ['login', 'email', 'phone']
             let authInfo = {}
             if (tableData && tableData.is_login_table && !data.from_auth_service) {
                 let tableAttributes = struct.decode(tableData.attributes)

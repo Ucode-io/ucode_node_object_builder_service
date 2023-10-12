@@ -69,7 +69,7 @@ let permissionFunctions = {
                     id = relationFieldPermissionMap.get(id.split("#")[1]);
                 }
                 let fieldPer = fieldPermissionMap.get(id);
-                if (fieldPer) {
+                if (fieldPer && roleId) {
                     if (field.attributes) {
                         let decodedAttributes = struct.decode(field.attributes);
                         decodedAttributes["field_permission"] = fieldPer._doc;
@@ -83,10 +83,12 @@ let permissionFunctions = {
                         field["attributes"] = encodedAttributes;
                     }
                     if (!fieldPer.view_permission) {
-                        console.log("~~>> unused field slugs ", field.slug)
+                        // console.log("~~>> unused field slugs ", field.slug)
                         unusedFieldsSlugs[field.slug] = 0
                         continue
                     }
+                    fieldsWithPermissions.push(field);
+                } else if (!roleId) {
                     fieldsWithPermissions.push(field);
                 } else {
                     unusedFieldsSlugs[field.slug] = 0

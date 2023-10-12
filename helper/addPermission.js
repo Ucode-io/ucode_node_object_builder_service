@@ -71,7 +71,7 @@ let permissionFunctions = {
                 let fieldPer = fieldPermissionMap.get(id);
                 if (fieldPer && roleId) {
                     if(tableSlug == "move_shipping_item") {
-                        console.log("~~> $test 1 field permission ", fieldPer, roleId)
+                        console.log("~~> $test 1 field permission ", JSON.stringify(fieldPer), roleId)
                     }
                     if (field.attributes) {
                         let decodedAttributes = struct.decode(field.attributes);
@@ -93,12 +93,12 @@ let permissionFunctions = {
                     fieldsWithPermissions.push(field);
                 } else if (!roleId) {
                     if(tableSlug == "move_shipping_item") {
-                        console.log("~~> $test 2 field permission ", fieldPer)
+                        console.log("~~> $test 2 field permission ", JSON.stringify(fieldPer))
                     }
                     fieldsWithPermissions.push(field);
                 } else {
                     if(tableSlug == "move_shipping_item") {
-                        console.log("~~> $test 3 field permission ", fieldPer)
+                        console.log("~~> $test 3 field permission ", JSON.stringify(fieldPer))
                     }
                     unusedFieldsSlugs[field.slug] = 0
                 }

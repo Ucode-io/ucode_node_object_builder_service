@@ -6,7 +6,7 @@ const config = require('../config/index')
 
 let permissionFunctions = {
     toField: async (fields, roleId, tableSlug, project_id) => {
-
+        console.log("~~~~ > ROLEID", roleId)
         let unusedFieldsSlugs = {}
 
         try {
@@ -94,6 +94,7 @@ let permissionFunctions = {
                     unusedFieldsSlugs[field.slug] = 0
                 }
             }
+            console.log(":~~~~> unused fields ", unusedFieldsSlugs)
             return {fieldsWithPermissions, unusedFieldsSlugs};
 
         } catch (err) {

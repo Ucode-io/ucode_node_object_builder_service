@@ -4,6 +4,7 @@ const con = require("../../config/kafkaTopics");
 const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
+const menuStore = require("./menu");
 
 const mongoPool = require('../../pkg/pool');
 
@@ -37,6 +38,22 @@ let tableStore = {
 
                 table.commit_guid = tableHistory.guid
                 await table.save()
+
+                let addToFav = {
+                    project_id: data.project_id,
+                    icon: "",
+                    table_id: response.id,
+                    attributes: {
+                        label_aa: response.label,
+                        label_ak: response.label
+                    },
+                    type: "TABLE",
+                    label: response.label,
+                    parent_id: "c57eedc3-a954-4262-a0af-376c65b5a282",
+
+                }
+
+                await menuStore.create(addToFav)
             }
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]

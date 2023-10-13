@@ -24,7 +24,7 @@ let permissionFunctions = {
             let table = {}, fieldResp = {};
             for (const field of fields) {
                 if (field.id.includes("#")) {
-                    console.log("enter field with # in get list");
+                    
                     table = await Table.findOne({
                         slug: tableSlug
                     });
@@ -69,9 +69,10 @@ let permissionFunctions = {
                     id = relationFieldPermissionMap.get(id.split("#")[1]);
                 }
                 let fieldPer = fieldPermissionMap.get(id);
+                // console.log("::---- test 1", field.slug, roleId, !roleId, fieldPer)
                 if (fieldPer && roleId) {
                     if(tableSlug == "move_shipping_item") {
-                        console.log("~~> $test 1 field permission ", JSON.stringify(fieldPer), roleId)
+                        // console.log("~~> $test 1 field permission ", JSON.stringify(fieldPer), roleId)
                     }
                     if (field.attributes) {
                         let decodedAttributes = struct.decode(field.attributes);
@@ -97,16 +98,10 @@ let permissionFunctions = {
                     }
                     fieldsWithPermissions.push(field);
                 } else {
-                    if(tableSlug == "move_shipping_item") {
-                        console.log("~~> $test 3 field permission ", JSON.stringify(fieldPer))
-                    }
                     unusedFieldsSlugs[field.slug] = 0
                 }
             }
 
-            if(tableSlug == "move_shipping_item") {
-                console.log("~~> $test 4 Unused field slugs", unusedFieldsSlugs)
-            }
             return {fieldsWithPermissions, unusedFieldsSlugs};
 
         } catch (err) {

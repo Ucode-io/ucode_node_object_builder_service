@@ -4355,3 +4355,24 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'mongo connection error Password contains unescaped characters',
+  level: 'error',
+  timestamp: '2023-10-13T09:23:16.092Z',
+  label: 'object_builder_service',
+  metadata: {
+    stack: 'MongoParseError: Password contains unescaped characters\n' +
+      '    at new ConnectionString (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb-connection-string-url/lib/index.js:115:23)\n' +
+      '    at parseOptions (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/connection_string.js:200:17)\n' +
+      '    at new MongoClient (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/mongo_client.js:45:63)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:802:16\n' +
+      '    at new Promise (<anonymous>)\n' +
+      '    at Connection.openUri (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:799:19)\n' +
+      '    at Mongoose.createConnection (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/config/mongoConn.js:43:33)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:128:39\n' +
+      '    at Object.reconnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/index_dev.js:40:30\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+  }
+}

@@ -93204,3 +93204,248 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-13T09:23:15.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-13T09:23:15.993Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus',
+  level: 'debug',
+  timestamp: '2023-10-13T09:23:15.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Password contains unescaped characters',
+  level: 'error',
+  timestamp: '2023-10-13T09:23:16.092Z',
+  label: 'object_builder_service',
+  metadata: {
+    stack: 'MongoParseError: Password contains unescaped characters\n' +
+      '    at new ConnectionString (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb-connection-string-url/lib/index.js:115:23)\n' +
+      '    at parseOptions (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/connection_string.js:200:17)\n' +
+      '    at new MongoClient (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/mongo_client.js:45:63)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:802:16\n' +
+      '    at new Promise (<anonymous>)\n' +
+      '    at Connection.openUri (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:799:19)\n' +
+      '    at Mongoose.createConnection (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/config/mongoConn.js:43:33)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:128:39\n' +
+      '    at Object.reconnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/index_dev.js:40:30\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: Password contains unescaped characters',
+  level: 'info',
+  timestamp: '2023-10-13T09:23:16.095Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-13T09:24:08.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-13T09:24:08.981Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-13T09:24:08.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-13T09:24:09.838Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-13T09:27:58.730Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-13T09:27:58.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-13T09:27:58.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-13T09:27:59.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-13T09:34:03.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-13T09:36:08.126Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-13T09:37:02.921Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-13T09:37:02.927Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-13T09:37:02.928Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-13T09:37:03.671Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-13T09:43:17.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-13T09:44:03.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-13T09:44:54.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-13T09:44:54.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-13T09:44:54.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-13T09:44:55.683Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-13T09:51:39.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-13T09:52:09.526Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-13T09:58:57.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-13T09:58:57.112Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-13T09:58:57.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs:BrgJUDRaus@142.93.164.37:27017/rubicone_81c3364d8e2344a68104222c927a5adf_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-13T09:58:57.871Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-13T10:05:28.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-13T10:05:52.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

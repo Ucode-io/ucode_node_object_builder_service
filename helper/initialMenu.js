@@ -259,25 +259,18 @@ module.exports = async function (data) {
             "layout_id": "",
             "type": "FOLDER"
         }, {
-            "label": "Profil settings",
-            "icon": "user.svg",
-            "id": "3b74ee68-26e3-48c8-bc95-257ca7d6aa5c",
+            "label": "Constructor",
+            "icon": "code.svg",
+            "id": "c19594a8-9b5e-4c12-a0a1-f97c2357070c",
             "created_at": new Date(),
             "updated_at": new Date(),
             "__v": 0,
-            "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+            "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
             "table_id": "",
             "layout_id": "",
-            "type": "LINK",
-            "attributes": {
-                "fields": {
-                    "link": {
-                        "stringValue": "/main/fadc103a-b411-4a1a-b47c-e794c33f85f6/object/{login_table_slug}/{user_id}",
-                        "kind": "stringValue"
-                    },
-                }
-            },
-        }]
+            "type": "FOLDER"
+        }
+    ]
         let bulkWriteMenus = []
         for (const menu of staticMenus) {
             bulkWriteMenus.push({

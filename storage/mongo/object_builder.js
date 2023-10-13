@@ -858,6 +858,7 @@ let objectBuilder = {
         const allTables = (await ObjectBuilder(true, req.project_id))
         const viewPermission = allTables["view_permission"]
         const tableInfo = allTables[req.table_slug]
+        let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
             throw new Error("table not found")
         }
@@ -1335,7 +1336,7 @@ let objectBuilder = {
         console.log("TEST::::::6")
 
 
-        let {fieldsWithPermissions, unusedFieldsSlugs} = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
+        let {fieldsWithPermissions, unusedFieldsSlugs} = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
 
         let result = [], count;
@@ -1922,6 +1923,7 @@ let objectBuilder = {
         delete params["client_type_id_from_token"]
         const allTables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = allTables[req.table_slug]
+        let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
             throw new Error("table not found")
         }
@@ -2125,7 +2127,7 @@ let objectBuilder = {
             }
         }
 
-        let {unusedFieldsSlugs} = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
+        let {unusedFieldsSlugs} = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
 
         let result = [], count;

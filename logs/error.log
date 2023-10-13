@@ -4355,3 +4355,59 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-10-13T06:07:23.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "test_favourite", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-10-13T06:07:23.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-10-13T06:11:31.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: db conn with given projectId does not exist',
+  level: 'error',
+  timestamp: '2023-10-13T06:11:31.278Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-10-13T06:12:40.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "test_favourite", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2023-10-13T06:12:40.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-10-13T06:16:01.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Connection error: ',
+  level: 'error',
+  timestamp: '2023-10-13T06:16:01.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

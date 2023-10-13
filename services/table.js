@@ -43,29 +43,6 @@ const tableService = {
             // console.log("it is createViews response", viewResp)
 
 
-            let event = {}
-            let table = {}
-            let fields = []
-            table.slug = call.request.slug
-            for (const field of call.request.fields) {
-                let type = converter(field.type)
-                if (field.slug !== "guid") {
-                    fields.push({
-                        slug: field.slug,
-                        type: type,
-                        index: field.index,
-                        required: field.required,
-                        default: field.default,
-                    })
-                }
-
-            }
-            table.fields = fields
-            event.payload = table
-            event.project_id = call.request.project_id || cfg.ucodeDefaultProjectID
-
-            await sendMessageToTopic(con.TopicTableCreateV1, event)
-
             callback(null, {
                 id: response.id
             });

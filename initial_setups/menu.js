@@ -164,6 +164,30 @@ async function createMenu() {
             }
           },
     },
+    {
+        "label": "Documents",
+        "icon": "folder.svg",
+        "id": "31a91a86-7ad3-47a6-a172-d33ceaebb35f",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+        "table_id": "",
+        "layout_id": "",
+        "type": "FOLDER"
+    },
+    {
+        "label": "Constructor",
+        "icon": "code.svg",
+        "id": "c19594a8-9b5e-4c12-a0a1-f97c2357070c",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+        "table_id": "",
+        "layout_id": "",
+        "type": "FOLDER"
+    }
     ]
 
     return menu

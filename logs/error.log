@@ -4376,3 +4376,38 @@
       '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
   }
 }
+{
+  message: 'service.view.getList: failed with error: Cannot populate path `view_permissions` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-10-17T08:44:42.671Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.view.getList: failed with error: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-10-17T09:05:11.250Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.view.getList: failed with error: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
+  level: 'error',
+  timestamp: '2023-10-17T09:05:13.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.getList: failed with error: Cannot populate path `view_permissions` because it is not in your schema. Set the `strictPopulate` option to false to override.',
+  level: 'error',
+  timestamp: '2023-10-17T09:10:41.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.custom_error_message.getList: failed with error: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2023-10-17T14:06:59.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

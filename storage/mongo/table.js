@@ -224,7 +224,7 @@ let tableStore = {
             const TableVersion = mongoConn.models['Table.version']
             const TableHistory = mongoConn.models['Table.history']
 
-            let params = { id: data.id }
+            let params = {$or: [{ id: data.id }, {slug: data.id}]}
             let table = null
             if (data.version_id) {
                 params.version_id = data.version_id

@@ -121,4 +121,11 @@ const ViewSchema = mongoose.Schema(
     }
 );
 
+ViewSchema.virtual("view_permissions", {
+    ref: "view_permission",
+    localField: "id",
+    foreignField: "view_id",
+    justOne: true,
+})
+
 module.exports = ViewSchema

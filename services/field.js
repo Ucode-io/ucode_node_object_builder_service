@@ -7,6 +7,7 @@ const fieldService = {
     GetByID: catchWrapService(`service.field.getByID`, fieldStore.getByID),
     GetAll: catchWrapService(`service.field.getAll`, fieldStore.getAll),
     Delete: catchWrapService(`service.field.delete`, fieldStore.delete),
+    GetAllForItems: catchWrapService(`service.field.getAllForItems`, fieldStore.getAllForItems),
 };
 
 module.exports = fieldService;

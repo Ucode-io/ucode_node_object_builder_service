@@ -189,11 +189,9 @@ let layoutStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
 
-            let table = {};
-            if (data.table_id === "") {
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                data.table_id = table.id;
-            }
+            let table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+            data.table_id = table.id;
+
 
             const layouts = await Layout.find(
                 {
@@ -254,7 +252,6 @@ let layoutStore = {
             for (const section of sections) {
                 let fieldsRes = []
                 for (const fieldReq of section.fields) {
-                    let guid;
                     let field = {};
                     let encodedAttributes = {};
                     if (fieldReq.id.includes("#")) {
@@ -271,8 +268,6 @@ let layoutStore = {
                             field.slug = fieldResp.slug
                             field.required = fieldResp.required
                         }
-
-                        // const relation = await Relation.findOne({ id: relationID })
                         const piplines = [
                             {
                                 '$match': {
@@ -398,7 +393,7 @@ let layoutStore = {
                     }
                 }
                 // this function add field permission for each field by role iddynamicTableInfo
-                let {fieldsWithPermissions} = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
+                let { fieldsWithPermissions } = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)
             }
@@ -415,14 +410,9 @@ let layoutStore = {
             const Field = mongoConn.models['Field']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            let table = {};
-            if (!data.table_id) {
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                data.table_id = table.id;
-            } else {
-                table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true);
-                data.table_slug = table.slug
-            }
+            let table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+            data.table_id = table.id;
+
             let payload = {
                 table_id: data.table_id,
             }
@@ -462,7 +452,7 @@ let layoutStore = {
                                 field.slug = fieldResp.slug
                                 field.required = fieldResp.required
                             }
-    
+
                             const relation = await Relation.findOne({ id: relationID })
                             let fieldAsAttribute = []
                             let view_of_relation;
@@ -502,7 +492,7 @@ let layoutStore = {
                                         }
                                     }
                                 }
-    
+
                                 field.is_editable = view_of_relation?.is_editable
                             }
                             let tableFields = await Field.find({ table_id: data.table_id })
@@ -541,7 +531,7 @@ let layoutStore = {
                                         if (viewOfDynamicRelation && viewOfDynamicRelation.view_fields && viewOfDynamicRelation.view_fields.length) {
                                             viewFieldsOfDynamicRelation = viewOfDynamicRelation.view_fields
                                         }
-    
+
                                         dynamicTableToAttribute["table"] = dynamicTableInfo._doc
                                         viewFieldsInDynamicTable = []
                                         for (const fieldId of viewFieldsOfDynamicRelation) {
@@ -571,7 +561,7 @@ let layoutStore = {
                                                 } else {
                                                     viewFieldsInDynamicTable.push(view_field._doc)
                                                 }
-    
+
                                             }
                                         }
                                         dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
@@ -608,9 +598,9 @@ let layoutStore = {
                                     function_path: view_of_relation?.function_path,
                                 }
                             }
-    
+
                             if (view_of_relation) {
-    
+
                                 if (view_of_relation.default_values && view_of_relation.default_values.length) {
                                     originalAttributes["default_values"] = view_of_relation.default_values
                                 }
@@ -637,7 +627,7 @@ let layoutStore = {
                             }
                         }
                     }
-                    let {fieldsWithPermissions} = await AddPermission.toField(summaryFields, data.role_id, table.slug, data.project_id)
+                    let { fieldsWithPermissions } = await AddPermission.toField(summaryFields, data.role_id, table.slug, data.project_id)
                     layout.summary_fields = fieldsWithPermissions
                 }
             }
@@ -681,7 +671,7 @@ let layoutStore = {
                     layout.tabs = map_tab[layout.id]
                 }
             }
-            
+
             return { layouts: layouts }
 
         } catch (error) {

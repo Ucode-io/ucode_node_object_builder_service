@@ -320,15 +320,9 @@ let fieldStore = {
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
 
-            let table = {};
-            if (data.table_id === "") {
-                // table = await Table.findOne({
-                //     slug: data.table_slug,
+            let table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true)
+            data.table_id = table.id;
 
-                // });
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true)
-                data.table_id = table.id;
-            }
             let query = {
                 name: RegExp(data.search, "i"),
                 table_id: data.table_id,
@@ -339,7 +333,6 @@ let fieldStore = {
                 {
                     name: RegExp(data.search, "i"),
                     table_id: data.table_id,
-                    // label: {"$ne": "IT'S RELATION"}
                 },
                 null,
                 {
@@ -350,7 +343,6 @@ let fieldStore = {
 
             let many_relation_fields = [];
             if (with_many_relations) {
-
                 const relations = await Relation.find({
                     $or: [{
                         $and: [{
@@ -370,7 +362,6 @@ let fieldStore = {
                 })
 
                 for (const relation of relations) {
-                    // let relationTable = await Table.findOne({ slug: relation.table_from,  })
                     let relationTable = await tableVersion(mongoConn, { slug: relation.table_from }, data.version_id, true)
 
                     let relationFields = await Field.find(
@@ -412,7 +403,6 @@ let fieldStore = {
                             }
 
                             field._doc.view_fields = viewFields
-                            // let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3),  })
                             let childRelationTable = await tableVersion(mongoConn, { slug: field.slug.slice(0, -3) }, data.version_id, true)
                             field._doc.table_label = relationTable?.label
                             field.label = childRelationTable?.label
@@ -455,7 +445,6 @@ let fieldStore = {
                 })
 
                 for (const relation of relations) {
-                    // let relationTable = await Table.findOne({ slug: relation.table_to,  })
                     let relationTable = await tableVersion(mongoConn, { slug: relation.table_to }, data.version_id, true)
                     let relationFields = await Field.find(
                         {
@@ -499,7 +488,6 @@ let fieldStore = {
                             }
 
                             field._doc.view_fields = viewFields
-                            // let childRelationTable = await Table.findOne({ slug: field.slug.slice(0, -3),  })
                             let childRelationTable = await tableVersion(mongoConn, { slug: field.slug.slice(0, -3) }, data.version_id, true)
                             field._doc.table_label = relationTable?.label
                             field.label = childRelationTable?.label
@@ -534,7 +522,7 @@ let fieldStore = {
             throw err
         }
     }),
-    getAllForItem: catchWrapDb(`${NAMESPACE}.getAllForItem`, async (req) => {
+    getAllForItems: catchWrapDb(`${NAMESPACE}.getAllForItems`, async (req) => {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const Field = mongoConn.models['Field']
@@ -546,6 +534,7 @@ let fieldStore = {
             }
             let fields = tableInfo.fields
             let tableRelationFields = {}
+
             fields.length && fields.forEach(field => {
                 if (field.relation_id) {
                     tableRelationFields[field.relation_id] = field
@@ -766,7 +755,7 @@ let fieldStore = {
                 fields: decodedFields,
                 relation_fields: relationsFields,
             });
-            
+
             return { table_slug: req.table_slug, data: response }
         } catch (err) {
             throw err

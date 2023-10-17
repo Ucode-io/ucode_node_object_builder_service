@@ -59,7 +59,7 @@ let viewStore = {
 
             const roles = await Role.find()
             let query = []
-            for(let el of roles) {
+            for (let el of roles) {
                 query.push({
                     guid: v4(),
                     view: true,
@@ -140,9 +140,10 @@ let viewStore = {
                 {
                     sort: { order: 1 }
                 }
-            ).lean();
+            ).populate({ path: "view_permissions", $match: { role_id: data.role_id } }).lean();
             views.forEach(el => {
                 if (el.attributes) {
+                    el.attributes["view_permissions"] = el["view_permissions"]
                     el.attributes = struct.encode(el)
                 }
             })
@@ -155,7 +156,7 @@ let viewStore = {
         }
     }
     ),
-    getSingle: catchWrapDb(`${NAMESPACE}.getList`, async (data) => {
+    getSingle: catchWrapDb(`${NAMESPACE}.getSingle`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const View = mongoConn.models['View']

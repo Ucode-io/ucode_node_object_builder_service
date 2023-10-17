@@ -410,9 +410,14 @@ let layoutStore = {
             const Field = mongoConn.models['Field']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
-            let table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-            data.table_id = table.id;
-
+            let table = {};
+            if (!data.table_id) {
+                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+                data.table_id = table.id;
+            } else {
+                table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true);
+                data.table_slug = table.slug
+            }
             let payload = {
                 table_id: data.table_id,
             }

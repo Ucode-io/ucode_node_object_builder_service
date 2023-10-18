@@ -4376,3 +4376,24 @@
       '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
   }
 }
+{
+  message: 'service.fileStore.create: failed with error: Files is not a constructor',
+  level: 'error',
+  timestamp: '2023-10-18T10:36:02.369Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.create: failed with error: mongoPool is not defined',
+  level: 'error',
+  timestamp: '2023-10-18T10:49:19.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.fileStore.create: failed with error: Cannot read properties of undefined (reading 'create')",
+  level: 'error',
+  timestamp: '2023-10-18T10:52:44.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

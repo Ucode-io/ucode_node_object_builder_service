@@ -93554,3 +93554,374 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T09:52:28.224Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T09:52:28.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T09:52:28.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T09:52:28.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T09:53:28.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T10:17:57.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T10:17:57.287Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T10:17:57.287Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T10:17:57.798Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T10:19:01.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://vertebra_vertebra_object_builder_service:f7NJv0ZaKr@142.93.164.37:27017/vertebra_vertebra_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-18T10:19:36.705Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://vertebra_vertebra_object_builder_service:f7NJv0ZaKr@142.93.164.37:27017/vertebra_vertebra_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-18T10:19:37.327Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T10:29:23.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T10:29:23.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T10:29:23.365Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T10:29:23.899Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T10:30:27.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://vertebra_vertebra_object_builder_service:f7NJv0ZaKr@142.93.164.37:27017/vertebra_vertebra_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-18T10:33:18.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://vertebra_vertebra_object_builder_service:f7NJv0ZaKr@142.93.164.37:27017/vertebra_vertebra_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-18T10:33:19.165Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.create: failed with error: Files is not a constructor',
+  level: 'error',
+  timestamp: '2023-10-18T10:36:02.369Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T10:46:53.419Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T10:46:53.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T10:46:53.423Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T10:46:53.959Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T10:47:57.993Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.create: failed with error: mongoPool is not defined',
+  level: 'error',
+  timestamp: '2023-10-18T10:49:19.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T10:50:07.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T10:50:07.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T10:50:07.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T10:50:07.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T10:51:11.104Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.fileStore.create: failed with error: Cannot read properties of undefined (reading 'create')",
+  level: 'error',
+  timestamp: '2023-10-18T10:52:44.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T10:57:58.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T10:57:58.569Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T10:57:58.570Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T10:57:59.062Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T10:59:03.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T10:59:42.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:01:24.687Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:02:34.766Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.update: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:03:26.851Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T11:08:01.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T11:08:01.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T11:08:01.355Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T11:08:01.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T11:09:04.812Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:09:54.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:10:07.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.update: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:10:20.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:10:42.367Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.delete: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:11:55.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:13:39.592Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T11:14:14.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

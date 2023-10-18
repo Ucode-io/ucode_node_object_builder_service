@@ -18,6 +18,9 @@ const MenuSettingsSchema = mongoose.Schema(
         },
         menu_template_id: {
             type: String
+        },
+        user_id: {
+            type: String
         }
     },
     {
@@ -27,4 +30,5 @@ const MenuSettingsSchema = mongoose.Schema(
     }
 );
 
+MenuSettingsSchema.index({ 'id': 1, 'user_id': 1, }, { unique: true });
 module.exports = MenuSettingsSchema

@@ -4478,4 +4478,14 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> fbd515021dd728ce0605559468bdd425871edb22
+=======
+{
+  message: 'service.menu.getByID: failed with error: id is not defined',
+  level: 'error',
+  timestamp: '2023-10-18T05:20:47.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> af36acf6dd1235f3b335922b907ed0d0e1da56ea

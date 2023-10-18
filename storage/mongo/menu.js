@@ -24,7 +24,7 @@ let menuStore = {
                 if (!data.label) data.label = table?.label
             }
 
-            if (constants.MENU_TYPES.includes(data.type) && constants.STATIC_MENU_IDS.includes(data.parent_id)) {
+            if (data.type == "MINIO_FOLDER") {
                 console.log("CREATING FOLDER INSIDE ID STORAGE")
                 await folderMinio.createFolderToBucket(data.project_id, data.label)
             }

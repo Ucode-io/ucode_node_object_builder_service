@@ -37,8 +37,5 @@ import "layout.proto";
 import "menu.proto";
 import "custom_error_message.proto";
 import "report_setting_service.proto";
-<<<<<<< HEAD
 import "items.proto";
-=======
 import "file.proto";
->>>>>>> 7cd57512948657616b4900f4dc24c54976e40887

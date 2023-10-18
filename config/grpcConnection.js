@@ -38,6 +38,7 @@ const menuService = require("../services/menu");
 const customErrorMessageService = require("../services/custom_error_message");
 const reportSettting = require("../services/report_setting_service");
 const itemsService = require("../services/items");
+const fileService = require("../services/file");
 
 const PROTO_URL =
     __dirname +
@@ -98,6 +99,7 @@ module.exports = async function () {
             server.addService(objectBuilderProto.CustomErrorMessageService.service, customErrorMessageService);
             server.addService(objectBuilderProto.ReportSettingService.service, reportSettting);
             server.addService(objectBuilderProto.ItemsService.service, itemsService)
+            server.addService(objectBuilderProto.FileService.service, fileService);
 
             server.bindAsync(
                 "0.0.0.0:" + cfg.RPCPort,

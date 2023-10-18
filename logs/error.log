@@ -4441,23 +4441,37 @@
   }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f75b07dcd7722c3b9b4eda9a8ee7cf700cb5cc74
 =======
 {
   message: 'service.view.getList: failed with error: Cannot populate path `view_permissions` because it is not in your schema. Set the `strictPopulate` option to false to override.',
   level: 'error',
   timestamp: '2023-10-17T08:44:42.671Z',
+=======
+{
+  message: 'service.fileStore.create: failed with error: Files is not a constructor',
+  level: 'error',
+  timestamp: '2023-10-18T10:36:02.369Z',
+>>>>>>> 45dae8c5d30244d9bee027f76f33fbf0df5430bf
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.view.getList: failed with error: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
   level: 'error',
   timestamp: '2023-10-17T09:05:11.250Z',
+=======
+  message: 'service.fileStore.create: failed with error: mongoPool is not defined',
+  level: 'error',
+  timestamp: '2023-10-18T10:49:19.310Z',
+>>>>>>> 45dae8c5d30244d9bee027f76f33fbf0df5430bf
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.view.getList: failed with error: FieldPath field names may not start with '$'. Consider using $getField or $setField.",
   level: 'error',
   timestamp: '2023-10-17T09:05:13.270Z',
@@ -4489,3 +4503,11 @@
   metadata: {}
 }
 >>>>>>> af36acf6dd1235f3b335922b907ed0d0e1da56ea
+=======
+  message: "service.fileStore.create: failed with error: Cannot read properties of undefined (reading 'create')",
+  level: 'error',
+  timestamp: '2023-10-18T10:52:44.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 45dae8c5d30244d9bee027f76f33fbf0df5430bf

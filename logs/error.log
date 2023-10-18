@@ -4411,3 +4411,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.menu.getByID: failed with error: id is not defined',
+  level: 'error',
+  timestamp: '2023-10-18T05:20:47.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -274,7 +274,6 @@ let menuStore = {
             const Menu = mongoConn.models['object_builder_service.menu']
 
             const menu = await Menu.findOne({ id: data.id });
-
             return menu;
         } catch (err) {
             throw err
@@ -290,7 +289,7 @@ let menuStore = {
             }
             const Menu = mongoConn.models['object_builder_service.menu']
 
-            const menu = await Menu.findOneAndDelete({ id: data.id }, {new: true});
+            const menu = await Menu.findOneAndDelete({ id: data.id }, { new: true });
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
             return menu;
@@ -354,7 +353,7 @@ let menuStore = {
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
-            let resp = await MenuSettings.findOne({ id: data.id }).lean()
+            let resp = await MenuSettings.findOne({ user_id: data.user_id }).lean()
             if (!resp) {
                 throw Error("Menu Templete not found with given id!")
             }
@@ -501,8 +500,8 @@ let menuStore = {
                 }
             }
 
-            await MenuModel.deleteMany({id: {$in: data.menu_ids}})
-            await MenuPermissionModel.deleteMany({menu_id: {$in: data.menu_ids}})
+            await MenuModel.deleteMany({ id: { $in: data.menu_ids } })
+            await MenuPermissionModel.deleteMany({ menu_id: { $in: data.menu_ids } })
 
             await MenuModel.insertMany(data.menus)
             await MenuPermissionModel.insertMany(menu_permissions)

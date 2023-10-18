@@ -130639,3 +130639,539 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T04:55:25.097Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T04:55:25.098Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T04:55:25.098Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T04:55:25.582Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T04:56:24.412Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.createMenuSettings: requested - {\n' +
+    '  "icon_style": "MODERN",\n' +
+    '  "icon_size": "MEDIUM",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "menu_template_id": "a2e3dff9-d01c-417f-b271-500736179906",\n' +
+    '  "user_id": "41d15228-4613-4b62-8e77-f3cacf2e4143"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T05:20:22.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.createMenuSettings: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T05:20:22.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "user_id": "41d15228-4613-4b62-8e77-f3cacf2e4143"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T05:20:47.716Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: failed with error: id is not defined',
+  level: 'error',
+  timestamp: '2023-10-18T05:20:47.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T05:21:04.678Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T05:21:04.680Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T05:21:04.680Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T05:21:05.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T05:22:08.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "user_id": "41d15228-4613-4b62-8e77-f3cacf2e4143"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T05:22:23.467Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T05:22:23.625Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T05:23:01.173Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T05:23:01.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T05:23:01.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T05:23:01.684Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T05:24:04.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "user_id": "41d15228-4613-4b62-8e77-f3cacf2e4143"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T05:24:08.574Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T05:24:08.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T05:24:47.197Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T05:24:47.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T05:24:47.198Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T05:24:47.690Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T05:25:47.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "user_id": "41d15228-4613-4b62-8e77-f3cacf2e4143"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T05:25:50.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T05:25:50.690Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T05:28:16.223Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T05:28:16.224Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T05:28:16.224Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T05:28:16.732Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T05:29:20.456Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "user_id": "41d15228-4613-4b62-8e77-f3cacf2e4143"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T05:29:23.079Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T05:29:23.240Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T07:48:54.354Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T07:48:54.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T07:48:54.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T07:48:54.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T07:49:57.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: requested - {\n' +
+    '  "id": "41d15228-4613-4b62-8e77-f3cacf2e4143",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "template_id": "a2e3dff9-d01c-417f-b271-500736179906",\n' +
+    '  "user_id": "41d15228-4613-4b62-8e77-f3cacf2e4143"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T07:50:14.845Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T07:50:15.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: requested - {\n' +
+    '  "id": "41d15228-4613-4b62-8e77-f3cacf2e4143",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "template_id": "a2e3dff9-d01c-417f-b271-500736179906",\n' +
+    '  "user_id": "41d15228-4613-4b62-8e77-f3cacf2e4143"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T07:51:59.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T07:51:59.207Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "parent_id": "",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T07:57:24.036Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T07:57:24.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T07:57:38.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T07:57:38.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "TEST MENU",\n' +
+    '  "icon": "user.svg",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "FOLDER",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T08:00:46.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T08:00:46.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T08:00:53.563Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T08:00:53.833Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "TEST",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T08:00:58.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T08:00:58.223Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.delete: requested - {\n' +
+    '  "id": "8ed69976-6a4f-4dc5-baa7-2f7020b374cb",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "user_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T08:02:02.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.delete: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T08:02:02.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "TEST",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "b0c9da77-8686-41f8-a4cb-32b2e1b4c807",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T08:02:09.337Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T08:02:09.510Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "23fdcf36-8649-43bc-b57d-177f1719a4cf",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "user_id": "41d15228-4613-4b62-8e77-f3cacf2e4143"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T08:02:47.544Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T08:02:47.624Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

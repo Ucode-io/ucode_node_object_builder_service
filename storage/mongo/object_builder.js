@@ -871,7 +871,7 @@ let objectBuilder = {
                 tableRelationFields[field.relation_id] = field
             }
         })
-        
+
         let with_relations = params.with_relations
 
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
@@ -1336,7 +1336,7 @@ let objectBuilder = {
         console.log("TEST::::::6")
 
 
-        let {fieldsWithPermissions, unusedFieldsSlugs} = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
+        let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
 
         let result = [], count;
@@ -2127,7 +2127,7 @@ let objectBuilder = {
             }
         }
 
-        let {unusedFieldsSlugs} = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
+        let { unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
 
         let result = [], count;
@@ -3273,7 +3273,7 @@ let objectBuilder = {
             }
         }
         // this function add field permission for each field by role id
-        let {fieldsWithPermissions} = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
+        let { fieldsWithPermissions } = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
         // below for loop is in order to decode FIELD.ATTRIBUTES from proto struct to normal object
         for (const element of fieldsWithPermissions) {
@@ -4280,26 +4280,24 @@ let objectBuilder = {
         const params = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-        if (params.match["$match"]["updatedAt"] && params.match["$match"]["updatedAt"]["$gte"]) {
-            const datetime = params.match["$match"]["updatedAt"]["$gte"]
-            const date = new Date(datetime);
-            params.match["$match"]["updatedAt"]["$gte"] = date
-        }
-
         let aggregationPipeline = [];
 
-        if (params.date_filter) {
-            let dateFromStringQuery = { [params.date_filter.match_date_field]: { $cond: [{ $or: [{ $eq: ["$" + params.date_filter.match_date_field, ""] }, { $eq: ["$" + params.date_filter.match_date_field, null] }] }, null, { $dateFromString: { dateString: "$" + params.date_filter.match_date_field } }] } }
-            let sortValuesQuery = { [params.date_filter.match_date_field]: 1 }
-            params.match.$match = { ...params.match.$match, [params.date_filter.match_date_field]: { $gte: new Date(params.date_filter.from_date), $lt: new Date(params.date_filter.to_date), $ne: "", $exists: true } }
-            aggregationPipeline.push({ $addFields: { ...dateFromStringQuery } }, { $sort: { ...sortValuesQuery } })
+        if (params.match) {
+            if (params.date_filter) {
+                let dateFromStringQuery = { [params.date_filter.match_date_field]: { $cond: [{ $or: [{ $eq: ["$" + params.date_filter.match_date_field, ""] }, { $eq: ["$" + params.date_filter.match_date_field, null] }] }, null, { $dateFromString: { dateString: "$" + params.date_filter.match_date_field } }] } }
+                let sortValuesQuery = { [params.date_filter.match_date_field]: 1 }
+                params.match.$match = { ...params.match.$match, [params.date_filter.match_date_field]: { $gte: new Date(params.date_filter.from_date), $lt: new Date(params.date_filter.to_date), $ne: "", $exists: true } }
+                aggregationPipeline.push({ $addFields: { ...dateFromStringQuery } }, { $sort: { ...sortValuesQuery } })
+            }
+            if (params.match["$match"]["updatedAt"] && params.match["$match"]["updatedAt"]["$gte"]) {
+                const datetime = params.match["$match"]["updatedAt"]["$gte"]
+                const date = new Date(datetime);
+                params.match["$match"]["updatedAt"]["$gte"] = date
+            }
+            aggregationPipeline.push({ ...params.match },)
         }
 
-        aggregationPipeline.push(
-            { ...params.match },
-            { ...params.query },
-            ...(params.lookups || []),
-        )
+        aggregationPipeline.push({ ...params.query }, ...(params.lookups || []))
 
         if (params.second_match) { aggregationPipeline.push({ $match: params.second_match }); }
         if (params.project && Object.keys(params.project).length > 0) { aggregationPipeline.push({ ...params.project }); }

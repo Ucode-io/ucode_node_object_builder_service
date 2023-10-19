@@ -9,6 +9,7 @@ let fileStore = {
 
         const mongoConn = await mongoPool.get(data.project_id)
         const Files = mongoConn.models['File']
+        data.createdAt = new Date();
         const response = await Files.create(data);
 
         return response;
@@ -38,7 +39,9 @@ let fileStore = {
         const mongoConn = await mongoPool.get(data.project_id)
         const Files = mongoConn.models['File']
 
-        let query = {}
+        let query = {
+            storage: data.folder_name
+        }
         if (data.search != "") {
             query = {
                     title: { $regex: ".*" + data.search + ".*", $options: "i" }

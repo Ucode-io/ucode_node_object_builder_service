@@ -93925,3 +93925,101 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-19T04:03:23.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-19T04:03:23.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-19T04:03:23.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-19T04:03:24.221Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-19T04:04:25.659Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-19T04:05:21.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-19T04:05:32.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-19T04:05:52.078Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-19T04:06:03.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-19T04:06:05.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-19T04:06:05.796Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-19T04:06:06.105Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-19T04:06:06.993Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-10-19T04:06:07.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

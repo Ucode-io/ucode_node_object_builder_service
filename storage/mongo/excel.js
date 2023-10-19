@@ -363,6 +363,8 @@ let excelStore = {
                                 value = i
 
                                 objectToDb[field?.slug] = value
+                            } else {
+                                objectToDb[field?.slug] = value
                             }
                         }
                         // if (value) {

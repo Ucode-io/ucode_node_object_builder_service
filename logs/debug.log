@@ -80779,3 +80779,213 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T14:46:07.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T14:46:07.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "port": 30027,\n' +
+    '    "host": "65.109.239.69"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-18T14:46:07.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T14:46:07.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T14:46:07.914Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-18T14:46:47.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-18T14:46:47.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: requested, {\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "credentials": {\n' +
+    '    "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "password": "dhQXmMIX3N",\n' +
+    '    "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",\n' +
+    '    "port": 30027,\n' +
+    '    "host": "65.109.239.69"\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-18T14:46:47.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-10-18T14:46:47.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-10-18T14:46:47.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.project.reconnect: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-18T14:47:50.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-18T14:47:50.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "Test Juba",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",\n' +
+    '  "type": "MINIO_FOLDER",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T14:54:00.012Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.create: requested, {\n' +
+    '  "label": "Test Juba",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",\n' +
+    '  "type": "MINIO_FOLDER",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-18T14:54:00.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-18T14:54:00.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T14:54:00.291Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "Test Juba child",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "97591d82-19df-4a77-be3c-c34b5c21fdc2",\n' +
+    '  "type": "MINIO_FOLDER",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-18T14:55:33.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.create: requested, {\n' +
+    '  "label": "Test Juba child",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "97591d82-19df-4a77-be3c-c34b5c21fdc2",\n' +
+    '  "type": "MINIO_FOLDER",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  }\n' +
+    '}',
+  level: 'debug',
+  timestamp: '2023-10-18T14:55:33.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'storage.menu.create: succeeded',
+  level: 'debug',
+  timestamp: '2023-10-18T14:55:34.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-18T14:55:34.190Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

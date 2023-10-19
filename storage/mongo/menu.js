@@ -26,7 +26,30 @@ let menuStore = {
 
             if (data.type == "MINIO_FOLDER") {
                 console.log("CREATING FOLDER INSIDE ID STORAGE")
-                await folderMinio.createFolderToBucket(data.project_id, data.label)
+                let folder_name = ""
+                let menu
+                if (data.parent_id != "" && data.parent_id != "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9") {
+                    menu = await Menu.findOne({id: data.parent_id})
+                    if (menu && menu.attributes) {
+                        let attributes = struct.decode(menu.attributes)
+                        if (attributes && attributes.path) {
+                            data.attributes.fields["path"] = {
+                                stringValue: attributes.path + "/"+ data.label,
+                                kind: "stringValue"
+                            }
+                            folder_name = attributes.path + "/"+ data.label
+                        }
+                    }
+                } else {
+                    data.attributes.fields["path"] = {
+                        stringValue: data.label,
+                        kind: "stringValue"
+                    }
+                    folder_name = data.label
+                }
+
+
+                await folderMinio.createFolderToBucket(data.project_id, folder_name)
             }
             const response = await Menu.create(data);
 

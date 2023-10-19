@@ -4376,3 +4376,79 @@
       '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
   }
 }
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-19T11:30:15.577Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: error encountered while reading secret at secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB: Error making API request.
+    
+    URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB
+    Code: 403. Errors:
+    
+    * 1 error occurred:
+    	* permission denied
+    
+    
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 13,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB: Error making API request.\n' +
+        '\n' +
+        'URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB\n' +
+        'Code: 403. Errors:\n' +
+        '\n' +
+        '* 1 error occurred:\n' +
+        '\t* permission denied\n' +
+        '\n',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-19T11:42:43.062Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: error encountered while reading secret at secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB: Error making API request.
+    
+    URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB
+    Code: 403. Errors:
+    
+    * 1 error occurred:
+    	* permission denied
+    
+    
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 13,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB: Error making API request.\n' +
+        '\n' +
+        'URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB\n' +
+        'Code: 403. Errors:\n' +
+        '\n' +
+        '* 1 error occurred:\n' +
+        '\t* permission denied\n' +
+        '\n',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}

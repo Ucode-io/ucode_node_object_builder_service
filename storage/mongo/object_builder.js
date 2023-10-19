@@ -2982,6 +2982,8 @@ let objectBuilder = {
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
         try {
 
+            console.log(":appendMany2Many request", data)
+
             const mongoConn = await mongoPool.get(data.project_id)
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
             if (!fromTableModel) {
@@ -3029,7 +3031,7 @@ let objectBuilder = {
                 } else {
                     modelTo[data.table_from + "_ids"] = [data.id_from]
                 }
-                // console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
+                console.log("Debug >> test #4>>", el,  " ~~~ ",data.table_from + "_ids", " ~~~ ",modelTo[data.table_from + "_ids"])
                 await toTableModel.models.updateOne({
                     guid: el,
                 },

@@ -274,6 +274,7 @@ let prepareFunction = {
                     } else if (relation.table_from === req.table_slug) {
                         appendMany2ManyObj.table_to = relation.table_to
                     }
+                    
                     appendMany2Many.push(appendMany2ManyObj)
                 }
                 if (deletedIds.length) {
@@ -297,6 +298,8 @@ let prepareFunction = {
         event.payload.field_types = field_types
         event.payload.data = dataToAnalytics
         event.project_id = req.project_id
+        console.log(":: prepare function 1", appendMany2Many)
+        console.log(":: prepare function 2", deleteMany2Many)
         return { data, event, appendMany2Many, deleteMany2Many }
     },
 }

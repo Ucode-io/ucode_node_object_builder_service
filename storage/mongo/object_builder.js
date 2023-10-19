@@ -93,6 +93,10 @@ let objectBuilder = {
                 }
             }
 
+            if(!data.guid) {
+                data.guid = payload.guid
+            }
+
             const object = struct.encode({ data });
 
             let customMessage = ""
@@ -105,6 +109,7 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+            
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {

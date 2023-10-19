@@ -214,6 +214,7 @@ let excelStore = {
                                         project_id: req.project_id,
                                         data: params
                                     })
+                                    // console.log("test 0.1 ", objectFromObjectBuilder)
                                     if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                         if (field.attributes) {
                                             let fieldAttributes = struct.decode(field.attributes)
@@ -239,15 +240,16 @@ let excelStore = {
                                             data: struct.encode(payload)
                                         })
                                         let result = struct.decode(res.data)
+                                        console.log("test #0.11", result);
                                         objectToDb[field?.slug] = result?.data?.guid
                                     }
-                                    console.log("object to db", objectToDb);
+                                    // console.log("test #0.2", objectToDb);
                                     continue
                                 }
 
                             } else if (relation && relation.type == "Many2Many") {
                                 let values = row[rows[0].indexOf(column_slug)].split(",")
-                                console.log("val::", row[rows[0].indexOf(column_slug)], values)
+                                // console.log("val::", row[rows[0].indexOf(column_slug)], values)
 
                                 let params = {}
                                 let payload = {}
@@ -287,6 +289,7 @@ let excelStore = {
                                                 project_id: req.project_id,
                                                 data: params
                                             })
+                                            // console.log("test #1.1", objectFromObjectBuilder)
                                             if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                                 if (field.attributes) {
                                                     let fieldAttributes = struct.decode(field.attributes)
@@ -318,14 +321,15 @@ let excelStore = {
                                                     data: struct.encode(payload)
                                                 })
                                                 let result = struct.decode(res.data)
-                                   
+                                                // console.log("test #1.2", result)
                                                 if(!objectToDb[field?.slug] || !objectToDb[field?.slug].length) {
                                                     objectToDb[field?.slug] = [ result?.data?.guid  ]
                                                 } else {
                                                     objectToDb[field?.slug] = [ ...objectToDb[field?.slug], result?.data?.guid  ]
                                                 }
+
                                             }
-                                            // console.log("object to db many2many", objectToDb);
+                                            // console.log("test #1.3", objectToDb);
                                             continue
                                         }
 
@@ -377,7 +381,7 @@ let excelStore = {
                     objectsToDb.push(objectToDb)
                 }
 
-                // console.log(":>>> insert pipeline ", objectsToDb)
+                console.log(":>>> insert pipeline ", objectsToDb)
                 await obj.multipleInsert({
                     table_slug: req.table_slug,
                     data: struct.encode({ objects: objectsToDb }),

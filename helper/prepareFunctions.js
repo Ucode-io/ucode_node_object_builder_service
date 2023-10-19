@@ -250,8 +250,9 @@ let prepareFunction = {
 
             // this is many2many append and delete when many2many relation field type input
             if (field.type === "LOOKUPS") {
+                console.log('~~~ lookups field slug', field.slug, JSON.stringify(data[field.slug]))
                 if (data[field.slug] && objectBeforeUpdate[field.slug]) {
-                    let olderArr = objectBeforeUpdate[field.slug]
+                    let olderArr = objectBeforeUpdate[field.slug] || []
                     let newArr = data[field.slug]
                     if (Array.isArray(newArr)) {
                         newIds = newArr.filter(val => !olderArr.includes(val))

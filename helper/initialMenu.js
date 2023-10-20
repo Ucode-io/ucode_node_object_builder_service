@@ -1,6 +1,8 @@
 const mongoPool = require('../pkg/pool');
-const { v4 } = require("uuid")
-const bucket = require("./addMinioBucket")
+const { v4 } = require("uuid");
+const bucket = require("./addMinioBucket");
+const folderMinio = require("./addMinioBucket");
+
 
 module.exports = async function (data) {
     try {
@@ -188,31 +190,22 @@ module.exports = async function (data) {
             })
         }
 
-        let default_menu = await Menu.find({
-            parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
-         })
-         if (!default_menu.length) {
-             await Menu.create({
-                 "id":"f4089a64-4f6f-4604-a57a-b1c99f4d16a8",
-                 "icon":"",
-                 "attributes":{
-                    "label_aa":"Media",
-                    "label_ak":"Media",
-                    "path": "Media"
-                 },
-                 "parent_id":"8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
-                 "type":"MINIO_FOLDER",
-                 "label":"Media"
-              })
- 
-             const file_types = ["PHOTO", "FILE", "VIDEO", "CUSTOM_IMAGE"]
- 
-             await Field.updateMany({type: {$in: file_types}}, 
-                 {
-                 $set: 
-                 {
-                     minio_folder: "Media"
-                 }
+        let default_minio_menu = await Menu.find({
+           parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
+        })
+        if (!default_minio_menu.length) {
+            await folderMinio.createFolderToBucket(data.project_id, "Media")
+            await Menu.create({
+                "id":"f4089a64-4f6f-4604-a57a-b1c99f4d16a8",
+                "icon":"",
+                "attributes":{
+                   "label_aa":"Media",
+                   "label_ak":"Media",
+                   "path": "Media"
+                },
+                "parent_id":"8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
+                "type":"MINIO_FOLDER",
+                "label":"Media"
              })
          }
 

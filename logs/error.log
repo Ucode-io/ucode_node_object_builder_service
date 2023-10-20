@@ -4418,3 +4418,24 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.barcode.generateDynamicBarcode: failed with error: generateBarcode is not a function',
+  level: 'error',
+  timestamp: '2023-10-19T11:22:59.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.barcode.generateDynamicBarcode: failed with error: generateBarcode is not a function',
+  level: 'error',
+  timestamp: '2023-10-19T11:25:31.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.barcode.generateDynamicBarcode: failed with error: tableInfo is not defined',
+  level: 'error',
+  timestamp: '2023-10-19T11:53:17.173Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

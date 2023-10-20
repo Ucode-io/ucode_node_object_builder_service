@@ -168,15 +168,23 @@ let excelStore = {
                                 id: field.relation_id
                             })
 
-                            const viewFields = await Field.find({
-                                id: { $in: viewFieldIds }
-                            }).lean()
+                            const viewFields = []
+                            for(let el of viewFieldIds) {
+                                const field = await Field.find({
+                                    id: el
+                                }).lean()
+
+                                if(field) {
+                                    viewFields.push(field)
+                                }
+                            }
 
                             if (relation && relation.type !== "Many2Many") {
                                 let params = {}
                                 let payload = {}
                                 if (viewFields.length && viewFields.length > 1) {
                                     let values = row[rows[0].indexOf(column_slug)].split(";")
+                                    console.log(":!!! values ", values)
                                     for (let i = 0; i < viewFields.length; i++) {
                                         if (typeof values[i] === "string") {
                                             values[i] = values[i].replaceAll(")", "\)")
@@ -240,7 +248,7 @@ let excelStore = {
                                             data: struct.encode(payload)
                                         })
                                         let result = struct.decode(res.data)
-                                        console.log("test #0.11", result);
+                                        // console.log("test #0.11", payload);
                                         objectToDb[field?.slug] = result?.data?.guid
                                     }
                                     // console.log("test #0.2", objectToDb);

@@ -8,6 +8,7 @@ module.exports = async function (data) {
         const mongoConn = await mongoPool.get(data.project_id)
         const Menu = mongoConn.models['object_builder_service.menu']
         const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
+        const Field = mongoConn.models['Field']
         let rootMenu = await Menu.findOne({
             id: "c57eedc3-a954-4262-a0af-376c65b5a284",
         })
@@ -186,6 +187,34 @@ module.exports = async function (data) {
                 "bucket_path": data.project_id
             })
         }
+
+        let default_menu = await Menu.find({
+            parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
+         })
+         if (!default_menu.length) {
+             await Menu.create({
+                 "id":"f4089a64-4f6f-4604-a57a-b1c99f4d16a8",
+                 "icon":"",
+                 "attributes":{
+                    "label_aa":"Media",
+                    "label_ak":"Media",
+                    "path": "Media"
+                 },
+                 "parent_id":"8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
+                 "type":"MINIO_FOLDER",
+                 "label":"Media"
+              })
+ 
+             const file_types = ["PHOTO", "FILE", "VIDEO", "CUSTOM_IMAGE"]
+ 
+             await Field.updateMany({type: {$in: file_types}}, 
+                 {
+                 $set: 
+                 {
+                     minio_folder: "Media"
+                 }
+             })
+         }
 
         const UserAndPermissinMenu = await Menu.findOne({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
         if(UserAndPermissinMenu) {

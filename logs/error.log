@@ -6079,6 +6079,7 @@
   metadata: {}
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8
 {
@@ -6183,3 +6184,32 @@
   metadata: {}
 }
 >>>>>>> 9a26755e02ccf57ef7f6009851485a75733c7f66
+=======
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-03T10:55:15.865Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "9f47ff8c-a671-430c-88f8-ad322ee4d46a", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-10-06T15:42:44.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> 52ed6a73198100388c72393b5be3f2973786b40e

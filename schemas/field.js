@@ -75,6 +75,9 @@ const FieldSchema = mongoose.Schema(
         hide_multilanguage: {
             type: Boolean,
             default: false
+        },
+        minio_folder: {
+            type: String,
         }
     },
     {

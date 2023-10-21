@@ -1,5 +1,8 @@
 const mongoPool = require('../pkg/pool');
-const { v4 } = require("uuid")
+const { v4 } = require("uuid");
+const bucket = require("./addMinioBucket");
+const folderMinio = require("./addMinioBucket");
+
 
 module.exports = async function (data) {
     try {
@@ -7,6 +10,7 @@ module.exports = async function (data) {
         const mongoConn = await mongoPool.get(data.project_id)
         const Menu = mongoConn.models['object_builder_service.menu']
         const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
+        const Field = mongoConn.models['Field']
         let rootMenu = await Menu.findOne({
             id: "c57eedc3-a954-4262-a0af-376c65b5a284",
         })
@@ -163,6 +167,47 @@ module.exports = async function (data) {
                 "type": "FOLDER"
             })
         }
+        let files = await Menu.findOne({
+            id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
+        })
+        if (files) {
+            await bucket.createMinioBucket(data.project_id)
+        }
+        if (!files) {
+            await bucket.createMinioBucket(data.project_id)
+            await Menu.create({
+                "label": "Files",
+                "icon": "file-pdf.svg",
+                "id": "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER",
+                "bucket_path": data.project_id
+            })
+        }
+
+        let default_minio_menu = await Menu.find({
+           parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
+        })
+        if (!default_minio_menu.length) {
+            await folderMinio.createFolderToBucket(data.project_id, "Media")
+            await Menu.create({
+                "id":"f4089a64-4f6f-4604-a57a-b1c99f4d16a8",
+                "icon":"",
+                "attributes":{
+                   "label_aa":"Media",
+                   "label_ak":"Media",
+                   "path": "Media"
+                },
+                "parent_id":"8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
+                "type":"MINIO_FOLDER",
+                "label":"Media"
+             })
+         }
 
         const UserAndPermissinMenu = await Menu.findOne({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
         if(UserAndPermissinMenu) {

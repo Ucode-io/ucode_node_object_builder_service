@@ -46,6 +46,9 @@ const MenuSchema = mongoose.Schema(
         },
         pivot_template_id: {
             type: String,
+        },
+        bucket_path: {
+            type: String,
         }
     },
     {

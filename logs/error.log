@@ -4377,6 +4377,7 @@
   }
 }
 {
+<<<<<<< HEAD
   message: 'Error while auto connecting by project id',
   level: 'error',
   timestamp: '2023-10-19T11:30:15.577Z',
@@ -4451,4 +4452,25 @@
       }
     }
   }
+=======
+  message: 'service.fileStore.create: failed with error: Files is not a constructor',
+  level: 'error',
+  timestamp: '2023-10-18T10:36:02.369Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.create: failed with error: mongoPool is not defined',
+  level: 'error',
+  timestamp: '2023-10-18T10:49:19.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.fileStore.create: failed with error: Cannot read properties of undefined (reading 'create')",
+  level: 'error',
+  timestamp: '2023-10-18T10:52:44.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> 9a26755e02ccf57ef7f6009851485a75733c7f66
 }

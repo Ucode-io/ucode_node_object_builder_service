@@ -187,10 +187,10 @@ module.exports = async function (data) {
 
             
         }
-        let default_menu = await Menu.find({
+        let default_minio_menu = await Menu.find({
            parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
         })
-        if (!default_menu.length) {
+        if (!default_minio_menu.length) {
             await folderMinio.createFolderToBucket(data.project_id, "Media")
             await Menu.create({
                 "id":"f4089a64-4f6f-4604-a57a-b1c99f4d16a8",

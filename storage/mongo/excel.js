@@ -60,7 +60,7 @@ let excelStore = {
     ),
     ExcelToDb: catchWrapDb(`${NAMESPACE}.create`, async (req) => {
         const datas = struct.decode(req.data)
-        console.log("dataset: " + datas);
+        console.log("dataset: ", datas);
         // console.log("test project id:::", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
@@ -94,7 +94,6 @@ let excelStore = {
             object.on("data", (chunk) => fileStream.write(chunk));
             object.on("end", () => console.log(`Reading ${fileObjectKey} finished`))
             xlsxFile(createFilePath).then(async (rows) => {
-                // console.log("test 0");
                 let i = 0;
                 let objectsToDb = []
                 for (const row of rows) {
@@ -129,6 +128,7 @@ let excelStore = {
                         }
                         let options = []
                         // console.log("test 4");
+                        // console.log("~~~>", field.type)
                         if (field.type == "MULTISELECT" && value !== null && value.length) {
                             if (field.attributes) {
                                 field.attributes = struct.decode(field.attributes)
@@ -163,23 +163,33 @@ let excelStore = {
                             }
 
                         } else if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
+                            
                             relation = await Relation.findOne({
                                 id: field.relation_id
                             })
+
+                            const viewFields = []
+                            for(let el of viewFieldIds) {
+                                const field = await Field.find({
+                                    id: el
+                                }).lean()
+
+                                if(field) {
+                                    viewFields.push(field)
+                                }
+                            }
+
                             if (relation && relation.type !== "Many2Many") {
-                                const viewFields = await Field.find({
-                                    id: { $in: viewFieldIds }
-                                })
                                 let params = {}
                                 let payload = {}
                                 if (viewFields.length && viewFields.length > 1) {
-                                    let values = row[rows[0].indexOf(column_slug)].split(" ")
-                                    // console.log("val::", values);
+                                    let values = row[rows[0].indexOf(column_slug)].split(";")
+                                    console.log(":!!! values ", values)
                                     for (let i = 0; i < viewFields.length; i++) {
                                         if (typeof values[i] === "string") {
                                             values[i] = values[i].replaceAll(")", "\)")
                                             values[i] = values[i].replaceAll("(", "\(")
-                                            // console.log("val::", values[i]);
+                                            
                                             params[viewFields[i].slug] = RegExp(values[i], "i")
                                             payload[viewFields[i].slug] = values[i]
                                         } else {
@@ -196,7 +206,7 @@ let excelStore = {
                                                 val = val.replaceAll(")", "\\)")
                                                 val = val.replaceAll("(", "\\(")
                                             }
-                                            // console.log("val2222::", val);
+                                           
                                             params[viewField.slug] = RegExp(val, "i")
                                             payload[viewField.slug] = val
                                         } else {
@@ -212,6 +222,7 @@ let excelStore = {
                                         project_id: req.project_id,
                                         data: params
                                     })
+                                    // console.log("test 0.1 ", objectFromObjectBuilder)
                                     if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                         if (field.attributes) {
                                             let fieldAttributes = struct.decode(field.attributes)
@@ -237,16 +248,106 @@ let excelStore = {
                                             data: struct.encode(payload)
                                         })
                                         let result = struct.decode(res.data)
+                                        // console.log("test #0.11", payload);
                                         objectToDb[field?.slug] = result?.data?.guid
                                     }
-                                    console.log("object to db", objectToDb);
+                                    // console.log("test #0.2", objectToDb);
                                     continue
                                 }
 
+                            } else if (relation && relation.type == "Many2Many") {
+                                let values = row[rows[0].indexOf(column_slug)].split(",")
+                                // console.log("val::", row[rows[0].indexOf(column_slug)], values)
+
+                                let params = {}
+                                let payload = {}
+                                if (viewFields.length && viewFields.length > 1) {
+                                    for (let i = 0; i < viewFields.length; i++) {
+                                        if (typeof values[i] === "string" && isNaN(values[i])) {
+                                            values[i] = values[i].replaceAll(")", "\)")
+                                            values[i] = values[i].replaceAll("(", "\(")
+
+                                            params[viewFields[i].slug] = RegExp(values[i], "i")
+                                            payload[viewFields[i].slug] = values[i]
+                                        } else {
+                                            params[viewFields[i].slug] = values[i]
+                                            payload[viewFields[i].slug] = values[i]
+                                        }
+
+                                    }
+                                } else if (viewFields.length) {
+                                    for (let val of values) {
+                                        params = {}
+                                        if (typeof val === "string" && isNaN(val)) {
+                                            if (val) {
+                                                val = val.replaceAll(")", "\\)")
+                                                val = val.replaceAll("(", "\\(")
+                                            }
+                                           
+                                            params[viewFields[0].slug] = val
+                                            payload[viewFields[0].slug] = val
+                                        } else {
+                                            params[viewFields[0].slug] = val
+                                            payload[viewFields[0].slug] = val
+                                        }
+
+                                        if (Object.keys(params).length > 0) {
+                                            const objectFromObjectBuilder = await getSingleWithRelations({
+                                                table_slug: relation.table_to,
+                                                project_id: req.project_id,
+                                                data: params
+                                            })
+                                            // console.log("test #1.1", objectFromObjectBuilder)
+                                            if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
+                                                if (field.attributes) {
+                                                    let fieldAttributes = struct.decode(field.attributes)
+                                                    
+                                                    if (fieldAttributes && fieldAttributes.autofill && fieldAttributes.autofill.length) {
+                                                        for (const autoFill of fieldAttributes.autofill) {
+                                                            if (autoFill?.field_from?.includes('.')) {
+                                                                let splitedAutoFillField = autoFill.field_from.split('.')
+                                                                if (splitedAutoFillField && splitedAutoFillField.length) {
+                                                                    objectToDb[autoFill.field_to] = objectFromObjectBuilder.data[splitedAutoFillField[0]][splitedAutoFillField[1]]
+                                                                }
+                                                            } else {
+                                                                objectToDb[autoFill.field_to] = objectFromObjectBuilder.data[autoFill.field_from]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+        
+                                                if(!objectToDb[field?.slug] || !objectToDb[field?.slug].length) {
+                                                    objectToDb[field?.slug] = [ objectFromObjectBuilder.data.guid ]
+                                                } else {
+                                                    objectToDb[field?.slug] = [ ...objectToDb[field?.slug], objectFromObjectBuilder.data.guid ]
+                                                }
+                                               
+                                            } else {
+                                                res = await obj.create({
+                                                    project_id: req.project_id,
+                                                    table_slug: relation.table_to,
+                                                    data: struct.encode(payload)
+                                                })
+                                                let result = struct.decode(res.data)
+                                                // console.log("test #1.2", result)
+                                                if(!objectToDb[field?.slug] || !objectToDb[field?.slug].length) {
+                                                    objectToDb[field?.slug] = [ result?.data?.guid  ]
+                                                } else {
+                                                    objectToDb[field?.slug] = [ ...objectToDb[field?.slug], result?.data?.guid  ]
+                                                }
+
+                                            }
+                                            // console.log("test #1.3", objectToDb);
+                                            continue
+                                        }
+
+                                    }
+                                }
+                                
                             }
                         } else if (con.NUMBER_TYPES.includes(field.type)) {
                             let strNumber = value.toString()
-                            strNumber = strNumber.replace(/\,/g, '');
+                            strNumber = strNumber.replace(/\s,/g, '');
                             let i = 0
                             try {
                                 i = Number(strNumber)
@@ -255,6 +356,8 @@ let excelStore = {
                                 i = 0
                             }
                             value = i
+
+                            objectToDb[field?.slug] = value
 
                         } else if (con.STRING_TYPES.includes(field.type)) {
                             // console.log("EXCEL::::::::::::::::::::::::::::::::::::::", value)
@@ -270,17 +373,23 @@ let excelStore = {
                                     i = ""
                                 }
                                 value = i
+
+                                objectToDb[field?.slug] = value
+                            } else {
+                                objectToDb[field?.slug] = value
                             }
                         }
-                        if (value) {
-                            objectToDb[field?.slug] = value
-                        }
+                        // if (value) {
+                        //     objectToDb[field?.slug] = value
+                        // }
 
                     }
                     objectToDb['company_service_project_id'] = datas['company_service_project_id']
                     objectToDb['company_service_environment_id'] = datas['company_service_environment_id']
                     objectsToDb.push(objectToDb)
                 }
+
+                console.log(":>>> insert pipeline ", objectsToDb)
                 await obj.multipleInsert({
                     table_slug: req.table_slug,
                     data: struct.encode({ objects: objectsToDb }),

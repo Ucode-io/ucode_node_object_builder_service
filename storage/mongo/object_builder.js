@@ -93,6 +93,10 @@ let objectBuilder = {
                 }
             }
 
+            if(!data.guid) {
+                data.guid = payload.guid
+            }
+
             const object = struct.encode({ data });
 
             let customMessage = ""
@@ -105,6 +109,7 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+            
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
@@ -2977,6 +2982,8 @@ let objectBuilder = {
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
         try {
 
+            console.log(":appendMany2Many request", data)
+
             const mongoConn = await mongoPool.get(data.project_id)
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
             if (!fromTableModel) {
@@ -3024,7 +3031,7 @@ let objectBuilder = {
                 } else {
                     modelTo[data.table_from + "_ids"] = [data.id_from]
                 }
-                // console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
+                console.log("Debug >> test #4>>", el,  " ~~~ ",data.table_from + "_ids", " ~~~ ",modelTo[data.table_from + "_ids"])
                 await toTableModel.models.updateOne({
                     guid: el,
                 },

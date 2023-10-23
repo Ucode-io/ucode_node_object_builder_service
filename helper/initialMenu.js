@@ -189,10 +189,19 @@ module.exports = async function (data) {
                 "bucket_path": data.project_id
             })
         }
-
+        const file_types = ["PHOTO", "FILE", "VIDEO", "CUSTOM_IMAGE"]
         let default_minio_menu = await Menu.find({
            parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
         })
+        if (default_minio_menu.length == 1 && default_minio_menu[0].label == "Media") {
+            await Field.updateMany({type: {$in: file_types}}, 
+                {
+                $set: 
+                {
+                    'attributes.fields.path.stringValue': 'Media'
+                }
+            })
+        }
         if (!default_minio_menu.length) {
             await folderMinio.createFolderToBucket(data.project_id, "Media")
             await Menu.create({
@@ -207,13 +216,12 @@ module.exports = async function (data) {
                 "type":"MINIO_FOLDER",
                 "label":"Media"
              })
-             const file_types = ["PHOTO", "FILE", "VIDEO", "CUSTOM_IMAGE"]
 
-             await Field.updateMany({type: {$in: file_types}}, 
+            await Field.updateMany({type: {$in: file_types}}, 
                 {
                 $set: 
                 {
-                    minio_folder: "Media"
+                    'attributes.fields.path.stringValue': 'Media'
                 }
             })
 

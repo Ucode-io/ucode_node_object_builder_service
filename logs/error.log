@@ -4329,6 +4329,7 @@
 }
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   message: 'service.field.getAll: failed with error: Unable to infer type for "function(v) {\n' +
     '  this._mongooseOptions.lean = arguments.length ? v : true;\n' +
     '  return this;\n' +
@@ -4339,17 +4340,29 @@
   message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
   level: 'error',
   timestamp: '2023-10-03T06:06:07.600Z',
+=======
+  message: 'service.menu.getAll: failed with error: the limit must be positive',
+  level: 'error',
+  timestamp: '2023-10-23T08:14:04.504Z',
+>>>>>>> f984793a40b10e2c530fa0c4a8c7422f45d1e6f2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
   level: 'error',
   timestamp: '2023-10-03T06:09:31.632Z',
+=======
+  message: "service.menu.getAll: failed with error: Cannot set properties of undefined (setting 'attributes')",
+  level: 'error',
+  timestamp: '2023-10-23T08:29:52.382Z',
+>>>>>>> f984793a40b10e2c530fa0c4a8c7422f45d1e6f2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.loginStore.getConnetionOptions: failed with error: Cannot read properties of null (reading 'table_slug')",
   level: 'error',
   timestamp: '2023-10-03T06:14:10.967Z',
@@ -4365,10 +4378,16 @@
   message: '[services.table].create request finished with FAILURE',
   level: 'error',
   timestamp: '2023-10-13T06:07:23.400Z',
+=======
+  message: 'service.menu.getAll: failed with error: Cannot convert undefined or null to object',
+  level: 'error',
+  timestamp: '2023-10-23T08:42:35.758Z',
+>>>>>>> f984793a40b10e2c530fa0c4a8c7422f45d1e6f2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: '[services.table].create - error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "test_favourite", deleted_at: new Date(64800000) }',
   level: 'error',
   timestamp: '2023-10-13T06:07:23.401Z',
@@ -4511,3 +4530,44 @@
   metadata: {}
 }
 >>>>>>> 45dae8c5d30244d9bee027f76f33fbf0df5430bf
+=======
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-23T09:05:34.214Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-23T09:07:12.870Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+>>>>>>> f984793a40b10e2c530fa0c4a8c7422f45d1e6f2

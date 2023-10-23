@@ -75,7 +75,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         conn.model('object_builder_service.menu', require('../schemas/menu'))
         conn.model('object_builder_service.menu.templates', require('../schemas/menu_template'))
         conn.model('function_service.function', require("../schemas/function_service_function.js"));
-        conn.model('File', require('../schemas/file'))
+        conn.model('object_builder_service.file', require('../schemas/file'))
     }
     return conn;
 }

@@ -214,7 +214,6 @@ module.exports = async function (data) {
                 "type":"MINIO_FOLDER",
                 "label":"Media"
              })
-
             await Field.updateMany({type: {$in: file_types}}, 
                 {
                 $set: 

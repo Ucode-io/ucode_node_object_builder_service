@@ -283,8 +283,10 @@ let menuStore = {
             let menus = await Menu.aggregate(pipelines)
             menus = JSON.parse(JSON.stringify(menus))
             menus.forEach(el => {
+                el.attributes = struct.encode(el.attributes || {})
                 el.data = struct.encode(el.data)
             })
+
             const count = await Menu.countDocuments(query);
             return { menus, count };
         } catch (err) {

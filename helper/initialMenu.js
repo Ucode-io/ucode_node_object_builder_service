@@ -207,6 +207,16 @@ module.exports = async function (data) {
                 "type":"MINIO_FOLDER",
                 "label":"Media"
              })
+             const file_types = ["PHOTO", "FILE", "VIDEO", "CUSTOM_IMAGE"]
+
+             await Field.updateMany({type: {$in: file_types}}, 
+                {
+                $set: 
+                {
+                    minio_folder: "Media"
+                }
+            })
+
          }
 
         const UserAndPermissinMenu = await Menu.findOne({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})

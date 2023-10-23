@@ -8,7 +8,7 @@ let fileStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async(data) => {
 
         const mongoConn = await mongoPool.get(data.project_id)
-        const Files = mongoConn.models['File']
+        const Files = mongoConn.models['object_builder_service.file']
         data.createdAt = new Date();
         const response = await Files.create(data);
 
@@ -16,7 +16,7 @@ let fileStore = {
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async(data) => {
         const mongoConn = await mongoPool.get(data.project_id)
-        const Files = mongoConn.models['File']
+        const Files = mongoConn.models['object_builder_service.file']
 
         const file = await Files.updateOne(
             {
@@ -37,7 +37,7 @@ let fileStore = {
     getList: catchWrapDb(`${NAMESPACE}.getList`, async(data) => {   
         
         const mongoConn = await mongoPool.get(data.project_id)
-        const Files = mongoConn.models['File']
+        const Files = mongoConn.models['object_builder_service.file']
 
         let query = {
             storage: data.folder_name
@@ -70,7 +70,7 @@ let fileStore = {
     getSingle: catchWrapDb(`${NAMESPACE}.getList`, async(data) => {   
         
         const mongoConn = await mongoPool.get(data.project_id)
-        const Files = mongoConn.models['File']
+        const Files = mongoConn.models['object_builder_service.file']
         
         const file = await Files.findOne(
         {
@@ -87,7 +87,7 @@ let fileStore = {
     ),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async(data) => {
         const mongoConn = await mongoPool.get(data.project_id)
-        const Files = mongoConn.models['File']
+        const Files = mongoConn.models['object_builder_service.file']
 
         const resp = await Files.deleteMany({id: {$in: data.ids}});
 

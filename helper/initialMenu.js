@@ -190,6 +190,23 @@ module.exports = async function (data) {
             })
         }
         const file_types = ["PHOTO", "FILE", "VIDEO", "CUSTOM_IMAGE"]
+        let attributes = {
+            "fields": {
+              "label_aa": {
+                "stringValue": "Media",
+                "kind": "stringValue"
+              },
+              "label_ak": {
+                "stringValue": "Media",
+                "kind": "stringValue"
+              },
+              "path": {
+                "stringValue": "Media",
+                "kind": "stringValue"
+              }
+            }
+          };
+          
         let default_minio_menu = await Menu.find({
            parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
         })
@@ -201,22 +218,34 @@ module.exports = async function (data) {
                     'attributes.fields.path.stringValue': 'Media'
                 }
             })
+
+            await Menu.updateOne({id: "f4089a64-4f6f-4604-a57a-b1c99f4d16a8"}, {$set: {attributes: attributes}})
         }
         if (!default_minio_menu.length) {
             await folderMinio.createFolderToBucket(data.project_id, "Media")
             await Menu.create({
                 "id":"f4089a64-4f6f-4604-a57a-b1c99f4d16a8",
                 "icon":"",
-                "attributes":{
-                   "label_aa":"Media",
-                   "label_ak":"Media",
-                   "path": "Media"
-                },
+                "attributes": {
+                    "fields": {
+                      "label_aa": {
+                        "stringValue": "Media",
+                        "kind": "stringValue"
+                      },
+                      "label_ak": {
+                        "stringValue": "Media",
+                        "kind": "stringValue"
+                      },
+                      "path": {
+                        "stringValue": "Media",
+                        "kind": "stringValue"
+                      }
+                    }
+                  },
                 "parent_id":"8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
                 "type":"MINIO_FOLDER",
                 "label":"Media"
              })
-
             await Field.updateMany({type: {$in: file_types}}, 
                 {
                 $set: 

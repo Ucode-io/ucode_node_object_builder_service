@@ -100068,3 +100068,683 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-24T09:45:34.574Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-24T09:45:34.582Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-24T09:45:34.583Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-24T09:45:35.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-24T09:47:54.369Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "4a9ba859-2f80-44d3-baf7-c2151b223f2e_ETTProductstabletemplate-5",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Description": {\n' +
+    '        "stringValue": "927169b8-afbd-4084-a7a6-efbbf237dc11",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Features": {\n' +
+    '        "stringValue": "a7c1bbfa-a2d3-476d-a51f-5d13c053a806,4d158b39-dac1-40f8-8481-c81901ee3149",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Lounge Name/ Railway Station Hall Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product categories": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Terminal;Airport": {\n' +
+    '        "stringValue": "b6c8bf25-a497-4cfe-9f5a-47a117f3041b,3f8b1b72-d163-42b7-816e-930695be1303,17c7eace-c031-4cf0-9158-a396a0145c53",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "WAS code": {\n' +
+    '        "stringValue": "0af5e7c2-5ab3-402d-9012-caad6bfa02fb",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Airport Code": {\n' +
+    '        "stringValue": "1289a18d-894f-4f2f-a104-e1a3177d2682,b14cebf1-9289-44e0-ba1a-58a5991a5183",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-24T09:48:48.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-24T09:48:49.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-24T09:52:27.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-24T09:52:27.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-24T09:52:27.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-24T09:52:28.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-24T09:54:42.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "4a9ba859-2f80-44d3-baf7-c2151b223f2e_ETTProductstabletemplate-5",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Lounge Name/ Railway Station Hall Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product categories": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Terminal;Airport": {\n' +
+    '        "stringValue": "b6c8bf25-a497-4cfe-9f5a-47a117f3041b,3f8b1b72-d163-42b7-816e-930695be1303,17c7eace-c031-4cf0-9158-a396a0145c53",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "WAS code": {\n' +
+    '        "stringValue": "0af5e7c2-5ab3-402d-9012-caad6bfa02fb",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Airport Code": {\n' +
+    '        "stringValue": "1289a18d-894f-4f2f-a104-e1a3177d2682,b14cebf1-9289-44e0-ba1a-58a5991a5183",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Description": {\n' +
+    '        "stringValue": "927169b8-afbd-4084-a7a6-efbbf237dc11",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Features": {\n' +
+    '        "stringValue": "a7c1bbfa-a2d3-476d-a51f-5d13c053a806,4d158b39-dac1-40f8-8481-c81901ee3149",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-24T09:55:22.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-24T09:55:22.543Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-24T10:11:08.241Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-24T10:11:08.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-24T10:11:08.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-24T10:11:09.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-24T10:13:20.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "4a9ba859-2f80-44d3-baf7-c2151b223f2e_ETTProductstabletemplate-5",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Description": {\n' +
+    '        "stringValue": "927169b8-afbd-4084-a7a6-efbbf237dc11",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Features": {\n' +
+    '        "stringValue": "a7c1bbfa-a2d3-476d-a51f-5d13c053a806,4d158b39-dac1-40f8-8481-c81901ee3149",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Lounge Name/ Railway Station Hall Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product categories": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Terminal;Airport": {\n' +
+    '        "stringValue": "b6c8bf25-a497-4cfe-9f5a-47a117f3041b,3f8b1b72-d163-42b7-816e-930695be1303,17c7eace-c031-4cf0-9158-a396a0145c53",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "WAS code": {\n' +
+    '        "stringValue": "0af5e7c2-5ab3-402d-9012-caad6bfa02fb",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Airport Code": {\n' +
+    '        "stringValue": "1289a18d-894f-4f2f-a104-e1a3177d2682,b14cebf1-9289-44e0-ba1a-58a5991a5183",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-24T10:15:48.772Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-24T10:15:48.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-24T10:20:44.565Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-24T10:20:44.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-24T10:20:44.568Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-24T10:20:45.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-24T10:22:59.633Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "4a9ba859-2f80-44d3-baf7-c2151b223f2e_ETTProductstabletemplate-5",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Terminal;Airport": {\n' +
+    '        "stringValue": "b6c8bf25-a497-4cfe-9f5a-47a117f3041b,3f8b1b72-d163-42b7-816e-930695be1303,17c7eace-c031-4cf0-9158-a396a0145c53",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "WAS code": {\n' +
+    '        "stringValue": "0af5e7c2-5ab3-402d-9012-caad6bfa02fb",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Airport Code": {\n' +
+    '        "stringValue": "1289a18d-894f-4f2f-a104-e1a3177d2682,b14cebf1-9289-44e0-ba1a-58a5991a5183",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Description": {\n' +
+    '        "stringValue": "927169b8-afbd-4084-a7a6-efbbf237dc11",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Features": {\n' +
+    '        "stringValue": "a7c1bbfa-a2d3-476d-a51f-5d13c053a806,4d158b39-dac1-40f8-8481-c81901ee3149",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Lounge Name/ Railway Station Hall Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product categories": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-24T10:23:36.669Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-24T10:23:36.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-24T10:25:44.241Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-24T10:25:44.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-24T10:25:44.244Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-24T10:25:44.894Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-24T10:27:59.577Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "4a9ba859-2f80-44d3-baf7-c2151b223f2e_ETTProductstabletemplate-5",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "WAS code": {\n' +
+    '        "stringValue": "0af5e7c2-5ab3-402d-9012-caad6bfa02fb",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Airport Code": {\n' +
+    '        "stringValue": "1289a18d-894f-4f2f-a104-e1a3177d2682,b14cebf1-9289-44e0-ba1a-58a5991a5183",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Description": {\n' +
+    '        "stringValue": "927169b8-afbd-4084-a7a6-efbbf237dc11",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Features": {\n' +
+    '        "stringValue": "a7c1bbfa-a2d3-476d-a51f-5d13c053a806,4d158b39-dac1-40f8-8481-c81901ee3149",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Lounge Name/ Railway Station Hall Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product categories": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Terminal;Airport": {\n' +
+    '        "stringValue": "b6c8bf25-a497-4cfe-9f5a-47a117f3041b,3f8b1b72-d163-42b7-816e-930695be1303,17c7eace-c031-4cf0-9158-a396a0145c53",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-24T10:28:45.075Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-24T10:28:45.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-24T10:30:53.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-24T10:30:53.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-24T10:30:53.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-24T10:30:53.892Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-24T10:33:10.858Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "4a9ba859-2f80-44d3-baf7-c2151b223f2e_ETTProductstabletemplate-5",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Description": {\n' +
+    '        "stringValue": "927169b8-afbd-4084-a7a6-efbbf237dc11",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Features": {\n' +
+    '        "stringValue": "a7c1bbfa-a2d3-476d-a51f-5d13c053a806,4d158b39-dac1-40f8-8481-c81901ee3149",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Lounge Name/ Railway Station Hall Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product categories": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Terminal;Airport": {\n' +
+    '        "stringValue": "b6c8bf25-a497-4cfe-9f5a-47a117f3041b,3f8b1b72-d163-42b7-816e-930695be1303,17c7eace-c031-4cf0-9158-a396a0145c53",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "WAS code": {\n' +
+    '        "stringValue": "0af5e7c2-5ab3-402d-9012-caad6bfa02fb",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Airport Code": {\n' +
+    '        "stringValue": "1289a18d-894f-4f2f-a104-e1a3177d2682,b14cebf1-9289-44e0-ba1a-58a5991a5183",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-24T10:34:19.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-24T10:34:19.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-24T10:35:20.638Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-24T10:35:20.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-24T10:35:20.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-24T10:35:21.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-24T10:37:38.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "4a9ba859-2f80-44d3-baf7-c2151b223f2e_ETTProductstabletemplate-5",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Airport Code": {\n' +
+    '        "stringValue": "1289a18d-894f-4f2f-a104-e1a3177d2682,b14cebf1-9289-44e0-ba1a-58a5991a5183",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Description": {\n' +
+    '        "stringValue": "927169b8-afbd-4084-a7a6-efbbf237dc11",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Features": {\n' +
+    '        "stringValue": "a7c1bbfa-a2d3-476d-a51f-5d13c053a806,4d158b39-dac1-40f8-8481-c81901ee3149",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Lounge Name/ Railway Station Hall Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Product categories": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Terminal;Airport": {\n' +
+    '        "stringValue": "b6c8bf25-a497-4cfe-9f5a-47a117f3041b,3f8b1b72-d163-42b7-816e-930695be1303,17c7eace-c031-4cf0-9158-a396a0145c53",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "WAS code": {\n' +
+    '        "stringValue": "0af5e7c2-5ab3-402d-9012-caad6bfa02fb",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-24T10:40:00.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-24T10:40:00.475Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-10-24T10:42:42.242Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-10-24T10:42:42.245Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-10-24T10:42:42.246Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'info',
+  timestamp: '2023-10-24T10:42:42.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-10-24T10:44:58.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: requested - {\n' +
+    '  "id": "4a9ba859-2f80-44d3-baf7-c2151b223f2e_ETTProductstabletemplate-5",\n' +
+    '  "table_slug": "product",\n' +
+    '  "data": {\n' +
+    '    "fields": {\n' +
+    '      "Product categories": {\n' +
+    '        "stringValue": "0de89cc9-515f-4afb-a038-2f0012313a87,d5901dc2-0f6d-4054-aa61-0726843765f7",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Terminal;Airport": {\n' +
+    '        "stringValue": "b6c8bf25-a497-4cfe-9f5a-47a117f3041b,3f8b1b72-d163-42b7-816e-930695be1303,17c7eace-c031-4cf0-9158-a396a0145c53",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "WAS code": {\n' +
+    '        "stringValue": "0af5e7c2-5ab3-402d-9012-caad6bfa02fb",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Airport Code": {\n' +
+    '        "stringValue": "1289a18d-894f-4f2f-a104-e1a3177d2682,b14cebf1-9289-44e0-ba1a-58a5991a5183",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Description": {\n' +
+    '        "stringValue": "927169b8-afbd-4084-a7a6-efbbf237dc11",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Features": {\n' +
+    '        "stringValue": "a7c1bbfa-a2d3-476d-a51f-5d13c053a806,4d158b39-dac1-40f8-8481-c81901ee3149",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "Lounge Name/ Railway Station Hall Name": {\n' +
+    '        "stringValue": "fc7ea0fc-165d-4d4d-acda-9a483d255d1b",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "project_id": "1"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-10-24T10:46:24.411Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.excel.create: succeeded',
+  level: 'info',
+  timestamp: '2023-10-24T10:46:24.534Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

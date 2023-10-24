@@ -184,7 +184,6 @@ let excelStore = {
                                 let payload = {}
                                 if (viewFields.length && viewFields.length > 1) {
                                     let values = row[rows[0].indexOf(column_slug)].split(";")
-                                    console.log(":!!! values ", values)
                                     for (let i = 0; i < viewFields.length; i++) {
                                         if (typeof values[i] === "string") {
                                             values[i] = values[i].replaceAll(")", "\)")
@@ -258,7 +257,7 @@ let excelStore = {
                             } else if (relation && relation.type == "Many2Many") {
                                 let values = row[rows[0].indexOf(column_slug)].split(",")
                                 // console.log("val::", row[rows[0].indexOf(column_slug)], values)
-
+                                console.log("~~~~ > values", values)
                                 let params = {}
                                 let payload = {}
                                 if (viewFields.length && viewFields.length > 1) {
@@ -389,7 +388,7 @@ let excelStore = {
                     objectsToDb.push(objectToDb)
                 }
 
-                console.log(":>>> insert pipeline ", objectsToDb)
+                // console.log(":>>> insert pipeline ", objectsToDb)
                 await obj.multipleInsert({
                     table_slug: req.table_slug,
                     data: struct.encode({ objects: objectsToDb }),

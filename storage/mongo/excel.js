@@ -170,7 +170,7 @@ let excelStore = {
 
                             const viewFields = []
                             for(let el of viewFieldIds) {
-                                const field = await Field.find({
+                                const field = await Field.findOne({
                                     id: el
                                 }).lean()
 

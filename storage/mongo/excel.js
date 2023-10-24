@@ -128,29 +128,36 @@ let excelStore = {
                         }
                         let options = []
                         // console.log("test 4");
-                        // console.log("~~~>", field.type)
                         if (field.type == "MULTISELECT" && value !== null && value.length) {
+                            // console.log("\n\n~~~> field slug ", field.slug, "  ~~~~ value  ", value)
                             if (field.attributes) {
-                                field.attributes = struct.decode(field.attributes)
-                                options = field.attributes.options
+                                let a = struct.decode(field.attributes)
+                                // console.log("~~~~ >> ", a,  a.options)
+                                // options = struct.decode(field.attributes.options)
+                                options = a.options
                             }
                             let arrayMultiSelect = [], labelsOfMultiSelect = []
                             if (value.includes(",") && options.length) {
                                 labelsOfMultiSelect = value.split(",")
+                                // console.log(":#1")
                                 labelsOfMultiSelect.forEach(element => {
-                                    let getValueOfMultiSelect = options.find(val => (val.label === element))
+                                    let getValueOfMultiSelect = options?.find(val => (val.label === element))
                                     arrayMultiSelect.push(getValueOfMultiSelect.value)
                                 })
                             } else if (value.includes(" ") && options.length) {
+                                // console.log(":#2")
                                 labelsOfMultiSelect.forEach(element => {
-                                    let getValueOfMultiSelect = options.find(val => (val.label === element))
+                                    let getValueOfMultiSelect = options?.find(val => (val.label === element))
                                     arrayMultiSelect.push(getValueOfMultiSelect.value)
                                 })
                             } else {
+                                // console.log(":#3", value)
                                 let getValueOfMultiSelect = options?.find(val => (val.label === value))
                                 arrayMultiSelect.push(getValueOfMultiSelect?.value)
                             }
                             value = arrayMultiSelect
+                            objectToDb[field?.slug] = value
+                            // console.log("~~~>> multiselect", value)
                         } else if (con.BOOLEAN_TYPES.includes(field.type)) {
                             if (typeof (value) == "string") {
                                 if (value.toUpperCase() === "ИСТИНА" || value.toUpperCase() == "TRUE") {
@@ -161,6 +168,8 @@ let excelStore = {
                             } else {
                                 value = value
                             }
+
+                            objectToDb[field?.slug] = value
 
                         } else if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                             
@@ -257,7 +266,7 @@ let excelStore = {
                             } else if (relation && relation.type == "Many2Many") {
                                 let values = row[rows[0].indexOf(column_slug)].split(",")
                                 // console.log("val::", row[rows[0].indexOf(column_slug)], values)
-                                console.log("~~~~ > values", values)
+                                // console.log("~~~~ > values", values)
                                 let params = {}
                                 let payload = {}
                                 if (viewFields.length && viewFields.length > 1) {
@@ -383,6 +392,7 @@ let excelStore = {
                         // }
 
                     }
+
                     objectToDb['company_service_project_id'] = datas['company_service_project_id']
                     objectToDb['company_service_environment_id'] = datas['company_service_environment_id']
                     objectsToDb.push(objectToDb)

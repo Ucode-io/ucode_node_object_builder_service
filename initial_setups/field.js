@@ -1706,6 +1706,19 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0
 	}, {
+		"id": "17f735bf-a308-4785-954b-924e755a51b8",
+		"required": false,
+		"slug": "default_page",
+		"label": "Default page",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"is_visible": false,
+		"table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	}, {
 		"id": "d99ac785-1d1a-49d8-af23-4d92774d15b6",
 		"required": false,
 		"slug": "confirm_by",

@@ -287,9 +287,11 @@ let prepareFunction = {
 
             // this is many2many append and delete when many2many relation field type input
             if (field.type === "LOOKUPS") {
-                if (data[field.slug] && objectBeforeUpdate[field.slug]) {
-                    let olderArr = objectBeforeUpdate[field.slug]
+                // console.log('~~~ lookups field slug', field.slug, JSON.stringify(data[field.slug]))
+                if (data[field.slug]) {
+                    let olderArr = objectBeforeUpdate[field.slug] || []
                     let newArr = data[field.slug]
+                    // console.log(":: prepare function 0.1", field.slug, data[field.slug], Array.isArray(newArr), olderArr)
                     if (Array.isArray(newArr)) {
                         newIds = newArr.filter(val => !olderArr.includes(val))
                         deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
@@ -311,6 +313,7 @@ let prepareFunction = {
                     } else if (relation.table_from === req.table_slug) {
                         appendMany2ManyObj.table_to = relation.table_to
                     }
+                    
                     appendMany2Many.push(appendMany2ManyObj)
                 }
                 if (deletedIds.length) {
@@ -334,6 +337,8 @@ let prepareFunction = {
         event.payload.field_types = field_types
         event.payload.data = dataToAnalytics
         event.project_id = req.project_id
+        console.log(":: prepare function 1", appendMany2Many)
+        console.log(":: prepare function 2", deleteMany2Many)
         return { data, event, appendMany2Many, deleteMany2Many }
     },
 }

@@ -93,6 +93,10 @@ let objectBuilder = {
                 }
             }
 
+            if(!data.guid) {
+                data.guid = payload.guid
+            }
+
             const object = struct.encode({ data });
 
             let customMessage = ""
@@ -105,6 +109,7 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+            
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
@@ -3026,7 +3031,7 @@ let objectBuilder = {
                 } else {
                     modelTo[data.table_from + "_ids"] = [data.id_from]
                 }
-                // console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
+                // console.log("Debug >> test #4>>", el,  " ~~~ ",data.table_from + "_ids", " ~~~ ",modelTo[data.table_from + "_ids"])
                 await toTableModel.models.updateOne({
                     guid: el,
                 },
@@ -3470,6 +3475,7 @@ let objectBuilder = {
             const data = struct.decode(req.data)
             const tableInfo = allTableInfos[req.table_slug]
             let objects = [], appendMany2ManyObj = [], authCheckRequests = [], guids = []
+            // console.log("~~~~~~~~~ >> data.objects ", data.objects)
             for (const object of data.objects) {
                 //this condition used for object.guid may be exists
                 if (!object.guid) {
@@ -3506,7 +3512,10 @@ let objectBuilder = {
                     }
                     authCheckRequests.push(authCheckRequest)
                 }
-                appendMany2ManyObj = appendMany2ManyObjects
+                // console.log("~~~~~> ", appendMany2ManyObjects.length, appendMany2ManyObjects)
+                if(appendMany2ManyObjects.length) {
+                    appendMany2ManyObj.push(...appendMany2ManyObjects) 
+                }
                 objects.push(payload)
             }
             await tableInfo.models.insertMany(objects)
@@ -3530,7 +3539,9 @@ let objectBuilder = {
                 }
             }
             await tableInfo.models.bulkWrite(bulkWriteGuids)
+            // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ", appendMany2ManyObj)
             for (const appendMany2Many of appendMany2ManyObj) {
+                // console.log("~~~~~~~~~~~~~~~~>>>> appendMany2Many ", appendMany2Many)
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
             return

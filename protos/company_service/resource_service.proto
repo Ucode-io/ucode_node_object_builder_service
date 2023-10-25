@@ -57,7 +57,11 @@ message AddResourceToProjectRequest {
     string project_id = 2;
     string environment_id = 3;
     ResourceType type = 4;
+<<<<<<< HEAD
 
+=======
+    repeated VariableResource variables = 5;
+>>>>>>> a74dcb9356a730d407c9f32a08a5b6e60056ce19
 }
 
 message GetProjectResourceListRequest {

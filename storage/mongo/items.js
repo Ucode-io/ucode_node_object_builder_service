@@ -11,6 +11,7 @@ const PrepareFunction = require('../../helper/prepareFunctions');
 const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
 const constants = require('../../helper/constants');
+const filterRules = require('../../helper/filterRules');
 
 
 let NAMESPACE = "storage.items";
@@ -30,7 +31,7 @@ let objectBuilderV2 = {
             ownGuid = payload.guid;
             let funcs = []
             for (const appendMany2Many of appendMany2ManyObjects) {
-                funcs.push(objectBuilder.appendManyToMany(appendMany2Many))
+                funcs.push(objectBuilderV2.appendManyToMany(appendMany2Many))
             }
             await Promise.all(funcs)
             if (tableData && tableData.is_login_table && !data.from_auth_service) {
@@ -105,10 +106,10 @@ let objectBuilderV2 = {
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
-                funcs.push(objectBuilder.appendManyToMany(resAppendM2M))
+                funcs.push(objectBuilderV2.appendManyToMany(resAppendM2M))
             }
             for (const resDeleteM2M of deleteMany2Many) {
-                funcs.push(objectBuilder.deleteManyToMany(resDeleteM2M))
+                funcs.push(objectBuilderV2.deleteManyToMany(resDeleteM2M))
             }
 
             await Promise.all(funcs)
@@ -290,7 +291,6 @@ let objectBuilderV2 = {
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
         console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
-        const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         const View = mongoConn.models['View']
@@ -299,8 +299,6 @@ let objectBuilderV2 = {
         const offset = params.offset
         delete params["offset"]
         delete params["limit"]
-        let clientTypeId = params["client_type_id_from_token"]
-        delete params["client_type_id_from_token"]
         const allTables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = allTables[req.table_slug]
         let role_id_from_token = params["role_id_from_token"]
@@ -407,9 +405,6 @@ let objectBuilderV2 = {
                             } else {
                                 params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
                             }
-                        } else {
-                            // console.log("\n\n>>>>> inside else")
-                            // params["guid"] = params["user_id_from_token"]
                         }
                     } else {
                         let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
@@ -469,28 +464,53 @@ let objectBuilderV2 = {
             }
         }
 
+        let tableParams = {}
         for (const key of keys) {
             if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
                 params["guid"] = params[key]
             }
-            if (typeof (params[key]) === "object") {
-
-                if (params[key]) {
-                    let is_array = Array.isArray(params[key])
-                    if (is_array) {
-                        params[key] = { $in: params[key] }
+            if (typeof params[key] === "object") {
+                //please don't delete this comment
+                /*
+                    
+                    key                     params[key]
+                    "sum":                  { "_gte": 1000, "_lte": 3000 }                                             // case #1
+                    "name":                 { "_constains": "a" }                                                      // case #2
+                    "product_id_data":      {"number_of_count": { "_gte": 1000, "_lte": 3000 }}                        // case #2
+                    "product_id_data":      { "name": { "_constains": "a" } }                                          // case #4
+                */
+                let value = {}
+                let objectKeys = Object.keys(params[key])
+                let objectValues = Object.values(params[key])
+                if (objectKeys.length > 1 && objectValues.length > 1) {
+                    // case #1
+                    for (let i = 0; i < objectKeys.length; i++) {
+                        let el = filterRules(objectKeys[i], objectValues[i])
+                        value = Object.assign(value, el)
                     }
+                    params[key] = value
+                } else if (objectKeys.length === 1 && objectValues.length === 1 && objectKeys[0].slice(0, 1) === "_") {
+                    // case #2
+                    let value = filterRules(objectKeys[0], objectValues[0])
+                    params[key] = value
+                } else if (typeof objectValues[0] === "object") {
+                    let nestedObjectKeys = Object.keys(objectValues[0])
+                    let nestedObjectValues = Object.values(objectValues[0])
+                    if (nestedObjectKeys.length > 1 && nestedObjectValues.length > 1) {
+                        // case #3
+                        for (let i = 0; i < nestedObjectKeys.length; i++) {
+                            let el = filterRules(nestedObjectKeys[i], nestedObjectValues[i])
+                            value = Object.assign(value, el)
+                        }
+                        tableParams[key] = { [objectKeys[0]]: value }
+                    } else {
+                        // case #4
+                        value = filterRules(nestedObjectKeys[0], nestedObjectValues[0])
+                        tableParams[key] = { [objectKeys[0]]: value }
+                    }
+                } else {
+                    throw new Error("Invalid filter")
                 }
-            } else if (!key.includes('.') && typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
-                if (params[key]) {
-                    if (params[key].includes("(")) {
-                        params[key] = params[key].replaceAll("(", ("\\("))
-                    }
-                    if (params[key].includes(")")) {
-                        params[key] = params[key].replaceAll(")", ("\\)"))
-                    }
-                }
-                params[key] = RegExp(params[key], "i")
             }
         }
 
@@ -537,49 +557,13 @@ let objectBuilderV2 = {
                     .lean();
                 count = await tableInfo.models.countDocuments(params);
             } else {
-
-
-                tableParams = []
-                for (const key of Object.keys(params)) {
-                    if (key.includes('.')) {
-                        if (typeof params[key] === "object") {
-                            let objectKeys = Object.keys(params[key])
-                            let interval = {}
-                            for (const objectKey of objectKeys) {
-                                interval[objectKey] = params[key][objectKey]
-                            }
-                            if (tableParams[key.split('.')[0]]) {
-                                tableParams[key.split('.')[0]][key.split('.')[1]] = interval
-                            } else {
-                                tableParams[key.split('.')[0]] = {
-                                    [key.split('.')[1]]: interval,
-                                    select: '-_id'
-                                }
-                            }
-                        } else if (typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
-                            if (tableParams[key.split('.')[0]]) {
-                                tableParams[key.split('.')[0]][key.split('.')[1]] = { $regex: params[key] }
-                            } else {
-                                tableParams[key.split('.')[0]] = {
-                                    [key.split('.')[1]]: { $regex: params[key] },
-                                    select: '-_id'
-                                }
-                            }
-                        }
-                    }
-                }
-                // console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
                     } else if (relation.type === "Many2Many") {
                         continue
                     }
-                    // else if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
-                    //     relation.field_to = relation.field_from
-                    // }
                     let table_to_slug = ""
-                    let deepRelations = []
                     const field = tableRelationFields[relation.id]
                     if (field) {
                         table_to_slug = field.slug + "_data"
@@ -587,19 +571,23 @@ let objectBuilderV2 = {
                     if (table_to_slug === "") {
                         continue
                     }
-                    // console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
-                            match: tableParams[table_to_slug],
-                            // populate: deepRelations,
+                            match: tableParams[table_to_slug]
                         }
                     } else {
                         if (relation.type === "Many2Dynamic") {
                             for (dynamic_table of relation.dynamic_tables) {
-                                papulateTable = {
-                                    path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
-                                    populate: deepRelations
+                                if (tableParams[relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data"]) {
+                                    papulateTable = {
+                                        path: table_to_slug,
+                                        match: tableParams[table_to_slug]
+                                    }
+                                } else {
+                                    papulateTable = {
+                                        path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
+                                    }
                                 }
                                 populateArr.push(papulateTable)
                             }
@@ -607,7 +595,6 @@ let objectBuilderV2 = {
                         }
                         papulateTable = {
                             path: table_to_slug,
-                            populate: deepRelations
                         }
                     }
                     populateArr.push(papulateTable)
@@ -629,17 +616,10 @@ let objectBuilderV2 = {
                     .limit(limit)
                     .populate(populateArr)
                     .lean()
-
-                // console.log("\n\n-----> T4\n\n", tableParams)
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
-        // console.log("TEST::::::::::12")
-        // console.timeEnd("TIME_LOGGING:::limit")
-        // console.log("TEST::::::10")
-
         count = await tableInfo.models.count(params);
-        // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
@@ -1100,10 +1080,10 @@ let objectBuilderV2 = {
             }
             let funcs = []
             for (const resAppendM2M of appendMany2ManyItems) {
-                funcs.push(objectBuilder.appendManyToMany(resAppendM2M))
+                funcs.push(objectBuilderV2.appendManyToMany(resAppendM2M))
             }
             for (const resDeleteM2M of deleteMany2ManyItems) {
-                funcs.push(objectBuilder.deleteManyToMany(resDeleteM2M))
+                funcs.push(objectBuilderV2.deleteManyToMany(resDeleteM2M))
             }
             await tableInfo.models.updateMany({
                 guid: { $in: req.ids }
@@ -1227,7 +1207,7 @@ let objectBuilderV2 = {
             }
             await tableInfo.models.bulkWrite(bulkWriteGuids)
             for (const appendMany2Many of appendMany2ManyObj) {
-                await objectBuilder.appendManyToMany(appendMany2Many)
+                await objectBuilderV2.appendManyToMany(appendMany2Many)
             }
             return
         } catch (err) {
@@ -1237,4 +1217,3 @@ let objectBuilderV2 = {
 }
 
 module.exports = objectBuilderV2;
- 

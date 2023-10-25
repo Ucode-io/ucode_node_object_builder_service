@@ -4439,3 +4439,101 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.items.getList: failed with error: unsupported query key : name',
+  level: 'error',
+  timestamp: '2023-10-24T09:15:47.657Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.items.getList: failed with error: Cast to string failed for value "{ '[object Object]': true }" (type Object) at path "product_id" for model "bus"`,
+  level: 'error',
+  timestamp: '2023-10-24T10:12:05.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.items.getList: failed with error: Cannot set properties of undefined (setting '_eq')",
+  level: 'error',
+  timestamp: '2023-10-25T04:46:44.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.items.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-10-25T04:49:51.688Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.items.getList: failed with error: Cannot set properties of undefined (setting '_eq')",
+  level: 'error',
+  timestamp: '2023-10-25T04:50:11.226Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.items.getList: failed with error: Cannot set properties of undefined (setting 'name')",
+  level: 'error',
+  timestamp: '2023-10-25T04:52:49.665Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.items.getList: failed with error: obj.lean is not a function',
+  level: 'error',
+  timestamp: '2023-10-25T05:53:38.403Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.items.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-10-25T08:33:36.563Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.items.getList: failed with error: Cannot set properties of undefined (setting 'name')",
+  level: 'error',
+  timestamp: '2023-10-25T08:33:52.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.items.getList: failed with error: Invalid filter',
+  level: 'error',
+  timestamp: '2023-10-25T08:45:36.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.items.getList: failed with error: Invalid filter',
+  level: 'error',
+  timestamp: '2023-10-25T08:47:54.224Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.items.getList: failed with error: Invalid filter',
+  level: 'error',
+  timestamp: '2023-10-25T08:49:41.884Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.items.getList: failed with error: Invalid filter',
+  level: 'error',
+  timestamp: '2023-10-25T08:51:43.014Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.items.getList: failed with error: value is not defined',
+  level: 'error',
+  timestamp: '2023-10-25T08:56:03.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

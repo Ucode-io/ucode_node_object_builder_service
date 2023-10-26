@@ -18,6 +18,7 @@ module.exports = async function (data) {
                 "label": "Default page",
                 "default": "",
                 "type": "SINGLE_LINE",
+                "attributes": {},
                 "index": "string",
                 "is_visible": false,
                 "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",

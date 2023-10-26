@@ -55,6 +55,54 @@ let barcodeStore = {
                 }
             }
         }
+    }),
+    generateDynamicBarcode: catchWrapDb(`${NAMESPACE}.generateCodebar`, async (data) => {
+        const mongoConn = await mongoPool.get(data.project_id)
+        const tableInfo = (await ObjectBuilder(true, data.project_id))[data.table_slug]
+        const Field = mongoConn.models['Field']
+        const field = await Field.findOne({
+            id: data.field_id
+        })
+        if (!field) {
+            throw new Error("Couldn't find field with given id: ", data.field_id)
+        }
+        if (data.type === "codabar" && field.type === "CODABAR") {
+            if (field.attributes) {
+                const attributes = struct.decode(field.attributes)
+                if (attributes) {
+                    if (attributes.prefix && attributes.digit_number) {
+                        let randomNumber = generator.generateRandomNumberWithOutDash(attributes.prefix, attributes.digit_number)
+                        
+                        const isExist = await tableInfo.models.findOne({
+                            [field.slug]: randomNumber
+                        })
+
+                        if (isExist) {
+                            return await barcodeStore.generateDynamicBarcode(data)
+                        } else {
+                            return { barcode: randomNumber }
+                        }
+                    }
+                }
+            }
+        } else if (data.type === "barcode" && field.type === "BARCODE") {
+            console.log("test::", data.type);
+            let barcode = generateBarcode.generateBarcode()
+            console.log("test 22::", data.type);
+
+            let params = {}
+            params[field.slug] = barcode.toString()
+            const isExist = await tableInfo.models.findOne({
+                $and: [params]
+            })
+            if (isExist) {
+                return await barcodeStore.generateDynamicBarcode(data)
+            } else {
+                return { barcode: barcode }
+            }
+        } else {
+            throw new Error("invalid credentials for generating barcode")
+        }
     })
 }
 

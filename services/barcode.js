@@ -3,7 +3,8 @@ const catchWrapServiceObjectBuilder = require("../helper/catchWrapServiceObjectB
 
 const barcodeService = {
     Generate: catchWrapServiceObjectBuilder(`service.barcode.getBarcode`, barCodeStore.generateBarcode),
-    GenerateCodeWithPrefix: catchWrapServiceObjectBuilder(`service.barcode.generateCodebar`, barCodeStore.generateCodebar)
+    GenerateCodeWithPrefix: catchWrapServiceObjectBuilder(`service.barcode.generateCodebar`, barCodeStore.generateCodebar),
+    GenerateDynamic:catchWrapServiceObjectBuilder(`service.barcode.generateDynamicBarcode`, barCodeStore.generateDynamicBarcode),
 }
 
 module.exports = barcodeService;

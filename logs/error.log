@@ -6222,7 +6222,11 @@
         internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
         options: {}
       }
+<<<<<<< HEAD
 >>>>>>> db968fd49e2596070e1770783a45383efa3f37a3
+=======
+>>>>>>> b474649360b66e8da362809e6b5a0bf0cd32390e
+>>>>>>> 4577104708f01f387250c5d4194fa58ce58f3c7f
 =======
 {
   message: 'Error while auto connecting by project id',
@@ -6317,7 +6321,11 @@
 >>>>>>> 52ed6a73198100388c72393b5be3f2973786b40e
 =======
 >>>>>>> 54825e9b3b1ba280024570507949a756cf6e875b
+<<<<<<< HEAD
 >>>>>>> db968fd49e2596070e1770783a45383efa3f37a3
+=======
+>>>>>>> b474649360b66e8da362809e6b5a0bf0cd32390e
+>>>>>>> 4577104708f01f387250c5d4194fa58ce58f3c7f
 =======
 {
   message: 'service.menu.getAll: failed with error: the limit must be positive',

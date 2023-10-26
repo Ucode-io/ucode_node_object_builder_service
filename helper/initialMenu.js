@@ -82,91 +82,43 @@ module.exports = async function (data) {
                 await Menu.findOneAndUpdate({id: "c57eedc3-a954-4262-a0af-376c65b5a280"}, {$set: {label: "Settings"}})
             }
         }
+
         let analyticsMenu = await Menu.findOne({
             id: "c57eedc3-a954-4262-a0af-376c65b5a278"
         })
-        if (!analyticsMenu) {
-            await Menu.create({
-                "label": "Analytics",
-                "icon": "folder.svg",
-                "id": "c57eedc3-a954-4262-a0af-376c65b5a278",
-                "created_at": new Date(),
-                "updated_at": new Date(),
-                "__v": 0,
-                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
-                "table_id": "",
-                "layout_id": "",
-                "type": "FOLDER"
-            })
+        if (analyticsMenu) {
+            await Menu.findOneAndDelete({"id": "c57eedc3-a954-4262-a0af-376c65b5a278"})
         }
+
         let pivotMenu = await Menu.findOne({
             id: "c57eedc3-a954-4262-a0af-376c65b5a276"
         })
-        if (!pivotMenu) {
-            await Menu.create({
-                "label": "Pivot",
-                "icon": "folder.svg",
-                "id": "c57eedc3-a954-4262-a0af-376c65b5a276",
-                "created_at": new Date(),
-                "updated_at": new Date(),
-                "__v": 0,
-                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a278",
-                "table_id": "",
-                "layout_id": "",
-                "type": "FOLDER"
-            })
+        if (pivotMenu) {
+            await Menu.findOneAndDelete({"id": "c57eedc3-a954-4262-a0af-376c65b5a276"})
         }
+
         let reportSettingsMenu = await Menu.findOne({
             id: "c57eedc3-a954-4262-a0af-376c65b5a274"
         })
-        if (!reportSettingsMenu) {
-            await Menu.create({
-                "label": "Report Settings",
-                "icon": "folder.svg",
-                "id": "c57eedc3-a954-4262-a0af-376c65b5a274",
-                "created_at": new Date(),
-                "updated_at": new Date(),
-                "__v": 0,
-                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a278",
-                "table_id": "",
-                "layout_id": "",
-                "type": "FOLDER"
-            })
+        if (reportSettingsMenu) {
+            await Menu.findOneAndDelete({"id": "c57eedc3-a954-4262-a0af-376c65b5a274"})
         }
-        let savedPivotMenu = await Menu.findOne({
-            id: "7c26b15e-2360-4f17-8539-449c8829003f"
+
+        let resourceMenu = await Menu.findOne({
+            id: "f313614f-f018-4ddc-a0ce-10a1f5716401"
         })
-        if (!savedPivotMenu) {
-            await Menu.create({
-                "label": "Saved",
-                "icon": "folder.svg",
-                "id": "7c26b15e-2360-4f17-8539-449c8829003f",
-                "created_at": new Date(),
-                "updated_at": new Date(),
-                "__v": 0,
-                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
-                "table_id": "",
-                "layout_id": "",
-                "type": "FOLDER"
-            })
+        if (resourceMenu) {
+            await Menu.findOneAndDelete({"id": "f313614f-f018-4ddc-a0ce-10a1f5716401"})
         }
-        let historyPivotMenu = await Menu.findOne({
-            id: "e96b654a-1692-43ed-89a8-de4d2357d891"
+
+        let constructorMenu = await Menu.findOne({
+            id: "c19594a8-9b5e-4c12-a0a1-f97c2357070c"
         })
-        if (!historyPivotMenu) {
-            await Menu.create({
-                "label": "History",
-                "icon": "folder.svg",
-                "id": "e96b654a-1692-43ed-89a8-de4d2357d891",
-                "created_at": new Date(),
-                "updated_at": new Date(),
-                "__v": 0,
-                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
-                "table_id": "",
-                "layout_id": "",
-                "type": "FOLDER"
-            })
+        if (constructorMenu) {
+            await Menu.findOneAndDelete({"id": "c19594a8-9b5e-4c12-a0a1-f97c2357070c"})
         }
+        
+
         let files = await Menu.findOne({
             id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
         })
@@ -184,7 +136,7 @@ module.exports = async function (data) {
                 "__v": 0,
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
-                "layout_id": "",
+                "layout_id": "", 
                 "type": "FOLDER",
                 "bucket_path": data.project_id
             })
@@ -294,18 +246,6 @@ module.exports = async function (data) {
         }
 
         let staticMenus = [
-            // {
-            //     "label": "User and Permission",
-            //     "icon": "users.svg",
-            //     "id": "a8de4296-c8c3-48d6-bef0-ee17057733d6",
-            //     "created_at": new Date(),
-            //     "updated_at": new Date(),
-            //     "__v": 0,
-            //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
-            //     "table_id": "",
-            //     "layout_id": "",
-            //     "type": "FOLDER"
-            // }, 
         {
             "label": "Data",
             "icon": "database.svg",
@@ -328,32 +268,10 @@ module.exports = async function (data) {
             "table_id": "",
             "layout_id": "",
             "type": "FOLDER"
-        }, {
-            "label": "Resource",
-            "icon": "code.svg",
-            "id": "f313614f-f018-4ddc-a0ce-10a1f5716401",
-            "created_at": new Date(),
-            "updated_at": new Date(),
-            "__v": 0,
-            "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
-            "table_id": "",
-            "layout_id": "",
-            "type": "FOLDER"
-        }, {
+        },  {
             "label": "API",
             "icon": "code.svg",
             "id": "db4ffda3-7696-4f56-9f1f-be128d82ae68",
-            "created_at": new Date(),
-            "updated_at": new Date(),
-            "__v": 0,
-            "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
-            "table_id": "",
-            "layout_id": "",
-            "type": "FOLDER"
-        }, {
-            "label": "Constructor",
-            "icon": "code.svg",
-            "id": "c19594a8-9b5e-4c12-a0a1-f97c2357070c",
             "created_at": new Date(),
             "updated_at": new Date(),
             "__v": 0,

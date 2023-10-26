@@ -128,29 +128,36 @@ let excelStore = {
                         }
                         let options = []
                         // console.log("test 4");
-                        // console.log("~~~>", field.type)
                         if (field.type == "MULTISELECT" && value !== null && value.length) {
+                            // console.log("\n\n~~~> field slug ", field.slug, "  ~~~~ value  ", value)
                             if (field.attributes) {
-                                field.attributes = struct.decode(field.attributes)
-                                options = field.attributes.options
+                                let a = struct.decode(field.attributes)
+                                // console.log("~~~~ >> ", a,  a.options)
+                                // options = struct.decode(field.attributes.options)
+                                options = a.options
                             }
                             let arrayMultiSelect = [], labelsOfMultiSelect = []
                             if (value.includes(",") && options.length) {
                                 labelsOfMultiSelect = value.split(",")
+                                // console.log(":#1")
                                 labelsOfMultiSelect.forEach(element => {
-                                    let getValueOfMultiSelect = options.find(val => (val.label === element))
+                                    let getValueOfMultiSelect = options?.find(val => (val.label === element))
                                     arrayMultiSelect.push(getValueOfMultiSelect.value)
                                 })
                             } else if (value.includes(" ") && options.length) {
+                                // console.log(":#2")
                                 labelsOfMultiSelect.forEach(element => {
-                                    let getValueOfMultiSelect = options.find(val => (val.label === element))
+                                    let getValueOfMultiSelect = options?.find(val => (val.label === element))
                                     arrayMultiSelect.push(getValueOfMultiSelect.value)
                                 })
                             } else {
+                                // console.log(":#3", value)
                                 let getValueOfMultiSelect = options?.find(val => (val.label === value))
                                 arrayMultiSelect.push(getValueOfMultiSelect?.value)
                             }
                             value = arrayMultiSelect
+                            objectToDb[field?.slug] = value
+                            // console.log("~~~>> multiselect", value)
                         } else if (con.BOOLEAN_TYPES.includes(field.type)) {
                             if (typeof (value) == "string") {
                                 if (value.toUpperCase() === "ИСТИНА" || value.toUpperCase() == "TRUE") {
@@ -162,15 +169,24 @@ let excelStore = {
                                 value = value
                             }
 
+                            objectToDb[field?.slug] = value
+
                         } else if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
                             
                             relation = await Relation.findOne({
                                 id: field.relation_id
                             })
 
-                            const viewFields = await Field.find({
-                                id: { $in: viewFieldIds }
-                            }).lean()
+                            const viewFields = []
+                            for(let el of viewFieldIds) {
+                                const field = await Field.findOne({
+                                    id: el
+                                }).lean()
+
+                                if(field) {
+                                    viewFields.push(field)
+                                }
+                            }
 
                             if (relation && relation.type !== "Many2Many") {
                                 let params = {}
@@ -214,6 +230,7 @@ let excelStore = {
                                         project_id: req.project_id,
                                         data: params
                                     })
+                                    // console.log("test 0.1 ", objectFromObjectBuilder)
                                     if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                         if (field.attributes) {
                                             let fieldAttributes = struct.decode(field.attributes)
@@ -239,16 +256,17 @@ let excelStore = {
                                             data: struct.encode(payload)
                                         })
                                         let result = struct.decode(res.data)
+                                        // console.log("test #0.11", payload);
                                         objectToDb[field?.slug] = result?.data?.guid
                                     }
-                                    console.log("object to db", objectToDb);
+                                    // console.log("test #0.2", objectToDb);
                                     continue
                                 }
 
                             } else if (relation && relation.type == "Many2Many") {
                                 let values = row[rows[0].indexOf(column_slug)].split(",")
-                                console.log("val::", row[rows[0].indexOf(column_slug)], values)
-
+                                // console.log("val::", row[rows[0].indexOf(column_slug)], values)
+                                // console.log("~~~~ > values", values)
                                 let params = {}
                                 let payload = {}
                                 if (viewFields.length && viewFields.length > 1) {
@@ -287,6 +305,7 @@ let excelStore = {
                                                 project_id: req.project_id,
                                                 data: params
                                             })
+                                            // console.log("test #1.1", objectFromObjectBuilder)
                                             if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                                 if (field.attributes) {
                                                     let fieldAttributes = struct.decode(field.attributes)
@@ -318,14 +337,15 @@ let excelStore = {
                                                     data: struct.encode(payload)
                                                 })
                                                 let result = struct.decode(res.data)
-                                   
+                                                // console.log("test #1.2", result)
                                                 if(!objectToDb[field?.slug] || !objectToDb[field?.slug].length) {
                                                     objectToDb[field?.slug] = [ result?.data?.guid  ]
                                                 } else {
                                                     objectToDb[field?.slug] = [ ...objectToDb[field?.slug], result?.data?.guid  ]
                                                 }
+
                                             }
-                                            // console.log("object to db many2many", objectToDb);
+                                            // console.log("test #1.3", objectToDb);
                                             continue
                                         }
 
@@ -363,6 +383,8 @@ let excelStore = {
                                 value = i
 
                                 objectToDb[field?.slug] = value
+                            } else {
+                                objectToDb[field?.slug] = value
                             }
                         }
                         // if (value) {
@@ -370,6 +392,7 @@ let excelStore = {
                         // }
 
                     }
+
                     objectToDb['company_service_project_id'] = datas['company_service_project_id']
                     objectToDb['company_service_environment_id'] = datas['company_service_environment_id']
                     objectsToDb.push(objectToDb)

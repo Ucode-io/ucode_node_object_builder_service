@@ -13,6 +13,8 @@ const isSystemChecker = require("../../helper/is_system")
 const initialCustomMessage = require("../../helper/initialCustomMessage")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialUserLoginTable = require("../../helper/initialUserLoginTable");
+const defaultPage = require("../../helper/addFieldForDefaultPage");
+const initialCustomMessage = require("../../helper/initialCustomMessage");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
 const initialGlobalPermission = require("../../helper/initialCustomPermission");
 const initialViewPermission = require("../../helper/initialViewPermission");
@@ -157,6 +159,7 @@ let projectStore = {
                         console.log(">>>>>>>> ")
                         // await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
+                        await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })

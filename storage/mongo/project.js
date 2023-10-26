@@ -10,6 +10,7 @@ const logger = require("../../config/logger");
 const initialTableFolder = require("../../helper/initialTableFolder");
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialMenu = require("../../helper/initialMenu");
+const defaultPage = require("../../helper/addFieldForDefaultPage");
 const initialCustomMessage = require("../../helper/initialCustomMessage");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
 const initialGlobalPermission = require("../../helper/initialCustomPermission");
@@ -153,6 +154,7 @@ let projectStore = {
                         console.log(">>>>>>>> ")
                         // await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
+                        await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })

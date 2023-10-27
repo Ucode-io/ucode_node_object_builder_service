@@ -4297,8 +4297,6 @@ let objectBuilder = {
 
         let aggregationPipeline = [];
 
-        if (params.sort && Object.keys(params.sort).length > 0) { aggregationPipeline.push({ ...params.sort }); }
-
         if (params.match) {
             if (params.date_filter) {
                 let dateFromStringQuery = { [params.date_filter.match_date_field]: { $cond: [{ $or: [{ $eq: ["$" + params.date_filter.match_date_field, ""] }, { $eq: ["$" + params.date_filter.match_date_field, null] }] }, null, { $dateFromString: { dateString: "$" + params.date_filter.match_date_field } }] } }
@@ -4314,10 +4312,13 @@ let objectBuilder = {
             aggregationPipeline.push({ ...params.match },)
         }
 
+        aggregationPipeline.push({ ...params.query })
+
+        if (params.sort && Object.keys(params.sort).length > 0) { aggregationPipeline.push({ ...params.sort }); }
         if (params.offset) { aggregationPipeline.push({ $skip: params.offset }); }
         if (params.limit) { aggregationPipeline.push({ $limit: params.limit }); }
 
-        aggregationPipeline.push({ ...params.query }, ...(params.lookups || []))
+        aggregationPipeline.push(...(params.lookups || []))
 
         if (params.second_match) { aggregationPipeline.push({ $match: params.second_match }); }
         if (params.project && Object.keys(params.project).length > 0) { aggregationPipeline.push({ ...params.project }); }

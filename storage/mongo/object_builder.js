@@ -4297,6 +4297,8 @@ let objectBuilder = {
 
         let aggregationPipeline = [];
 
+        if (params.sort && Object.keys(params.sort).length > 0) { aggregationPipeline.push({ ...params.sort }); }
+
         if (params.match) {
             if (params.date_filter) {
                 let dateFromStringQuery = { [params.date_filter.match_date_field]: { $cond: [{ $or: [{ $eq: ["$" + params.date_filter.match_date_field, ""] }, { $eq: ["$" + params.date_filter.match_date_field, null] }] }, null, { $dateFromString: { dateString: "$" + params.date_filter.match_date_field } }] } }
@@ -4312,16 +4314,15 @@ let objectBuilder = {
             aggregationPipeline.push({ ...params.match },)
         }
 
+        if (params.offset) { aggregationPipeline.push({ $skip: params.offset }); }
+        if (params.limit) { aggregationPipeline.push({ $limit: params.limit }); }
+
         aggregationPipeline.push({ ...params.query }, ...(params.lookups || []))
 
         if (params.second_match) { aggregationPipeline.push({ $match: params.second_match }); }
         if (params.project && Object.keys(params.project).length > 0) { aggregationPipeline.push({ ...params.project }); }
-        if (params.sort && Object.keys(params.sort).length > 0) { aggregationPipeline.push({ ...params.sort }); }
 
         let countResult = await tableInfo.models.aggregate(aggregationPipeline);
-
-        if (params.limit) { aggregationPipeline.push({ $limit: params.limit }); }
-        if (params.offset) { aggregationPipeline.push({ $skip: params.offset }); }
 
         results = await tableInfo.models.aggregate(aggregationPipeline);
         response = struct.encode({ count: countResult.length, response: results, });

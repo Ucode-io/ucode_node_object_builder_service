@@ -6079,6 +6079,7 @@
   metadata: {}
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f70538eb8292d71a18675a44c7a53a062658fff8
 {
@@ -6134,4 +6135,265 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> 4f8aadf1b40d44a1fc08c2055ad89adcb32c701a
+=======
+{
+  message: 'mongo connection error Password contains unescaped characters',
+  level: 'error',
+  timestamp: '2023-10-13T09:23:16.092Z',
+  label: 'object_builder_service',
+  metadata: {
+    stack: 'MongoParseError: Password contains unescaped characters\n' +
+      '    at new ConnectionString (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb-connection-string-url/lib/index.js:115:23)\n' +
+      '    at parseOptions (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/connection_string.js:200:17)\n' +
+      '    at new MongoClient (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/mongo_client.js:45:63)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:802:16\n' +
+      '    at new Promise (<anonymous>)\n' +
+      '    at Connection.openUri (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:799:19)\n' +
+      '    at Mongoose.createConnection (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/config/mongoConn.js:43:33)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:128:39\n' +
+      '    at Object.reconnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/index_dev.js:40:30\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+  }
+}
+{
+<<<<<<< HEAD
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-19T11:30:15.577Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: error encountered while reading secret at secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB: Error making API request.
+    
+    URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB
+    Code: 403. Errors:
+    
+    * 1 error occurred:
+    	* permission denied
+    
+    
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 13,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB: Error making API request.\n' +
+        '\n' +
+        'URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB\n' +
+        'Code: 403. Errors:\n' +
+        '\n' +
+        '* 1 error occurred:\n' +
+        '\t* permission denied\n' +
+        '\n',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+=======
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-03T10:55:15.865Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+>>>>>>> 54825e9b3b1ba280024570507949a756cf6e875b
+    }
+  }
+}
+{
+<<<<<<< HEAD
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-19T11:42:43.062Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: error encountered while reading secret at secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB: Error making API request.
+    
+    URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB
+    Code: 403. Errors:
+    
+    * 1 error occurred:
+    	* permission denied
+    
+    
+        at Object.callErrorFromStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 13,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB: Error making API request.\n' +
+        '\n' +
+        'URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-test/39137d53-c5e8-4dcc-8433-5c55d2fc8549/81c3364d-8e23-44a6-8104-222c927a5adf/d69b2165-0f5f-49c0-8da9-92dad086dbc1/MONGODB\n' +
+        'Code: 403. Errors:\n' +
+        '\n' +
+        '* 1 error occurred:\n' +
+        '\t* permission denied\n' +
+        '\n',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+=======
+  message: 'service.fileStore.create: failed with error: Files is not a constructor',
+  level: 'error',
+  timestamp: '2023-10-18T10:36:02.369Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.fileStore.create: failed with error: mongoPool is not defined',
+  level: 'error',
+  timestamp: '2023-10-18T10:49:19.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.fileStore.create: failed with error: Cannot read properties of undefined (reading 'create')",
+  level: 'error',
+  timestamp: '2023-10-18T10:52:44.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> 9a26755e02ccf57ef7f6009851485a75733c7f66
+}
+=======
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: id_1_commit_id_-1 dup key: { id: "9f47ff8c-a671-430c-88f8-ad322ee4d46a", commit_id: "" }',
+  level: 'error',
+  timestamp: '2023-10-06T15:42:44.201Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+<<<<<<< HEAD
+>>>>>>> 54825e9b3b1ba280024570507949a756cf6e875b
+=======
+{
+  message: 'service.menu.getAll: failed with error: the limit must be positive',
+  level: 'error',
+  timestamp: '2023-10-23T08:14:04.504Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.menu.getAll: failed with error: Cannot set properties of undefined (setting 'attributes')",
+  level: 'error',
+  timestamp: '2023-10-23T08:29:52.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: failed with error: Cannot convert undefined or null to object',
+  level: 'error',
+  timestamp: '2023-10-23T08:42:35.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-23T09:05:34.214Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-10-23T09:07:12.870Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+>>>>>>> f984793a40b10e2c530fa0c4a8c7422f45d1e6f2
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-10-27T09:18:47.636Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-10-27T09:19:12.083Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.object_builder.getListWithOutRelations: failed with error: unusedFieldsSlugs is not defined',
+  level: 'error',
+  timestamp: '2023-10-30T06:18:06.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> adf1e6e2ae7fdb2ccd97c44aceba948523ecb1d0

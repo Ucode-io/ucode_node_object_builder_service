@@ -252,7 +252,7 @@ let layoutStore = {
 
             }
             for (const section of sections) {
-                let fieldsRes = [], fieldsWithPermissions = []
+                let fieldsRes = []
                 for (const fieldReq of section.fields) {
                     let guid;
                     let field = {};
@@ -398,7 +398,7 @@ let layoutStore = {
                     }
                 }
                 // this function add field permission for each field by role iddynamicTableInfo
-                fieldsWithPermissions = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
+                let {fieldsWithPermissions} = await AddPermission.toField(fieldsRes, data.role_id, table.slug, data.project_id)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)
             }
@@ -637,7 +637,7 @@ let layoutStore = {
                             }
                         }
                     }
-                    let fieldsWithPermissions = await AddPermission.toField(summaryFields, data.role_id, table.slug, data.project_id)
+                    let {fieldsWithPermissions} = await AddPermission.toField(summaryFields, data.role_id, table.slug, data.project_id)
                     layout.summary_fields = fieldsWithPermissions
                 }
                 const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()

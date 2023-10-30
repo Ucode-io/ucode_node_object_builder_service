@@ -4,6 +4,7 @@ const mongoPool = require('../../pkg/pool')
 const tableVersion = require('../../helper/table_version');
 const constants = require("../../helper/constants");
 const { struct } = require("pb-util/build");
+const folderMinio = require("../../helper/addMinioBucket");
 let NAMESPACE = "storage.menu";
 
 
@@ -24,6 +25,33 @@ let menuStore = {
                 if (!data.label) data.label = table?.label
             }
 
+            if (data.type == "MINIO_FOLDER") {
+                console.log("CREATING FOLDER INSIDE ID STORAGE")
+                let folder_name = ""
+                let menu
+                if (data.parent_id != "" && data.parent_id != "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9") {
+                    menu = await Menu.findOne({id: data.parent_id})
+                    if (menu && menu.attributes) {
+                        let attributes = struct.decode(menu.attributes)
+                        if (attributes && attributes.path) {
+                            data.attributes.fields["path"] = {
+                                stringValue: attributes.path + "/"+ data.label,
+                                kind: "stringValue"
+                            }
+                            folder_name = attributes.path + "/"+ data.label
+                        }
+                    }
+                } else {
+                    data.attributes.fields["path"] = {
+                        stringValue: data.label,
+                        kind: "stringValue"
+                    }
+                    folder_name = data.label
+                }
+
+
+                await folderMinio.createFolderToBucket(data.project_id, folder_name)
+            }
             const response = await Menu.create(data);
 
             const roleTable = mongoConn.models["role"]
@@ -294,7 +322,12 @@ let menuStore = {
             }
             const Menu = mongoConn.models['object_builder_service.menu']
 
-            const menu = await Menu.findOneAndDelete({ id: data.id }, {new: true});
+            let res = await Menu.findOne({ id: data.id });
+            if (res && res.type == "MINIO_FOLDER") {
+                let attributes = struct.decode(res.attributes)
+                await folderMinio.deleteMinioFolder(data.project_id, attributes.path)
+            }
+            const menu = await Menu.deleteOne({ id: data.id });
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
             return menu;

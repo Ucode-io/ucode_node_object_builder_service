@@ -327,7 +327,7 @@ let menuStore = {
                 let attributes = struct.decode(res.attributes)
                 await folderMinio.deleteMinioFolder(data.project_id, attributes.path)
             }
-            const menu = await Menu.deleteOne({ id: data.id });
+            const menu = await Menu.findOneAndDelete({ id: data.id }, {new: true});
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
             return menu;

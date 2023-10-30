@@ -93,7 +93,7 @@ let objectBuilder = {
                 }
             }
 
-            if(!data.guid) {
+            if (!data.guid) {
                 data.guid = payload.guid
             }
 
@@ -109,7 +109,7 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
-            
+
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
@@ -2160,6 +2160,7 @@ let objectBuilder = {
                 { deleted_at: null }
             ]
         }
+        order = { ...order, _id: 1 }
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
@@ -3513,8 +3514,8 @@ let objectBuilder = {
                     authCheckRequests.push(authCheckRequest)
                 }
                 // console.log("~~~~~> ", appendMany2ManyObjects.length, appendMany2ManyObjects)
-                if(appendMany2ManyObjects.length) {
-                    appendMany2ManyObj.push(...appendMany2ManyObjects) 
+                if (appendMany2ManyObjects.length) {
+                    appendMany2ManyObj.push(...appendMany2ManyObjects)
                 }
                 objects.push(payload)
             }
@@ -4313,16 +4314,18 @@ let objectBuilder = {
             aggregationPipeline.push({ ...params.match },)
         }
 
-        aggregationPipeline.push({ ...params.query }, ...(params.lookups || []))
+        aggregationPipeline.push({ ...params.query })
+
+        if (params.sort && Object.keys(params.sort).length > 0) { aggregationPipeline.push({ ...params.sort }); }
+        if (params.offset) { aggregationPipeline.push({ $skip: params.offset }); }
+        if (params.limit) { aggregationPipeline.push({ $limit: params.limit }); }
+
+        aggregationPipeline.push(...(params.lookups || []))
 
         if (params.second_match) { aggregationPipeline.push({ $match: params.second_match }); }
         if (params.project && Object.keys(params.project).length > 0) { aggregationPipeline.push({ ...params.project }); }
-        if (params.sort && Object.keys(params.sort).length > 0) { aggregationPipeline.push({ ...params.sort }); }
 
         let countResult = await tableInfo.models.aggregate(aggregationPipeline);
-
-        if (params.limit) { aggregationPipeline.push({ $limit: params.limit }); }
-        if (params.offset) { aggregationPipeline.push({ $skip: params.offset }); }
 
         results = await tableInfo.models.aggregate(aggregationPipeline);
         response = struct.encode({ count: countResult.length, response: results, });
@@ -4692,7 +4695,75 @@ let objectBuilder = {
         } catch (err) {
             throw err
         }
-    })
+    }),
+    getListWithOutRelations: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithOutRelations`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id)
+        let params = struct.decode(req?.data)
+        const limit = params.limit
+        const offset = params.offset
+        delete params["offset"]
+        delete params["limit"]
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        if (!tableInfo) {
+            throw new Error("table not found")
+        }
+        let keys = Object.keys(params)
+        let order = params.order || {}
+
+        const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+
+        if (currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: 1 }
+        } else if (!currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: -1 }
+        }
+        for (const key of keys) {
+            if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
+                params["guid"] = params[key]
+            }
+            if (Array.isArray(params[key])) {
+                params[key] = { $in: params[key] }
+            } else if (!key.includes('.') && typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
+                if (params[key]) {
+                    if (params[key].includes("(")) {
+                        params[key] = params[key].replaceAll("(", ("\\("))
+                    }
+                    if (params[key].includes(")")) {
+                        params[key] = params[key].replaceAll(")", ("\\)"))
+                    }
+                }
+                params[key] = RegExp(params[key], "i")
+            }
+        }
+        if (limit !== 0) {
+            result = await tableInfo.models.find({
+                $and: [params]
+            },
+                {
+                    createdAt: 0,
+                    updatedAt: 0,
+                    created_at: 0,
+                    updated_at: 0,
+                    _id: 0,
+                    __v: 0,
+                }, { sort: order }
+            ).skip(offset)
+                .limit(limit)
+                .lean();
+        }
+
+        let count = await tableInfo.models.count(params);
+        if (result && result.length) {
+            let prev = result.length
+            count = count - (prev - result.length)
+        }
+        const response = struct.encode({
+            count: count,
+            response: result,
+        });
+        return { table_slug: req.table_slug, data: response }
+
+    }),
 }
 
 module.exports = objectBuilder;

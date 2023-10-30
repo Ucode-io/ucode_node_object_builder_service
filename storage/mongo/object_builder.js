@@ -1942,7 +1942,7 @@ let objectBuilder = {
 
         const startMemoryUsage = v8.getHeapStatistics();
 
-        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id, "  ~~~~>  cluster id ", cluster.worker.id);
+        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']

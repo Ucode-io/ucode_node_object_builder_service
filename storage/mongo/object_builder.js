@@ -26,6 +26,8 @@ const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
 const MenuStorage = require('./menu');
 
+const v8 = require('v8');
+
 
 let NAMESPACE = "storage.object_builder";
 
@@ -846,12 +848,13 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
+
+        const startMemoryUsage = v8.getHeapStatistics();
+
         // console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
-        const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
-        const View = mongoConn.models['View']
         let params = struct.decode(req?.data)
         const limit = params.limit
         const offset = params.offset
@@ -860,9 +863,17 @@ let objectBuilder = {
         const languageSetting = params.language_setting
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-        const allTables = (await ObjectBuilder(true, req.project_id))
-        const viewPermission = allTables["view_permission"]
-        const tableInfo = allTables[req.table_slug]
+        // const allTables = (await ObjectBuilder(true, req.project_id))
+        const { 
+            [req.table_slug]: tableInfo,
+            record_permission: permissionTable,
+            automatic_filter: automaticFilterTable,
+            client_type: clientTypeTable,
+            view_permission: viewPermission
+         } = await ObjectBuilder(true, req.project_id)
+
+        // const viewPermission = allTables["view_permission"]
+        // const tableInfo = allTables[req.table_slug]
         let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -886,7 +897,7 @@ let objectBuilder = {
         } else if (!currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: -1 }
         }
-        const permissionTable = allTables["record_permission"]
+        // const permissionTable = allTables["record_permission"]
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -910,7 +921,7 @@ let objectBuilder = {
             ]
         })
         if (permission?.is_have_condition) {
-            const automaticFilterTable = allTables["automatic_filter"]
+            // const automaticFilterTable = allTables["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
                 $and: [
                     {
@@ -1022,7 +1033,7 @@ let objectBuilder = {
         // console.time("TIME_LOGGING:::client_type_id")
         if (clientTypeId) {
             // console.log("\n\n>>>> client type ", clientTypeId);
-            const clientTypeTable = allTables["client_type"]
+            // const clientTypeTable = allTables["client_type"]
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
@@ -1776,7 +1787,7 @@ let objectBuilder = {
                             [matchField]: { '$eq': res.guid },
                             ...filters
                         }
-                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, allTables)
+                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, (await ObjectBuilder(true, req.project_id)))
                         if (resultFormula.length) {
                             if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
                                 if (!isNaN(resultFormula[0].res)) {
@@ -1912,13 +1923,26 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
         // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
+
+        const endMemoryUsage = v8.getHeapStatistics();
+
+        console.log(' --> P-M Memory used by getList:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
+
+
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),
     getList2: catchWrapDbObjectBuilder(`${NAMESPACE}.getList2`, async (req) => {
+
+        const startMemoryUsage = v8.getHeapStatistics();
+
         console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
-        const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         const View = mongoConn.models['View']
@@ -1929,8 +1953,16 @@ let objectBuilder = {
         delete params["limit"]
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-        const allTables = (await ObjectBuilder(true, req.project_id))
-        const tableInfo = allTables[req.table_slug]
+        // const allTables = (await ObjectBuilder(true, req.project_id))
+
+        const { 
+            [req.table_slug]: tableInfo,
+            record_permission: permissionTable,
+            automatic_filter: automaticFilterTable,
+            client_type: clientTypeTable
+         } = await ObjectBuilder(true, req.project_id)
+
+        // const tableInfo = allTables[req.table_slug]
         let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -1964,7 +1996,7 @@ let objectBuilder = {
         } else if (!currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: -1 }
         }
-        const permissionTable = allTables["record_permission"]
+        // const permissionTable = allTables["record_permission"]
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -1992,7 +2024,7 @@ let objectBuilder = {
         })
 
         if (permission?.is_have_condition) {
-            const automaticFilterTable = allTables["automatic_filter"]
+            // const automaticFilterTable = allTables["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
                 $and: [
                     {
@@ -2100,7 +2132,7 @@ let objectBuilder = {
 
         if (clientTypeId) {
             // console.log("\n\n>>>> client type ", clientTypeId);
-            const clientTypeTable = allTables["client_type"]
+            // const clientTypeTable = allTables["client_type"]
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
@@ -2473,7 +2505,7 @@ let objectBuilder = {
                             [matchField]: { '$eq': res.guid },
                             ...filters
                         }
-                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, allTables)
+                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, await ObjectBuilder(true, req.project_id))
                         if (resultFormula.length) {
                             if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
                                 if (!isNaN(resultFormula[0].res)) {
@@ -2530,6 +2562,16 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
+
+        const endMemoryUsage = v8.getHeapStatistics();
+
+        console.log(' --> P-M Memory used by getList2:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
+        console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
+
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),

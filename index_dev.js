@@ -27,13 +27,13 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "4e37de38-dd34-4a00-b011-d0c3dd55fdfd", // asadbek_udevs
+            project_id: "1", // asadbek_udevs
             credentials: {
-                database: "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
-                password: "dhQXmMIX3N",
-                username: "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
-                port: 30027,
-                host: "65.109.239.69"
+                database: "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
+                password: "UAQljhZlWm",
+                username: "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
+                port: 27017,
+                host: "142.93.164.37"
             }
         })
         //mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service

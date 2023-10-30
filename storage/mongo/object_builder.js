@@ -26,6 +26,7 @@ const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
 const MenuStorage = require('./menu');
 
+const cluster = require('cluster');
 const v8 = require('v8');
 
 
@@ -1941,7 +1942,7 @@ let objectBuilder = {
 
         const startMemoryUsage = v8.getHeapStatistics();
 
-        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
+        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id, "  ~~~~>  cluster id ", cluster.worker.id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']

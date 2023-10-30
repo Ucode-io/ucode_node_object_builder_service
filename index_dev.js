@@ -2,59 +2,124 @@ require('dotenv').config({ path: '/app/.env' });
 require("dotenv").config({ path: "./.env" })
 const projectStorage = require('./storage/mongo/project')
 const config = require('./config/index')
+const cluster = require('cluster');
 // const mongooseConnection = require("./config/mongooseConnection");
 // @TODO:: add collection Delete Interval function for resources
 // const collectionDeleteInterval = require("./helper/collectionDeleteInterval"); 
 const grpcConnection = require("./config/grpcConnection");
 const logger = require("./config/logger");
 
-(async function () {
-    try {
-        await grpcConnection()
+const numCPUs = require('os').cpus().length;
 
-    } catch (err) {
-        throw err
-    }
+if (cluster.isMaster) {
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
 
-    process.addListener("uncaughtException", (e) => {
-        console.error("Custom Unhandled Exception", e);
-    });
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`Worker ${worker.process.pid} died`);
+  });
+} else {
+    (async function () {
+        try {
+            await grpcConnection()
+    
+        } catch (err) {
+            throw err
+        }
+    
+        process.addListener("uncaughtException", (e) => {
+            console.error("Custom Unhandled Exception", e);
+        });
+    
+        process.addListener("unhandledRejection", (e) => {
+            console.error("Custom Unhandled Rejection", e);
+        });
+    
+        try {
+            logger.info(`autoconnecting to resources`);
+            await projectStorage.reconnect({
+                project_id: "1", // youtube dev
+                credentials: {
+                    host: "65.109.239.69",
+                    port: 30027,
+                    database: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
+                    username: "youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs",
+                    password: "bLjkGFjiva"
+                }
+            })
+            //mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service
+            // mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs
+            // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
+    
+            // await projectStorage.autoConnect(
+            //     {
+            //         request: {
+            //             k8s_namespace: config.k8s_namespace
+            //         }
+            //     },
+            //     (code, result) => {
+            //         logger.info(`autoconnected to resources ${code} - ${result}`);
+            //     }
+            // )
+            logger.info(`autoconnected successfully done!!!`);
+    
+        } catch (err) {
+            logger.info(`autoconnecting to resources failed: ${err}`);
+        }
+    
+    
+    })();
+  
+}
 
-    process.addListener("unhandledRejection", (e) => {
-        console.error("Custom Unhandled Rejection", e);
-    });
+// (async function () {
+//     try {
+//         await grpcConnection()
 
-    try {
-        logger.info(`autoconnecting to resources`);
-        await projectStorage.reconnect({
-            project_id: "c59fbe76-21b6-4fd2-8224-2cfdc68a2c60", // magnus prod
-            credentials: {
-                database: "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",
-                password: "uraIcZhkLf",
-                username: "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",
-                port: 27017,
-                host: "142.93.164.37"
-            }
-        })
-        //mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service
-        // mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs
-        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
+//     } catch (err) {
+//         throw err
+//     }
 
-        // await projectStorage.autoConnect(
-        //     {
-        //         request: {
-        //             k8s_namespace: config.k8s_namespace
-        //         }
-        //     },
-        //     (code, result) => {
-        //         logger.info(`autoconnected to resources ${code} - ${result}`);
-        //     }
-        // )
-        logger.info(`autoconnected successfully done!!!`);
+//     process.addListener("uncaughtException", (e) => {
+//         console.error("Custom Unhandled Exception", e);
+//     });
 
-    } catch (err) {
-        logger.info(`autoconnecting to resources failed: ${err}`);
-    }
+//     process.addListener("unhandledRejection", (e) => {
+//         console.error("Custom Unhandled Rejection", e);
+//     });
+
+//     try {
+//         logger.info(`autoconnecting to resources`);
+//         await projectStorage.reconnect({
+//             project_id: "c59fbe76-21b6-4fd2-8224-2cfdc68a2c60", // magnus prod
+//             credentials: {
+//                 database: "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",
+//                 password: "uraIcZhkLf",
+//                 username: "magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs",
+//                 port: 27017,
+//                 host: "142.93.164.37"
+//             }
+//         })
+//         //mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service
+//         // mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs
+//         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
+
+//         // await projectStorage.autoConnect(
+//         //     {
+//         //         request: {
+//         //             k8s_namespace: config.k8s_namespace
+//         //         }
+//         //     },
+//         //     (code, result) => {
+//         //         logger.info(`autoconnected to resources ${code} - ${result}`);
+//         //     }
+//         // )
+//         logger.info(`autoconnected successfully done!!!`);
+
+//     } catch (err) {
+//         logger.info(`autoconnecting to resources failed: ${err}`);
+//     }
 
 
-})();
+// })();

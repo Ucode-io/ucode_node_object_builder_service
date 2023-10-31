@@ -49,6 +49,9 @@ const MenuSchema = mongoose.Schema(
         },
         bucket_path: {
             type: String,
+        },
+        wiki_id: {
+            type: String,
         }
     },
     {

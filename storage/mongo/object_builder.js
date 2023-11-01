@@ -4323,15 +4323,10 @@ let objectBuilder = {
         if (params.second_match) { aggregationPipeline.push({ $match: params.second_match }); }
         if (params.project && Object.keys(params.project).length > 0) { aggregationPipeline.push({ ...params.project }); }
 
-
-        console.log(req.table_slug, ":", JSON.stringify(aggregationPipeline))
-
         let countResult = await tableInfo.models.aggregate(aggregationPipeline);
 
         results = await tableInfo.models.aggregate(aggregationPipeline);
         response = struct.encode({ count: countResult.length, response: results, });
-
-        console.log("response:", req.table_slug, ":", JSON.stringify(response))
 
         return { table_slug: req.table_slug, data: response }
 

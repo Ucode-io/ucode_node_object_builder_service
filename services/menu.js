@@ -8,6 +8,7 @@ const menuService = {
     GetAll: catchWrapService(`service.menu.getAll`, menuStore.getAll),
     Delete: catchWrapService(`service.menu.delete`, menuStore.delete),
     UpdateMenuOrder: catchWrapService(`service.menu.updateMenuOrder`, menuStore.updateMenuOrder),
+    GetWikiFolder: catchWrapService(`service.menu.getWikiFolder`, menuStore.getWikiFolder),
 
     CreateMenuSettings: catchWrapService(`service.menu.createMenuSettings`, menuStore.createMenuSettings),
     GetAllMenuSettings: catchWrapService(`service.menu.getAllMenuSettings`, menuStore.getAllMenuSettings),

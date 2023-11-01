@@ -102752,3 +102752,856 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-01T07:35:16.779Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-01T07:35:16.781Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-01T07:35:16.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-01T07:35:17.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-01T07:39:53.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T07:42:29.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T07:42:29.648Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "3152d8be-b142-4a26-9192-4e13f4d9aae6",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T07:44:20.526Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T07:44:20.770Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T07:44:29.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T07:44:29.256Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T07:50:48.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T07:50:49.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T07:50:50.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T07:50:50.694Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T07:50:51.140Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T07:50:51.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T07:50:51.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T07:50:51.921Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "TEST WIKI",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "type": "WIKI_FOLDER",\n' +
+    '  "project_id": "",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:01:04.318Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-11-01T08:01:04.354Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/user/go/src/udevs/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-01T08:01:22.278Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-01T08:01:22.281Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-01T08:01:22.282Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-01T08:01:28.585Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-01T08:26:33.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-01T08:26:33.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-01T08:26:33.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-01T08:26:33.940Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-01T08:27:48.160Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "TEST WIKI",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "type": "WIKI_FOLDER",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:29:49.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:29:49.797Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:30:02.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:30:03.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:30:26.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:30:27.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.delete: requested - {\n' +
+    '  "id": "986d5301-2dbc-4329-917b-35108cce696c",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:31:28.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.delete: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:31:29.016Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "TEST WIKI",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "WIKI_FOLDER",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:32:40.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:32:41.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:33:18.878Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:33:19.156Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-01T08:40:52.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-01T08:40:52.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-01T08:40:52.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-01T08:40:53.180Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-01T08:44:43.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-01T08:44:43.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-01T08:44:43.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-01T08:44:44.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-01T08:50:34.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "TEST WIKI CHILD",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "ae051e42-483b-4f06-8ce8-153be3593bd3",\n' +
+    '  "type": "WIKI_FOLDER",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {}\n' +
+    '  },\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:52:40.367Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:52:40.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:57:24.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:57:25.603Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:57:40.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:57:42.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "ae051e42-483b-4f06-8ce8-153be3593bd3",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T08:58:00.041Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T08:58:00.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-01T10:04:58.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-01T10:04:58.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-01T10:04:58.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-01T10:05:00.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-01T10:08:02.166Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T10:12:18.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T10:12:18.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T10:18:39.190Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T10:18:39.431Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T10:20:09.583Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T10:20:09.801Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T10:23:58.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T10:23:58.956Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T10:25:06.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T10:25:06.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-01T10:26:24.707Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-01T10:26:24.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-01T10:26:24.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-01T10:26:25.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-01T10:32:08.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "ae051e42-483b-4f06-8ce8-153be3593bd3",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T10:33:58.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T10:33:58.735Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 0,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4e37de38-dd34-4a00-b011-d0c3dd55fdfd",\n' +
+    '  "role_id": "",\n' +
+    '  "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false,\n' +
+    '  "is_visible": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-01T10:49:25.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getWikiFolder: succeeded',
+  level: 'info',
+  timestamp: '2023-11-01T10:49:25.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

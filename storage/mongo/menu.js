@@ -545,6 +545,206 @@ let menuStore = {
             throw err
         }
     }),
+    getWikiFolder: catchWrapDb(`${NAMESPACE}.getWikiFolder`, async (data) => {
+        try {
+
+            const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
+
+            const Menu = mongoConn.models['object_builder_service.menu']
+
+            let query = {}
+
+            if (!data.parent_id) {
+                throw new Error("Parent id is reuired");
+            }
+            
+            query.parent_id = data.parent_id
+            query.type = { $in : ["WIKI", "WIKI_FOLDER"] }
+            query.is_visible = true
+        
+            if (data.parent_id == "c57eedc3-a954-4262-a0af-376c65b5a284") {
+                query.parent_id = "c57eedc3-a954-4262-a0af-376c65b5a284"
+                query.id = "744d63e6-0ab7-4f16-a588-d9129cf959d1" 
+            }
+
+            if (data.parent_id == "744d63e6-0ab7-4f16-a588-d9129cf959d1") {
+                query.parent_id = "744d63e6-0ab7-4f16-a588-d9129cf959d1"
+                query.type = { $in : ["WIKI", "WIKI_FOLDER"] }
+            }
+
+            // if (data.for_template) {
+            //     query.id = {
+            //         $nin: constants.STATIC_MENU_IDS
+            //     }
+            // }
+            // const pipelines = [
+            //     {
+            //         '$match': query
+            //     },
+            //     {
+            //         '$lookup': {
+            //             'from': 'tables',
+            //             'localField': 'table_id',
+            //             'foreignField': 'id',
+            //             'as': 'table'
+            //         }
+            //     },
+            //     {
+            //         '$lookup': {
+            //             'from': 'function_service.functions',
+            //             'localField': 'microfrontend_id',
+            //             'foreignField': 'id',
+            //             'as': 'microfrontend'
+            //         }
+            //     },
+            //     {
+            //         '$lookup': {
+            //             'from': 'pivottemplates',
+            //             'localField': 'pivot_template_id',
+            //             'foreignField': 'id',
+            //             'as': 'pivot'
+            //         }
+            //     },
+            //     {
+            //         '$lookup': {
+            //             from: "web_pages.web_page",
+            //             let: {
+            //                 webpage_id: "$webpage_id",
+            //             },
+            //             pipeline: [
+            //                 {
+            //                     $match: {
+            //                         $expr: {
+            //                             $and: [
+            //                                 {
+            //                                     $eq: ["$id", "$$webpage_id"],
+            //                                 },
+            //                             ],
+            //                         },
+            //                     },
+            //                 },
+            //                 {
+            //                     $sort: {
+            //                         created_at: -1,
+            //                     },
+            //                 },
+            //                 {
+            //                     $group: {
+            //                         _id: "$webpage_id",
+            //                         webpage: {
+            //                             $first: "$$ROOT",
+            //                         },
+            //                     },
+            //                 },
+            //             ],
+            //             as: "webpage"
+            //         }
+            //     },
+            //     {
+            //         '$unwind': {
+            //             'path': '$table',
+            //             'preserveNullAndEmptyArrays': true
+            //         }
+            //     },
+            //     {
+            //         '$unwind': {
+            //             'path': '$microfrontend',
+            //             'preserveNullAndEmptyArrays': true
+            //         }
+            //     },
+            //     {
+            //         '$unwind': {
+            //             'path': '$pivot',
+            //             'preserveNullAndEmptyArrays': true
+            //         }
+            //     },
+            //     {
+            //         '$unwind': {
+            //             'path': '$webpage',
+            //             'preserveNullAndEmptyArrays': true
+            //         }
+            //     },
+            //     {
+            //         '$lookup': {
+            //             'from': 'menu_permissions',
+            //             'let': {
+            //                 'menuId': '$id',
+            //                 'roleId': data.role_id
+            //             },
+            //             'pipeline': [
+            //                 {
+            //                     '$match': {
+            //                         '$expr': {
+            //                             '$and': [
+            //                                 {
+            //                                     '$eq': [
+            //                                         '$role_id', '$$roleId'
+            //                                     ]
+            //                                 },
+            //                                 {
+            //                                     '$eq': [
+            //                                         '$menu_id', '$$menuId'
+            //                                     ]
+            //                                 }
+            //                             ]
+            //                         }
+            //                     }
+            //                 }
+            //             ],
+            //             'as': 'permission'
+            //         },
+            //     },
+            //     {
+            //         '$unwind': {
+            //             'path': '$permission',
+            //             'preserveNullAndEmptyArrays': true
+            //         }
+            //     },
+            //     {
+            //         '$project': {
+            //             'permission._id': 0,
+            //             'permission.__v': 0,
+            //             'permission.createdAt': 0,
+            //             'permission.updatedAt': 0,
+            //         }
+            //     },
+            //     {
+            //         '$addFields': {
+            //             'data': {
+            //                 'table': '$table',
+            //                 'microfrontend': '$microfrontend',
+            //                 'webpage': '$webpage.webpage',
+            //                 'permission': '$permission',
+            //                 'pivot': '$pivot',
+            //             }
+            //         }
+            //     },
+            //     {
+            //         '$skip': data.offset
+            //     },
+            //     {
+            //         '$limit': data.limit
+            //     },
+            //     {
+            //         $sort:
+            //         {
+            //             order: 1,
+            //         },
+            //     }]
+
+            let menus = await Menu.find(query)
+            // menus = JSON.parse(JSON.stringify(menus))
+            // menus.forEach(el => {
+            //     el.data = struct.encode(el.data)
+            // })
+            console.log(">>>>>>>>>>>>", menus)
+            const count = await Menu.countDocuments(query);
+            return { menus, count };
+        } catch (err) {
+            throw err
+        }
+
+    }),
 };
 
 module.exports = menuStore;

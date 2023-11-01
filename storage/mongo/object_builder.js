@@ -4323,6 +4323,9 @@ let objectBuilder = {
         if (params.second_match) { aggregationPipeline.push({ $match: params.second_match }); }
         if (params.project && Object.keys(params.project).length > 0) { aggregationPipeline.push({ ...params.project }); }
 
+
+        console.log(":::::: ", JSON.stringify(aggregationPipeline))
+
         let countResult = await tableInfo.models.aggregate(aggregationPipeline);
 
         results = await tableInfo.models.aggregate(aggregationPipeline);

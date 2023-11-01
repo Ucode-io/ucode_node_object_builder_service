@@ -4314,6 +4314,8 @@ let objectBuilder = {
 
         aggregationPipeline.push({ ...params.query })
 
+        let countResult = await tableInfo.models.aggregate(aggregationPipeline);
+
         if (params.sort && Object.keys(params.sort).length > 0) { aggregationPipeline.push({ ...params.sort }); }
         if (params.offset) { aggregationPipeline.push({ $skip: params.offset }); }
         if (params.limit) { aggregationPipeline.push({ $limit: params.limit }); }
@@ -4322,8 +4324,6 @@ let objectBuilder = {
 
         if (params.second_match) { aggregationPipeline.push({ $match: params.second_match }); }
         if (params.project && Object.keys(params.project).length > 0) { aggregationPipeline.push({ ...params.project }); }
-
-        let countResult = await tableInfo.models.aggregate(aggregationPipeline);
 
         results = await tableInfo.models.aggregate(aggregationPipeline);
         response = struct.encode({ count: countResult.length, response: results, });

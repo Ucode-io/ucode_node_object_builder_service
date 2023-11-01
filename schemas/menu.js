@@ -52,6 +52,10 @@ const MenuSchema = mongoose.Schema(
         },
         wiki_id: {
             type: String,
+        },
+        is_visible: {
+            type: Boolean,
+            default: false,
         }
     },
     {

@@ -49,6 +49,10 @@ const MenuSchema = mongoose.Schema(
         },
         bucket_path: {
             type: String,
+        },
+        is_visible: {
+            type: Boolean,
+            default: false,
         }
     },
     {

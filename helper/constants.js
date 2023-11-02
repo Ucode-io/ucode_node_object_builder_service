@@ -5,7 +5,7 @@ module.exports = {
     BOOLEAN_TYPES: ["CHECKBOX", "SWITCH"],
     MIXED_TYPES: ["MULTISELECT", "LOOKUPS", "DYNAMIC", "FORMULA", "FORMULA_FRONTEND", "LANGUAGE_TYPE"],
     DYNAMIC_TYPES: ["AUTOFILL"],
-    MENU_TYPES: ["TABLE", "LAYOUT", "FOLDER", "MICROFRONTEND", "FAVOURITE", "HIDE", "WEBPAGE", "PIVOT", "REPORT_SETTING", "LINK", "MINIO_FOLDER", "WIKI_FOLDER"],
+    MENU_TYPES: ["TABLE", "LAYOUT", "FOLDER", "MICROFRONTEND", "FAVOURITE", "HIDE", "WEBPAGE", "PIVOT", "REPORT_SETTING", "LINK", "MINIO_FOLDER", "WIKI_FOLDER", "WIKI"],
     STATIC_MENU_IDS: [
         "c57eedc3-a954-4262-a0af-376c65b5a284", //root
         "c57eedc3-a954-4262-a0af-376c65b5a282", //favorite
@@ -22,6 +22,7 @@ module.exports = {
         "db4ffda3-7696-4f56-9f1f-be128d82ae68", //admin => api
         "3b74ee68-26e3-48c8-bc95-257ca7d6aa5c", // profile setting
         "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9", //files menu id
+        "744d63e6-0ab7-4f16-a588-d9129cf959d1", //wiki menu id
     ],
 
 

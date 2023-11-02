@@ -9,6 +9,7 @@ const objectBuilderService = {
     GetList2: catchWrapServiceObjectBuilder(`service.object_builder.getList2`, objectBuilderStore.getList2),
     GetSingleSlim: catchWrapServiceObjectBuilder(`service.object_builder.getSingleSlim`, objectBuilderStore.getSingleSlim),
     GetListSlim: catchWrapServiceObjectBuilder(`service.object_builder.getListSlim`, objectBuilderStore.getListSlim),
+    GetListSlimV2: catchWrapServiceObjectBuilder(`service.object_builder.getListSlim2`, objectBuilderStore.getListSlim2),
     GetListInExcel: catchWrapServiceObjectBuilder(`service.object_builder.getListInExcel`, objectBuilderStore.getListInExcel),
     Delete: catchWrapServiceObjectBuilder(`service.object_builder.delete`, objectBuilderStore.delete),
     ManyToManyAppend: catchWrapServiceObjectBuilder(`service.object_builder.appendManyToMany`, objectBuilderStore.appendManyToMany),

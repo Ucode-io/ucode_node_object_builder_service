@@ -8,13 +8,13 @@ const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
 const initialMenu = require("../../helper/initialMenu");
+
 const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
 const initialCustomMessage = require("../../helper/initialCustomMessage")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialUserLoginTable = require("../../helper/initialUserLoginTable");
 const defaultPage = require("../../helper/addFieldForDefaultPage");
-const initialCustomMessage = require("../../helper/initialCustomMessage");
 const initialMenuPermission = require("../../helper/initialMenuPermission");
 const initialGlobalPermission = require("../../helper/initialCustomPermission");
 const initialViewPermission = require("../../helper/initialViewPermission");

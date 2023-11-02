@@ -6389,3 +6389,54 @@
   }
 }
 >>>>>>> f984793a40b10e2c530fa0c4a8c7422f45d1e6f2
+<<<<<<< HEAD
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-10-27T09:18:47.636Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-10-27T09:19:12.083Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/macbook-air/go/src/gitlab.udevs.io/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.object_builder.getListWithOutRelations: failed with error: unusedFieldsSlugs is not defined',
+  level: 'error',
+  timestamp: '2023-10-30T06:18:06.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+>>>>>>> adf1e6e2ae7fdb2ccd97c44aceba948523ecb1d0
+=======
+>>>>>>> 58cc440edb5f2b14c5f80b6873c587ef0a89bf18

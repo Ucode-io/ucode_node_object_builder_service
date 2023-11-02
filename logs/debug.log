@@ -103605,3 +103605,94 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-02T06:28:57.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-02T06:28:57.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-02T06:28:57.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs:dhQXmMIX3N@65.109.239.69:30027/asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-02T06:28:57.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-02T06:30:06.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-11-02T06:36:11.674Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim2: succeeded',
+  level: 'info',
+  timestamp: '2023-11-02T06:36:12.504Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-11-02T06:36:39.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim2: succeeded',
+  level: 'info',
+  timestamp: '2023-11-02T06:36:39.945Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-11-02T06:36:54.895Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim2: succeeded',
+  level: 'info',
+  timestamp: '2023-11-02T06:36:55.774Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2023-11-02T06:37:00.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim2: succeeded',
+  level: 'info',
+  timestamp: '2023-11-02T06:37:01.539Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

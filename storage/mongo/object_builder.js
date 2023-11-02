@@ -890,29 +890,33 @@ let objectBuilder = {
         })
         let relations = []
         if (params.with_relations) {
-            params.selected_relations && params.selected_relations.length ? relations = await Relation.find(
-                {
+            if (params.selected_relations && params.selected_relations.length) {
+                relations = await Relation.find(
+                    {
+                        $or: [{
+                            table_from: req.table_slug,
+                            table_to: { $in: params.selected_relations },
+                        },
+                        {
+                            "dynamic_tables.table_slug": req.table_slug
+                        }
+                        ]
+                    }
+                )
+            } else {
+                relations = await Relation.find({
                     $or: [{
                         table_from: req.table_slug,
-                        table_to: { $in: params.selected_relations },
+                    },
+                    {
+                        table_to: req.table_slug,
                     },
                     {
                         "dynamic_tables.table_slug": req.table_slug
                     }
                     ]
-                }
-            ) : relations = await Relation.find({
-                $or: [{
-                    table_from: req.table_slug,
-                },
-                {
-                    table_to: req.table_slug,
-                },
-                {
-                    "dynamic_tables.table_slug": req.table_slug
-                }
-                ]
-            })
+                })
+            }
         }
 
 
@@ -1308,7 +1312,7 @@ let objectBuilder = {
             count: count,
             response: result,
         });
-        return { table_slug: req.table_slug, data: response }
+        return { table_slug: req.table_slug, data: response, is_cached: currentTable.is_cached }
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {

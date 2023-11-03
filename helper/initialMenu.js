@@ -245,6 +245,22 @@ module.exports = async function (data) {
             })
         }
 
+        const wikiDocsMenu = await Menu.findOne({id: "cd5f1ab0-432c-459d-824a-e64c139038ea"})
+        if (!wikiDocsMenu) {
+            await Menu.create({
+                "label": "Wiki docs",
+                "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",
+                "layout_id": "",
+                "table_id": "",
+                "type": "WIKI_FOLDER",
+                "icon": "folder.svg",
+                "is_visible": true,
+                "id": "cd5f1ab0-432c-459d-824a-e64c139038ea",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+            })
+        }
         let staticMenus = [
         {
             "label": "Data",

@@ -5124,3 +5124,346 @@
     }
   }
 }
+{
+  message: 'service.object_builder.getListSlim: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-11-03T04:47:00.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T04:55:10.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T05:14:14.228Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T05:38:06.180Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: failed with error: Connection pool for 65.109.239.69:30027 was cleared because another operation failed with: "connection <monitor> to 65.109.239.69:30027 timed out"',
+  level: 'error',
+  timestamp: '2023-11-03T05:43:07.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T05:56:27.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T06:08:48.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T06:12:49.220Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Aggregate has empty pipeline',
+  level: 'error',
+  timestamp: '2023-11-03T06:12:55.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Aggregate has empty pipeline',
+  level: 'error',
+  timestamp: '2023-11-03T06:12:55.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: concat is not defined',
+  level: 'error',
+  timestamp: '2023-11-03T06:48:12.880Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-11-03T06:50:02.971Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-11-03T06:53:10.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2023-11-03T06:54:53.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T07:09:12.800Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T07:22:07.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'find')",
+  level: 'error',
+  timestamp: '2023-11-03T09:36:24.427Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot set properties of undefined (setting 'country')",
+  level: 'error',
+  timestamp: '2023-11-03T09:39:15.490Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot set properties of undefined (setting 'company')",
+  level: 'error',
+  timestamp: '2023-11-03T09:41:41.650Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot set properties of undefined (setting 'company')",
+  level: 'error',
+  timestamp: '2023-11-03T09:44:02.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot set properties of undefined (setting 'company')",
+  level: 'error',
+  timestamp: '2023-11-03T09:48:12.118Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot set properties of undefined (setting 'company')",
+  level: 'error',
+  timestamp: '2023-11-03T09:50:09.661Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Arguments must be aggregate pipeline operators',
+  level: 'error',
+  timestamp: '2023-11-03T09:52:58.496Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Arguments must be aggregate pipeline operators',
+  level: 'error',
+  timestamp: '2023-11-03T09:54:39.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: The field 'data' must specify one accumulator",
+  level: 'error',
+  timestamp: '2023-11-03T09:57:19.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T10:02:01.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T10:08:14.970Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: i is not defined',
+  level: 'error',
+  timestamp: '2023-11-03T10:08:21.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: i is not defined',
+  level: 'error',
+  timestamp: '2023-11-03T10:08:21.741Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T10:10:28.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T10:11:50.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T10:12:28.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T10:18:08.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T10:29:34.718Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T10:49:17.866Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: PlanExecutor error during aggregation :: caused by :: $first's argument must be an array, but is string",
+  level: 'error',
+  timestamp: '2023-11-03T10:49:23.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: PlanExecutor error during aggregation :: caused by :: $first's argument must be an array, but is string",
+  level: 'error',
+  timestamp: '2023-11-03T10:49:24.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T10:51:38.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T11:03:35.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
+  level: 'error',
+  timestamp: '2023-11-03T11:04:11.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
+  level: 'error',
+  timestamp: '2023-11-03T11:04:11.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
+  level: 'error',
+  timestamp: '2023-11-03T11:04:12.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
+  level: 'error',
+  timestamp: '2023-11-03T11:07:18.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
+  level: 'error',
+  timestamp: '2023-11-03T11:07:18.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
+  level: 'error',
+  timestamp: '2023-11-03T11:07:18.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByIDMenuSettings: failed with error: Menu Templete not found with given id!',
+  level: 'error',
+  timestamp: '2023-11-03T11:14:08.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
+  level: 'error',
+  timestamp: '2023-11-03T11:14:16.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
+  level: 'error',
+  timestamp: '2023-11-03T11:14:16.095Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
+  level: 'error',
+  timestamp: '2023-11-03T11:14:17.622Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -4901,6 +4901,7 @@ let objectBuilder = {
         groupColumns.forEach(el => {
             firstGroup[el.slug] = "$" + el.slug
         })
+        console.log("test", firstGroup);
 
         const relations = await Relation.find({
             $or: [
@@ -5022,10 +5023,132 @@ let objectBuilder = {
                     $sort: order
                 })
             }
+            fs.writeFileSync('./a.json', JSON.stringify(copyPipeline))
 
             lastGroupField = field.slug
         }
         const response = await tableInfo.models.aggregate(copyPipeline)
+        res = JSON.parse(JSON.stringify(response))
+        const data = struct.encode({ response: res });
+        return { table_slug: req.table_slug, data: data }
+    }),
+    groupByColumns: catchWrapDbObjectBuilder(`${NAMESPACE}.groupByColumns`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id)
+        const View = mongoConn.models['View']
+        const Relation = mongoConn.models['Relation']
+        const params = struct.decode(req.data)
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+        const view = await tableInfo?.views?.find(el => el.id === params.builder_service_view_id)
+        let order = params.order || {}
+        const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+
+        if (currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: 1 }
+        } else if (!currentTable.order_by && !Object.keys(order).length) {
+            order = { createdAt: -1 }
+        }
+        if (!view) {
+            throw new Error("View not found")
+        }
+        let groupColumnIds = []
+        if (view.attributes && view.attributes.group_by_columns && view.attributes.group_by_columns.length) {
+
+            groupColumnIds = view.attributes.group_by_columns
+        }
+        const fields = tableInfo?.fields || []
+        const fieldsMap = {}
+        const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))
+        const groupColumns = []
+        fields.forEach(el => {
+            fieldsMap[el.id] = el
+        })
+        groupColumnIds.forEach(columnId => {
+            groupColumns.push(fieldsMap[columnId])
+        })
+        const projectColumns = fields.filter(el => (!groupColumnIds.includes(el.id) && !(constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA"))))
+        const sumFieldWithDollorSign = {}
+        const numberfieldWithDollorSign = {}
+        const projectColumnsWithDollorSign = {}
+        const dynamicConfig = {
+            groupByFields: [], // Specify the two columns you want to group by
+        };
+        numberColumns.forEach(el => {
+            sumFieldWithDollorSign[el.slug] = { $sum: "$" + el.slug }
+            numberfieldWithDollorSign[el.slug] = "$" + el.slug
+        })
+        projectColumns.forEach(el => {
+            projectColumnsWithDollorSign[el.slug] = "$" + el.slug
+        })
+        groupColumns.forEach(el => {
+            dynamicConfig.groupByFields.push(el.slug)
+        })
+        console.log("test", groupColumns);
+
+        function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i) {
+            console.log("g:", groupFields);
+            console.log("p:", projectFields);
+            let projection = {}
+            projectFields.forEach(el => {
+                projection[el] = "$_id." + el
+            })
+            let groupBy = {}
+            if (projectFields.length) {
+                let temp = {}
+                Object.assign(projection, numberfieldWithDollorSign)
+                groupFields.forEach(el => {
+                    temp[el] = "$_id." + el
+                })
+                // if (i > 1) {
+                projection["data"] = '$data'
+                // }
+                if (Object.keys(temp).length === 1) {
+                    groupBy["_id"] = temp[Object.keys(temp)[0]]
+                } else {
+                    groupBy["_id"] = temp
+                }
+
+                groupBy["data"] = {
+                    "$push": projection,
+                }
+            } else {
+                let temp = {}
+                groupFields.forEach(el => {
+                    console.log("el:", el);
+                    temp[el] = "$" + el
+                })
+                groupBy["_id"] = temp
+                groupBy["data"] = {
+                    $push: {
+                        ...projectColumnsWithDollorSign,
+                        ...numberfieldWithDollorSign
+                    }
+                }
+
+            }
+            console.log("test");
+            Object.assign(groupBy, sumFieldWithDollorSign)
+            return { $group: groupBy }
+        }
+
+        let aggregationPipeline = []
+        let groupFieldsAgg = dynamicConfig.groupByFields.slice(0, dynamicConfig.groupByFields.length)
+        for (let i = 0; i < dynamicConfig.groupByFields.length; i++) {
+            groupFieldsAgg = dynamicConfig.groupByFields.slice(0, dynamicConfig.groupByFields.length - i)
+            let projectFields = dynamicConfig.groupByFields.slice(groupFieldsAgg.length, groupFieldsAgg.length + 1)
+            aggregationPipeline = aggregationPipeline.concat(createDynamicAggregationPipeline(groupFieldsAgg, projectFields, i))
+        }
+        aggregationPipeline.push({
+            '$addFields': {
+                [groupFieldsAgg[0]]: '$_id'
+            }
+        })
+
+
+        fs.writeFileSync('./a.json', JSON.stringify(aggregationPipeline))
+
+
+
+        const response = await tableInfo.models.aggregate(aggregationPipeline)
         res = JSON.parse(JSON.stringify(response))
         const data = struct.encode({ response: res });
         return { table_slug: req.table_slug, data: data }

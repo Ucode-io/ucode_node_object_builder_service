@@ -182,6 +182,31 @@ async function createMenu() {
         "layout_id": "",
         "type": "FOLDER"
     },
+    {
+        "label": "Wiki",
+        "id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+        "table_id": "",
+        "layout_id": "",
+        "icon": "folder.svg",
+        "type": "FOLDER"
+    },
+    {
+        "label": "Wiki docs",
+        "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",
+        "layout_id": "",
+        "table_id": "",
+        "type": "WIKI_FOLDER",
+        "icon": "folder.svg",
+        "is_visible": true,
+        "id": "cd5f1ab0-432c-459d-824a-e64c139038ea",
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0,
+    },
     // {
     //     "label": "Constructor",
     //     "icon": "code.svg",

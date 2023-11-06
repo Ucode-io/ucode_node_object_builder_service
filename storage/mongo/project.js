@@ -229,7 +229,7 @@ let projectStore = {
         console.log("TEST::::::::::::::::::: 1")
         if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
 
-        let reconnect_data = await client.autoConn(config.k8s_namespace);
+        let reconnect_data = await client.autoConn(config.k8s_namespace, config.nodeType);
         console.log("TEST::::::::::::::::::: 2")
         // console.log("PROJECT-CRED >> ", reconnect_data.res.length, reconnect_data.res)
         for (let it of reconnect_data.res) {

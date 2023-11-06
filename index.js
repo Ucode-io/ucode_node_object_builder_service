@@ -33,7 +33,8 @@ const logger = require("./config/logger");
         await projectStorage.autoConnect(
             {
                 request: {
-                    k8s_namespace: config.k8s_namespace
+                    k8s_namespace: config.k8s_namespace,
+                    node_type: config.nodeType
                 }
             },
             (code, result) => {

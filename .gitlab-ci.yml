@@ -63,6 +63,28 @@ deploy-prod:
   only:
     - master
 
+deploy-object-builder-high:
+  stage: deploy
+  extends: .deploy_object_builder_template
+  variables:
+    NAMESPACE: object-builder
+    WORKLOAD: high
+    VALUES_FILE: .helm/values-object-builder-high.yml
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
+  only:
+    - master
+
+deploy-object-builder-low:
+  stage: deploy
+  extends: .deploy_object_builder_template
+  variables:
+    NAMESPACE: object-builder
+    WORKLOAD: low
+    VALUES_FILE: .helm/values-object-builder-low.yml
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
+  only:
+    - master
+
 rollback-staging:
   stage: rollback
   extends: .rollback_template

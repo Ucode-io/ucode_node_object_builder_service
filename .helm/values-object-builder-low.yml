@@ -151,7 +151,7 @@ autoscaling:
 nodeSelector: {}
 
 tolerations:
-  key: "workload"
+- key: "workload"
   operator: "Equal"
   value: "object-builder-low"
   effect: "NoSchedule"

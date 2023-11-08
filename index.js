@@ -10,6 +10,7 @@ const kafka = require("./config/kafka");
 const logger = require("./config/logger");
 
 (async function () {
+    console.log("~~~~~> config ", config)
     try {
         await grpcConnection()
 
@@ -41,6 +42,7 @@ const logger = require("./config/logger");
                 logger.info(`connected to resources ${code} - ${result}`);
             }
         )
+
 
         logger.info(`autoconnect successfully done!!!`);
 

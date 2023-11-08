@@ -5168,10 +5168,9 @@ let objectBuilder = {
             console.log("p:", projectFields);
             let projection = {}
             projectFields.forEach(el => {
-                projection[el] = "$_id." + el
+                projection["label"] = "$_id." + el
             });
             
-            // Add the $lookup stage for shokhrukh_users
             let r = [...lookups]
         
             let groupBy = {}
@@ -5179,7 +5178,7 @@ let objectBuilder = {
                 let temp = {}
                 Object.assign(projection, numberfieldWithDollorSign)
                 groupFields.forEach(el => {
-                    temp[el] = "$_id." + el
+                    temp["label"] = "$_id." + el
                 });
                 // if (i > 1) {
                 projection["data"] = '$data';
@@ -5199,7 +5198,11 @@ let objectBuilder = {
                     console.log("el:", el);
                     temp[el] = "$" + el;
                 });
-                groupBy["_id"] = temp;
+                if (Object.keys(temp).length === 1) {
+                    groupBy["_id"] = temp[Object.keys(temp)[0]];
+                } else {
+                    groupBy["_id"] = temp;
+                }
                 groupBy["data"] = {
                     $push: {
                         ...projectColumnsWithDollorSign,
@@ -5229,12 +5232,11 @@ let objectBuilder = {
         for (let i = 0; i < dynamicConfig.groupByFields.length; i++) {
             groupFieldsAgg = dynamicConfig.groupByFields.slice(0, dynamicConfig.groupByFields.length - i)
             let projectFields = dynamicConfig.groupByFields.slice(groupFieldsAgg.length, groupFieldsAgg.length + 1)
-            //let addFields = {"shokhrukh_user_id_data": { "$arrayElemAt": ["$shokhrukh_user_id_data", 0] }}
             aggregationPipeline = aggregationPipeline.concat(createDynamicAggregationPipeline(groupFieldsAgg, projectFields, i, lookupAddFields))
         }
         aggregationPipeline.push({
             '$addFields': {
-                [groupFieldsAgg[0]]: '$_id'
+                ["label"]: '$_id'
             }
         })
 

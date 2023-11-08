@@ -5703,3 +5703,10 @@
     }
   }
 }
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-11-08T05:40:12.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

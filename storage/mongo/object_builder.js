@@ -5171,7 +5171,7 @@ let objectBuilder = {
             console.log("p:", projectFields);
             let projection = {}
             projectFields.forEach(el => {
-                projection[el] = "$_id." + el
+                projection["label"] = "$_id." + el
             });
             
             let r = [...lookups]
@@ -5181,7 +5181,7 @@ let objectBuilder = {
                 let temp = {}
                 Object.assign(projection, numberfieldWithDollorSign)
                 groupFields.forEach(el => {
-                    temp[el] = "$_id." + el
+                    temp["label"] = "$_id." + el
                 });
                 // if (i > 1) {
                 projection["data"] = '$data';

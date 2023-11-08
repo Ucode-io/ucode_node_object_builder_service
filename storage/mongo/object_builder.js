@@ -2844,7 +2844,7 @@ let objectBuilder = {
         }
 
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
-            let additional_results;
+            let additional_results = [];
             const additional_param = {};
             let result_ids = {}
             result.forEach(el => result_ids[el.guid] = 1)
@@ -2883,17 +2883,14 @@ let objectBuilder = {
                         .populate(populateArr)
                         .lean()
                 }
-                if (additional_results.length) {
-                    result = result.concat(additional_results)
-                }
+            }
+            
+            if(additional_results.length) {
+                result = [...result, ...additional_results]
             }
 
-            // additional_results = additional_results.filter(obj => !result_ids.includes(obj.guid))
         }
 
-        // console.log("TEST::::::::::15")
-        // console.timeEnd("TIME_LOGGING:::additional_request")
-        // console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
 

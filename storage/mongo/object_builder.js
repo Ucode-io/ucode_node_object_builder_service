@@ -5239,7 +5239,7 @@ let objectBuilder = {
         }
         aggregationPipeline.push({
             '$addFields': {
-                "label": '$_id'
+                [groupFieldsAgg[0]]: '$_id'
             }
         })
 

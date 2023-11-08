@@ -28,6 +28,7 @@ const MenuStorage = require('./menu');
 
 const cluster = require('cluster');
 const v8 = require('v8');
+const { pipeline } = require('stream');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -2383,6 +2384,7 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
+        console.log("Decoded fields --->", decodedFields)
         const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
         if (tableWithVersion) {
@@ -2842,7 +2844,7 @@ let objectBuilder = {
         }
 
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
-            let additional_results;
+            let additional_results = [];
             const additional_param = {};
             let result_ids = {}
             result.forEach(el => result_ids[el.guid] = 1)
@@ -2881,17 +2883,14 @@ let objectBuilder = {
                         .populate(populateArr)
                         .lean()
                 }
-                if (additional_results.length) {
-                    result = result.concat(additional_results)
-                }
+            }
+            
+            if(additional_results.length) {
+                result = [...result, ...additional_results]
             }
 
-            // additional_results = additional_results.filter(obj => !result_ids.includes(obj.guid))
         }
 
-        // console.log("TEST::::::::::15")
-        // console.timeEnd("TIME_LOGGING:::additional_request")
-        // console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
 
@@ -5129,69 +5128,119 @@ let objectBuilder = {
         })
         console.log("test", groupColumns);
 
-        function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i) {
+        const relations = await Relation.find({
+            $or: [
+                {
+                    table_from: req.table_slug,
+                    type: 'Many2One'
+                }
+            ]
+        })
+        let lookups = [], lookupFields = {}, lookupFieldsWithAccumulator = {}, lookupGroupField = {};
+        for (const relation of relations) {
+            let table_to_slug = ""
+            const field = fields?.find(val => (val.relation_id === relation?.id))
+            if (field) {
+                table_to_slug = field.slug + "_data"
+            }
+            if (table_to_slug === "") {
+                continue
+            }
+            let from = pluralize.plural(relation.table_to)
+            if (groupColumnIds.includes(field.id)) {
+                lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
+            } else {
+                lookupFields[table_to_slug] = "$" + table_to_slug
+                lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+            }
+            lookups.push({
+                $lookup: {
+                    from: from,
+                    localField: field.slug,
+                    foreignField: "guid",
+                    as: table_to_slug
+                }
+            })
+        } 
+
+        function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i, lookupAddFields={}) {
             console.log("g:", groupFields);
             console.log("p:", projectFields);
             let projection = {}
             projectFields.forEach(el => {
-                projection[el] = "$_id." + el
-            })
+                projection["label"] = "$_id." + el
+            });
+            
+            let r = [...lookups]
+        
             let groupBy = {}
             if (projectFields.length) {
                 let temp = {}
                 Object.assign(projection, numberfieldWithDollorSign)
                 groupFields.forEach(el => {
-                    temp[el] = "$_id." + el
-                })
+                    temp["label"] = "$_id." + el
+                });
                 // if (i > 1) {
-                projection["data"] = '$data'
+                projection["data"] = '$data';
                 // }
                 if (Object.keys(temp).length === 1) {
-                    groupBy["_id"] = temp[Object.keys(temp)[0]]
+                    groupBy["_id"] = temp[Object.keys(temp)[0]];
                 } else {
-                    groupBy["_id"] = temp
+                    groupBy["_id"] = temp;
                 }
-
+        
                 groupBy["data"] = {
                     "$push": projection,
-                }
+                };
             } else {
                 let temp = {}
                 groupFields.forEach(el => {
                     console.log("el:", el);
-                    temp[el] = "$" + el
-                })
-                groupBy["_id"] = temp
+                    temp[el] = "$" + el;
+                });
+                if (Object.keys(temp).length === 1) {
+                    groupBy["_id"] = temp[Object.keys(temp)[0]];
+                } else {
+                    groupBy["_id"] = temp;
+                }
                 groupBy["data"] = {
                     $push: {
                         ...projectColumnsWithDollorSign,
-                        ...numberfieldWithDollorSign
+                        ...numberfieldWithDollorSign,
+                        ...lookupAddFields
                     }
-                }
-
+                };
             }
+            
+            console.log("Projection ->>", projection);
             console.log("test");
-            Object.assign(groupBy, sumFieldWithDollorSign)
-            return { $group: groupBy }
+        
+            // Return the modified aggregation pipeline with the $lookup stage
+            return r.concat({$group: groupBy})
         }
+        
 
         let aggregationPipeline = []
+        let lookupAddFields = {}
+        for (const key in lookupFields) {
+            if (lookupFields.hasOwnProperty(key)) {
+                lookupAddFields[key] = { "$arrayElemAt": [lookupFields[key], 0] };
+            }
+        }
+
         let groupFieldsAgg = dynamicConfig.groupByFields.slice(0, dynamicConfig.groupByFields.length)
         for (let i = 0; i < dynamicConfig.groupByFields.length; i++) {
             groupFieldsAgg = dynamicConfig.groupByFields.slice(0, dynamicConfig.groupByFields.length - i)
             let projectFields = dynamicConfig.groupByFields.slice(groupFieldsAgg.length, groupFieldsAgg.length + 1)
-            aggregationPipeline = aggregationPipeline.concat(createDynamicAggregationPipeline(groupFieldsAgg, projectFields, i))
+            aggregationPipeline = aggregationPipeline.concat(createDynamicAggregationPipeline(groupFieldsAgg, projectFields, i, lookupAddFields))
         }
         aggregationPipeline.push({
             '$addFields': {
-                [groupFieldsAgg[0]]: '$_id'
+                ["label"]: '$_id'
             }
         })
 
-
         fs.writeFileSync('./a.json', JSON.stringify(aggregationPipeline))
-
-
 
         const response = await tableInfo.models.aggregate(aggregationPipeline)
         res = JSON.parse(JSON.stringify(response))

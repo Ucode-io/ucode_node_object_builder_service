@@ -5467,3 +5467,289 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-11-06T10:11:08.802Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-11-06T10:16:23.729Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-11-06T10:32:13.395Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.groupByColumns: failed with error: Schema hasn't been registered for model "record_permission".\n` +
+    'Use mongoose.model(name, schema)',
+  level: 'error',
+  timestamp: '2023-11-06T10:33:35.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.groupByColumns: failed with error: Schema hasn't been registered for model "record_permission".\n` +
+    'Use mongoose.model(name, schema)',
+  level: 'error',
+  timestamp: '2023-11-06T10:34:25.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.groupByColumns: failed with error: Schema hasn't been registered for model "record_permission".\n` +
+    'Use mongoose.model(name, schema)',
+  level: 'error',
+  timestamp: '2023-11-06T10:40:34.037Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: lookupFields is not defined',
+  level: 'error',
+  timestamp: '2023-11-06T12:48:38.605Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: lookupFieldsWithAccumulator is not defined',
+  level: 'error',
+  timestamp: '2023-11-06T12:58:31.824Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: aggregationPipeline.concat is not a function',
+  level: 'error',
+  timestamp: '2023-11-06T13:08:33.036Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: aggregationPipeline.concat is not a function',
+  level: 'error',
+  timestamp: '2023-11-06T13:12:42.042Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: copyPipeline is not defined',
+  level: 'error',
+  timestamp: '2023-11-06T13:36:58.781Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: firstGroup is not defined',
+  level: 'error',
+  timestamp: '2023-11-06T13:39:49.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: lookups is not defined',
+  level: 'error',
+  timestamp: '2023-11-07T02:20:43.900Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-11-07T04:56:40.221Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-11-07T05:05:09.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-11-07T05:05:21.333Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-11-07T05:06:08.469Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-11-07T05:07:31.291Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-11-07T05:10:53.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: unknown argument to $lookup: foreightField',
+  level: 'error',
+  timestamp: '2023-11-07T12:25:55.349Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: projectFields is not defined',
+  level: 'error',
+  timestamp: '2023-11-07T12:40:31.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2023-11-08T05:15:26.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-11-08T05:18:29.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-08T05:38:38.828Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+=======
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-11-08T02:53:39.634Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-11-08T02:56:00.867Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-11-08T03:00:32.431Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-11-08T05:40:12.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> 95e894d869f43ca631c00be050b960f75890f9ca
+}

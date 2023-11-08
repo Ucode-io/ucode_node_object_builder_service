@@ -5178,7 +5178,7 @@ let objectBuilder = {
                 let temp = {}
                 Object.assign(projection, numberfieldWithDollorSign)
                 groupFields.forEach(el => {
-                    temp["label"] = "$_id." + el
+                    temp[el] = "$_id." + el
                 });
                 // if (i > 1) {
                 projection["data"] = '$data';

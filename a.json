@@ -25,11 +25,7 @@
     },
     {
         "$group": {
-            "_id": {
-                "epic": "$epic",
-                "task": "$task",
-                "subtask": "$subtask"
-            },
+            "_id": "$epic",
             "data": {
                 "$push": {
                     "clients_id": "$clients_id",
@@ -40,6 +36,8 @@
                     "id_order": "$id_order",
                     "date_to": "$date_to",
                     "mail": "$mail",
+                    "task": "$task",
+                    "subtask": "$subtask",
                     "stage": "$stage",
                     "total_price": "$total_price",
                     "clients_id_data": {
@@ -60,81 +58,6 @@
                             0
                         ]
                     }
-                }
-            }
-        }
-    },
-    {
-        "$lookup": {
-            "from": "clients",
-            "localField": "clients_id",
-            "foreignField": "guid",
-            "as": "clients_id_data"
-        }
-    },
-    {
-        "$lookup": {
-            "from": "branches",
-            "localField": "branch_id",
-            "foreignField": "guid",
-            "as": "branch_id_data"
-        }
-    },
-    {
-        "$lookup": {
-            "from": "couriers",
-            "localField": "courier_id",
-            "foreignField": "guid",
-            "as": "courier_id_data"
-        }
-    },
-    {
-        "$group": {
-            "_id": {
-                "epic": "$_id.epic",
-                "task": "$_id.task"
-            },
-            "data": {
-                "$push": {
-                    "subtask": "$_id.subtask",
-                    "total_price": "$total_price",
-                    "data": "$data"
-                }
-            }
-        }
-    },
-    {
-        "$lookup": {
-            "from": "clients",
-            "localField": "clients_id",
-            "foreignField": "guid",
-            "as": "clients_id_data"
-        }
-    },
-    {
-        "$lookup": {
-            "from": "branches",
-            "localField": "branch_id",
-            "foreignField": "guid",
-            "as": "branch_id_data"
-        }
-    },
-    {
-        "$lookup": {
-            "from": "couriers",
-            "localField": "courier_id",
-            "foreignField": "guid",
-            "as": "courier_id_data"
-        }
-    },
-    {
-        "$group": {
-            "_id": "$_id.epic",
-            "data": {
-                "$push": {
-                    "task": "$_id.task",
-                    "total_price": "$total_price",
-                    "data": "$data"
                 }
             }
         }

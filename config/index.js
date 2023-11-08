@@ -28,7 +28,9 @@ const config = {
     companyServiceHost: getConf("COMPANY_SERVICE_HOST", "localhost"),
     companyServicePort: getConf("COMPANY_GRPC_PORT", ":8092"),
     authServiceHost: getConf("AUTH_SERVICE_HOST", "localhost"),
-    authServicePort: getConf("AUTH_GRPC_PORT", ":9103")
+    authServicePort: getConf("AUTH_GRPC_PORT", ":9103"),
+
+    nodeType: getConf("NODE_TYPE", "LOW")
 };
 
 function getConf(name, def = "") {

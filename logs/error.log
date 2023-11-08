@@ -5710,3 +5710,32 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: `service.object_builder.groupByColumns: failed with error: Schema hasn't been registered for model "record_permission".\n` +
+    'Use mongoose.model(name, schema)',
+  level: 'error',
+  timestamp: '2023-11-08T06:02:48.682Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-11-08T06:06:15.140Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-11-08T06:06:39.097Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-11-08T06:08:33.991Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

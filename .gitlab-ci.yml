@@ -72,7 +72,7 @@ deploy-object-builder-high:
     NAMESPACE: object-builder
     WORKLOAD: high
     VALUES_FILE: .helm/values-object-builder-high.yml
-    K8SCONFIGJSON: $UCODE_KUBECONFIG
+    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
   only:
     - dev
 
@@ -83,7 +83,7 @@ deploy-object-builder-low:
     NAMESPACE: object-builder
     WORKLOAD: low
     VALUES_FILE: .helm/values-object-builder-low.yml
-    K8SCONFIGJSON: $UCODE_KUBECONFIG
+    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
   only:
     - dev
 

@@ -5102,7 +5102,6 @@ let objectBuilder = {
 
             groupColumnIds = view.attributes.group_by_columns
         }
-        console.log("Group by columns", groupColumnIds)
         const fields = tableInfo?.fields || []
         const fieldsMap = {}
         const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))
@@ -5203,7 +5202,6 @@ let objectBuilder = {
                 groupBy["data"] = {
                     "$push": projection,
                 };
-                console.log("Inside if", groupBy["_id"])
             } else {
                 let temp = {}
                 groupFields.forEach(el => {
@@ -5223,7 +5221,6 @@ let objectBuilder = {
                         ...lookupAddFields
                     }
                 };
-                console.log("Inside else", groupBy["_id"])
             }
             console.log("Projection ->>", projection);
             console.log("test");

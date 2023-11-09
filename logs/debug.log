@@ -104065,3 +104065,303 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-04T06:28:22.255Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-04T06:28:22.261Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-04T06:28:23.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-04T06:28:23.770Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://meta_admin_3e8f31b98810453d895d3cb31091e29c_p_obj_build_svcs:b2bhYZn1qo@65.109.239.69:30027/meta_admin_3e8f31b98810453d895d3cb31091e29c_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-04T06:28:56.796Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://meta_admin_3e8f31b98810453d895d3cb31091e29c_p_obj_build_svcs:b2bhYZn1qo@65.109.239.69:30027/meta_admin_3e8f31b98810453d895d3cb31091e29c_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-04T06:28:57.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://paypal_adm_21c628db091b4eed9071691ae5a6bcea_p_obj_build_svcs:AHvfBtHlPM@65.109.239.69:30027/paypal_adm_21c628db091b4eed9071691ae5a6bcea_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-04T06:29:32.254Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://paypal_adm_21c628db091b4eed9071691ae5a6bcea_p_obj_build_svcs:AHvfBtHlPM@65.109.239.69:30027/paypal_adm_21c628db091b4eed9071691ae5a6bcea_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-04T06:29:32.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-04T06:30:04.553Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-04T06:30:05.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-04T06:31:27.387Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-04T06:31:27.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-04T06:31:27.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-04T06:31:28.028Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-04T06:32:39.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-04T06:58:07.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-04T06:58:07.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-04T06:58:07.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-04T06:58:08.186Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-04T06:59:19.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "role_id": "3306fd21-ee1a-4c68-8843-6d0699b6f9ce",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-04T07:01:03.089Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-11-04T07:01:03.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4ffafc15-c605-497e-81ae-ee6c742c7b19",\n' +
+    '  "role_id": "b5023fc8-0641-444d-8f2e-42e83be04495",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-04T07:04:38.339Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_7c69e2d25afd48b69afe9c4ad2c9883f_p_obj_build_svcs:fleYw9ACtG@65.109.239.69:30027/asadbek_7c69e2d25afd48b69afe9c4ad2c9883f_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-04T07:04:39.185Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_7c69e2d25afd48b69afe9c4ad2c9883f_p_obj_build_svcs:fleYw9ACtG@65.109.239.69:30027/asadbek_7c69e2d25afd48b69afe9c4ad2c9883f_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-04T07:04:39.740Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-11-04T07:05:10.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-04T08:48:54.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-04T08:48:54.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-04T08:48:54.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-04T08:48:55.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-04T08:50:07.362Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: requested - {\n' +
+    '  "offset": 0,\n' +
+    '  "limit": 100,\n' +
+    '  "search": "",\n' +
+    '  "project_id": "4ffafc15-c605-497e-81ae-ee6c742c7b19",\n' +
+    '  "role_id": "b5023fc8-0641-444d-8f2e-42e83be04495",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "",\n' +
+    '  "for_template": false\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-11-04T08:50:35.329Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://asadbek_7c69e2d25afd48b69afe9c4ad2c9883f_p_obj_build_svcs:fleYw9ACtG@65.109.239.69:30027/asadbek_7c69e2d25afd48b69afe9c4ad2c9883f_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-04T08:50:35.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://asadbek_7c69e2d25afd48b69afe9c4ad2c9883f_p_obj_build_svcs:fleYw9ACtG@65.109.239.69:30027/asadbek_7c69e2d25afd48b69afe9c4ad2c9883f_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-04T08:50:36.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-11-04T08:51:05.703Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-06T08:00:18.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-06T08:00:18.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-06T08:00:18.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-06T08:00:19.065Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

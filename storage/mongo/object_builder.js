@@ -5178,7 +5178,7 @@ let objectBuilder = {
                 projection["label"] = "$_id." + el
                 const matchingField = groupColumns.find(obj => obj.slug === el);
                 if (matchingField) {
-                    projection["type"] = matchingField.type
+                    projection["group_by_type"] = matchingField.type
                 }
             });
             
@@ -5249,7 +5249,7 @@ let objectBuilder = {
         aggregationPipeline.push({
             '$addFields': {
                 'label': '$_id',
-                'type': typeOfLastLabel,
+                'group_by_type': typeOfLastLabel,
             }
         })
 

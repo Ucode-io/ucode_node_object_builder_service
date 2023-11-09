@@ -5102,6 +5102,7 @@ let objectBuilder = {
 
             groupColumnIds = view.attributes.group_by_columns
         }
+        console.log("Group by columns", groupColumnIds)
         const fields = tableInfo?.fields || []
         const fieldsMap = {}
         const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))
@@ -5112,6 +5113,7 @@ let objectBuilder = {
         groupColumnIds.forEach(columnId => {
             groupColumns.push(fieldsMap[columnId])
         })
+        console.log("Group columns", groupColumns)
         const projectColumns = fields.filter(el => (!groupColumnIds.includes(el.id) && !(constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA"))))
         const sumFieldWithDollorSign = {}
         const numberfieldWithDollorSign = {}
@@ -5166,12 +5168,18 @@ let objectBuilder = {
             })
         } 
 
+        let typeOfLastLabel = ""
         function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i, lookupAddFields={}) {
             console.log("g:", groupFields);
             console.log("p:", projectFields);
+            typeOfLastLabel = groupColumns.find(obj => obj.slug === groupFields[0]).type
             let projection = {}
             projectFields.forEach(el => {
                 projection["label"] = "$_id." + el
+                const matchingField = groupColumns.find(obj => obj.slug === el);
+                if (matchingField) {
+                    projection["type"] = matchingField.type
+                }
             });
             
             let r = [...lookups]
@@ -5195,6 +5203,7 @@ let objectBuilder = {
                 groupBy["data"] = {
                     "$push": projection,
                 };
+                console.log("Inside if", groupBy["_id"])
             } else {
                 let temp = {}
                 groupFields.forEach(el => {
@@ -5214,15 +5223,14 @@ let objectBuilder = {
                         ...lookupAddFields
                     }
                 };
+                console.log("Inside else", groupBy["_id"])
             }
-            
             console.log("Projection ->>", projection);
             console.log("test");
         
             // Return the modified aggregation pipeline with the $lookup stage
             return r.concat({$group: groupBy})
         }
-        
 
         let aggregationPipeline = []
         let lookupAddFields = {}
@@ -5240,7 +5248,8 @@ let objectBuilder = {
         }
         aggregationPipeline.push({
             '$addFields': {
-                ["label"]: '$_id'
+                'label': '$_id',
+                'type': typeOfLastLabel,
             }
         })
 

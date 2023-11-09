@@ -5167,15 +5167,22 @@ let objectBuilder = {
             })
         } 
 
-        let typeOfLastLabel = ""
+        //console.log("Group columns------>", groupColumns)
+        let typeOfLastLabel = "", groupBySlug = ""
         function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i, lookupAddFields={}) {
             console.log("g:", groupFields);
             console.log("p:", projectFields);
             typeOfLastLabel = groupColumns.find(obj => obj.slug === groupFields[0]).type
+            if (typeOfLastLabel === "LOOKUP") {
+                groupBySlug = groupColumns.find(obj => obj.slug === groupFields[0]).table_slug
+            }
             let projection = {}
             projectFields.forEach(el => {
                 projection["label"] = "$_id." + el
                 const matchingField = groupColumns.find(obj => obj.slug === el);
+                if (matchingField.type == "LOOKUP") {
+                    projection["group_by_slug"] = matchingField.table_slug
+                }
                 if (matchingField) {
                     projection["group_by_type"] = matchingField.type
                 }
@@ -5247,6 +5254,7 @@ let objectBuilder = {
             '$addFields': {
                 'label': '$_id',
                 'group_by_type': typeOfLastLabel,
+                'group_by_slug': groupBySlug,
             }
         })
 

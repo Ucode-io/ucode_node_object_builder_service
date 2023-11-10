@@ -1,1 +1,223 @@
-[{"$lookup":{"from":"clients","localField":"clients_id","foreignField":"guid","as":"clients_id_data"}},{"$lookup":{"from":"branches","localField":"branch_id","foreignField":"guid","as":"branch_id_data"}},{"$lookup":{"from":"couriers","localField":"courier_id","foreignField":"guid","as":"courier_id_data"}},{"$group":{"_id":{"epic":"$epic","task":"$task","subtask":"$subtask","clients_id":"$clients_id"},"data":{"$push":{"guid":"$guid","branch_id":"$branch_id","courier_id":"$courier_id","location":"$location","date":"$date","id_order":"$id_order","date_to":"$date_to","mail":"$mail","stage":"$stage","total_price":"$total_price","branch_id_data":{"$arrayElemAt":["$branch_id_data",0]},"courier_id_data":{"$arrayElemAt":["$courier_id_data",0]}}}}},{"$lookup":{"from":"clients","localField":"clients_id","foreignField":"guid","as":"clients_id_data"}},{"$lookup":{"from":"branches","localField":"branch_id","foreignField":"guid","as":"branch_id_data"}},{"$lookup":{"from":"couriers","localField":"courier_id","foreignField":"guid","as":"courier_id_data"}},{"$group":{"_id":{"epic":"$_id.epic","task":"$_id.task","subtask":"$_id.subtask"},"data":{"$push":{"label":"$_id.clients_id","group_by_type":"LOOKUP","total_price":"$total_price","data":"$data"}}}},{"$lookup":{"from":"clients","localField":"clients_id","foreignField":"guid","as":"clients_id_data"}},{"$lookup":{"from":"branches","localField":"branch_id","foreignField":"guid","as":"branch_id_data"}},{"$lookup":{"from":"couriers","localField":"courier_id","foreignField":"guid","as":"courier_id_data"}},{"$group":{"_id":{"epic":"$_id.epic","task":"$_id.task"},"data":{"$push":{"label":"$_id.subtask","group_by_type":"SINGLE_LINE","total_price":"$total_price","data":"$data"}}}},{"$lookup":{"from":"clients","localField":"clients_id","foreignField":"guid","as":"clients_id_data"}},{"$lookup":{"from":"branches","localField":"branch_id","foreignField":"guid","as":"branch_id_data"}},{"$lookup":{"from":"couriers","localField":"courier_id","foreignField":"guid","as":"courier_id_data"}},{"$group":{"_id":"$_id.epic","data":{"$push":{"label":"$_id.task","group_by_type":"SINGLE_LINE","total_price":"$total_price","data":"$data"}}}},{"$addFields":{"label":"$_id","group_by_type":"SINGLE_LINE"}}]
+[
+    {
+        "$lookup": {
+            "from": "clients",
+            "localField": "clients_id",
+            "foreignField": "guid",
+            "as": "clients_id_data"
+        }
+    },
+    {
+        "$lookup": {
+            "from": "branches",
+            "localField": "branch_id",
+            "foreignField": "guid",
+            "as": "branch_id_data"
+        }
+    },
+    {
+        "$lookup": {
+            "from": "couriers",
+            "localField": "courier_id",
+            "foreignField": "guid",
+            "as": "courier_id_data"
+        }
+    },
+    {
+        "$group": {
+            "_id": {
+                "epic": "$epic",
+                "task": "$task",
+                "stage": "$stage",
+                "subtask": "$subtask"
+            },
+            "data": {
+                "$push": {
+                    "guid": "$guid",
+                    "createdAt": "$createdAt",
+                    "clients_id": "$clients_id",
+                    "branch_id": "$branch_id",
+                    "courier_id": "$courier_id",
+                    "location": "$location",
+                    "date": "$date",
+                    "id_order": "$id_order",
+                    "date_to": "$date_to",
+                    "mail": "$mail",
+                    "total_price": "$total_price",
+                    "clients_id_data": {
+                        "$arrayElemAt": [
+                            "$clients_id_data",
+                            0
+                        ]
+                    },
+                    "branch_id_data": {
+                        "$arrayElemAt": [
+                            "$branch_id_data",
+                            0
+                        ]
+                    },
+                    "courier_id_data": {
+                        "$arrayElemAt": [
+                            "$courier_id_data",
+                            0
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "$lookup": {
+            "from": "clients",
+            "localField": "clients_id",
+            "foreignField": "guid",
+            "as": "clients_id_data"
+        }
+    },
+    {
+        "$lookup": {
+            "from": "branches",
+            "localField": "branch_id",
+            "foreignField": "guid",
+            "as": "branch_id_data"
+        }
+    },
+    {
+        "$lookup": {
+            "from": "couriers",
+            "localField": "courier_id",
+            "foreignField": "guid",
+            "as": "courier_id_data"
+        }
+    },
+    {
+        "$group": {
+            "_id": {
+                "epic": "$_id.epic",
+                "task": "$_id.task",
+                "stage": "$_id.stage"
+            },
+            "data": {
+                "$push": {
+                    "label": "$_id.subtask",
+                    "group_by_type": "SINGLE_LINE",
+                    "createdAt": {
+                        "$arrayElemAt": [
+                            "$data.createdAt",
+                            0
+                        ]
+                    },
+                    "total_price": "$total_price",
+                    "data": "$data"
+                }
+            }
+        }
+    },
+    {
+        "$lookup": {
+            "from": "clients",
+            "localField": "clients_id",
+            "foreignField": "guid",
+            "as": "clients_id_data"
+        }
+    },
+    {
+        "$lookup": {
+            "from": "branches",
+            "localField": "branch_id",
+            "foreignField": "guid",
+            "as": "branch_id_data"
+        }
+    },
+    {
+        "$lookup": {
+            "from": "couriers",
+            "localField": "courier_id",
+            "foreignField": "guid",
+            "as": "courier_id_data"
+        }
+    },
+    {
+        "$group": {
+            "_id": {
+                "epic": "$_id.epic",
+                "task": "$_id.task"
+            },
+            "data": {
+                "$push": {
+                    "label": "$_id.stage",
+                    "group_by_type": "SINGLE_LINE",
+                    "createdAt": {
+                        "$arrayElemAt": [
+                            "$data.createdAt",
+                            0
+                        ]
+                    },
+                    "total_price": "$total_price",
+                    "data": "$data"
+                }
+            }
+        }
+    },
+    {
+        "$lookup": {
+            "from": "clients",
+            "localField": "clients_id",
+            "foreignField": "guid",
+            "as": "clients_id_data"
+        }
+    },
+    {
+        "$lookup": {
+            "from": "branches",
+            "localField": "branch_id",
+            "foreignField": "guid",
+            "as": "branch_id_data"
+        }
+    },
+    {
+        "$lookup": {
+            "from": "couriers",
+            "localField": "courier_id",
+            "foreignField": "guid",
+            "as": "courier_id_data"
+        }
+    },
+    {
+        "$group": {
+            "_id": "$_id.epic",
+            "data": {
+                "$push": {
+                    "label": "$_id.task",
+                    "group_by_type": "SINGLE_LINE",
+                    "createdAt": {
+                        "$arrayElemAt": [
+                            "$data.createdAt",
+                            0
+                        ]
+                    },
+                    "total_price": "$total_price",
+                    "data": "$data"
+                }
+            }
+        }
+    },
+    {
+        "$addFields": {
+            "label": "$_id",
+            "group_by_type": "SINGLE_LINE",
+            "group_by_slug": "",
+            "createdAt": {
+                "$arrayElemAt": [
+                    "$data.createdAt",
+                    0
+                ]
+            }
+        }
+    },
+    {
+        "$sort": {
+            "createdAt": -1
+        }
+    }
+]

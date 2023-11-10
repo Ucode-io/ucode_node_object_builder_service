@@ -5112,7 +5112,7 @@ let objectBuilder = {
         groupColumnIds.forEach(columnId => {
             groupColumns.push(fieldsMap[columnId])
         })
-        console.log("Group columns", groupColumns)
+        //console.log("Group columns", groupColumns)
         const projectColumns = fields.filter(el => (!groupColumnIds.includes(el.id) && !(constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA"))))
         const sumFieldWithDollorSign = {}
         const numberfieldWithDollorSign = {}
@@ -5130,7 +5130,7 @@ let objectBuilder = {
         groupColumns.forEach(el => {
             dynamicConfig.groupByFields.push(el.slug)
         })
-        console.log("test", groupColumns);
+        //console.log("test", groupColumns);
 
         const relations = await Relation.find({
             $or: [
@@ -5167,7 +5167,7 @@ let objectBuilder = {
             })
         } 
 
-        //console.log("Group columns------>", groupColumns)
+        console.log("Group by columns --->", groupColumns)
         let typeOfLastLabel = "", groupBySlug = ""
         function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i, lookupAddFields={}) {
             console.log("g:", groupFields);
@@ -5186,7 +5186,10 @@ let objectBuilder = {
                 if (matchingField) {
                     projection["group_by_type"] = matchingField.type
                 }
-            });
+                projection["createdAt"] = {
+                    "$arrayElemAt": ["$data.createdAt", 0]
+                } 
+            }); 
             
             let r = [...lookups]
         
@@ -5223,6 +5226,7 @@ let objectBuilder = {
                 groupBy["data"] = {
                     $push: {
                         "guid": "$guid",
+                        "createdAt": "$createdAt",
                         ...projectColumnsWithDollorSign,
                         ...numberfieldWithDollorSign,
                         ...lookupAddFields
@@ -5255,8 +5259,13 @@ let objectBuilder = {
                 'label': '$_id',
                 'group_by_type': typeOfLastLabel,
                 'group_by_slug': groupBySlug,
-            }
-        })
+                'createdAt': {
+                    "$arrayElemAt": [
+                        "$data.createdAt", 0
+                    ]
+                }
+            },
+        }, {"$sort": order})
 
         fs.writeFileSync('./a.json', JSON.stringify(aggregationPipeline))
 

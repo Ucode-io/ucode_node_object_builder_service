@@ -5167,7 +5167,6 @@ let objectBuilder = {
             })
         } 
 
-        console.log("Group by columns --->", groupColumns)
         let typeOfLastLabel = "", groupBySlug = ""
         function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i, lookupAddFields={}) {
             console.log("g:", groupFields);
@@ -5233,8 +5232,8 @@ let objectBuilder = {
                     }
                 };
             }
-            console.log("Projection ->>", projection);
-            console.log("test");
+            // console.log("Projection ->>", projection);
+            // console.log("test");
         
             // Return the modified aggregation pipeline with the $lookup stage
             return r.concat({$group: groupBy})

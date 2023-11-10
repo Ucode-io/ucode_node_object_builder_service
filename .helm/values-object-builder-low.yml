@@ -36,7 +36,7 @@ serviceAccount:
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/auth-path: "auth/kubernetes-ucode"
-  vault.hashicorp.com/agent-inject-secret-.env: "secret/data/k8s/ucode-prod/node-object-builder-service"
+  vault.hashicorp.com/agent-inject-secret-.env: "secret/data/k8s/ucode-prod/node-object-builder-service-low"
   vault.hashicorp.com/secret-volume-path-.env: "/app"
   vault.hashicorp.com/role: "ucode-prod"
   vault.hashicorp.com/agent-inject-template-.env: |
@@ -65,7 +65,7 @@ podAnnotations:
     {{ $key }}: {{ $value }}
     {{- end }}
     {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-prod/node-object-builder-service" -}}
+    {{- with secret "secret/data/k8s/ucode-prod/node-object-builder-service-low" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
@@ -150,14 +150,18 @@ autoscaling:
 
 nodeSelector: {}
 
-tolerations: []
+tolerations:
+- key: "workload"
+  operator: "Equal"
+  value: "object-builder-low"
+  effect: "NoSchedule"
 
 affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
         - matchExpressions:
-            - key: kubernetes.io/object-builder
+            - key: kubernetes.io/object-builder-low
               operator: In
               values:
                 - "true"

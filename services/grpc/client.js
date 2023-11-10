@@ -40,9 +40,9 @@ const SyncUserService = () => {
     return new sync_user_with_auth_service.SyncUserService(`${authServiceHost}${authServicePort}`, grpc.credentials.createInsecure());
 };
 
-const autoConn = async (k8s_namespace) => {
+const autoConn = async (k8s_namespace, node_type) => {
     return new Promise((resolve, reject) => {
-        ResourceService().AutoConnect({ k8s_namespace: k8s_namespace }, (err, res) => {
+        ResourceService().AutoConnect({ k8s_namespace: k8s_namespace, node_type: node_type }, (err, res) => {
             if (err) {
                 logger.error("Error while auto connecting", {
                     function: "autoConn",
@@ -58,9 +58,9 @@ const autoConn = async (k8s_namespace) => {
     });
 };
 
-const reConn = async (k8s_namespace, project_id) => {
+const reConn = async (k8s_namespace, project_id, node_type) => {
     return new Promise((resolve, reject) => {
-        ResourceService().AutoConnectByProjectId({ k8s_namespace: k8s_namespace, project_id: project_id }, (err, res) => {
+        ResourceService().AutoConnectByProjectId({ k8s_namespace: k8s_namespace, project_id: project_id, node_type }, (err, res) => {
             if (err) {
                 logger.error("Error while auto connecting by project id", {
                     function: "autoConn",

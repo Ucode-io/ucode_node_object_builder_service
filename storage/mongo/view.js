@@ -8,28 +8,15 @@ var Eta = require("eta");
 const ObjectBuilder = require("../../models/object_builder");
 const objectBuilderStore = require("./object_builder");
 const numberFormatter = require("../../helper/formatNumber")
-
 const mongoPool = require('../../pkg/pool');
-
 var JsBarcode = require('jsbarcode');
-
 const { DOMImplementation, XMLSerializer } = require('xmldom');
 const { v4 } = require("uuid");
 const xmlSerializer = new XMLSerializer();
 const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-
-console.log()
-// const mongoConn = await mongoPool.get(data.project_id)
-// const Table = mongoConn.models['Table']
-// const Field = mongoConn.models['Field']
-// const Section = mongoConn.models['Section']
-// const App = mongoConn.models['App']
-// const View = mongoConn.models['View']
-// const Relation = mongoConn.models['Relation']
-// const ViewRelation = mongoConn.models['ViewRelation']
-
-
+const { VIEW_TYPES } = require('../../helper/constants') 
+const { BoardOrderChecker } = require ('../../helper/board_order')
 
 let NAMESPACE = "storage.view";
 
@@ -46,6 +33,9 @@ let viewStore = {
                 data.attributes = struct.decode(data.attributes)
             }
 
+            if(data.type == VIEW_TYPES.BOARD) {
+                await BoardOrderChecker(mongoConn, data.table_slug)
+            }
             const response = await View.create(data)
 
             const resp = await Table.updateOne({
@@ -55,7 +45,7 @@ let viewStore = {
                     $set: {
                         is_changed: true
                     }
-                })
+            })
 
             const roles = await Role.find()
             let query = []
@@ -89,6 +79,11 @@ let viewStore = {
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
             }
+
+            if(data.type == VIEW_TYPES.BOARD) {
+                await BoardOrderChecker(mongoConn, data.table_slug)
+            }
+
             const view = await View.findOneAndUpdate(
                 {
                     id: data.id,

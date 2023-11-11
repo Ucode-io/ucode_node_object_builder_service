@@ -4634,3 +4634,101 @@
     }
   }
 }
+{
+  message: 'service.view.create: failed with error: project_id is not defined',
+  level: 'error',
+  timestamp: '2023-11-10T09:41:36.144Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'map')",
+  level: 'error',
+  timestamp: '2023-11-10T09:45:13.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.update: failed with error: id is not defined',
+  level: 'error',
+  timestamp: '2023-11-10T09:49:56.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'map')",
+  level: 'error',
+  timestamp: '2023-11-10T09:53:59.230Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'map')",
+  level: 'error',
+  timestamp: '2023-11-10T09:55:58.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'tabs')",
+  level: 'error',
+  timestamp: '2023-11-10T09:58:24.667Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'tabs')",
+  level: 'error',
+  timestamp: '2023-11-10T10:01:38.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: tableInfo.findOne is not a function',
+  level: 'error',
+  timestamp: '2023-11-10T13:37:05.850Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: tableInfo.findOne is not a function',
+  level: 'error',
+  timestamp: '2023-11-10T13:42:01.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: tableInfo.findOne is not a function',
+  level: 'error',
+  timestamp: '2023-11-10T13:45:53.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2023-11-10T14:02:34.234Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2023-11-10T14:06:55.877Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2023-11-10T14:10:20.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.update: failed with error: models is not defined',
+  level: 'error',
+  timestamp: '2023-11-11T07:54:31.243Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

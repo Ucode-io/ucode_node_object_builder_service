@@ -25,6 +25,7 @@ const TableStorage = require('./table')
 const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
 const MenuStorage = require('./menu');
+const { OrderUpdate } = require('../../helper/board_order')
 
 
 let NAMESPACE = "storage.object_builder";
@@ -125,7 +126,12 @@ let objectBuilder = {
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+
+            await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
+
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
+
+            
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
                 funcs.push(objectBuilder.appendManyToMany(resAppendM2M))

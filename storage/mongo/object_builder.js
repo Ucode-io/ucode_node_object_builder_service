@@ -25,6 +25,7 @@ const TableStorage = require('./table')
 const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
 const MenuStorage = require('./menu');
+const { OrderUpdate } = require('../../helper/board_order')
 
 const cluster = require('cluster');
 const v8 = require('v8');
@@ -129,7 +130,12 @@ let objectBuilder = {
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+
+            await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
+
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
+
+            
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
                 funcs.push(objectBuilder.appendManyToMany(resAppendM2M))
@@ -2844,7 +2850,7 @@ let objectBuilder = {
         }
 
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
-            let additional_results;
+            let additional_results = [];
             const additional_param = {};
             let result_ids = {}
             result.forEach(el => result_ids[el.guid] = 1)
@@ -2883,12 +2889,12 @@ let objectBuilder = {
                         .populate(populateArr)
                         .lean()
                 }
-                if (additional_results.length) {
-                    result = result.concat(additional_results)
-                }
+            }
+            
+            if(additional_results.length) {
+                result = [...result, ...additional_results]
             }
 
-            // additional_results = additional_results.filter(obj => !result_ids.includes(obj.guid))
         }
 
         // console.log("TEST::::::::::15")

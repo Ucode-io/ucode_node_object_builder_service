@@ -9,6 +9,7 @@ module.exports = {
     
     OrderUpdate: async (mongoConn, tableInfo, table_slug, data) => {
         try {
+            console.log("~~~ OrderUpdate function requested ~~~")
           
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
@@ -125,6 +126,7 @@ module.exports = {
             const board_order = await Field.findOne({ table_slug: table_slug, slug: "board_order" })
     
             if(!board_order) {
+                console.log("~~~ BoardOrderChecker function create field ~~~")
                 await Field.create({
                     "id": "93999892-78b0-4674-9e42-6a2a41524ebe",
                     "table_id": foundTable.id,

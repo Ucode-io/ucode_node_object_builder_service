@@ -160,4 +160,3 @@ affinity:
               operator: In
               values:
                 - "true"
-

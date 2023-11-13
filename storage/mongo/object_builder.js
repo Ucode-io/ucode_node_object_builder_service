@@ -25,6 +25,7 @@ const TableStorage = require('./table')
 const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
 const MenuStorage = require('./menu');
+const { OrderUpdate } = require('../../helper/board_order')
 
 const cluster = require('cluster');
 const v8 = require('v8');
@@ -129,7 +130,12 @@ let objectBuilder = {
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+
+            await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
+
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
+
+            
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
                 funcs.push(objectBuilder.appendManyToMany(resAppendM2M))
@@ -2384,7 +2390,7 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
-        console.log("Decoded fields --->", decodedFields)
+        // console.log("Decoded fields --->", decodedFields)
         const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
         if (tableWithVersion) {
@@ -2414,7 +2420,7 @@ let objectBuilder = {
 
         const startMemoryUsage = v8.getHeapStatistics();
 
-        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
+        console.log(">> Table slug 11", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -2891,6 +2897,9 @@ let objectBuilder = {
 
         }
 
+        // console.log("TEST::::::::::15")
+        // console.timeEnd("TIME_LOGGING:::additional_request")
+        // console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
 
@@ -5109,6 +5118,7 @@ let objectBuilder = {
         groupColumnIds.forEach(columnId => {
             groupColumns.push(fieldsMap[columnId])
         })
+        //console.log("Group columns", groupColumns)
         const projectColumns = fields.filter(el => (!groupColumnIds.includes(el.id) && !(constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA"))))
         const sumFieldWithDollorSign = {}
         const numberfieldWithDollorSign = {}
@@ -5126,7 +5136,7 @@ let objectBuilder = {
         groupColumns.forEach(el => {
             dynamicConfig.groupByFields.push(el.slug)
         })
-        console.log("test", groupColumns);
+        //console.log("test", groupColumns);
 
         const relations = await Relation.find({
             $or: [
@@ -5163,13 +5173,28 @@ let objectBuilder = {
             })
         } 
 
+        let typeOfLastLabel = "", groupBySlug = ""
         function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i, lookupAddFields={}) {
             console.log("g:", groupFields);
             console.log("p:", projectFields);
+            typeOfLastLabel = groupColumns.find(obj => obj.slug === groupFields[0]).type
+            if (typeOfLastLabel === "LOOKUP") {
+                groupBySlug = groupColumns.find(obj => obj.slug === groupFields[0]).table_slug
+            }
             let projection = {}
             projectFields.forEach(el => {
                 projection["label"] = "$_id." + el
-            });
+                const matchingField = groupColumns.find(obj => obj.slug === el);
+                if (matchingField.type == "LOOKUP") {
+                    projection["group_by_slug"] = matchingField.table_slug
+                }
+                if (matchingField) {
+                    projection["group_by_type"] = matchingField.type
+                }
+                projection["createdAt"] = {
+                    "$arrayElemAt": ["$data.createdAt", 0]
+                } 
+            }); 
             
             let r = [...lookups]
         
@@ -5205,20 +5230,20 @@ let objectBuilder = {
                 }
                 groupBy["data"] = {
                     $push: {
+                        "guid": "$guid",
+                        "createdAt": "$createdAt",
                         ...projectColumnsWithDollorSign,
                         ...numberfieldWithDollorSign,
                         ...lookupAddFields
                     }
                 };
             }
-            
-            console.log("Projection ->>", projection);
-            console.log("test");
+            // console.log("Projection ->>", projection);
+            // console.log("test");
         
             // Return the modified aggregation pipeline with the $lookup stage
             return r.concat({$group: groupBy})
         }
-        
 
         let aggregationPipeline = []
         let lookupAddFields = {}
@@ -5236,9 +5261,16 @@ let objectBuilder = {
         }
         aggregationPipeline.push({
             '$addFields': {
-                ["label"]: '$_id'
-            }
-        })
+                'label': '$_id',
+                'group_by_type': typeOfLastLabel,
+                'group_by_slug': groupBySlug,
+                'createdAt': {
+                    "$arrayElemAt": [
+                        "$data.createdAt", 0
+                    ]
+                }
+            },
+        }, {"$sort": order})
 
         fs.writeFileSync('./a.json', JSON.stringify(aggregationPipeline))
 

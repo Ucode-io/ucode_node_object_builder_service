@@ -4904,6 +4904,7 @@
   }
 }
 {
+<<<<<<< HEAD
   message: 'Error while auto connecting by project id',
   level: 'error',
   timestamp: '2023-10-30T09:54:43.162Z',
@@ -5457,17 +5458,29 @@
   message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
   level: 'error',
   timestamp: '2023-11-03T11:14:16.095Z',
+=======
+  message: 'service.view.create: failed with error: project_id is not defined',
+  level: 'error',
+  timestamp: '2023-11-10T09:41:36.144Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'failed to find object in table bus with given id: e090cd44-2b87-4856-bab2-75eedddb6892',
   level: 'error',
   timestamp: '2023-11-03T11:14:17.622Z',
+=======
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'map')",
+  level: 'error',
+  timestamp: '2023-11-10T09:45:13.056Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'Error while auto connecting',
   level: 'error',
   timestamp: '2023-11-06T10:11:08.802Z',
@@ -5519,68 +5532,122 @@
     'Use mongoose.model(name, schema)',
   level: 'error',
   timestamp: '2023-11-06T10:33:35.010Z',
+=======
+  message: 'service.view.update: failed with error: id is not defined',
+  level: 'error',
+  timestamp: '2023-11-10T09:49:56.962Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: `service.object_builder.groupByColumns: failed with error: Schema hasn't been registered for model "record_permission".\n` +
     'Use mongoose.model(name, schema)',
   level: 'error',
   timestamp: '2023-11-06T10:34:25.783Z',
+=======
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'map')",
+  level: 'error',
+  timestamp: '2023-11-10T09:53:59.230Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: `service.object_builder.groupByColumns: failed with error: Schema hasn't been registered for model "record_permission".\n` +
     'Use mongoose.model(name, schema)',
   level: 'error',
   timestamp: '2023-11-06T10:40:34.037Z',
+=======
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'map')",
+  level: 'error',
+  timestamp: '2023-11-10T09:55:58.807Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.groupByColumns: failed with error: lookupFields is not defined',
   level: 'error',
   timestamp: '2023-11-06T12:48:38.605Z',
+=======
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'tabs')",
+  level: 'error',
+  timestamp: '2023-11-10T09:58:24.667Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.groupByColumns: failed with error: lookupFieldsWithAccumulator is not defined',
   level: 'error',
   timestamp: '2023-11-06T12:58:31.824Z',
+=======
+  message: "service.object_builder.update: failed with error: Cannot read properties of undefined (reading 'tabs')",
+  level: 'error',
+  timestamp: '2023-11-10T10:01:38.736Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.groupByColumns: failed with error: aggregationPipeline.concat is not a function',
   level: 'error',
   timestamp: '2023-11-06T13:08:33.036Z',
+=======
+  message: 'service.object_builder.update: failed with error: tableInfo.findOne is not a function',
+  level: 'error',
+  timestamp: '2023-11-10T13:37:05.850Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.groupByColumns: failed with error: aggregationPipeline.concat is not a function',
   level: 'error',
   timestamp: '2023-11-06T13:12:42.042Z',
+=======
+  message: 'service.object_builder.update: failed with error: tableInfo.findOne is not a function',
+  level: 'error',
+  timestamp: '2023-11-10T13:42:01.524Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.groupByColumns: failed with error: copyPipeline is not defined',
   level: 'error',
   timestamp: '2023-11-06T13:36:58.781Z',
+=======
+  message: 'service.object_builder.update: failed with error: tableInfo.findOne is not a function',
+  level: 'error',
+  timestamp: '2023-11-10T13:45:53.174Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.groupByColumns: failed with error: firstGroup is not defined',
   level: 'error',
   timestamp: '2023-11-06T13:39:49.737Z',
+=======
+  message: 'service.object_builder.update: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2023-11-10T14:02:34.234Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.object_builder.groupByColumns: failed with error: lookups is not defined',
   level: 'error',
   timestamp: '2023-11-07T02:20:43.900Z',
@@ -5779,6 +5846,118 @@
   message: 'service.object_builder.groupByColumns: failed with error: View not found',
   level: 'error',
   timestamp: '2023-11-08T06:08:33.991Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2023-11-08T06:30:19.608Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-11-08T06:34:25.095Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-11-08T13:41:27.422Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-11-08T15:27:06.908Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-11-10T02:56:06.200Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Arguments must be aggregate pipeline operators',
+  level: 'error',
+  timestamp: '2023-11-10T02:59:24.498Z',
+=======
+  message: 'service.object_builder.update: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2023-11-10T14:06:55.877Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading '0')",
+  level: 'error',
+  timestamp: '2023-11-10T06:18:30.456Z',
+=======
+  message: 'service.object_builder.update: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2023-11-10T14:10:20.471Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'service.object_builder.groupByColumns: failed with error: a.createdAt.localeCompare is not a function',
+  level: 'error',
+  timestamp: '2023-11-10T06:24:32.352Z',
+=======
+  message: 'service.object_builder.update: failed with error: models is not defined',
+  level: 'error',
+  timestamp: '2023-11-11T07:54:31.243Z',
+>>>>>>> c955bd06ca24b0c3c3a573d79005cf71ab9233e7
   label: 'object_builder_service',
   metadata: {}
 }

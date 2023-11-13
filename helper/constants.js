@@ -24,6 +24,15 @@ module.exports = {
         "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9", //files menu id
         "744d63e6-0ab7-4f16-a588-d9129cf959d1", //wiki menu id
     ],
+    VIEW_TYPES: {
+        "TABLE": "TABLE",
+        "CALENDAR": "CALENDAR",
+        "CALENDAR HOUR": "CALENDAR HOUR",
+        "GANTT": "GANTT",
+        "TREE": "TREE",
+        "BOARD": "BOARD",
+        "FINANCE CALENDAR": "FINANCE CALENDAR",
+    },
 
 
     // KAFKA PRODUCER TOPICS

@@ -69,7 +69,7 @@ deploy-dev:
 
 deploy-object-builder-high:
   stage: deploy-high
-  extends: .deploy_object_builder_template
+  extends: .deploy_object_builder_high_template
   variables:
     NAMESPACE: ucode-dev
     WORKLOAD: high
@@ -80,7 +80,7 @@ deploy-object-builder-high:
 
 deploy-object-builder-low:
   stage: deploy-low
-  extends: .deploy_object_builder_template
+  extends: .deploy_object_builder_low_template
   variables:
     NAMESPACE: ucode-dev
     WORKLOAD: low

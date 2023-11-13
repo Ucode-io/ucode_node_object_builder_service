@@ -2390,7 +2390,7 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
-        console.log("Decoded fields --->", decodedFields)
+        // console.log("Decoded fields --->", decodedFields)
         const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
         if (tableWithVersion) {
@@ -2420,7 +2420,7 @@ let objectBuilder = {
 
         const startMemoryUsage = v8.getHeapStatistics();
 
-        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
+        console.log(">> Table slug 11", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']

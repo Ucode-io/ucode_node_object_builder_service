@@ -28,6 +28,7 @@ module.exports = async function (data) {
                 menu_settings_id: "adea69cd-9968-4ad0-8e43-327f6600abfd",
                 created_at: new Date(),
                 updated_at: new Date(),
+                is_static: true,
             })
         }
 
@@ -58,7 +59,8 @@ module.exports = async function (data) {
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
+                "is_static": true,
             })
         }
         let adminMenu = await Menu.findOne({
@@ -75,7 +77,8 @@ module.exports = async function (data) {
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
+                "is_static": true,
             })
         } else {
             if (adminMenu.label != "Settings") {
@@ -138,7 +141,8 @@ module.exports = async function (data) {
                 "table_id": "",
                 "layout_id": "", 
                 "type": "FOLDER",
-                "bucket_path": data.project_id
+                "bucket_path": data.project_id,
+                "is_static": true,
             })
         }
         const file_types = ["PHOTO", "FILE", "VIDEO", "CUSTOM_IMAGE"]
@@ -196,7 +200,8 @@ module.exports = async function (data) {
                   },
                 "parent_id":"8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
                 "type":"MINIO_FOLDER",
-                "label":"Media"
+                "label":"Media",
+                "is_static": true,
              })
             await Field.updateMany({type: {$in: file_types}}, 
                 {
@@ -225,7 +230,8 @@ module.exports = async function (data) {
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
+                "is_static": true,
             })
         }
 
@@ -241,7 +247,8 @@ module.exports = async function (data) {
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
+                "is_static": true,
             })
         }
 
@@ -257,7 +264,8 @@ module.exports = async function (data) {
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
+                "is_static": true,
             })
         }
 
@@ -275,6 +283,7 @@ module.exports = async function (data) {
                 "created_at": new Date(),
                 "updated_at": new Date(),
                 "__v": 0,
+                "is_static": true,
             })
         }
         let staticMenus = [
@@ -288,7 +297,8 @@ module.exports = async function (data) {
             "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
             "table_id": "",
             "layout_id": "",
-            "type": "FOLDER"
+            "type": "FOLDER",
+            "is_static": true,
         }, {
             "label": "Code",
             "icon": "code.svg",
@@ -299,7 +309,8 @@ module.exports = async function (data) {
             "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
             "table_id": "",
             "layout_id": "",
-            "type": "FOLDER"
+            "type": "FOLDER",
+            "is_static": true,
         },  {
             "label": "API",
             "icon": "code.svg",
@@ -310,7 +321,8 @@ module.exports = async function (data) {
             "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
             "table_id": "",
             "layout_id": "",
-            "type": "FOLDER"
+            "type": "FOLDER",
+            "is_static": true,
         }
     ]
         let bulkWriteMenus = []

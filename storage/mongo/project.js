@@ -22,6 +22,7 @@ const systemChecker = require("../../helper/systemChecker");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
 const ceckPermissionScript = require("../../helper/checkPermissionScript");
 const initialDefaultPivot = require("../../helper/initialDefaultPivot");
+const is_static = require("../../helper/is_static");
 
 
 
@@ -164,6 +165,7 @@ let projectStore = {
                         await initialMenu({ project_id: data.project_id })
                         await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
+                        await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })
                         // await initialGlobalPermission({ project_id: data.project_id })

@@ -5961,3 +5961,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2023-11-15T12:47:46.960Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

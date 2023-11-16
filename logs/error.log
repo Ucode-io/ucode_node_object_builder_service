@@ -6031,3 +6031,38 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Invalid $addFields :: caused by :: FieldPath cannot be constructed with empty string',
+  level: 'error',
+  timestamp: '2023-11-16T11:01:18.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Invalid $addFields :: caused by :: FieldPath cannot be constructed with empty string',
+  level: 'error',
+  timestamp: '2023-11-16T11:06:00.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Invalid $addFields :: caused by :: FieldPath cannot be constructed with empty string',
+  level: 'error',
+  timestamp: '2023-11-16T11:16:28.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Invalid $addFields :: caused by :: FieldPath cannot be constructed with empty string',
+  level: 'error',
+  timestamp: '2023-11-16T11:21:02.674Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Invalid $addFields :: caused by :: FieldPath cannot be constructed with empty string',
+  level: 'error',
+  timestamp: '2023-11-16T11:21:20.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

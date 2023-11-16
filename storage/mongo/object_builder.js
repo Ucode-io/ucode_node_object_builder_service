@@ -5192,10 +5192,8 @@ let objectBuilder = {
             let projection = {}
             projectFields.forEach(el => {
                 if (params.view_type == "TIMELINE") {
-                    titleField = 'label'
-                    projection[titleField] = "$_id." + el
-                } else {
-                    titleField = groupFieldsAgg[0]
+                    projection["label"] = "$_id." + el
+                } else if (params.view_type == "TABLE") {
                     projection[el] = "$_id." + el
                 }
                 const matchingField = groupColumns.find(obj => obj.slug === el);
@@ -5272,6 +5270,11 @@ let objectBuilder = {
             groupFieldsAgg = dynamicConfig.groupByFields.slice(0, dynamicConfig.groupByFields.length - i)
             let projectFields = dynamicConfig.groupByFields.slice(groupFieldsAgg.length, groupFieldsAgg.length + 1)
             aggregationPipeline = aggregationPipeline.concat(createDynamicAggregationPipeline(groupFieldsAgg, projectFields, i, lookupAddFields))
+        }
+        if (params.view_type == "TABLE") {
+            titleField = groupFieldsAgg[0]
+        } else {
+            titleField = "label"
         }
         aggregationPipeline.push({
             '$addFields': {

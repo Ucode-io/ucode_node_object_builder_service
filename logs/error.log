@@ -5968,3 +5968,66 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2023-11-16T08:08:32.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2023-11-16T08:09:23.947Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2023-11-16T08:09:39.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2023-11-16T08:12:36.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2023-11-16T08:13:27.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: connection 13 to 65.109.239.69:30027 closed',
+  level: 'error',
+  timestamp: '2023-11-16T08:28:47.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: connection 5 to 65.109.239.69:30027 closed',
+  level: 'error',
+  timestamp: '2023-11-16T08:29:36.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: connection 14 to 65.109.239.69:30027 closed',
+  level: 'error',
+  timestamp: '2023-11-16T08:31:37.554Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Invalid $addFields :: caused by :: FieldPath cannot be constructed with empty string',
+  level: 'error',
+  timestamp: '2023-11-16T08:41:47.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

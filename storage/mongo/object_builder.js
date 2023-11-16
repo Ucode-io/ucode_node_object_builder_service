@@ -5173,7 +5173,8 @@ let objectBuilder = {
             })
         } 
 
-        let typeOfLastLabel = "", groupBySlug = "", fieldName = ""
+        let typeOfLastLabel = "", groupBySlug = "", titleField = ""
+        console.log("VIEW_type->", params.view_type)
         function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i, lookupAddFields={}) {
             console.log("g:", groupFields);
             console.log("p:", projectFields);
@@ -5184,10 +5185,10 @@ let objectBuilder = {
             let projection = {}
             projectFields.forEach(el => {
                 if (params.view_type == "TIMELINE") {
-                    fieldName = "label"
-                    projection["label"] = "$_id." + el
+                    titleField = 'label'
+                    projection[titleField] = "$_id." + el
                 } else {
-                    fieldName = groupFieldsAgg[0]
+                    titleField = groupFieldsAgg[0]
                     projection[el] = "$_id." + el
                 }
                 const matchingField = groupColumns.find(obj => obj.slug === el);
@@ -5267,7 +5268,7 @@ let objectBuilder = {
         }
         aggregationPipeline.push({
             '$addFields': {
-                fieldName: '$_id',
+                [titleField]: '$_id',
                 'group_by_type': typeOfLastLabel,
                 'group_by_slug': groupBySlug,
                 'createdAt': {

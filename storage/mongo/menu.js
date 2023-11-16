@@ -386,7 +386,7 @@ let menuStore = {
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
-            let resp = await MenuSettings.findOne({ user_id: data.user_id }).lean()
+            let resp = await MenuSettings.findOne({ id: data.id }).lean()
             if (!resp) {
                 throw Error("Menu Templete not found with given id!")
             }

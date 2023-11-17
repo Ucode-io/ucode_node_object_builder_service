@@ -9,9 +9,10 @@ async function createMenu() {
         "parent_id": "",
         "table_id": "",
         "layout_id": "",
-        "type": "FOLDER"
+        "type": "FOLDER",
+        "is_system": true,
     }, {
-        "label": "Избранное",
+        "label": "Content",
         "icon": "folder.svg",
         "id": "c57eedc3-a954-4262-a0af-376c65b5a282",
         "created_at": new Date(),
@@ -170,18 +171,18 @@ async function createMenu() {
             }
           },
     },
-    {
-        "label": "Documents",
-        "icon": "folder.svg",
-        "id": "31a91a86-7ad3-47a6-a172-d33ceaebb35f",
-        "created_at": new Date(),
-        "updated_at": new Date(),
-        "__v": 0,
-        "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
-        "table_id": "",
-        "layout_id": "",
-        "type": "FOLDER"
-    },
+    // {
+    //     "label": "Documents",
+    //     "icon": "folder.svg",
+    //     "id": "31a91a86-7ad3-47a6-a172-d33ceaebb35f",
+    //     "created_at": new Date(),
+    //     "updated_at": new Date(),
+    //     "__v": 0,
+    //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+    //     "table_id": "",
+    //     "layout_id": "",
+    //     "type": "FOLDER"
+    // },
     {
         "label": "Wiki",
         "id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",

@@ -50,12 +50,19 @@ const MenuSchema = mongoose.Schema(
         bucket_path: {
             type: String,
         },
+        wiki_id: {
+            type: String,
+        },
         is_visible: {
             type: Boolean,
             default: false,
         },
         wiki_id: {
             type: String,
+        },
+        is_static: {
+            type: Boolean,
+            default: false,
         }
     },
     {

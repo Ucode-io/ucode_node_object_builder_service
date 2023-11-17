@@ -19,7 +19,7 @@ const addFields = require("../../helper/addFields");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
 const ceckPermissionScript = require("../../helper/checkPermissionScript");
 const initialDefaultPivot = require("../../helper/initialDefaultPivot");
-
+const is_static = require("../../helper/is_static");
 
 let NAMESPACE = "storage.project";
 
@@ -156,6 +156,7 @@ let projectStore = {
                         await initialMenu({ project_id: data.project_id })
                         await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
+                        await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })
                         // await initialGlobalPermission({ project_id: data.project_id })
@@ -239,7 +240,7 @@ let projectStore = {
             try {
                 await projectStore.reconnect(it)
             } catch (err) {
-                logger.info(`autoconnecting to resources failed: ${err}`);
+                logger.info(`auto connecting to resources failed: ${err}`);
             }
         }
 

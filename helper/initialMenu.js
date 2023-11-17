@@ -49,7 +49,7 @@ module.exports = async function (data) {
         })
         if (!favourite) {
             await Menu.create({
-                "label": "Избранное",
+                "label": "Content",
                 "icon": "folder.svg",
                 "id": "c57eedc3-a954-4262-a0af-376c65b5a282",
                 "created_at": new Date(),
@@ -58,9 +58,12 @@ module.exports = async function (data) {
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
             })
+        } else {
+            await Menu.findOneAndUpdate({ id: "c57eedc3-a954-4262-a0af-376c65b5a282" }, { $set: { label: "Content" } }, { new: true })
         }
+        
         let adminMenu = await Menu.findOne({
             id: "c57eedc3-a954-4262-a0af-376c65b5a280"
         })
@@ -75,7 +78,7 @@ module.exports = async function (data) {
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
             })
         } else {
             if (adminMenu.label != "Settings") {
@@ -138,7 +141,7 @@ module.exports = async function (data) {
                 "table_id": "",
                 "layout_id": "", 
                 "type": "FOLDER",
-                "bucket_path": data.project_id
+                "bucket_path": data.project_id,
             })
         }
         const file_types = ["PHOTO", "FILE", "VIDEO", "CUSTOM_IMAGE"]
@@ -196,7 +199,7 @@ module.exports = async function (data) {
                   },
                 "parent_id":"8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
                 "type":"MINIO_FOLDER",
-                "label":"Media"
+                "label":"Media",
              })
             await Field.updateMany({type: {$in: file_types}}, 
                 {
@@ -225,25 +228,29 @@ module.exports = async function (data) {
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
             })
         }
 
         const documentsMenu = await Menu.findOne({id:"31a91a86-7ad3-47a6-a172-d33ceaebb35f"})
-        if(!documentsMenu) {
-            await Menu.create({
-                "label": "Documents",
-                "icon": "folder.svg",
-                "id": "31a91a86-7ad3-47a6-a172-d33ceaebb35f",
-                "created_at": new Date(),
-                "updated_at": new Date(),
-                "__v": 0,
-                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
-                "table_id": "",
-                "layout_id": "",
-                "type": "FOLDER"
-            })
+        // if(!documentsMenu) {
+        //     await Menu.create({
+        //         "label": "Documents",
+        //         "icon": "folder.svg",
+        //         "id": "31a91a86-7ad3-47a6-a172-d33ceaebb35f",
+        //         "created_at": new Date(),
+        //         "updated_at": new Date(),
+        //         "__v": 0,
+        //         "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+        //         "table_id": "",
+        //         "layout_id": "",
+        //         "type": "FOLDER",
+        //     })
+        // }
+        if (documentsMenu) {
+            await Menu.findOneAndDelete({id:"31a91a86-7ad3-47a6-a172-d33ceaebb35f"})
         }
+
 
         const wikiMenu = await Menu.findOne({id:"744d63e6-0ab7-4f16-a588-d9129cf959d1"})
         if(!wikiMenu) {
@@ -257,7 +264,7 @@ module.exports = async function (data) {
                 "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
                 "table_id": "",
                 "layout_id": "",
-                "type": "FOLDER"
+                "type": "FOLDER",
             })
         }
 
@@ -288,7 +295,7 @@ module.exports = async function (data) {
             "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
             "table_id": "",
             "layout_id": "",
-            "type": "FOLDER"
+            "type": "FOLDER",
         }, {
             "label": "Code",
             "icon": "code.svg",
@@ -299,7 +306,7 @@ module.exports = async function (data) {
             "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
             "table_id": "",
             "layout_id": "",
-            "type": "FOLDER"
+            "type": "FOLDER",
         },  {
             "label": "API",
             "icon": "code.svg",
@@ -310,7 +317,7 @@ module.exports = async function (data) {
             "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
             "table_id": "",
             "layout_id": "",
-            "type": "FOLDER"
+            "type": "FOLDER",
         }
     ]
         let bulkWriteMenus = []

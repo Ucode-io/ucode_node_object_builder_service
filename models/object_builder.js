@@ -572,7 +572,7 @@ async function buildModels(is_build = true, project_id) {
             // console.log("\n\n ~~> length ", a.length)
             const resp = await Table.updateOne({
                 slug: model.slug,
-                created_at: {$gte: new Date(currentDate.getTime() - 5 * 60 * 1000)}
+                // created_at: {$gte: new Date(currentDate.getTime() - 5 * 60 * 1000)}
             },
                 {
                     $set: {

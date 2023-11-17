@@ -562,8 +562,17 @@ async function buildModels(is_build = true, project_id) {
             if (dropIndexes && Object.keys(dropIndexes).length > 0) {
                 mongooseObject[project_id][model.slug].models.collection.dropIndex(dropIndexes);
             }
+            const currentDate = new Date()
+            // const a = await Table.find(
+            //     {
+            //         created_at: {$gte: new Date(currentDate.getTime() - 5 * 60 * 1000)},
+            //         slug: "test_created"
+            //     }
+            // )
+            // console.log("\n\n ~~> length ", a.length)
             const resp = await Table.updateOne({
                 slug: model.slug,
+                // created_at: {$gte: new Date(currentDate.getTime() - 5 * 60 * 1000)}
             },
                 {
                     $set: {

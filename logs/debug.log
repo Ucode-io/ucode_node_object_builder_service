@@ -104091,3 +104091,234 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-18T08:48:19.482Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-18T08:48:19.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-18T08:48:19.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-18T08:48:20.329Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-18T08:49:38.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-18T09:37:49.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-18T09:37:49.594Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-18T09:37:49.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-18T09:37:50.317Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-18T09:39:06.851Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-18T09:41:11.964Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-18T09:41:11.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-18T09:41:11.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-18T09:41:12.730Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-18T09:42:03.034Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-18T09:42:03.042Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-18T09:42:03.043Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-18T09:42:03.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-18T09:45:55.571Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-18T09:45:55.578Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-18T09:45:55.580Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-18T09:45:56.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-18T09:47:12.655Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-18T09:48:54.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-18T09:48:54.768Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-18T09:48:54.770Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-18T09:48:55.563Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-18T09:50:11.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-18T09:55:00.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-18T09:55:00.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-11-18T09:55:00.298Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-11-18T09:55:01.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-11-18T09:56:16.898Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

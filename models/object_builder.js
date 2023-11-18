@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 const Constants = require("../helper/constants");
 const mongoPool = require('../pkg/pool')
+const os = require('os')
 
 const passwordTools = require('../helper/passwordTools');
 const { struct } = require("pb-util");
@@ -10,7 +11,7 @@ let mongooseObject = {};
 
 async function buildModels(is_build = true, project_id) {
 
-    // console.log('REQUEST CAME TO MODELS BUILDER FOR', project_id)
+    // console.log('REQUEST CAME TO MODELS BUILDER FOR', project_id, os.hostname())
     const startAt = new Date()
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')
@@ -23,7 +24,7 @@ async function buildModels(is_build = true, project_id) {
     const Relation = mongoDBConn.models['Relation']
     const Section = mongoDBConn.models['Section']
     const View = mongoDBConn.models['View']
-    // console.log("TEST:::::::::::2")
+    // console.log("TEST:::::::::::2", is_build)
     // hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
 
     // all tables should be got to build their schema
@@ -35,7 +36,15 @@ async function buildModels(is_build = true, project_id) {
     } else {
         tables = await Table.find({
             deleted_at: "1970-01-01T18:00:00.000+00:00",
-            is_changed: true
+            // is_changed: true
+            $or: [
+                {
+                    [`is_changed_by_host.${os.hostname()}`]: true
+                },
+                {
+                    [`is_changed_by_host.${os.hostname()}`]: null
+                }
+            ]
         });
     }
 
@@ -562,21 +571,15 @@ async function buildModels(is_build = true, project_id) {
             if (dropIndexes && Object.keys(dropIndexes).length > 0) {
                 mongooseObject[project_id][model.slug].models.collection.dropIndex(dropIndexes);
             }
-            const currentDate = new Date()
-            // const a = await Table.find(
-            //     {
-            //         created_at: {$gte: new Date(currentDate.getTime() - 5 * 60 * 1000)},
-            //         slug: "test_created"
-            //     }
-            // )
-            // console.log("\n\n ~~> length ", a.length)
             const resp = await Table.updateOne({
                 slug: model.slug,
-                // created_at: {$gte: new Date(currentDate.getTime() - 5 * 60 * 1000)}
             },
                 {
                     $set: {
-                        is_changed: false
+                        is_changed: false,
+                        is_changed_by_host: {
+                            [os.hostname()]: false
+                        }
                     }
                 })
         }

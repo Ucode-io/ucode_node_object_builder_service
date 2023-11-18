@@ -62,9 +62,9 @@ const TableSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
-        attributes: {
-            type: mongoose.Schema.Types.Mixed
-        },
+        is_changed_by_host: {
+            type: mongoose.Schema.Types.Object
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

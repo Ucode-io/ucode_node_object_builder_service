@@ -4,6 +4,7 @@ const con = require("../../config/kafkaTopics");
 const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
+const os = require("os")
 
 const mongoPool = require('../../pkg/pool');
 
@@ -21,6 +22,10 @@ let tableStore = {
             const Table = mongoConn.models['Table']
             const TableHistory = mongoConn.models['Table.history']
             const App = mongoConn.models['App']
+
+            data.is_changed_by_host = {
+                [os.hostname()]: true
+            }
 
             const table = new Table(data);
             const response = await table.save();
@@ -86,6 +91,9 @@ let tableStore = {
             const TableHistory = mongoConn.models['Table.history']
 
             data.is_changed = true
+            data.is_changed_by_host = {
+                [os.hostname()]: true
+            }
 
             let tableBeforeUpdate = await Table.findOneAndDelete({
                 id: data.id,

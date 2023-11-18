@@ -577,9 +577,8 @@ async function buildModels(is_build = true, project_id) {
                 {
                     $set: {
                         is_changed: false,
-                        is_changed_by_host: {
-                            [os.hostname()]: false
-                        }
+                        [`is_changed_by_host.${os.hostname()}`]: false
+
                     }
                 })
         }

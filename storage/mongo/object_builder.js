@@ -20,13 +20,13 @@ const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
 const constants = require('../../helper/constants');
 const pluralize = require('pluralize');
+const os = require('os')
 
 const TableStorage = require('./table')
 const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
 const MenuStorage = require('./menu');
 const { OrderUpdate } = require('../../helper/board_order')
-const os = require('os')
 
 const cluster = require('cluster');
 const v8 = require('v8');
@@ -2451,7 +2451,13 @@ let objectBuilder = {
         // const tableInfo = allTables[req.table_slug]
         let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
+            if (req.table_slug == "fuel") {
+                console.log("\n ~~ GetList check not found table, pod host ", os.hostname())
+            }
             throw new Error("table not found")
+        }
+        if (req.table_slug == "fuel") {
+            console.log("\n ~~ GetList check found table, pod host ", os.hostname())
         }
         let keys = Object.keys(params)
         let order = params.order || {}

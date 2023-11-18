@@ -13,7 +13,6 @@ module.exports = async function (data) {
                 return;
               }
           
-              console.log('Documents updated:', result);
             }
           );
         console.log("is_static field is added to menu")

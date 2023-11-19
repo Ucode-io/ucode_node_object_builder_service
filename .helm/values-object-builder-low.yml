@@ -65,7 +65,7 @@ podAnnotations:
     {{ $key }}: {{ $value }}
     {{- end }}
     {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-prod/node-object-builder-service-low" -}}
+    {{- with secret "secret/data/k8s/ucode-prod/object-builder-service-low" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}

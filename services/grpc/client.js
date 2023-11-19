@@ -42,6 +42,7 @@ const SyncUserService = () => {
 
 const autoConn = async (k8s_namespace, node_type) => {
     return new Promise((resolve, reject) => {
+        console.log("\n\n ~~~ NODE TYPE --> ", node_type);
         ResourceService().AutoConnect({ k8s_namespace: k8s_namespace, node_type: node_type }, (err, res) => {
             if (err) {
                 logger.error("Error while auto connecting", {

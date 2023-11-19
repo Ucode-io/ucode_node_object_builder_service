@@ -67,7 +67,7 @@ deploy-object-builder-high:
   stage: deploy
   extends: .deploy_object_builder_template
   variables:
-    NAMESPACE: object-builder
+    NAMESPACE: ucode-prod
     WORKLOAD: high
     VALUES_FILE: .helm/values-object-builder-high.yml
     K8SCONFIGJSON: $UCODE_KUBECONFIG
@@ -78,7 +78,7 @@ deploy-object-builder-low:
   stage: deploy
   extends: .deploy_object_builder_template
   variables:
-    NAMESPACE: object-builder
+    NAMESPACE: ucode-prod
     WORKLOAD: low
     VALUES_FILE: .helm/values-object-builder-low.yml
     K8SCONFIGJSON: $UCODE_KUBECONFIG

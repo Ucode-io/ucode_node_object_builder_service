@@ -9,6 +9,7 @@ const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require('../../pkg/pool');
 const tableVersion = require('../../helper/table_version');
+const os = require('os')
 
 
 let NAMESPACE = "storage.field";

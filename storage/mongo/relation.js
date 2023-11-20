@@ -417,6 +417,7 @@ let relationStore = {
                 {
                     $set: {
                         is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     },
                 }
             );
@@ -452,6 +453,7 @@ let relationStore = {
                 {
                     $set: {
                         is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     },
                 }
             );
@@ -1005,6 +1007,7 @@ let relationStore = {
                 {
                     $set: {
                         is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     },
                 }
             );

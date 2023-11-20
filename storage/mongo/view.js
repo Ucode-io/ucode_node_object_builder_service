@@ -19,6 +19,8 @@ const xmlSerializer = new XMLSerializer();
 const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
+const os = require('os')
+
 console.log()
 // const mongoConn = await mongoPool.get(data.project_id)
 // const Table = mongoConn.models['Table']
@@ -53,7 +55,8 @@ let viewStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
 
@@ -106,7 +109,8 @@ let viewStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
 

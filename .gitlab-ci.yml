@@ -53,15 +53,15 @@ deploy-dev:
   only:
     - dev
 
-deploy-prod:
-  stage: deploy
-  extends: .deploy_template
-  variables:
-    NAMESPACE: ucode-prod
-    VALUES_FILE: .helm/values-prod.yml
-    K8SCONFIGJSON: $UCODE_KUBECONFIG
-  only:
-    - master
+# deploy-prod:
+#   stage: deploy
+#   extends: .deploy_template
+#   variables:
+#     NAMESPACE: ucode-prod
+#     VALUES_FILE: .helm/values-prod.yml
+#     K8SCONFIGJSON: $UCODE_KUBECONFIG
+#   only:
+#     - master
 
 deploy-object-builder-high:
   stage: deploy

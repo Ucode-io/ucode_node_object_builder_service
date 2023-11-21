@@ -67,26 +67,37 @@ deploy-dev:
     - dev
 
 deploy-object-builder-high:
-  stage: deploy-builder
+  stage: deploy
   extends: .deploy_object_builder_template
   variables:
-    NAMESPACE: ucode-dev
+    NAMESPACE: ucode-prod
     WORKLOAD: high
     VALUES_FILE: .helm/values-object-builder-high.yml
-    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
   only:
-    - dev
+    - master
 
 deploy-object-builder-low:
-  stage: deploy-builder
+  stage: deploy
   extends: .deploy_object_builder_template
   variables:
-    NAMESPACE: ucode-dev
+    NAMESPACE: ucode-prod
     WORKLOAD: low
     VALUES_FILE: .helm/values-object-builder-low.yml
-    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
   only:
-    - dev
+    - master
+
+deploy-ett-prod:
+  stage: deploy
+  extends: .deploy_template
+  variables:
+    NAMESPACE: ett-prod
+    VALUES_FILE: .helm/values-ett-prod.yml
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
+  only:
+    - master
+
 
 
 deploy-prod:

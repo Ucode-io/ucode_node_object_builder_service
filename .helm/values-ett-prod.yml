@@ -36,36 +36,31 @@ serviceAccount:
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/auth-path: "auth/kubernetes-ucode"
-  vault.hashicorp.com/agent-inject-secret-.env: "secret/data/k8s/ucode-prod/object-builder-service-high"
+  vault.hashicorp.com/agent-inject-secret-.env: "secret/data/k8s/ett-prod/node-object-builder-service"
   vault.hashicorp.com/secret-volume-path-.env: "/app"
-  vault.hashicorp.com/role: "ucode-prod"
+  vault.hashicorp.com/role: "ett-prod"
   vault.hashicorp.com/agent-inject-template-.env: |
-    {{- with secret "secret/data/k8s/ucode-prod/vault" -}}
+    {{- with secret "secret/data/k8s/ett-prod/vault" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
     {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-prod/mongo" -}}
+    {{- with secret "secret/data/k8s/ett-prod/mongo" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
     {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-prod/kafka" -}}
+    {{- with secret "secret/data/k8s/ett-prod/minio" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
     {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-prod/minio" -}}
+    {{- with secret "secret/data/k8s/ett-prod/services" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
     {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-prod/services" -}}
-    {{- range $key, $value := .Data.data }}
-    {{ $key }}: {{ $value }}
-    {{- end }}
-    {{ end -}}
-    {{- with secret "secret/data/k8s/ucode-prod/object-builder-service-high" -}}
+    {{- with secret "secret/data/k8s/ett-prod/node-object-builder-service" -}}
     {{- range $key, $value := .Data.data }}
     {{ $key }}: {{ $value }}
     {{- end }}
@@ -150,19 +145,14 @@ autoscaling:
 
 nodeSelector: {}
 
-tolerations:
-- key: "workload"
-  operator: "Equal"
-  value: "object-builder-high"
-  effect: "NoSchedule"
+tolerations: []
 
 affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
         - matchExpressions:
-            - key: kubernetes.io/object-builder-high
+            - key: workload
               operator: In
               values:
-                - "true"
-
+                - "ett-stuffs"

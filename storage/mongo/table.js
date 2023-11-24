@@ -5,6 +5,7 @@ const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
 const menuStore = require("./menu");
+const os = require("os")
 
 const mongoPool = require('../../pkg/pool');
 
@@ -22,6 +23,10 @@ let tableStore = {
             const Table = mongoConn.models['Table']
             const TableHistory = mongoConn.models['Table.history']
             const App = mongoConn.models['App']
+
+            data.is_changed_by_host = {
+                [os.hostname()]: true
+            }
 
             const table = new Table(data);
             const response = await table.save();
@@ -103,6 +108,9 @@ let tableStore = {
             const TableHistory = mongoConn.models['Table.history']
 
             data.is_changed = true
+            data.is_changed_by_host = {
+                [os.hostname()]: true
+            }
 
             const isSystemTable = await Table.findOne({
                 id: data.id

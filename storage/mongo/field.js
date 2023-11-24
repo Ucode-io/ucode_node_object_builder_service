@@ -148,7 +148,7 @@ let fieldStore = {
                     data.attributes = autoFillField.attributes
                 }
             }
-            const field = new Field.create(data);
+            const field = await Field.create(data);
             await Table.updateOne({
                 id: data.table_id,
 

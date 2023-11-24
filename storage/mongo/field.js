@@ -117,12 +117,9 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
+            data.id = v4()
 
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
-                // let autoFillTable = await Table.findOne({
-                //     slug: data.autofill_table,
-
-                // })
                 let autoFillTableSlug = data.autofill_table
                 if (data.autofill_table.includes("#")) {
                     autoFillTableSlug = data.autofill_table.split("#")[0]
@@ -137,10 +134,6 @@ let fieldStore = {
                         tableSlug = tableSlug + "_" + splitedTable[i]
                     }
                     tableSlug = tableSlug.slice(1, tableSlug.length)
-                    // autoFillTable = await Table.findOne({
-                    //     slug: tableSlug,
-
-                    // })
                     autoFillTable = await tableVersion(mongoConn, { slug: tableSlug }, data.version_id, true)
                     autoFillFieldSlug = splitedAutofillField[1]
                 } else {
@@ -155,8 +148,7 @@ let fieldStore = {
                     data.attributes = autoFillField.attributes
                 }
             }
-            const field = new Field(data);
-            const response = await field.save();
+            const field = new Field.create(data);
             await Table.updateOne({
                 id: data.table_id,
 
@@ -167,10 +159,7 @@ let fieldStore = {
                         [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
-            // const table = await Table.findOne({
-            //     id: data.table_id,
-
-            // });
+         
             const table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
@@ -185,32 +174,10 @@ let fieldStore = {
                     role_id: role.guid
                 }
                 const fieldPermission = new fieldPermissionTable.models(permission)
-                let resp = fieldPermission.save()
+                fieldPermission.save()
             }
-            // let event = {}
-            // let tableRes = {}
-            // let fields = []
-            // tableRes.slug = table.slug
 
-            // let type = converter(field.type);
-            // if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
-            //     type = "String"
-            // }
-            // if (field.slug !== "guid") {
-            //     fields.push({
-            //         slug: field.slug,
-            //         type: type,
-            //     })
-            // }
-
-
-            // tableRes.fields = fields
-            // event.payload = tableRes
-            // event.project_id = data.project_id
-            // await sendMessageToTopic(topics.TopicFieldCreateV1, event)
-
-
-            return response;
+            return field;
         } catch (err) {
             throw err
         }

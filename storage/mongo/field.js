@@ -104,7 +104,8 @@ let fieldStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
             return response;
@@ -167,7 +168,8 @@ let fieldStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
             // const table = await Table.findOne({
@@ -292,7 +294,8 @@ let fieldStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
             // const table = await Table.findOne({

@@ -30,6 +30,7 @@ async function buildModels(is_build = true, project_id) {
     // all tables should be got to build their schema
     let tables = []
     if (!is_build) {
+        await Table.updateMany({}, {$set: { is_changed_by_host: {} }})
         tables = await Table.find({
             deleted_at: "1970-01-01T18:00:00.000+00:00",
         });

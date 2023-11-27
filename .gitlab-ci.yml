@@ -2,9 +2,22 @@ include:
   - .gitlab/ci/*.gitlab-ci.yml
 
 stages:
+  - test
   - build
   - deploy
+  - deploy-builder
   - rollback
+
+
+test-dev:
+  stage: test
+  image: gitlab.udevs.io:5050/docker/node:18.16.0-alpine
+  script:
+    - npm install
+    - npm test
+    - echo "Tests Successfully Passed!!!"
+  only:
+    - dev 
 
 build-staging:
   stage: build
@@ -37,9 +50,9 @@ deploy-staging:
   stage: deploy
   extends: .deploy_template
   variables:
-    NAMESPACE: test
+    NAMESPACE: ucode-test
     VALUES_FILE: .helm/values-test.yml
-    K8SCONFIGJSON: $UCODE_KUBECONFIG
+    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
   only:
     - staging
 
@@ -52,16 +65,6 @@ deploy-dev:
     K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
   only:
     - dev
-
-# deploy-prod:
-#   stage: deploy
-#   extends: .deploy_template
-#   variables:
-#     NAMESPACE: ucode-prod
-#     VALUES_FILE: .helm/values-prod.yml
-#     K8SCONFIGJSON: $UCODE_KUBECONFIG
-#   only:
-#     - master
 
 deploy-object-builder-high:
   stage: deploy
@@ -81,6 +84,28 @@ deploy-object-builder-low:
     NAMESPACE: ucode-prod
     WORKLOAD: low
     VALUES_FILE: .helm/values-object-builder-low.yml
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
+  only:
+    - master
+
+deploy-ett-prod:
+  stage: deploy
+  extends: .deploy_template
+  variables:
+    NAMESPACE: ett-prod
+    VALUES_FILE: .helm/values-ett-prod.yml
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
+  only:
+    - master
+
+
+
+deploy-prod:
+  stage: deploy
+  extends: .deploy_template
+  variables:
+    NAMESPACE: ucode-prod
+    VALUES_FILE: .helm/values-prod.yml
     K8SCONFIGJSON: $UCODE_KUBECONFIG
   only:
     - master
@@ -108,3 +133,4 @@ rollback-prod:
     NAMESPACE: ucode-prod
     K8SCONFIGJSON: $UCODE_KUBECONFIG
   when: manual
+

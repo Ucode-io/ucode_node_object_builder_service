@@ -84,7 +84,9 @@ let tableStore = {
 
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
-        try {
+        try {   
+
+            console.log("~~~~~~~~~> update table data ", JSON.stringify(data))
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']

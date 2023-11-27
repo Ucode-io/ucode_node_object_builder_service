@@ -43,7 +43,9 @@ async function buildModels(is_build = true, project_id) {
                     [`is_changed_by_host.${os.hostname()}`]: true
                 },
                 {
-                    [`is_changed_by_host.${os.hostname()}`]: null
+                    [`is_changed_by_host.${os.hostname()}`]: {
+                        $exists: false
+                    }
                 }
             ]
         });

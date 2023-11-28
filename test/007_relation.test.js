@@ -55,7 +55,7 @@ describe('Relation testing', function () {
                     "commit_id": "",
                     "default": "",
                     "enable_multilanguage": false,
-                    "hide_multilanguage": false,
+                    "hide_multilanguage": false, 
                     "id": "6942f498-4097-44f0-837a-8a263420c7b2",
                     "index": "string",
                     "is_system": false,

@@ -120,11 +120,9 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-
             if (!data.id) {
                 data.id = v4()
             }
-
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 // let autoFillTable = await Table.findOne({
                 //     slug: data.autofill_table,

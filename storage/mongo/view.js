@@ -569,6 +569,7 @@ let viewStore = {
         }
     }),
     updateViewOrder: catchWrapDb(`${NAMESPACE}.updateViewOrder`, async (data) => {
+        console.log("data::::", data)
         try {
             const mongoConn = await mongoPool.get(data.project_id)
 

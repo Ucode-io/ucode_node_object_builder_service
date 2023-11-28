@@ -9,6 +9,7 @@ const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require('../../pkg/pool');
 const tableVersion = require('../../helper/table_version');
+const os = require('os')
 
 
 let NAMESPACE = "storage.field";
@@ -120,9 +121,9 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
 
-            if (!data.id) {
-                data.id = v4()
-            }
+            // if (!data.id) {
+            //     data.id = v4()
+            // }
 
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 // let autoFillTable = await Table.findOne({

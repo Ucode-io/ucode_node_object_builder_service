@@ -17,6 +17,7 @@ const document = new DOMImplementation().createDocument('http://www.w3.org/1999/
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 const { VIEW_TYPES } = require('../../helper/constants') 
 const { BoardOrderChecker } = require ('../../helper/board_order')
+const os = require('os')
 
 let NAMESPACE = "storage.view";
 

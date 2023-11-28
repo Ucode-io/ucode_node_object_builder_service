@@ -14,7 +14,8 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         "@" +
         Config.mongoHost +
         "/" +
-        Config.mongoDatabase;
+        Config.mongoDatabase +
+        "?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798"
     } else {
         mongoDBUrl =
         //`mongodb://medion_node_object_builder_service:Weipheingo7aeCho@46.101.114.171:27017/medion_node_object_builder_service`

@@ -104385,3 +104385,1210 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-11-28T08:56:28.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-11-28T08:56:28.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://premium_plaza_lounges_plaza_object_builder_service:@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:56:29.800Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:56:30.520Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:56:30.524Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://medion_medion_object_builder_service:@142.93.164.37:27017/medion_medion_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:56:30.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:56:31.122Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:56:31.124Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transasia_transasia_object_builder_service:@142.93.164.37:27017/transasia_transasia_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:56:31.125Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:56:31.639Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:56:31.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_ufinance_object_builder_service:@161.35.26.178:27017/udevs_ufinance_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:56:31.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connection timed out',
+  level: 'error',
+  timestamp: '2023-11-28T08:57:01.653Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '161.35.26.178:27017' => ServerDescription {
+          address: '161.35.26.178:27017',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 29750846,
+          lastWriteDate: 0,
+          error: MongoNetworkTimeoutError: connection timed out
+              at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)
+              at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:627:28)
+              at Socket.emit (node:events:513:28)
+              at Socket._onTimeout (node:net:570:8)
+              at listOnTimeout (node:internal/timers:569:17)
+              at process.processTimers (node:internal/timers:512:7) {
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: connection timed out\n' +
+      '    at Connection.openUri (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/config/mongoConn.js:58:33)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:129:39\n' +
+      '    at Object.reconnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:240:36\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+      '    at async Object.autoConnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:24)\n' +
+      '    at async /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/index.js:34:9'
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2023-11-28T08:57:01.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_pm_udevs_pm_object_builder_service:@142.93.164.37:27017/udevs_pm_udevs_pm_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:57:01.657Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:57:02.215Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:57:02.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_inc_udevs_inc_object_builder_service:@142.93.164.37:27017/udevs_inc_udevs_inc_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:57:02.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error connection timed out',
+  level: 'error',
+  timestamp: '2023-11-28T08:57:32.463Z',
+  label: 'object_builder_service',
+  metadata: {
+    connectionGeneration: 0,
+    stack: 'MongoNetworkTimeoutError: connection timed out\n' +
+      '    at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)\n' +
+      '    at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)\n' +
+      '    at Object.onceWrapper (node:events:627:28)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at Socket._onTimeout (node:net:570:8)\n' +
+      '    at listOnTimeout (node:internal/timers:569:17)\n' +
+      '    at process.processTimers (node:internal/timers:512:7)'
+  },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  message: 'auto connecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2023-11-28T08:57:32.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_med_object_builder_service:@142.93.164.37:27017/docmed_med_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:57:32.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error connection timed out',
+  level: 'error',
+  timestamp: '2023-11-28T08:58:02.705Z',
+  label: 'object_builder_service',
+  metadata: {
+    connectionGeneration: 0,
+    stack: 'MongoNetworkTimeoutError: connection timed out\n' +
+      '    at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)\n' +
+      '    at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)\n' +
+      '    at Object.onceWrapper (node:events:627:28)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at Socket._onTimeout (node:net:570:8)\n' +
+      '    at listOnTimeout (node:internal/timers:569:17)\n' +
+      '    at process.processTimers (node:internal/timers:512:7)'
+  },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  message: 'auto connecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2023-11-28T08:58:02.706Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://paragraf_paragraf_object_builder_service:@142.93.164.37:27017/paragraf_paragraf_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:58:02.707Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error connection timed out',
+  level: 'error',
+  timestamp: '2023-11-28T08:58:32.950Z',
+  label: 'object_builder_service',
+  metadata: {
+    connectionGeneration: 0,
+    stack: 'MongoNetworkTimeoutError: connection timed out\n' +
+      '    at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)\n' +
+      '    at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)\n' +
+      '    at Object.onceWrapper (node:events:627:28)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at Socket._onTimeout (node:net:570:8)\n' +
+      '    at listOnTimeout (node:internal/timers:569:17)\n' +
+      '    at process.processTimers (node:internal/timers:512:7)'
+  },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  message: 'auto connecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2023-11-28T08:58:32.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_inc_udev_link_object_builder_service:@142.93.164.37:27017/udevs_inc_udev_link_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:58:32.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:58:33.473Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:58:33.474Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://gemotologiya_gemotologiya_object_builder_service:@142.93.164.37:27017/gemotologiya_gemotologiya_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:58:33.474Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:58:33.994Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:58:33.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://docmed_test_object_builder_service:@142.93.164.37:27017/docmed_test_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:58:33.996Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connection timed out',
+  level: 'error',
+  timestamp: '2023-11-28T08:59:04.002Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '142.93.164.37:27017' => ServerDescription {
+          address: '142.93.164.37:27017',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 29873196,
+          lastWriteDate: 0,
+          error: MongoNetworkTimeoutError: connection timed out
+              at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)
+              at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:627:28)
+              at Socket.emit (node:events:513:28)
+              at Socket._onTimeout (node:net:570:8)
+              at listOnTimeout (node:internal/timers:569:17)
+              at process.processTimers (node:internal/timers:512:7) {
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: connection timed out\n' +
+      '    at Connection.openUri (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/config/mongoConn.js:58:33)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:129:39\n' +
+      '    at Object.reconnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:240:36\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+      '    at async Object.autoConnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:24)\n' +
+      '    at async /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/index.js:34:9'
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2023-11-28T08:59:04.004Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ets_ets_object_builder_service:@142.93.164.37:27017/ets_ets_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:59:04.004Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:59:04.521Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:59:04.523Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ets_charters_origin_object_builder_service:@142.93.164.37:27017/ets_charters_origin_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:59:04.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:59:05.098Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:59:05.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_shippo_object_builder_service:@142.93.164.37:27017/shippo_shippo_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:59:05.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:59:05.613Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:59:05.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://shippo_charters_object_builder_service:@142.93.164.37:27017/shippo_charters_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:59:05.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:59:06.133Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:59:06.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ets_new_charters_object_builder_service:@142.93.164.37:27017/ets_new_charters_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:59:06.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:59:06.644Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:59:06.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://alldental_alldental_object_builder_service:@142.93.164.37:27017/alldental_alldental_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:59:06.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:59:07.248Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:59:07.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufinance_proxima_object_builder_service:@142.93.164.37:27017/ufinance_proxima_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:59:07.249Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T08:59:07.771Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T08:59:07.772Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufinance_delever_object_builder_service:@142.93.164.37:27017/ufinance_delever_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:59:07.772Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error connection timed out',
+  level: 'error',
+  timestamp: '2023-11-28T08:59:37.989Z',
+  label: 'object_builder_service',
+  metadata: {
+    connectionGeneration: 0,
+    stack: 'MongoNetworkTimeoutError: connection timed out\n' +
+      '    at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)\n' +
+      '    at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)\n' +
+      '    at Object.onceWrapper (node:events:627:28)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at Socket._onTimeout (node:net:570:8)\n' +
+      '    at listOnTimeout (node:internal/timers:569:17)\n' +
+      '    at process.processTimers (node:internal/timers:512:7)'
+  },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  message: 'auto connecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2023-11-28T08:59:37.989Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ufinance_uacademy_object_builder_service:@142.93.164.37:27017/ufinance_uacademy_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T08:59:37.990Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connection timed out',
+  level: 'error',
+  timestamp: '2023-11-28T09:00:08.013Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '142.93.164.37:27017' => ServerDescription {
+          address: '142.93.164.37:27017',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 29937208,
+          lastWriteDate: 0,
+          error: MongoNetworkTimeoutError: connection timed out
+              at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)
+              at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:627:28)
+              at Socket.emit (node:events:513:28)
+              at Socket._onTimeout (node:net:570:8)
+              at listOnTimeout (node:internal/timers:569:17)
+              at process.processTimers (node:internal/timers:512:7) {
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: connection timed out\n' +
+      '    at Connection.openUri (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/config/mongoConn.js:58:33)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:129:39\n' +
+      '    at Object.reconnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:240:36\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+      '    at async Object.autoConnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:24)\n' +
+      '    at async /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/index.js:34:9'
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2023-11-28T09:00:08.014Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://uea_uea_object_builder_service:@142.93.164.37:27017/uea_uea_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T09:00:08.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T09:00:08.528Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T09:00:08.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://payze_payze_object_builder_service:@142.93.164.37:27017/payze_payze_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T09:00:08.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T09:00:09.046Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T09:00:09.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://uproduct_uhrms_object_builder_service:@142.93.164.37:27017/uproduct_uhrms_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T09:00:09.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T09:00:09.574Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T09:00:09.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://onkogemotologiya_onkogemotologiya_object_builder_service:@142.93.164.37:27017/onkogemotologiya_onkogemotologiya_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T09:00:09.575Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2023-11-28T09:00:10.099Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:513:28)\n' +
+      '    at processIncomingData (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:392:12)\n' +
+      '    at _write (node:internal/streams/writable:333:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:337:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:766:22)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at addChunk (node:internal/streams/readable:324:12)\n' +
+      '    at readableAddChunk (node:internal/streams/readable:297:9)\n' +
+      '    at Readable.push (node:internal/streams/readable:234:10)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'auto connecting to resources failed: Error: Authentication failed.',
+  level: 'info',
+  timestamp: '2023-11-28T09:00:10.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://easybooking_easybooking_object_builder_service:@142.93.164.37:27017/easybooking_easybooking_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T09:00:10.101Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error connection timed out',
+  level: 'error',
+  timestamp: '2023-11-28T09:00:40.437Z',
+  label: 'object_builder_service',
+  metadata: {
+    connectionGeneration: 0,
+    stack: 'MongoNetworkTimeoutError: connection timed out\n' +
+      '    at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)\n' +
+      '    at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)\n' +
+      '    at Object.onceWrapper (node:events:627:28)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at Socket._onTimeout (node:net:570:8)\n' +
+      '    at listOnTimeout (node:internal/timers:569:17)\n' +
+      '    at process.processTimers (node:internal/timers:512:7)'
+  },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  message: 'auto connecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2023-11-28T09:00:40.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://udevs_udevs_object_builder_service:@142.93.164.37:27017/udevs_udevs_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T09:00:40.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connection timed out',
+  level: 'error',
+  timestamp: '2023-11-28T09:01:10.461Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '142.93.164.37:27017' => ServerDescription {
+          address: '142.93.164.37:27017',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 29999656,
+          lastWriteDate: 0,
+          error: MongoNetworkTimeoutError: connection timed out
+              at connectionFailureError (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)
+              at Socket.<anonymous> (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:627:28)
+              at Socket.emit (node:events:513:28)
+              at Socket._onTimeout (node:net:570:8)
+              at listOnTimeout (node:internal/timers:569:17)
+              at process.processTimers (node:internal/timers:512:7) {
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: connection timed out\n' +
+      '    at Connection.openUri (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/config/mongoConn.js:58:33)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:129:39\n' +
+      '    at Object.reconnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/storage/mongo/project.js:240:36\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+      '    at async Object.autoConnect (/home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/helper/catchWrapDb.js:9:24)\n' +
+      '    at async /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/index.js:34:9'
+  }
+}
+{
+  message: 'auto connecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2023-11-28T09:01:10.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transasia_trans_asia_object_builder_service:@142.93.164.37:27017/transasia_trans_asia_object_builder_service',
+  level: 'debug',
+  timestamp: '2023-11-28T09:01:10.465Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

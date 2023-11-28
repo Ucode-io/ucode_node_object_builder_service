@@ -1806,7 +1806,7 @@ describe('Relation testing', function () {
                     "is_visible": false,
                     "label": "The Arch",
                     "relation_field": "",
-                    "required": false,
+                    "required": false, 
                     "show_label": false,
                     "slug": "arch_ms",
                     "table_id": "87be0812-6b52-435d-951f-6d49d3134d1e",

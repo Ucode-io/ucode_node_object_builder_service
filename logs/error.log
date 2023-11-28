@@ -6066,3 +6066,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.field.create: failed with error: E11000 duplicate key error collection: asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs.fields index: slug_1_table_id_1 dup key: { slug: "testagain22", table_id: "622f0708-1ae1-4a89-8d2c-8b66dfb23c30" }',
+  level: 'error',
+  timestamp: '2023-11-28T04:46:45.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

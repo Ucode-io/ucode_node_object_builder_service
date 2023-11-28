@@ -166,6 +166,7 @@ let fieldStore = {
                 data.is_system = false
             }
             const field = new Field(data);
+            console.log("Field->>",field)
             const response = await field.save();
             await Table.updateOne({
                 id: data.table_id,

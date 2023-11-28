@@ -5,7 +5,7 @@ const FieldSchema = mongoose.Schema(
     {
         id: {
             type: String,
-            default: v4,
+            default: v4(),
         },
         table_id: {
             type: String,

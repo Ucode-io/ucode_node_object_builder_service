@@ -76,7 +76,7 @@ let projectStore = {
                 mongoDBConn.model('Setting.Languages', require('../../schemas/setting_language'))
                 mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
-                mongoDBConn.modefieldPermissionIndexCheckInterl('object_builder_service.menu', require('../../schemas/menu'))
+                mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                 mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                 mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
                 mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))

@@ -11,6 +11,7 @@ const cfg = require("../../config/index");
 const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
 const TabSchema = require("../../schemas/tab");
+const os = require('os')
 
 let NAMESPACE = "storage.relation";
 

@@ -176,10 +176,7 @@ let fieldStore = {
                         [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
-            // const table = await Table.findOne({
-            //     id: data.table_id,
-
-            // });
+            
             const table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
@@ -196,29 +193,7 @@ let fieldStore = {
                 const fieldPermission = new fieldPermissionTable.models(permission)
                 let resp = fieldPermission.save()
             }
-            // let event = {}
-            // let tableRes = {}
-            // let fields = []
-            // tableRes.slug = table.slug
-
-            // let type = converter(field.type);
-            // if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
-            //     type = "String"
-            // }
-            // if (field.slug !== "guid") {
-            //     fields.push({
-            //         slug: field.slug,
-            //         type: type,
-            //     })
-            // }
-
-
-            // tableRes.fields = fields
-            // event.payload = tableRes
-            // event.project_id = data.project_id
-            // await sendMessageToTopic(topics.TopicFieldCreateV1, event)
-
-
+            
             return response;
         } catch (err) {
             throw err

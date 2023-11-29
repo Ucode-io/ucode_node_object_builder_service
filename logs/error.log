@@ -6094,3 +6094,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getObjectDetails: failed with error: view is not defined',
+  level: 'error',
+  timestamp: '2023-11-28T12:52:50.793Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getObjectDetails: failed with error: view is not defined',
+  level: 'error',
+  timestamp: '2023-11-28T12:55:10.898Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -166,7 +166,7 @@ let fieldStore = {
             const field = new Field(data);
             console.log("Field->>",field)
             const response = await field.save();
-            await Table.updateOne({
+            const ai = await Table.findOneAndUpdate({
                 id: data.table_id,
 
             },
@@ -176,6 +176,8 @@ let fieldStore = {
                         [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
+
+            console.log("\n\n HOST table field ", data.table_id, ai)
             
             const table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]

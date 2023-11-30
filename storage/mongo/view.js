@@ -98,7 +98,7 @@ let viewStore = {
                 }
             )
 
-            const resp = await Table.updateOne({
+            const resp = await Table.findOneAndUpdate({
                 slug: data.table_slug,
             },
                 {
@@ -108,6 +108,7 @@ let viewStore = {
                     }
                 })
 
+                console.log("\n\n HOST table view", data.table_slug, resp)
 
             return view;
 

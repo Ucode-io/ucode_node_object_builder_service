@@ -17,6 +17,7 @@ const document = new DOMImplementation().createDocument('http://www.w3.org/1999/
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 const { VIEW_TYPES } = require('../../helper/constants') 
 const { BoardOrderChecker } = require ('../../helper/board_order')
+const os = require('os')
 
 let NAMESPACE = "storage.view";
 
@@ -43,7 +44,8 @@ let viewStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
             })
 
@@ -96,15 +98,20 @@ let viewStore = {
                 }
             )
 
-            const resp = await Table.updateOne({
+            const resp = await Table.findOneAndUpdate({
                 slug: data.table_slug,
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
+                },
+                {
+                    new: true
                 })
 
+            console.log("\n\n HOST table view", data.table_slug, resp)
 
             return view;
 
@@ -566,6 +573,7 @@ let viewStore = {
         }
     }),
     updateViewOrder: catchWrapDb(`${NAMESPACE}.updateViewOrder`, async (data) => {
+        console.log("data::::", data)
         try {
             const mongoConn = await mongoPool.get(data.project_id)
 

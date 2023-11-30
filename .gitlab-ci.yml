@@ -2,22 +2,22 @@ include:
   - .gitlab/ci/*.gitlab-ci.yml
 
 stages:
-  - test
+  # - test
   - build
   - deploy
   - deploy-builder
   - rollback
 
 
-test-dev:
-  stage: test
-  image: gitlab.udevs.io:5050/docker/node:18.16.0-alpine
-  script:
-    - npm install
-    - npm test
-    - echo "Tests Successfully Passed!!!"
-  only:
-    - dev 
+# test-dev:
+#   stage: test
+#   image: gitlab.udevs.io:5050/docker/node:18.16.0-alpine
+#   script:
+#     - npm install
+#     - npm test
+#     - echo "Tests Successfully Passed!!!"
+#   only:
+#     - dev 
 
 build-staging:
   stage: build

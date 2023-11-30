@@ -30,6 +30,7 @@ async function buildModels(is_build = true, project_id) {
     // all tables should be got to build their schema
     let tables = []
     if (!is_build) {
+        await Table.updateMany({}, {$set: { is_changed_by_host: {} }})
         tables = await Table.find({
             deleted_at: "1970-01-01T18:00:00.000+00:00",
         });
@@ -42,7 +43,9 @@ async function buildModels(is_build = true, project_id) {
                     [`is_changed_by_host.${os.hostname()}`]: true
                 },
                 {
-                    [`is_changed_by_host.${os.hostname()}`]: null
+                    [`is_changed_by_host.${os.hostname()}`]: {
+                        $exists: false
+                    }
                 }
             ]
         });
@@ -147,7 +150,7 @@ async function buildModels(is_build = true, project_id) {
                         },
                         {
                             type: 'pre',
-                            method: 'updateOne',
+                            method: 'findOneAndUpdate',
                             _function: function (next) {
                                 if (this.getUpdate()?.$set[field.slug] && this.getUpdate()?.$set[field.slug] !== '') {
                                     let checkHashedPass = this.getUpdate()?.$set[field.slug].substring(0, 4)

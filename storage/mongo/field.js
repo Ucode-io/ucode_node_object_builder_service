@@ -9,6 +9,7 @@ const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require('../../pkg/pool');
 const tableVersion = require('../../helper/table_version');
+const os = require('os')
 
 
 let NAMESPACE = "storage.field";
@@ -104,7 +105,8 @@ let fieldStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
             return response;
@@ -118,7 +120,9 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-
+            if (!data.id) {
+                data.id = v4()
+            }
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 // let autoFillTable = await Table.findOne({
                 //     slug: data.autofill_table,
@@ -160,20 +164,24 @@ let fieldStore = {
                 data.is_system = false
             }
             const field = new Field(data);
+            console.log("Field->>",field)
             const response = await field.save();
-            await Table.updateOne({
+            const ai = await Table.findOneAndUpdate({
                 id: data.table_id,
 
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
+                },
+                {
+                    new: true
                 })
-            // const table = await Table.findOne({
-            //     id: data.table_id,
 
-            // });
+            console.log("\n\n HOST table field ", data.table_id, ai)
+            
             const table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
@@ -190,29 +198,7 @@ let fieldStore = {
                 const fieldPermission = new fieldPermissionTable.models(permission)
                 let resp = fieldPermission.save()
             }
-            // let event = {}
-            // let tableRes = {}
-            // let fields = []
-            // tableRes.slug = table.slug
-
-            // let type = converter(field.type);
-            // if (field.type == "FORMULA" || field.type == "FORMULA_FRONTEND") {
-            //     type = "String"
-            // }
-            // if (field.slug !== "guid") {
-            //     fields.push({
-            //         slug: field.slug,
-            //         type: type,
-            //     })
-            // }
-
-
-            // tableRes.fields = fields
-            // event.payload = tableRes
-            // event.project_id = data.project_id
-            // await sendMessageToTopic(topics.TopicFieldCreateV1, event)
-
-
+            
             return response;
         } catch (err) {
             throw err
@@ -292,7 +278,8 @@ let fieldStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
             // const table = await Table.findOne({

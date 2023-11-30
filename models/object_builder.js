@@ -43,7 +43,9 @@ async function buildModels(is_build = true, project_id) {
                     [`is_changed_by_host.${os.hostname()}`]: true
                 },
                 {
-                    [`is_changed_by_host.${os.hostname()}`]: null
+                    [`is_changed_by_host.${os.hostname()}`]: {
+                        $exists: false
+                    }
                 }
             ]
         });
@@ -148,7 +150,7 @@ async function buildModels(is_build = true, project_id) {
                         },
                         {
                             type: 'pre',
-                            method: 'updateOne',
+                            method: 'findOneAndUpdate',
                             _function: function (next) {
                                 if (this.getUpdate()?.$set[field.slug] && this.getUpdate()?.$set[field.slug] !== '') {
                                     let checkHashedPass = this.getUpdate()?.$set[field.slug].substring(0, 4)

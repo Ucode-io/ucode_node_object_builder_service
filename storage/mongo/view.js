@@ -106,9 +106,12 @@ let viewStore = {
                         is_changed: true,
                         [`is_changed_by_host.${os.hostname()}`]: true
                     }
+                },
+                {
+                    new: true
                 })
 
-                console.log("\n\n HOST table view", data.table_slug, resp)
+            console.log("\n\n HOST table view", data.table_slug, resp)
 
             return view;
 

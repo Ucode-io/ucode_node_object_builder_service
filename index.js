@@ -44,6 +44,7 @@ const logger = require("./config/logger");
         )
 
 
+        logger.info('~~~> change works')
         logger.info(`autoconnect successfully done!!!`);
 
     } catch (err) {

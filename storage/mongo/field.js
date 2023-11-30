@@ -175,6 +175,9 @@ let fieldStore = {
                         is_changed: true,
                         [`is_changed_by_host.${os.hostname()}`]: true
                     }
+                },
+                {
+                    new: true
                 })
 
             console.log("\n\n HOST table field ", data.table_id, ai)

@@ -726,6 +726,132 @@ let relationStore = {
             throw err;
         }
     }),
+    getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id);
+            const View = mongoConn.models["View"];
+            const Relation = mongoConn.models["Relation"];
+
+            const relation = await Relation.findOne({ id: data.id }).lean();
+
+            let tableFrom = await tableVersion(mongoConn, { slug: relation.table_from }, data.version_id, true)
+            if (relation.type === "Many2Dynamic") {
+                let tableTo;
+                for (const dynamic_table of relation.dynamic_tables) {
+                    if (dynamic_table.table_slug === data.table_slug) {
+                        tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
+                    }
+                }
+                let responseRelation = {
+                    id: relation.id,
+                    table_from: tableFrom,
+                    field_from: relation.field_from,
+                    field_to: relation.field_to,
+                    type: relation.type,
+                    view_fields: relation.fields,
+                    editable: relation.editable,
+                    dynamic_tables: relation.dynamic_tables,
+                    relation_field_slug: relation.relation_field_slug,
+                    auto_filters: relation.auto_filters,
+                    is_user_id_default: relation.is_user_id_default,
+                    cascadings: relation.cascadings,
+                    object_id_from_jwt: relation.object_id_from_jwt,
+                    cascading_tree_table_slug:
+                        relation.cascading_tree_table_slug,
+                    cascading_tree_field_slug:
+                        relation.cascading_tree_field_slug,
+                };
+                if (tableTo) {
+                    responseRelation["table_to"] = tableTo;
+                }
+                let view = await View.findOne({
+                    $and: [
+                        { relation_table_slug: data.table_slug },
+                        { relation_id: relation.id },
+                    ],
+                });
+                if (view) {
+                    responseRelation["title"] = view.name;
+                    responseRelation["columns"] = view.columns;
+                    responseRelation["quick_filters"] = view.quick_filters;
+                    responseRelation["group_fields"] = view.group_fields;
+                    responseRelation["is_editable"] = view.is_editable;
+                    responseRelation["relation_table_slug"] =
+                        view.relation_table_slug;
+                    responseRelation["view_type"] = view.type;
+                    responseRelation["summaries"] = view.summaries;
+                    responseRelation["relation_id"] = view.relation_id;
+                    responseRelation["default_values"] = view.default_values;
+                    responseRelation["action_relations"] =
+                        view.action_relations;
+                    responseRelation["default_limit"] = view.default_limit;
+                    responseRelation["multiple_insert"] = view.multiple_insert;
+                    responseRelation["multiple_insert_field"] =
+                        view.multiple_insert_field;
+                    responseRelation["updated_fields"] = view.updated_fields;
+                    responseRelation["creatable"] = view.creatable;
+                    responseRelation["default_editable"] = view.default_editable;
+                    responseRelation["function_path"] = view.function_path;
+                    responseRelation["attributes"] = view.attributes;
+                }
+            }
+
+            let tableTo = await tableVersion(mongoConn, { slug: relation.table_to }, data.version_id, true)   
+            let view = await View.findOne({
+                $and: [
+                    { relation_table_slug: data.table_slug },
+                    { relation_id: relation.id },
+                ],
+            });
+            let responseRelation = {
+                id: relation.id,
+                table_from: tableFrom,
+                table_to: tableTo,
+                field_from: relation.field_from,
+                field_to: relation.field_to,
+                type: relation.type,
+                view_fields: relation.fields,
+                editable: relation.editable,
+                dynamic_tables: relation.dynamic_tables,
+                relation_field_slug: relation.relation_field_slug,
+                auto_filters: relation.auto_filters,
+                is_user_id_default: relation.is_user_id_default,
+                cascadings: relation.cascadings,
+                object_id_from_jwt: relation.object_id_from_jwt,
+                cascading_tree_table_slug:
+                    relation.cascading_tree_table_slug,
+                cascading_tree_field_slug:
+                    relation.cascading_tree_field_slug,
+            };
+            if (view) {
+                responseRelation["title"] = view.name;
+                responseRelation["columns"] = view.columns;
+                responseRelation["quick_filters"] = view.quick_filters;
+                responseRelation["group_fields"] = view.group_fields;
+                responseRelation["is_editable"] = view.is_editable;
+                responseRelation["relation_table_slug"] =
+                    view.relation_table_slug;
+                responseRelation["view_type"] = view.type;
+                responseRelation["summaries"] = view.summaries;
+                responseRelation["relation_id"] = view.relation_id;
+                responseRelation["default_values"] = view.default_values;
+                responseRelation["action_relations"] =
+                    view.action_relations;
+                responseRelation["default_limit"] = view.default_limit;
+                responseRelation["multiple_insert"] = view.multiple_insert;
+                responseRelation["multiple_insert_field"] =
+                    view.multiple_insert_field;
+                responseRelation["updated_fields"] = view.updated_fields;
+                responseRelation["creatable"] = view.creatable;
+                responseRelation["default_editable"] = view.default_editable;
+                responseRelation["function_path"] = view.function_path;
+                responseRelation["attributes"] = view.attributes;
+            }
+            return responseRelation;
+        } catch (err) {
+            throw err;
+        }
+    }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             // console.log(">>>> invoke function")

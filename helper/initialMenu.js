@@ -11,6 +11,7 @@ module.exports = async function (data) {
         const Menu = mongoConn.models['object_builder_service.menu']
         const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
         const Field = mongoConn.models['Field']
+
         let rootMenu = await Menu.findOne({
             id: "c57eedc3-a954-4262-a0af-376c65b5a284",
         })
@@ -31,18 +32,28 @@ module.exports = async function (data) {
             })
         }
 
-        if (!rootMenu.menu_settings_id) {
-            let menu_settings = await MenuSettings.findOne({ id: "adea69cd-9968-4ad0-8e43-327f6600abfd" })
-            if (!menu_settings) {
-                menu_settings = await MenuSettings.create({
-                    id: "adea69cd-9968-4ad0-8e43-327f6600abfd",
-                    icon_style: "SIMPLE",
-                    icon_size: "MEDIUM",
-                })
-            }
-
+        let menu_settings = await MenuSettings.findOne({ id: "adea69cd-9968-4ad0-8e43-327f6600abfd" })
+        if (!menu_settings) {
+            menu_settings = await MenuSettings.create({
+                id: "adea69cd-9968-4ad0-8e43-327f6600abfd",
+                icon_style: "SIMPLE",
+                icon_size: "MEDIUM",
+            })
             await Menu.findOneAndUpdate({ id: "c57eedc3-a954-4262-a0af-376c65b5a284" }, { $set: { menu_settings_id: menu_settings.id } }, { new: true })
         }
+        
+        // if (!rootMenu.menu_settings_id) {
+        //     let menu_settings = await MenuSettings.findOne({ id: "adea69cd-9968-4ad0-8e43-327f6600abfd" })
+        //     if (!menu_settings) {
+        //         menu_settings = await MenuSettings.create({
+        //             id: "adea69cd-9968-4ad0-8e43-327f6600abfd",
+        //             icon_style: "SIMPLE",
+        //             icon_size: "MEDIUM",
+        //         })
+        //     }
+
+        //     await Menu.findOneAndUpdate({ id: "c57eedc3-a954-4262-a0af-376c65b5a284" }, { $set: { menu_settings_id: menu_settings.id } }, { new: true })
+        // }
 
         let favourite = await Menu.findOne({
             id: "c57eedc3-a954-4262-a0af-376c65b5a282",

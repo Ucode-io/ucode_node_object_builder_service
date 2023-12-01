@@ -29,9 +29,9 @@ const logger = require("./config/logger");
         await projectStorage.reconnect({
             project_id: "4e37de38-dd34-4a00-b011-d0c3dd55fdfd", // asadbek_udevs
             credentials: {
-                "database": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
-                "password": "dhQXmMIX3N",
-                "username": "asadbek_64e030575e414672a341d7c38d66f560_p_obj_build_svcs",
+                "database": "dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs",
+                "password": "QoRidVg9iL",
+                "username": "dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs",
                 "port": "30027",
                 "host": "65.109.239.69"
             }

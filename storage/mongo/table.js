@@ -277,6 +277,7 @@ let tableStore = {
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
+            const Menu = mongoConn.models['object_builder_service.menu']
             
             const table = await Table.findOne({
                 id: data.id
@@ -343,7 +344,9 @@ let tableStore = {
             const tablePermission = (await ObjectBuilder(true, data.project_id))["record_permission"]
             tablePermission?.models?.deleteMany({ table_slug: table.slug })
 
-           await collection.models.collection.drop()
+            await collection.models.collection.drop()
+            await Menu.deleteMany({table_id: table.id})
+           
 
             return table;
         } catch (err) {

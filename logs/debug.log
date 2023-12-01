@@ -105592,3 +105592,115 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-01T06:08:25.795Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-01T06:08:25.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-01T06:08:25.804Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-01T06:08:26.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-01T06:09:48.772Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.delete: requested - {\n' +
+    '  "id": "5240b782-8707-47ca-8e3f-bebd4d9927a6",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-12-01T06:11:29.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.delete: failed with error: req is not defined',
+  level: 'error',
+  timestamp: '2023-12-01T06:11:29.291Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-01T06:12:21.955Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-01T06:12:21.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-01T06:12:21.962Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-01T06:12:22.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-01T06:13:44.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.delete: requested - {\n' +
+    '  "id": "5240b782-8707-47ca-8e3f-bebd4d9927a6",\n' +
+    '  "project_id": "ecb08c73-3b52-42e9-970b-56be9b7c4e81",\n' +
+    '  "version_id": "",\n' +
+    '  "author_id": "",\n' +
+    '  "commit_type": "",\n' +
+    '  "name": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-12-01T06:14:05.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.table.delete: succeeded',
+  level: 'info',
+  timestamp: '2023-12-01T06:14:07.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

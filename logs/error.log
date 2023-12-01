@@ -5456,3 +5456,10 @@
       '    at async /home/abdinazarov/udevs/UCODE/ucode_node_object_builder_service/index.js:34:9'
   }
 }
+{
+  message: 'service.table.delete: failed with error: req is not defined',
+  level: 'error',
+  timestamp: '2023-12-01T06:11:29.291Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

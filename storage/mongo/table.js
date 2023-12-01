@@ -277,33 +277,20 @@ let tableStore = {
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
-
-            let payload = { id: data.id}
-            if (data.version_id) {
-                payload.version_ids = { $in: [data.version_id] }
+            
+            const table = await Table.findOne({
+                id: data.id
+            })
+            
+            if(!table) {
+                throw new Error("Table not found")
             }
-            const table = await Table.findOne(payload)
-            if (!table) throw new Error("Table not found with given parameters")
-            if (table) {
-                let payload = {}
 
-                payload = Object.assign(payload, table._doc)
-                delete payload._id
-                payload.commit_type = data.commit_type,
-                    payload.name = data.name,
-                    payload.action_time = new Date()
-                payload.author_id = data.author_id
-                const history_resp = await TableHistory.create(payload)
-
-                table.commit_guid = history_resp.guid
-                await table.save()
-            }
-            const resp = await Table.updateOne(
-                payload,
+            const collection = (await ObjectBuilder(true, data.project_id))[table.slug]
+           
+            const resp = await Table.findOneAndDelete(
                 {
-                    $set: {
-                        deleted_at: Date.now(),
-                    }
+                    id: data.id
                 }
             );
 
@@ -355,6 +342,8 @@ let tableStore = {
             })
             const tablePermission = (await ObjectBuilder(true, data.project_id))["record_permission"]
             tablePermission?.models?.deleteMany({ table_slug: table.slug })
+
+           await collection.models.collection.drop()
 
             return table;
         } catch (err) {

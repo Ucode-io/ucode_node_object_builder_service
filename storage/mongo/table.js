@@ -6,6 +6,7 @@ const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
 const menuStore = require("./menu");
 const os = require("os")
+const layoutStorage = require("./layout")
 
 const mongoPool = require('../../pkg/pool');
 
@@ -28,38 +29,7 @@ let tableStore = {
                 [os.hostname()]: true
             }
 
-            const table = new Table(data);
-            const response = await table.save();
-            if (response) {
-                let payload = {}
-
-                payload = Object.assign(payload, response._doc)
-                delete payload._id
-                payload.commit_type = data.commit_type,
-                    payload.name = data.name,
-                    payload.action_time = new Date()
-                payload.author_id = data.author_id
-                const tableHistory = await TableHistory.create(payload)
-
-                table.commit_guid = tableHistory.guid
-                await table.save()
-
-                let addToFav = {
-                    project_id: data.project_id,
-                    icon: "",
-                    table_id: response.id,
-                    attributes: {
-                        label_aa: response.label,
-                        label_ak: response.label
-                    },
-                    type: "TABLE",
-                    label: response.label,
-                    parent_id: "c57eedc3-a954-4262-a0af-376c65b5a282",
-
-                }
-
-                await menuStore.create(addToFav)
-            }
+            const table = await Table.create(data);
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -78,30 +48,48 @@ let tableStore = {
                 recordPermission.save()
             }
 
-            await App.updateOne(
-                {
-                    id: data.app_id
-                },
-                {
-                    $addToSet:
-                    {
-                        tables:
-                        {
+            const default_layout = {
+                project_id: data.project_id,
+                id: table.id,
+                layouts: [{
+                    table_id: table.id,
+                    order: 1,
+                    label: "Layout",
+                    icon: "",
+                    is_default: true,
+                    attributes: {},
+                    is_visible_section: false,
+                    is_modal: true,
+                    tabs: [{
+                        order: 1,
+                        label: "Tab",
+                        icon: "",
+                        type: "section",
+                        table_slug: table.slug,
+                        attributes: {},
+                        sections: [{
+                            order: 1,
+                            column: "SINGLE",
+                            label: "Info",
+                            icon: "",
+                            fields: [],
                             table_id: table.id,
-                            is_visible: true,
-                            is_own_table: true
-                        }
-                    }
-                }
-            );
-            return response;
+                            attributes: {}
+                        }]
+                    }]
+                }]
+            }
+
+            await layoutStorage.createAll(default_layout)
+
+            return table;
         } catch (err) {
             throw err
         }
 
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
-        try {
+        try {   
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
@@ -125,19 +113,7 @@ let tableStore = {
             })
             
             const table = await Table.create(data)
-            if (table) {
-                let payload = {}
-
-                payload = Object.assign(payload, table._doc)
-                delete payload._id
-                payload.commit_type = data.commit_type,
-                    payload.name = data.name,
-                    payload.action_time = new Date()
-                payload.author_id = data.author_id
-                const tableHistory = await TableHistory.create(payload)
-                table.commit_guid = tableHistory.guid
-                await table.save()
-            }
+            
             data["older_slug"] = tableBeforeUpdate.slug
             let event = {}
             event.payload = data
@@ -303,50 +279,23 @@ let tableStore = {
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
+            const Menu = mongoConn.models['object_builder_service.menu']
+            
+            const table = await Table.findOne({
+                id: data.id
+            })
+            
+            if(!table) {
+                throw new Error("Table not found")
+            }
 
-            let payload = { id: data.id}
-            if (data.version_id) {
-                payload.version_ids = { $in: [data.version_id] }
-            }
-            const table = await Table.findOne(payload)
-            if (!table) throw new Error("Table not found with given parameters")
-            if(table.is_system) {
-                throw  new Error("This table is system table")
-            }
-            if (table) {
-                let payload = {}
-
-                payload = Object.assign(payload, table._doc)
-                delete payload._id
-                payload.commit_type = data.commit_type,
-                    payload.name = data.name,
-                    payload.action_time = new Date()
-                payload.author_id = data.author_id
-                const history_resp = await TableHistory.create(payload)
-
-                table.commit_guid = history_resp.guid
-                await table.save()
-            }
-            let resp = {}
-            if(data.version_id) {
-                resp = await TableVersion.updateOne(
-                    payload,
-                    {
-                        $set: {
-                            deleted_at: Date.now(),
-                        }
-                    }
-                );
-            } else {
-                resp = await Table.updateOne(
-                    payload,
-                    {
-                        $set: {
-                            deleted_at: Date.now(),
-                        }
-                    }
-                );
-            }
+            const collection = (await ObjectBuilder(true, data.project_id))[table.slug]
+           
+            const resp = await Table.findOneAndDelete(
+                {
+                    id: data.id
+                }
+            );
 
             const getRelations = await Relation.find({
                 $or: [
@@ -396,6 +345,10 @@ let tableStore = {
             })
             const tablePermission = (await ObjectBuilder(true, data.project_id))["record_permission"]
             tablePermission?.models?.deleteMany({ table_slug: table.slug })
+
+            await collection.models.collection.drop()
+            await Menu.deleteMany({table_id: table.id})
+           
 
             return table;
         } catch (err) {

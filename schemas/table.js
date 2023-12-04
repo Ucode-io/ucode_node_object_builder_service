@@ -71,6 +71,10 @@ const TableSchema = mongoose.Schema(
         },
         is_changed_by_host: {
             type: mongoose.Schema.Types.Object
+        },
+        section_column_count: {
+            type: Number,
+            default: 3
         }
     },
     {

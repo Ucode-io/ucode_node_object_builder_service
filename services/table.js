@@ -20,18 +20,10 @@ const tableService = {
         try {
             const response = await tableStore.create(call.request);
 
-            logger.info(`[${NAMESPACE}].create table request finished with OK`);
-
             call.request.id = response.id
             const resp = await fieldStore.createAll(call.request);
-            // console.log("it is createAllFields response", resp)
-
 
             const sectionResp = await layoutStore.createAll(call.request);
-            // console.log("it is createAllsections response", sectionResp)
-
-            // const customErrMsgResp = await customErrorMessageStore.createAll(call.request)
-            // console.log("it is createAllCustomErrorMessage response", customErrMsgResp)
 
             let viewData = {}
             viewData.table_slug = call.request.slug
@@ -41,6 +33,27 @@ const tableService = {
             call.view = viewData
             const viewResp = await viewStore.create(call.view);
 
+
+            let event = {}
+            let table = {}
+            let fields = []
+            table.slug = call.request.slug
+            for (const field of call.request.fields) {
+                let type = converter(field.type)
+                if (field.slug !== "guid") {
+                    fields.push({
+                        slug: field.slug,
+                        type: type,
+                        index: field.index,
+                        required: field.required,
+                        default: field.default,
+                    })
+                }
+
+            }
+            table.fields = fields
+            event.payload = table
+            event.project_id = call.request.project_id || cfg.ucodeDefaultProjectID
 
             callback(null, {
                 id: response.id

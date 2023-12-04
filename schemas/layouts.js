@@ -61,4 +61,6 @@ LayoutSchema.virtual("tabs", {
     justOne: false
 })
 
+LayoutSchema.index({ 'table_id': 1 }, { unique: true });
+
 module.exports = LayoutSchema;

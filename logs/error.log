@@ -5463,3 +5463,52 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-12-04T04:07:22.459Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: data.layouts is not iterable',
+  level: 'error',
+  timestamp: '2023-12-04T04:07:22.460Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-12-04T04:09:40.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: data.layouts is not iterable',
+  level: 'error',
+  timestamp: '2023-12-04T04:09:40.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2023-12-04T04:12:39.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Layout validation failed: table_id: Layout must have table_id',
+  level: 'error',
+  timestamp: '2023-12-04T04:12:39.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: failed with error: section.create is not a function',
+  level: 'error',
+  timestamp: '2023-12-04T13:09:57.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

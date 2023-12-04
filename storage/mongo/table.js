@@ -5,6 +5,7 @@ const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
 const os = require("os")
+const layoutStorage = require("./layout")
 
 const mongoPool = require('../../pkg/pool');
 
@@ -27,22 +28,7 @@ let tableStore = {
                 [os.hostname()]: true
             }
 
-            const table = new Table(data);
-            const response = await table.save();
-            if (response) {
-                let payload = {}
-
-                payload = Object.assign(payload, response._doc)
-                delete payload._id
-                payload.commit_type = data.commit_type,
-                    payload.name = data.name,
-                    payload.action_time = new Date()
-                payload.author_id = data.author_id
-                const tableHistory = await TableHistory.create(payload)
-
-                table.commit_guid = tableHistory.guid
-                await table.save()
-            }
+            const table = await Table.create(data);
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -61,23 +47,41 @@ let tableStore = {
                 recordPermission.save()
             }
 
-            await App.updateOne(
-                {
-                    id: data.app_id
-                },
-                {
-                    $addToSet:
-                    {
-                        tables:
-                        {
+            const default_layout = {
+                project_id: data.project_id,
+                id: table.id,
+                layouts: [{
+                    table_id: table.id,
+                    order: 1,
+                    label: "Layout",
+                    icon: "",
+                    is_default: true,
+                    attributes: {},
+                    is_visible_section: false,
+                    is_modal: true,
+                    tabs: [{
+                        order: 1,
+                        label: "Tab",
+                        icon: "",
+                        type: "section",
+                        table_slug: table.slug,
+                        attributes: {},
+                        sections: [{
+                            order: 1,
+                            column: "SINGLE",
+                            label: "Info",
+                            icon: "",
+                            fields: [],
                             table_id: table.id,
-                            is_visible: true,
-                            is_own_table: true
-                        }
-                    }
-                }
-            );
-            return response;
+                            attributes: {}
+                        }]
+                    }]
+                }]
+            }
+
+            await layoutStorage.createAll(default_layout)
+
+            return table;
         } catch (err) {
             throw err
         }
@@ -85,8 +89,6 @@ let tableStore = {
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {   
-
-            console.log("~~~~~~~~~> update table data ", JSON.stringify(data))
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
@@ -101,19 +103,7 @@ let tableStore = {
                 id: data.id,
             })
             const table = await Table.create(data)
-            if (table) {
-                let payload = {}
-
-                payload = Object.assign(payload, table._doc)
-                delete payload._id
-                payload.commit_type = data.commit_type,
-                    payload.name = data.name,
-                    payload.action_time = new Date()
-                payload.author_id = data.author_id
-                const tableHistory = await TableHistory.create(payload)
-                table.commit_guid = tableHistory.guid
-                await table.save()
-            }
+            
             data["older_slug"] = tableBeforeUpdate.slug
             let event = {}
             event.payload = data

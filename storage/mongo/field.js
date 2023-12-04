@@ -117,6 +117,9 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
+            const Tab = mongoConn.models['Tab']
+            const Section = mongoConn.models['Section']
+            const Layout = mongoConn.models['Layout']
             data.id = v4()
 
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
@@ -149,18 +152,22 @@ let fieldStore = {
                 }
             }
             const field = await Field.create(data);
-            await Table.updateOne({
-                id: data.table_id,
+            const table = await Table.findOneAndUpdate(
+                {
+                    id: data.table_id,
 
-            },
+                },
                 {
                     $set: {
                         is_changed: true,
                         [`is_changed_by_host.${os.hostname()}`]: true
                     }
-                })
+                },
+                {
+                    new: true
+                }
+            )
          
-            const table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -176,6 +183,56 @@ let fieldStore = {
                 const fieldPermission = new fieldPermissionTable.models(permission)
                 fieldPermission.save()
             }
+
+            const layout = await Layout.findOne({table_id: table.id})
+            if (layout) {
+                const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                if (tab) {
+                    const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                    if(section[0]) {
+                        const count_columns = section[0].fields ? section[0].fields.length : 0
+                        if(count_columns < (table.section_column_count || 3)) {
+                            await Section.findOneAndUpdate(
+                                {
+                                    id: section[0].id
+                                }, 
+                                {
+                                    $set: {
+                                        fields: [
+                                            ...(count_columns ? section[0].fields : []),
+                                            {
+                                                id: field.id,
+                                                order: count_columns + 1,
+                                                field_name: field.label,
+                                            }
+                                        ]
+                                    }
+                                }
+                            )
+                        } else {
+                            await Section.create({
+                                id: v4(),
+                                order: section.length + 1,
+                                column: "SINGLE",
+                                label: "Info",
+                                icon: "",
+                                fields: [
+                                    {
+                                        id: field.id,
+                                        order: 1,
+                                        field_name: field.label,
+                                    }
+                                ],
+                                table_id: table.id,
+                                attributes: {},
+                                tab_id: tab.id
+                            })
+                        }
+                    }
+                }
+            }
+
+             
 
             return field;
         } catch (err) {
@@ -248,35 +305,14 @@ let fieldStore = {
 
             await Table.updateOne({
                 id: data.table_id,
-            },
+                },
                 {
                     $set: {
                         is_changed: true,
                         [`is_changed_by_host.${os.hostname()}`]: true
                     }
-                })
-            // const table = await Table.findOne({
-            //     id: data.table_id,
-
-            // });
-            // let event = {}
-            // let fieldRes = {}
-            // let fieldToAnalytics = {}
-            // let type = converter(data.type);
-            // fieldRes.table_slug = table.slug
-            // fieldRes.older_field_name = fieldBeforUpdate.slug
-
-            // if (field.slug !== "guid") {
-            //     fieldToAnalytics = {
-            //         slug: data.slug,
-            //         type: type,
-            //     }
-            // }
-            // fieldRes.field = fieldToAnalytics
-            // event.payload = fieldRes
-
-            // event.project_id = data.project_id
-            // await sendMessageToTopic(topics.TopicFieldUpdateV1, event)
+                }
+            )
 
             return field;
         } catch (err) {
@@ -519,23 +555,6 @@ let fieldStore = {
             const response = await fieldPermissionTable?.models.deleteMany({
                 field_id: data.id
             })
-
-            // let event = {}
-            // let fieldRes = {}
-            // let fieldToAnalytics = {}
-            // let type = converter(deletedField.type);
-            // fieldRes.table_slug = table.slug
-            // if (field.slug !== "guid") {
-            //     fieldToAnalytics = {
-            //         slug: deletedField.slug,
-            //         type: type,
-            //     }
-            // }
-            // fieldRes.field = fieldToAnalytics
-            // event.payload = fieldRes
-
-            // event.project_id = data.project_id
-            // await sendMessageToTopic(topics.TopicFieldDeleteV1, event)
 
             return field;
 

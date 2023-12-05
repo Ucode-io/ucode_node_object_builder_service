@@ -766,6 +766,18 @@ let relationStore = {
                 await view.save();
             }
 
+            await Table.updateMany(
+                {
+                    slug: { $in: tableSlugs },
+                },
+                {
+                    $set: {
+                        is_changed: true,
+                        [`is_changed_by_host.${os.hostname()}`]: true
+                    },
+                }
+            );
+
             return relation;
         } catch (err) {
             throw err;

@@ -371,7 +371,7 @@ let loginStore = {
         }
     }),
     login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login_data`, async (req) => {
-        // console.log("TEST:::::::::1", req.resource_environment_id)
+        console.log("TEST:::::::::1", req.resource_environment_id)
         // console.log("req", JSON.stringify(req, null, 2))
         const allTables = (await ObjectBuilder(true, req.resource_environment_id))
         const clientTypeTable = allTables["client_type"]
@@ -396,12 +396,18 @@ let loginStore = {
 
         const userTable = (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]
 
+        for (obj in (await ObjectBuilder(true, req.resource_environment_id))) {
+            console.log("collection ", obj)
+        }
+
         console.log("\n\n ~~~~~ >> LoginData params test #1", JSON.stringify(params), tableSlug)
         let user = await userTable.models.findOne(params).lean()
 
+        const as = await userTable.find()
+
         let user_found = false
         // console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
-        console.log("\n\n ~~~~~ >> LoginData params test #2", JSON.stringify(user))
+        console.log("\n\n ~~~~~ >> LoginData params test #2", JSON.stringify(user), JSON.stringify(as))
         if (!user) {
             return {
                 user_found: user_found

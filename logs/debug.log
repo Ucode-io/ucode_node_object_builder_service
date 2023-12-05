@@ -105704,3 +105704,129 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-05T15:43:06.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-05T15:43:06.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb+srv://sandbox:7j4LfDV31wY968h2@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/sandbox?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'debug',
+  timestamp: '2023-12-05T15:43:06.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb+srv://sandbox:7j4LfDV31wY968h2@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/sandbox?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'info',
+  timestamp: '2023-12-05T15:43:07.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-05T15:45:43.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.login_data: succeeded',
+  level: 'info',
+  timestamp: '2023-12-05T15:45:56.369Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-05T15:47:25.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-05T15:47:25.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb+srv://sandbox:7j4LfDV31wY968h2@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/sandbox?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'debug',
+  timestamp: '2023-12-05T15:47:25.397Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb+srv://sandbox:7j4LfDV31wY968h2@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/sandbox?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'info',
+  timestamp: '2023-12-05T15:47:26.610Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-05T15:47:33.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-05T15:47:33.216Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-05T15:47:33.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-05T15:47:33.890Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-05T15:47:37.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-05T15:47:37.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-05T15:47:37.111Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-05T15:47:37.738Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

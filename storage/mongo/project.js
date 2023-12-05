@@ -165,7 +165,7 @@ let projectStore = {
                         // await addFields({ project_id: data.project_id })
                         // await ceckPermissionScript({ project_id: data.project_id })
                         // await initialDefaultPivot({ project_id: data.project_id })
-                        console.log("Object builder has successfully runned for", data.project_id);
+                        console.log("Object builder has successfully runned for --->", data.project_id);
                         resolve()
                     });
 

@@ -403,7 +403,7 @@ let loginStore = {
         console.log("\n\n ~~~~~ >> LoginData params test #1", JSON.stringify(params), tableSlug)
         let user = await userTable.models.findOne(params).lean()
 
-        const as = await userTable.find()
+        const as = await userTable.models.find()
 
         let user_found = false
         // console.log("TEST:::::::::3", JSON.stringify(user, null, 2))

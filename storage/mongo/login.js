@@ -396,7 +396,7 @@ let loginStore = {
 
         const userTable = (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]
 
-        console.log("\n\n ~~~~~ >> LoginData params test #1", JSON.stringify(params))
+        console.log("\n\n ~~~~~ >> LoginData params test #1", JSON.stringify(params), tableSlug)
         let user = await userTable.models.findOne(params).lean()
 
         let user_found = false

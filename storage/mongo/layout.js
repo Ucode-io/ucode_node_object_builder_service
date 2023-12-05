@@ -170,7 +170,7 @@ let layoutStore = {
                 }
             }
             insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
-            // console.log(":::::::::::TEST:::::::::::::::::::6", tabs)
+            console.log(":::::::::::TEST:::::::::::::::::::6", tabs)
             await Layout.insertMany(layouts)
             await Tab.insertMany(tabs)
             await Section.insertMany(sections)

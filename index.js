@@ -10,6 +10,7 @@ const kafka = require("./config/kafka");
 const logger = require("./config/logger");
 
 (async function () {
+
     try {
         await grpcConnection()
 

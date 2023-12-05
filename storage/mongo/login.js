@@ -396,12 +396,12 @@ let loginStore = {
 
         const userTable = (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]
 
-        console.log("\n\n ~~~~~ >> LoginData params ", JSON.stringify(params))
+        console.log("\n\n ~~~~~ >> LoginData params test #1", JSON.stringify(params))
         let user = await userTable.models.findOne(params).lean()
 
         let user_found = false
         // console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
-
+        console.log("\n\n ~~~~~ >> LoginData params test #2", JSON.stringify(user))
         if (!user) {
             return {
                 user_found: user_found
@@ -415,6 +415,8 @@ let loginStore = {
                 guid: user.role_id,
             }
         ).lean()
+
+        console.log("\n\n ~~~~~ >> LoginData params test #3", JSON.stringify(params))
         if (!role) {
             return {
                 user_found: false
@@ -422,6 +424,7 @@ let loginStore = {
         }
         // console.log("TEST:::::::::4")
         // console.log("TEST:::::::::4")
+        console.log("\n\n ~~~~~ >> LoginData params test #4", JSON.stringify(params))
         const clientPlatfromTable = allTables["client_platform"]
 
         const clientPlatform = await clientPlatfromTable.models.findOne(
@@ -429,7 +432,7 @@ let loginStore = {
                 guid: role.client_platform_id
             }
         ).lean()
-
+        
         // console.log("TEST:::::::::5", JSON.stringify(clientPlatform, null, 2))
 
         const connectionsTable = allTables["connections"]

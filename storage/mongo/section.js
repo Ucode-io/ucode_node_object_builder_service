@@ -282,22 +282,15 @@ let sectionStore = {
 
             let table = {};
             if (!data.table_id) {
-                // table = await Table.findOne({
-                //     slug: data.table_slug,
-                // });
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                // console.log("bbbbb::", table);
-                console.log("test 11");
+                table = await Table.findOne({
+                    slug: data.table_slug,
+                });
+    
                 data.table_id = table.id;
-                console.log("test 12");
             }
-            // console.log("table id:::: " + table?.id);
-            // console.log("table:::: " + table);
 
             let query = {}
-            // if (data.table_id) {
-            //     query.table_id = data.table_id;
-            // }
+        
             if (data.tab_id) {
                 query.tab_id = data.tab_id;
             }
@@ -319,6 +312,7 @@ let sectionStore = {
                     let field = {};
                     let encodedAttributes = {};
                     if (fieldReq?.id?.includes("#")) {
+                        field.is_visible_layout = fieldReq.is_visible_layout
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order

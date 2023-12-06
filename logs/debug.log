@@ -106166,3 +106166,388 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T08:49:08.760Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T08:49:08.766Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-06T08:49:08.767Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs:uraIcZhkLf@142.93.164.37:27017/magnus_e678ea311991462a87c76ee0b725ab9d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-06T08:49:10.549Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T08:52:01.543Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-06T09:03:34.252Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-06T09:03:35.476Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-12-06T09:05:20.279Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T09:10:58.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T09:10:58.429Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'debug',
+  timestamp: '2023-12-06T09:10:58.430Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error querySrv ESERVFAIL _mongodb._tcp.db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com',
+  level: 'error',
+  timestamp: '2023-12-06T09:10:59.482Z',
+  label: 'object_builder_service',
+  metadata: {
+    errno: undefined,
+    code: 'ESERVFAIL',
+    syscall: 'querySrv',
+    hostname: '_mongodb._tcp.db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com',
+    stack: 'Error: querySrv ESERVFAIL _mongodb._tcp.db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com\n' +
+      '    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:251:17)'
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: querySrv ESERVFAIL _mongodb._tcp.db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com',
+  level: 'info',
+  timestamp: '2023-12-06T09:10:59.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T09:14:40.316Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T09:14:40.322Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'debug',
+  timestamp: '2023-12-06T09:14:40.323Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'info',
+  timestamp: '2023-12-06T09:14:44.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T09:19:16.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: params is not defined',
+  level: 'error',
+  timestamp: '2023-12-06T09:19:33.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T09:22:47.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T09:22:47.718Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'debug',
+  timestamp: '2023-12-06T09:22:47.719Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'info',
+  timestamp: '2023-12-06T09:22:51.443Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T09:27:45.609Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: failed with error: Cannot use an expression fieldsWithPermissions: [ { id: "7c64f2bc-d31b-426b-9d1b-6774741687fe", table_id: "e00b746d-6406-423f-93dc-d5d98120e76e", required: false, slug: "datetime", label: "Date", default: "", type: "DATE_TIME", index: "string", attributes: { fields: { showTooltip: { boolValue: false, kind: "boolValue" }, show_label: { boolValue: true, kind: "boolValue" }, creatable: { boolValue: false, kind: "boolValue" }, defaultValue: { stringValue: "NOW()", kind: "stringValue" }, disabled: { boolValue: false, kind: "boolValue" }, icon: { stringValue: "", kind: "stringValue" }, label_en: { stringValue: "Date & Time", kind: "stringValue" }, number_of_rounds: { nullValue: "NULL_VALUE", kind: "nullValue" }, validation: { stringValue: "", kind: "stringValue" }, validation_message: { stringValue: "", kind: "stringValue" }, placeholder: { stringValue: "", kind: "stringValue" } } }, is_visible: false, autofill_field: "", autofill_table: "", unique: false, automatic: false, commit_id: "", relation_id: "", enable_multilanguage: false, hide_multilanguage: false, minio_folder: "" }, { id: "67c4c671-e8a9-4e8b-8d3e-2b0be7364a70", label: "Order ID", type: "LOOKUP", table_id: "e00b746d-6406-423f-93dc-d5d98120e76e", relation_id: "3a887350-458a-41cc-ae84-f9643fbbb08f", required: false, slug: "orders_id", attributes: { fields: { fields: { kind: "structValue", structValue: { fields: { defaultValue: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } }, icon: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } }, showTooltip: { kind: "structValue", structValue: { fields: { boolValue: { kind: "boolValue", boolValue: false }, kind: { kind: "stringValue", stringValue: "boolValue" } } } }, show_label: { kind: "structValue", structValue: { fields: { boolValue: { kind: "boolValue", boolValue: true }, kind: { kind: "stringValue", stringValue: "boolValue" } } } } } } }, view_fields: { kind: "listValue", listValue: { values: [ { kind: "structValue", structValue: { fields: { id: { kind: "stringValue", stringValue: "a8775887-5681-4e76-90f1-2a9a408ca9a6" }, table_id: { kind: "stringValue", stringValue: "04775c3f-89d6-4dd3-9331-4eafa76d2573" }, required: { kind: "boolValue", boolValue: false }, slug: { kind: "stringValue", stringValue: "order_id" }, label: { kind: "stringValue", stringValue: "Order ID" }, default: { kind: "stringValue", stringValue: "" }, type: { kind: "stringValue", stringValue: "INCREMENT_ID" }, index: { kind: "stringValue", stringValue: "string" }, attributes: { kind: "structValue", structValue: { fields: { fields: { kind: "structValue", structValue: { fields: { creatable: { kind: "structValue", structValue: { fields: { boolValue: { kind: "boolValue", boolValue: false }, kind: { kind: "stringValue", stringValue: "boolValue" } } } }, defaultValue: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } }, icon: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "angles-right.svg" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } }, prefix: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "O" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } }, showTooltip: { kind: "structValue", structValue: { fields: { boolValue: { kind: "boolValue", boolValue: false }, kind: { kind: "stringValue", stringValue: "boolValue" } } } }, digit_number: { kind: "structValue", structValue: { fields: { numberValue: { kind: "numberValue", numberValue: 12 }, kind: { kind: "stringValue", stringValue: "numberValue" } } } }, disabled: { kind: "structValue", structValue: { fields: { boolValue: { kind: "boolValue", boolValue: true }, kind: { kind: "stringValue", stringValue: "boolValue" } } } }, placeholder: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } }, show_label: { kind: "structValue", structValue: { fields: { boolValue: { kind: "boolValue", boolValue: true }, kind: { kind: "stringValue", stringValue: "boolValue" } } } }, validation: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } }, validation_message: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } } } } } } } }, is_visible: { kind: "boolValue", boolValue: false }, autofill_field: { kind: "stringValue", stringValue: "" }, autofill_table: { kind: "stringValue", stringValue: "" }, unique: { kind: "boolValue", boolValue: false }, automatic: { kind: "boolValue", boolValue: false }, commit_id: { kind: "stringValue", stringValue: "" }, relation_id: { kind: "stringValue", stringValue: "" }, enable_multilanguage: { kind: "boolValue", boolValue: false }, hide_multilanguage: { kind: "boolValue", boolValue: false } } } } ] } }, autofill: { kind: "listValue", listValue: { values: [ { kind: "structValue", structValue: { fields: { field_from: { kind: "stringValue", stringValue: "agent_order_id" }, field_to: { kind: "stringValue", stringValue: "agent_order_id" }, automatic: { kind: "boolValue", boolValue: true } } } } ] } }, cascadings: { kind: "listValue", listValue: { values: [] } }, cascading_tree_table_slug: { kind: "stringValue", stringValue: "" }, cascading_tree_field_slug: { kind: "stringValue", stringValue: "" }, auto_filters: { kind: "listValue", listValue: { values: [] } }, is_user_id_default: { kind: "boolValue", boolValue: false }, object_id_from_jwt: { kind: "boolValue", boolValue: false }, relation_data: { kind: "structValue", structValue: { fields: { _id: { kind: "stringValue", stringValue: "647983263163ca2d74c6649a" }, id: { kind: "stringValue", stringValue: "3a887350-458a-41cc-ae84-f9643fbbb08f" }, table_from: { kind: "stringValue", stringValue: "transactions" }, field_from: { kind: "stringValue", stringValue: "orders_id" }, table_to: { kind: "stringValue", stringValue: "orders" }, field_to: { kind: "stringValue", stringValue: "id" }, type: { kind: "stringValue", stringValue: "Many2One" }, view_fields: { kind: "listValue", listValue: { values: [ { kind: "stringValue", stringValue: "a8775887-5681-4e76-90f1-2a9a408ca9a6" } ] } }, relation_field_slug: { kind: "stringValue", stringValue: "" }, dynamic_tables: { kind: "listValue", listValue: { values: [] } }, editable: { kind: "boolValue", boolValue: false }, auto_filters: { kind: "listValue", listValue: { values: [] } }, is_user_id_default: { kind: "boolValue", boolValue: false }, cascadings: { kind: "listValue", listValue: { values: [] } }, object_id_from_jwt: { kind: "boolValue", boolValue: false }, cascading_tree_table_slug: { kind: "stringValue", stringValue: "" }, cascading_tree_field_slug: { kind: "stringValue", stringValue: "" }, commit_id: { kind: "stringValue", stringValue: "" }, created_at: { kind: "stringValue", stringValue: "2023-06-02T05:50:30.696Z" }, updated_at: { kind: "stringValue", stringValue: "2023-11-09T06:41:02.204Z" }, __v: { kind: "numberValue", numberValue: 0 }, relation_buttons: { kind: "boolValue", boolValue: false } } } }, function_path: { kind: "stringValue", stringValue: "" } } }, table_slug: "orders" }, { id: "579208e3-b950-4370-aa6e-eece2d4e2b6e", table_id: "e00b746d-6406-423f-93dc-d5d98120e76e", required: true, slug: "amount", label: "Amount", default: "", type: "NUMBER", index: "string", attributes: { fields: { creatable: { boolValue: false, kind: "boolValue" }, defaultValue: { stringValue: "", kind: "stringValue" }, disabled: { boolValue: false, kind: "boolValue" }, showTooltip: { boolValue: false, kind: "boolValue" }, validation_message: { stringValue: "", kind: "stringValue" }, icon: { stringValue: "", kind: "stringValue" }, placeholder: { stringValue: "", kind: "stringValue" }, show_label: { boolValue: true, kind: "boolValue" }, validation: { stringValue: "", kind: "stringValue" } } }, is_visible: false, autofill_field: "", autofill_table: "", unique: false, automatic: false, commit_id: "", relation_id: "", enable_multilanguage: false, hide_multilanguage: false }, { id: "cc4efcb2-7387-42ec-9f9c-7454aa415c32", label: "Currency Rate", type: "LOOKUP", table_id: "e00b746d-6406-423f-93dc-d5d98120e76e", relation_id: "4f34d08a-25cc-4ec8-baa8-2dc0b75d0019", required: false, slug: "currency_rate_id", attributes: { fields: { fields: { kind: "structValue", structValue: { fields: { defaultValue: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } }, icon: { kind: "structValue", structValue: { fields: { stringValue: { kind: "stringValue", stringValue: "" }, kind: { kind: "stringValue", stringValue: "stringValue" } } } }, showTooltip: { kind: "structValue", structValue: { fields: { boolValue: { kind: "boolValue", boolValue: false }, kind: { kind: "stringValue", stringValue: "boolValue" } } } }, show_label: { kind: "structValue", structValue: { fields: { boolValue: { kind: "boolValue", boolValue: true }, kind: { kind: "stringValue", stringValue: "boolValue" } } } } } } }, view_fields: { kind: "listValue", listValue: { values: [ { kind: "structValue", structValue: { fields: { id: { kind: "stringValue", stringValue: "324eaee0-56ed-4f48-b5a8-ff321d09d1fd" }, table_id: { kind: "stringValue", stringValue: "6b525fa6-a89b-4118-9342-076463d88278" }, required: { kind: "boolValue", boolValue: false }, slug: { kind: "stringValue", stringValue: "rate" }, label: { kind: "stringVa'... 57024 more characters,
+  level: 'error',
+  timestamp: '2023-12-06T09:28:45.887Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T09:30:35.999Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T09:30:36.005Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'debug',
+  timestamp: '2023-12-06T09:30:36.006Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'info',
+  timestamp: '2023-12-06T09:30:39.743Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T09:34:08.563Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T09:35:00.335Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T09:41:37.708Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T09:44:07.676Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T09:44:07.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'debug',
+  timestamp: '2023-12-06T09:44:07.687Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'info',
+  timestamp: '2023-12-06T09:44:10.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T09:48:03.797Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T09:48:41.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T10:12:47.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T10:14:31.650Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T10:14:31.656Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'debug',
+  timestamp: '2023-12-06T10:14:31.657Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'info',
+  timestamp: '2023-12-06T10:14:35.106Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T10:19:19.306Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T10:20:14.444Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T10:23:31.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T10:25:12.672Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T10:30:09.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T10:30:09.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'debug',
+  timestamp: '2023-12-06T10:30:09.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb+srv://easy_to_travel_object_builder:8621qV4M59h0RYkc@db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com/easy_to_travel_object_builder?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798',
+  level: 'info',
+  timestamp: '2023-12-06T10:30:14.001Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T10:33:54.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T10:35:32.720Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T10:37:04.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

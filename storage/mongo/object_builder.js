@@ -158,6 +158,7 @@ let objectBuilder = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
+        const params = struct.decode(req?.data)
         const data = struct.decode(req.data)
         const tables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = tables[req.table_slug]
@@ -218,6 +219,8 @@ let objectBuilder = {
             }
         }
 
+        let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(tableInfo.fields, params["role_id_from_token"], req.table_slug, req.project_id)
+
         let output = await tableInfo.models.findOne({
             guid: data.id
         },
@@ -227,7 +230,8 @@ let objectBuilder = {
                 createdAt: 0,
                 updatedAt: 0,
                 _id: 0,
-                __v: 0
+                __v: 0,
+                ...unusedFieldsSlugs
             }).populate(relatedTable).lean();
 
         if (!output) { logger.error(`failed to find object in table ${req.table_slug} with given id: ${data.id}`) };

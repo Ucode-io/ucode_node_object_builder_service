@@ -371,7 +371,7 @@ let loginStore = {
         }
     }),
     login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login_data`, async (req) => {
-        // console.log("TEST:::::::::1", req.resource_environment_id)
+        console.log("TEST:::::::::1", req.resource_environment_id)
         // console.log("req", JSON.stringify(req, null, 2))
         const allTables = (await ObjectBuilder(true, req.resource_environment_id))
         const clientTypeTable = allTables["client_type"]
@@ -396,12 +396,24 @@ let loginStore = {
         }
 
 
+<<<<<<< HEAD
         const userTable = allTables[tableSlug]
+=======
+        const userTable = (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]
+
+        for (obj in (await ObjectBuilder(true, req.resource_environment_id))) {
+            console.log("collection ", obj)
+        }
+
+        console.log("\n\n ~~~~~ >> LoginData params test #1", JSON.stringify(params), tableSlug)
+>>>>>>> 19ace74c682e308047dc3bfed79ae71971b4cc66
         let user = await userTable.models.findOne(params).lean()
+
+        const as = await userTable.models.find()
 
         let user_found = false
         // console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
-
+        console.log("\n\n ~~~~~ >> LoginData params test #2", JSON.stringify(user), JSON.stringify(as))
         if (!user) {
             return {
                 user_found: user_found
@@ -416,6 +428,8 @@ let loginStore = {
                 guid: user.role_id,
             }
         ).lean()
+
+        console.log("\n\n ~~~~~ >> LoginData params test #3", JSON.stringify(params))
         if (!role) {
             return {
                 user_found: false
@@ -423,6 +437,7 @@ let loginStore = {
         }
         // console.log("TEST:::::::::4")
         // console.log("TEST:::::::::4")
+        console.log("\n\n ~~~~~ >> LoginData params test #4", JSON.stringify(params))
         const clientPlatfromTable = allTables["client_platform"]
 
         const clientPlatform = await clientPlatfromTable.models.findOne(
@@ -430,7 +445,7 @@ let loginStore = {
                 guid: role.client_platform_id
             }
         ).lean()
-
+        
         // console.log("TEST:::::::::5", JSON.stringify(clientPlatform, null, 2))
 
         const connectionsTable = allTables["connections"]

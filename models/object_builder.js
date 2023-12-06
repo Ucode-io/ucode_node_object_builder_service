@@ -263,8 +263,9 @@ async function buildModels(is_build = true, project_id) {
                     if (!resField.attributes) {
                         resField.attributes = {}
                     }
-
+                    
                     if (relation) {
+                        resField.view_fields = relation.view_fields
                         viewFieldIds = relation.view_fields
                         let viewOfRelation = await View.findOne({
                             relation_id: field.relation_id,
@@ -394,27 +395,6 @@ async function buildModels(is_build = true, project_id) {
                         resField.attributes = struct.encode(resField.attributes)
                         fieldsModel.push(resField)
                     }
-                    // if (field.id.includes("@")) {
-                    //     splitedID = field.id.split("@")
-                    // }
-
-                    // // we need to find this field and push it to array of fields
-                    // let sectionField = await Field.findOne({
-                    //     id: splitedID[1]
-                    // },
-                    // {
-                    //     created_at: 0,
-                    //     updated_at: 0,
-                    //     _id: 0,
-                    //     __v: 0,
-                    // });
-                    // if (sectionField) {
-                    //     sectionField._doc.slug = splitedID[0] + "." + sectionField._doc.slug
-                    //     sectionField._doc.label = field.field_name
-                    //     fieldsModel.push(sectionField._doc)
-                    // }
-                    // after the first time when all relation fields are appended to our field array, 
-                    // we change isReferenced to true in order to avoid adding the same fields twice or more
                 }
             }
             isReferenced = true

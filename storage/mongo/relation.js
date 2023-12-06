@@ -1341,7 +1341,7 @@ let relationStore = {
                     field_from: relations[i].field_from,
                     field_to: relations[i].field_to,
                     type: relations[i].type,
-                    view_fields: relations[i].fields,
+                    view_fields: relations[i].view_fields,
                     editable: relations[i].editable,
                     dynamic_tables: relations[i].dynamic_tables,
                     relation_field_slug: relations[i].relation_field_slug,

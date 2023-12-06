@@ -697,7 +697,8 @@ let relationStore = {
                 }
             );
 
-            const resp = await Table.updateOne(
+                console.log("~~~~~~> table slugs rel ", data.table_from, data.table_to)
+            const resp = await Table.findOneAndUpdate(
                 {
                     slug: { $in: [data.table_from, data.table_to] },
                 },
@@ -765,18 +766,6 @@ let relationStore = {
                 const view = new View(data);
                 await view.save();
             }
-
-            await Table.updateMany(
-                {
-                    slug: { $in: tableSlugs },
-                },
-                {
-                    $set: {
-                        is_changed: true,
-                        [`is_changed_by_host.${os.hostname()}`]: true
-                    },
-                }
-            );
 
             return relation;
         } catch (err) {

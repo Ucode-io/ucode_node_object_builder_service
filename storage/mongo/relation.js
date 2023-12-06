@@ -1236,9 +1236,19 @@ let relationStore = {
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
+            // console.log(">>>> invoke function")
             const mongoConn = await mongoPool.get(data.project_id);
+            const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
+
+            if (data.table_slug === "") {
+                // let table = await Table.findOne({
+                //     id: data.table_id
+                // });
+                let table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
+                data.table_slug = table.slug;
+            }
             const relations = await Relation.find(
                 {
                     $or: [
@@ -1257,15 +1267,25 @@ let relationStore = {
                 {
                     sort: { created_at: -1 },
                 }
-            ).skip(data.offset).limit(data.limit).lean();
+            )
+                .skip(data.offset)
+                .limit(data.limit)
+                .populate("fields")
+                .lean();
 
             let responseRelations = [];
             for (let i = 0; i < relations.length; i++) {
+                // let tableFrom = await Table.findOne({
+                //     slug: relations[i].table_from
+                // })
                 let tableFrom = await tableVersion(mongoConn, { slug: relations[i].table_from }, data.version_id, true)
                 if (relations[i].type === "Many2Dynamic") {
                     let tableTo;
                     for (const dynamic_table of relations[i].dynamic_tables) {
                         if (dynamic_table.table_slug === data.table_slug) {
+                            // tableTo = await Table.findOne({
+                            //     slug: dynamic_table.table_slug
+                            // })
                             tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
                         }
                     }
@@ -1287,6 +1307,7 @@ let relationStore = {
                             relations[i].cascading_tree_table_slug,
                         cascading_tree_field_slug:
                             relations[i].cascading_tree_field_slug,
+                        relation_buttons: relations[i].relation_buttons,
                     };
                     if (tableTo) {
                         responseRelation["table_to"] = tableTo;
@@ -1327,6 +1348,9 @@ let relationStore = {
                     responseRelations.push(responseRelation);
                     continue;
                 }
+                // let tableTo = await Table.findOne({
+                //     slug: relations[i].table_to
+                // })
                 let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
                 let view = await View.findOne({
                     $and: [
@@ -1341,7 +1365,7 @@ let relationStore = {
                     field_from: relations[i].field_from,
                     field_to: relations[i].field_to,
                     type: relations[i].type,
-                    view_fields: relations[i].view_fields,
+                    view_fields: relations[i].fields,
                     editable: relations[i].editable,
                     dynamic_tables: relations[i].dynamic_tables,
                     relation_field_slug: relations[i].relation_field_slug,
@@ -1353,8 +1377,10 @@ let relationStore = {
                         relations[i].cascading_tree_table_slug,
                     cascading_tree_field_slug:
                         relations[i].cascading_tree_field_slug,
+                    relation_buttons: relations[i].relation_buttons
                 };
                 if (view) {
+                    // console.log("creatable:", view.creatable);
                     responseRelation["title"] = view.name;
                     responseRelation["columns"] = view.columns;
                     responseRelation["quick_filters"] = view.quick_filters;

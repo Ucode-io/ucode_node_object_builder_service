@@ -282,22 +282,15 @@ let sectionStore = {
 
             let table = {};
             if (!data.table_id) {
-                // table = await Table.findOne({
-                //     slug: data.table_slug,
-                // });
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                // console.log("bbbbb::", table);
-                console.log("test 11");
+                table = await Table.findOne({
+                    slug: data.table_slug,
+                });
+    
                 data.table_id = table.id;
-                console.log("test 12");
             }
-            // console.log("table id:::: " + table?.id);
-            // console.log("table:::: " + table);
 
             let query = {}
-            // if (data.table_id) {
-            //     query.table_id = data.table_id;
-            // }
+        
             if (data.tab_id) {
                 query.tab_id = data.tab_id;
             }
@@ -317,6 +310,8 @@ let sectionStore = {
                 for (const fieldReq of section.fields) {
                     let guid;
                     let field = {};
+                    field.is_visible_layout = fieldReq.is_visible_layout
+                    console.log("~~~> layout ", fieldReq.is_visible_layout)
                     let encodedAttributes = {};
                     if (fieldReq?.id?.includes("#")) {
                         field.id = fieldReq.id
@@ -375,6 +370,7 @@ let sectionStore = {
                             }
 
                             field.is_editable = view_of_relation?.is_editable
+                            field.is_visible_layout = fieldReq.is_visible_layout
                         }
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
@@ -505,6 +501,7 @@ let sectionStore = {
                             id: guid
                         });
                         if (field) {
+                            field.is_visible_layout = fieldReq.is_visible_layout
                             field.order = fieldReq.order;
                             field.column = fieldReq.column;
                             field.id = fieldReq.id;
@@ -514,6 +511,7 @@ let sectionStore = {
                     }
                 }
                 // this function add field permission for each field by role iddynamicTableInfo
+                console.log("~~~> ", fieldsRes)
                 let {fieldsWithPermissions} = await AddPermission.toField(fieldsRes, data.role_id, data.table_slug ? data.table_slug : table.slug, data.project_id)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)

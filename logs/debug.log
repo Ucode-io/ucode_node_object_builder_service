@@ -105830,3 +105830,339 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T05:17:40.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T05:17:40.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-06T05:17:40.909Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-06T05:17:41.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T05:18:52.947Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "testt",\n' +
+    '  "project_id": "1",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-12-06T05:19:01.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T05:19:03.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T05:20:02.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T05:20:02.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-06T05:20:02.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-06T05:20:03.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T05:21:04.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "testt",\n' +
+    '  "project_id": "1",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-12-06T05:21:10.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T05:21:12.991Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T05:21:50.095Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T05:21:50.101Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-06T05:21:50.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-06T05:21:51.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T05:22:53.510Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "testt",\n' +
+    '  "project_id": "1",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-12-06T05:22:56.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T05:22:59.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T05:24:24.398Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T05:24:24.404Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-06T05:24:24.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-06T05:24:25.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T05:25:32.007Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "testt",\n' +
+    '  "project_id": "1",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-12-06T05:25:40.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T05:25:42.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T05:27:41.075Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T05:27:41.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-06T05:27:41.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-06T05:27:41.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T05:28:46.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "testt",\n' +
+    '  "project_id": "1",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-12-06T05:28:49.474Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T05:28:51.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2023-12-06T05:31:04.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnecting to resources',
+  level: 'info',
+  timestamp: '2023-12-06T05:31:04.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2023-12-06T05:31:04.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2023-12-06T05:31:05.504Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2023-12-06T05:32:18.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: requested - {\n' +
+    '  "table_slug": "testt",\n' +
+    '  "project_id": "1",\n' +
+    '  "is_defualt": true,\n' +
+    '  "table_id": "",\n' +
+    '  "role_id": "",\n' +
+    '  "language_setting": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2023-12-06T05:33:08.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getAll: succeeded',
+  level: 'info',
+  timestamp: '2023-12-06T05:33:10.321Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

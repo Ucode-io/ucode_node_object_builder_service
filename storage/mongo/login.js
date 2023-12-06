@@ -396,17 +396,7 @@ let loginStore = {
         }
 
 
-<<<<<<< HEAD
         const userTable = allTables[tableSlug]
-=======
-        const userTable = (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]
-
-        for (obj in (await ObjectBuilder(true, req.resource_environment_id))) {
-            console.log("collection ", obj)
-        }
-
-        console.log("\n\n ~~~~~ >> LoginData params test #1", JSON.stringify(params), tableSlug)
->>>>>>> 19ace74c682e308047dc3bfed79ae71971b4cc66
         let user = await userTable.models.findOne(params).lean()
 
         const as = await userTable.models.find()

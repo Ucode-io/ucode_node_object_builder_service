@@ -697,7 +697,6 @@ let relationStore = {
                 }
             );
 
-                console.log("~~~~~~> table slugs rel ", data.table_from, data.table_to)
             const resp = await Table.findOneAndUpdate(
                 {
                     slug: { $in: [data.table_from, data.table_to] },
@@ -705,10 +704,13 @@ let relationStore = {
                 {
                     $set: {
                         is_changed: true,
-                        [`is_changed_by_host.${os.hostname()}`]: true
+                        [`is_changed_by_host`]: {
+                            [os.hostname()]: true
+                        }
                     },
                 }
-            );
+                );
+            console.log("~~~~~~> table slugs rel ", JSON.stringify(resp))
             const isViewExists = await View.findOne({
                 $and: [
                     {

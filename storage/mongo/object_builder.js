@@ -2008,46 +2008,6 @@ let objectBuilder = {
             }
         };
 
-        // comment this logic, we switch it to buildModels function
-
-        // for (const field of decodedFields) {
-        //     if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
-        //         let relation = await Relation.findOne({ table_from: req.table_slug, table_to: field.table_slug })
-        //         let viewFields = []
-        //         if (relation) {
-        //             for (const view_field of relation.view_fields) {
-        //                 let viewField = await Field.findOne(
-        //                     {
-        //                         id: view_field
-        //                     },
-        //                     {
-        //                         createdAt: 0,
-        //                         updatedAt: 0,
-        //                         created_at: 0,
-        //                         updated_at: 0,
-        //                         _id: 0,
-        //                         __v: 0
-        //                     })
-        //                 if (viewField) {
-        //                     if (viewField.attributes) {
-        //                         viewField.attributes = struct.decode(viewField.attributes)
-        //                     }
-        //                     viewFields.push(viewField._doc)
-        //                 }
-        //             }
-
-        //             const view = await View.findOne({ relation_id: relation.id })
-        //             if (view) {
-        //                 field.attributes = {
-        //                     ...(field.attributes || {}),
-        //                     ...struct.decode(view.attributes || {})
-        //                 }
-        //             }
-        //         }
-        //         field.view_fields = viewFields
-        //     }
-        // }
-
         if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
             let additional_results;
             const additional_param = {};
@@ -2072,14 +2032,6 @@ let objectBuilder = {
                     )
                         .lean();
                 } else {
-                    // for (const key of Object.keys(params)) {
-                    //     if (key.includes('.')) {
-                    //         tableParams[key.split('.')[0]] = {
-                    //             [key.split('.')[1]]: { $regex: params[key] },
-                    //             select: '-_id'
-                    //         }
-                    //     }
-                    // }
                     additional_results = await tableInfo.models.find({
                         ...additional_param
                     },
@@ -2100,13 +2052,8 @@ let objectBuilder = {
                     result = result.concat(additional_results)
                 }
             }
-
-            // additional_results = additional_results.filter(obj => !result_ids.includes(obj.guid))
         }
 
-        // console.log("TEST::::::::::15")
-        // console.timeEnd("TIME_LOGGING:::additional_request")
-        // console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
 
@@ -2222,84 +2169,6 @@ let objectBuilder = {
                 updatedObjects.push(res)
             }
         }
-
-        /*
-        //eskisi
-        for (const res of result) {
-            let isChanged = false
-            for (const field of formulaFields) {
-                let attributes = struct.decode(field.attributes)
-                if (field.type === "FORMULA") {
-                    if (attributes.table_from && attributes.sum_field) {
-                        let filters = {}
-                        if (attributes.formula_filters) {
-                            attributes.formula_filters.forEach(el => {
-                                filters[el.key.split("#")[0]] = el.value
-                                if (Array.isArray(el.value)) {
-                                    filters[el.key.split("#")[0]] = { $in: el.value }
-                                }
-                            })
-                        }
-                        // const relationFieldTable = await table.findOne({
-                        //     slug: attributes.table_from.split('#')[0],
-                        //     deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        // })
-                        const relationFieldTable = await tableVersion(mongoConn, { slug: attributes.table_from.split('#')[0], deleted_at: "1970-01-01T18:00:00.000+00:00" }, params.version_id, true)
-                        const relationField = await Field.findOne({
-                            relation_id: attributes.table_from.split('#')[1],
-                            table_id: relationFieldTable.id
-                        })
-                        // console.log("rel table::", relationFieldTable)
-                        // console.log("field:::", relationField);
-                        if (!relationField || !relationFieldTable) {
-                            // console.log("relation field not found")
-                            res[field.slug] = 0
-                            continue
-                        }
-                        const dynamicRelation = await Relation.findOne({ id: attributes.table_from.split('#')[1] })
-                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                        }
-                        let matchParams = {
-                            [matchField]: { '$eq': res.guid },
-                            ...filters
-                        }
-                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id)
-                        if (resultFormula.length) {
-                            if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
-                                if (!isNaN(resultFormula[0].res)) {
-                                    resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
-                                }
-                            }
-                            if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
-                                res[field.slug] = resultFormula[0].res
-                                isChanged = true
-                            }
- 
-                        } else {
-                            res[field.slug] = 0
-                            isChanged = true
-                        }
-                    }
-                } else {
-                    if (attributes && attributes.formula) {
-                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-                        if (res[field.slug] !== resultFormula) {
-                            isChanged = true
-                        }
-                        res[field.slug] = resultFormula
-                    }
-                }
-            }
-            if (isChanged) {
-                updatedObjects.push(res)
-            }
-        }
-        */
-        // console.log("TEST::::::::::16")
-
-        // console.time("TIME_LOGGING:::length")
         if (updatedObjects.length) {
             await objectBuilder.multipleUpdateV2({
                 table_slug: req.table_slug,
@@ -2307,8 +2176,6 @@ let objectBuilder = {
                 data: struct.encode({ objects: updatedObjects })
             })
         }
-        // console.timeEnd("TIME_LOGGING:::length")
-        // console.log("TEST::::::15")
         const response = struct.encode({
             count: count,
             response: result,
@@ -2316,7 +2183,6 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
-        // console.log("Decoded fields --->", decodedFields)
         const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
         let customMessage = ""
         if (tableWithVersion) {
@@ -2327,7 +2193,6 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
-        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
 
         const endMemoryUsage = v8.getHeapStatistics();
 
@@ -2358,7 +2223,6 @@ let objectBuilder = {
         delete params["limit"]
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-        // const allTables = (await ObjectBuilder(true, req.project_id))
 
         const { 
             [req.table_slug]: tableInfo,
@@ -2746,27 +2610,27 @@ let objectBuilder = {
                     }
                     populateArr.push(papulateTable)
                 }
-                // console.log("\n\n-----> T3\n\n", tableInfo, params)
-                // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
-                result = await tableInfo.models.find({
-                    ...params
-                },
+                let query = tableInfo.models.find(
+                    { ...params },
                     {
-                        createdAt: 0,
-                        updatedAt: 0,
-                        created_at: 0,
-                        updated_at: 0,
-                        _id: 0,
-                        __v: 0,
-                        ...unusedFieldsSlugs
-                    }, { sort: order }
-                )
-                    .skip(offset)
-                    .limit(limit)
-                    .populate(populateArr)
-                    .lean()
-
-                // console.log("\n\n-----> T4\n\n", tableParams)
+                      createdAt: 0,
+                      updatedAt: 0,
+                      created_at: 0,
+                      updated_at: 0,
+                      _id: 0,
+                      __v: 0,
+                      ...unusedFieldsSlugs
+                    }
+                  ).sort(order);
+                  
+                  if (params.search && params.search !== "") {
+                    query = query.skip(0);
+                  } else {
+                    query = query.skip(offset);
+                  }
+                  
+                result = await query.limit(limit).populate(populateArr).lean();
+                  
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }

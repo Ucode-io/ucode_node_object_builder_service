@@ -1257,7 +1257,7 @@ let relationStore = {
                 {
                     sort: { created_at: -1 },
                 }
-            ).skip(data.offset).limit(data.limit).lean();
+            ).skip(data.offset).limit(data.limit).populate("fields").lean();
 
             let responseRelations = [];
             for (let i = 0; i < relations.length; i++) {
@@ -1334,6 +1334,7 @@ let relationStore = {
                         { relation_id: relations[i].id },
                     ],
                 });
+
                 let responseRelation = {
                     id: relations[i].id,
                     table_from: tableFrom,
@@ -1341,7 +1342,7 @@ let relationStore = {
                     field_from: relations[i].field_from,
                     field_to: relations[i].field_to,
                     type: relations[i].type,
-                    view_fields: relations[i].view_fields,
+                    view_fields: relations[i].fields,
                     editable: relations[i].editable,
                     dynamic_tables: relations[i].dynamic_tables,
                     relation_field_slug: relations[i].relation_field_slug,
@@ -1384,6 +1385,7 @@ let relationStore = {
                 table_from: data.table_slug,
             });
 
+            console.log("~~>>> test test", JSON.stringify(responseRelations))
             return { relations: responseRelations, count: count };
         } catch (err) {
             throw err;

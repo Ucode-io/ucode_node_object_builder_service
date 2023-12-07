@@ -229,7 +229,6 @@ let objectBuilder = {
         }
 
         let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(tableInfo.fields, data["role_id_from_token"], req.table_slug, req.project_id)
-        // console.log("Unused fields->", unusedFieldsSlugs)
 
         let output = await tableInfo.models.findOne({
             guid: data.id
@@ -1758,7 +1757,6 @@ let objectBuilder = {
         }
 
         let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
-        // console.log("Unused fields in get list->", unusedFieldsSlugs)
         let decodedFields = []
 
         let result = [], count;

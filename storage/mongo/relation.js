@@ -907,11 +907,9 @@ let relationStore = {
                 const responseView = await view.save();
                 tableSlugs.push(data.table_to);
 
-                if(!layout_id) {
-                    const table = await Table.findOne({slug: data.table_to})
-                    const layout = await Layout.findOne({table_id: table.id})
-                    layout_id = layout?.id
-                }
+                const table = await Table.findOne({slug: data.table_to})
+                const layout = await Layout.findOne({table_id: table.id})
+                layout_id = layout?.id
 
                 const tabs = await Tab.find({layout_id: layout_id})
                 

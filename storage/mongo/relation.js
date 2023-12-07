@@ -750,7 +750,7 @@ let relationStore = {
                     });
                     let resp = await field.save();
 
-                    const layout = await Layout.findOne({table_id: table.id})
+                    layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
                         
                         layout_id = layout.id

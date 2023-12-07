@@ -57,7 +57,7 @@ let relationStore = {
             }
             switch (data.type) {
                 case "One2Many":
-                    console.log("#>> test #1")
+                    
                     data.field_from = "id";
                     data.field_to = data.table_from + "_id";
                     table = await Table.findOne({
@@ -80,7 +80,7 @@ let relationStore = {
 
                     const layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
-                        console.log("~~ >> test #1 layout")
+                        
                         layout_id = layout.id
                         const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
@@ -93,10 +93,10 @@ let relationStore = {
                                 attributes: {},
                             })
                         }
-                        console.log("~~ >> test #2 tab", JSON.stringify(tab))
+                        
                         const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
                         if(!section.length) {
-                            console.log("~~ >> test #3 not section", JSON.stringify(tab))
+                            
                             await Section.create({
                                 id: v4(),
                                 order: section.length + 1,
@@ -117,7 +117,7 @@ let relationStore = {
                         }
         
                         if(section[0]) {
-                            console.log("~~ >> test #4 section", JSON.stringify(section))
+                            
                             const count_columns = section[0].fields ? section[0].fields.length : 0
                             if(count_columns < (table.section_column_count || 3)) {
                                 const a = await Section.findOneAndUpdate(
@@ -140,7 +140,7 @@ let relationStore = {
                                         new: true
                                     }
                                 )
-                                console.log("~~ >> test #5 section after update", (a))
+                                
                             } else {
                                 const a = await Section.create({
                                     id: v4(),
@@ -159,7 +159,7 @@ let relationStore = {
                                     attributes: {},
                                     tab_id: tab.id
                                 })
-                                console.log("~~ >> test #6 section create last", (a))
+                                
                             }
                         }
                     }
@@ -188,7 +188,7 @@ let relationStore = {
                     }
                     break;
                 case 'Many2Dynamic':
-                    console.log("#>> test #2")
+                    
                     data.field_from = data.relation_field_slug
                     data.field_to = "id"
                     table = await Table.findOne({
@@ -305,7 +305,7 @@ let relationStore = {
                     }
                     break;
                 case "Many2Many":
-                    console.log("#>> test #3")
+                    
                     data.field_from = data.table_to + "_ids";
                     data.field_to = data.table_from + "_ids";
                     let tableTo = await Table.findOne({
@@ -726,92 +726,16 @@ let relationStore = {
                     event.payload = tableRecursive;
                     break;
                 case "Many2One":
-                    // layout = await Layout.findOne({table_id: tableFrom?.id})
-                    // if (layout) {
-                    //     layout_id = layout.id
-                    //     const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-                    //     if (!tab) {
-                    //         tab = await Table.create({
-                    //             order: 1,
-                    //             label: "Tab",
-                    //             icon: "",
-                    //             type: "section",
-                    //             table_slug: tableFrom?.slug,
-                    //             attributes: {},
-                    //         })
-                    //     }
-        
-                    //     const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-                    //     if(!section.length) {
-                    //         await Section.create({
-                    //             id: v4(),
-                    //             order: section.length + 1,
-                    //             column: "SINGLE",
-                    //             label: "Info",
-                    //             icon: "",
-                    //             fields: [
-                    //                 {
-                    //                     id: res.id,
-                    //                     order: 1,
-                    //                     field_name: res.label,
-                    //                 }
-                    //             ],
-                    //             table_id: tableFrom?.id,
-                    //             attributes: {},
-                    //             tab_id: tab.id
-                    //         })
-                    //     }
-        
-                    //     if(section[0]) {
-                    //         const count_columns = section[0].fields ? section[0].fields.length : 0
-                    //         if(count_columns < (table.section_column_count || 3)) {
-                    //             await Section.findOneAndUpdate(
-                    //                 {
-                    //                     id: section[0].id
-                    //                 }, 
-                    //                 {
-                    //                     $set: {
-                    //                         fields: [
-                    //                             ...(count_columns ? section[0].fields : []),
-                    //                             {
-                    //                                 id: res.id,
-                    //                                 order: count_columns + 1,
-                    //                                 field_name: res.label,
-                    //                             }
-                    //                         ]
-                    //                     }
-                    //                 }
-                    //             )
-                    //         } else {
-                    //             await Section.create({
-                    //                 id: v4(),
-                    //                 order: section.length + 1,
-                    //                 column: "SINGLE",
-                    //                 label: "Info",
-                    //                 icon: "",
-                    //                 fields: [
-                    //                     {
-                    //                         id: res.id,
-                    //                         order: 1,
-                    //                         field_name: res.label,
-                    //                     }
-                    //                 ],
-                    //                 table_id: tableFrom?.id,
-                    //                 attributes: {},
-                    //                 tab_id: tab.id
-                    //             })
-                    //         }
-                    //     }
-                    // }
+ 
                 case "One2One":
-                    console.log("#>> test #4")
+                    
                     data.field_from = data.table_to + "_id";
                     data.field_to = "id";
-                    // table = await Table.findOne({
-                    //     slug: data.table_from,
-                    //     deleted_at: "1970-01-01T18:00:00.000+00:00",
-                    // });
-                    table = await tableVersion(mongoConn, { slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
+                    table = await Table.findOne({
+                        slug: data.table_from,
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    });
+                    // table = await tableVersion(mongoConn, { slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     result = await relationFieldChecker(data.field_from, table.id, data.project_id)
                     if (result.exists) {
                         data.field_from = result.lastField;
@@ -825,6 +749,92 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     let resp = await field.save();
+
+                    layout = await Layout.findOne({table_id: table.id})
+                    if (layout) {
+                        
+                        layout_id = layout.id
+                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        if (!tab) {
+                            tab = await Table.create({
+                                order: 1,
+                                label: "Tab",
+                                icon: "",
+                                type: "section",
+                                table_slug: table?.slug,
+                                attributes: {},
+                            })
+                        }
+                        
+                        const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                        if(!section.length) {
+                            
+                            await Section.create({
+                                id: v4(),
+                                order: section.length + 1,
+                                column: "SINGLE",
+                                label: "Info",
+                                icon: "",
+                                fields: [
+                                    {
+                                        id: resp.id,
+                                        order: 1,
+                                        field_name: resp.label,
+                                    }
+                                ],
+                                table_id: table.id,
+                                attributes: {},
+                                tab_id: tab.id
+                            })
+                        }
+        
+                        if(section[0]) {
+                            
+                            const count_columns = section[0].fields ? section[0].fields.length : 0
+                            if(count_columns < (table.section_column_count || 3)) {
+                                const a = await Section.findOneAndUpdate(
+                                    {
+                                        id: section[0].id
+                                    }, 
+                                    {
+                                        $set: {
+                                            fields: [
+                                                ...(count_columns ? section[0].fields : []),
+                                                {
+                                                    id: resp.id,
+                                                    order: count_columns + 1,
+                                                    field_name: resp.label,
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        new: true
+                                    }
+                                )
+                                
+                            } else {
+                                const a = await Section.create({
+                                    id: v4(),
+                                    order: section.length + 1,
+                                    column: "SINGLE",
+                                    label: "Info",
+                                    icon: "",
+                                    fields: [
+                                        {
+                                            id: resp.id,
+                                            order: 1,
+                                            field_name: resp.label,
+                                        }
+                                    ],
+                                    table_id: table.id,
+                                    attributes: {},
+                                    tab_id: tab.id
+                                })
+                                
+                            }
+                        }
+                    }
 
                     const fieldPermissionTableOne1 = (
                         await ObjectBuilder(true, data.project_id)
@@ -904,7 +914,7 @@ let relationStore = {
                 }
 
                 const tabs = await Tab.find({layout_id: layout_id})
-                console.log("~~ >> test #7 tabs length", (tabs.length))
+                
                 const c = await Tab.create({
                     id: v4(),
                     order: tabs.length + 1,
@@ -914,7 +924,7 @@ let relationStore = {
                     layout_id: layout_id,
                     relation_id: relation.id,
                 })
-                console.log("~~ >> test #7 tabs length", (c))
+                
             }
 
 
@@ -969,7 +979,7 @@ let relationStore = {
                     },
                 }
                 );
-            console.log("~~~~~~> table slugs rel ", JSON.stringify(resp))
+            
             const isViewExists = await View.findOne({
                 $and: [
                     {
@@ -1495,7 +1505,7 @@ let relationStore = {
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
-            // console.log(">>>> invoke function")
+            // 
             const mongoConn = await mongoPool.get(data.project_id);
             const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
@@ -1639,7 +1649,7 @@ let relationStore = {
                     relation_buttons: relations[i].relation_buttons
                 };
                 if (view) {
-                    // console.log("creatable:", view.creatable);
+                    // 
                     responseRelation["title"] = view.name;
                     responseRelation["columns"] = view.columns;
                     responseRelation["quick_filters"] = view.quick_filters;

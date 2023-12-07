@@ -57,6 +57,7 @@ let relationStore = {
             }
             switch (data.type) {
                 case "One2Many":
+                    console.log("#>> test #1")
                     data.field_from = "id";
                     data.field_to = data.table_from + "_id";
                     table = await Table.findOne({
@@ -187,6 +188,7 @@ let relationStore = {
                     }
                     break;
                 case 'Many2Dynamic':
+                    console.log("#>> test #2")
                     data.field_from = data.relation_field_slug
                     data.field_to = "id"
                     table = await Table.findOne({
@@ -303,6 +305,7 @@ let relationStore = {
                     }
                     break;
                 case "Many2Many":
+                    console.log("#>> test #3")
                     data.field_from = data.table_to + "_ids";
                     data.field_to = data.table_from + "_ids";
                     let tableTo = await Table.findOne({
@@ -723,7 +726,85 @@ let relationStore = {
                     event.payload = tableRecursive;
                     break;
                 case "Many2One":
+                    layout = await Layout.findOne({table_id: tableFrom?.id})
+                    if (layout) {
+                        layout_id = layout.id
+                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        if (!tab) {
+                            tab = await Table.create({
+                                order: 1,
+                                label: "Tab",
+                                icon: "",
+                                type: "section",
+                                table_slug: tableFrom?.slug,
+                                attributes: {},
+                            })
+                        }
+        
+                        const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                        if(!section.length) {
+                            await Section.create({
+                                id: v4(),
+                                order: section.length + 1,
+                                column: "SINGLE",
+                                label: "Info",
+                                icon: "",
+                                fields: [
+                                    {
+                                        id: res.id,
+                                        order: 1,
+                                        field_name: res.label,
+                                    }
+                                ],
+                                table_id: tableFrom?.id,
+                                attributes: {},
+                                tab_id: tab.id
+                            })
+                        }
+        
+                        if(section[0]) {
+                            const count_columns = section[0].fields ? section[0].fields.length : 0
+                            if(count_columns < (table.section_column_count || 3)) {
+                                await Section.findOneAndUpdate(
+                                    {
+                                        id: section[0].id
+                                    }, 
+                                    {
+                                        $set: {
+                                            fields: [
+                                                ...(count_columns ? section[0].fields : []),
+                                                {
+                                                    id: res.id,
+                                                    order: count_columns + 1,
+                                                    field_name: res.label,
+                                                }
+                                            ]
+                                        }
+                                    }
+                                )
+                            } else {
+                                await Section.create({
+                                    id: v4(),
+                                    order: section.length + 1,
+                                    column: "SINGLE",
+                                    label: "Info",
+                                    icon: "",
+                                    fields: [
+                                        {
+                                            id: res.id,
+                                            order: 1,
+                                            field_name: res.label,
+                                        }
+                                    ],
+                                    table_id: tableFrom?.id,
+                                    attributes: {},
+                                    tab_id: tab.id
+                                })
+                            }
+                        }
+                    }
                 case "One2One":
+                    console.log("#>> test #4")
                     data.field_from = data.table_to + "_id";
                     data.field_to = "id";
                     // table = await Table.findOne({
@@ -844,7 +925,9 @@ let relationStore = {
                 {
                     $set: {
                         is_changed: true,
-                        [`is_changed_by_host.${os.hostname()}`]: true
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
                     },
                 }
             );

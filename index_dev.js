@@ -27,13 +27,13 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "1",
+            project_id: "1acd7a8f-a038-4e07-91cb-b689c368d855",
             credentials: {
-                host: "65.109.239.69",
-                port: 30027,
-                database: "dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs",
-                username: "dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs",
-                password: "QoRidVg9iL"
+                host: "db-mongodb-ett-fra1-93798-d817a66d.mongo.ondigitalocean.com",
+                port: 21017,
+                database: "easy_to_travel_object_builder",
+                username: "easy_to_travel_object_builder",
+                password: "8621qV4M59h0RYkc"
             }
         })
         //mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs

@@ -190,47 +190,76 @@ let fieldStore = {
             const layout = await Layout.findOne({table_id: table.id})
             if (layout) {
                 const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-                if (tab) {
-                    const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-                    if(section[0]) {
-                        const count_columns = section[0].fields ? section[0].fields.length : 0
-                        if(count_columns < (table.section_column_count || 3)) {
-                            await Section.findOneAndUpdate(
-                                {
-                                    id: section[0].id
-                                }, 
-                                {
-                                    $set: {
-                                        fields: [
-                                            ...(count_columns ? section[0].fields : []),
-                                            {
-                                                id: field.id,
-                                                order: count_columns + 1,
-                                                field_name: field.label,
-                                            }
-                                        ]
-                                    }
+                if (!tab) {
+                    tab = await Table.create({
+                        order: 1,
+                        label: "Tab",
+                        icon: "",
+                        type: "section",
+                        table_slug: table?.slug,
+                        attributes: {},
+                    })
+                }
+
+                const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                if(!section.length) {
+                    await Section.create({
+                        id: v4(),
+                        order: section.length + 1,
+                        column: "SINGLE",
+                        label: "Info",
+                        icon: "",
+                        fields: [
+                            {
+                                id: field.id,
+                                order: 1,
+                                field_name: field.label,
+                            }
+                        ],
+                        table_id: table.id,
+                        attributes: {},
+                        tab_id: tab.id
+                    })
+                }
+
+                if(section[0]) {
+                    const count_columns = section[0].fields ? section[0].fields.length : 0
+                    if(count_columns < (table.section_column_count || 3)) {
+                        await Section.findOneAndUpdate(
+                            {
+                                id: section[0].id
+                            }, 
+                            {
+                                $set: {
+                                    fields: [
+                                        ...(count_columns ? section[0].fields : []),
+                                        {
+                                            id: field.id,
+                                            order: count_columns + 1,
+                                            field_name: field.label,
+                                        }
+                                    ]
                                 }
-                            )
-                        } else {
-                            await Section.create({
-                                id: v4(),
-                                order: section.length + 1,
-                                column: "SINGLE",
-                                label: "Info",
-                                icon: "",
-                                fields: [
-                                    {
-                                        id: field.id,
-                                        order: 1,
-                                        field_name: field.label,
-                                    }
-                                ],
-                                table_id: table.id,
-                                attributes: {},
-                                tab_id: tab.id
-                            })
-                        }
+                            }
+                        )
+                    } else {
+                        await Section.create({
+                            id: v4(),
+                            order: section.length + 1,
+                            column: "SINGLE",
+                            label: "Info",
+                            icon: "",
+                            fields: [
+                                {
+                                    id: field.id,
+                                    order: 1,
+                                    field_name: field.label,
+                                }
+                            ],
+                            table_id: table.id,
+                            attributes: {},
+                            tab_id: tab.id
+                        })
                     }
                 }
             }

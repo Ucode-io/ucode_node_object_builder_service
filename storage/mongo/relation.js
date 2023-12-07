@@ -1385,7 +1385,7 @@ let relationStore = {
                 table_from: data.table_slug,
             });
 
-            console.log(responseRelations)
+            console.log("~~>>> test test", JSON.stringify(responseRelations))
             return { relations: responseRelations, count: count };
         } catch (err) {
             throw err;

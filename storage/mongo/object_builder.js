@@ -168,7 +168,6 @@ let objectBuilder = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
-        const params = struct.decode(req?.data)
         const data = struct.decode(req.data)
         const tables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = tables[req.table_slug]
@@ -229,7 +228,8 @@ let objectBuilder = {
             }
         }
 
-        let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(tableInfo.fields, params["role_id_from_token"], req.table_slug, req.project_id)
+        let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(tableInfo.fields, data["role_id_from_token"], req.table_slug, req.project_id)
+        // console.log("Unused fields->", unusedFieldsSlugs)
 
         let output = await tableInfo.models.findOne({
             guid: data.id
@@ -1757,91 +1757,8 @@ let objectBuilder = {
             }
         }
 
-        //////old code
-
-        // if (with_relations && !params.new_code) {
-        //     for (const relation of relations) {
-        //         if (relation.type !== "Many2Dynamic") {
-        //             if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
-        //                 relation.table_to = relation.table_from
-        //             }
-        //             // let relationTable = await table.findOne({ slug: relation.table_to })
-        //             let relationTable = await tableVersion(mongoConn, { slug: relation.table_to }, params.version_id, true)
-        //             let relationFields = await Field.find(
-        //                 {
-        //                     table_id: relationTable?.id
-        //                 },
-        //                 {
-        //                     createdAt: 0,
-        //                     updatedAt: 0,
-        //                     created_at: 0,
-        //                     updated_at: 0,
-        //                     _id: 0,
-        //                     __v: 0
-        //                 })
-        //             for (const field of relationFields) {
-        //                 let changedField = {}
-        //                 if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
-        //                     let viewFields = []
-        //                     let table_slug
-        //                     if (field.type === "LOOKUP") {
-        //                         table_slug = field.slug.slice(0, -3)
-        //                     } else {
-        //                         table_slug = field.slug.slice(0, -4)
-        //                     }
-
-        //                     childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
-        //                     if (childRelation) {
-        //                         for (const view_field of childRelation.view_fields) {
-        //                             let viewField = await Field.findOne(
-        //                                 {
-        //                                     id: view_field
-        //                                 },
-        //                                 {
-        //                                     createdAt: 0,
-        //                                     updatedAt: 0,
-        //                                     created_at: 0,
-        //                                     updated_at: 0,
-        //                                     _id: 0,
-        //                                     __v: 0
-        //                                 })
-        //                             if (viewField) {
-        //                                 if (viewField.attributes) {
-        //                                     viewField.attributes = struct.decode(viewField.attributes)
-        //                                 }
-        //                                 viewFields.push(viewField._doc)
-        //                             }
-        //                         }
-        //                     }
-        //                     field._doc.view_fields = viewFields
-        //                     // let childRelationTable = await table.findOne({ slug: table_slug })
-        //                     let childRelationTable = await tableVersion(mongoConn, { slug: table_slug }, params.version_id, true)
-        //                     field._doc.table_label = relationTable?.label
-        //                     field.label = childRelationTable?.label
-        //                     changedField = field
-        //                     changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
-        //                     changedField._doc.table_slug = table_slug
-        //                     relationsFields.push(changedField._doc)
-        //                 } else {
-        //                     if (field.attributes) {
-        //                         field.attributes = struct.decode(field.attributes)
-        //                     }
-        //                     field._doc.table_label = relationTable?.label
-        //                     changedField = field
-        //                     changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
-        //                     relationsFields.push(changedField._doc)
-        //                 }
-        //             }
-
-        //         }
-
-        //     }
-        // }  
-        // console.timeEnd("TIME_LOGGING:::with_relations")
-        // console.log("TEST::::::6")
-        // console.log("TEST::::::::::10")
-
         let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
+        // console.log("Unused fields in get list->", unusedFieldsSlugs)
         let decodedFields = []
 
         let result = [], count;

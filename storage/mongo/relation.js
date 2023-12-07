@@ -55,820 +55,820 @@ let relationStore = {
             if (!data["id"]) {
                 data["id"] = v4();
             }
-            // switch (data.type) {
-            //     case "One2Many":
-            //         console.log("#>> test #1")
-            //         data.field_from = "id";
-            //         data.field_to = data.table_from + "_id";
-            //         table = await Table.findOne({
-            //             slug: data.table_to,
-            //             deleted_at: "1970-01-01T18:00:00.000+00:00",
-            //         });
-            //         result = await relationFieldChecker(data.field_to, table.id, data.project_id)
-            //         if (result.exists) {
-            //             data.field_to = result.lastField;
-            //         }
-            //         field = new Field({
-            //             table_id: table.id,
-            //             slug: data.field_to,
-            //             label:
-            //                 "FROM " + data.table_from + " TO " + data.table_to,
-            //             type: "LOOKUP",
-            //             relation_id: data.id,
-            //         });
-            //         let response = await field.save();
+            switch (data.type) {
+                case "One2Many":
+                    console.log("#>> test #1")
+                    data.field_from = "id";
+                    data.field_to = data.table_from + "_id";
+                    table = await Table.findOne({
+                        slug: data.table_to,
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    });
+                    result = await relationFieldChecker(data.field_to, table.id, data.project_id)
+                    if (result.exists) {
+                        data.field_to = result.lastField;
+                    }
+                    field = new Field({
+                        table_id: table.id,
+                        slug: data.field_to,
+                        label:
+                            "FROM " + data.table_from + " TO " + data.table_to,
+                        type: "LOOKUP",
+                        relation_id: data.id,
+                    });
+                    let response = await field.save();
 
-            //         const layout = await Layout.findOne({table_id: table.id})
-            //         if (layout) {
-            //             console.log("~~ >> test #1 layout")
-            //             layout_id = layout.id
-            //             const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-            //             if (!tab) {
-            //                 tab = await Table.create({
-            //                     order: 1,
-            //                     label: "Tab",
-            //                     icon: "",
-            //                     type: "section",
-            //                     table_slug: table?.slug,
-            //                     attributes: {},
-            //                 })
-            //             }
-            //             console.log("~~ >> test #2 tab", JSON.stringify(tab))
-            //             const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-            //             if(!section.length) {
-            //                 console.log("~~ >> test #3 not section", JSON.stringify(tab))
-            //                 await Section.create({
-            //                     id: v4(),
-            //                     order: section.length + 1,
-            //                     column: "SINGLE",
-            //                     label: "Info",
-            //                     icon: "",
-            //                     fields: [
-            //                         {
-            //                             id: response.id,
-            //                             order: 1,
-            //                             field_name: response.label,
-            //                         }
-            //                     ],
-            //                     table_id: table.id,
-            //                     attributes: {},
-            //                     tab_id: tab.id
-            //                 })
-            //             }
+                    const layout = await Layout.findOne({table_id: table.id})
+                    if (layout) {
+                        console.log("~~ >> test #1 layout")
+                        layout_id = layout.id
+                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        if (!tab) {
+                            tab = await Table.create({
+                                order: 1,
+                                label: "Tab",
+                                icon: "",
+                                type: "section",
+                                table_slug: table?.slug,
+                                attributes: {},
+                            })
+                        }
+                        console.log("~~ >> test #2 tab", JSON.stringify(tab))
+                        const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                        if(!section.length) {
+                            console.log("~~ >> test #3 not section", JSON.stringify(tab))
+                            await Section.create({
+                                id: v4(),
+                                order: section.length + 1,
+                                column: "SINGLE",
+                                label: "Info",
+                                icon: "",
+                                fields: [
+                                    {
+                                        id: response.id,
+                                        order: 1,
+                                        field_name: response.label,
+                                    }
+                                ],
+                                table_id: table.id,
+                                attributes: {},
+                                tab_id: tab.id
+                            })
+                        }
         
-            //             if(section[0]) {
-            //                 console.log("~~ >> test #4 section", JSON.stringify(section))
-            //                 const count_columns = section[0].fields ? section[0].fields.length : 0
-            //                 if(count_columns < (table.section_column_count || 3)) {
-            //                     const a = await Section.findOneAndUpdate(
-            //                         {
-            //                             id: section[0].id
-            //                         }, 
-            //                         {
-            //                             $set: {
-            //                                 fields: [
-            //                                     ...(count_columns ? section[0].fields : []),
-            //                                     {
-            //                                         id: response.id,
-            //                                         order: count_columns + 1,
-            //                                         field_name: response.label,
-            //                                     }
-            //                                 ]
-            //                             }
-            //                         },
-            //                         {
-            //                             new: true
-            //                         }
-            //                     )
-            //                     console.log("~~ >> test #5 section after update", (a))
-            //                 } else {
-            //                     const a = await Section.create({
-            //                         id: v4(),
-            //                         order: section.length + 1,
-            //                         column: "SINGLE",
-            //                         label: "Info",
-            //                         icon: "",
-            //                         fields: [
-            //                             {
-            //                                 id: response.id,
-            //                                 order: 1,
-            //                                 field_name: response.label,
-            //                             }
-            //                         ],
-            //                         table_id: table.id,
-            //                         attributes: {},
-            //                         tab_id: tab.id
-            //                     })
-            //                     console.log("~~ >> test #6 section create last", (a))
-            //                 }
-            //             }
-            //         }
+                        if(section[0]) {
+                            console.log("~~ >> test #4 section", JSON.stringify(section))
+                            const count_columns = section[0].fields ? section[0].fields.length : 0
+                            if(count_columns < (table.section_column_count || 3)) {
+                                const a = await Section.findOneAndUpdate(
+                                    {
+                                        id: section[0].id
+                                    }, 
+                                    {
+                                        $set: {
+                                            fields: [
+                                                ...(count_columns ? section[0].fields : []),
+                                                {
+                                                    id: response.id,
+                                                    order: count_columns + 1,
+                                                    field_name: response.label,
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        new: true
+                                    }
+                                )
+                                console.log("~~ >> test #5 section after update", (a))
+                            } else {
+                                const a = await Section.create({
+                                    id: v4(),
+                                    order: section.length + 1,
+                                    column: "SINGLE",
+                                    label: "Info",
+                                    icon: "",
+                                    fields: [
+                                        {
+                                            id: response.id,
+                                            order: 1,
+                                            field_name: response.label,
+                                        }
+                                    ],
+                                    table_id: table.id,
+                                    attributes: {},
+                                    tab_id: tab.id
+                                })
+                                console.log("~~ >> test #6 section create last", (a))
+                            }
+                        }
+                    }
 
-            //         const fieldPermissionTableOne = (
-            //             await ObjectBuilder(true, data.project_id)
-            //         )["field_permission"];
-            //         for (const role of roles) {
-            //             let fieldPermission = {
-            //                 field_id: response.id,
-            //                 table_slug: data.table_to,
-            //                 view_permission: true,
-            //                 edit_permission: true,
-            //                 guid: v4(),
-            //                 role_id: role.guid,
-            //                 label:
-            //                     "FROM " +
-            //                     data.table_from +
-            //                     " TO " +
-            //                     data.table_to,
-            //             };
+                    const fieldPermissionTableOne = (
+                        await ObjectBuilder(true, data.project_id)
+                    )["field_permission"];
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: response.id,
+                            table_slug: data.table_to,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label:
+                                "FROM " +
+                                data.table_from +
+                                " TO " +
+                                data.table_to,
+                        };
 
-            //             const fieldPermissionWithModel =
-            //                 new fieldPermissionTableOne.models(fieldPermission);
-            //             fieldPermissionWithModel.save();
-            //         }
-            //         break;
-            //     case 'Many2Dynamic':
-            //         console.log("#>> test #2")
-            //         data.field_from = data.relation_field_slug
-            //         data.field_to = "id"
-            //         table = await Table.findOne({
-            //             slug: data.table_from,
-            //             deleted_at: "1970-01-01T18:00:00.000+00:00"
-            //         });
+                        const fieldPermissionWithModel =
+                            new fieldPermissionTableOne.models(fieldPermission);
+                        fieldPermissionWithModel.save();
+                    }
+                    break;
+                case 'Many2Dynamic':
+                    console.log("#>> test #2")
+                    data.field_from = data.relation_field_slug
+                    data.field_to = "id"
+                    table = await Table.findOne({
+                        slug: data.table_from,
+                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    });
                
-            //         field = new Field({
-            //             table_id: table.id,
-            //             slug: data.relation_field_slug,
-            //             label: "FROM " + data.table_from + " TO DYNAMIC",
-            //             type: "DYNAMIC",
-            //             relation_id: data.id,
-            //         });
-            //         let output = await field.save();
+                    field = new Field({
+                        table_id: table.id,
+                        slug: data.relation_field_slug,
+                        label: "FROM " + data.table_from + " TO DYNAMIC",
+                        type: "DYNAMIC",
+                        relation_id: data.id,
+                    });
+                    let output = await field.save();
 
-            //         layout = await Layout.findOne({table_id: table.id})
-            //         if (layout) {
-            //             layout_id = layout.id
-            //             const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-            //             if (!tab) {
-            //                 tab = await Table.create({
-            //                     order: 1,
-            //                     label: "Tab",
-            //                     icon: "",
-            //                     type: "section",
-            //                     table_slug: table?.slug,
-            //                     attributes: {},
-            //                 })
-            //             }
+                    layout = await Layout.findOne({table_id: table.id})
+                    if (layout) {
+                        layout_id = layout.id
+                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        if (!tab) {
+                            tab = await Table.create({
+                                order: 1,
+                                label: "Tab",
+                                icon: "",
+                                type: "section",
+                                table_slug: table?.slug,
+                                attributes: {},
+                            })
+                        }
         
-            //             const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-            //             if(!section.length) {
-            //                 await Section.create({
-            //                     id: v4(),
-            //                     order: section.length + 1,
-            //                     column: "SINGLE",
-            //                     label: "Info",
-            //                     icon: "",
-            //                     fields: [
-            //                         {
-            //                             id: output.id,
-            //                             order: 1,
-            //                             field_name: output.label,
-            //                         }
-            //                     ],
-            //                     table_id: table.id,
-            //                     attributes: {},
-            //                     tab_id: tab.id
-            //                 })
-            //             }
+                        const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                        if(!section.length) {
+                            await Section.create({
+                                id: v4(),
+                                order: section.length + 1,
+                                column: "SINGLE",
+                                label: "Info",
+                                icon: "",
+                                fields: [
+                                    {
+                                        id: output.id,
+                                        order: 1,
+                                        field_name: output.label,
+                                    }
+                                ],
+                                table_id: table.id,
+                                attributes: {},
+                                tab_id: tab.id
+                            })
+                        }
         
-            //             if(section[0]) {
-            //                 const count_columns = section[0].fields ? section[0].fields.length : 0
-            //                 if(count_columns < (table.section_column_count || 3)) {
-            //                     await Section.findOneAndUpdate(
-            //                         {
-            //                             id: section[0].id
-            //                         }, 
-            //                         {
-            //                             $set: {
-            //                                 fields: [
-            //                                     ...(count_columns ? section[0].fields : []),
-            //                                     {
-            //                                         id: output.id,
-            //                                         order: count_columns + 1,
-            //                                         field_name: output.label,
-            //                                     }
-            //                                 ]
-            //                             }
-            //                         }
-            //                     )
-            //                 } else {
-            //                     await Section.create({
-            //                         id: v4(),
-            //                         order: section.length + 1,
-            //                         column: "SINGLE",
-            //                         label: "Info",
-            //                         icon: "",
-            //                         fields: [
-            //                             {
-            //                                 id: output.id,
-            //                                 order: 1,
-            //                                 field_name: output.label,
-            //                             }
-            //                         ],
-            //                         table_id: table.id,
-            //                         attributes: {},
-            //                         tab_id: tab.id
-            //                     })
-            //                 }
-            //             }
-            //         }
+                        if(section[0]) {
+                            const count_columns = section[0].fields ? section[0].fields.length : 0
+                            if(count_columns < (table.section_column_count || 3)) {
+                                await Section.findOneAndUpdate(
+                                    {
+                                        id: section[0].id
+                                    }, 
+                                    {
+                                        $set: {
+                                            fields: [
+                                                ...(count_columns ? section[0].fields : []),
+                                                {
+                                                    id: output.id,
+                                                    order: count_columns + 1,
+                                                    field_name: output.label,
+                                                }
+                                            ]
+                                        }
+                                    }
+                                )
+                            } else {
+                                await Section.create({
+                                    id: v4(),
+                                    order: section.length + 1,
+                                    column: "SINGLE",
+                                    label: "Info",
+                                    icon: "",
+                                    fields: [
+                                        {
+                                            id: output.id,
+                                            order: 1,
+                                            field_name: output.label,
+                                        }
+                                    ],
+                                    table_id: table.id,
+                                    attributes: {},
+                                    tab_id: tab.id
+                                })
+                            }
+                        }
+                    }
 
-            //         const fieldPermissionTableDynamic = (
-            //             await ObjectBuilder(true, data.project_id)
-            //         )["field_permission"];
-            //         for (const role of roles) {
-            //             let fieldPermission = {
-            //                 field_id: output.id,
-            //                 table_slug: data.table_from,
-            //                 view_permission: true,
-            //                 edit_permission: true,
-            //                 guid: v4(),
-            //                 role_id: role.guid,
-            //                 label: "FROM " + data.table_from + " TO DYNAMIC",
-            //             };
+                    const fieldPermissionTableDynamic = (
+                        await ObjectBuilder(true, data.project_id)
+                    )["field_permission"];
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: output.id,
+                            table_slug: data.table_from,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label: "FROM " + data.table_from + " TO DYNAMIC",
+                        };
 
-            //             const fieldPermissionWithModel =
-            //                 new fieldPermissionTableDynamic.models(
-            //                     fieldPermission
-            //                 );
-            //             fieldPermissionWithModel.save();
-            //         }
-            //         break;
-            //     case "Many2Many":
-            //         console.log("#>> test #3")
-            //         data.field_from = data.table_to + "_ids";
-            //         data.field_to = data.table_from + "_ids";
-            //         let tableTo = await Table.findOne({
-            //             slug: data.table_to,
-            //             deleted_at: "1970-01-01T18:00:00.000+00:00",
-            //         });
-            //         let  = await tableVersion(mongoConn, { slug: data.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-            //         result = await relationFieldChecker(data.field_to, tableTo.id, data.project_id)
-            //         if (result.exists) {
-            //             data.field_to = result.lastField;
-            //         }
-            //         field = new Field({
-            //             table_id: tableTo.id,
-            //             required: false,
-            //             slug: data.field_to,
-            //             label:
-            //                 "FROM " + data.table_from + " TO " + data.table_to,
-            //             type: "LOOKUPS",
-            //             relation_id: data.id,
-            //         });
-            //         let res = await field.save();
+                        const fieldPermissionWithModel =
+                            new fieldPermissionTableDynamic.models(
+                                fieldPermission
+                            );
+                        fieldPermissionWithModel.save();
+                    }
+                    break;
+                case "Many2Many":
+                    console.log("#>> test #3")
+                    data.field_from = data.table_to + "_ids";
+                    data.field_to = data.table_from + "_ids";
+                    let tableTo = await Table.findOne({
+                        slug: data.table_to,
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    });
+                    let  = await tableVersion(mongoConn, { slug: data.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
+                    result = await relationFieldChecker(data.field_to, tableTo.id, data.project_id)
+                    if (result.exists) {
+                        data.field_to = result.lastField;
+                    }
+                    field = new Field({
+                        table_id: tableTo.id,
+                        required: false,
+                        slug: data.field_to,
+                        label:
+                            "FROM " + data.table_from + " TO " + data.table_to,
+                        type: "LOOKUPS",
+                        relation_id: data.id,
+                    });
+                    let res = await field.save();
 
-            //         layout = await Layout.findOne({table_id: tableTo?.id})
-            //         if (layout) {
-            //             layout_id = layout.id
-            //             const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-            //             if (!tab) {
-            //                 tab = await Table.create({
-            //                     order: 1,
-            //                     label: "Tab",
-            //                     icon: "",
-            //                     type: "section",
-            //                     table_slug: tableTo?.slug,
-            //                     attributes: {},
-            //                 })
-            //             }
+                    layout = await Layout.findOne({table_id: tableTo?.id})
+                    if (layout) {
+                        layout_id = layout.id
+                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        if (!tab) {
+                            tab = await Table.create({
+                                order: 1,
+                                label: "Tab",
+                                icon: "",
+                                type: "section",
+                                table_slug: tableTo?.slug,
+                                attributes: {},
+                            })
+                        }
         
-            //             const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-            //             if(!section.length) {
-            //                 await Section.create({
-            //                     id: v4(),
-            //                     order: section.length + 1,
-            //                     column: "SINGLE",
-            //                     label: "Info",
-            //                     icon: "",
-            //                     fields: [
-            //                         {
-            //                             id: res.id,
-            //                             order: 1,
-            //                             field_name: res.label,
-            //                         }
-            //                     ],
-            //                     table_id: tableTo?.id,
-            //                     attributes: {},
-            //                     tab_id: tab.id
-            //                 })
-            //             }
+                        const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                        if(!section.length) {
+                            await Section.create({
+                                id: v4(),
+                                order: section.length + 1,
+                                column: "SINGLE",
+                                label: "Info",
+                                icon: "",
+                                fields: [
+                                    {
+                                        id: res.id,
+                                        order: 1,
+                                        field_name: res.label,
+                                    }
+                                ],
+                                table_id: tableTo?.id,
+                                attributes: {},
+                                tab_id: tab.id
+                            })
+                        }
         
-            //             if(section[0]) {
-            //                 const count_columns = section[0].fields ? section[0].fields.length : 0
-            //                 if(count_columns < (table.section_column_count || 3)) {
-            //                     await Section.findOneAndUpdate(
-            //                         {
-            //                             id: section[0].id
-            //                         }, 
-            //                         {
-            //                             $set: {
-            //                                 fields: [
-            //                                     ...(count_columns ? section[0].fields : []),
-            //                                     {
-            //                                         id: res.id,
-            //                                         order: count_columns + 1,
-            //                                         field_name: res.label,
-            //                                     }
-            //                                 ]
-            //                             }
-            //                         }
-            //                     )
-            //                 } else {
-            //                     await Section.create({
-            //                         id: v4(),
-            //                         order: section.length + 1,
-            //                         column: "SINGLE",
-            //                         label: "Info",
-            //                         icon: "",
-            //                         fields: [
-            //                             {
-            //                                 id: res.id,
-            //                                 order: 1,
-            //                                 field_name: res.label,
-            //                             }
-            //                         ],
-            //                         table_id: tableTo?.id,
-            //                         attributes: {},
-            //                         tab_id: tab.id
-            //                     })
-            //                 }
-            //             }
-            //         }
+                        if(section[0]) {
+                            const count_columns = section[0].fields ? section[0].fields.length : 0
+                            if(count_columns < (table.section_column_count || 3)) {
+                                await Section.findOneAndUpdate(
+                                    {
+                                        id: section[0].id
+                                    }, 
+                                    {
+                                        $set: {
+                                            fields: [
+                                                ...(count_columns ? section[0].fields : []),
+                                                {
+                                                    id: res.id,
+                                                    order: count_columns + 1,
+                                                    field_name: res.label,
+                                                }
+                                            ]
+                                        }
+                                    }
+                                )
+                            } else {
+                                await Section.create({
+                                    id: v4(),
+                                    order: section.length + 1,
+                                    column: "SINGLE",
+                                    label: "Info",
+                                    icon: "",
+                                    fields: [
+                                        {
+                                            id: res.id,
+                                            order: 1,
+                                            field_name: res.label,
+                                        }
+                                    ],
+                                    table_id: tableTo?.id,
+                                    attributes: {},
+                                    tab_id: tab.id
+                                })
+                            }
+                        }
+                    }
 
-            //         const fieldPermissionTableMany1 = (
-            //             await ObjectBuilder(true, data.project_id)
-            //         )["field_permission"];
+                    const fieldPermissionTableMany1 = (
+                        await ObjectBuilder(true, data.project_id)
+                    )["field_permission"];
 
-            //         for (const role of roles) {
-            //             let fieldPermission = {
-            //                 field_id: res.id,
-            //                 table_slug: data.table_to,
-            //                 view_permission: true,
-            //                 edit_permission: true,
-            //                 guid: v4(),
-            //                 role_id: role.guid,
-            //                 label:
-            //                     "FROM " +
-            //                     data.table_from +
-            //                     " TO " +
-            //                     data.table_to,
-            //             };
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: res.id,
+                            table_slug: data.table_to,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label:
+                                "FROM " +
+                                data.table_from +
+                                " TO " +
+                                data.table_to,
+                        };
 
-            //             const fieldPermissionWithModel =
-            //                 new fieldPermissionTableMany1.models(
-            //                     fieldPermission
-            //                 );
-            //             fieldPermissionWithModel.save();
-            //         }
+                        const fieldPermissionWithModel =
+                            new fieldPermissionTableMany1.models(
+                                fieldPermission
+                            );
+                        fieldPermissionWithModel.save();
+                    }
 
-            //         let type = converter(field.type);
-            //         let eventTo = {}
-            //         let tableRes = {}
-            //         let fieldsFrom = []
-            //         tableRes.slug = tableTo.slug
-            //         fieldsFrom.push(
-            //             {
-            //                 slug: field.slug,
-            //                 type: type
-            //             }
-            //         )
-            //         tableRes.fields = fieldsFrom
-            //         eventTo.payload = tableRes
-            //         tableFrom = await Table.findOne({
-            //             slug: data.table_from,
-            //             deleted_at: "1970-01-01T18:00:00.000+00:00"
-            //         });
+                    let type = converter(field.type);
+                    let eventTo = {}
+                    let tableRes = {}
+                    let fieldsFrom = []
+                    tableRes.slug = tableTo.slug
+                    fieldsFrom.push(
+                        {
+                            slug: field.slug,
+                            type: type
+                        }
+                    )
+                    tableRes.fields = fieldsFrom
+                    eventTo.payload = tableRes
+                    tableFrom = await Table.findOne({
+                        slug: data.table_from,
+                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    });
                  
-            //         result = await relationFieldChecker(data.field_from, tableFrom.id, data.project_id)
-            //         if (result.exists) {
-            //             data.field_from = result.lastField;
-            //         }
-            //         field = new Field({
-            //             table_id: tableFrom.id,
-            //             required: false,
-            //             slug: data.field_from,
-            //             label:
-            //                 "FROM " + data.table_from + " TO " + data.table_to,
-            //             type: "LOOKUPS",
-            //             relation_id: data.id,
-            //         });
-            //         res = await field.save();
+                    result = await relationFieldChecker(data.field_from, tableFrom.id, data.project_id)
+                    if (result.exists) {
+                        data.field_from = result.lastField;
+                    }
+                    field = new Field({
+                        table_id: tableFrom.id,
+                        required: false,
+                        slug: data.field_from,
+                        label:
+                            "FROM " + data.table_from + " TO " + data.table_to,
+                        type: "LOOKUPS",
+                        relation_id: data.id,
+                    });
+                    res = await field.save();
 
-            //         layout = await Layout.findOne({table_id: tableFrom?.id})
-            //         if (layout) {
-            //             layout_id = layout.id
-            //             const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-            //             if (!tab) {
-            //                 tab = await Table.create({
-            //                     order: 1,
-            //                     label: "Tab",
-            //                     icon: "",
-            //                     type: "section",
-            //                     table_slug: tableFrom?.slug,
-            //                     attributes: {},
-            //                 })
-            //             }
+                    layout = await Layout.findOne({table_id: tableFrom?.id})
+                    if (layout) {
+                        layout_id = layout.id
+                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        if (!tab) {
+                            tab = await Table.create({
+                                order: 1,
+                                label: "Tab",
+                                icon: "",
+                                type: "section",
+                                table_slug: tableFrom?.slug,
+                                attributes: {},
+                            })
+                        }
         
-            //             const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-            //             if(!section.length) {
-            //                 await Section.create({
-            //                     id: v4(),
-            //                     order: section.length + 1,
-            //                     column: "SINGLE",
-            //                     label: "Info",
-            //                     icon: "",
-            //                     fields: [
-            //                         {
-            //                             id: res.id,
-            //                             order: 1,
-            //                             field_name: res.label,
-            //                         }
-            //                     ],
-            //                     table_id: tableFrom?.id,
-            //                     attributes: {},
-            //                     tab_id: tab.id
-            //                 })
-            //             }
+                        const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                        if(!section.length) {
+                            await Section.create({
+                                id: v4(),
+                                order: section.length + 1,
+                                column: "SINGLE",
+                                label: "Info",
+                                icon: "",
+                                fields: [
+                                    {
+                                        id: res.id,
+                                        order: 1,
+                                        field_name: res.label,
+                                    }
+                                ],
+                                table_id: tableFrom?.id,
+                                attributes: {},
+                                tab_id: tab.id
+                            })
+                        }
         
-            //             if(section[0]) {
-            //                 const count_columns = section[0].fields ? section[0].fields.length : 0
-            //                 if(count_columns < (table.section_column_count || 3)) {
-            //                     await Section.findOneAndUpdate(
-            //                         {
-            //                             id: section[0].id
-            //                         }, 
-            //                         {
-            //                             $set: {
-            //                                 fields: [
-            //                                     ...(count_columns ? section[0].fields : []),
-            //                                     {
-            //                                         id: res.id,
-            //                                         order: count_columns + 1,
-            //                                         field_name: res.label,
-            //                                     }
-            //                                 ]
-            //                             }
-            //                         }
-            //                     )
-            //                 } else {
-            //                     await Section.create({
-            //                         id: v4(),
-            //                         order: section.length + 1,
-            //                         column: "SINGLE",
-            //                         label: "Info",
-            //                         icon: "",
-            //                         fields: [
-            //                             {
-            //                                 id: res.id,
-            //                                 order: 1,
-            //                                 field_name: res.label,
-            //                             }
-            //                         ],
-            //                         table_id: tableFrom?.id,
-            //                         attributes: {},
-            //                         tab_id: tab.id
-            //                     })
-            //                 }
-            //             }
-            //         }
+                        if(section[0]) {
+                            const count_columns = section[0].fields ? section[0].fields.length : 0
+                            if(count_columns < (table.section_column_count || 3)) {
+                                await Section.findOneAndUpdate(
+                                    {
+                                        id: section[0].id
+                                    }, 
+                                    {
+                                        $set: {
+                                            fields: [
+                                                ...(count_columns ? section[0].fields : []),
+                                                {
+                                                    id: res.id,
+                                                    order: count_columns + 1,
+                                                    field_name: res.label,
+                                                }
+                                            ]
+                                        }
+                                    }
+                                )
+                            } else {
+                                await Section.create({
+                                    id: v4(),
+                                    order: section.length + 1,
+                                    column: "SINGLE",
+                                    label: "Info",
+                                    icon: "",
+                                    fields: [
+                                        {
+                                            id: res.id,
+                                            order: 1,
+                                            field_name: res.label,
+                                        }
+                                    ],
+                                    table_id: tableFrom?.id,
+                                    attributes: {},
+                                    tab_id: tab.id
+                                })
+                            }
+                        }
+                    }
 
-            //         const fieldPermissionTableMany2 = (
-            //             await ObjectBuilder(true, data.project_id)
-            //         )["field_permission"];
-            //         for (const role of roles) {
-            //             let fieldPermission = {
-            //                 field_id: res.id,
-            //                 table_slug: data.table_from,
-            //                 view_permission: true,
-            //                 edit_permission: true,
-            //                 guid: v4(),
-            //                 role_id: role.guid,
-            //                 label:
-            //                     "FROM " +
-            //                     data.table_from +
-            //                     " TO " +
-            //                     data.table_to,
-            //             };
+                    const fieldPermissionTableMany2 = (
+                        await ObjectBuilder(true, data.project_id)
+                    )["field_permission"];
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: res.id,
+                            table_slug: data.table_from,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label:
+                                "FROM " +
+                                data.table_from +
+                                " TO " +
+                                data.table_to,
+                        };
 
-            //             const fieldPermissionWithModel =
-            //                 new fieldPermissionTableMany2.models(
-            //                     fieldPermission
-            //                 );
-            //             fieldPermissionWithModel.save();
-            //         }
+                        const fieldPermissionWithModel =
+                            new fieldPermissionTableMany2.models(
+                                fieldPermission
+                            );
+                        fieldPermissionWithModel.save();
+                    }
 
-            //         type = converter(field.type);
-            //         let fieldsTo = [];
-            //         let eventFrom = {};
-            //         tableRes.slug = tableFrom.slug;
-            //         fieldsTo.push({
-            //             slug: field.slug,
-            //             type: type,
-            //         });
-            //         tableRes.fields = fieldsTo;
-            //         eventFrom.payload = tableRes;
-            //         // await sendMessageToTopic(
-            //         //     con.TopicRelationFromCreateV1,
-            //         //     eventFrom
-            //         // );
-            //         break;
-            //     case "Recursive":
-            //         data.recursive_field = data.table_from + "_id";
-            //         data.field_from = "id";
-            //         data.field_to = data.table_from + "_id";
-            //         table = await Table.findOne({
-            //             slug: data.table_from,
-            //             deleted_at: "1970-01-01T18:00:00.000+00:00"
-            //         });
+                    type = converter(field.type);
+                    let fieldsTo = [];
+                    let eventFrom = {};
+                    tableRes.slug = tableFrom.slug;
+                    fieldsTo.push({
+                        slug: field.slug,
+                        type: type,
+                    });
+                    tableRes.fields = fieldsTo;
+                    eventFrom.payload = tableRes;
+                    // await sendMessageToTopic(
+                    //     con.TopicRelationFromCreateV1,
+                    //     eventFrom
+                    // );
+                    break;
+                case "Recursive":
+                    data.recursive_field = data.table_from + "_id";
+                    data.field_from = "id";
+                    data.field_to = data.table_from + "_id";
+                    table = await Table.findOne({
+                        slug: data.table_from,
+                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    });
                    
-            //         result = await relationFieldChecker(data.recursive_field, table.id, data.project_id)
-            //         if (result.exists) {
-            //             data.recursive_field = result.lastField;
-            //         }
-            //         field = new Field({
-            //             table_id: table.id,
-            //             required: false,
-            //             slug: data.recursive_field,
-            //             label:
-            //                 "FROM " +
-            //                 data.table_from +
-            //                 " TO " +
-            //                 data.table_from,
-            //             type: "LOOKUP",
-            //             relation_id: data.id,
-            //         });
-            //         let responsee = await field.save();
+                    result = await relationFieldChecker(data.recursive_field, table.id, data.project_id)
+                    if (result.exists) {
+                        data.recursive_field = result.lastField;
+                    }
+                    field = new Field({
+                        table_id: table.id,
+                        required: false,
+                        slug: data.recursive_field,
+                        label:
+                            "FROM " +
+                            data.table_from +
+                            " TO " +
+                            data.table_from,
+                        type: "LOOKUP",
+                        relation_id: data.id,
+                    });
+                    let responsee = await field.save();
 
-            //         layout = await Layout.findOne({table_id: table.id})
-            //         if (layout) {
-            //             layout_id = layout.id
-            //             const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-            //             if (!tab) {
-            //                 tab = await Table.create({
-            //                     order: 1,
-            //                     label: "Tab",
-            //                     icon: "",
-            //                     type: "section",
-            //                     table_slug: table?.slug,
-            //                     attributes: {},
-            //                 })
-            //             }
+                    layout = await Layout.findOne({table_id: table.id})
+                    if (layout) {
+                        layout_id = layout.id
+                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        if (!tab) {
+                            tab = await Table.create({
+                                order: 1,
+                                label: "Tab",
+                                icon: "",
+                                type: "section",
+                                table_slug: table?.slug,
+                                attributes: {},
+                            })
+                        }
         
-            //             const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-            //             if(!section.length) {
-            //                 await Section.create({
-            //                     id: v4(),
-            //                     order: section.length + 1,
-            //                     column: "SINGLE",
-            //                     label: "Info",
-            //                     icon: "",
-            //                     fields: [
-            //                         {
-            //                             id: responsee.id,
-            //                             order: 1,
-            //                             field_name: responsee.label,
-            //                         }
-            //                     ],
-            //                     table_id: table.id,
-            //                     attributes: {},
-            //                     tab_id: tab.id
-            //                 })
-            //             }
+                        const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                        if(!section.length) {
+                            await Section.create({
+                                id: v4(),
+                                order: section.length + 1,
+                                column: "SINGLE",
+                                label: "Info",
+                                icon: "",
+                                fields: [
+                                    {
+                                        id: responsee.id,
+                                        order: 1,
+                                        field_name: responsee.label,
+                                    }
+                                ],
+                                table_id: table.id,
+                                attributes: {},
+                                tab_id: tab.id
+                            })
+                        }
         
-            //             if(section[0]) {
-            //                 const count_columns = section[0].fields ? section[0].fields.length : 0
-            //                 if(count_columns < (table.section_column_count || 3)) {
-            //                     await Section.findOneAndUpdate(
-            //                         {
-            //                             id: section[0].id
-            //                         }, 
-            //                         {
-            //                             $set: {
-            //                                 fields: [
-            //                                     ...(count_columns ? section[0].fields : []),
-            //                                     {
-            //                                         id: responsee.id,
-            //                                         order: count_columns + 1,
-            //                                         field_name: responsee.label,
-            //                                     }
-            //                                 ]
-            //                             }
-            //                         }
-            //                     )
-            //                 } else {
-            //                     await Section.create({
-            //                         id: v4(),
-            //                         order: section.length + 1,
-            //                         column: "SINGLE",
-            //                         label: "Info",
-            //                         icon: "",
-            //                         fields: [
-            //                             {
-            //                                 id: responsee.id,
-            //                                 order: 1,
-            //                                 field_name: responsee.label,
-            //                             }
-            //                         ],
-            //                         table_id: table.id,
-            //                         attributes: {},
-            //                         tab_id: tab.id
-            //                     })
-            //                 }
-            //             }
-            //         }
+                        if(section[0]) {
+                            const count_columns = section[0].fields ? section[0].fields.length : 0
+                            if(count_columns < (table.section_column_count || 3)) {
+                                await Section.findOneAndUpdate(
+                                    {
+                                        id: section[0].id
+                                    }, 
+                                    {
+                                        $set: {
+                                            fields: [
+                                                ...(count_columns ? section[0].fields : []),
+                                                {
+                                                    id: responsee.id,
+                                                    order: count_columns + 1,
+                                                    field_name: responsee.label,
+                                                }
+                                            ]
+                                        }
+                                    }
+                                )
+                            } else {
+                                await Section.create({
+                                    id: v4(),
+                                    order: section.length + 1,
+                                    column: "SINGLE",
+                                    label: "Info",
+                                    icon: "",
+                                    fields: [
+                                        {
+                                            id: responsee.id,
+                                            order: 1,
+                                            field_name: responsee.label,
+                                        }
+                                    ],
+                                    table_id: table.id,
+                                    attributes: {},
+                                    tab_id: tab.id
+                                })
+                            }
+                        }
+                    }
 
-            //         const fieldPermissionTableRecursive = (
-            //             await ObjectBuilder(true, data.project_id)
-            //         )["field_permission"];
-            //         for (const role of roles) {
-            //             let fieldPermission = {
-            //                 field_id: responsee.id,
-            //                 table_slug: data.table_from,
-            //                 view_permission: true,
-            //                 edit_permission: true,
-            //                 guid: v4(),
-            //                 role_id: role.guid,
-            //                 label:
-            //                     "FROM " +
-            //                     data.table_from +
-            //                     " TO " +
-            //                     data.table_from,
-            //             };
+                    const fieldPermissionTableRecursive = (
+                        await ObjectBuilder(true, data.project_id)
+                    )["field_permission"];
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: responsee.id,
+                            table_slug: data.table_from,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label:
+                                "FROM " +
+                                data.table_from +
+                                " TO " +
+                                data.table_from,
+                        };
 
-            //             const fieldPermissionWithModel =
-            //                 new fieldPermissionTableRecursive.models(
-            //                     fieldPermission
-            //                 );
-            //             fieldPermissionWithModel.save();
-            //         }
+                        const fieldPermissionWithModel =
+                            new fieldPermissionTableRecursive.models(
+                                fieldPermission
+                            );
+                        fieldPermissionWithModel.save();
+                    }
 
-            //         let typeRecursive = converter(field.type);
-            //         let tableRecursive = {};
-            //         let event = {};
-            //         let fields = [];
-            //         tableRecursive.slug = data.table_from;
-            //         fields.push({
-            //             slug: field.slug,
-            //             type: typeRecursive,
-            //         });
-            //         tableRecursive.fields = fields;
-            //         event.payload = tableRecursive;
-            //         break;
-            //     case "Many2One":
-            //         // layout = await Layout.findOne({table_id: tableFrom?.id})
-            //         // if (layout) {
-            //         //     layout_id = layout.id
-            //         //     const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-            //         //     if (!tab) {
-            //         //         tab = await Table.create({
-            //         //             order: 1,
-            //         //             label: "Tab",
-            //         //             icon: "",
-            //         //             type: "section",
-            //         //             table_slug: tableFrom?.slug,
-            //         //             attributes: {},
-            //         //         })
-            //         //     }
+                    let typeRecursive = converter(field.type);
+                    let tableRecursive = {};
+                    let event = {};
+                    let fields = [];
+                    tableRecursive.slug = data.table_from;
+                    fields.push({
+                        slug: field.slug,
+                        type: typeRecursive,
+                    });
+                    tableRecursive.fields = fields;
+                    event.payload = tableRecursive;
+                    break;
+                case "Many2One":
+                    // layout = await Layout.findOne({table_id: tableFrom?.id})
+                    // if (layout) {
+                    //     layout_id = layout.id
+                    //     const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                    //     if (!tab) {
+                    //         tab = await Table.create({
+                    //             order: 1,
+                    //             label: "Tab",
+                    //             icon: "",
+                    //             type: "section",
+                    //             table_slug: tableFrom?.slug,
+                    //             attributes: {},
+                    //         })
+                    //     }
         
-            //         //     const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-            //         //     if(!section.length) {
-            //         //         await Section.create({
-            //         //             id: v4(),
-            //         //             order: section.length + 1,
-            //         //             column: "SINGLE",
-            //         //             label: "Info",
-            //         //             icon: "",
-            //         //             fields: [
-            //         //                 {
-            //         //                     id: res.id,
-            //         //                     order: 1,
-            //         //                     field_name: res.label,
-            //         //                 }
-            //         //             ],
-            //         //             table_id: tableFrom?.id,
-            //         //             attributes: {},
-            //         //             tab_id: tab.id
-            //         //         })
-            //         //     }
+                    //     const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                    //     if(!section.length) {
+                    //         await Section.create({
+                    //             id: v4(),
+                    //             order: section.length + 1,
+                    //             column: "SINGLE",
+                    //             label: "Info",
+                    //             icon: "",
+                    //             fields: [
+                    //                 {
+                    //                     id: res.id,
+                    //                     order: 1,
+                    //                     field_name: res.label,
+                    //                 }
+                    //             ],
+                    //             table_id: tableFrom?.id,
+                    //             attributes: {},
+                    //             tab_id: tab.id
+                    //         })
+                    //     }
         
-            //         //     if(section[0]) {
-            //         //         const count_columns = section[0].fields ? section[0].fields.length : 0
-            //         //         if(count_columns < (table.section_column_count || 3)) {
-            //         //             await Section.findOneAndUpdate(
-            //         //                 {
-            //         //                     id: section[0].id
-            //         //                 }, 
-            //         //                 {
-            //         //                     $set: {
-            //         //                         fields: [
-            //         //                             ...(count_columns ? section[0].fields : []),
-            //         //                             {
-            //         //                                 id: res.id,
-            //         //                                 order: count_columns + 1,
-            //         //                                 field_name: res.label,
-            //         //                             }
-            //         //                         ]
-            //         //                     }
-            //         //                 }
-            //         //             )
-            //         //         } else {
-            //         //             await Section.create({
-            //         //                 id: v4(),
-            //         //                 order: section.length + 1,
-            //         //                 column: "SINGLE",
-            //         //                 label: "Info",
-            //         //                 icon: "",
-            //         //                 fields: [
-            //         //                     {
-            //         //                         id: res.id,
-            //         //                         order: 1,
-            //         //                         field_name: res.label,
-            //         //                     }
-            //         //                 ],
-            //         //                 table_id: tableFrom?.id,
-            //         //                 attributes: {},
-            //         //                 tab_id: tab.id
-            //         //             })
-            //         //         }
-            //         //     }
-            //         // }
-            //     case "One2One":
-            //         console.log("#>> test #4")
-            //         data.field_from = data.table_to + "_id";
-            //         data.field_to = "id";
-            //         // table = await Table.findOne({
-            //         //     slug: data.table_from,
-            //         //     deleted_at: "1970-01-01T18:00:00.000+00:00",
-            //         // });
-            //         table = await tableVersion(mongoConn, { slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-            //         result = await relationFieldChecker(data.field_from, table.id, data.project_id)
-            //         if (result.exists) {
-            //             data.field_from = result.lastField;
-            //         }
-            //         field = new Field({
-            //             table_id: table.id,
-            //             slug: data.field_from,
-            //             label:
-            //                 "FROM " + data.table_from + " TO " + data.table_to,
-            //             type: "LOOKUP",
-            //             relation_id: data.id,
-            //         });
-            //         let resp = await field.save();
+                    //     if(section[0]) {
+                    //         const count_columns = section[0].fields ? section[0].fields.length : 0
+                    //         if(count_columns < (table.section_column_count || 3)) {
+                    //             await Section.findOneAndUpdate(
+                    //                 {
+                    //                     id: section[0].id
+                    //                 }, 
+                    //                 {
+                    //                     $set: {
+                    //                         fields: [
+                    //                             ...(count_columns ? section[0].fields : []),
+                    //                             {
+                    //                                 id: res.id,
+                    //                                 order: count_columns + 1,
+                    //                                 field_name: res.label,
+                    //                             }
+                    //                         ]
+                    //                     }
+                    //                 }
+                    //             )
+                    //         } else {
+                    //             await Section.create({
+                    //                 id: v4(),
+                    //                 order: section.length + 1,
+                    //                 column: "SINGLE",
+                    //                 label: "Info",
+                    //                 icon: "",
+                    //                 fields: [
+                    //                     {
+                    //                         id: res.id,
+                    //                         order: 1,
+                    //                         field_name: res.label,
+                    //                     }
+                    //                 ],
+                    //                 table_id: tableFrom?.id,
+                    //                 attributes: {},
+                    //                 tab_id: tab.id
+                    //             })
+                    //         }
+                    //     }
+                    // }
+                case "One2One":
+                    console.log("#>> test #4")
+                    data.field_from = data.table_to + "_id";
+                    data.field_to = "id";
+                    // table = await Table.findOne({
+                    //     slug: data.table_from,
+                    //     deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    // });
+                    table = await tableVersion(mongoConn, { slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
+                    result = await relationFieldChecker(data.field_from, table.id, data.project_id)
+                    if (result.exists) {
+                        data.field_from = result.lastField;
+                    }
+                    field = new Field({
+                        table_id: table.id,
+                        slug: data.field_from,
+                        label:
+                            "FROM " + data.table_from + " TO " + data.table_to,
+                        type: "LOOKUP",
+                        relation_id: data.id,
+                    });
+                    let resp = await field.save();
 
-            //         const fieldPermissionTableOne1 = (
-            //             await ObjectBuilder(true, data.project_id)
-            //         )["field_permission"];
-            //         for (const role of roles) {
-            //             let fieldPermission = {
-            //                 field_id: resp.id,
-            //                 table_slug: data.table_from,
-            //                 view_permission: true,
-            //                 edit_permission: true,
-            //                 guid: v4(),
-            //                 role_id: role.guid,
-            //                 label:
-            //                     "FROM " +
-            //                     data.table_from +
-            //                     " TO " +
-            //                     data.table_to,
-            //             };
+                    const fieldPermissionTableOne1 = (
+                        await ObjectBuilder(true, data.project_id)
+                    )["field_permission"];
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: resp.id,
+                            table_slug: data.table_from,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label:
+                                "FROM " +
+                                data.table_from +
+                                " TO " +
+                                data.table_to,
+                        };
 
-            //             const fieldPermissionWithModel =
-            //                 new fieldPermissionTableOne1.models(
-            //                     fieldPermission
-            //                 );
-            //             fieldPermissionWithModel.save();
-            //         }
+                        const fieldPermissionWithModel =
+                            new fieldPermissionTableOne1.models(
+                                fieldPermission
+                            );
+                        fieldPermissionWithModel.save();
+                    }
 
-            //         let typeMany2One = converter(field.type);
-            //         let tableMany2One = {};
-            //         let eventMany2One = {};
-            //         let fieldsMany2One = [];
-            //         tableMany2One.slug = data.table_from;
-            //         fieldsMany2One.push({
-            //             slug: field.slug,
-            //             type: typeMany2One,
-            //         });
-            //         tableMany2One.fields = fieldsMany2One;
-            //         eventMany2One.payload = tableMany2One;
-            //         // await sendMessageToTopic(
-            //         //     con.TopicMany2OneRelationCreateV1,
-            //         //     eventMany2One
-            //         // );
-            //         break;
-            //     default:
-            // }
+                    let typeMany2One = converter(field.type);
+                    let tableMany2One = {};
+                    let eventMany2One = {};
+                    let fieldsMany2One = [];
+                    tableMany2One.slug = data.table_from;
+                    fieldsMany2One.push({
+                        slug: field.slug,
+                        type: typeMany2One,
+                    });
+                    tableMany2One.fields = fieldsMany2One;
+                    eventMany2One.payload = tableMany2One;
+                    // await sendMessageToTopic(
+                    //     con.TopicMany2OneRelationCreateV1,
+                    //     eventMany2One
+                    // );
+                    break;
+                default:
+            }
 
             const relation = await Relation.create(data)
             let tableSlugs = [data.table_slug];

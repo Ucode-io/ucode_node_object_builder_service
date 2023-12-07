@@ -1677,6 +1677,8 @@ let relationStore = {
                 table_from: data.table_slug,
             });
 
+            console.log("test test ", responseRelations)
+
             return { relations: responseRelations, count: count };
         } catch (err) {
             throw err;

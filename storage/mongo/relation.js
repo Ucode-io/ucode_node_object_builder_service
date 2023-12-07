@@ -42,7 +42,7 @@ let relationStore = {
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
-            let layout_id = ""
+            let layout_id = "", layout = null 
 
             const roleTable = (await ObjectBuilder(true, data.project_id))[
                 "role"
@@ -78,7 +78,7 @@ let relationStore = {
                     });
                     let response = await field.save();
 
-                    const layout = await Layout.findOne({table_id: table.id})
+                    layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
                         
                         layout_id = layout.id

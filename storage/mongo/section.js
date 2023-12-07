@@ -311,9 +311,10 @@ let sectionStore = {
                     let guid;
                     let field = {};
                     field.is_visible_layout = fieldReq.is_visible_layout
-                    console.log("~~~> layout ", fieldReq.is_visible_layout)
+             
                     let encodedAttributes = {};
                     if (fieldReq?.id?.includes("#")) {
+                        console.log("!!> ", fieldReq)
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order

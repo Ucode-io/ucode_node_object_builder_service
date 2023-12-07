@@ -42,7 +42,7 @@ let relationStore = {
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
-            let layout_id = "", layout = null 
+            let layout_id = "", layout = null
 
             const roleTable = (await ObjectBuilder(true, data.project_id))[
                 "role"
@@ -56,137 +56,6 @@ let relationStore = {
                 data["id"] = v4();
             }
             switch (data.type) {
-                case "One2Many":
-                    
-                    data.field_from = "id";
-                    data.field_to = data.table_from + "_id";
-                    table = await Table.findOne({
-                        slug: data.table_to,
-                        deleted_at: "1970-01-01T18:00:00.000+00:00",
-                    });
-                    result = await relationFieldChecker(data.field_to, table.id, data.project_id)
-                    if (result.exists) {
-                        data.field_to = result.lastField;
-                    }
-                    field = new Field({
-                        table_id: table.id,
-                        slug: data.field_to,
-                        label:
-                            "FROM " + data.table_from + " TO " + data.table_to,
-                        type: "LOOKUP",
-                        relation_id: data.id,
-                    });
-                    let response = await field.save();
-
-                    layout = await Layout.findOne({table_id: table.id})
-                    if (layout) {
-                        
-                        layout_id = layout.id
-                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-                        if (!tab) {
-                            tab = await Table.create({
-                                order: 1,
-                                label: "Tab",
-                                icon: "",
-                                type: "section",
-                                table_slug: table?.slug,
-                                attributes: {},
-                            })
-                        }
-                        
-                        const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-                        if(!section.length) {
-                            
-                            await Section.create({
-                                id: v4(),
-                                order: section.length + 1,
-                                column: "SINGLE",
-                                label: "Info",
-                                icon: "",
-                                fields: [
-                                    {
-                                        id: response.id,
-                                        order: 1,
-                                        field_name: response.label,
-                                    }
-                                ],
-                                table_id: table.id,
-                                attributes: {},
-                                tab_id: tab.id
-                            })
-                        }
-        
-                        if(section[0]) {
-                            
-                            const count_columns = section[0].fields ? section[0].fields.length : 0
-                            if(count_columns < (table.section_column_count || 3)) {
-                                const a = await Section.findOneAndUpdate(
-                                    {
-                                        id: section[0].id
-                                    }, 
-                                    {
-                                        $set: {
-                                            fields: [
-                                                ...(count_columns ? section[0].fields : []),
-                                                {
-                                                    id: response.id,
-                                                    order: count_columns + 1,
-                                                    field_name: response.label,
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        new: true
-                                    }
-                                )
-                                
-                            } else {
-                                const a = await Section.create({
-                                    id: v4(),
-                                    order: section.length + 1,
-                                    column: "SINGLE",
-                                    label: "Info",
-                                    icon: "",
-                                    fields: [
-                                        {
-                                            id: response.id,
-                                            order: 1,
-                                            field_name: response.label,
-                                        }
-                                    ],
-                                    table_id: table.id,
-                                    attributes: {},
-                                    tab_id: tab.id
-                                })
-                                
-                            }
-                        }
-                    }
-
-                    const fieldPermissionTableOne = (
-                        await ObjectBuilder(true, data.project_id)
-                    )["field_permission"];
-                    for (const role of roles) {
-                        let fieldPermission = {
-                            field_id: response.id,
-                            table_slug: data.table_to,
-                            view_permission: true,
-                            edit_permission: true,
-                            guid: v4(),
-                            role_id: role.guid,
-                            label:
-                                "FROM " +
-                                data.table_from +
-                                " TO " +
-                                data.table_to,
-                        };
-
-                        const fieldPermissionWithModel =
-                            new fieldPermissionTableOne.models(fieldPermission);
-                        fieldPermissionWithModel.save();
-                    }
-                    break;
                 case 'Many2Dynamic':
                     
                     data.field_from = data.relation_field_slug
@@ -233,6 +102,7 @@ let relationStore = {
                                         id: output.id,
                                         order: 1,
                                         field_name: output.label,
+                                        relation_type: "Many2Dynamic"
                                     }
                                 ],
                                 table_id: table.id,
@@ -256,6 +126,7 @@ let relationStore = {
                                                     id: output.id,
                                                     order: count_columns + 1,
                                                     field_name: output.label,
+                                                    relation_type: "Many2Dynamic"
                                                 }
                                             ]
                                         }
@@ -273,6 +144,7 @@ let relationStore = {
                                             id: output.id,
                                             order: 1,
                                             field_name: output.label,
+                                            relation_type: "Many2Dynamic"
                                         }
                                     ],
                                     table_id: table.id,
@@ -304,8 +176,7 @@ let relationStore = {
                         fieldPermissionWithModel.save();
                     }
                     break;
-                case "Many2Many":
-                    
+                case "Many2Many":                  
                     data.field_from = data.table_to + "_ids";
                     data.field_to = data.table_from + "_ids";
                     let tableTo = await Table.findOne({
@@ -353,9 +224,10 @@ let relationStore = {
                                 icon: "",
                                 fields: [
                                     {
-                                        id: res.id,
+                                        id: `${data.table_from}#${data.id}`,
                                         order: 1,
                                         field_name: res.label,
+                                        relation_type: "Many2Many"
                                     }
                                 ],
                                 table_id: tableTo?.id,
@@ -376,9 +248,10 @@ let relationStore = {
                                             fields: [
                                                 ...(count_columns ? section[0].fields : []),
                                                 {
-                                                    id: res.id,
+                                                    id: `${data.table_from}#${data.id}`,
                                                     order: count_columns + 1,
                                                     field_name: res.label,
+                                                    relation_type: "Many2Many"
                                                 }
                                             ]
                                         }
@@ -393,9 +266,10 @@ let relationStore = {
                                     icon: "",
                                     fields: [
                                         {
-                                            id: res.id,
+                                            id: `${data.table_from}#${data.id}`,
                                             order: 1,
                                             field_name: res.label,
+                                            relation_type: "Many2Many"
                                         }
                                     ],
                                     table_id: tableTo?.id,
@@ -490,9 +364,10 @@ let relationStore = {
                                 icon: "",
                                 fields: [
                                     {
-                                        id: res.id,
+                                        id: `${data.table_to}#${data.id}`,
                                         order: 1,
                                         field_name: res.label,
+                                        relation_type: "Many2Many"
                                     }
                                 ],
                                 table_id: tableFrom?.id,
@@ -513,9 +388,10 @@ let relationStore = {
                                             fields: [
                                                 ...(count_columns ? section[0].fields : []),
                                                 {
-                                                    id: res.id,
+                                                    id: `${data.table_to}#${data.id}`,
                                                     order: count_columns + 1,
                                                     field_name: res.label,
+                                                    relation_type: "Many2Many"
                                                 }
                                             ]
                                         }
@@ -530,9 +406,10 @@ let relationStore = {
                                     icon: "",
                                     fields: [
                                         {
-                                            id: res.id,
+                                            id: `${data.table_to}#${data.id}`,
                                             order: 1,
                                             field_name: res.label,
+                                            relation_type: "Many2Many"
                                         }
                                     ],
                                     table_id: tableFrom?.id,
@@ -635,9 +512,12 @@ let relationStore = {
                                 icon: "",
                                 fields: [
                                     {
-                                        id: responsee.id,
+                                        id: `${table.slug}#${data.id}`,
                                         order: 1,
-                                        field_name: responsee.label,
+                                        field_name: data.label,
+                                        relation_type: "Recursive",
+                                        is_visible_layout: true,
+                                        show_label: true
                                     }
                                 ],
                                 table_id: table.id,
@@ -658,9 +538,12 @@ let relationStore = {
                                             fields: [
                                                 ...(count_columns ? section[0].fields : []),
                                                 {
-                                                    id: responsee.id,
+                                                    id: `${table.slug}#${data.id}`,
                                                     order: count_columns + 1,
-                                                    field_name: responsee.label,
+                                                    field_name: data.label,
+                                                    relation_type: "Recursive",
+                                                    is_visible_layout: true,
+                                                    show_label: true
                                                 }
                                             ]
                                         }
@@ -675,9 +558,12 @@ let relationStore = {
                                     icon: "",
                                     fields: [
                                         {
-                                            id: responsee.id,
+                                            id: `${table.slug}#${data.id}`,
                                             order: 1,
-                                            field_name: responsee.label,
+                                            field_name: data.label,
+                                            relation_type: "Recursive",
+                                            is_visible_layout: true,
+                                            show_label: true
                                         }
                                     ],
                                     table_id: table.id,
@@ -777,9 +663,12 @@ let relationStore = {
                                 icon: "",
                                 fields: [
                                     {
-                                        id: resp.id,
+                                        id: `${data.table_to}#${data.id}`,
                                         order: 1,
-                                        field_name: resp.label,
+                                        field_name: data.label,
+                                        relation_type: "Many2One",
+                                        is_visible_layout:  true,
+                                        show_label: true
                                     }
                                 ],
                                 table_id: table.id,
@@ -801,9 +690,12 @@ let relationStore = {
                                             fields: [
                                                 ...(count_columns ? section[0].fields : []),
                                                 {
-                                                    id: resp.id,
+                                                    id: `${data.table_to}#${data.id}`,
                                                     order: count_columns + 1,
-                                                    field_name: resp.label,
+                                                    field_name: data.label,
+                                                    relation_type: "Many2One",
+                                                    is_visible_layout:  true,
+                                                    show_label: true
                                                 }
                                             ]
                                         }
@@ -812,6 +704,8 @@ let relationStore = {
                                         new: true
                                     }
                                 )
+
+                                console.log("~~~> edited ", section[0].id, a)
                                 
                             } else {
                                 const a = await Section.create({
@@ -822,9 +716,12 @@ let relationStore = {
                                     icon: "",
                                     fields: [
                                         {
-                                            id: resp.id,
+                                            id: `${data.table_to}#${data.id}`,
                                             order: 1,
-                                            field_name: resp.label,
+                                            field_name: data.label,
+                                            relation_type: "Many2One",
+                                            is_visible_layout:  true,
+                                            show_label: true
                                         }
                                     ],
                                     table_id: table.id,

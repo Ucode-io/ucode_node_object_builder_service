@@ -1257,7 +1257,7 @@ let relationStore = {
                 {
                     sort: { created_at: -1 },
                 }
-            ).skip(data.offset).limit(data.limit).lean();
+            ).skip(data.offset).limit(data.limit).populate("fields").lean();
 
             let responseRelations = [];
             for (let i = 0; i < relations.length; i++) {

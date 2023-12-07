@@ -1334,6 +1334,7 @@ let relationStore = {
                         { relation_id: relations[i].id },
                     ],
                 });
+
                 let responseRelation = {
                     id: relations[i].id,
                     table_from: tableFrom,
@@ -1384,6 +1385,7 @@ let relationStore = {
                 table_from: data.table_slug,
             });
 
+            console.log(responseRelations)
             return { relations: responseRelations, count: count };
         } catch (err) {
             throw err;

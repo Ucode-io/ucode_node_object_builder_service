@@ -79,6 +79,7 @@ let relationStore = {
 
                     const layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
+                        console.log("~~ >> test #1 layout")
                         layout_id = layout.id
                         const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
@@ -91,9 +92,10 @@ let relationStore = {
                                 attributes: {},
                             })
                         }
-        
+                        console.log("~~ >> test #2 tab", JSON.stringify(tab))
                         const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
                         if(!section.length) {
+                            console.log("~~ >> test #3 not section", JSON.stringify(tab))
                             await Section.create({
                                 id: v4(),
                                 order: section.length + 1,
@@ -114,9 +116,10 @@ let relationStore = {
                         }
         
                         if(section[0]) {
+                            console.log("~~ >> test #4 section", JSON.stringify(section))
                             const count_columns = section[0].fields ? section[0].fields.length : 0
                             if(count_columns < (table.section_column_count || 3)) {
-                                await Section.findOneAndUpdate(
+                                const a = await Section.findOneAndUpdate(
                                     {
                                         id: section[0].id
                                     }, 
@@ -131,10 +134,14 @@ let relationStore = {
                                                 }
                                             ]
                                         }
+                                    },
+                                    {
+                                        new: true
                                     }
                                 )
+                                console.log("~~ >> test #5 section after update", (a))
                             } else {
-                                await Section.create({
+                                const a = await Section.create({
                                     id: v4(),
                                     order: section.length + 1,
                                     column: "SINGLE",
@@ -151,6 +158,7 @@ let relationStore = {
                                     attributes: {},
                                     tab_id: tab.id
                                 })
+                                console.log("~~ >> test #6 section create last", (a))
                             }
                         }
                     }
@@ -809,8 +817,8 @@ let relationStore = {
                 tableSlugs.push(data.table_to);
 
                 const tabs = await Tab.find({layout_id: layout_id})
-
-                await Tab.create({
+                console.log("~~ >> test #7 tabs length", (tabs.length))
+                const c = await Tab.create({
                     id: v4(),
                     order: tabs.length + 1,
                     label: table.label || "Relation tab",
@@ -819,6 +827,7 @@ let relationStore = {
                     layout_id: layout_id,
                     relation_id: relation.id,
                 })
+                console.log("~~ >> test #7 tabs length", (c))
             }
 
 

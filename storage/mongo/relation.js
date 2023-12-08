@@ -847,6 +847,7 @@ let relationStore = {
                 const tableTo = await Table.findOne({slug: data.table_to})
                 const layout = await Layout.findOne({table_id: tableTo.id})
 
+                console.log("MANANANA >> ", JSON.stringify(tableTo), JSON.stringify(layout))
                 if(layout) {
                     const tabs = await Tab.find({layout_id: layout.id})
                 

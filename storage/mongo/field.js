@@ -745,7 +745,7 @@ let fieldStore = {
             for (const element of fieldsWithPermissions) {
                 if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS" || element.type === "DYNAMIC")) {
                     let field = { ...element }
-                    field.attributes = struct.decode(element.attributes)
+                    field.attributes = struct.decode(element.attributes) 
                     decodedFields.push(field)
                 } else {
                     let elementField = { ...element }

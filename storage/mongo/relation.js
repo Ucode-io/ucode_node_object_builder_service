@@ -917,6 +917,9 @@ let relationStore = {
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
 
+            if(!data.relation_table_slug) {
+                throw new Error("relation_table_slug required");
+            }
             const relation = await Relation.findOneAndUpdate(
                 {
                     id: data.id,
@@ -956,7 +959,8 @@ let relationStore = {
             let viewRelationPermissions = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             await viewRelationPermissions.models.updateMany({ relation_id: data.id, table_slug: data.relation_table_slug }, { $set: { label: data.title } })
             if (isViewExists) {
-                await View.updateOne(
+                
+                await View.findOneAndUpdate(
                     {
                         $and: [
                             { relation_table_slug: data.relation_table_slug },

@@ -425,7 +425,7 @@ let layoutStore = {
                         table_slug: table.slug,
                         language_setting: data.language_setting || undefined,
                     })
-
+                    console.log("~~> ", sections.length)
                     tab.sections = sections
                 } else if (tab.type === "relation" && tab.relation_id) {
                     const { relation } = await relationStorage.getSingleViewForRelation(

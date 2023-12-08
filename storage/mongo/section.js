@@ -345,6 +345,7 @@ let sectionStore = {
                             }
                         }
                         if (relation) {
+             
                             for (const fieldID of viewFieldIds) {
                                 let field = await Field.findOne({
                                     id: fieldID
@@ -376,6 +377,7 @@ let sectionStore = {
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
                         for (const field of tableFields) {
+                    
                             let autoFillTable = field.autofill_table
                             let splitedAutoFillTable = []
                             if (field?.autofill_table?.includes('#')) {
@@ -393,6 +395,7 @@ let sectionStore = {
                                 }
                             }
                         }
+              
                         let originalAttributes = {}
                         let dynamicTables = [];
                         if (relation?.type === "Many2Dynamic") {
@@ -467,7 +470,7 @@ let sectionStore = {
                             }
                         } else {
                             if (view_of_relation) {
-                                originalAttributes = { ...struct.decode(relation.attributes), ...struct.decode(view_of_relation.attributes || {}) }
+                                originalAttributes = { ...struct.decode(relation.attributes || {}), ...struct.decode(view_of_relation.attributes || {}) }
                             }
                             originalAttributes = {
                                 ...originalAttributes,
@@ -520,7 +523,7 @@ let sectionStore = {
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)
             }
-            return { sections: sectionsResponse };
+            return { sections: sectionsResponse }
 
         } catch (err) {
             throw err

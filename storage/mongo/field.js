@@ -214,6 +214,8 @@ let fieldStore = {
                                 id: field.id,
                                 order: 1,
                                 field_name: field.label,
+                                is_visible_layout:  true,
+                                show_label: true
                             }
                         ],
                         table_id: table.id,
@@ -237,6 +239,8 @@ let fieldStore = {
                                             id: field.id,
                                             order: count_columns + 1,
                                             field_name: field.label,
+                                            is_visible_layout:  true,
+                                            show_label: true
                                         }
                                     ]
                                 }
@@ -254,6 +258,8 @@ let fieldStore = {
                                     id: field.id,
                                     order: 1,
                                     field_name: field.label,
+                                    is_visible_layout:  true,
+                                    show_label: true
                                 }
                             ],
                             table_id: table.id,

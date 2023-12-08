@@ -45,6 +45,9 @@ let viewStore = {
                 data.attributes = struct.decode(data.attributes)
             }
 
+            // const views = await ViewPermission.find({slug: data.table_slug}).lean()
+            // data.order = views.length + 1
+
             if(data.type == VIEW_TYPES.BOARD) {
                 await BoardOrderChecker(mongoConn, data.table_slug)
             }

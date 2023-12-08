@@ -55,6 +55,7 @@ let relationStore = {
             if (!data["id"]) {
                 data["id"] = v4();
             }
+            
             switch (data.type) {
                 case 'Many2Dynamic':
                     
@@ -102,7 +103,9 @@ let relationStore = {
                                         id: output.id,
                                         order: 1,
                                         field_name: output.label,
-                                        relation_type: "Many2Dynamic"
+                                        relation_type: "Many2Dynamic",
+                                        is_visible_layout:  true,
+                                        show_label: true
                                     }
                                 ],
                                 table_id: table.id,
@@ -126,7 +129,9 @@ let relationStore = {
                                                     id: output.id,
                                                     order: count_columns + 1,
                                                     field_name: output.label,
-                                                    relation_type: "Many2Dynamic"
+                                                    relation_type: "Many2Dynamic",
+                                                    is_visible_layout:  true,
+                                                    show_label: true
                                                 }
                                             ]
                                         }
@@ -199,8 +204,9 @@ let relationStore = {
                     });
                     let res = await field.save();
 
-                    layout = await Layout.findOne({table_id: tableTo?.id})
+                    layout = await Layout.findOne({table_id: tableTo.id})
                     if (layout) {
+                        
                         layout_id = layout.id
                         const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
@@ -213,9 +219,10 @@ let relationStore = {
                                 attributes: {},
                             })
                         }
-        
+                        
                         const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
                         if(!section.length) {
+                            
                             await Section.create({
                                 id: v4(),
                                 order: section.length + 1,
@@ -226,20 +233,23 @@ let relationStore = {
                                     {
                                         id: `${data.table_from}#${data.id}`,
                                         order: 1,
-                                        field_name: res.label,
-                                        relation_type: "Many2Many"
+                                        field_name: data.label,
+                                        relation_type: "Many2Many",
+                                        is_visible_layout:  true,
+                                        show_label: true
                                     }
                                 ],
-                                table_id: tableTo?.id,
+                                table_id: table.id,
                                 attributes: {},
                                 tab_id: tab.id
                             })
                         }
         
                         if(section[0]) {
+                            
                             const count_columns = section[0].fields ? section[0].fields.length : 0
                             if(count_columns < (table.section_column_count || 3)) {
-                                await Section.findOneAndUpdate(
+                                const a = await Section.findOneAndUpdate(
                                     {
                                         id: section[0].id
                                     }, 
@@ -250,15 +260,21 @@ let relationStore = {
                                                 {
                                                     id: `${data.table_from}#${data.id}`,
                                                     order: count_columns + 1,
-                                                    field_name: res.label,
-                                                    relation_type: "Many2Many"
+                                                    field_name: data.label,
+                                                    relation_type: "Many2One",
+                                                    is_visible_layout:  true,
+                                                    show_label: true
                                                 }
                                             ]
                                         }
+                                    },
+                                    {
+                                        new: true
                                     }
                                 )
+                                
                             } else {
-                                await Section.create({
+                                const a = await Section.create({
                                     id: v4(),
                                     order: section.length + 1,
                                     column: "SINGLE",
@@ -268,14 +284,17 @@ let relationStore = {
                                         {
                                             id: `${data.table_from}#${data.id}`,
                                             order: 1,
-                                            field_name: res.label,
-                                            relation_type: "Many2Many"
+                                            field_name: data.label,
+                                            relation_type: "Many2One",
+                                            is_visible_layout:  true,
+                                            show_label: true
                                         }
                                     ],
-                                    table_id: tableTo?.id,
+                                    table_id: table.id,
                                     attributes: {},
                                     tab_id: tab.id
                                 })
+                                
                             }
                         }
                     }
@@ -339,8 +358,9 @@ let relationStore = {
                     });
                     res = await field.save();
 
-                    layout = await Layout.findOne({table_id: tableFrom?.id})
+                    layout = await Layout.findOne({table_id: tableFrom.id})
                     if (layout) {
+                        
                         layout_id = layout.id
                         const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
@@ -353,9 +373,10 @@ let relationStore = {
                                 attributes: {},
                             })
                         }
-        
+                        
                         const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
                         if(!section.length) {
+                            
                             await Section.create({
                                 id: v4(),
                                 order: section.length + 1,
@@ -366,20 +387,23 @@ let relationStore = {
                                     {
                                         id: `${data.table_to}#${data.id}`,
                                         order: 1,
-                                        field_name: res.label,
-                                        relation_type: "Many2Many"
+                                        field_name: data.label,
+                                        relation_type: "Many2Many",
+                                        is_visible_layout:  true,
+                                        show_label: true
                                     }
                                 ],
-                                table_id: tableFrom?.id,
+                                table_id: tableFrom.id,
                                 attributes: {},
                                 tab_id: tab.id
                             })
                         }
         
                         if(section[0]) {
+                            
                             const count_columns = section[0].fields ? section[0].fields.length : 0
                             if(count_columns < (table.section_column_count || 3)) {
-                                await Section.findOneAndUpdate(
+                                const a = await Section.findOneAndUpdate(
                                     {
                                         id: section[0].id
                                     }, 
@@ -390,15 +414,21 @@ let relationStore = {
                                                 {
                                                     id: `${data.table_to}#${data.id}`,
                                                     order: count_columns + 1,
-                                                    field_name: res.label,
-                                                    relation_type: "Many2Many"
+                                                    field_name: data.label,
+                                                    relation_type: "Many2One",
+                                                    is_visible_layout:  true,
+                                                    show_label: true
                                                 }
                                             ]
                                         }
+                                    },
+                                    {
+                                        new: true
                                     }
                                 )
+                                
                             } else {
-                                await Section.create({
+                                const a = await Section.create({
                                     id: v4(),
                                     order: section.length + 1,
                                     column: "SINGLE",
@@ -408,14 +438,17 @@ let relationStore = {
                                         {
                                             id: `${data.table_to}#${data.id}`,
                                             order: 1,
-                                            field_name: res.label,
-                                            relation_type: "Many2Many"
+                                            field_name: data.label,
+                                            relation_type: "Many2One",
+                                            is_visible_layout:  true,
+                                            show_label: true
                                         }
                                     ],
-                                    table_id: tableFrom?.id,
+                                    table_id: tableFrom.id,
                                     attributes: {},
                                     tab_id: tab.id
                                 })
+                                
                             }
                         }
                     }
@@ -489,6 +522,7 @@ let relationStore = {
 
                     layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
+                        
                         layout_id = layout.id
                         const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
@@ -501,9 +535,10 @@ let relationStore = {
                                 attributes: {},
                             })
                         }
-        
+                        
                         const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
                         if(!section.length) {
+                            
                             await Section.create({
                                 id: v4(),
                                 order: section.length + 1,
@@ -512,11 +547,11 @@ let relationStore = {
                                 icon: "",
                                 fields: [
                                     {
-                                        id: `${table.slug}#${data.id}`,
+                                        id: `${data.table_from}#${data.id}`,
                                         order: 1,
                                         field_name: data.label,
-                                        relation_type: "Recursive",
-                                        is_visible_layout: true,
+                                        relation_type: "Many2One",
+                                        is_visible_layout:  true,
                                         show_label: true
                                     }
                                 ],
@@ -527,9 +562,10 @@ let relationStore = {
                         }
         
                         if(section[0]) {
+                            
                             const count_columns = section[0].fields ? section[0].fields.length : 0
                             if(count_columns < (table.section_column_count || 3)) {
-                                await Section.findOneAndUpdate(
+                                const a = await Section.findOneAndUpdate(
                                     {
                                         id: section[0].id
                                     }, 
@@ -538,19 +574,23 @@ let relationStore = {
                                             fields: [
                                                 ...(count_columns ? section[0].fields : []),
                                                 {
-                                                    id: `${table.slug}#${data.id}`,
+                                                    id: `${data.table_from}#${data.id}`,
                                                     order: count_columns + 1,
                                                     field_name: data.label,
-                                                    relation_type: "Recursive",
-                                                    is_visible_layout: true,
+                                                    relation_type: "Many2One",
+                                                    is_visible_layout:  true,
                                                     show_label: true
                                                 }
                                             ]
                                         }
+                                    },
+                                    {
+                                        new: true
                                     }
                                 )
+                                
                             } else {
-                                await Section.create({
+                                const a = await Section.create({
                                     id: v4(),
                                     order: section.length + 1,
                                     column: "SINGLE",
@@ -558,11 +598,11 @@ let relationStore = {
                                     icon: "",
                                     fields: [
                                         {
-                                            id: `${table.slug}#${data.id}`,
+                                            id: `${data.table_from}#${data.id}`,
                                             order: 1,
                                             field_name: data.label,
-                                            relation_type: "Recursive",
-                                            is_visible_layout: true,
+                                            relation_type: "Many2One",
+                                            is_visible_layout:  true,
                                             show_label: true
                                         }
                                     ],
@@ -570,6 +610,7 @@ let relationStore = {
                                     attributes: {},
                                     tab_id: tab.id
                                 })
+                                
                             }
                         }
                     }
@@ -1147,132 +1188,6 @@ let relationStore = {
         }
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
-        try {
-            const mongoConn = await mongoPool.get(data.project_id);
-            const View = mongoConn.models["View"];
-            const Relation = mongoConn.models["Relation"];
-
-            const relation = await Relation.findOne({ id: data.id }).lean();
-
-            let tableFrom = await tableVersion(mongoConn, { slug: relation.table_from }, data.version_id, true)
-            if (relation.type === "Many2Dynamic") {
-                let tableTo;
-                for (const dynamic_table of relation.dynamic_tables) {
-                    if (dynamic_table.table_slug === data.table_slug) {
-                        tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
-                    }
-                }
-                let responseRelation = {
-                    id: relation.id,
-                    table_from: tableFrom,
-                    field_from: relation.field_from,
-                    field_to: relation.field_to,
-                    type: relation.type,
-                    view_fields: relation.fields,
-                    editable: relation.editable,
-                    dynamic_tables: relation.dynamic_tables,
-                    relation_field_slug: relation.relation_field_slug,
-                    auto_filters: relation.auto_filters,
-                    is_user_id_default: relation.is_user_id_default,
-                    cascadings: relation.cascadings,
-                    object_id_from_jwt: relation.object_id_from_jwt,
-                    cascading_tree_table_slug:
-                        relation.cascading_tree_table_slug,
-                    cascading_tree_field_slug:
-                        relation.cascading_tree_field_slug,
-                };
-                if (tableTo) {
-                    responseRelation["table_to"] = tableTo;
-                }
-                let view = await View.findOne({
-                    $and: [
-                        { relation_table_slug: data.table_slug },
-                        { relation_id: relation.id },
-                    ],
-                });
-                if (view) {
-                    responseRelation["title"] = view.name;
-                    responseRelation["columns"] = view.columns;
-                    responseRelation["quick_filters"] = view.quick_filters;
-                    responseRelation["group_fields"] = view.group_fields;
-                    responseRelation["is_editable"] = view.is_editable;
-                    responseRelation["relation_table_slug"] =
-                        view.relation_table_slug;
-                    responseRelation["view_type"] = view.type;
-                    responseRelation["summaries"] = view.summaries;
-                    responseRelation["relation_id"] = view.relation_id;
-                    responseRelation["default_values"] = view.default_values;
-                    responseRelation["action_relations"] =
-                        view.action_relations;
-                    responseRelation["default_limit"] = view.default_limit;
-                    responseRelation["multiple_insert"] = view.multiple_insert;
-                    responseRelation["multiple_insert_field"] =
-                        view.multiple_insert_field;
-                    responseRelation["updated_fields"] = view.updated_fields;
-                    responseRelation["creatable"] = view.creatable;
-                    responseRelation["default_editable"] = view.default_editable;
-                    responseRelation["function_path"] = view.function_path;
-                    responseRelation["attributes"] = view.attributes;
-                }
-            }
-
-            let tableTo = await tableVersion(mongoConn, { slug: relation.table_to }, data.version_id, true)   
-            let view = await View.findOne({
-                $and: [
-                    { relation_table_slug: data.table_slug },
-                    { relation_id: relation.id },
-                ],
-            });
-            let responseRelation = {
-                id: relation.id,
-                table_from: tableFrom,
-                table_to: tableTo,
-                field_from: relation.field_from,
-                field_to: relation.field_to,
-                type: relation.type,
-                view_fields: relation.fields,
-                editable: relation.editable,
-                dynamic_tables: relation.dynamic_tables,
-                relation_field_slug: relation.relation_field_slug,
-                auto_filters: relation.auto_filters,
-                is_user_id_default: relation.is_user_id_default,
-                cascadings: relation.cascadings,
-                object_id_from_jwt: relation.object_id_from_jwt,
-                cascading_tree_table_slug:
-                    relation.cascading_tree_table_slug,
-                cascading_tree_field_slug:
-                    relation.cascading_tree_field_slug,
-            };
-            if (view) {
-                responseRelation["title"] = view.name;
-                responseRelation["columns"] = view.columns;
-                responseRelation["quick_filters"] = view.quick_filters;
-                responseRelation["group_fields"] = view.group_fields;
-                responseRelation["is_editable"] = view.is_editable;
-                responseRelation["relation_table_slug"] =
-                    view.relation_table_slug;
-                responseRelation["view_type"] = view.type;
-                responseRelation["summaries"] = view.summaries;
-                responseRelation["relation_id"] = view.relation_id;
-                responseRelation["default_values"] = view.default_values;
-                responseRelation["action_relations"] =
-                    view.action_relations;
-                responseRelation["default_limit"] = view.default_limit;
-                responseRelation["multiple_insert"] = view.multiple_insert;
-                responseRelation["multiple_insert_field"] =
-                    view.multiple_insert_field;
-                responseRelation["updated_fields"] = view.updated_fields;
-                responseRelation["creatable"] = view.creatable;
-                responseRelation["default_editable"] = view.default_editable;
-                responseRelation["function_path"] = view.function_path;
-                responseRelation["attributes"] = view.attributes;
-            }
-            return responseRelation;
-        } catch (err) {
-            throw err;
-        }
-    }),
-    getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id);
             const View = mongoConn.models["View"];

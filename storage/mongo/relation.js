@@ -42,7 +42,7 @@ let relationStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
             const ViewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
-            let layout_id = "", layout = null, insertManyRelationPermissions = []
+            let layout_id = "", layout = null, insertManyRelationPermissions = [], field_id = ""
 
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -72,6 +72,7 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     let output = await field.save();
+                    field_id = output.id
 
                     layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
@@ -359,6 +360,7 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     res = await field.save();
+                    field_id = res.id
 
                     layout = await Layout.findOne({table_id: tableFrom.id})
                     if (layout) {
@@ -679,6 +681,7 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     let resp = await field.save();
+                    field_id = resp.id
 
                     layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
@@ -900,6 +903,7 @@ let relationStore = {
                     },
                 }
             );
+            relation.id = field_id
 
             return relation;
         } catch (err) {

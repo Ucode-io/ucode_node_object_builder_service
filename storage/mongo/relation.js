@@ -41,6 +41,7 @@ let relationStore = {
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
+            const ViewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
 
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()

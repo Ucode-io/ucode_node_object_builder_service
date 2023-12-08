@@ -845,7 +845,10 @@ let relationStore = {
                     tableSlugs.push(dynamicTable?.table_slug);
                 }
             } else {
+                let tableTo = await Table.findOne({slug: data.table_to})
+
                 data.id = v4();
+                data.relation_table_slug = data.table_to
                 data.type = data.view_type;
                 data["relation_id"] = relation.id;
                 data["name"] = data.title;
@@ -854,7 +857,6 @@ let relationStore = {
                 const responseView = await view.save();
                 tableSlugs.push(data.table_to);
 
-                let tableTo = await Table.findOne({slug: data.table_to})
                 const layout = await Layout.findOne({table_id: tableTo.id})
 
                 if(layout) {
@@ -948,9 +950,9 @@ let relationStore = {
             
             const isViewExists = await View.findOne({
                 $and: [
-                    {
-                        relation_table_slug: data.relation_table_slug,
-                    },
+                    // {
+                    //     relation_table_slug: data.relation_table_slug,
+                    // },
                     {
                         relation_id: data.id,
                     },
@@ -963,7 +965,7 @@ let relationStore = {
                 await View.findOneAndUpdate(
                     {
                         $and: [
-                            { relation_table_slug: data.relation_table_slug },
+                            // { relation_table_slug: data.relation_table_slug },
                             { relation_id: data.id },
                         ],
                     },

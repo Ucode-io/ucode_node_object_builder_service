@@ -494,9 +494,11 @@ let sectionStore = {
                         originalAttributes = JSON.parse(originalAttributes)
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
+                        field.is_visible_layout = fieldReq.is_visible_layout
                         fieldsRes.push(field)
                     } else if (fieldReq?.id?.includes("@")) {
                         field.id = fieldReq.id
+                        field.is_visible_layout = fieldReq.is_visible_layout
                     } else {
                         guid = fieldReq.id
                         field = await Field.findOne({

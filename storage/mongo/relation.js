@@ -848,7 +848,7 @@ let relationStore = {
                 const layout = await Layout.findOne({table_id: tableTo.id})
 
                 if(layout) {
-                    const tabs = await Tab.find({layout_id: layout_id})
+                    const tabs = await Tab.find({layout_id: layout.id})
                 
                     const c = await Tab.create({
                         id: v4(),
@@ -1640,7 +1640,7 @@ let relationStore = {
 
             let tableQuery = {}
             if (data.table_slug) {
-                tableQuery.table_slug = data.table_slug;
+                tableQuery.slug = data.table_slug;
             } else if (data.table_id) {
                 tableQuery.id = data.table_id;
             }

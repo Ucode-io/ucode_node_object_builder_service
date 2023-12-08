@@ -658,6 +658,40 @@ let relationStore = {
                 const view = new View(data);
                 const responseView = await view.save();
                 tableSlugs.push(data.table_to);
+
+                const tableTo = await Table.findOne({slug: data.table_to})
+                const layout = await Layout.findOne({table_id: tableTo.id})
+
+                if(layout) {
+                    const tabs = await Tab.find({layout_id: layout.id})
+                
+                    const c = await Tab.create({
+                        id: v4(),
+                        order: tabs.length + 1,
+                        label: table.label || "Relation tab" + data.table_from,
+                        icon: "",
+                        type: "relation",
+                        layout_id: layout.id,
+                        relation_id: relation.id,
+                    })
+
+                    for (const role of roles) {
+                        let relationPermission = await ViewRelationPermissionTable?.models?.findOne({ role_id: role.guid, table_slug: tableTo.slug, relation_id: relation.id })
+                        if (!relationPermission) {
+                            insertManyRelationPermissions.push({
+                                role_id: role.guid,
+                                table_slug: tableTo.slug,
+                                relation_id: relation.id,
+                                view_permission: true,
+                                create_permission: true,
+                                edit_permission: true,
+                                delete_permission: true,
+                            })
+                        }
+                    }
+
+                    insertManyRelationPermissions.length && await ViewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
+                }                
             }
 
             const resp = await Table.updateMany(
@@ -1384,7 +1418,6 @@ let relationStore = {
                 table_from: data.table_slug,
             });
 
-            console.log("~~>>> test test", JSON.stringify(responseRelations))
             return { relations: responseRelations, count: count };
         } catch (err) {
             throw err;

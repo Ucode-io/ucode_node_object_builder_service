@@ -314,6 +314,7 @@ let sectionStore = {
                     console.log("~~~> layout ", fieldReq.is_visible_layout)
                     let encodedAttributes = {};
                     if (fieldReq?.id?.includes("#")) {
+                        
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order
@@ -466,7 +467,7 @@ let sectionStore = {
                             }
                         } else {
                             if (view_of_relation) {
-                                originalAttributes = { ...struct.decode(view_of_relation.attributes || {}) }
+                                originalAttributes = { ...struct.decode(relation.attributes || {}), ...struct.decode(view_of_relation.attributes || {}) }
                             }
                             originalAttributes = {
                                 ...originalAttributes,

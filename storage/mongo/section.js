@@ -492,6 +492,7 @@ let sectionStore = {
                         }
                         originalAttributes = JSON.stringify(originalAttributes)
                         originalAttributes = JSON.parse(originalAttributes)
+                        // console.log("~~~~~~~~~~~~~~~~~~> asd", view_of_relation, relation )
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
                         fieldsRes.push(field)

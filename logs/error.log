@@ -7255,3 +7255,38 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.relation.create: failed with error: Table validation failed: slug: Table must have slug',
+  level: 'error',
+  timestamp: '2023-12-08T10:58:09.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: failed with error: Table validation failed: slug: Table must have slug',
+  level: 'error',
+  timestamp: '2023-12-08T11:00:20.254Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: failed with error: Table validation failed: slug: Table must have slug',
+  level: 'error',
+  timestamp: '2023-12-08T11:02:44.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: failed with error: Tab validation failed: layout_id: Table must have layout_id',
+  level: 'error',
+  timestamp: '2023-12-08T11:04:13.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.relation.create: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2023-12-08T11:06:53.708Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

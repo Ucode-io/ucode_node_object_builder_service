@@ -55,6 +55,7 @@ let tableStore = {
                     table_id: table.id,
                     order: 1,
                     label: "Layout",
+                    type: "SimpleLayout",
                     icon: "",
                     is_default: true,
                     attributes: {},

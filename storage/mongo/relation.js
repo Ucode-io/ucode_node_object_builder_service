@@ -33,26 +33,25 @@ let relationStore = {
     }),
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
-            const mongoConn = await mongoPool.get(data.project_id);
-            const Table = mongoConn.models["Table"];
-            const Field = mongoConn.models["Field"];
-            const View = mongoConn.models["View"];
-            const Relation = mongoConn.models["Relation"];
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models["Table"]
+            const Field = mongoConn.models["Field"]
+            const View = mongoConn.models["View"]
+            const Relation = mongoConn.models["Relation"]
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
 
-            const roleTable = (await ObjectBuilder(true, data.project_id))[
-                "role"
-            ];
-            const roles = await roleTable?.models.find();
+            const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+            const roles = await roleTable?.models.find()
 
-            let table = {};
-            let field = {};
-            let result = {};
+            let table = null
+            let field = {}
+            let result = {}
             if (!data["id"]) {
-                data["id"] = v4();
+                data["id"] = v4()
             }
+            
             switch (data.type) {
                 case "One2Many":
                     data.field_from = "id";
@@ -1519,7 +1518,7 @@ let relationStore = {
 
             let tableQuery = {}
             if (data.table_slug) {
-                tableQuery.table_slug = data.table_slug;
+                tableQuery.slug = data.table_slug;
             } else if (data.table_id) {
                 tableQuery.id = data.table_id;
             }

@@ -856,7 +856,7 @@ let relationStore = {
                         label: table.label || "Relation tab" + data.table_from,
                         icon: "",
                         type: "relation",
-                        layout_id: layout_id,
+                        layout_id: layout.id,
                         relation_id: relation.id,
                     })
 

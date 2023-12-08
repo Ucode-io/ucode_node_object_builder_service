@@ -314,7 +314,7 @@ let sectionStore = {
              
                     let encodedAttributes = {};
                     if (fieldReq?.id?.includes("#")) {
-                        console.log("!!> ", fieldReq)
+                        
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order

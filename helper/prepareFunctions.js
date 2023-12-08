@@ -165,9 +165,10 @@ let prepareFunction = {
         };
         for (let el of tableInfo.fields) {
             if (!data[el.slug] && el.autofill_table && el.autofill_field) {
-                const AutiFillTable = allTableInfos[el.autofill_table]
+                splitArr = el.autofill_table.split("#")
+                const AutiFillTable = allTableInfos[splitArr[0]]
                 if (AutiFillTable) {
-                    const autofillObject = await AutiFillTable.models.findOne({ guid: data[el.autofill_table + "_id"] }).lean() || {}
+                    const autofillObject = await AutiFillTable.models.findOne({ guid: data[splitArr[0] + "_id"] }).lean() || {}
                     data[el.slug] = autofillObject[el.autofill_field]
                 }
             }

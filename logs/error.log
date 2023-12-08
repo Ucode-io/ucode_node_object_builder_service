@@ -7057,3 +7057,10 @@
   },
   [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
 }
+{
+  message: 'service.object_builder.create: failed with error: alltableInfos is not defined',
+  level: 'error',
+  timestamp: '2023-12-08T06:33:58.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

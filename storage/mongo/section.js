@@ -467,7 +467,7 @@ let sectionStore = {
                             }
                         } else {
                             if (view_of_relation) {
-                                originalAttributes = { ...struct.decode(relation.attributes), ...struct.decode(view_of_relation.attributes || {}) }
+                                originalAttributes = { ...struct.decode(relation.attributes || {}), ...struct.decode(view_of_relation.attributes || {}) }
                             }
                             originalAttributes = {
                                 ...originalAttributes,

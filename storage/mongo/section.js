@@ -311,9 +311,10 @@ let sectionStore = {
                     let guid;
                     let field = {};
                     field.is_visible_layout = fieldReq.is_visible_layout
-                    console.log("~~~> layout ", fieldReq.is_visible_layout)
+             
                     let encodedAttributes = {};
                     if (fieldReq?.id?.includes("#")) {
+                        console.log("!!> ", fieldReq)
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order
@@ -344,6 +345,7 @@ let sectionStore = {
                             }
                         }
                         if (relation) {
+             
                             for (const fieldID of viewFieldIds) {
                                 let field = await Field.findOne({
                                     id: fieldID
@@ -375,6 +377,7 @@ let sectionStore = {
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
                         for (const field of tableFields) {
+                    
                             let autoFillTable = field.autofill_table
                             let splitedAutoFillTable = []
                             if (field?.autofill_table?.includes('#')) {
@@ -392,6 +395,7 @@ let sectionStore = {
                                 }
                             }
                         }
+              
                         let originalAttributes = {}
                         let dynamicTables = [];
                         if (relation?.type === "Many2Dynamic") {
@@ -466,7 +470,7 @@ let sectionStore = {
                             }
                         } else {
                             if (view_of_relation) {
-                                originalAttributes = { ...struct.decode(view_of_relation.attributes || {}) }
+                                originalAttributes = { ...struct.decode(relation.attributes || {}), ...struct.decode(view_of_relation.attributes || {}) }
                             }
                             originalAttributes = {
                                 ...originalAttributes,
@@ -493,9 +497,11 @@ let sectionStore = {
                         originalAttributes = JSON.parse(originalAttributes)
                         encodedAttributes = struct.encode(originalAttributes)
                         field.attributes = encodedAttributes
+                        field.is_visible_layout = fieldReq.is_visible_layout
                         fieldsRes.push(field)
                     } else if (fieldReq?.id?.includes("@")) {
                         field.id = fieldReq.id
+                        field.is_visible_layout = fieldReq.is_visible_layout
                     } else {
                         guid = fieldReq.id
                         field = await Field.findOne({
@@ -517,7 +523,7 @@ let sectionStore = {
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)
             }
-            return { sections: sectionsResponse };
+            return { sections: sectionsResponse }
 
         } catch (err) {
             throw err

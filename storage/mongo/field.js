@@ -163,7 +163,9 @@ let fieldStore = {
                 {
                     $set: {
                         is_changed: true,
-                        [`is_changed_by_host.${os.hostname()}`]: true
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
                     }
                 },
                 {
@@ -317,7 +319,9 @@ let fieldStore = {
                 {
                     $set: {
                         is_changed: true,
-                        [`is_changed_by_host.${os.hostname()}`]: true
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
                     }
                 }
             )

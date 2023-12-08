@@ -56,7 +56,9 @@ let viewStore = {
                 {
                     $set: {
                         is_changed: true,
-                        [`is_changed_by_host.${os.hostname()}`]: true
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
                     }
             })
 
@@ -115,7 +117,9 @@ let viewStore = {
                 {
                     $set: {
                         is_changed: true,
-                        [`is_changed_by_host.${os.hostname()}`]: true
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
                     }
                 },
                 {

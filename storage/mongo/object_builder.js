@@ -134,7 +134,7 @@ let objectBuilder = {
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
 
-            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data }, { new: true });
+            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
 
             
             let funcs = []

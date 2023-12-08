@@ -34,26 +34,25 @@ let relationStore = {
     }),
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
-            const mongoConn = await mongoPool.get(data.project_id);
-            const Table = mongoConn.models["Table"];
-            const Field = mongoConn.models["Field"];
-            const View = mongoConn.models["View"];
-            const Relation = mongoConn.models["Relation"];
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models["Table"]
+            const Field = mongoConn.models["Field"]
+            const View = mongoConn.models["View"]
+            const Relation = mongoConn.models["Relation"]
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
-            let layout_id = "", layout = null
+            const ViewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
+            let layout_id = "", layout = null, insertManyRelationPermissions = []
 
-            const roleTable = (await ObjectBuilder(true, data.project_id))[
-                "role"
-            ];
-            const roles = await roleTable?.models.find();
+            const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+            const roles = await roleTable?.models.find()
 
-            let table = {};
-            let field = {};
-            let result = {};
+            let table = null
+            let field = {}
+            let result = {}
             if (!data["id"]) {
-                data["id"] = v4();
+                data["id"] = v4()
             }
             
             switch (data.type) {
@@ -845,22 +844,39 @@ let relationStore = {
                 const responseView = await view.save();
                 tableSlugs.push(data.table_to);
 
-                const table = await Table.findOne({slug: data.table_to})
-                const layout = await Layout.findOne({table_id: table.id})
-                layout_id = layout?.id
+                const tableTo = await Table.findOne({slug: data.table_to})
+                const layout = await Layout.findOne({table_id: tableTo.id})
 
-                const tabs = await Tab.find({layout_id: layout_id})
+                if(layout) {
+                    const tabs = await Tab.find({layout_id: layout_id})
                 
-                const c = await Tab.create({
-                    id: v4(),
-                    order: tabs.length + 1,
-                    label: table.label || "Relation tab",
-                    icon: "",
-                    type: "relation",
-                    layout_id: layout_id,
-                    relation_id: relation.id,
-                })
-                
+                    const c = await Tab.create({
+                        id: v4(),
+                        order: tabs.length + 1,
+                        label: table.label || "Relation tab" + data.table_from,
+                        icon: "",
+                        type: "relation",
+                        layout_id: layout_id,
+                        relation_id: relation.id,
+                    })
+
+                    for (const role of roles) {
+                        let relationPermission = await ViewRelationPermissionTable?.models?.findOne({ role_id: role.guid, table_slug: tableTo.slug, relation_id: relation.id })
+                        if (!relationPermission) {
+                            insertManyRelationPermissions.push({
+                                role_id: role.guid,
+                                table_slug: tableTo.slug,
+                                relation_id: relation.id,
+                                view_permission: true,
+                                create_permission: true,
+                                edit_permission: true,
+                                delete_permission: true,
+                            })
+                        }
+                    }
+
+                    insertManyRelationPermissions.length && await ViewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
+                }                
             }
 
 

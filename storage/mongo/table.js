@@ -57,6 +57,7 @@ let tableStore = {
                     label: "Layout",
                     icon: "",
                     is_default: true,
+                    type: "PopupLayout",
                     attributes: {},
                     is_visible_section: false,
                     is_modal: true,

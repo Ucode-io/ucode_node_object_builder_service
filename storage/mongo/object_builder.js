@@ -51,7 +51,7 @@ let objectBuilder = {
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
-            if (tableData && tableData.is_login_table && !data.from_auth_service) {
+            if (tableData && tableData.is_login_table && !data.from_auth_service && !req.blocked_login_table) {
                 let tableAttributes = struct.decode(tableData.attributes)
                 if (tableAttributes && tableAttributes.auth_info) {
                     let authInfo = tableAttributes.auth_info

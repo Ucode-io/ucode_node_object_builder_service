@@ -1,4 +1,4 @@
-async function createAppPermission(roleID) {
+async function createAppPermission(guid, role_id) {
     let appPermission = [{
         "chat": true,
         "menu_button": true,

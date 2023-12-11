@@ -14,7 +14,7 @@ const TableSchema = mongoose.Schema(
         },
         slug: {
             type: String,
-            required: [true, "Table must have slug"],
+            // required: [false, "Table must have slug"],
         },
         description: {
             type: String,

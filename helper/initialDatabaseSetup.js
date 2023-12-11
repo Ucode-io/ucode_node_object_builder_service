@@ -17,7 +17,7 @@ const createRelation = require("../initial_setups/relation");
 const createSettingLanguage = require("../initial_setups/setting_language");
 const createSettingCurrency = require("../initial_setups/setting_currency");
 const createSettingTimezone = require("../initial_setups/setting_timezone");
-const createAppPermission = require("../initial_setups/appPermission");
+const createGlobalPermission = require("../initial_setups/global_permission");
 const createMenu = require("../initial_setups/menu");
 const guessRole = require("../initial_setups/defaultRole")
 const guessClientType = require("../initial_setups/guessClientType")
@@ -50,8 +50,6 @@ async function insertCollections(conn, userId, projectId) {
                 resolve(collections)
             });
     })
-
-    // console.log('available collections', collections)
 
 
     if (!collections['apps']) {
@@ -127,13 +125,13 @@ async function insertCollections(conn, userId, projectId) {
         })
     }
 
-    // if (!collections['connections']) {
-    //     const connections = await createConnection(connectionID, clientTypeID)
-    //     conn.collection('connections').insertMany(connections, function (err, result) {
-    //         if (err) throw err;
-    //         console.log("Inserted Connections : ", result.insertedCount)
-    //     })
-    // }
+    if (!collections['global_permission']) {
+        const permissions = await createGlobalPermission(v4().toString(), roleID)
+        conn.collection('connections').insertMany(permissions, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted Connections : ", result.insertedCount)
+        })
+    }
 
     if (!collections['relations']) {
         const relation = await createRelation()

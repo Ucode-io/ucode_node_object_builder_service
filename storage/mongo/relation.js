@@ -1,6 +1,6 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const converter = require("../../helper/converter");
-const tableVersion = require("../../helper/table_version");
+let tableVersion = require("../../helper/table_version");
 const con = require("../../config/kafkaTopics");
 const sendMessageToTopic = require("../../config/kafka");
 const { v4 } = require("uuid");
@@ -12,7 +12,6 @@ const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
 const TabSchema = require("../../schemas/tab");
 const os = require('os');
-const relation = require("../../models/relation");
 
 let NAMESPACE = "storage.relation";
 
@@ -43,7 +42,7 @@ let relationStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
             const ViewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
-            let layout_id = "", layout = null, insertManyRelationPermissions = []
+            let layout_id = "", layout = null, insertManyRelationPermissions = [], field_id = ""
 
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -54,7 +53,7 @@ let relationStore = {
             if (!data["id"]) {
                 data["id"] = v4()
             }
-            
+            console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.1")
             switch (data.type) {
                 case 'Many2Dynamic':
                     
@@ -73,19 +72,21 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     let output = await field.save();
+                    field_id = output.id
 
                     layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
                         layout_id = layout.id
-                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        let tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
-                            tab = await Table.create({
+                            tab = await Tab.create({
                                 order: 1,
                                 label: "Tab",
                                 icon: "",
                                 type: "section",
                                 table_slug: table?.slug,
                                 attributes: {},
+                                layout_id: layout.id,
                             })
                         }
         
@@ -148,7 +149,9 @@ let relationStore = {
                                             id: output.id,
                                             order: 1,
                                             field_name: output.label,
-                                            relation_type: "Many2Dynamic"
+                                            relation_type: "Many2Dynamic",
+                                            is_visible_layout:  true,
+                                            show_label: true
                                         }
                                     ],
                                     table_id: table.id,
@@ -207,15 +210,16 @@ let relationStore = {
                     if (layout) {
                         
                         layout_id = layout.id
-                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        let tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
-                            tab = await Table.create({
+                            tab = await Tab.create({
                                 order: 1,
                                 label: "Tab",
                                 icon: "",
                                 type: "section",
                                 table_slug: tableTo?.slug,
                                 attributes: {},
+                                layout_id: layout.id,
                             })
                         }
                         
@@ -356,20 +360,22 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     res = await field.save();
+                    field_id = res.id
 
                     layout = await Layout.findOne({table_id: tableFrom.id})
                     if (layout) {
                         
                         layout_id = layout.id
-                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        let tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
-                            tab = await Table.create({
+                            tab = await Tab.create({
                                 order: 1,
                                 label: "Tab",
                                 icon: "",
                                 type: "section",
                                 table_slug: tableFrom?.slug,
                                 attributes: {},
+                                layout_id: layout.id,
                             })
                         }
                         
@@ -523,7 +529,7 @@ let relationStore = {
                     if (layout) {
                         
                         layout_id = layout.id
-                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        let tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
                             tab = await Table.create({
                                 order: 1,
@@ -675,23 +681,25 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     let resp = await field.save();
+                    field_id = resp.id
 
                     layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
                         
                         layout_id = layout.id
-                        const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                        let tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                         if (!tab) {
-                            tab = await Table.create({
+                            tab = await Tab.create({
                                 order: 1,
                                 label: "Tab",
                                 icon: "",
                                 type: "section",
                                 table_slug: table?.slug,
+                                layout_id: layout.id,
                                 attributes: {},
                             })
                         }
-                        
+                        console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.2")
                         const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
                         if(!section.length) {
                             
@@ -716,7 +724,7 @@ let relationStore = {
                                 tab_id: tab.id
                             })
                         }
-        
+                        console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.3")
                         if(section[0]) {
                             
                             const count_columns = section[0].fields ? section[0].fields.length : 0
@@ -748,6 +756,7 @@ let relationStore = {
                                 console.log("~~~> edited ", section[0].id, a)
                                 
                             } else {
+                                console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.4")
                                 const a = await Section.create({
                                     id: v4(),
                                     order: section.length + 1,
@@ -768,7 +777,7 @@ let relationStore = {
                                     attributes: {},
                                     tab_id: tab.id
                                 })
-                                
+                                console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.5")
                             }
                         }
                     }
@@ -816,8 +825,9 @@ let relationStore = {
                     break;
                 default:
             }
-
+            console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 1")
             const relation = await Relation.create(data)
+            console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2")
             let tableSlugs = [data.table_slug];
             if (relation.type === "Many2Dynamic") {
                 for (const dynamicTable of relation.dynamic_tables) {
@@ -835,7 +845,10 @@ let relationStore = {
                     tableSlugs.push(dynamicTable?.table_slug);
                 }
             } else {
+                let tableTo = await Table.findOne({slug: data.table_to})
+
                 data.id = v4();
+                data.relation_table_slug = data.table_to
                 data.type = data.view_type;
                 data["relation_id"] = relation.id;
                 data["name"] = data.title;
@@ -844,12 +857,11 @@ let relationStore = {
                 const responseView = await view.save();
                 tableSlugs.push(data.table_to);
 
-                const tableTo = await Table.findOne({slug: data.table_to})
                 const layout = await Layout.findOne({table_id: tableTo.id})
 
                 console.log("MANANANA >> ", JSON.stringify(tableTo), JSON.stringify(layout))
                 if(layout) {
-                    const tabs = await Tab.find({layout_id: layout.id})
+                    let tabs = await Tab.find({layout_id: layout.id})
                 
                     const c = await Tab.create({
                         id: v4(),
@@ -894,6 +906,7 @@ let relationStore = {
                     },
                 }
             );
+            relation.id = field_id
 
             return relation;
         } catch (err) {
@@ -907,6 +920,9 @@ let relationStore = {
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
 
+            if(!data.relation_table_slug) {
+                throw new Error("relation_table_slug required");
+            }
             const relation = await Relation.findOneAndUpdate(
                 {
                     id: data.id,
@@ -935,9 +951,9 @@ let relationStore = {
             
             const isViewExists = await View.findOne({
                 $and: [
-                    {
-                        relation_table_slug: data.relation_table_slug,
-                    },
+                    // {
+                    //     relation_table_slug: data.relation_table_slug,
+                    // },
                     {
                         relation_id: data.id,
                     },
@@ -946,10 +962,11 @@ let relationStore = {
             let viewRelationPermissions = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             await viewRelationPermissions.models.updateMany({ relation_id: data.id, table_slug: data.relation_table_slug }, { $set: { label: data.title } })
             if (isViewExists) {
-                await View.updateOne(
+                
+                await View.findOneAndUpdate(
                     {
                         $and: [
-                            { relation_table_slug: data.relation_table_slug },
+                            // { relation_table_slug: data.relation_table_slug },
                             { relation_id: data.id },
                         ],
                     },

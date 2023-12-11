@@ -125,7 +125,7 @@ async function insertCollections(conn, userId, projectId) {
         })
     }
 
-    if (!collections['global_permission']) {
+    if (!collections['global_permissions']) {
         const permissions = await createGlobalPermission(v4().toString(), roleID)
         conn.collection('connections').insertMany(permissions, function (err, result) {
             if (err) throw err;

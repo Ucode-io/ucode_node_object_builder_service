@@ -1222,18 +1222,12 @@ let relationStore = {
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
-            // 
+            console.log("~~~> qweewq ", data)
             const mongoConn = await mongoPool.get(data.project_id);
             const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
 
-            if (data.table_slug === "") {
-                let table = await Table.findOne({
-                    id: data.table_id
-                });
-                data.table_slug = table.slug;
-            }
             const relations = await Relation.find(
                 {
                     id: data.id
@@ -1242,19 +1236,22 @@ let relationStore = {
                 {
                     sort: { created_at: -1 },
                 }
-            ).populate("fields").lean();
+                ).populate("fields").lean();
 
             if(!relations.length) {
                 throw new Error("Relation not found with given id")
                 return
             }
 
+            if (!data.table_slug) {
+                data.table_slug = relations[0].table_from;
+            }
+
             let responseRelations = [];
             for (let i = 0; i < relations.length; i++) {
-                // let tableFrom = await Table.findOne({
-                //     slug: relations[i].table_from
-                // })
-                let tableFrom = await tableVersion(mongoConn, { slug: relations[i].table_from }, data.version_id, true)
+                let tableFrom = await Table.findOne({
+                    slug: relations[i].table_from
+                })
                 if (relations[i].type === "Many2Dynamic") {
                     let tableTo;
                     for (const dynamic_table of relations[i].dynamic_tables) {
@@ -1324,10 +1321,9 @@ let relationStore = {
                     responseRelations.push(responseRelation);
                     continue;
                 }
-                // let tableTo = await Table.findOne({
-                //     slug: relations[i].table_to
-                // })
-                let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
+                let tableTo = await Table.findOne({
+                    slug: relations[i].table_to
+                })
                 let view = await View.findOne({
                     $and: [
                         { relation_table_slug: data.table_slug },
@@ -1356,7 +1352,7 @@ let relationStore = {
                     relation_buttons: relations[i].relation_buttons
                 };
                 if (view) {
-                    // 
+                    
                     responseRelation["title"] = view.name;
                     responseRelation["columns"] = view.columns;
                     responseRelation["quick_filters"] = view.quick_filters;
@@ -1380,13 +1376,11 @@ let relationStore = {
                     responseRelation["function_path"] = view.function_path;
                     responseRelation["attributes"] = view.attributes;
                 }
+
                 responseRelations.push(responseRelation);
             }
-            const count = await Relation.countDocuments({
-                table_from: data.table_slug,
-            });
-
-            return { relations: responseRelations[0], count: count };
+            console.log(responseRelations);
+            return responseRelations[0] ;
         } catch (err) {
             throw err;
         }

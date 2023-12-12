@@ -853,7 +853,7 @@ let relationStore = {
                 let tableTo = await Table.findOne({slug: data.table_to})
 
                 data.id = v4();
-                data.relation_table_slug = data.table_to
+                data.relation_table_slug = data.relation_table_slug
                 data.type = data.view_type;
                 data["relation_id"] = relation.id;
                 data["name"] = data.label;

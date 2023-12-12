@@ -29,11 +29,11 @@ const logger = require("./config/logger");
         await projectStorage.reconnect({
             project_id: "1",
             credentials: {
-                host: "142.93.164.37",
-                port: 27017,
-                database: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                username: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                password: "vwdG8B7gzO"
+                host: "65.109.239.69",
+                port: 30027,
+                database: "dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs",
+                username: "dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs",
+                password: "QoRidVg9iL"
             }
         })
 

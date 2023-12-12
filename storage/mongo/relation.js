@@ -1242,22 +1242,20 @@ let relationStore = {
                 }
                 ).populate("fields").lean();
 
-                if(!relations.length) {
-                    throw new Error("Relation not found with given id")
-                    return
-                }
-                
-            if (!data.table_slug) {
+            if(!relations.length) {
+                throw new Error("Relation not found with given id")
+                return
+            }
 
+            if (!data.table_slug) {
                 data.table_slug = relations[0].table_from;
             }
 
             let responseRelations = [];
             for (let i = 0; i < relations.length; i++) {
-                // let tableFrom = await Table.findOne({
-                //     slug: relations[i].table_from
-                // })
-                let tableFrom = await tableVersion(mongoConn, { slug: relations[i].table_from }, data.version_id, true)
+                let tableFrom = await Table.findOne({
+                    slug: relations[i].table_from
+                })
                 if (relations[i].type === "Many2Dynamic") {
                     let tableTo;
                     for (const dynamic_table of relations[i].dynamic_tables) {
@@ -1358,7 +1356,7 @@ let relationStore = {
                     relation_buttons: relations[i].relation_buttons
                 };
                 if (view) {
-                    // 
+                    
                     responseRelation["title"] = view.name;
                     responseRelation["columns"] = view.columns;
                     responseRelation["quick_filters"] = view.quick_filters;
@@ -1382,13 +1380,11 @@ let relationStore = {
                     responseRelation["function_path"] = view.function_path;
                     responseRelation["attributes"] = view.attributes;
                 }
+
                 responseRelations.push(responseRelation);
             }
-            const count = await Relation.countDocuments({
-                table_from: data.table_slug,
-            });
-
-            return { relations: responseRelations[0], count: count };
+            console.log(responseRelations);
+            return { relations: responseRelations[0] };
         } catch (err) {
             throw err;
         }

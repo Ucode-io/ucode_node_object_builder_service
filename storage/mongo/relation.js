@@ -1226,7 +1226,7 @@ let relationStore = {
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
-            // 
+            console.log("~~~> qweewq ", data)
             const mongoConn = await mongoPool.get(data.project_id);
             const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];

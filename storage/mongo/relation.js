@@ -205,6 +205,7 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     let res = await field.save();
+                    field_id = res.id
 
                     layout = await Layout.findOne({table_id: tableTo.id})
                     if (layout) {
@@ -524,6 +525,7 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     let responsee = await field.save();
+                    field_id = responsee.id
 
                     layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
@@ -906,6 +908,7 @@ let relationStore = {
                     },
                 }
             );
+            console.log("~~~> fieldID ", field_id)
             relation.id = field_id
 
             return relation;

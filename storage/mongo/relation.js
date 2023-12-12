@@ -756,6 +756,7 @@ let relationStore = {
                 }
             } else {
                 let tableTo = await Table.findOne({slug: data.table_to})
+                let tableFrom = await Table.findOne({slug: data.table_from})
 
                 data.id = v4();
                 data.relation_table_slug = data.relation_table_slug
@@ -775,7 +776,7 @@ let relationStore = {
                     const c = await Tab.create({
                         id: v4(),
                         order: tabs.length + 1,
-                        label: table.label || "Relation tab" + data.table_from,
+                        label: tableFrom?.label || "Relation tab" + data.table_from,
                         icon: "",
                         type: "relation",
                         layout_id: layout.id,

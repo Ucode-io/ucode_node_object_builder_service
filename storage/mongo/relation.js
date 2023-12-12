@@ -53,7 +53,7 @@ let relationStore = {
             if (!data["id"]) {
                 data["id"] = v4()
             }
-            console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.1")
+            
             switch (data.type) {
                 case 'Many2Dynamic':
                     
@@ -190,6 +190,8 @@ let relationStore = {
                         slug: data.table_to,
                         deleted_at: "1970-01-01T18:00:00.000+00:00",
                     });
+                    table = tableTo
+                    
                     let  = await tableVersion(mongoConn, { slug: data.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     result = await relationFieldChecker(data.field_to, tableTo.id, data.project_id)
                     if (result.exists) {
@@ -207,6 +209,7 @@ let relationStore = {
                     let res = await field.save();
 
                     layout = await Layout.findOne({table_id: tableTo.id})
+                    
                     if (layout) {
                         
                         layout_id = layout.id
@@ -242,16 +245,16 @@ let relationStore = {
                                         show_label: true
                                     }
                                 ],
-                                table_id: table.id,
+                                table_id: tableTo.id,
                                 attributes: {},
                                 tab_id: tab.id
                             })
                         }
-        
+                        
                         if(section[0]) {
                             
                             const count_columns = section[0].fields ? section[0].fields.length : 0
-                            if(count_columns < (table.section_column_count || 3)) {
+                            if(count_columns < (tableTo.section_column_count || 3)) {
                                 const a = await Section.findOneAndUpdate(
                                     {
                                         id: section[0].id
@@ -293,7 +296,7 @@ let relationStore = {
                                             show_label: true
                                         }
                                     ],
-                                    table_id: table.id,
+                                    table_id: tableTo.id,
                                     attributes: {},
                                     tab_id: tab.id
                                 })
@@ -301,7 +304,7 @@ let relationStore = {
                             }
                         }
                     }
-
+                    
                     const fieldPermissionTableMany1 = (
                         await ObjectBuilder(true, data.project_id)
                     )["field_permission"];
@@ -327,7 +330,7 @@ let relationStore = {
                             );
                         fieldPermissionWithModel.save();
                     }
-
+                    
                     let type = converter(field.type);
                     let eventTo = {}
                     let tableRes = {}
@@ -407,7 +410,7 @@ let relationStore = {
                         if(section[0]) {
                             
                             const count_columns = section[0].fields ? section[0].fields.length : 0
-                            if(count_columns < (table.section_column_count || 3)) {
+                            if(count_columns < (tableFrom.section_column_count || 3)) {
                                 const a = await Section.findOneAndUpdate(
                                     {
                                         id: section[0].id
@@ -699,7 +702,7 @@ let relationStore = {
                                 attributes: {},
                             })
                         }
-                        console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.2")
+                        
                         const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
                         if(!section.length) {
                             
@@ -724,7 +727,7 @@ let relationStore = {
                                 tab_id: tab.id
                             })
                         }
-                        console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.3")
+                        
                         if(section[0]) {
                             
                             const count_columns = section[0].fields ? section[0].fields.length : 0
@@ -756,7 +759,7 @@ let relationStore = {
                                 console.log("~~~> edited ", section[0].id, a)
                                 
                             } else {
-                                console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.4")
+                                
                                 const a = await Section.create({
                                     id: v4(),
                                     order: section.length + 1,
@@ -777,7 +780,7 @@ let relationStore = {
                                     attributes: {},
                                     tab_id: tab.id
                                 })
-                                console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.5")
+                                
                             }
                         }
                     }
@@ -825,9 +828,9 @@ let relationStore = {
                     break;
                 default:
             }
-            console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 1")
+            
             const relation = await Relation.create(data)
-            console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2")
+            
             let tableSlugs = [data.table_slug];
             if (relation.type === "Many2Dynamic") {
                 for (const dynamicTable of relation.dynamic_tables) {
@@ -851,7 +854,7 @@ let relationStore = {
                 data.relation_table_slug = data.table_to
                 data.type = data.view_type;
                 data["relation_id"] = relation.id;
-                data["name"] = data.title;
+                data["name"] = data.label;
                 data["attributes"] = data.attributes || {}
                 const view = new View(data);
                 const responseView = await view.save();

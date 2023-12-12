@@ -85,15 +85,13 @@ let layoutStore = {
             const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
             const roles = await RoleTable?.models?.find({}).lean()
             let layoutIds = [], tabIds = [], insertManyRelationPermissions = [];
-            const resp = await Table.findOneAndUpdate({
+
+            if(!data.table_id) {
+                throw new Error("table_id is required")
+            }
+
+            const resp = await Table.findOne({
                 id: data.table_id,
-            },
-                {
-                    $set: {
-                        is_changed: true
-                    }
-                }, {
-                new: true
             })
 
             for (const layout of data.layouts) {
@@ -102,8 +100,7 @@ let layoutStore = {
                 }
                 layoutIds.push(layout.id)
             }
-            // console.log(":::::::::::TEST:::::::::::::::::::2")
-            // console.log(tabIds, layoutIds)
+           
             if (tabIds.length) {
                 const b = await Section.deleteMany(
                     {
@@ -112,7 +109,7 @@ let layoutStore = {
                 )
                 // console.log(b);
             }
-            // console.log(":::::::::::TEST:::::::::::::::::::3",)
+          
             if (layoutIds.length) {
                 const a = await Tab.deleteMany(
                     {

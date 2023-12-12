@@ -53,7 +53,7 @@ let relationStore = {
             if (!data["id"]) {
                 data["id"] = v4()
             }
-            console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.1")
+            
             switch (data.type) {
                 case 'Many2Dynamic':
                     
@@ -190,6 +190,8 @@ let relationStore = {
                         slug: data.table_to,
                         deleted_at: "1970-01-01T18:00:00.000+00:00",
                     });
+                    table = tableTo
+                    
                     let  = await tableVersion(mongoConn, { slug: data.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                     result = await relationFieldChecker(data.field_to, tableTo.id, data.project_id)
                     if (result.exists) {
@@ -205,8 +207,55 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     let res = await field.save();
+                    field_id = res.id
+                    
+                    const fieldPermissionTableMany1 = (
+                        await ObjectBuilder(true, data.project_id)
+                    )["field_permission"];
 
-                    layout = await Layout.findOne({table_id: tableTo.id})
+                    for (const role of roles) {
+                        let fieldPermission = {
+                            field_id: res.id,
+                            table_slug: data.table_to,
+                            view_permission: true,
+                            edit_permission: true,
+                            guid: v4(),
+                            role_id: role.guid,
+                            label:
+                                "FROM " +
+                                data.table_from +
+                                " TO " +
+                                data.table_to,
+                        };
+
+                        const fieldPermissionWithModel =
+                            new fieldPermissionTableMany1.models(
+                                fieldPermission
+                            );
+                        fieldPermissionWithModel.save();
+                    }
+                    
+                    let type = converter(field.type);
+                    let eventTo = {}
+                    let tableRes = {}
+                    let fieldsFrom = []
+                    tableRes.slug = tableTo.slug
+                    fieldsFrom.push(
+                        {
+                            slug: field.slug,
+                            type: type
+                        }
+                    )
+                    tableRes.fields = fieldsFrom
+                    eventTo.payload = tableRes
+                    tableFrom = await Table.findOne({
+                        slug: data.table_from,
+                        deleted_at: "1970-01-01T18:00:00.000+00:00"
+                    });
+                    table = tableFrom
+
+                    layout = await Layout.findOne({table_id: table.id})
+                    
                     if (layout) {
                         
                         layout_id = layout.id
@@ -217,7 +266,7 @@ let relationStore = {
                                 label: "Tab",
                                 icon: "",
                                 type: "section",
-                                table_slug: tableTo?.slug,
+                                table_slug: table?.slug,
                                 attributes: {},
                                 layout_id: layout.id,
                             })
@@ -247,7 +296,7 @@ let relationStore = {
                                 tab_id: tab.id
                             })
                         }
-        
+                        
                         if(section[0]) {
                             
                             const count_columns = section[0].fields ? section[0].fields.length : 0
@@ -301,50 +350,6 @@ let relationStore = {
                             }
                         }
                     }
-
-                    const fieldPermissionTableMany1 = (
-                        await ObjectBuilder(true, data.project_id)
-                    )["field_permission"];
-
-                    for (const role of roles) {
-                        let fieldPermission = {
-                            field_id: res.id,
-                            table_slug: data.table_to,
-                            view_permission: true,
-                            edit_permission: true,
-                            guid: v4(),
-                            role_id: role.guid,
-                            label:
-                                "FROM " +
-                                data.table_from +
-                                " TO " +
-                                data.table_to,
-                        };
-
-                        const fieldPermissionWithModel =
-                            new fieldPermissionTableMany1.models(
-                                fieldPermission
-                            );
-                        fieldPermissionWithModel.save();
-                    }
-
-                    let type = converter(field.type);
-                    let eventTo = {}
-                    let tableRes = {}
-                    let fieldsFrom = []
-                    tableRes.slug = tableTo.slug
-                    fieldsFrom.push(
-                        {
-                            slug: field.slug,
-                            type: type
-                        }
-                    )
-                    tableRes.fields = fieldsFrom
-                    eventTo.payload = tableRes
-                    tableFrom = await Table.findOne({
-                        slug: data.table_from,
-                        deleted_at: "1970-01-01T18:00:00.000+00:00"
-                    });
                  
                     result = await relationFieldChecker(data.field_from, tableFrom.id, data.project_id)
                     if (result.exists) {
@@ -361,102 +366,6 @@ let relationStore = {
                     });
                     res = await field.save();
                     field_id = res.id
-
-                    layout = await Layout.findOne({table_id: tableFrom.id})
-                    if (layout) {
-                        
-                        layout_id = layout.id
-                        let tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
-                        if (!tab) {
-                            tab = await Tab.create({
-                                order: 1,
-                                label: "Tab",
-                                icon: "",
-                                type: "section",
-                                table_slug: tableFrom?.slug,
-                                attributes: {},
-                                layout_id: layout.id,
-                            })
-                        }
-                        
-                        const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-                        if(!section.length) {
-                            
-                            await Section.create({
-                                id: v4(),
-                                order: section.length + 1,
-                                column: "SINGLE",
-                                label: "Info",
-                                icon: "",
-                                fields: [
-                                    {
-                                        id: `${data.table_to}#${data.id}`,
-                                        order: 1,
-                                        field_name: data.label,
-                                        relation_type: "Many2Many",
-                                        is_visible_layout:  true,
-                                        show_label: true
-                                    }
-                                ],
-                                table_id: tableFrom.id,
-                                attributes: {},
-                                tab_id: tab.id
-                            })
-                        }
-        
-                        if(section[0]) {
-                            
-                            const count_columns = section[0].fields ? section[0].fields.length : 0
-                            if(count_columns < (table.section_column_count || 3)) {
-                                const a = await Section.findOneAndUpdate(
-                                    {
-                                        id: section[0].id
-                                    }, 
-                                    {
-                                        $set: {
-                                            fields: [
-                                                ...(count_columns ? section[0].fields : []),
-                                                {
-                                                    id: `${data.table_to}#${data.id}`,
-                                                    order: count_columns + 1,
-                                                    field_name: data.label,
-                                                    relation_type: "Many2One",
-                                                    is_visible_layout:  true,
-                                                    show_label: true
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        new: true
-                                    }
-                                )
-                                
-                            } else {
-                                const a = await Section.create({
-                                    id: v4(),
-                                    order: section.length + 1,
-                                    column: "SINGLE",
-                                    label: "Info",
-                                    icon: "",
-                                    fields: [
-                                        {
-                                            id: `${data.table_to}#${data.id}`,
-                                            order: 1,
-                                            field_name: data.label,
-                                            relation_type: "Many2One",
-                                            is_visible_layout:  true,
-                                            show_label: true
-                                        }
-                                    ],
-                                    table_id: tableFrom.id,
-                                    attributes: {},
-                                    tab_id: tab.id
-                                })
-                                
-                            }
-                        }
-                    }
 
                     const fieldPermissionTableMany2 = (
                         await ObjectBuilder(true, data.project_id)
@@ -524,6 +433,7 @@ let relationStore = {
                         relation_id: data.id,
                     });
                     let responsee = await field.save();
+                    field_id = responsee.id
 
                     layout = await Layout.findOne({table_id: table.id})
                     if (layout) {
@@ -699,7 +609,7 @@ let relationStore = {
                                 attributes: {},
                             })
                         }
-                        console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.2")
+                        
                         const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
                         if(!section.length) {
                             
@@ -724,7 +634,7 @@ let relationStore = {
                                 tab_id: tab.id
                             })
                         }
-                        console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.3")
+                        
                         if(section[0]) {
                             
                             const count_columns = section[0].fields ? section[0].fields.length : 0
@@ -756,7 +666,7 @@ let relationStore = {
                                 console.log("~~~> edited ", section[0].id, a)
                                 
                             } else {
-                                console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.4")
+                                
                                 const a = await Section.create({
                                     id: v4(),
                                     order: section.length + 1,
@@ -777,7 +687,7 @@ let relationStore = {
                                     attributes: {},
                                     tab_id: tab.id
                                 })
-                                console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0.5")
+                                
                             }
                         }
                     }
@@ -825,9 +735,9 @@ let relationStore = {
                     break;
                 default:
             }
-            console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 1")
+            
             const relation = await Relation.create(data)
-            console.log("!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2")
+            
             let tableSlugs = [data.table_slug];
             if (relation.type === "Many2Dynamic") {
                 for (const dynamicTable of relation.dynamic_tables) {
@@ -846,12 +756,13 @@ let relationStore = {
                 }
             } else {
                 let tableTo = await Table.findOne({slug: data.table_to})
+                let tableFrom = await Table.findOne({slug: data.table_from})
 
                 data.id = v4();
-                data.relation_table_slug = data.table_to
+                data.relation_table_slug = data.relation_table_slug
                 data.type = data.view_type;
                 data["relation_id"] = relation.id;
-                data["name"] = data.title;
+                data["name"] = data.label;
                 data["attributes"] = data.attributes || {}
                 const view = new View(data);
                 const responseView = await view.save();
@@ -865,7 +776,7 @@ let relationStore = {
                     const c = await Tab.create({
                         id: v4(),
                         order: tabs.length + 1,
-                        label: table.label || "Relation tab" + data.table_from,
+                        label: tableFrom?.label || "Relation tab" + data.table_from,
                         icon: "",
                         type: "relation",
                         layout_id: layout.id,
@@ -905,6 +816,7 @@ let relationStore = {
                     },
                 }
             );
+            console.log("~~~> fieldID ", field_id)
             relation.id = field_id
 
             return relation;
@@ -1465,7 +1377,7 @@ let relationStore = {
                     }
                     let view = await View.findOne({
                         $and: [
-                            { relation_table_slug: data.table_slug },
+                            // { relation_table_slug: data.table_slug },
                             { relation_id: relations[i].id },
                         ],
                     });
@@ -1810,7 +1722,7 @@ let relationStore = {
             let tableTo = await tableVersion(mongoConn, { slug: relation.table_to }, data.version_id, true)
             let view = await View.findOne({
                 $and: [
-                    { relation_table_slug: data.table_slug },
+                    // { relation_table_slug: data.table_slug },
                     { relation_id: relation.id },
                 ],
             });

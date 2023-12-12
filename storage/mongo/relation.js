@@ -1222,49 +1222,141 @@ let relationStore = {
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
+            // 
             const mongoConn = await mongoPool.get(data.project_id);
+            const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
 
-            const relation = await Relation.findOne({ id: data.id }).lean();
+            if (data.table_slug === "") {
+                let table = await Table.findOne({
+                    id: data.table_id
+                });
+                data.table_slug = table.slug;
+            }
+            const relations = await Relation.find(
+                {
+                    id: data.id
+                },
+                null,
+                {
+                    sort: { created_at: -1 },
+                }
+            ).populate("fields").lean();
 
-            let tableFrom = await tableVersion(mongoConn, { slug: relation.table_from }, data.version_id, true)
-            if (relation.type === "Many2Dynamic") {
-                let tableTo;
-                for (const dynamic_table of relation.dynamic_tables) {
-                    if (dynamic_table.table_slug === data.table_slug) {
-                        tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
+            if(!relations.length) {
+                throw new Error("Relation not found with given id")
+                return
+            }
+
+            let responseRelations = [];
+            for (let i = 0; i < relations.length; i++) {
+                // let tableFrom = await Table.findOne({
+                //     slug: relations[i].table_from
+                // })
+                let tableFrom = await tableVersion(mongoConn, { slug: relations[i].table_from }, data.version_id, true)
+                if (relations[i].type === "Many2Dynamic") {
+                    let tableTo;
+                    for (const dynamic_table of relations[i].dynamic_tables) {
+                        if (dynamic_table.table_slug === data.table_slug) {
+                            // tableTo = await Table.findOne({
+                            //     slug: dynamic_table.table_slug
+                            // })
+                            tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
+                        }
                     }
+                    let responseRelation = {
+                        id: relations[i].id,
+                        table_from: tableFrom,
+                        field_from: relations[i].field_from,
+                        field_to: relations[i].field_to,
+                        type: relations[i].type,
+                        view_fields: relations[i].fields,
+                        editable: relations[i].editable,
+                        dynamic_tables: relations[i].dynamic_tables,
+                        relation_field_slug: relations[i].relation_field_slug,
+                        auto_filters: relations[i].auto_filters,
+                        is_user_id_default: relations[i].is_user_id_default,
+                        cascadings: relations[i].cascadings,
+                        object_id_from_jwt: relations[i].object_id_from_jwt,
+                        cascading_tree_table_slug:
+                            relations[i].cascading_tree_table_slug,
+                        cascading_tree_field_slug:
+                            relations[i].cascading_tree_field_slug,
+                        relation_buttons: relations[i].relation_buttons,
+                    };
+                    if (tableTo) {
+                        responseRelation["table_to"] = tableTo;
+                    }
+                    let view = await View.findOne({
+                        $and: [
+                            { relation_table_slug: data.table_slug },
+                            { relation_id: relations[i].id },
+                        ],
+                    });
+                    if (view) {
+                        responseRelation["title"] = view.name;
+                        responseRelation["columns"] = view.columns;
+                        responseRelation["quick_filters"] = view.quick_filters;
+                        responseRelation["group_fields"] = view.group_fields;
+                        responseRelation["is_editable"] = view.is_editable;
+                        responseRelation["relation_table_slug"] =
+                            view.relation_table_slug;
+                        responseRelation["view_type"] = view.type;
+                        responseRelation["summaries"] = view.summaries;
+                        responseRelation["relation_id"] = view.relation_id;
+                        responseRelation["default_values"] =
+                            view.default_values;
+                        responseRelation["action_relations"] =
+                            view.action_relations;
+                        responseRelation["default_limit"] = view.default_limit;
+                        responseRelation["multiple_insert"] =
+                            view.multiple_insert;
+                        responseRelation["multiple_insert_field"] =
+                            view.multiple_insert_field;
+                        responseRelation["updated_fields"] =
+                            view.updated_fields;
+                        responseRelation["creatable"] = view.creatable;
+                        responseRelation["default_editable"] = view.default_editable;
+                        responseRelation["function_path"] = view.function_path;
+                        responseRelation["attributes"] = view.attributes;
+                    }
+                    responseRelations.push(responseRelation);
+                    continue;
                 }
-                let responseRelation = {
-                    id: relation.id,
-                    table_from: tableFrom,
-                    field_from: relation.field_from,
-                    field_to: relation.field_to,
-                    type: relation.type,
-                    view_fields: relation.fields,
-                    editable: relation.editable,
-                    dynamic_tables: relation.dynamic_tables,
-                    relation_field_slug: relation.relation_field_slug,
-                    auto_filters: relation.auto_filters,
-                    is_user_id_default: relation.is_user_id_default,
-                    cascadings: relation.cascadings,
-                    object_id_from_jwt: relation.object_id_from_jwt,
-                    cascading_tree_table_slug:
-                        relation.cascading_tree_table_slug,
-                    cascading_tree_field_slug:
-                        relation.cascading_tree_field_slug,
-                };
-                if (tableTo) {
-                    responseRelation["table_to"] = tableTo;
-                }
+                // let tableTo = await Table.findOne({
+                //     slug: relations[i].table_to
+                // })
+                let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
                 let view = await View.findOne({
                     $and: [
                         { relation_table_slug: data.table_slug },
-                        { relation_id: relation.id },
+                        { relation_id: relations[i].id },
                     ],
                 });
+                let responseRelation = {
+                    id: relations[i].id,
+                    table_from: tableFrom,
+                    table_to: tableTo,
+                    field_from: relations[i].field_from,
+                    field_to: relations[i].field_to,
+                    type: relations[i].type,
+                    view_fields: relations[i].fields,
+                    editable: relations[i].editable,
+                    dynamic_tables: relations[i].dynamic_tables,
+                    relation_field_slug: relations[i].relation_field_slug,
+                    auto_filters: relations[i].auto_filters,
+                    is_user_id_default: relations[i].is_user_id_default,
+                    cascadings: relations[i].cascadings,
+                    object_id_from_jwt: relations[i].object_id_from_jwt,
+                    cascading_tree_table_slug:
+                        relations[i].cascading_tree_table_slug,
+                    cascading_tree_field_slug:
+                        relations[i].cascading_tree_field_slug,
+                    relation_buttons: relations[i].relation_buttons
+                };
                 if (view) {
+                    // 
                     responseRelation["title"] = view.name;
                     responseRelation["columns"] = view.columns;
                     responseRelation["quick_filters"] = view.quick_filters;
@@ -1288,60 +1380,13 @@ let relationStore = {
                     responseRelation["function_path"] = view.function_path;
                     responseRelation["attributes"] = view.attributes;
                 }
+                responseRelations.push(responseRelation);
             }
-
-            let tableTo = await tableVersion(mongoConn, { slug: relation.table_to }, data.version_id, true)   
-            let view = await View.findOne({
-                $and: [
-                    { relation_table_slug: data.table_slug },
-                    { relation_id: relation.id },
-                ],
+            const count = await Relation.countDocuments({
+                table_from: data.table_slug,
             });
-            let responseRelation = {
-                id: relation.id,
-                table_from: tableFrom,
-                table_to: tableTo,
-                field_from: relation.field_from,
-                field_to: relation.field_to,
-                type: relation.type,
-                view_fields: relation.fields,
-                editable: relation.editable,
-                dynamic_tables: relation.dynamic_tables,
-                relation_field_slug: relation.relation_field_slug,
-                auto_filters: relation.auto_filters,
-                is_user_id_default: relation.is_user_id_default,
-                cascadings: relation.cascadings,
-                object_id_from_jwt: relation.object_id_from_jwt,
-                cascading_tree_table_slug:
-                    relation.cascading_tree_table_slug,
-                cascading_tree_field_slug:
-                    relation.cascading_tree_field_slug,
-            };
-            if (view) {
-                responseRelation["title"] = view.name;
-                responseRelation["columns"] = view.columns;
-                responseRelation["quick_filters"] = view.quick_filters;
-                responseRelation["group_fields"] = view.group_fields;
-                responseRelation["is_editable"] = view.is_editable;
-                responseRelation["relation_table_slug"] =
-                    view.relation_table_slug;
-                responseRelation["view_type"] = view.type;
-                responseRelation["summaries"] = view.summaries;
-                responseRelation["relation_id"] = view.relation_id;
-                responseRelation["default_values"] = view.default_values;
-                responseRelation["action_relations"] =
-                    view.action_relations;
-                responseRelation["default_limit"] = view.default_limit;
-                responseRelation["multiple_insert"] = view.multiple_insert;
-                responseRelation["multiple_insert_field"] =
-                    view.multiple_insert_field;
-                responseRelation["updated_fields"] = view.updated_fields;
-                responseRelation["creatable"] = view.creatable;
-                responseRelation["default_editable"] = view.default_editable;
-                responseRelation["function_path"] = view.function_path;
-                responseRelation["attributes"] = view.attributes;
-            }
-            return responseRelation;
+
+            return { relations: responseRelations[0], count: count };
         } catch (err) {
             throw err;
         }

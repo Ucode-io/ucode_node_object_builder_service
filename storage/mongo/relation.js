@@ -1384,7 +1384,7 @@ let relationStore = {
                 responseRelations.push(responseRelation);
             }
             console.log(responseRelations);
-            return { relations: responseRelations[0] };
+            return responseRelations[0] ;
         } catch (err) {
             throw err;
         }

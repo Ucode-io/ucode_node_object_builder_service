@@ -1232,12 +1232,6 @@ let relationStore = {
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
 
-            if (data.table_slug === "") {
-                let table = await Table.findOne({
-                    id: data.table_id
-                });
-                data.table_slug = table.slug;
-            }
             const relations = await Relation.find(
                 {
                     id: data.id
@@ -1246,11 +1240,16 @@ let relationStore = {
                 {
                     sort: { created_at: -1 },
                 }
-            ).populate("fields").lean();
+                ).populate("fields").lean();
 
-            if(!relations.length) {
-                throw new Error("Relation not found with given id")
-                return
+                if(!relations.length) {
+                    throw new Error("Relation not found with given id")
+                    return
+                }
+                
+            if (!data.table_slug) {
+
+                data.table_slug = relations[0].table_from;
             }
 
             let responseRelations = [];
@@ -1328,10 +1327,9 @@ let relationStore = {
                     responseRelations.push(responseRelation);
                     continue;
                 }
-                // let tableTo = await Table.findOne({
-                //     slug: relations[i].table_to
-                // })
-                let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
+                let tableTo = await Table.findOne({
+                    slug: relations[i].table_to
+                })
                 let view = await View.findOne({
                     $and: [
                         { relation_table_slug: data.table_slug },

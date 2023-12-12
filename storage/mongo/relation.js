@@ -862,9 +862,9 @@ let relationStore = {
             
             const isViewExists = await View.findOne({
                 $and: [
-                    // {
-                    //     relation_table_slug: data.relation_table_slug,
-                    // },
+                    {
+                        relation_table_slug: data.relation_table_slug,
+                    },
                     {
                         relation_id: data.id,
                     },
@@ -877,7 +877,7 @@ let relationStore = {
                 await View.findOneAndUpdate(
                     {
                         $and: [
-                            // { relation_table_slug: data.relation_table_slug },
+                            { relation_table_slug: data.relation_table_slug },
                             { relation_id: data.id },
                         ],
                     },
@@ -977,7 +977,7 @@ let relationStore = {
                             let tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
                             let view = await View.findOne({
                                 $and: [
-                                    // { relation_table_slug: data.table_slug },
+                                    { relation_table_slug: data.table_slug },
                                     { relation_id: relations[i].id },
                                 ],
                             });
@@ -1073,7 +1073,7 @@ let relationStore = {
                 let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
                 let view = await View.findOne({
                     $and: [
-                        // { relation_table_slug: data.table_slug },
+                        { relation_table_slug: data.table_slug },
                         { relation_id: relations[i].id },
                     ],
                 });
@@ -1199,7 +1199,7 @@ let relationStore = {
                     }
                     let view = await View.findOne({
                         $and: [
-                            // { relation_table_slug: data.table_slug },
+                            { relation_table_slug: data.table_slug },
                             { relation_id: relations[i].id },
                         ],
                     });
@@ -1238,7 +1238,7 @@ let relationStore = {
                 })
                 let view = await View.findOne({
                     $and: [
-                        // { relation_table_slug: data.table_slug },
+                        { relation_table_slug: data.table_slug },
                         { relation_id: relations[i].id },
                     ],
                 });
@@ -1377,7 +1377,7 @@ let relationStore = {
                     }
                     let view = await View.findOne({
                         $and: [
-                            // { relation_table_slug: data.table_slug },
+                            { relation_table_slug: data.table_slug },
                             { relation_id: relations[i].id },
                         ],
                     });
@@ -1417,7 +1417,7 @@ let relationStore = {
                 let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
                 let view = await View.findOne({
                     $and: [
-                        // { relation_table_slug: data.table_slug },
+                        { relation_table_slug: data.table_slug },
                         { relation_id: relations[i].id },
                     ],
                 });
@@ -1636,7 +1636,7 @@ let relationStore = {
                         let tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
                         let view = await View.findOne({
                             $and: [
-                                // { relation_table_slug: data.table_slug },
+                                { relation_table_slug: data.table_slug },
                                 { relation_id: relation.id },
                             ],
                         });
@@ -1667,7 +1667,7 @@ let relationStore = {
                             }
                         }
                         let responseRelation = {
-                            id: relation.id,
+                            id: relation.id,git a
                             table_from: tableFrom,
                             table_to: tableTo,
                             type: relation.type,
@@ -1722,7 +1722,7 @@ let relationStore = {
             let tableTo = await tableVersion(mongoConn, { slug: relation.table_to }, data.version_id, true)
             let view = await View.findOne({
                 $and: [
-                    // { relation_table_slug: data.table_slug },
+                    { relation_table_slug: data.table_slug },
                     { relation_id: relation.id },
                 ],
             });

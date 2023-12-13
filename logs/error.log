@@ -7290,3 +7290,59 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.deleteMany: failed with error: This table is auth table. Auth information not fully given for delete many users',
+  level: 'error',
+  timestamp: '2023-12-13T13:33:39.542Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.deleteMany: failed with error: This table is auth table. Auth information not fully given for delete many users',
+  level: 'error',
+  timestamp: '2023-12-13T13:43:17.964Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.deleteMany: failed with error: This table is auth table. Auth information not fully given for delete many users',
+  level: 'error',
+  timestamp: '2023-12-13T13:50:06.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.deleteMany: failed with error: This table is auth table. Auth information not fully given for delete many users',
+  level: 'error',
+  timestamp: '2023-12-13T13:56:31.997Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.deleteMany: failed with error: This table is auth table. Auth information not fully given for delete many users',
+  level: 'error',
+  timestamp: '2023-12-13T14:01:49.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.deleteMany: failed with error: This table is auth table. Auth information not fully given for delete many users',
+  level: 'error',
+  timestamp: '2023-12-13T14:09:10.720Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.deleteMany: failed with error: This table is auth table. Auth information not fully given for delete many users',
+  level: 'error',
+  timestamp: '2023-12-13T14:15:08.609Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.deleteMany: failed with error: This table is auth table. Auth information not fully given for delete many users',
+  level: 'error',
+  timestamp: '2023-12-13T14:22:36.496Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

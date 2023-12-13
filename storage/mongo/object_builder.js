@@ -4663,12 +4663,12 @@ let objectBuilder = {
                 })
             }
             if (response && response.length) {
-                if (tableModel.attributes !== null) {
+                if (tableModel.attributes && tableModel.attributes !== null && tableModel.is_login_table) {
                     let tableAttributes = struct.decode(tableModel.attributes)
                     if (tableAttributes && tableAttributes.auth_info) {
                         let readyForAuth = [];
                         for (const obj of response) {
-                            if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                            if (tableModel && !data.from_auth_service) {
 
                                 let authInfo = tableAttributes.auth_info
                                 if (!obj[authInfo['client_type_id']] || !obj[authInfo['role_id']]) {

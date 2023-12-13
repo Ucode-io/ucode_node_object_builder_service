@@ -4663,38 +4663,40 @@ let objectBuilder = {
                 })
             }
             if (response && response.length) {
-                let tableAttributes = struct.decode(tableModel.attributes)
-                if (tableAttributes && tableAttributes.auth_info) {
-                    let readyForAuth = [];
-                    for (const obj of response) {
-                        if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                if (tableModel.attributes !== null) {
+                    let tableAttributes = struct.decode(tableModel.attributes)
+                    if (tableAttributes && tableAttributes.auth_info) {
+                        let readyForAuth = [];
+                        for (const obj of response) {
+                            if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
 
-                            let authInfo = tableAttributes.auth_info
-                            if (!obj[authInfo['client_type_id']] || !obj[authInfo['role_id']]) {
-                                throw new Error('This table is auth table. Auth information not fully given')
-                            }
-                            let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                guid: obj[authInfo['client_type_id']],
-                                table_slug: tableModel.slug
-                            })
-                            if (loginTable) {
-                                readyForAuth.push({
-                                    client_type_id: obj[authInfo['client_type_id']],
-                                    role_id: obj[authInfo['role_id']],
-                                    user_id: obj['guid']
+                                let authInfo = tableAttributes.auth_info
+                                if (!obj[authInfo['client_type_id']] || !obj[authInfo['role_id']]) {
+                                    throw new Error('This table is auth table. Auth information not fully given')
+                                }
+                                let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                    guid: obj[authInfo['client_type_id']],
+                                    table_slug: tableModel.slug
                                 })
+                                if (loginTable) {
+                                    readyForAuth.push({
+                                        client_type_id: obj[authInfo['client_type_id']],
+                                        role_id: obj[authInfo['role_id']],
+                                        user_id: obj['guid']
+                                    })
 
+                                }
                             }
                         }
+                        if (response.length !== readyForAuth.length) {
+                            throw new Error('This table is auth table. Auth information not fully given for delete many users')
+                        }
+                        await grpcClient.deleteUsersAuth({
+                            users: readyForAuth,
+                            project_id: data['company_service_project_id'],
+                            environment_id: data['company_service_environment_id'],
+                        })
                     }
-                    if (response.length !== readyForAuth.length) {
-                        throw new Error('This table is auth table. Auth information not fully given for delete many users')
-                    }
-                    await grpcClient.deleteUsersAuth({
-                        users: readyForAuth,
-                        project_id: data['company_service_project_id'],
-                        environment_id: data['company_service_environment_id'],
-                    })
                 }
                 if (!tableModel.soft_delete) {
                     data.ids.length && await allTableInfo[req.table_slug].models.deleteMany({ guid: { $in: data.ids } });

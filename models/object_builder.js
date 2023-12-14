@@ -273,7 +273,7 @@ async function buildModels(is_build = true, project_id) {
                         viewFieldIds = relation.view_fields
                         let viewOfRelation = await View.findOne({
                             relation_id: field.relation_id,
-                            relation_table_slug: table.slug
+                            // relation_table_slug: table.slug
                         })
                         if (viewOfRelation && ((viewOfRelation.view_fields && viewOfRelation.view_fields.length) || (field.type == "DYNAMIC")) ) {
                             viewFieldIds = viewOfRelation.view_fields

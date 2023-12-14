@@ -1073,7 +1073,7 @@ let relationStore = {
                 let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
                 let view = await View.findOne({
                     $and: [
-                        { relation_table_slug: data.table_slug },
+                        // { relation_table_slug: data.table_slug },
                         { relation_id: relations[i].id },
                     ],
                 });
@@ -1490,13 +1490,22 @@ let relationStore = {
             const Tab = mongoConn.models["Tab"];
 
             const relation = await Relation.findOne({ id: data.id });
-            if(relation && relation.is_system) {
+            if(!relation) {
+                throw new Error("Relation not found")
+            } else if(relation && relation.is_system) {
                 throw new Error("This relation is system relation")
             }
-            let table, resp, field = {}
+
+            let field = await Field.findOne({relation_id: data.id})
+            if(!field) {
+                throw new Error("Field not found")
+            }
+
+            let table, resp
             let tableResp = {}
             let event = {}
             let fields = []
+
             if (relation.type === 'One2Many') {
                 // table = await Table.findOne({
                 //     slug: relation.table_to,
@@ -1570,13 +1579,16 @@ let relationStore = {
                     table_id: table.id,
                     slug: relation.field_from,
                     relation_id: relation.id,
-                });
-                field.slug = relation.field_from;
-                fields.push(field);
-                tableResp.slug = table.slug;
-                tableResp.fields = fields;
-                event.payload = tableResp;
+                })
+
+
+                field.slug = relation.field_from
+                fields.push(field)
+                tableResp.slug = table.slug
+                tableResp.fields = fields
+                event.payload = tableResp
             }
+
             const res = await Table.updateOne(
                 {
                     slug: { $in: [relation.table_from, relation.table_to] },
@@ -1584,13 +1596,44 @@ let relationStore = {
                 {
                     $set: {
                         is_changed: true,
-                        [`is_changed_by_host.${os.hostname()}`]: true
+                        "is_changed_by_host": {
+                            [os.hostname()]: true
+                        }
                     },
                 }
-            );
+            )
+
             await View.deleteMany({
                 relation_id: relation.id,
             });
+
+            const existsColumnView = await View.findOne({table_slug: relation.table_from}).lean()
+            let columns = [], is_exists = false
+            if(existsColumnView && existsColumnView.columns && existsColumnView.columns.length) {
+                for(let id of existsColumnView.columns) {
+                    if(id == field.id) {
+                        is_exists = true
+                        continue
+                    } else if(id) {
+                        columns.push(id)
+                    }
+
+                }
+
+                if(is_exists) {
+                    await View.findOneAndUpdate(
+                        {
+                            id: existsColumnView.id
+                        },
+                        {
+                            $set: {
+                                columns: columns
+                            }
+                        }
+                    )
+                }
+            }
+
             resp = await Relation.findOneAndDelete({ id: data.id });
             let count = await Tab.countDocuments({ relation_id: data.id })
             count && await Tab.deleteMany({ relation_id: data.id })

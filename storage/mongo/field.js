@@ -803,6 +803,33 @@ let fieldStore = {
                 field_id: data.id
             })
 
+            const existsColumnView = await View.findOne({table_slug: table.slug}).lean()
+            let columns = [], is_exists = false
+            if(existsColumnView && existsColumnView.columns && existsColumnView.columns.length) {
+                for(let id of existsColumnView.columns) {
+                    if(id == deletedField.id) {
+                        is_exists = true
+                        continue
+                    } else if(id) {
+                        columns.push(id)
+                    }
+
+                }
+
+                if(is_exists) {
+                    await View.findOneAndUpdate(
+                        {
+                            id: existsColumnView.id
+                        },
+                        {
+                            $set: {
+                                columns: columns
+                            }
+                        }
+                    )
+                }
+            }
+
             return field;
 
         } catch (err) {

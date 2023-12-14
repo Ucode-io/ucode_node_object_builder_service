@@ -1620,7 +1620,7 @@ let relationStore = {
                 }
             }
 
-            const res = await Table.findOneAndUpdate(
+            await Table.updateMany(
                 {
                     slug: { $in: [relation.table_from, relation.table_to] },
                 },
@@ -1633,7 +1633,7 @@ let relationStore = {
                     },
                 }
             )
-            
+
             resp = await Relation.findOneAndDelete({ id: data.id });
             let count = await Tab.countDocuments({ relation_id: data.id })
             count && await Tab.deleteMany({ relation_id: data.id })

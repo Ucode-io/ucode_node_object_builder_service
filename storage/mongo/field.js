@@ -790,6 +790,7 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
+            const View = mongoConn.models['View']
 
             const deletedField = await Field.findOne({ id: data.id }).lean()
             if(deletedField && deletedField.is_system) {

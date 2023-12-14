@@ -831,6 +831,20 @@ let fieldStore = {
                 }
             }
 
+            await Table.findOneAndUpdate(
+                {
+                    id: table.id,
+                },
+                {
+                    $set: {
+                        is_changed: true,
+                        "is_changed_by_host": {
+                            [os.hostname()]: true
+                        }
+                    },
+                }
+            )
+
             return field;
 
         } catch (err) {

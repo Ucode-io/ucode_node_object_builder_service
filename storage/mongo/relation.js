@@ -1589,20 +1589,6 @@ let relationStore = {
                 event.payload = tableResp
             }
 
-            const res = await Table.updateOne(
-                {
-                    slug: { $in: [relation.table_from, relation.table_to] },
-                },
-                {
-                    $set: {
-                        is_changed: true,
-                        "is_changed_by_host": {
-                            [os.hostname()]: true
-                        }
-                    },
-                }
-            )
-
             await View.deleteMany({
                 relation_id: relation.id,
             });
@@ -1633,6 +1619,20 @@ let relationStore = {
                     )
                 }
             }
+
+            await Table.updateMany(
+                {
+                    slug: { $in: [relation.table_from, relation.table_to] },
+                },
+                {
+                    $set: {
+                        is_changed: true,
+                        "is_changed_by_host": {
+                            [os.hostname()]: true
+                        }
+                    },
+                }
+            )
 
             resp = await Relation.findOneAndDelete({ id: data.id });
             let count = await Tab.countDocuments({ relation_id: data.id })

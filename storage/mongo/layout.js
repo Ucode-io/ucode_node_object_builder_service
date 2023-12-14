@@ -401,6 +401,7 @@ let layoutStore = {
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async function (data) {
         try {
+            console.log("Requested Layout ~~> ", JSON.stringify(data))
             const mongoConn = await mongoPool.get(data.project_id)
             const Layout = mongoConn.models['Layout']
             const Tab = mongoConn.models['Tab']
@@ -408,6 +409,7 @@ let layoutStore = {
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
             let table = {};
+            console.log("~~~~> test #1")
             if (!data.table_id) {
                 table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
                 data.table_id = table.id;
@@ -415,6 +417,7 @@ let layoutStore = {
                 table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true);
                 data.table_slug = table.slug
             }
+            console.log("~~~~> test #2")
             let payload = {
                 table_id: data.table_id,
             }
@@ -433,12 +436,17 @@ let layoutStore = {
             const layout_ids = []
             for (let layout of layouts) {
                 layout_ids.push(layout.id);
+                console.log("~~~~> test #2.1")
                 let summaryFields = [];
                 // this login for layout's summary field
                 if (layout.summary_fields && layout.summary_fields.length) {
                     for (const fieldReq of layout.summary_fields) {
+                        console.log("~~~~> test #2.102", fieldReq)
                         let guid;
+                        console.log("~~~~> test #2.103")
                         let field = {};
+                        console.log("~~~~> test #2.104")
+                        console.log("~~~~> test #2.2")
                         let encodedAttributes = {};
                         if (fieldReq.id.includes("#")) {
                             field.id = fieldReq.id
@@ -456,8 +464,10 @@ let layoutStore = {
                             }
 
                             const relation = await Relation.findOne({ id: relationID })
+                            if(!relation) continue
                             let fieldAsAttribute = []
                             let view_of_relation;
+                            console.log("~~~~> test #2.3". relation)
                             view_of_relation = await View.findOne({
                                 relation_id: relation.id,
                                 relation_table_slug: data.table_slug
@@ -468,7 +478,7 @@ let layoutStore = {
                                     viewFieldIds = view_of_relation.view_fields
                                 }
                             }
-                            console.log(viewFieldIds);
+                            
                             if (relation) {
                                 for (const fieldID of viewFieldIds) {
                                     let field = await Field.findOne({
@@ -633,7 +643,7 @@ let layoutStore = {
                     layout.summary_fields = fieldsWithPermissions
                 }
             }
-
+            console.log("~~~~> test #3")
             const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()
 
             const map_tab = {}
@@ -667,13 +677,13 @@ let layoutStore = {
                     map_tab[tab.layout_id] = [tab]
                 }
             }
-
+            console.log("~~~~> test #4")
             if (Object.keys(map_tab).length > 0) {
                 for (let layout of layouts) {
                     layout.tabs = map_tab[layout.id]
                 }
             }
-
+            console.log("~~~~> test #5")
             return { layouts: layouts }
 
         } catch (error) {

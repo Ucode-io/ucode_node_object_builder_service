@@ -7346,3 +7346,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-12-14T08:16:47.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.getAll: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2023-12-14T08:20:30.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -1,4 +1,5 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
+const { BoardOrderChecker } = require("../../helper/board_order");
 const Minio = require('minio');
 const fs = require("fs");
 const cfg = require("../../config/index");

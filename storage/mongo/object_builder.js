@@ -46,7 +46,7 @@ let objectBuilder = {
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
-            await payload.save();
+          
             ownGuid = payload.guid;
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
@@ -70,11 +70,12 @@ let objectBuilder = {
                         if (authInfo['login_strategy'] && authInfo['login_strategy'].length) {
                             loginStrategy = authInfo['login_strategy']
                         }
+                        payload.email = (payload.email || "").toLowerCase()
                         let authCheckRequest = {
                             client_type_id: data['client_type_id'],
                             role_id: data['role_id'],
                             login: data[authInfo['login']],
-                            email: data[authInfo['email']],
+                            email: (data[authInfo['email']] || "").toLowerCase(),
                             phone: data[authInfo['phone']],
                             project_id: data['company_service_project_id'],
                             company_id: data['company_service_company_id'],
@@ -98,6 +99,8 @@ let objectBuilder = {
                     }
                 }
             }
+
+            await payload.save();
 
             if (!data.guid) {
                 data.guid = payload.guid

@@ -467,12 +467,19 @@ let layoutStore = {
             const Field = mongoConn.models['Field']
             const View = mongoConn.models['View']
             const Relation = mongoConn.models['Relation']
+            const Table = mongoConn.models['Table']
 
-            if(!data.table_id) {
-                throw new Error("table_id is required")
-            }
             if(!data.menu_id) {
                 throw new Error("menu_id is required")
+            }
+
+            if(!data.table_id) {
+                let table = await Table.findOne({slug: data.table_slug}).lean() || {}
+                data.table_id = table.id
+            }
+
+            if(!data.table_id) {
+                throw new Error("Table not found")
             }
            
             const layout = await Layout.findOne(payload).lean();

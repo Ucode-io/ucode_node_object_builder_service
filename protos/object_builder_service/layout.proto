@@ -18,6 +18,7 @@ message GetSingleLayoutRequest {
     string project_id = 1;
     string table_id = 2;
     string menu_id = 3;
+    string table_slug = 4;
 }
 
 message LayoutRequest {

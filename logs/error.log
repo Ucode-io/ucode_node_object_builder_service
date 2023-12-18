@@ -7360,3 +7360,31 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.layout.update: failed with error: id is required',
+  level: 'error',
+  timestamp: '2023-12-18T08:41:11.226Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.update: failed with error: Cannot set properties of null (setting 'id')",
+  level: 'error',
+  timestamp: '2023-12-18T08:44:37.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.update: failed with error: Cannot set properties of null (setting 'id')",
+  level: 'error',
+  timestamp: '2023-12-18T08:46:45.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.update: failed with error: Cannot set properties of null (setting 'id')",
+  level: 'error',
+  timestamp: '2023-12-18T08:48:50.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

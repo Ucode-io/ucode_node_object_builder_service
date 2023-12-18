@@ -92,7 +92,10 @@ let objectBuilder = {
                             await tableInfo.models.updateOne({
                                 guid: ownGuid
                             }, {
-                                $set: { guid: responseFromAuth.user_id }
+                                $set: { 
+                                    guid: responseFromAuth.user_id,
+                                    email: (authCheckRequest.email) 
+                                }
                             })
                             data.guid = responseFromAuth.user_id
                         }

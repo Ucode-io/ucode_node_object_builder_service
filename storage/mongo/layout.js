@@ -117,6 +117,7 @@ let layoutStore = {
                     summary_fields: data.summary_fields,
                     attributes: data.attributes,
                     table_id: data.table_id,
+                    attributes: data.attributes
                 }
             }, {
                 upsert: true
@@ -136,6 +137,7 @@ let layoutStore = {
                             type: tab.type,
                             order: data.order,
                             icon: tab.icon,
+                            attributes: tab.attributes
                         },
                         upsert: true
                     }
@@ -155,7 +157,7 @@ let layoutStore = {
                                 fields: data.fields,
                                 icon: data.icon,
                                 is_summary_section: data.is_summary_section,
-                                attributes: data.attributes
+                                attributes: section.attributes
                             },
                             upsert: true
                         }

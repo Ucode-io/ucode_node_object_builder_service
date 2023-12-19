@@ -482,7 +482,7 @@ let layoutStore = {
                 throw new Error("Table not found")
             }
            
-            const layout = await Layout.findOne(payload).lean();
+            const layout = await Layout.findOne({menu_id: data.menu_id, table_id: data.table_id}).lean();
             console.log(layout)
             if(!layout) {
                 throw new Error("Layout not found")

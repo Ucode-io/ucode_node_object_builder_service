@@ -128,6 +128,12 @@ let menuStore = {
                     $nin: constants.STATIC_MENU_IDS
                 }
             }
+
+            if(data.table_id) {
+                query = {
+                    table_id: data.table_id
+                }
+            }
             const pipelines = [
                 {
                     '$match': query

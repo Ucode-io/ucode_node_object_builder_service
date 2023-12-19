@@ -296,6 +296,7 @@ let menuStore = {
                 el.data = struct.encode(el.data)
             })
             const count = await Menu.countDocuments(query);
+            console.log("\n\nMenu response", menus)
             return { menus, count };
         } catch (err) {
             throw err

@@ -332,6 +332,11 @@ let prepareFunction = {
                     deleteMany2Many.push(deleteMany2ManyObj)
                 }
                 dataToAnalytics[field.slug] = data[field.slug]
+            } else if (field.type === "MULTISELECT") {
+                // console.log("~~~>", data[field.slug], data, field)
+                if (field.required && (!data[field.slug] || !data[field.slug].length)) {
+                    throw new Error("Multiselect field is required")
+                }
             }
         }
         field_types.guid = "String"

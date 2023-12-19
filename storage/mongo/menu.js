@@ -134,6 +134,7 @@ let menuStore = {
                     table_id: data.table_id
                 }
             }
+            console.log("Requested Menu ", query, " --> ", data)
             const pipelines = [
                 {
                     '$match': query

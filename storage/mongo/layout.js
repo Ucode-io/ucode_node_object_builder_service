@@ -117,7 +117,8 @@ let layoutStore = {
                     summary_fields: data.summary_fields,
                     attributes: data.attributes,
                     table_id: data.table_id,
-                    attributes: data.attributes
+                    attributes: data.attributes,
+                    menu_id: data.menu_id
                 }
             }, {
                 upsert: true

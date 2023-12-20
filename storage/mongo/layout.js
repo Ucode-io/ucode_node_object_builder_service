@@ -484,10 +484,10 @@ let layoutStore = {
                 throw new Error("Table not found")
             }
            
-            const layout = await Layout.findOne({menu_id: data.menu_id, table_id: data.table_id}).lean();
-            console.log(layout)
+            let layout = await Layout.findOne({menu_id: data.menu_id, table_id: data.table_id}).lean();
             if(!layout) {
-                throw new Error("Layout not found")
+                layout = await Layout.findOne({table_id: data.table_id, is_default: true}).lean()
+                if(!layout) return {}
             }
 
             let table = await tableVersion(mongoConn, { id: layout.table_id }, data.version_id, true);

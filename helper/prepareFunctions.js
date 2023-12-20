@@ -333,7 +333,7 @@ let prepareFunction = {
                 }
                 dataToAnalytics[field.slug] = data[field.slug]
             } else if (field.type === "MULTISELECT") {
-                console.log("~~~>", data[field.slug], data, field)
+                // console.log("~~~>", data[field.slug], data, field)
                 if (field.required && (!data[field.slug] || !data[field.slug].length)) {
                     throw new Error("Multiselect field is required")
                 }

@@ -706,7 +706,7 @@ let layoutStore = {
             }
 
             const tabs = await Tab.find({ layout_id: layout.id }).lean()
-
+            console.log(">>> Layout Data ", data)
             for (let tab of tabs) {
                 if (tab.type === "section") {
 

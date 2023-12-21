@@ -124,6 +124,15 @@ let layoutStore = {
                 upsert: true
             })
 
+            if(data.is_default) {
+                await Layout.updateMany({
+                    table_id: data.table_id,
+                    id: { $ne: layout.id }
+                }, {
+                    is_default: false
+                })
+            }
+
             for(let tab of data.tabs) {
                 tab.id = tab.id || v4()
                 bulkWriteTab.push({

@@ -745,10 +745,7 @@ let layoutStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Layout = mongoConn.models['Layout']
             const Tab = mongoConn.models['Tab']
-            const Field = mongoConn.models['Field']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const Table = mongoConn.models['Table']
+            const Section = mongoConn.models['Section']
 
             const layout = await Layout.findOne({ id: data.id })
             if(!layout) throw new Error('Layout not found with givern id')

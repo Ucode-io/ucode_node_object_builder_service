@@ -11,7 +11,7 @@ service LayoutService {
     rpc CreateAll(CreateLayoutRequest) returns (GetListLayoutResponse) {}
     rpc Update(LayoutRequest) returns (google.protobuf.Empty) {}
     rpc GetAll(GetListLayoutRequest) returns (GetListLayoutResponse) {}
-    rpc GetSingleLayout(GetSingleLayoutRequest) returns (LayoutRequest) {}
+    rpc GetSingleLayout(GetSingleLayoutRequest) returns (LayoutResponse) {}
 }
 
 message GetSingleLayoutRequest {

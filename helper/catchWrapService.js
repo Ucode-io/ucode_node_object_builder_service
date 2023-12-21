@@ -12,6 +12,7 @@ module.exports = (namespace, fn) => {
         );
         if (namespace !== "service.project.register" && namespace !== "service.project.reconnect") {//
             let projectId = call.request.resource_environment_id || call.request.project_id
+            console.log(projectId)
             try {
                 await mongoPool.get(projectId)
             } catch (error) {

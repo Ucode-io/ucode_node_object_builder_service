@@ -31,6 +31,7 @@ const logger = require("./config/logger");
         
         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
         console.log(">>>> test for change view 1")
+        console.log(">>>> test for change view 2")
         await projectStorage.autoConnect(
             {
                 request: {

@@ -739,6 +739,33 @@ let layoutStore = {
             console.error(error)
             throw error
         }
+    }),
+    RemoveLayout: catchWrapDb(`${NAMESPACE}.GetSingleLayout`, async function (data) {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Layout = mongoConn.models['Layout']
+            const Tab = mongoConn.models['Tab']
+            const Field = mongoConn.models['Field']
+            const View = mongoConn.models['View']
+            const Relation = mongoConn.models['Relation']
+            const Table = mongoConn.models['Table']
+
+            const layout = await Layout.findOne({ id: data.id })
+            if(!layout) throw new Error('Layout not found with givern id')
+
+            const tabs = await Tab.find({layout_id: data.id})
+            const tab_ids = tabs.map(el => el.id)
+
+            await Section.deleteMany({ tab_id: { $in: tab_ids } })
+            await Tab.deleteMany({ id: { $in: tab_ids } })
+            await Layout.findOneAndDelete({ id: data.id })
+
+            return {}
+
+        } catch (error) {
+            console.error(error)
+            throw error
+        }
     })
 }
 

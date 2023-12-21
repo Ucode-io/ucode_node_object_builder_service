@@ -3,8 +3,8 @@ syntax="proto3";
 package company_service;
 option go_package = "genproto/company_service";
 
-service IntegrarionResourceService {
-    rpc CreateIntegrationResource(CreateIntegrationResoureRequest) returns (IntegrationResource) {}
+service IntegrationResourceService {
+    rpc CreateIntegrationResource(CreateIntegrationResourceRequest) returns (IntegrationResource) {}
     rpc GetByUsername(GetByUsernameRequest) returns (GetByUsernameResponse) {}
 }
 
@@ -16,7 +16,7 @@ message IntegrationResource {
     string username = 5;
 }
 
-message CreateIntegrationResoureRequest {
+message CreateIntegrationResourceRequest {
     string token = 1;
     string project_id = 2;
     string environment_id = 3;

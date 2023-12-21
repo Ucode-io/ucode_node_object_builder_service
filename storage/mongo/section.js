@@ -307,7 +307,7 @@ let sectionStore = {
             for (const section of sections) {
                 // console.log("Section: " + section.fields);
                 let fieldsRes = []
-                for (const fieldReq of section.fields) {
+                for (const fieldReq of (section.fields || [])) {
                     let guid;
                     let field = {};
                     field.is_visible_layout = fieldReq.is_visible_layout

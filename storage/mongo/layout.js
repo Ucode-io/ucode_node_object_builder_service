@@ -161,12 +161,12 @@ let layoutStore = {
                             }, 
                             update: {
                                 tab_id: tab.id,
-                                order: data.order,
-                                column: data.column,
-                                label: data.label,
-                                fields: data.fields,
-                                icon: data.icon,
-                                is_summary_section: data.is_summary_section,
+                                order: section.order,
+                                column: section.column,
+                                label: section.label,
+                                fields: section.fields,
+                                icon: section.icon,
+                                is_summary_section: section.is_summary_section,
                                 attributes: section.attributes
                             },
                             upsert: true
@@ -745,10 +745,7 @@ let layoutStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Layout = mongoConn.models['Layout']
             const Tab = mongoConn.models['Tab']
-            const Field = mongoConn.models['Field']
-            const View = mongoConn.models['View']
-            const Relation = mongoConn.models['Relation']
-            const Table = mongoConn.models['Table']
+            const Section = mongoConn.models['Section']
 
             const layout = await Layout.findOne({ id: data.id })
             if(!layout) throw new Error('Layout not found with givern id')

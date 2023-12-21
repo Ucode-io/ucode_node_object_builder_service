@@ -161,12 +161,12 @@ let layoutStore = {
                             }, 
                             update: {
                                 tab_id: tab.id,
-                                order: data.order,
-                                column: data.column,
-                                label: data.label,
-                                fields: data.fields,
-                                icon: data.icon,
-                                is_summary_section: data.is_summary_section,
+                                order: section.order,
+                                column: section.column,
+                                label: section.label,
+                                fields: section.fields,
+                                icon: section.icon,
+                                is_summary_section: section.is_summary_section,
                                 attributes: section.attributes
                             },
                             upsert: true

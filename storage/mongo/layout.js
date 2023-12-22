@@ -75,7 +75,7 @@ let layoutStore = {
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
-            // console.log(":::::::::::TEST:::::::::::::::::::1")
+            console.log("\n\n\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LLLLLLLLLLLLLLL")
             const mongoConn = await mongoPool.get(data.project_id)
             const Tab = mongoConn.models['Tab']
             const Table = mongoConn.models['Table']

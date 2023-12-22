@@ -423,15 +423,15 @@ let excelStore = {
     }),
 };
 
-function catchWrapDb(name, func) {
-    return async (...args) => {
-        try {
-            return await func(...args);
-        } catch (err) {
-            console.error(`Error in ${name}:`, err);
-            throw err;
-        }
-    };
-}
+// function catchWrapDb(name, func) {
+//     return async (...args) => {
+//         try {
+//             return await func(...args);
+//         } catch (err) {
+//             console.error(`Error in ${name}:`, err);
+//             throw err;
+//         }
+//     };
+// }
 
 module.exports = excelStore;

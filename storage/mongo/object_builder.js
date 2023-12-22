@@ -42,6 +42,16 @@ let objectBuilder = {
         const tableInfo = allTableInfos[req.table_slug]
         let ownGuid = "";
         try {
+            if (req.blocked_builder) {
+                const data = struct.decode(req.data)
+                let inserted = new tableInfo.models(data);
+                await inserted.save();
+
+                if (!data.guid) { data.guid = inserted.guid }
+                const object = struct.encode({ data });
+                return { table_slug: req.table_slug, data: object, custom_message: "" };
+            }
+
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
 
@@ -135,6 +145,14 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
+            if (req.blocked_builder) {
+                const data = struct.decode(req.data)
+
+                await tableInfo.models.findOneAndUpdate({ guid: data.guid }, { $set: data });
+
+                return { table_slug: req.table_slug, data: struct.encode(data), custom_message: "" };
+            }
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 

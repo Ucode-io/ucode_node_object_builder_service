@@ -7486,3 +7486,23 @@
     }
   }
 }
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2023-12-22T05:42:05.018Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/Users/rdonik/Desktop/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/rdonik/Desktop/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/rdonik/Desktop/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/rdonik/Desktop/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/rdonik/Desktop/projects/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}

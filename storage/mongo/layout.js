@@ -137,7 +137,7 @@ let layoutStore = {
 
                 tab.id = tab.id || v4()
 
-                if(tab.type == "relation") {
+                if(tab.type === "relation") {
                     relation_ids.push(tab.relation_id)
                 }
 
@@ -180,10 +180,10 @@ let layoutStore = {
                     })
                 }
             }
-
+            console.log("Layout roles >>>>>>>>>>>>>>>", roles.length, relation_ids)
             for (const role of roles) {
                 for (const relation_id of relation_ids) {
-                    let relationPermission = await viewRelationPermissionTable?.models?.findOne({ role_id: role.guid, table_slug: resp.slug, relation_id: relation_id })
+                    let relationPermission = await viewRelationPermissionTable?.models?.findOne({ role_id: role.guid, table_slug: table.slug, relation_id: relation_id })
                     if (!relationPermission) {
                         insertManyRelationPermissions.push({
                             role_id: role.guid,
@@ -197,7 +197,7 @@ let layoutStore = {
                     }
                 }
             }
-
+            console.log("Layout roles >>>>>>>>>>>>>>>", insertManyRelationPermissions.length)
 
             bulkWriteTab.length && await Tab.bulkWrite(bulkWriteTab)
             bulkWriteSection.length && await Section.bulkWrite(bulkWriteSection)

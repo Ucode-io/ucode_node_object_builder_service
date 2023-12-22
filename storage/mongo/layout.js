@@ -84,7 +84,7 @@ let layoutStore = {
             const RoleTable = (await ObjectBuilder(true, data.project_id))['role']
             const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
             const roles = await RoleTable?.models?.find({}).lean()
-            let bulkWriteTab = [], bulkWriteSection = [], relation_ids = []
+            let bulkWriteTab = [], bulkWriteSection = [], relation_ids = [], insertManyRelationPermissions = []
 
             let layout = await Layout.findOne({id: data.id}).lean();
             if(!layout) {

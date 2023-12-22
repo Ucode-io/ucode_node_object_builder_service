@@ -84,7 +84,7 @@ let layoutStore = {
             const RoleTable = (await ObjectBuilder(true, data.project_id))['role']
             const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
             const roles = await RoleTable?.models?.find({}).lean()
-            let bulkWriteTab = [], bulkWriteSection = []
+            let bulkWriteTab = [], bulkWriteSection = [], relation_ids = [], insertManyRelationPermissions = []
 
             let layout = await Layout.findOne({id: data.id}).lean();
             if(!layout) {
@@ -93,7 +93,7 @@ let layoutStore = {
                 data.id = layout.id
             }
 
-            console.log(layout)
+
             const table = await Table.findOne({
                 id: data.table_id,
             }).lean()
@@ -134,7 +134,13 @@ let layoutStore = {
             }
 
             for(let tab of data.tabs) {
+
                 tab.id = tab.id || v4()
+
+                if(tab.type == "relation") {
+                    relation_ids.push(tab.relation_id)
+                }
+
                 bulkWriteTab.push({
                     updateOne: {
                         filter: {
@@ -175,8 +181,27 @@ let layoutStore = {
                 }
             }
 
+            for (const role of roles) {
+                for (const relation_id of relation_ids) {
+                    let relationPermission = await viewRelationPermissionTable?.models?.findOne({ role_id: role.guid, table_slug: resp.slug, relation_id: relation_id })
+                    if (!relationPermission) {
+                        insertManyRelationPermissions.push({
+                            role_id: role.guid,
+                            table_slug: table.slug,
+                            relation_id: relation_id,
+                            view_permission: true,
+                            create_permission: true,
+                            edit_permission: true,
+                            delete_permission: true,
+                        })
+                    }
+                }
+            }
+
+
             bulkWriteTab.length && await Tab.bulkWrite(bulkWriteTab)
             bulkWriteSection.length && await Section.bulkWrite(bulkWriteSection)
+            insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
 
             return {}
         } catch (err) {

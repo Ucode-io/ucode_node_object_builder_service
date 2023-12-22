@@ -94,9 +94,11 @@ let excelStore = {
                 object.on("data", (chunk) => fileStream.write(chunk));
                 object.on("end", () => console.log(`Reading ${fileObjectKey} finished`))
                 xlsxFile(createFilePath).then(async (rows) => {
+                    console.log("ROWSSSES: ", rows);
                     let i = 0;
                     let objectsToDb = []
                     for (const row of rows) {
+                        console.log("ROWoooooooo: ", row);
                         let appendMany2ManyArray = []
                         let relation
                         if (i === 0) {

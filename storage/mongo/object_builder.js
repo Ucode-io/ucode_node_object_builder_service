@@ -3747,6 +3747,7 @@ let objectBuilder = {
                 let request = {
                     table_slug: req.table_slug,
                     project_id: req.project_id,
+                    blocked_builder: req.blocked_builder,
                     data: struct.encode(object)
                 }
                 if (!object.is_new) {
@@ -3757,6 +3758,15 @@ let objectBuilder = {
                     response.push(struct.decode(resp.data))
                 }
             }
+
+            if (req.blocked_builder) {
+                return {
+                    table_slug: data.table_slug,
+                    data: struct.encode({ objects: response }),
+                    custom_message: customMessage
+                };
+            }
+
             const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
             if (tableWithVersion) {

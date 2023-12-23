@@ -133,12 +133,20 @@ let layoutStore = {
                 })
             }
 
+            const all_tabs = await Tab.find({layout_id: layout.id})
+            const map_tabs = {}, deleted_tab_ids = []
+            all_tabs.forEach(el => map_tabs[el.id] = 1)
+
             for(let tab of data.tabs) {
 
                 tab.id = tab.id || v4()
 
                 if(tab.type == "relation") {
                     relation_ids.push(tab.relation_id)
+                }
+
+                if (map_tabs[tab.id]) {
+                    map_tabs[tab.id] = 2
                 }
 
                 bulkWriteTab.push({
@@ -181,6 +189,14 @@ let layoutStore = {
                 }
             }
 
+            for(let key in map_tabs) {
+                if(map_tabs[key] == 1) {
+                    deleted_tab_ids.push(key)
+                }
+            }
+
+
+
             for (const role of roles) {
                 for (const relation_id of relation_ids) {
                     let relationPermission = await viewRelationPermissionTable?.models?.findOne({ role_id: role.guid, table_slug: table.slug, relation_id: relation_id })
@@ -198,7 +214,7 @@ let layoutStore = {
                 }
             }
 
-
+            deleted_tab_ids.length && await Tab.deleteMany({id: {$in: deleted_tab_ids}})
             bulkWriteTab.length && await Tab.bulkWrite(bulkWriteTab)
             bulkWriteSection.length && await Section.bulkWrite(bulkWriteSection)
             insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)

@@ -107,7 +107,7 @@ let objectBuilder = {
                                     email: (authCheckRequest.email) 
                                 }
                             })
-                            data.guid = responseFromAuth.user_id
+                            payload.guid = responseFromAuth.user_id
                         }
                     }
                 }

@@ -53,6 +53,8 @@ async function newMongoConn(Config, shouldCompileModels = true) {
             // useFindAndModify: false
         };
     }
+    
+    // mongoDBUrl = `mongodb://localhost:27017/premium_plaza_lounges_plaza_object_builder_service`;
 
     Logger.debug("connecting to mongodb: " + mongoDBUrl);
 

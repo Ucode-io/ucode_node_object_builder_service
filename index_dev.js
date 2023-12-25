@@ -27,8 +27,7 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
-            // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "7214baf7-74da-4fd2-a116-6477a9528c83",
+            project_id: "f490de67-46e0-4ec3-a226-0abf71aa5ad4",
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,

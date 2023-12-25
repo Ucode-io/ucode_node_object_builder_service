@@ -49,7 +49,7 @@ let objectBuilder = {
                 if (increment) {
                     data[increment.field] = increment.count
                     var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
-                    var numericPartLength = (originalValue.match(/\d+$/) || [''])[0].length;
+                    var numericPartLength = (increment.count.match(/\d+$/) || [''])[0].length;
                     var paddedNumber = String(lastNumber + 1).padStart(numericPartLength, '0');
                     increment.count = increment.count.replace(/\d+$/, paddedNumber);
                     await incrementTableInfo.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})

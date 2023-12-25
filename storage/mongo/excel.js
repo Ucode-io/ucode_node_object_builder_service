@@ -99,7 +99,7 @@ let excelStore = {
             });
             console.log(`Reading ${fileObjectKey} finished`);
             
-            object.pipe(fileStream);
+            //object.pipe(fileStream);
             console.log("After pipe")
             await new Promise((resolve, reject) => {
                 fileStream.on('finish', resolve);

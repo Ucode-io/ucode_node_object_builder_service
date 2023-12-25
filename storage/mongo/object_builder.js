@@ -129,7 +129,6 @@ let objectBuilder = {
             if (!data.guid) {
                 data.guid = payload.guid
             }
-
             const object = struct.encode({ data });
 
             let customMessage = ""

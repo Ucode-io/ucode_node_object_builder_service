@@ -62,21 +62,17 @@ let excelStore = {
         const datas = struct.decode(req.data)
         console.log("dataset: ", datas);
         const mongoConn = await mongoPool.get(req.project_id)
-        console.log("Conn is okay")
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         let exColumnSlugs = Object.keys(datas)
-        console.log("exColumnSlugs: ", exColumnSlugs)
         const allTables = await ObjectBuilder(true, req.project_id)
-        console.log("allTables: ", allTables)
         const fields = allTables[req.table_slug].fields
-        console.log("fields: ", fields)
         let fieldsMap = {}
         for (const field of fields) {
             fieldsMap[field.id] = field
         }
         let ssl = !!(typeof cfg.minioSSL !== "boolean" ? cfg.minioSSL : cfg.minioSSL === "true");
-        console.log("Before minioClient")
+
         const createFilePath = `./${req.id}.xlsx`;
         let minioClient = new Minio.Client({
             accessKey: cfg.minioAccessKeyID,
@@ -85,9 +81,9 @@ let excelStore = {
             useSSL: ssl,
             pathStyle: true,
         });
-        console.log("minioClient: ", minioClient);
         let bucketName = "docs";
         let fileObjectKey = `${req.id}.xlsx`;
+
         try {
             let fileStream = fs.createWriteStream(createFilePath);
             let object = await minioClient.getObject(bucketName, fileObjectKey);
@@ -100,12 +96,10 @@ let excelStore = {
             console.log(`Reading ${fileObjectKey} finished`);
             
             object.pipe(fileStream);
-            console.log("After pipe")
             await new Promise((resolve, reject) => {
                 fileStream.on('finish', resolve);
                 fileStream.on('error', reject);
             });
-            console.log("After promise")
             
             let rows = await xlsxFile(createFilePath);
             console.log("ROWSSSES: ", rows);
@@ -435,5 +429,6 @@ let excelStore = {
         }
     }),
 };
+
 
 module.exports = excelStore;

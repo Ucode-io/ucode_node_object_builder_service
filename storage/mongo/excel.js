@@ -100,10 +100,12 @@ let excelStore = {
             console.log(`Reading ${fileObjectKey} finished`);
             
             object.pipe(fileStream);
+            console.log("After pipe")
             await new Promise((resolve, reject) => {
                 fileStream.on('finish', resolve);
                 fileStream.on('error', reject);
             });
+            console.log("After promise")
             
             let rows = await xlsxFile(createFilePath);
             console.log("ROWSSSES: ", rows);

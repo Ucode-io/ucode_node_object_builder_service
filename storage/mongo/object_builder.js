@@ -44,6 +44,16 @@ let objectBuilder = {
         try {
             if (req.blocked_builder) {
                 const data = struct.decode(req.data)
+                const incrementTableInfo = allTableInfos["increment"]
+                let increment = await incrementTableInfo.models.findOne({slug: req.table_slug})
+                if (increment) {
+                    data[increment.field] = increment.count
+                    var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
+                    var paddedNumber = String(lastNumber + 1).padStart(12, '0'); // Assuming 12 digits
+                    increment.count = increment.count.replace(/\d+$/, paddedNumber);
+                    await incrementTableInfo.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})
+                }
+
                 let inserted = new tableInfo.models(data);
                 await inserted.save();
 

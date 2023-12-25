@@ -3763,7 +3763,7 @@ let objectBuilder = {
                 return {
                     table_slug: data.table_slug,
                     data: struct.encode({ objects: response }),
-                    custom_message: customMessage
+                    custom_message: ""
                 };
             }
 

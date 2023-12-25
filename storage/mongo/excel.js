@@ -88,19 +88,27 @@ let excelStore = {
         console.log("minioClient: ", minioClient);
         let bucketName = "docs";
         let fileObjectKey = `${req.id}.xlsx`;
-        try {
-            let fileStream = fs.createWriteStream(createFilePath);
-            let object = await minioClient.getObject(bucketName, fileObjectKey);
-            object.pipe(fileStream);
 
-            await new Promise((resolve, reject) => {
-                fileStream.on('finish', resolve);
-                fileStream.on('error', reject);
-            });
-            console.log(`Reading ${fileObjectKey} finished`);
-            
-            //object.pipe(fileStream);
-            console.log("After pipe")
+        let fileStream
+
+        try {
+            try {
+                fileStream = fs.createWriteStream(createFilePath);
+                let object = await minioClient.getObject(bucketName, fileObjectKey);
+                object.pipe(fileStream);
+
+                await new Promise((resolve, reject) => {
+                    fileStream.on('finish', resolve);
+                    fileStream.on('error', reject);
+                });
+                console.log(`Reading ${fileObjectKey} finished`);
+
+                console.log("After pipe");
+            } catch (error) {
+                console.error('Error reading object:', error);
+                // Handle the error appropriately, and consider throwing an exception or returning a rejection.
+                throw error;
+            }
             await new Promise((resolve, reject) => {
                 fileStream.on('finish', resolve);
                 fileStream.on('error', reject);

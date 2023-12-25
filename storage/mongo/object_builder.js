@@ -56,8 +56,8 @@ let objectBuilder = {
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
-          
             ownGuid = payload.guid;
+            payload = await payload.save();
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
@@ -111,9 +111,9 @@ let objectBuilder = {
                         }
                     }
                 }
+                await payload.save();
             }
 
-            await payload.save();
 
             if (!data.guid) {
                 data.guid = payload.guid

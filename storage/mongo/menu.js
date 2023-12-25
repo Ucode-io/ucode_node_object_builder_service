@@ -133,13 +133,13 @@ let menuStore = {
                 query = {
                     table_id: data.table_id
                 }
-                const menus = await Menu.find(query)
-                const menu_ids = menus.map(el => el.parent_id)
-                query = {
-                    id: {
-                        $in: menu_ids
-                    }
-                }
+                // const menus = await Menu.find(query)
+                // const menu_ids = menus.map(el => el.parent_id)
+                // query = {
+                //     id: {
+                //         $in: menu_ids
+                //     }
+                // }
             }
            
             const pipelines = [

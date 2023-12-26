@@ -42,13 +42,12 @@ let objectBuilder = {
         const tableInfo = allTableInfos[req.table_slug]
         let ownGuid = "";
         try {
-            console.log("\n\n --> TEST LOG #0.1")
             if (req.blocked_builder) {
                 const data = struct.decode(req.data)
                 const incrementTableInfo = allTableInfos["increment"]
-                console.log("\n\n --> TEST LOG #0.2")
+               
                 let increment = await incrementTableInfo?.models.findOne({slug: req.table_slug})
-                console.log("\n\n --> TEST LOG #0.3")
+               
                 if (increment) {
                     data[increment.field] = increment.count
                     var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
@@ -57,10 +56,10 @@ let objectBuilder = {
                     increment.count = increment.count.replace(/\d+$/, paddedNumber);
                     await incrementTableInfo?.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})
                 }
-                console.log("\n\n --> TEST LOG #1")
+          
                 let inserted = new tableInfo.models(data);
                 await inserted.save();
-                console.log("\n\n --> TEST LOG #2")
+                
 
                 if (!data.guid) { data.guid = inserted.guid }
                 const object = struct.encode({ data });
@@ -128,7 +127,6 @@ let objectBuilder = {
                 }
                 await payload.save();
             }
-
 
             if (!data.guid) {
                 data.guid = payload.guid

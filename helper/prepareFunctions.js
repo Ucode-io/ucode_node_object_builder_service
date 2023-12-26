@@ -99,15 +99,18 @@ let prepareFunction = {
             }
         } else {
             const incrementTableInfo = allTableInfos["increment"]
-            let increment = await incrementTableInfo.models.findOne({slug: req.table_slug})
-            if (increment) {
-                data[increment.field] = increment.count
-                var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
-                var numericPartLength = (increment.count.match(/\d+$/) || [''])[0].length;
-                var paddedNumber = String(lastNumber + 1).padStart(numericPartLength, '0');
-                increment.count = increment.count.replace(/\d+$/, paddedNumber);
-                await incrementTableInfo.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})
+            if(incrementTableInfo) {
+                let increment = await incrementTableInfo.models.findOne({slug: req.table_slug})
+                if (increment) {
+                    data[increment.field] = increment.count
+                    var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
+                    var numericPartLength = (increment.count.match(/\d+$/) || [''])[0].length;
+                    var paddedNumber = String(lastNumber + 1).padStart(numericPartLength, '0');
+                    increment.count = increment.count.replace(/\d+$/, paddedNumber);
+                    await incrementTableInfo.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})
+                }
             }
+            
         }
         
 

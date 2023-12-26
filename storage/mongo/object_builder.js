@@ -45,18 +45,19 @@ let objectBuilder = {
             if (req.blocked_builder) {
                 const data = struct.decode(req.data)
                 const incrementTableInfo = allTableInfos["increment"]
-                let increment = await incrementTableInfo.models.findOne({slug: req.table_slug})
+                let increment = await incrementTableInfo?.models.findOne({slug: req.table_slug})
                 if (increment) {
                     data[increment.field] = increment.count
                     var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
                     var numericPartLength = (increment.count.match(/\d+$/) || [''])[0].length;
                     var paddedNumber = String(lastNumber + 1).padStart(numericPartLength, '0');
                     increment.count = increment.count.replace(/\d+$/, paddedNumber);
-                    await incrementTableInfo.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})
+                    await incrementTableInfo?.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})
                 }
-
+                console.log("\n\n --> TEST LOG #1")
                 let inserted = new tableInfo.models(data);
                 await inserted.save();
+                console.log("\n\n --> TEST LOG #2")
 
                 if (!data.guid) { data.guid = inserted.guid }
                 const object = struct.encode({ data });
@@ -130,7 +131,7 @@ let objectBuilder = {
                 data.guid = payload.guid
             }
             const object = struct.encode({ data });
-
+            console.log("\n\n --> TEST LOG #3")
             let customMessage = ""
             if (tableData) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
@@ -141,6 +142,7 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+            console.log("\n\n --> TEST LOG #4")
 
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 

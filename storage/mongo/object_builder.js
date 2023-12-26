@@ -42,10 +42,13 @@ let objectBuilder = {
         const tableInfo = allTableInfos[req.table_slug]
         let ownGuid = "";
         try {
+            console.log("\n\n --> TEST LOG #0.1")
             if (req.blocked_builder) {
                 const data = struct.decode(req.data)
                 const incrementTableInfo = allTableInfos["increment"]
+                console.log("\n\n --> TEST LOG #0.2")
                 let increment = await incrementTableInfo?.models.findOne({slug: req.table_slug})
+                console.log("\n\n --> TEST LOG #0.3")
                 if (increment) {
                     data[increment.field] = increment.count
                     var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
@@ -1367,9 +1370,9 @@ let objectBuilder = {
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
 
+        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const startMemoryUsage = v8.getHeapStatistics();
 
-        // console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']

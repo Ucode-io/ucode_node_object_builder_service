@@ -43,23 +43,32 @@ let objectBuilder = {
         let ownGuid = "";
         try {
             if (req.blocked_builder) {
+                const mongoConn = await mongoPool.get(req.project_id)
+                const incrementInfo = mongoConn.models['IncrementSeq']
                 const data = struct.decode(req.data)
-                const incrementTableInfo = allTableInfos["increment"]
-               
-                let increment = await incrementTableInfo?.models.findOne({slug: req.table_slug})
-               
-                if (increment) {
-                    data[increment.field] = increment.count
-                    var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
-                    var numericPartLength = (increment.count.match(/\d+$/) || [''])[0].length;
-                    var paddedNumber = String(lastNumber + 1).padStart(numericPartLength, '0');
-                    increment.count = increment.count.replace(/\d+$/, paddedNumber);
-                    await incrementTableInfo?.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})
+
+                for (let field of tableInfo.fields) {
+                    if (field.type == "INCREMENT_ID") {
+                        let attributes = struct.decode(field.attributes)
+                        const incInfo = await incrementInfo.findOneAndUpdate(
+                                { table_slug: req.table_slug, field_slug: field.slug },
+                                {  
+                                    $set: { min_value: 1, max_value: 999999999 },
+                                    $inc: { increment_by: 1 },
+                                },
+                                {upsert: true}
+                        )
+
+                        if (!incInfo) {
+                            data[field.slug] = attributes.prefix + '-' + '1'.padStart(9, '0')
+                        } else {
+                            data[field.slug] = attributes.prefix + '-' + incInfo.increment_by.toString().padStart(9, '0')
+                        }
+                    }
                 }
           
                 let inserted = new tableInfo.models(data);
                 await inserted.save();
-                
 
                 if (!data.guid) { data.guid = inserted.guid }
                 const object = struct.encode({ data });

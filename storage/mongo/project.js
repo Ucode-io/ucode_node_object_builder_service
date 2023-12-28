@@ -87,6 +87,7 @@ let projectStore = {
                 mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
                 mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                 mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
+                mongoDBConn.model('IncrementSeq', require('../../schemas/increment'))
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)

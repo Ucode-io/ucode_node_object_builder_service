@@ -143,6 +143,7 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleUpdateV2 function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
+            const allTableInfo = (await ObjectBuilder(true, req.project_id))
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
@@ -171,15 +172,42 @@ let objectBuilder = {
 
             await Promise.all(funcs)
             // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
-            const table = await tableVersion(mongoConn, { slug: req.table_slug })
+            const tableModel = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (table) {
+            if (tableModel) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
                     code: 200,
-                    table_id: table.id,
+                    table_id: tableModel.id,
                     action_type: "UPDATE"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+
+            let response = await allTableInfo[req.table_slug].models.findOne({
+                guid: data.id
+            })
+            if (response) {
+                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                    let tableAttributes = struct.decode(tableModel.attributes)
+
+                    if (tableAttributes && tableAttributes.auth_info) {
+                        let authInfo = tableAttributes.auth_info
+                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                            throw new Error('This table is auth table. Auth information not fully given')
+                        }
+                        let loginTable = allTableInfo['client_type']?.models?.findOne({
+                            guid: response[authInfo['client_type_id']],
+                            table_slug: tableModel.slug
+                        })
+                        if (loginTable) {
+                            let updateUserRequest = {
+                                guid: response['guid'],
+                                password: response[authInfo['password']],
+                            }
+                            await grpcClient.updateUserAuth(updateUserRequest)
+                        }
+                    }
+                }
             }
 
             return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage };

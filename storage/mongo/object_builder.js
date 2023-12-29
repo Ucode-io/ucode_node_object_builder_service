@@ -43,7 +43,30 @@ let objectBuilder = {
         let ownGuid = "";
         try {
             if (req.blocked_builder) {
+                const mongoConn = await mongoPool.get(req.project_id)
+                const incrementInfo = mongoConn.models['IncrementSeq']
                 const data = struct.decode(req.data)
+
+                for (let field of tableInfo.fields) {
+                    if (field.type == "INCREMENT_ID") {
+                        let attributes = struct.decode(field.attributes)
+                        const incInfo = await incrementInfo.findOneAndUpdate(
+                                { table_slug: req.table_slug, field_slug: field.slug },
+                                {  
+                                    $set: { min_value: 1, max_value: 999999999 },
+                                    $inc: { increment_by: 1 },
+                                },
+                                {upsert: true}
+                        )
+
+                        if (!incInfo) {
+                            data[field.slug] = attributes.prefix + '-' + '1'.padStart(9, '0')
+                        } else {
+                            data[field.slug] = attributes.prefix + '-' + incInfo.increment_by.toString().padStart(9, '0')
+                        }
+                    }
+                }
+          
                 let inserted = new tableInfo.models(data);
                 await inserted.save();
 
@@ -56,8 +79,8 @@ let objectBuilder = {
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
-          
             ownGuid = payload.guid;
+            payload = await payload.save();
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
@@ -111,16 +134,14 @@ let objectBuilder = {
                         }
                     }
                 }
+                await payload.save();
             }
-
-            await payload.save();
 
             if (!data.guid) {
                 data.guid = payload.guid
             }
-
             const object = struct.encode({ data });
-
+            console.log("\n\n --> TEST LOG #3")
             let customMessage = ""
             if (tableData) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
@@ -131,6 +152,7 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+            console.log("\n\n --> TEST LOG #4")
 
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
@@ -1383,9 +1405,9 @@ let objectBuilder = {
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
 
+        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const startMemoryUsage = v8.getHeapStatistics();
 
-        // console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -3791,7 +3813,7 @@ let objectBuilder = {
                 return {
                     table_slug: data.table_slug,
                     data: struct.encode({ objects: response }),
-                    custom_message: customMessage
+                    custom_message: ""
                 };
             }
 

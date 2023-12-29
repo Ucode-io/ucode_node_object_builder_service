@@ -142,9 +142,10 @@ async function buildModels(is_build = true, project_id) {
                                     let checkPassword = this[field.slug].substring(0, 4)
                                     if (checkPassword !== "$2b$" && checkPassword !== "$2a$") {
                                         this[field.slug] = passwordTools.generatePasswordHash(this[field.slug]);
-                                    } else {
-                                        throw new Error("Wrong password type. Password must not be started '$2a$' or $2b$' ")
                                     }
+                                    // else {
+                                    //     // throw new Error("Wrong password type. Password must not be started '$2a$' or $2b$' ")
+                                    // }
                                 }
                                 next()
                             }

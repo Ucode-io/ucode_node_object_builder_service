@@ -54,7 +54,6 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         };
     }
     
-    // mongoDBUrl = `mongodb://localhost:27017/premium_plaza_lounges_plaza_object_builder_service`;
 
     Logger.debug("connecting to mongodb: " + mongoDBUrl);
 
@@ -94,6 +93,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         conn.model('object_builder_service.menu.templates', require('../schemas/menu_template'))
         conn.model('function_service.function', require("../schemas/function_service_function.js"));
         conn.model('object_builder_service.file', require('../schemas/file'))
+        conn.model('IncrementSeq', require('../schemas/increment'))
     }
     return conn;
 }

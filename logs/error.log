@@ -7506,3 +7506,17 @@
     }
   }
 }
+{
+  message: 'service.object_builder.create: failed with error: originalValue is not defined',
+  level: 'error',
+  timestamp: '2023-12-25T21:56:15.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: failed with error: originalValue is not defined',
+  level: 'error',
+  timestamp: '2023-12-25T21:56:17.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

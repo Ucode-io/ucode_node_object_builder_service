@@ -133,9 +133,17 @@ let layoutStore = {
                 })
             }
 
+            const map_tabs = {}, deleted_tab_ids = [], tab_ids = [], map_sections = {}, deleted_section_ids = []
             const all_tabs = await Tab.find({layout_id: layout.id})
-            const map_tabs = {}, deleted_tab_ids = []
-            all_tabs.forEach(el => map_tabs[el.id] = 1)
+            all_tabs.forEach(el => {
+                map_tabs[el.id] = 1
+                tab_ids.push(el.id)
+            })
+
+            const all_sections = await Section.find({tab_id: {$in: tab_ids}})
+            all_sections.forEach(el => {
+                map_sections[el.id] = 1
+            })
 
             for(let tab of data.tabs) {
 
@@ -167,7 +175,13 @@ let layoutStore = {
                     }
                 })
                 for(let section of tab.sections) {
+
                     section.id = section.id || v4()
+
+                    if (map_sections[section.id]) {
+                        map_sections[section.id] = 2
+                    }
+
                     bulkWriteSection.push({
                         updateOne: {
                             filter: {
@@ -195,6 +209,12 @@ let layoutStore = {
                 }
             }
 
+            for(let key in map_sections) {
+                if(map_sections[key] == 1) {
+                    deleted_section_ids.push(key)
+                }
+            }
+
 
 
             for (const role of roles) {
@@ -215,6 +235,7 @@ let layoutStore = {
             }
 
             deleted_tab_ids.length && await Tab.deleteMany({id: {$in: deleted_tab_ids}})
+            deleted_section_ids.length && await Section.deleteMany({id: {$in: deleted_section_ids}})
             bulkWriteTab.length && await Tab.bulkWrite(bulkWriteTab)
             bulkWriteSection.length && await Section.bulkWrite(bulkWriteSection)
             insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)

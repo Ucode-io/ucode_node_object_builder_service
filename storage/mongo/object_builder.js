@@ -205,41 +205,41 @@ let objectBuilder = {
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
 
-            try {
-                let response = await allTableInfo[req.table_slug].models.findOne({
-                    guid: data.id
-                });
+            // try {
+            //     let response = await allTableInfo[req.table_slug].models.findOne({
+            //         guid: data.id
+            //     });
             
-                if (response) {
-                    if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                        let tableAttributes = struct.decode(tableModel.attributes);
+            //     if (response) {
+            //         if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+            //             let tableAttributes = struct.decode(tableModel.attributes);
             
-                        if (tableAttributes && tableAttributes.auth_info) {
-                            let authInfo = tableAttributes.auth_info;
+            //             if (tableAttributes && tableAttributes.auth_info) {
+            //                 let authInfo = tableAttributes.auth_info;
             
-                            if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                                throw new Error('This table is an auth table. Auth information not fully given');
-                            }
+            //                 if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+            //                     throw new Error('This table is an auth table. Auth information not fully given');
+            //                 }
             
-                            let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                guid: response[authInfo['client_type_id']],
-                                table_slug: tableModel.slug
-                            });
+            //                 let loginTable = allTableInfo['client_type']?.models?.findOne({
+            //                     guid: response[authInfo['client_type_id']],
+            //                     table_slug: tableModel.slug
+            //                 });
             
-                            if (loginTable) {
-                                let updateUserRequest = {
-                                    guid: response['guid'],
-                                    password: data?.password,
-                                };
+            //                 if (loginTable) {
+            //                     let updateUserRequest = {
+            //                         guid: response['guid'],
+            //                         password: response[authInfo['password']],
+            //                     };
             
-                                await grpcClient.updateUserAuth(updateUserRequest);
-                            }
-                        }
-                    }
-                }
-            } catch (error) {
-                console.error('Something went wrong', error);
-            }
+            //                     await grpcClient.updateUserAuth(updateUserRequest);
+            //                 }
+            //             }
+            //         }
+            //     }
+            // } catch (error) {
+            //     console.error('Something went wrong', error);
+            // }
             
 
             return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage };

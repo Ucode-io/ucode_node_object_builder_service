@@ -28,15 +28,17 @@ const logger = require("./config/logger");
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "7214baf7-74da-4fd2-a116-6477a9528c83",
+            project_id: "251721a6-6688-4e1a-933a-bc6de2ea6244",
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                username: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                password: "vwdG8B7gzO"
+                database: "uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs",
+                username: "uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs",
+                password: "vBPqHBE2gm"
             }
         })
+
+        //mongodb://uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs:vBPqHBE2gm@142.93.164.37:27017/uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs
 
         //mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs
         //mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs

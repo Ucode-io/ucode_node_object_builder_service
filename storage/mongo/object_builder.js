@@ -229,7 +229,7 @@ let objectBuilder = {
                             if (loginTable) {
                                 let updateUserRequest = {
                                     guid: response['guid'],
-                                    password: response[authInfo['password']],
+                                    password: data?.password,
                                 };
             
                                 await grpcClient.updateUserAuth(updateUserRequest);

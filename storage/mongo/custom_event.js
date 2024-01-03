@@ -4,6 +4,7 @@ const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
 const { struct } = require("pb-util");
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 
 let NAMESPACE = "storage.custom_event";
 
@@ -18,6 +19,7 @@ let customEventStore = {
         const Table = mongoConn.models["Table"];
         const Function = mongoConn.models["function_service.function"];
         const Field = mongoConn.models["Field"];
+        const History = mongoConn.models['object_builder_service.version_history']
 
         const custom_event = new CustomEvent(data);
 
@@ -63,16 +65,23 @@ let customEventStore = {
         const field = new Field(fieldRequest);
         const resp = await field.save();
 
+        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.CREATE, current: response })
+
         return response;
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id);
-
+        const History = mongoConn.models['object_builder_service.version_history']
         const CustomEvent = mongoConn.models["CustomEvent"];
+
         if (data.attributes) {
             data.attributes = struct.decode(data.attributes);
         }
 
+        const beforeUpdate = await CustomEvent.findOne({ id: data.id })
+        if(!beforeUpdate) {
+            throw new Error("Action not found with given id")
+        }
         const custom_event = await CustomEvent.findOneAndUpdate(
             {
                 id: data.id,
@@ -86,6 +95,8 @@ let customEventStore = {
         );
         let actionPermissions = (await ObjectBuilder(true, data.project_id))["action_permission"]
         await actionPermissions.models.updateMany({ custom_event_id: data.id }, { $set: { label: data.label } })
+
+        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.UPDATE, current: custom_event, previus: beforeUpdate })
 
         return custom_event;
     }),

@@ -7,6 +7,7 @@ const { v4 } = require("uuid");
 const menuStore = require("./menu");
 const os = require("os")
 const layoutStorage = require("./layout")
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPES, ACTION_TYPE_MAP } = require("../../helper/constants")
 
 const mongoPool = require('../../pkg/pool');
 
@@ -22,8 +23,7 @@ let tableStore = {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table.history']
-            const App = mongoConn.models['App']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             data.is_changed_by_host = {
                 [os.hostname()]: true
@@ -83,6 +83,8 @@ let tableStore = {
 
             await layoutStorage.createAll(default_layout)
 
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: table })
+
             return table;
         } catch (err) {
             throw err
@@ -94,7 +96,7 @@ let tableStore = {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table.history']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             data.is_changed = true
             data.is_changed_by_host = {
@@ -145,7 +147,7 @@ let tableStore = {
                 }
             }
 
-            // await sendMessageToTopic(con.TopicTableUpdeteV1, event)
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.UPDATE, current: table, previus: isSystemTable })
             return table;
         } catch (err) {
             throw err

@@ -49,7 +49,7 @@ module.exports = {
         "ACTION": "ACTION", 
         "MENU": "MENU"
     },
-    ACTION_TYPES: ["CREATE", "UPDATE", "DELETE"],
+    ACTION_TYPES: ["CREATE", "UPDATE", "DELETE", "BULKWRITE"],
     ACTION_TYPE_MAP: {
         "CREATE": "CREATE", 
         "UPDATE": "UPDATE", 

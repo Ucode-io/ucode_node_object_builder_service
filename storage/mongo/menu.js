@@ -5,6 +5,7 @@ const tableVersion = require('../../helper/table_version');
 const constants = require("../../helper/constants");
 const { struct } = require("pb-util/build");
 const folderMinio = require("../../helper/addMinioBucket");
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 let NAMESPACE = "storage.menu";
 
 
@@ -18,6 +19,8 @@ let menuStore = {
 
             const Menu = mongoConn.models['object_builder_service.menu']
             const menuPermissionTable = mongoConn.models['menu_permission']
+            const History = mongoConn.models['object_builder_service.version_history']
+
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
                 if (!data.icon) data.icon = table?.icon
@@ -73,6 +76,8 @@ let menuStore = {
                 await menuPermissionTable.insertMany(permissions)
             }
 
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.CREATE, current: response })
+
             return response;
         } catch (err) {
             throw err
@@ -85,13 +90,18 @@ let menuStore = {
                 throw new Error("Unsupported menu type");
             }
             const mongoConn = await mongoPool.get(data.project_id)
-
             const Menu = mongoConn.models['object_builder_service.menu']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
                 if (!data.icon) data.icon = table?.icon
                 if (!data.label) data.label = table?.label
+            }
+
+            const beforeUpdate = await Menu.findOne({id: data.id})
+            if(!beforeUpdate) {
+                throw new Error("Menu not found with given id")
             }
 
             const menu = await Menu.findOneAndUpdate(
@@ -106,6 +116,8 @@ let menuStore = {
                 }
             )
 
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.UPDATE, current: response, previus: beforeUpdate })
+            
             return menu;
         } catch (err) {
             throw err

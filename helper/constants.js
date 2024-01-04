@@ -35,6 +35,28 @@ module.exports = {
         "FINANCE CALENDAR": "FINANCE CALENDAR",
     },
 
+    VERSION_SOURCE_TYPES: [
+        "TABLE", "FIELD", "RELATION", "LAYOUT", "TAB", "SECTION", "VIEW", "ACTION", "MENU"
+    ],
+    VERSION_SOURCE_TYPES_MAP: {
+        "TABLE": "TABLE", 
+        "FIELD": "FIELD", 
+        "RELATION": "RELATION", 
+        "LAYOUT": "LAYOUT", 
+        "TAB": "TAB", 
+        "SECTION": "SECTION", 
+        "VIEW": "VIEW", 
+        "ACTION": "ACTION", 
+        "MENU": "MENU"
+    },
+    ACTION_TYPES: ["CREATE", "UPDATE", "DELETE", "BULKWRITE"],
+    ACTION_TYPE_MAP: {
+        "CREATE": "CREATE", 
+        "UPDATE": "UPDATE", 
+        "DELETE": "DELETE",
+        "BULKWRITE": "BULKWRITE", 
+    },
+
 
     // KAFKA PRODUCER TOPICS
 

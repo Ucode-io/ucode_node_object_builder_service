@@ -9,6 +9,7 @@ const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require('../../pkg/pool');
 const tableVersion = require('../../helper/table_version');
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const os = require('os')
 
 
@@ -20,6 +21,7 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             data.fields.push({
                 slug: "guid",
@@ -109,6 +111,9 @@ let fieldStore = {
                         [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
+
+            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: table })
+
             return response;
         } catch (err) {
             throw err
@@ -123,6 +128,7 @@ let fieldStore = {
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
+            const History = mongoConn.models['object_builder_service.version_history']
             data.id = v4()
 
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
@@ -188,8 +194,9 @@ let fieldStore = {
                 const fieldPermission = new fieldPermissionTable.models(permission)
                 fieldPermission.save()
             }
-
-            const layout = await Layout.findOne({table_id: table.id})
+     
+            const layout = await Layout.findOne({table_id: table?.id})
+   
             if (layout) {
                 const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                 if (tab) {
@@ -215,7 +222,7 @@ let fieldStore = {
                                 }
                             )
                         } else {
-                            await Section.create({
+                            const section = await Section.create({
                                 id: v4(),
                                 order: section.length + 1,
                                 column: "SINGLE",
@@ -232,12 +239,14 @@ let fieldStore = {
                                 attributes: {},
                                 tab_id: tab.id
                             })
+
+                            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.CREATE, current: section, is_used: { [data.env_id]: true } })
                         }
                     }
                 }
             }
-
-             
+         
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: field, is_used: { [data.env_id]: true } })
 
             return field;
         } catch (err) {
@@ -250,6 +259,7 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             const fieldBeforUpdate = await Field.findOne(
                 {
@@ -325,6 +335,8 @@ let fieldStore = {
                     }
                 }
             )
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.UPDATE, current: field, previus: fieldBeforUpdate, is_used: { [data.env_id]: true } })
 
             return field;
         } catch (err) {
@@ -791,6 +803,7 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const View = mongoConn.models['View']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             const deletedField = await Field.findOne({ id: data.id }).lean()
             if(deletedField && deletedField.is_system) {
@@ -844,6 +857,8 @@ let fieldStore = {
                     },
                 }
             )
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: deletedField, is_used: { [data.env_id]: true } })
 
             return field;
 

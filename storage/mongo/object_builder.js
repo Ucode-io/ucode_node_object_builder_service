@@ -44,8 +44,22 @@ let objectBuilder = {
         try {
             if (req.blocked_builder) {
                 const data = struct.decode(req.data)
+                const incrementTableInfo = allTableInfos["increment"]
+               
+                let increment = await incrementTableInfo?.models.findOne({slug: req.table_slug})
+               
+                if (increment) {
+                    data[increment.field] = increment.count
+                    var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
+                    var numericPartLength = (increment.count.match(/\d+$/) || [''])[0].length;
+                    var paddedNumber = String(lastNumber + 1).padStart(numericPartLength, '0');
+                    increment.count = increment.count.replace(/\d+$/, paddedNumber);
+                    await incrementTableInfo?.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})
+                }
+          
                 let inserted = new tableInfo.models(data);
                 await inserted.save();
+                
 
                 if (!data.guid) { data.guid = inserted.guid }
                 const object = struct.encode({ data });
@@ -56,8 +70,8 @@ let objectBuilder = {
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
-          
             ownGuid = payload.guid;
+            payload = await payload.save();
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
@@ -107,20 +121,18 @@ let objectBuilder = {
                                     email: (authCheckRequest.email) 
                                 }
                             })
-                            data.guid = responseFromAuth.user_id
+                            payload.guid = responseFromAuth.user_id
                         }
                     }
                 }
+                await payload.save();
             }
-
-            await payload.save();
 
             if (!data.guid) {
                 data.guid = payload.guid
             }
-
             const object = struct.encode({ data });
-
+            console.log("\n\n --> TEST LOG #3")
             let customMessage = ""
             if (tableData) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
@@ -131,6 +143,7 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+            console.log("\n\n --> TEST LOG #4")
 
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
@@ -1355,9 +1368,9 @@ let objectBuilder = {
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
 
+        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const startMemoryUsage = v8.getHeapStatistics();
 
-        // console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -3763,7 +3776,7 @@ let objectBuilder = {
                 return {
                     table_slug: data.table_slug,
                     data: struct.encode({ objects: response }),
-                    custom_message: customMessage
+                    custom_message: ""
                 };
             }
 

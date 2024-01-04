@@ -1,8 +1,6 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const converter = require("../../helper/converter");
 let tableVersion = require("../../helper/table_version");
-const con = require("../../config/kafkaTopics");
-const sendMessageToTopic = require("../../config/kafka");
 const { v4 } = require("uuid");
 const { struct } = require("pb-util");
 const relationFieldChecker = require("../../helper/relationFieldChecker");
@@ -10,7 +8,7 @@ const ObjectBuilder = require("../../models/object_builder");
 const cfg = require("../../config/index");
 const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
-const TabSchema = require("../../schemas/tab");
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const os = require('os');
 
 let NAMESPACE = "storage.relation";
@@ -42,6 +40,7 @@ let relationStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
             const ViewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
+            const History = mongoConn.models['object_builder_service.version_history']
             let layout_id = "", layout = null, insertManyRelationPermissions = [], field_id = ""
 
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
@@ -816,8 +815,11 @@ let relationStore = {
                     },
                 }
             );
-            console.log("~~~> fieldID ", field_id)
+         
             relation.id = field_id
+
+            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: field })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.CREATE, current: relation, is_used: { [data.env_id]: true } })
 
             return relation;
         } catch (err) {
@@ -830,6 +832,12 @@ let relationStore = {
             const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
+            const History = mongoConn.models['object_builder_service.version_history']
+
+            const beforeUpdate = await Relation.findOne({id: data.id})
+            if(!beforeUpdate) {
+                throw new Error("Relation not found")
+            }
 
             if(!data.relation_table_slug) {
                 throw new Error("relation_table_slug required");
@@ -858,7 +866,7 @@ let relationStore = {
                         }
                     },
                 }
-                );
+            );
             
             const isViewExists = await View.findOne({
                 $and: [
@@ -918,6 +926,8 @@ let relationStore = {
                 const view = new View(data);
                 await view.save();
             }
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.UPDATE, current: relation, previus: beforeUpdate, is_used: { [data.env_id]: true } })
 
             return relation;
         } catch (err) {
@@ -1488,6 +1498,7 @@ let relationStore = {
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
             const Tab = mongoConn.models["Tab"];
+            const History = mongoConn.models['object_builder_service.version_history']
 
             const relation = await Relation.findOne({ id: data.id });
             if(!relation) {
@@ -1637,6 +1648,9 @@ let relationStore = {
             resp = await Relation.findOneAndDelete({ id: data.id });
             let count = await Tab.countDocuments({ relation_id: data.id })
             count && await Tab.deleteMany({ relation_id: data.id })
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: relation, is_used: { [data.env_id]: true } })
+
             return resp;
         } catch (err) {
             throw err;

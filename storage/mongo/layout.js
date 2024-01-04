@@ -797,6 +797,7 @@ let layoutStore = {
                 }
             }
             
+            tabs.sort((a, b) => a.order - b.order)
             layout.tabs = tabs
             return layout 
 

@@ -83,7 +83,7 @@ let tableStore = {
 
             await layoutStorage.createAll(default_layout)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: table })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: table, is_used: { [data.env_id]: true } })
 
             return table;
         } catch (err) {
@@ -147,7 +147,7 @@ let tableStore = {
                 }
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.UPDATE, current: table, previus: isSystemTable })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.UPDATE, current: table, previus: isSystemTable, is_used: { [data.env_id]: true } })
             return table;
         } catch (err) {
             throw err
@@ -277,12 +277,11 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table.history']
-            const TableVersion = mongoConn.models['Table.version']
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
             const Menu = mongoConn.models['object_builder_service.menu']
+            const History = mongoConn.models['object_builder_service.version_history']
             
             const table = await Table.findOne({
                 id: data.id
@@ -351,8 +350,9 @@ let tableStore = {
 
             await collection.models.collection.drop()
             await Menu.deleteMany({table_id: table.id})
-           
 
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: resp, is_used: { [data.env_id]: true } })
+           
             return table;
         } catch (err) {
             throw err

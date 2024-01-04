@@ -24,8 +24,7 @@ const VersionHistory = mongoose.Schema(
             type: mongoose.Schema.Types.Mixed
         },
         is_used: {
-            type: Boolean,
-            default: false
+            type: mongoose.Schema.Types.Object
         }
     },
     {

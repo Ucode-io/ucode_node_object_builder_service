@@ -145,8 +145,8 @@ let layoutStore = {
                 map_sections[el.id] = 1
             })
 
-            for(let tab of data.tabs) {
-
+            for(let i=0; i < data.tabs.length; i++) {
+                let tab = data.tabs[i]
                 tab.id = tab.id || v4()
 
                 if(tab.type == "relation") {

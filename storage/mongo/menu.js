@@ -76,7 +76,7 @@ let menuStore = {
                 await menuPermissionTable.insertMany(permissions)
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.CREATE, current: response })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.CREATE, current: response, is_used: { [data.env_id]: true } })
 
             return response;
         } catch (err) {
@@ -116,7 +116,7 @@ let menuStore = {
                 }
             )
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.UPDATE, current: response, previus: beforeUpdate })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.UPDATE, current: response, previus: beforeUpdate, is_used: { [data.env_id]: true } })
             
             return menu;
         } catch (err) {
@@ -343,6 +343,7 @@ let menuStore = {
                 throw new Error("Cannot delete default menu")
             }
             const Menu = mongoConn.models['object_builder_service.menu']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             let res = await Menu.findOne({ id: data.id });
             if (res && res.type == "MINIO_FOLDER") {
@@ -352,6 +353,9 @@ let menuStore = {
             const menu = await Menu.findOneAndDelete({ id: data.id }, { new: true });
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: res, is_used: { [data.env_id]: true } })
+
             return menu;
         } catch (err) {
             throw err

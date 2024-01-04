@@ -137,7 +137,8 @@ let layoutStore = {
             const map_tabs = {}, deleted_tab_ids = []
             all_tabs.forEach(el => map_tabs[el.id] = 1)
 
-            for(let tab of data.tabs) {
+            for(let i=0; i<data.tabs.length; i++) {
+                let tab = data.tabs[i]
 
                 tab.id = tab.id || v4()
 
@@ -159,7 +160,7 @@ let layoutStore = {
                             layout_id: tab.layout_id || data.id,
                             relation_id: tab.relation_id,
                             type: tab.type,
-                            order: data.order,
+                            order: i,
                             icon: tab.icon,
                             attributes: tab.attributes
                         },
@@ -495,6 +496,9 @@ let layoutStore = {
 
                 if (map_tab[tab.layout_id]) {
                     map_tab[tab.layout_id].push(tab)
+                    let arrayToSort = map_tab[tab.layout_id]
+                    arrayToSort.sort((a, b) => a.order - b.order)
+                    map_tab[tab.layout_id] = arrayToSort
                 } else {
                     map_tab[tab.layout_id] = [tab]
                 }

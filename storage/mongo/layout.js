@@ -167,7 +167,7 @@ let layoutStore = {
                             layout_id: tab.layout_id || data.id,
                             relation_id: tab.relation_id,
                             type: tab.type,
-                            order: data.order,
+                            order: i,
                             icon: tab.icon,
                             attributes: tab.attributes
                         },
@@ -516,6 +516,9 @@ let layoutStore = {
 
                 if (map_tab[tab.layout_id]) {
                     map_tab[tab.layout_id].push(tab)
+                    let arrOfObjects = map_tab[tab.layout_id]
+                    arrOfObjects.sort((a, b) => a.order - b.order);
+                    map_tab[tab.layout_id] = arrOfObjects
                 } else {
                     map_tab[tab.layout_id] = [tab]
                 }

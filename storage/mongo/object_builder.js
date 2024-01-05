@@ -156,6 +156,7 @@ let objectBuilder = {
         //if you will be change this function, you need to change multipleUpdateV2 function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
+            const allTableInfo = (await ObjectBuilder(true, req.project_id))
 
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
@@ -165,6 +166,61 @@ let objectBuilder = {
                 await tableInfo.models.findOneAndUpdate({ guid: data.guid }, { $set: data });
 
                 return { table_slug: req.table_slug, data: struct.encode(data), custom_message: "" };
+            }
+
+            const tableModel = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableModel) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableModel.id,
+                    action_type: "UPDATE"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+
+            try {
+                const data = struct.decode(req.data)
+                if (!data.guid) {
+                    data.guid = data.id
+                }
+                data.id = data.guid
+                if (data.auth_guid) {
+                    data.guid = data.auth_guid
+                }
+                let response = await allTableInfo[req.table_slug].models.findOne({
+                    guid: data.id
+                });
+            
+                if (response) {
+                    if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                        let tableAttributes = struct.decode(tableModel.attributes);
+            
+                        if (tableAttributes && tableAttributes.auth_info) {
+                            let authInfo = tableAttributes.auth_info;
+            
+                            if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                throw new Error('This table is an auth table. Auth information not fully given');
+                            }
+            
+                            let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                guid: response[authInfo['client_type_id']],
+                                table_slug: tableModel.slug
+                            });
+            
+                            if (loginTable) {
+                                let updateUserRequest = {
+                                    guid: response['guid'],
+                                    password: data?.password,
+                                };
+            
+                                await grpcClient.updateUserAuth(updateUserRequest);
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Something went wrong in update', error);
             }
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
@@ -184,17 +240,7 @@ let objectBuilder = {
 
             await Promise.all(funcs)
             // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
-            const table = await tableVersion(mongoConn, { slug: req.table_slug })
-            let customMessage = ""
-            if (table) {
-                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
-                    code: 200,
-                    table_id: table.id,
-                    action_type: "UPDATE"
-                })
-                if (customErrMsg) { customMessage = customErrMsg.message }
-            }
-
+            
             return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage };
         } catch (err) {
             throw err

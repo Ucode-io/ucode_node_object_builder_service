@@ -18,6 +18,7 @@ const tableService = {
     Create: async (call, callback) => {
         logger.info(`[${NAMESPACE}].create request`);
         try {
+            console.log("~~~~~~~~~~~~~~> TEST ##0.001")
             const response = await tableStore.create(call.request);
             console.log("~~~~~~~~~~~~~~> TEST ##1")
 

@@ -765,7 +765,9 @@ let permission = {
                     share_modal: table?.record_permissions?.share_modal || "No",
                     settings: table?.record_permissions?.settings || "No",
                     automation: table?.record_permissions?.automation || "No",
-                    language_btn: table?.record_permissions?.language_btn || "No"
+                    language_btn: table?.record_permissions?.language_btn || "No",
+                    pdf_action: table?.record_permissions?.pdf_action || "No",
+                    add_field: table?.record_permissions?.add_field || "No",
                 }
             }
             if (!tableCopy.record_permissions) {

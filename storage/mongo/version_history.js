@@ -40,7 +40,7 @@ let versionHistoryStorage = {
 
             const resp = await History.find(query).sort({created_at: -1})
 
-            return resp
+            return {histories: resp}
 
         } catch (err) {
             throw err

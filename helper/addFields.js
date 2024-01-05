@@ -305,6 +305,64 @@ module.exports = async function (data) {
             "updated_at": new Date(),
             "is_system": true,
             "__v": 0
+        }, {
+            "id": "02257f5a-4d16-4d31-98f0-04eb7d1f7c96",
+            "required": false,
+            "slug": "add_field",
+            "label": "Add Field",
+            "default": "",
+            "type": "SINGLE_LINE",
+            "index": "string",
+            "attributes": {
+                "fields": {
+                    "maxLength": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "placeholder": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "showTooltip": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    }
+                }
+            },
+            "is_visible": false,
+            "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0
+        }, {
+            "id": "dc177d03-8e3d-416e-979e-3b294a4168e8",
+            "required": false,
+            "slug": "pdf_action",
+            "label": "PDF Action",
+            "default": "",
+            "type": "SINGLE_LINE",
+            "index": "string",
+            "attributes": {
+                "fields": {
+                    "maxLength": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "placeholder": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "showTooltip": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    }
+                }
+            },
+            "is_visible": false,
+            "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0
         }]
         let bulkWriteFields = []
         fields.forEach(field => {

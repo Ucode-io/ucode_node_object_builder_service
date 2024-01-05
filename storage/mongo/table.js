@@ -84,7 +84,9 @@ let tableStore = {
 
             await layoutStorage.createAll(default_layout)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(table || {}), is_used: { [data.env_id]: true } })
+            const a = struct.encode(table || {})
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: a, is_used: { [data.env_id]: true } })
 
             return table;
         } catch (err) {

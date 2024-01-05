@@ -18,12 +18,16 @@ const tableService = {
     Create: async (call, callback) => {
         logger.info(`[${NAMESPACE}].create request`);
         try {
+            console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~> TEST ##0.001")
             const response = await tableStore.create(call.request);
+            console.log("~~~~~~~~~~~~~~> TEST ##1")
 
             call.request.id = response.id
             const resp = await fieldStore.createAll(call.request);
+            console.log("~~~~~~~~~~~~~~> TEST ##2")
 
             const sectionResp = await layoutStore.createAll(call.request);
+            console.log("~~~~~~~~~~~~~~> TEST ##3")
 
             let viewData = {}
             viewData.table_slug = call.request.slug
@@ -32,7 +36,9 @@ const tableService = {
             viewData.project_id = call.request.project_id
             viewData.env_id = call.env_id
             call.view = viewData
+            console.log("~~~~~~~~~~~~~~> TEST ##4")
             const viewResp = await viewStore.create(call.view);
+            console.log("~~~~~~~~~~~~~~> TEST ##5")
 
 
             let event = {}

@@ -240,13 +240,13 @@ let fieldStore = {
                                 tab_id: tab.id
                             })
 
-                            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.CREATE, current: section, is_used: { [data.env_id]: true } })
+                            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(section || {}), is_used: { [data.env_id]: true } })
                         }
                     }
                 }
             }
          
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: field, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(field || {}), is_used: { [data.env_id]: true } })
 
             return field;
         } catch (err) {
@@ -336,7 +336,7 @@ let fieldStore = {
                 }
             )
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.UPDATE, current: field, previus: fieldBeforUpdate, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(field || {}), previus: struct.encode(fieldBeforUpdate || {}), is_used: { [data.env_id]: true } })
 
             return field;
         } catch (err) {
@@ -858,7 +858,7 @@ let fieldStore = {
                 }
             )
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: deletedField, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(deletedField || {}), is_used: { [data.env_id]: true } })
 
             return field;
 

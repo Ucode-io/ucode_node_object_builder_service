@@ -818,8 +818,7 @@ let relationStore = {
          
             relation.id = field_id
 
-            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: field })
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.CREATE, current: relation, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(relation || {}), is_used: { [data.env_id]: true } })
 
             return relation;
         } catch (err) {
@@ -927,7 +926,7 @@ let relationStore = {
                 await view.save();
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.UPDATE, current: relation, previus: beforeUpdate, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(relation || {}), previus: struct.encode(beforeUpdate || {}), is_used: { [data.env_id]: true } })
 
             return relation;
         } catch (err) {
@@ -1649,7 +1648,7 @@ let relationStore = {
             let count = await Tab.countDocuments({ relation_id: data.id })
             count && await Tab.deleteMany({ relation_id: data.id })
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: relation, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(relation || {}), is_used: { [data.env_id]: true } })
 
             return resp;
         } catch (err) {

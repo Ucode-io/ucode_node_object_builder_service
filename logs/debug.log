@@ -2841,31 +2841,47 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> 5ac4dc668258bf4a0f7ef48863b4ba95dddfd655
 {
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2024-01-04T06:05:11.104Z',
+=======
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-05T10:54:23.679Z',
+>>>>>>> d13a15f8c8acfc32b40dde8c412b0a1f8abe2554
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnectinag to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-01-04T06:05:11.107Z',
+=======
+  timestamp: '2024-01-05T10:54:23.681Z',
+>>>>>>> d13a15f8c8acfc32b40dde8c412b0a1f8abe2554
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2024-01-04T06:05:11.107Z',
+=======
+  timestamp: '2024-01-05T10:54:23.681Z',
+>>>>>>> d13a15f8c8acfc32b40dde8c412b0a1f8abe2554
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-01-04T06:05:11.652Z',
   label: 'object_builder_service',
   metadata: {}
@@ -2972,6 +2988,9 @@
   message: 'service.loginStore.login_data: succeeded',
   level: 'info',
   timestamp: '2024-01-05T05:49:18.827Z',
+=======
+  timestamp: '2024-01-05T10:54:24.213Z',
+>>>>>>> d13a15f8c8acfc32b40dde8c412b0a1f8abe2554
   label: 'object_builder_service',
   metadata: {}
 }

@@ -219,6 +219,7 @@ message UpdateLayoutRequest {
 message LayoutPrimaryKey {
     string id = 1;
     string project_id = 2;
+    string env_id = 3;
 }
 
 message GetListLayoutRequest {

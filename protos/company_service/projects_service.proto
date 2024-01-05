@@ -79,13 +79,6 @@ message ProjectConfig {
     string REDIS_PORT = 41;
     string REDIS_DATABASE = 42;
     string REDIS_PASSWORD = 43;
-    string QUERY_SERVICE_HOST = 45;
-    string SCENARIO_GRPC_PORT = 46;
-    string SCENARIO_HTTP_PORT = 47;
-    string SCENARIO_SERVICE_HOST = 48;
-    string SMS_GRPC_PORT = 49;
-    string SMS_SERVICE_HOST = 50;
-
 }
 
 message ProjectLoginMicroFrontend {

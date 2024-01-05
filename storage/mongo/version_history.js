@@ -116,7 +116,7 @@ let versionHistoryStorage = {
             }
 
             for(const el of tables) {
-                el?.current.project_id = data.project_id
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 switch ((el.action_type).toUpperCase()) {
                     case ACTION_TYPE_MAP.CREATE: {
                         await tableStorage.create(el.current)
@@ -131,7 +131,7 @@ let versionHistoryStorage = {
             }
 
             for(const el of fields) {
-                el?.current.project_id = data.project_id
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 switch ((el.action_type).toUpperCase()) {
                     case ACTION_TYPE_MAP.CREATE: {
                         await fieldStorage.create(el.current)
@@ -161,7 +161,7 @@ let versionHistoryStorage = {
             }
 
             for(const el of menus) {
-                el?.current.project_id = data.project_id
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 switch ((el.action_type).toUpperCase()) {
                     case ACTION_TYPE_MAP.CREATE: {
                         await menuStorage.create(el.current)
@@ -176,7 +176,7 @@ let versionHistoryStorage = {
             }
 
             for(const el of actions) {
-                el?.current.project_id = data.project_id
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 switch ((el.action_type).toUpperCase()) {
                     case ACTION_TYPE_MAP.CREATE: {
                         await actionStorage.create(el.current)
@@ -191,7 +191,7 @@ let versionHistoryStorage = {
             }
 
             for(const el of views) {
-                el?.current.project_id = data.project_id
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 switch ((el.action_type).toUpperCase()) {
                     case ACTION_TYPE_MAP.CREATE: {
                         await viewStorage.create(el.current)

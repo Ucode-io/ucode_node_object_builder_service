@@ -146,7 +146,7 @@ let versionHistoryStorage = {
             }
 
             for(const el of relations) {
-                el?.current.project_id = data.project_id
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 switch ((el.action_type).toUpperCase()) {
                     case ACTION_TYPE_MAP.CREATE: {
                         await relationStorage.create(el.current)

@@ -273,7 +273,7 @@ let layoutStore = {
 
             insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.BULKWRITE, current: resp, previus: layout, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.CREATE, current: resp, previus: layout, is_used: { [data.env_id]: true } })
             await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: tabs, previus: all_tabs, is_used: { [data.env_id]: true } })
             await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: sections, previus: all_sections, is_used: { [data.env_id]: true } })
 
@@ -849,6 +849,7 @@ let layoutStore = {
             const Layout = mongoConn.models['Layout']
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             const layout = await Layout.findOne({ id: data.id })
             if(!layout) throw new Error('Layout not found with givern id')
@@ -859,6 +860,8 @@ let layoutStore = {
             await Section.deleteMany({ tab_id: { $in: tab_ids } })
             await Tab.deleteMany({ id: { $in: tab_ids } })
             await Layout.findOneAndDelete({ id: data.id })
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.DELETE, previus: layout, is_used: { [data.env_id]: true } })
 
             return {}
 

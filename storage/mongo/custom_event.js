@@ -65,7 +65,7 @@ let customEventStore = {
         const field = new Field(fieldRequest);
         const resp = await field.save();
 
-        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.CREATE, current: response, is_used: { [data.env_id]: true } })
+        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(response), is_used: { [data.env_id]: true } })
 
         return response;
     }),
@@ -96,7 +96,7 @@ let customEventStore = {
         let actionPermissions = (await ObjectBuilder(true, data.project_id))["action_permission"]
         await actionPermissions.models.updateMany({ custom_event_id: data.id }, { $set: { label: data.label } })
 
-        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.UPDATE, current: custom_event, previus: beforeUpdate, is_used: { [data.env_id]: true } })
+        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(custom_event), previus: struct.encode(beforeUpdate), is_used: { [data.env_id]: true } })
 
         return custom_event;
     }),
@@ -173,7 +173,7 @@ let customEventStore = {
         });
         actionPermissionTable.models.deleteMany({ custom_event: data.id });
 
-        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: resp, is_used: { [data.env_id]: true } })
+        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(resp), is_used: { [data.env_id]: true } })
 
         return custom_event;
     }),

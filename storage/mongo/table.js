@@ -10,6 +10,7 @@ const layoutStorage = require("./layout")
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPES, ACTION_TYPE_MAP } = require("../../helper/constants")
 
 const mongoPool = require('../../pkg/pool');
+const { struct } = require('pb-util');
 
 
 
@@ -83,7 +84,7 @@ let tableStore = {
 
             await layoutStorage.createAll(default_layout)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: table, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(table), is_used: { [data.env_id]: true } })
 
             return table;
         } catch (err) {
@@ -147,7 +148,7 @@ let tableStore = {
                 }
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.UPDATE, current: table, previus: isSystemTable, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(table), previus: struct.encode(isSystemTable), is_used: { [data.env_id]: true } })
             return table;
         } catch (err) {
             throw err
@@ -351,7 +352,7 @@ let tableStore = {
             await collection.models.collection.drop()
             await Menu.deleteMany({table_id: table.id})
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: resp, is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(resp), is_used: { [data.env_id]: true } })
            
             return table;
         } catch (err) {

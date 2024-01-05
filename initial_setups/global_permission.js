@@ -13,8 +13,6 @@ async function createAppPermission(guid, role_id) {
         "project_button": true,
         "sms_button": true,
         "version_button": true,
-        "add_field": true,
-        "pdf_action": true,
         "createdAt": new Date(),
         "updatedAt": new Date(),
         "guid": guid,

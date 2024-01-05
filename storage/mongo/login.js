@@ -400,8 +400,6 @@ let loginStore = {
         let user_found = false
         // console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
 
-        return {user_found: true}
-
         if (!user) {
             return {
                 user_found: user_found

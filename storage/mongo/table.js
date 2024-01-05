@@ -31,7 +31,6 @@ let tableStore = {
             }
 
             const table = await Table.create(data);
-            console.log("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~. test #1")
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -49,7 +48,7 @@ let tableStore = {
                 const recordPermission = new recordPermissionTable.models(permissionRecord)
                 recordPermission.save()
             }
-            console.log("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~. test #2")
+
             const default_layout = {
                 project_id: data.project_id,
                 id: table.id,
@@ -82,12 +81,10 @@ let tableStore = {
                     }]
                 }]
             }
-            console.log("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~. test #3")
-            await layoutStorage.createAll(default_layout)
-            console.log("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~. test #4")
-            const a = table
 
-            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: a, is_used: { [data.env_id]: true } })
+            await layoutStorage.createAll(default_layout)
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(table || {}), is_used: { [data.env_id]: true } })
 
             return table;
         } catch (err) {

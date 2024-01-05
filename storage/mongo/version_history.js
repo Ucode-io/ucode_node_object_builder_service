@@ -22,18 +22,16 @@ let versionHistoryStorage = {
             const History = mongoConn.models['object_builder_service.version_history']
 
             const query = {
-                is_used: {
-                    $or: [
-                        {
-                            [data.env_id]: false
-                        },
-                        {
-                            [data.env_id]: {
-                                $exists: false
-                            }
+                $or: [
+                    {
+                        [`is_used.${data.env_id}`]: false
+                    },
+                    {
+                        [`is_used.${data.env_id}`]: {
+                            $exists: false
                         }
-                    ]
-                }
+                    }
+                ]
             }
 
             if (data.type) {
@@ -42,7 +40,7 @@ let versionHistoryStorage = {
 
             const resp = await History.find(query).sort({created_at: -1})
 
-            return resp
+            return {histories: resp}
 
         } catch (err) {
             throw err

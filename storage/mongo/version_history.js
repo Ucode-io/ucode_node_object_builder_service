@@ -4,6 +4,12 @@ const mongoPool = require('../../pkg/pool');
 const { v4 } = require("uuid");
 const { VIEW_TYPES } = require('../../helper/constants')
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
+const tableStorage = require('./table')
+const fieldStorage = require('./field')
+const relationStorage = require('./relation')
+const menuStorage = require('./menu')
+const actionStorage = require('./custom_event')
+const viewStorage = require('./view')
 
 
 
@@ -66,26 +72,138 @@ let versionHistoryStorage = {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const query = {
-                is_used: {
-                    $or: [
-                        {
-                            [data.env_id]: false
-                        },
-                        {
-                            [data.env_id]: {
-                                $exists: false
-                            }
-                        }
-                    ]
+            const tables = [], fields = [], relations = [], layouts = [], tabs = [], sections = [], menus = [], actions = [], views = []
+
+            for(const el of data.histories) {
+                switch(el.type) {
+                    case VERSION_SOURCE_TYPES_MAP.TABLE: {
+                        tables.push(el)
+                        break
+                    } 
+                    case VERSION_SOURCE_TYPES_MAP.FIELD: {
+                        fields.push(el)
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.RELATION: {
+                        relations.push(el)
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.LAYOUT: {
+                        layouts.push(el)
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.TAB: {
+                        tabs.push(el)
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.SECTION: {
+                        sections.push(el)
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.MENU: {
+                        menus.push(el)
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.ACTION: {
+                        actions.push(el)
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.VIEW: {
+                        views.push(el)
+                        break
+                    }
                 }
             }
 
-            if (data.type) {
-                query.action_source = data.type
+            for(const el of tables) {
+                el?.current.project_id = data.project_id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await tableStorage.create(el.current)
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await tableStorage.update(el.current)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await tableStorage.delete(el.previus)
+                    }
+                }
             }
 
-            const resp = await History.find(query).sort({created_at: -1})
+            for(const el of fields) {
+                el?.current.project_id = data.project_id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await fieldStorage.create(el.current)
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await fieldStorage.update(el.current)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await fieldStorage.delete(el.previus)
+                    }
+                }
+            }
+
+            for(const el of relations) {
+                el?.current.project_id = data.project_id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await relationStorage.create(el.current)
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await relationStorage.update(el.current)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await relationStorage.delete(el.previus)
+                    }
+                }
+            }
+
+            for(const el of menus) {
+                el?.current.project_id = data.project_id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await menuStorage.create(el.current)
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await menuStorage.update(el.current)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await menuStorage.delete(el.previus)
+                    }
+                }
+            }
+
+            for(const el of actions) {
+                el?.current.project_id = data.project_id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await actionStorage.create(el.current)
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await actionStorage.update(el.current)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await actionStorage.delete(el.previus)
+                    }
+                }
+            }
+
+            for(const el of views) {
+                el?.current.project_id = data.project_id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await viewStorage.create(el.current)
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await viewStorage.update(el.current)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await viewStorage.delete(el.previus)
+                    }
+                }
+            }
 
             return resp
 

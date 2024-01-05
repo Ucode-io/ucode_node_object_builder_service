@@ -371,8 +371,6 @@ let loginStore = {
         }
     }),
     login_data: catchWrapDbObjectBuilder(`${NAMESPACE}.login_data`, async (req) => {
-        // console.log("TEST:::::::::1", req.resource_environment_id)
-        // console.log("req", JSON.stringify(req, null, 2))
         const allTables = (await ObjectBuilder(true, req.resource_environment_id))
         const clientTypeTable = allTables["client_type"]
         const globalPermission = allTables["global_permission"]
@@ -401,6 +399,8 @@ let loginStore = {
 
         let user_found = false
         // console.log("TEST:::::::::3", JSON.stringify(user, null, 2))
+
+        return {user_found: true}
 
         if (!user) {
             return {

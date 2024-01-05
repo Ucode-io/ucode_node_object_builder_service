@@ -30,6 +30,7 @@ const tableService = {
             viewData.type = "TABLE"
             viewData.app_id = call.request.app_id
             viewData.project_id = call.request.project_id
+            viewData.env_id = call.env_id
             call.view = viewData
             const viewResp = await viewStore.create(call.view);
 

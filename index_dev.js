@@ -32,9 +32,9 @@ const logger = require("./config/logger");
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs",
-                username: "uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs",
-                password: "vBPqHBE2gm"
+                database: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
+                username: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
+                password: "vwdG8B7gzO"
             }
         })
 

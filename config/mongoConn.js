@@ -30,7 +30,6 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         "/" +
         Config.mongoDatabase;
     }
-    
 
     let options = {
         // poolSize: 10,

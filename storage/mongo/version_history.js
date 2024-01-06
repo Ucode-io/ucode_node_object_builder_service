@@ -66,7 +66,7 @@ let versionHistoryStorage = {
             throw err
         }
     }),
-    migrate: catchWrapDb(`${NAMESPACE}.migrate`, async (data) => {
+    migrate: catchWrapDb(`${NAMESPACE}.migrate1`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']

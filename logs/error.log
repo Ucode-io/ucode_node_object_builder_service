@@ -7611,3 +7611,305 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T11:52:10.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Unable to infer type for "function() {\n' +
+    '    let states = [...arguments];\n' +
+    '    const callback = states.pop();\n' +
+    '\n' +
+    '    if (!states.length) states = this.stateNames;\n' +
+    '\n' +
+    '    const _this = this;\n' +
+    '\n' +
+    '    const paths = states.reduce(function(paths, state) {\n' +
+    '      if (_this.states[state] == null) {\n' +
+    '        return paths;\n' +
+    '      }\n' +
+    '      return paths.concat(Object.keys(_this.states[state]));\n' +
+    '    }, []);\n' +
+    '\n' +
+    '    return paths[iterMethod](function(path, i, paths) {\n' +
+    '      return callback(path, i, paths);\n' +
+    '    });\n' +
+    '  }".',
+  level: 'error',
+  timestamp: '2024-01-05T11:52:10.229Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T11:54:27.638Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Unable to infer type for "function() {\n' +
+    '    let states = [...arguments];\n' +
+    '    const callback = states.pop();\n' +
+    '\n' +
+    '    if (!states.length) states = this.stateNames;\n' +
+    '\n' +
+    '    const _this = this;\n' +
+    '\n' +
+    '    const paths = states.reduce(function(paths, state) {\n' +
+    '      if (_this.states[state] == null) {\n' +
+    '        return paths;\n' +
+    '      }\n' +
+    '      return paths.concat(Object.keys(_this.states[state]));\n' +
+    '    }, []);\n' +
+    '\n' +
+    '    return paths[iterMethod](function(path, i, paths) {\n' +
+    '      return callback(path, i, paths);\n' +
+    '    });\n' +
+    '  }".',
+  level: 'error',
+  timestamp: '2024-01-05T11:54:27.639Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T11:59:46.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: E11000 duplicate key error collection: dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "hello-5", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2024-01-05T11:59:46.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T11:59:53.125Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Unable to infer type for "function() {\n' +
+    '    let states = [...arguments];\n' +
+    '    const callback = states.pop();\n' +
+    '\n' +
+    '    if (!states.length) states = this.stateNames;\n' +
+    '\n' +
+    '    const _this = this;\n' +
+    '\n' +
+    '    const paths = states.reduce(function(paths, state) {\n' +
+    '      if (_this.states[state] == null) {\n' +
+    '        return paths;\n' +
+    '      }\n' +
+    '      return paths.concat(Object.keys(_this.states[state]));\n' +
+    '    }, []);\n' +
+    '\n' +
+    '    return paths[iterMethod](function(path, i, paths) {\n' +
+    '      return callback(path, i, paths);\n' +
+    '    });\n' +
+    '  }".',
+  level: 'error',
+  timestamp: '2024-01-05T11:59:53.126Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T12:01:38.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Unable to infer type for "function() {\n' +
+    '    let states = [...arguments];\n' +
+    '    const callback = states.pop();\n' +
+    '\n' +
+    '    if (!states.length) states = this.stateNames;\n' +
+    '\n' +
+    '    const _this = this;\n' +
+    '\n' +
+    '    const paths = states.reduce(function(paths, state) {\n' +
+    '      if (_this.states[state] == null) {\n' +
+    '        return paths;\n' +
+    '      }\n' +
+    '      return paths.concat(Object.keys(_this.states[state]));\n' +
+    '    }, []);\n' +
+    '\n' +
+    '    return paths[iterMethod](function(path, i, paths) {\n' +
+    '      return callback(path, i, paths);\n' +
+    '    });\n' +
+    '  }".',
+  level: 'error',
+  timestamp: '2024-01-05T12:01:38.470Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T12:03:32.196Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Unable to infer type for "function() {\n' +
+    '    let states = [...arguments];\n' +
+    '    const callback = states.pop();\n' +
+    '\n' +
+    '    if (!states.length) states = this.stateNames;\n' +
+    '\n' +
+    '    const _this = this;\n' +
+    '\n' +
+    '    const paths = states.reduce(function(paths, state) {\n' +
+    '      if (_this.states[state] == null) {\n' +
+    '        return paths;\n' +
+    '      }\n' +
+    '      return paths.concat(Object.keys(_this.states[state]));\n' +
+    '    }, []);\n' +
+    '\n' +
+    '    return paths[iterMethod](function(path, i, paths) {\n' +
+    '      return callback(path, i, paths);\n' +
+    '    });\n' +
+    '  }".',
+  level: 'error',
+  timestamp: '2024-01-05T12:03:32.196Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T12:07:26.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Unable to infer type for "function() {\n' +
+    '    let states = [...arguments];\n' +
+    '    const callback = states.pop();\n' +
+    '\n' +
+    '    if (!states.length) states = this.stateNames;\n' +
+    '\n' +
+    '    const _this = this;\n' +
+    '\n' +
+    '    const paths = states.reduce(function(paths, state) {\n' +
+    '      if (_this.states[state] == null) {\n' +
+    '        return paths;\n' +
+    '      }\n' +
+    '      return paths.concat(Object.keys(_this.states[state]));\n' +
+    '    }, []);\n' +
+    '\n' +
+    '    return paths[iterMethod](function(path, i, paths) {\n' +
+    '      return callback(path, i, paths);\n' +
+    '    });\n' +
+    '  }".',
+  level: 'error',
+  timestamp: '2024-01-05T12:07:26.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T12:14:13.755Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Unable to infer type for "function() {\n' +
+    '    let states = [...arguments];\n' +
+    '    const callback = states.pop();\n' +
+    '\n' +
+    '    if (!states.length) states = this.stateNames;\n' +
+    '\n' +
+    '    const _this = this;\n' +
+    '\n' +
+    '    const paths = states.reduce(function(paths, state) {\n' +
+    '      if (_this.states[state] == null) {\n' +
+    '        return paths;\n' +
+    '      }\n' +
+    '      return paths.concat(Object.keys(_this.states[state]));\n' +
+    '    }, []);\n' +
+    '\n' +
+    '    return paths[iterMethod](function(path, i, paths) {\n' +
+    '      return callback(path, i, paths);\n' +
+    '    });\n' +
+    '  }".',
+  level: 'error',
+  timestamp: '2024-01-05T12:14:13.755Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T13:09:22.295Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Unable to infer type for "function() {\n' +
+    '    let states = [...arguments];\n' +
+    '    const callback = states.pop();\n' +
+    '\n' +
+    '    if (!states.length) states = this.stateNames;\n' +
+    '\n' +
+    '    const _this = this;\n' +
+    '\n' +
+    '    const paths = states.reduce(function(paths, state) {\n' +
+    '      if (_this.states[state] == null) {\n' +
+    '        return paths;\n' +
+    '      }\n' +
+    '      return paths.concat(Object.keys(_this.states[state]));\n' +
+    '    }, []);\n' +
+    '\n' +
+    '    return paths[iterMethod](function(path, i, paths) {\n' +
+    '      return callback(path, i, paths);\n' +
+    '    });\n' +
+    '  }".',
+  level: 'error',
+  timestamp: '2024-01-05T13:09:22.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-01-05T13:11:59.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: Unable to infer type for "function() {\n' +
+    '    let states = [...arguments];\n' +
+    '    const callback = states.pop();\n' +
+    '\n' +
+    '    if (!states.length) states = this.stateNames;\n' +
+    '\n' +
+    '    const _this = this;\n' +
+    '\n' +
+    '    const paths = states.reduce(function(paths, state) {\n' +
+    '      if (_this.states[state] == null) {\n' +
+    '        return paths;\n' +
+    '      }\n' +
+    '      return paths.concat(Object.keys(_this.states[state]));\n' +
+    '    }, []);\n' +
+    '\n' +
+    '    return paths[iterMethod](function(path, i, paths) {\n' +
+    '      return callback(path, i, paths);\n' +
+    '    });\n' +
+    '  }".',
+  level: 'error',
+  timestamp: '2024-01-05T13:11:59.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

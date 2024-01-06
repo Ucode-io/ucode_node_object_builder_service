@@ -22,7 +22,6 @@ let layoutStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
             const History = mongoConn.models['object_builder_service.version_history']
-
             const resp = await Table.findOneAndUpdate({
                 id: data.table_id,
             },
@@ -33,7 +32,6 @@ let layoutStore = {
                 }, {
                 new: true
             })
-
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
                 layoutReq.id = v4()
@@ -73,7 +71,6 @@ let layoutStore = {
             // layouts.length && await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.BULKWRITE, current: layouts })
             // tabs.length && await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: tabs })
             // sections.length && await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: sections })
-
             return;
         } catch (err) {
             throw err
@@ -273,9 +270,9 @@ let layoutStore = {
 
             insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(resp || {}), previus: struct.encode(layout || {}), is_used: { [data.env_id]: true } })
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(tabs || []), previus: struct.encode(all_tabs || []), is_used: { [data.env_id]: true } })
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(sections || []), previus: struct.encode(all_sections || []), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(resp))), previus: struct.encode(JSON.parse(JSON.stringify(layout))), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(tabs))), previus: struct.encode(JSON.parse(JSON.stringify(all_tabs))), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(sections))), previus: struct.encode(JSON.parse(JSON.stringify(all_sections))), is_used: { [data.env_id]: true } })
 
             return {}
         } catch (err) {
@@ -861,7 +858,7 @@ let layoutStore = {
             await Tab.deleteMany({ id: { $in: tab_ids } })
             await Layout.findOneAndDelete({ id: data.id })
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.DELETE, previus: struct.encode(layout || {}), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.DELETE, previus: struct.encode(JSON.parse(JSON.stringify(layout))), is_used: { [data.env_id]: true } })
 
             return {}
 

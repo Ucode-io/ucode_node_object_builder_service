@@ -5,7 +5,7 @@ module.exports = async function (data) {
         console.log("Adding add_field and pdf_action fields to menu with langauge_btn");
 
         Menu.updateMany(
-            { langauge_btn: { $exists: true } },
+            { language_btn: { $exists: true } },
             { $set: { add_field: 'Yes', pdf_action: 'Yes' } },
             (err, result) => {
                 if (err) {

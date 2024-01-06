@@ -308,16 +308,163 @@ let menuStore = {
         } catch (err) {
             throw err
         }
-
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-
             const Menu = mongoConn.models['object_builder_service.menu']
 
-            const menu = await Menu.findOne({ id: data.id });
-            return menu;
+            const query = {id: data.id}
+
+            const pipeline = [
+                {
+                    '$match': query
+                },
+                {
+                    '$lookup': {
+                        'from': 'tables',
+                        'localField': 'table_id',
+                        'foreignField': 'id',
+                        'as': 'table'
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'function_service.functions',
+                        'localField': 'microfrontend_id',
+                        'foreignField': 'id',
+                        'as': 'microfrontend'
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'pivottemplates',
+                        'localField': 'pivot_template_id',
+                        'foreignField': 'id',
+                        'as': 'pivot'
+                    }
+                },
+                {
+                    '$lookup': {
+                        from: "web_pages.web_page",
+                        let: {
+                            webpage_id: "$webpage_id",
+                        },
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: {
+                                        $and: [
+                                            {
+                                                $eq: ["$id", "$$webpage_id"],
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                            {
+                                $sort: {
+                                    created_at: -1,
+                                },
+                            },
+                            {
+                                $group: {
+                                    _id: "$webpage_id",
+                                    webpage: {
+                                        $first: "$$ROOT",
+                                    },
+                                },
+                            },
+                        ],
+                        as: "webpage"
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$table',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$microfrontend',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$pivot',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$webpage',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'menu_permissions',
+                        'let': {
+                            'menuId': '$id',
+                            'roleId': data.role_id
+                        },
+                        'pipeline': [
+                            {
+                                '$match': {
+                                    '$expr': {
+                                        '$and': [
+                                            {
+                                                '$eq': ['$role_id', '$$roleId']
+                                            },
+                                            {
+                                                '$eq': ['$menu_id', '$$menuId']
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        'as': 'permission'
+                    },
+                },
+                {
+                    '$unwind': {
+                        'path': '$permission',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$project': {
+                        'permission._id': 0,
+                        'permission.__v': 0,
+                        'permission.createdAt': 0,
+                        'permission.updatedAt': 0,
+                    }
+                },
+                {
+                    '$addFields': {
+                        'data': {
+                            'table': '$table',
+                            'microfrontend': '$microfrontend',
+                            'webpage': '$webpage.webpage',
+                            'permission': '$permission',
+                            'pivot': '$pivot',
+                        }
+                    }
+                }
+            ];
+
+            let menu = await Menu.aggregate(pipeline)
+            menu = JSON.parse(JSON.stringify(menu))
+
+            if (menu.length !== 0) {
+                menu[0].data = struct.encode(menu[0].data);
+                return menu[0];
+            }
+
+            return null
         } catch (err) {
             throw err
         }

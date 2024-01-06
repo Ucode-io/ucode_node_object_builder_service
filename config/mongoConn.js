@@ -52,7 +52,6 @@ async function newMongoConn(Config, shouldCompileModels = true) {
             // useFindAndModify: false
         };
     }
-    
 
     Logger.debug("connecting to mongodb: " + mongoDBUrl);
 

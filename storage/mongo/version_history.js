@@ -74,7 +74,12 @@ let versionHistoryStorage = {
             const tables = [], fields = [], relations = [], layouts = [], tabs = [], sections = [], menus = [], actions = [], views = [], ids = []
 
             for(let el of data.histories) {
-                el = struct.decode(el)
+                if (el.current) {
+                    el.current = struct.decode(el.current)
+                }
+                if (el.previus) {
+                    el.previus = struct.decode(el.previus)
+                }
                 ids.push(el.id)
                 switch(el.type) {
                     case VERSION_SOURCE_TYPES_MAP.TABLE: {

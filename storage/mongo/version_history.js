@@ -37,6 +37,7 @@ let versionHistoryStorage = {
             if (data.type) {
                 query.action_source = data.type
             }
+            console.log(query)
 
             const resp = await History.find(query).sort({created_at: -1})
 
@@ -70,9 +71,11 @@ let versionHistoryStorage = {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const tables = [], fields = [], relations = [], layouts = [], tabs = [], sections = [], menus = [], actions = [], views = []
+            const tables = [], fields = [], relations = [], layouts = [], tabs = [], sections = [], menus = [], actions = [], views = [], ids = []
 
-            for(const el of data.histories) {
+            for(let el of data.histories) {
+                el = struct.decode(el)
+                ids.push(el.id)
                 switch(el.type) {
                     case VERSION_SOURCE_TYPES_MAP.TABLE: {
                         tables.push(el)
@@ -203,7 +206,7 @@ let versionHistoryStorage = {
                 }
             }
 
-            return resp
+            return {ids}
 
         } catch (err) {
             throw err

@@ -36,7 +36,7 @@ const tableService = {
             viewData.project_id = call.request.project_id
             viewData.env_id = call.env_id
             call.view = viewData
-            console.log("~~~~~~~~~~~~~~> TEST ##4")
+            console.log("~~~~~~~~~~~~~~> TEST ##4", call.view)
             const viewResp = await viewStore.create(call.view);
             console.log("~~~~~~~~~~~~~~> TEST ##5")
 

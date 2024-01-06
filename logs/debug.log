@@ -4045,3 +4045,94 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-06T04:33:19.543Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-06T04:33:19.545Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-06T04:33:19.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-06T04:33:20.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-06T04:34:35.300Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.getAll: succeeded',
+  level: 'info',
+  timestamp: '2024-01-06T04:35:22.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-06T04:38:51.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-06T04:38:51.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-06T04:38:51.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-06T04:38:52.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-06T04:40:09.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.getAll: succeeded',
+  level: 'info',
+  timestamp: '2024-01-06T04:40:45.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.getAll: succeeded',
+  level: 'info',
+  timestamp: '2024-01-06T04:41:01.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

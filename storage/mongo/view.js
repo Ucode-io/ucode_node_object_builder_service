@@ -79,7 +79,7 @@ let viewStore = {
             }
             await ViewPermission?.insertMany(query)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(response), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(response))), is_used: { [data.env_id]: true } })
 
             return response;
 
@@ -137,7 +137,7 @@ let viewStore = {
                     new: true
                 })
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(view), previus: struct.encode(beforeUpdate), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(view))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))), is_used: { [data.env_id]: true } })
 
             return view;
 
@@ -229,7 +229,7 @@ let viewStore = {
 
             await View.deleteOne({ id: data.id });
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(view), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(view))), is_used: { [data.env_id]: true } })
 
             return view;
 

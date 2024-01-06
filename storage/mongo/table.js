@@ -84,8 +84,8 @@ let tableStore = {
 
             await layoutStorage.createAll(default_layout)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(table), is_used: { [data.env_id]: true } })
-
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(table))), is_used: { [data.env_id]: true } })
+            console.log("~~~~~~~~~~~~~~> TEST ##00")
             return table;
         } catch (err) {
             throw err
@@ -148,7 +148,7 @@ let tableStore = {
                 }
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(table), previus: struct.encode(isSystemTable), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.UPDATE, current: JSON.parse(JSON.stringify(table)), previus: struct.encode(JSON.parse(JSON.stringify(isSystemTable))), is_used: { [data.env_id]: true } })
             return table;
         } catch (err) {
             throw err
@@ -352,7 +352,7 @@ let tableStore = {
             await collection.models.collection.drop()
             await Menu.deleteMany({table_id: table.id})
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(resp), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(resp))), is_used: { [data.env_id]: true } })
            
             return table;
         } catch (err) {

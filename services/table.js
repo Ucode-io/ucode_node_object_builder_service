@@ -36,31 +36,9 @@ const tableService = {
             viewData.project_id = call.request.project_id
             viewData.env_id = call.env_id
             call.view = viewData
-            console.log("~~~~~~~~~~~~~~> TEST ##4")
+            console.log("~~~~~~~~~~~~~~> TEST ##4", call.view)
             const viewResp = await viewStore.create(call.view);
             console.log("~~~~~~~~~~~~~~> TEST ##5")
-
-
-            let event = {}
-            let table = {}
-            let fields = []
-            table.slug = call.request.slug
-            for (const field of call.request.fields) {
-                let type = converter(field.type)
-                if (field.slug !== "guid") {
-                    fields.push({
-                        slug: field.slug,
-                        type: type,
-                        index: field.index,
-                        required: field.required,
-                        default: field.default,
-                    })
-                }
-
-            }
-            table.fields = fields
-            event.payload = table
-            event.project_id = call.request.project_id || cfg.ucodeDefaultProjectID
 
             callback(null, {
                 id: response.id

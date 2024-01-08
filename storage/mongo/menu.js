@@ -76,7 +76,7 @@ let menuStore = {
                 await menuPermissionTable.insertMany(permissions)
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(response || {}), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(response))), is_used: { [data.env_id]: true } })
 
             return response;
         } catch (err) {
@@ -116,7 +116,7 @@ let menuStore = {
                 }
             )
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(response || {}), previus: struct.encode(beforeUpdate), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(response))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))), is_used: { [data.env_id]: true } })
             
             return menu;
         } catch (err) {
@@ -126,6 +126,7 @@ let menuStore = {
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
+            console.log("\n\n\n ~~~~~~~~~~~~~> MENU GET ALL", data.project_id)
 
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
 
@@ -324,6 +325,8 @@ let menuStore = {
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
         try {
+            console.log("\n\n\n ~~~~~~~~~~~~~> MENU GET BY ID", data.project_id)
+            return {}
             const mongoConn = await mongoPool.get(data.project_id)
             const Menu = mongoConn.models['object_builder_service.menu']
 
@@ -500,7 +503,7 @@ let menuStore = {
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(res || {}), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(res))), is_used: { [data.env_id]: true } })
 
             return menu;
         } catch (err) {
@@ -559,6 +562,8 @@ let menuStore = {
     }),
     getByIDMenuSettings: catchWrapDb(`${NAMESPACE}.getByIDMenuSettings`, async (data) => {
         try {
+
+            return {}
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']

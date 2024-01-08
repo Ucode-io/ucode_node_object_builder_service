@@ -125,7 +125,8 @@ let layoutStore = {
                     menu_id: data.menu_id
                 }
             }, {
-                upsert: true
+                upsert: true,
+                new: true
             })
 
             if(data.is_default) {
@@ -270,9 +271,9 @@ let layoutStore = {
 
             insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(resp))), previus: struct.encode(JSON.parse(JSON.stringify(layout))), is_used: { [data.env_id]: true } })
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(tabs))), previus: struct.encode(JSON.parse(JSON.stringify(all_tabs))), is_used: { [data.env_id]: true } })
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(sections))), previus: struct.encode(JSON.parse(JSON.stringify(all_sections))), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(data))), previus: struct.encode(JSON.parse(JSON.stringify(layout))) })
+            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(tabs))), previus: struct.encode(JSON.parse(JSON.stringify(all_tabs))) })
+            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(sections))), previus: struct.encode(JSON.parse(JSON.stringify(all_sections))) })
 
             return {}
         } catch (err) {
@@ -854,7 +855,7 @@ let layoutStore = {
             await Tab.deleteMany({ id: { $in: tab_ids } })
             await Layout.findOneAndDelete({ id: data.id })
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.DELETE, previus: struct.encode(JSON.parse(JSON.stringify(layout))), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.DELETE, previus: struct.encode(JSON.parse(JSON.stringify(layout))) })
 
             return {}
 

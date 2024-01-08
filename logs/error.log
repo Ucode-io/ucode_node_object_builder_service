@@ -7913,3 +7913,270 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.version_history.migrate: failed with error: e is not defined',
+  level: 'error',
+  timestamp: '2024-01-08T05:43:27.248Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: Cannot read properties of null (reading 'project_id')",
+  level: 'error',
+  timestamp: '2024-01-08T05:48:12.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: Cannot read properties of null (reading 'project_id')",
+  level: 'error',
+  timestamp: '2024-01-08T05:55:47.322Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: Cannot read properties of null (reading 'project_id')",
+  level: 'error',
+  timestamp: '2024-01-08T06:01:18.565Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: View not found with given id',
+  level: 'error',
+  timestamp: '2024-01-08T06:04:02.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: Cannot access 'section' before initialization",
+  level: 'error',
+  timestamp: '2024-01-08T06:16:03.473Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: _id_ dup key: { _id: ObjectId('6598f5c3cd7460c5628f7338') }",
+  level: 'error',
+  timestamp: '2024-01-08T06:19:42.474Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: _id_ dup key: { _id: ObjectId('6598f5c3cd7460c5628f7338') }",
+  level: 'error',
+  timestamp: '2024-01-08T06:22:08.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: _id_ dup key: { _id: ObjectId('6598f5b9cd7460c5628f72f7') }",
+  level: 'error',
+  timestamp: '2024-01-08T06:26:20.077Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.fields index: slug_1_table_id_1 dup key: { slug: "Name", table_id: "6bd735e1-bfb6-43af-b147-178f2b56abaf" }',
+  level: 'error',
+  timestamp: '2024-01-08T06:37:28.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.menu_permissions index: menu_id_1_role_id_1 dup key: { menu_id: "0ecff919-7c58-4861-bdf4-61c074cb601e", role_id: "3306fd21-ee1a-4c68-8843-6d0699b6f9ce" }',
+  level: 'error',
+  timestamp: '2024-01-08T06:40:21.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.menu_permissions index: menu_id_1_role_id_1 dup key: { menu_id: "0ecff919-7c58-4861-bdf4-61c074cb601e", role_id: "3306fd21-ee1a-4c68-8843-6d0699b6f9ce" }',
+  level: 'error',
+  timestamp: '2024-01-08T06:54:35.837Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.menu_permissions index: menu_id_1_role_id_1 dup key: { menu_id: "0ecff919-7c58-4861-bdf4-61c074cb601e", role_id: "3306fd21-ee1a-4c68-8843-6d0699b6f9ce" }',
+  level: 'error',
+  timestamp: '2024-01-08T06:57:38.809Z',
+  label: 'object_builder_service',
+  metadata: {
+    code: 11000,
+    writeErrors: [
+      WriteError {
+        err: {
+          index: 0,
+          code: 11000,
+          errmsg: 'E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.menu_permissions index: menu_id_1_role_id_1 dup key: { menu_id: "0ecff919-7c58-4861-bdf4-61c074cb601e", role_id: "3306fd21-ee1a-4c68-8843-6d0699b6f9ce" }',
+          errInfo: undefined,
+          op: {
+            update: true,
+            menu_id: '0ecff919-7c58-4861-bdf4-61c074cb601e',
+            guid: '3def4aa0-dd8f-43b9-beea-2e948fb67f76',
+            read: true,
+            delete: true,
+            role_id: '3306fd21-ee1a-4c68-8843-6d0699b6f9ce',
+            is_have_condition: false,
+            is_public: false,
+            write: true,
+            menu_settings: false,
+            _id: new ObjectId("659b9ce22d0dcfc5988f106a"),
+            __v: 0,
+            createdAt: 2024-01-08T06:57:38.732Z,
+            updatedAt: 2024-01-08T06:57:38.732Z
+          }
+        }
+      }
+    ],
+    result: BulkWriteResult {
+      result: {
+        ok: 1,
+        writeErrors: [
+          WriteError {
+            err: {
+              index: 0,
+              code: 11000,
+              errmsg: 'E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.menu_permissions index: menu_id_1_role_id_1 dup key: { menu_id: "0ecff919-7c58-4861-bdf4-61c074cb601e", role_id: "3306fd21-ee1a-4c68-8843-6d0699b6f9ce" }',
+              errInfo: undefined,
+              op: {
+                update: true,
+                menu_id: '0ecff919-7c58-4861-bdf4-61c074cb601e',
+                guid: '3def4aa0-dd8f-43b9-beea-2e948fb67f76',
+                read: true,
+                delete: true,
+                role_id: '3306fd21-ee1a-4c68-8843-6d0699b6f9ce',
+                is_have_condition: false,
+                is_public: false,
+                write: true,
+                menu_settings: false,
+                _id: new ObjectId("659b9ce22d0dcfc5988f106a"),
+                __v: 0,
+                createdAt: 2024-01-08T06:57:38.732Z,
+                updatedAt: 2024-01-08T06:57:38.732Z
+              }
+            }
+          }
+        ],
+        writeConcernErrors: [],
+        insertedIds: [
+          { index: 0, _id: new ObjectId("659b9ce22d0dcfc5988f106a") },
+          { index: 1, _id: new ObjectId("659b9ce22d0dcfc5988f106b") },
+          { index: 2, _id: new ObjectId("659b9ce22d0dcfc5988f106c") },
+          { index: 3, _id: new ObjectId("659b9ce22d0dcfc5988f106d") },
+          { index: 4, _id: new ObjectId("659b9ce22d0dcfc5988f106e") },
+          { index: 5, _id: new ObjectId("659b9ce22d0dcfc5988f106f") },
+          { index: 6, _id: new ObjectId("659b9ce22d0dcfc5988f1070") },
+          { index: 7, _id: new ObjectId("659b9ce22d0dcfc5988f1071") },
+          { index: 8, _id: new ObjectId("659b9ce22d0dcfc5988f1072") },
+          { index: 9, _id: new ObjectId("659b9ce22d0dcfc5988f1073") },
+          { index: 10, _id: new ObjectId("659b9ce22d0dcfc5988f1074") }
+        ],
+        nInserted: 0,
+        nUpserted: 0,
+        nMatched: 0,
+        nModified: 0,
+        nRemoved: 0,
+        upserted: []
+      }
+    },
+    insertedDocs: []
+  },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: View not found with given id',
+  level: 'error',
+  timestamp: '2024-01-08T06:57:38.966Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.menu_permissions index: menu_id_1_role_id_1 dup key: { menu_id: "0ecff919-7c58-4861-bdf4-61c074cb601e", role_id: "3306fd21-ee1a-4c68-8843-6d0699b6f9ce" }',
+  level: 'error',
+  timestamp: '2024-01-08T07:15:47.635Z',
+  label: 'object_builder_service',
+  metadata: {
+    code: 11000,
+    writeErrors: [
+      WriteError {
+        err: {
+          index: 0,
+          code: 11000,
+          errmsg: 'E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.menu_permissions index: menu_id_1_role_id_1 dup key: { menu_id: "0ecff919-7c58-4861-bdf4-61c074cb601e", role_id: "3306fd21-ee1a-4c68-8843-6d0699b6f9ce" }',
+          errInfo: undefined,
+          op: {
+            update: true,
+            menu_id: '0ecff919-7c58-4861-bdf4-61c074cb601e',
+            guid: '65044b78-fe33-441b-8989-183aff782a4c',
+            read: true,
+            delete: true,
+            role_id: '3306fd21-ee1a-4c68-8843-6d0699b6f9ce',
+            is_have_condition: false,
+            is_public: false,
+            write: true,
+            menu_settings: false,
+            _id: new ObjectId("659ba123e73390a3d4c578a9"),
+            __v: 0,
+            createdAt: 2024-01-08T07:15:47.545Z,
+            updatedAt: 2024-01-08T07:15:47.545Z
+          }
+        }
+      }
+    ],
+    result: BulkWriteResult {
+      result: {
+        ok: 1,
+        writeErrors: [
+          WriteError {
+            err: {
+              index: 0,
+              code: 11000,
+              errmsg: 'E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.menu_permissions index: menu_id_1_role_id_1 dup key: { menu_id: "0ecff919-7c58-4861-bdf4-61c074cb601e", role_id: "3306fd21-ee1a-4c68-8843-6d0699b6f9ce" }',
+              errInfo: undefined,
+              op: {
+                update: true,
+                menu_id: '0ecff919-7c58-4861-bdf4-61c074cb601e',
+                guid: '65044b78-fe33-441b-8989-183aff782a4c',
+                read: true,
+                delete: true,
+                role_id: '3306fd21-ee1a-4c68-8843-6d0699b6f9ce',
+                is_have_condition: false,
+                is_public: false,
+                write: true,
+                menu_settings: false,
+                _id: new ObjectId("659ba123e73390a3d4c578a9"),
+                __v: 0,
+                createdAt: 2024-01-08T07:15:47.545Z,
+                updatedAt: 2024-01-08T07:15:47.545Z
+              }
+            }
+          }
+        ],
+        writeConcernErrors: [],
+        insertedIds: [
+          { index: 0, _id: new ObjectId("659ba123e73390a3d4c578a9") },
+          { index: 1, _id: new ObjectId("659ba123e73390a3d4c578aa") },
+          { index: 2, _id: new ObjectId("659ba123e73390a3d4c578ab") },
+          { index: 3, _id: new ObjectId("659ba123e73390a3d4c578ac") },
+          { index: 4, _id: new ObjectId("659ba123e73390a3d4c578ad") },
+          { index: 5, _id: new ObjectId("659ba123e73390a3d4c578ae") },
+          { index: 6, _id: new ObjectId("659ba123e73390a3d4c578af") },
+          { index: 7, _id: new ObjectId("659ba123e73390a3d4c578b0") },
+          { index: 8, _id: new ObjectId("659ba123e73390a3d4c578b1") },
+          { index: 9, _id: new ObjectId("659ba123e73390a3d4c578b2") },
+          { index: 10, _id: new ObjectId("659ba123e73390a3d4c578b3") }
+        ],
+        nInserted: 0,
+        nUpserted: 0,
+        nMatched: 0,
+        nModified: 0,
+        nRemoved: 0,
+        upserted: []
+      }
+    },
+    insertedDocs: []
+  },
+  [Symbol(errorLabels)]: Set(0) {}
+}

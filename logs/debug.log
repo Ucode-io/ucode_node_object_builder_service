@@ -4136,3 +4136,111 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-08T08:44:10.260Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-08T08:44:10.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-08T08:44:10.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-08T08:44:11.286Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "b79aa281-fca5-412b-b71f-c604fb4c06dc",\n' +
+    '  "project_id": "b79aa281-fca5-412b-b71f-c604fb4c06dc",\n' +
+    '  "user_id": "",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-08T08:47:21.370Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-01-08T08:47:21.481Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-08T08:47:22.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-08T08:48:10.230Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-08T08:48:10.241Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-08T08:48:10.244Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-08T08:48:11.077Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-08T08:51:25.697Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "b79aa281-fca5-412b-b71f-c604fb4c06dc",\n' +
+    '  "project_id": "b79aa281-fca5-412b-b71f-c604fb4c06dc",\n' +
+    '  "user_id": "",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-08T08:51:26.574Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-01-08T08:51:26.667Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

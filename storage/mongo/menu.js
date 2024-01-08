@@ -560,8 +560,6 @@ let menuStore = {
     }),
     getByIDMenuSettings: catchWrapDb(`${NAMESPACE}.getByIDMenuSettings`, async (data) => {
         try {
-
-            return {}
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']

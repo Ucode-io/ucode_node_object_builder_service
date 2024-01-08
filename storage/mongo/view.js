@@ -18,7 +18,8 @@ const document = new DOMImplementation().createDocument('http://www.w3.org/1999/
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 const { VIEW_TYPES } = require('../../helper/constants')
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
-const os = require('os')
+const os = require('os');
+const logger = require("../../config/logger");
 
 console.log()
 // const mongoConn = await mongoPool.get(data.project_id)
@@ -77,9 +78,13 @@ let viewStore = {
                     view_id: response.id
                 })
             }
-            await ViewPermission?.insertMany(query)
+            try {
+                await ViewPermission?.insertMany(query)
+            } catch (err) {
+                logger.error(err)
+            }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(response))), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(response))) })
 
             return response;
 
@@ -137,7 +142,7 @@ let viewStore = {
                     new: true
                 })
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(view))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(view))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))) })
 
             return view;
 
@@ -229,7 +234,7 @@ let viewStore = {
 
             await View.deleteOne({ id: data.id });
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(view))), is_used: { [data.env_id]: true } })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(view))) })
 
             return view;
 

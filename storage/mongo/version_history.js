@@ -39,9 +39,9 @@ let versionHistoryStorage = {
             if (data.type) {
                 query.action_source = data.type
             }
-            console.log(query)
-
+            
             const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: -1})
+            console.log("_____---> "), query, resp
 
             return {histories: resp}
 

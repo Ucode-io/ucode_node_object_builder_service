@@ -101,7 +101,13 @@ let fieldStore = {
                     fieldPermissions.push(fieldPermission)
                 }
             }
-            fieldPermissionTable.models.insertMany(fieldPermissions)
+
+            try {
+                fieldPermissionTable.models.insertMany(fieldPermissions)
+            } catch (err) {
+                logger.error(err)
+            }
+            
             const resp = await Table.updateOne({
                 id: data.id,
             },

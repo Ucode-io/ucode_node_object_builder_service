@@ -326,7 +326,6 @@ let menuStore = {
         } catch (err) {
             throw err
         }
-
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
         try {

@@ -7521,20 +7521,33 @@
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: '[services.table].create request finished with FAILURE',
   level: 'error',
   timestamp: '2023-12-28T05:20:39.380Z',
+=======
+  message: 'service.object_builder.getSingle: failed with error: table not found',
+  level: 'error',
+  timestamp: '2023-12-29T14:28:02.096Z',
+>>>>>>> 838c2b596acbc070e5d0372cbb3cc8239d844533
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: '[services.table].create - error: db conn with given projectId does not exist',
   level: 'error',
   timestamp: '2023-12-28T05:20:39.380Z',
+=======
+  message: 'service.object_builder.update: failed with error: request is not defined',
+  level: 'error',
+  timestamp: '2023-12-29T14:31:04.386Z',
+>>>>>>> 838c2b596acbc070e5d0372cbb3cc8239d844533
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: '[services.table].create request finished with FAILURE',
   level: 'error',
   timestamp: '2023-12-28T05:25:23.650Z',
@@ -8089,10 +8102,45 @@
   message: 'service.version_history.migrate: failed with error: View not found with given id',
   level: 'error',
   timestamp: '2024-01-08T06:57:38.966Z',
+<<<<<<< HEAD
+=======
+=======
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-12-29T14:32:51.800Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'updateUserAuth',
+    error: Error: 3 INVALID_ARGUMENT: no rows were affected
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 3,
+      details: 'no rows were affected',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.update: failed with error: 3 INVALID_ARGUMENT: no rows were affected',
+  level: 'error',
+  timestamp: '2023-12-29T14:32:51.807Z',
+>>>>>>> 838c2b596acbc070e5d0372cbb3cc8239d844533
+>>>>>>> f5cd480088ba4d34b67565a49c1a30c048621d15
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f5cd480088ba4d34b67565a49c1a30c048621d15
   message: 'E11000 duplicate key error collection: youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs.menu_permissions index: menu_id_1_role_id_1 dup key: { menu_id: "0ecff919-7c58-4861-bdf4-61c074cb601e", role_id: "3306fd21-ee1a-4c68-8843-6d0699b6f9ce" }',
   level: 'error',
   timestamp: '2024-01-08T07:15:47.635Z',
@@ -8179,4 +8227,295 @@
     insertedDocs: []
   },
   [Symbol(errorLabels)]: Set(0) {}
+<<<<<<< HEAD
+=======
+=======
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-12-29T14:36:00.011Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'updateUserAuth',
+    error: Error: 3 INVALID_ARGUMENT: no rows were affected
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 3,
+      details: 'no rows were affected',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.update: failed with error: 3 INVALID_ARGUMENT: no rows were affected',
+  level: 'error',
+  timestamp: '2023-12-29T14:36:00.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-12-29T14:44:13.795Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'updateUserAuth',
+    error: Error: 3 INVALID_ARGUMENT: no rows were affected
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 3,
+      details: 'no rows were affected',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.update: failed with error: 3 INVALID_ARGUMENT: no rows were affected',
+  level: 'error',
+  timestamp: '2023-12-29T14:44:13.803Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-12-29T14:48:02.336Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'updateUserAuth',
+    error: Error: 3 INVALID_ARGUMENT: no rows were affected
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 3,
+      details: 'no rows were affected',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.update: failed with error: 3 INVALID_ARGUMENT: no rows were affected',
+  level: 'error',
+  timestamp: '2023-12-29T14:48:02.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-12-29T14:49:16.062Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'updateUserAuth',
+    error: Error: 3 INVALID_ARGUMENT: no rows were affected
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 3,
+      details: 'no rows were affected',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.update: failed with error: 3 INVALID_ARGUMENT: no rows were affected',
+  level: 'error',
+  timestamp: '2023-12-29T14:49:16.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error synchronize user with auth service',
+  level: 'error',
+  timestamp: '2023-12-29T14:50:08.284Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'updateUserAuth',
+    error: Error: 3 INVALID_ARGUMENT: no rows were affected
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 3,
+      details: 'no rows were affected',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.update: failed with error: 3 INVALID_ARGUMENT: no rows were affected',
+  level: 'error',
+  timestamp: '2023-12-29T14:50:08.286Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'getaddrinfo EAI_AGAIN 8621qv4m59h0rykc',
+  level: 'error',
+  timestamp: '2024-01-06T05:52:22.939Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '8621qv4m59h0rykc:27017' => ServerDescription {
+          address: '8621qv4m59h0rykc:27017',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 13166286,
+          lastWriteDate: 0,
+          error: MongoNetworkError: getaddrinfo EAI_AGAIN 8621qv4m59h0rykc
+              at connectionFailureError (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:387:20)
+              at Socket.<anonymous> (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:628:26)
+              at Socket.emit (node:events:513:28)
+              at emitErrorNT (node:internal/streams/destroy:151:8)
+              at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+              at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+            cause: Error: getaddrinfo EAI_AGAIN 8621qv4m59h0rykc
+                at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26) {
+              errno: -3001,
+              code: 'EAI_AGAIN',
+              syscall: 'getaddrinfo',
+              hostname: '8621qv4m59h0rykc'
+            },
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: getaddrinfo EAI_AGAIN 8621qv4m59h0rykc\n' +
+      '    at Connection.openUri (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/config/mongoConn.js:60:33)\n' +
+      '    at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/storage/mongo/project.js:136:39\n' +
+      '    at Object.reconnect (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/index_dev.js:29:30\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+  }
+}
+{
+  message: 'service.menu.getByID: failed with error: Unable to infer type for "Fri Jan 02 1970 00:00:00 GMT+0600 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-06T07:09:00.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting',
+  level: 'error',
+  timestamp: '2024-01-06T07:38:31.213Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.menu.getByID: failed with error: Unable to infer type for "Fri Jan 02 1970 00:00:00 GMT+0600 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-06T07:42:55.957Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: failed with error: Unable to infer type for "Fri Jan 02 1970 00:00:00 GMT+0600 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-06T07:48:16.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: failed with error: Unable to infer type for "Fri Jan 02 1970 00:00:00 GMT+0600 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-06T07:53:34.935Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: failed with error: Unable to infer type for "Fri Jan 02 1970 00:00:00 GMT+0600 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-06T08:03:01.757Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: failed with error: Unable to infer type for "Fri Jan 02 1970 00:00:00 GMT+0600 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-06T08:08:16.125Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2024-01-06T08:16:30.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+>>>>>>> 838c2b596acbc070e5d0372cbb3cc8239d844533
+>>>>>>> f5cd480088ba4d34b67565a49c1a30c048621d15
 }

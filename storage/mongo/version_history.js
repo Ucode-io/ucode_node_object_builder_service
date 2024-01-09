@@ -74,7 +74,9 @@ let versionHistoryStorage = {
 
             const tables = [], fields = [], relations = [], layouts = [], tabs = [], sections = [], menus = [], actions = [], views = [], ids = []
 
-            for(let el of data.histories) {
+            data.histories = data.histories || []
+            for(let i = data.histories.length - 1; i >= 0; i++) {
+                el = data.histories[i]
                 if (el.current) {
                     el.current = struct.decode(el.current)
                 } else if(el.action_source == VERSION_SOURCE_TYPES_MAP.TAB && el.action_source == VERSION_SOURCE_TYPES_MAP.SECTION){
@@ -227,27 +229,27 @@ let versionHistoryStorage = {
             }
             console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #7")
 
-            // let ready_tab_map = {}
-            // for(const el of tabs) {
-            //     for(let tab of tab.current) {
-            //         for(let el_s of sections) {
-            //             if(el_s.current?.length) {
-            //                 tab.sections = el_s.current.filter((s) => s.tab_id == tab.id)
-            //             }
-            //         }
-            //         if(ready_tab_map[tab.layout_id]) {
-            //             ready_tab_map[tab.layout_id].push(tab)
-            //         } else {
-            //             ready_tab_map[tab.layout_id] = [tab]
-            //         }
-            //     }
-            // }
+            let ready_tab_map = {}
+            for(const el of tabs) {
+                for(let tab of tab.current) {
+                    for(let el_s of sections) {
+                        if(el_s.current?.length) {
+                            tab.sections = el_s.current.filter((s) => s.tab_id == tab.id)
+                        }
+                    }
+                    if(ready_tab_map[tab.layout_id]) {
+                        ready_tab_map[tab.layout_id].push(tab)
+                    } else {
+                        ready_tab_map[tab.layout_id] = [tab]
+                    }
+                }
+            }
 
             for(const el of layouts) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id
                 
-                // el.current.tabs = ready_tab_map[el.current.id] || []
+                el.current.tabs = ready_tab_map[el.current.id] || []
 
                 switch ((el.action_type).toUpperCase()) {
                     case ACTION_TYPE_MAP.UPDATE: {

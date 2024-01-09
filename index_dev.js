@@ -28,7 +28,7 @@ const logger = require("./config/logger");
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df1a",
-            project_id: "b79aa281-fca5-412b-b71f-c604fb4c06dc",
+            project_id: "ecb08c73-3b52-42e9-970b-56be9b7c4e81",
             credentials: {
                 host: "65.109.239.69",
                 port: 30027,
@@ -37,6 +37,8 @@ const logger = require("./config/logger");
                 password: "bLjkGFjiva"
             }
         })
+
+        //mongodb://uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs:vBPqHBE2gm@142.93.164.37:27017/uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs
 
         //mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs
         //mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs

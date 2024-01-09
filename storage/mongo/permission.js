@@ -765,7 +765,9 @@ let permission = {
                     share_modal: table?.record_permissions?.share_modal || "No",
                     settings: table?.record_permissions?.settings || "No",
                     automation: table?.record_permissions?.automation || "No",
-                    language_btn: table?.record_permissions?.language_btn || "No"
+                    language_btn: table?.record_permissions?.language_btn || "No",
+                    pdf_action: table?.record_permissions?.pdf_action || "No",
+                    add_field: table?.record_permissions?.add_field || "No",
                 }
             }
             if (!tableCopy.record_permissions) {
@@ -1227,6 +1229,8 @@ let permission = {
                 settings: table.custom_permission?.settings || "No",
                 share_modal: table.custom_permission?.share_modal || "No",
                 view_create: table.custom_permission?.view_create || "No",
+                pdf_action: table.custom_permission?.pdf_action || "No",
+                add_field: table.custom_permission?.add_field || "No",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {

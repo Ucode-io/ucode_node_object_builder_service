@@ -30,7 +30,6 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         "/" +
         Config.mongoDatabase;
     }
-    
 
     let options = {
         // poolSize: 10,
@@ -53,7 +52,6 @@ async function newMongoConn(Config, shouldCompileModels = true) {
             // useFindAndModify: false
         };
     }
-    
 
     Logger.debug("connecting to mongodb: " + mongoDBUrl);
 
@@ -94,6 +92,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         conn.model('function_service.function', require("../schemas/function_service_function.js"));
         conn.model('object_builder_service.file', require('../schemas/file'))
         conn.model('object_builder_service.version_history', require('../schemas/version_history.js'))
+        conn.model('IncrementSeq', require('../schemas/increment'))
     }
     return conn;
 }

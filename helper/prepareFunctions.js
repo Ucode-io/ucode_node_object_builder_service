@@ -88,29 +88,30 @@ let prepareFunction = {
             type: "INCREMENT_ID"
         })
         if (incrementField) {
-            let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+            const incrementInfo = mongoConn.models['IncrementSeq']
+            const incInfo = await incrementInfo.findOneAndUpdate(
+                    { table_slug: req.table_slug, field_slug: incrementField.slug },
+                    {  
+                        $set: { min_value: 1, max_value: 999999999,},
+                        $inc: { increment_by: 1 },
+                    },
+                    {upsert: true}
+            )
+
             let attributes = struct.decode(incrementField.attributes)
-            let incrementLength = attributes.prefix?.length
-            if (!last || !last[incrementField.slug]) {
-                data[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
-            } else {
-                nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug]?.length)) + 1
-                data[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
-            }
-        } else {
-            const incrementTableInfo = allTableInfos["increment"]
-            if(incrementTableInfo) {
-                let increment = await incrementTableInfo.models.findOne({slug: req.table_slug})
-                if (increment) {
-                    data[increment.field] = increment.count
-                    var lastNumber = parseInt(increment.count.match(/\d+$/)[0]);
-                    var numericPartLength = (increment.count.match(/\d+$/) || [''])[0].length;
-                    var paddedNumber = String(lastNumber + 1).padStart(numericPartLength, '0');
-                    increment.count = increment.count.replace(/\d+$/, paddedNumber);
-                    await incrementTableInfo.models.updateOne({slug: req.table_slug}, {$set: {count: increment.count}})
+            if (!incInfo) {
+                let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+                if (last) {
+                    let incrementLength = attributes.prefix?.length
+                    nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug]?.length)) + 1
+                    data[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(9, '0')
+                    await incrementInfo.updateOne({ table_slug: req.table_slug, field_slug: incrementField.slug }, { $set: { increment_by: nextIncrement + 1 } })
+                } else {
+                    data[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(9, '0')
                 }
+            } else {
+                data[incrementField.slug] = attributes.prefix + '-' + incInfo.increment_by.toString().padStart(9, '0')
             }
-            
         }
         
 

@@ -38,4 +38,5 @@ message ListVersionHistory {
 message UsedForEnvRequest {
     repeated string ids = 1;
     string env_id = 2;
+    string project_id = 3;
 }

@@ -115,7 +115,7 @@ const createUsersAuth = async (data) => {
 
 const updateUserAuth = async (data) => {
     return new Promise((resolve, reject) => {
-        SyncUserService().UpdateteUser(data, (err, res) => {
+        SyncUserService().UpdateUser(data, (err, res) => {
             if (err) {
                 logger.error("Error synchronize user with auth service", {
                     function: "updateUserAuth",

@@ -150,8 +150,8 @@ let layoutStore = {
                 map_sections[el.id] = 1
             })
 
-            for(let tab of data.tabs) {
-
+            for(let i=0; i < data.tabs.length; i++) {
+                let tab = data.tabs[i]
                 tab.id = tab.id || v4()
 
                 if(tab.type == "relation") {
@@ -172,7 +172,7 @@ let layoutStore = {
                             layout_id: tab.layout_id || data.id,
                             relation_id: tab.relation_id,
                             type: tab.type,
-                            order: data.order,
+                            order: i,
                             icon: tab.icon,
                             attributes: tab.attributes
                         },
@@ -271,9 +271,9 @@ let layoutStore = {
 
             insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(data))), previus: struct.encode(JSON.parse(JSON.stringify(layout))) })
-            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(tabs))), previus: struct.encode(JSON.parse(JSON.stringify(all_tabs))) })
-            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(sections))), previus: struct.encode(JSON.parse(JSON.stringify(all_sections))) })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(resp))), previus: struct.encode(JSON.parse(JSON.stringify(layout))) })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(tabs))), previus: struct.encode(JSON.parse(JSON.stringify(all_tabs))) })
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(sections))), previus: struct.encode(JSON.parse(JSON.stringify(all_sections))) })
 
             return {}
         } catch (err) {
@@ -551,6 +551,9 @@ let layoutStore = {
 
                 if (map_tab[tab.layout_id]) {
                     map_tab[tab.layout_id].push(tab)
+                    let arrOfObjects = map_tab[tab.layout_id]
+                    arrOfObjects.sort((a, b) => a.order - b.order);
+                    map_tab[tab.layout_id] = arrOfObjects
                 } else {
                     map_tab[tab.layout_id] = [tab]
                 }
@@ -829,6 +832,7 @@ let layoutStore = {
                 }
             }
             
+            tabs.sort((a, b) => a.order - b.order)
             layout.tabs = tabs
             return layout 
 

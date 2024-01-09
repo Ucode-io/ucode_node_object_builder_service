@@ -76,7 +76,7 @@ let versionHistoryStorage = {
             const tables = [], fields = [], relations = [], layouts = [], tabs = [], sections = [], menus = [], actions = [], views = []
 
             data.histories = data.histories || []
-            for(let i = data.histories.length - 1; i >= 0; i++) {
+            for(let i = data.histories.length - 1; i >= 0; i--) {
                 el = data.histories[i]
                 if (el.current) {
                     el.current = struct.decode(el.current)

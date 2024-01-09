@@ -8510,3 +8510,10 @@
   metadata: {}
 >>>>>>> 838c2b596acbc070e5d0372cbb3cc8239d844533
 }
+{
+  message: "service.version_history.migrate: failed with error: Cannot read properties of undefined (reading 'current')",
+  level: 'error',
+  timestamp: '2024-01-09T05:45:38.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

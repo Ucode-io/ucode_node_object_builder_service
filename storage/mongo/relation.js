@@ -662,8 +662,6 @@ let relationStore = {
                                     }
                                 )
 
-                                console.log("~~~> edited ", section[0].id, a)
-                                
                             } else {
                                 
                                 const a = await Section.create({

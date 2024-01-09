@@ -22,18 +22,19 @@ let versionHistoryStorage = {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const query = {
-                $or: [
-                    {
-                        [`is_used.${data.env_id}`]: false
-                    },
-                    {
-                        [`is_used.${data.env_id}`]: {
-                            $exists: false
-                        }
-                    }
-                ]
-            }
+            // const query = {
+            //     $or: [
+            //         {
+            //             [`is_used.${data.env_id}`]: false
+            //         },
+            //         {
+            //             [`is_used.${data.env_id}`]: {
+            //                 $exists: false
+            //             }
+            //         }
+            //     ]
+            // }
+            const query = {}
 
             if (data.type) {
                 query.action_source = data.type

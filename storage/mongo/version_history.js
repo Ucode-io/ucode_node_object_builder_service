@@ -141,6 +141,8 @@ let versionHistoryStorage = {
                 switch ((el.action_type).toUpperCase()) {
                     case ACTION_TYPE_MAP.CREATE: {
                         await tableStorage.create(el.current)
+                        el.current.fields = []
+                        await fieldStorage.createAll(el.current)
                         break
                     }
                     case ACTION_TYPE_MAP.UPDATE: {

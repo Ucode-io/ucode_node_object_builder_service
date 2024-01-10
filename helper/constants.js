@@ -48,6 +48,10 @@ module.exports = {
         "4c1f5c95-1528-4462-8d8c-cd377c23f7f7", //automatic_filters
         "25698624-5491-4c39-99ec-aed2eaf07b97", //record_permission
         "074fcb3b-038d-483d-b390-ca69490fc4c3", //view_relation_permission
+        "d267203c-1c23-4663-a721-7a845d4b98ad", //setting.languages
+        "bba3dddc-5f20-449c-8ec8-37bef283c766", //setting.timezones
+        "b1896ed7-ba00-46ae-ae53-b424d2233589", //file
+        "08972256-30fb-4d75-b8cf-940d8c4fc8ac", //template
     ],
 
 

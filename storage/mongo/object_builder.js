@@ -201,29 +201,34 @@ let objectBuilder = {
                     guid: data.id
                 });
             
-                if (response) {
-                    if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                        let tableAttributes = struct.decode(tableModel.attributes);
-            
-                        if (tableAttributes && tableAttributes.auth_info) {
-                            let authInfo = tableAttributes.auth_info;
-            
-                            if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                                throw new Error('This table is an auth table. Auth information not fully given');
-                            }
-            
-                            let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                guid: response[authInfo['client_type_id']],
-                                table_slug: tableModel.slug
-                            });
-            
-                            if (loginTable) {
-                                let updateUserRequest = {
-                                    guid: response['guid'],
-                                    password: data?.password,
-                                };
-            
-                                await grpcClient.updateUserAuth(updateUserRequest);
+                if (data.password != "") {
+                    let checkPassword = data.password.substring(0, 4)
+                    if (checkPassword != "$2b$" && checkPassword != "$2a$") {
+                        if (response) {
+                            if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                                let tableAttributes = struct.decode(tableModel.attributes);
+                    
+                                if (tableAttributes && tableAttributes.auth_info) {
+                                    let authInfo = tableAttributes.auth_info;
+                    
+                                    if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                        throw new Error('This table is an auth table. Auth information not fully given');
+                                    }
+                    
+                                    let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                        guid: response[authInfo['client_type_id']],
+                                        table_slug: tableModel.slug
+                                    });
+                    
+                                    if (loginTable) {
+                                        let updateUserRequest = {
+                                            guid: response['guid'],
+                                            password: data?.password,
+                                        };
+                    
+                                        await grpcClient.updateUserAuth(updateUserRequest);
+                                    }
+                                }
                             }
                         }
                     }

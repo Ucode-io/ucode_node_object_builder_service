@@ -5398,7 +5398,7 @@ let objectBuilder = {
     }),
     getListAggregation: catchWrapDbObjectBuilder(`${NAMESPACE}.getListAggregation`, async (req) => {
 
-        const pipelines = struct.decode(req?.pipelines)
+        const pipelines = struct.decode(req?.data)
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 

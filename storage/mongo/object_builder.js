@@ -5406,9 +5406,10 @@ let objectBuilder = {
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-        const result = await tableInfo.models.aggregate(data.pipelines)
+        let result = await tableInfo.models.aggregate(data.pipelines)
         console.log("Aggregation --->", result)
 
+        result = struct.encode(result)
         return { table_slug: req.table_slug, data: result }
     }),
 }

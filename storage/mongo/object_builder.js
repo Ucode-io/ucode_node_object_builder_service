@@ -201,7 +201,7 @@ let objectBuilder = {
                     guid: data.id
                 });
 
-                if (data.password != nil) {
+                if (data.password != "") {
                     let checkPassword = data.password.substring(0, 4)
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
                         if (response) {

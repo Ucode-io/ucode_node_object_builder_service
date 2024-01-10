@@ -8,6 +8,7 @@ const menuStore = require("./menu");
 const os = require("os")
 const layoutStorage = require("./layout")
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPES, ACTION_TYPE_MAP } = require("../../helper/constants")
+const { STATIC_TABLE_IDS } = require("../../helper/constants")
 
 const mongoPool = require('../../pkg/pool');
 const { struct } = require('pb-util');
@@ -180,7 +181,8 @@ let tableStore = {
 
             let query = {
                 deleted_at: "1970-01-01T18:00:00.000+00:00",
-                label: RegExp(data.search, "i")
+                label: RegExp(data.search, "i"),
+                ids: { $nin: STATIC_TABLE_IDS }
             }
 
             if (data.folder_id) {

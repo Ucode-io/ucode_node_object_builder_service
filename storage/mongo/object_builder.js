@@ -2288,12 +2288,12 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-        console.log(' --> P-M Memory used by getList:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Memory used by getList:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
 
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
@@ -2932,12 +2932,12 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-        console.log(' --> P-M Memory used by getList2:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Memory used by getList2:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 

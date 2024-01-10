@@ -52,7 +52,7 @@ async function buildModels(is_build = true, project_id) {
         });
     }
 
-    // console.log("TEST:::::::::::3", tables)
+    console.log("TEST:::::::::::3", tables.length)
     let tempArray = []
 
     for (const table of tables) {

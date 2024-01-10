@@ -5398,11 +5398,11 @@ let objectBuilder = {
     }),
     getListAggregation: catchWrapDbObjectBuilder(`${NAMESPACE}.getListAggregation`, async (req) => {
         console.log("><>>>> data", req.data)
-        const pipelines = struct.decode(req?.data)
+        const data = struct.decode(req?.data)
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-        const result = await tableInfo.models.aggregate(pipelines)
+        const result = await tableInfo.models.aggregate(data.pipelines)
 
         console.log(result)
 

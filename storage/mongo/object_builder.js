@@ -5409,7 +5409,7 @@ let objectBuilder = {
         let result = await tableInfo.models.aggregate(data.pipelines)
         console.log("Aggregation --->", result)
 
-        result = struct.encode(result)
+        result = struct.encode(JSON.parse(JSON.stringify(result)))
         return { table_slug: req.table_slug, data: result }
     }),
 }

@@ -613,6 +613,9 @@ let viewStore = {
             }, {
                 $set: { 
                     is_changed: true,
+                    is_changed_by_host: {
+                        [os.hostname()]: true
+                    }
                 },
             })
             return;

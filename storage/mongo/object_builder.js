@@ -5396,6 +5396,18 @@ let objectBuilder = {
         return { table_slug: req.table_slug, data: response }
 
     }),
+    getListAggregation: catchWrapDbObjectBuilder(`${NAMESPACE}.getListAggregation`, async (req) => {
+
+        const pipelines = struct.decode(req?.pipelines)
+
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
+        const result = await tableInfo.models.aggregate(pipelines)
+
+        console.log(result)
+
+        return { table_slug: req.table_slug, data: result }
+    }),
 }
 
 module.exports = objectBuilder;

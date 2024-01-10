@@ -24,6 +24,7 @@ const objectBuilderService = {
     GroupByColumns: catchWrapServiceObjectBuilder("service.object_builder.groupByColumns", objectBuilderStore.groupByColumns),
     CopyFromProject: catchWrapServiceObjectBuilder("service.object_builder.copyFromProject", objectBuilderStore.copyFromProject),
     GetListWithOutRelations: catchWrapServiceObjectBuilder("service.object_builder.getListWithOutRelations", objectBuilderStore.getListWithOutRelations),
+    GetListAggregation: catchWrapServiceObjectBuilder("service.object_builder.getListAggregation", objectBuilderStore.getListAggregation),
 };
 
 module.exports = objectBuilderService;  

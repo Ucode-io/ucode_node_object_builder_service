@@ -5396,7 +5396,7 @@ let objectBuilder = {
         return { table_slug: req.table_slug, data: response }
 
     }),
-    getListAggregation: catchWrapDbObjectBuilder(${NAMESPACE}.getListAggregation, async (req) => {
+    getListAggregation: catchWrapDbObjectBuilder(`${NAMESPACE}.getListAggregation`, async (req) => {
         // console.log("><>>>> data", req.data)
         const data = struct.decode(req?.data)
 

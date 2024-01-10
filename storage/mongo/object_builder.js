@@ -5400,11 +5400,14 @@ let objectBuilder = {
         console.log("><>>>> data", req.data)
         const data = struct.decode(req?.data)
 
+        if(!data.pipelines || !data.pipelines.length) {
+            throw new Error("In data must be array type field calls \"pipelines\"")
+        }
+
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
         const result = await tableInfo.models.aggregate(data.pipelines)
-
-        console.log(result)
+        console.log("Aggregation --->", result)
 
         return { table_slug: req.table_slug, data: result }
     }),

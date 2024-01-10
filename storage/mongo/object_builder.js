@@ -5396,6 +5396,22 @@ let objectBuilder = {
         return { table_slug: req.table_slug, data: response }
 
     }),
+    getListAggregation: catchWrapDbObjectBuilder(${NAMESPACE}.getListAggregation, async (req) => {
+        // console.log("><>>>> data", req.data)
+        const data = struct.decode(req?.data)
+
+        if(!data.pipelines || !data.pipelines.length) {
+            throw new Error("In data must be array type field calls \"pipelines\"")
+        }
+
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
+        let result = await tableInfo.models.aggregate(data.pipelines)
+        // console.log("Aggregation --->", result)
+
+        result = struct.encode(JSON.parse(JSON.stringify(result)))
+        return { table_slug: req.table_slug, data: result }
+    }),
 }
 
 module.exports = objectBuilder;

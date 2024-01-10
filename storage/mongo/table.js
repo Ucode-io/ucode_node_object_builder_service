@@ -211,21 +211,16 @@ let tableStore = {
                     }
                 }
             }
-
-            if (data.version_id) {
-                query.version_id = data.version_id
-                tables = await TableVersion.find(query).skip(data.offset).limit(data.limit)
-            } else {
-                tables = await Table.find(
-                    query,
-                    null,
-                    {
-                        sort: { created_at: -1 }
-                    }
-                )
-                    .skip(data.offset)
-                    .limit(data.limit)
-            }
+            
+            tables = await Table.find(
+                query,
+                null,
+                {
+                    sort: { created_at: -1 }
+                }
+            )
+                .skip(data.offset)
+                .limit(data.limit)
 
 
             const count = await Table.countDocuments(query);

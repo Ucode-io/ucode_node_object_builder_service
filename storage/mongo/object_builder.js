@@ -31,6 +31,7 @@ const { OrderUpdate } = require('../../helper/board_order')
 const cluster = require('cluster');
 const v8 = require('v8');
 const { pipeline } = require('stream');
+const updateISODateFunction = require('../../helper/updateISODate');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -5404,9 +5405,13 @@ let objectBuilder = {
             throw new Error("In data must be array type field calls \"pipelines\"")
         }
 
+        const pipeline = JSON.parse(data.pipelines);
+
+        await updateISODateFunction.updateISODate(pipeline)
+
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
-        let result = await tableInfo.models.aggregate(data.pipelines)
+        let result = await tableInfo.models.aggregate(pipeline)
         // console.log("Aggregation --->", result)
 
         result = struct.encode(JSON.parse(JSON.stringify(result)))

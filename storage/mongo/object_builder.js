@@ -5400,7 +5400,7 @@ let objectBuilder = {
         // console.log("><>>>> data", req.data)
         const data = struct.decode(req?.data)
 
-        if(!data.pipelines || !data.pipelines.length) {
+        if(!data.pipelines) {
             throw new Error("In data must be array type field calls \"pipelines\"")
         }
 

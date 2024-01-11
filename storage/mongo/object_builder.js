@@ -200,7 +200,11 @@ let objectBuilder = {
                 let response = await allTableInfo[req.table_slug].models.findOne({
                     guid: data.id
                 });
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 36bee11aea35d2927fdc15f990d0da5253b69441
                 if (data.password != "") {
                     let checkPassword = data.password.substring(0, 4)
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
@@ -2293,12 +2297,12 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-        console.log(' --> P-M Memory used by getList:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Memory used by getList:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
 
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
@@ -2937,12 +2941,12 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-        console.log(' --> P-M Memory used by getList2:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Memory used by getList2:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
@@ -5397,17 +5401,21 @@ let objectBuilder = {
 
     }),
     getListAggregation: catchWrapDbObjectBuilder(`${NAMESPACE}.getListAggregation`, async (req) => {
-        console.log("><>>>> data", req.data)
+        // console.log("><>>>> data", req.data)
         const data = struct.decode(req?.data)
 
-        if(!data.pipelines) {
+        if(!data.pipelines || !data.pipelines.length) {
             throw new Error("In data must be array type field calls \"pipelines\"")
+        }
+
+        if(!Array.isArray(data.pipelines)) {
+            data.pipelines = JSON.parse(data.pipelines)
         }
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
         let result = await tableInfo.models.aggregate(data.pipelines)
-        console.log("Aggregation --->", result)
+        // console.log("Aggregation --->", result)
 
         result = struct.encode(JSON.parse(JSON.stringify(result)))
         return { table_slug: req.table_slug, data: result }

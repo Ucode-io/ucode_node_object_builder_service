@@ -52,6 +52,9 @@ module.exports = {
         "bba3dddc-5f20-449c-8ec8-37bef283c766", //setting.timezones
         "b1896ed7-ba00-46ae-ae53-b424d2233589", //file
         "08972256-30fb-4d75-b8cf-940d8c4fc8ac", //template
+        "373e9aae-315b-456f-8ec3-0851cad46fbf", //project
+        "2546e042-af2f-4cef-be7c-834e6bde951c", //user
+        "0ade55f8-c84d-42b7-867f-6418e1314e28", //connections
     ],
 
 

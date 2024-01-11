@@ -611,7 +611,12 @@ let viewStore = {
             await Table.updateOne({
                 slug: data.table_slug
             }, {
-                $set: { is_changed: true },
+                $set: { 
+                    is_changed: true,
+                    is_changed_by_host: {
+                        [os.hostname()]: true
+                    }
+                },
             })
             return;
         } catch (err) {

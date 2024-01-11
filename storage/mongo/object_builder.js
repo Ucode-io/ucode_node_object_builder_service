@@ -5404,6 +5404,10 @@ let objectBuilder = {
             throw new Error("In data must be array type field calls \"pipelines\"")
         }
 
+        if(!Array.isArray(data.pipelines)) {
+            data.pipelines = JSON.parse(data.pipelines)
+        }
+
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
         let result = await tableInfo.models.aggregate(data.pipelines)

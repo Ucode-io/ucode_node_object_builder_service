@@ -201,29 +201,34 @@ let objectBuilder = {
                     guid: data.id
                 });
             
-                if (response) {
-                    if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                        let tableAttributes = struct.decode(tableModel.attributes);
-            
-                        if (tableAttributes && tableAttributes.auth_info) {
-                            let authInfo = tableAttributes.auth_info;
-            
-                            if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                                throw new Error('This table is an auth table. Auth information not fully given');
-                            }
-            
-                            let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                guid: response[authInfo['client_type_id']],
-                                table_slug: tableModel.slug
-                            });
-            
-                            if (loginTable) {
-                                let updateUserRequest = {
-                                    guid: response['guid'],
-                                    password: data?.password,
-                                };
-            
-                                await grpcClient.updateUserAuth(updateUserRequest);
+                if (data.password != "") {
+                    let checkPassword = data.password.substring(0, 4)
+                    if (checkPassword != "$2b$" && checkPassword != "$2a$") {
+                        if (response) {
+                            if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                                let tableAttributes = struct.decode(tableModel.attributes);
+                    
+                                if (tableAttributes && tableAttributes.auth_info) {
+                                    let authInfo = tableAttributes.auth_info;
+                    
+                                    if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                        throw new Error('This table is an auth table. Auth information not fully given');
+                                    }
+                    
+                                    let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                        guid: response[authInfo['client_type_id']],
+                                        table_slug: tableModel.slug
+                                    });
+                    
+                                    if (loginTable) {
+                                        let updateUserRequest = {
+                                            guid: response['guid'],
+                                            password: data?.password,
+                                        };
+                    
+                                        await grpcClient.updateUserAuth(updateUserRequest);
+                                    }
+                                }
                             }
                         }
                     }
@@ -2288,12 +2293,12 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-        console.log(' --> P-M Memory used by getList:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Memory used by getList:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
 
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
@@ -2932,12 +2937,12 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-        console.log(' --> P-M Memory used by getList2:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
-        console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Memory used by getList2:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
+        // console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
@@ -5390,6 +5395,26 @@ let objectBuilder = {
         });
         return { table_slug: req.table_slug, data: response }
 
+    }),
+    getListAggregation: catchWrapDbObjectBuilder(`${NAMESPACE}.getListAggregation`, async (req) => {
+        // console.log("><>>>> data", req.data)
+        const data = struct.decode(req?.data)
+
+        if(!data.pipelines || !data.pipelines.length) {
+            throw new Error("In data must be array type field calls \"pipelines\"")
+        }
+
+        if(!Array.isArray(data.pipelines)) {
+            data.pipelines = JSON.parse(data.pipelines)
+        }
+
+        const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
+        let result = await tableInfo.models.aggregate(data.pipelines)
+        // console.log("Aggregation --->", result)
+
+        result = struct.encode(JSON.parse(JSON.stringify(result)))
+        return { table_slug: req.table_slug, data: result }
     }),
 }
 

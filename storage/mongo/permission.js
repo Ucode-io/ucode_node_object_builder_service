@@ -283,7 +283,7 @@ let permission = {
             {
                 $match: {
                     deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') },
-                    in: { $nin: STATIC_TABLE_IDS }
+                    id: { $nin: STATIC_TABLE_IDS }
                 }
             },
             {

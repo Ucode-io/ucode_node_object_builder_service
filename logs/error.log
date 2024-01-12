@@ -8007,3 +8007,178 @@
     }
   }
 }
+{
+  message: `service.object_builder.getListAggregation: failed with error: Unexpected token 'I', ..."":{"$gte":ISODate('2"... is not valid JSON`,
+  level: 'error',
+  timestamp: '2024-01-11T09:04:45.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: "undefined" is not valid JSON',
+  level: 'error',
+  timestamp: '2024-01-11T10:18:34.061Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: "undefined" is not valid JSON',
+  level: 'error',
+  timestamp: '2024-01-11T10:19:18.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.getListAggregation: failed with error: Unexpected token 'I', ..."":{"$gte":ISODate('2"... is not valid JSON`,
+  level: 'error',
+  timestamp: '2024-01-11T10:24:32.408Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.getListAggregation: failed with error: Unexpected token 'I', ..."":{"$gte":ISODate('2"... is not valid JSON`,
+  level: 'error',
+  timestamp: '2024-01-11T10:30:49.446Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: UpdateISODate is not a function',
+  level: 'error',
+  timestamp: '2024-01-11T10:31:27.377Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: updateISODate is not a function',
+  level: 'error',
+  timestamp: '2024-01-11T10:43:18.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: updateISODate is not defined',
+  level: 'error',
+  timestamp: '2024-01-11T10:48:45.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: updateISODate is not defined',
+  level: 'error',
+  timestamp: '2024-01-11T10:58:28.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: updateISODate is not defined',
+  level: 'error',
+  timestamp: '2024-01-11T11:12:56.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: resp is not defined',
+  level: 'error',
+  timestamp: '2024-01-11T11:19:40.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2024-01-11T11:21:36.690Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2024-01-11T11:24:28.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:24:54.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:28:22.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:28:51.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:42:14.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:46:29.004Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:51:12.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:10:36.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:12:51.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:34:00.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T05:0:00.000Z'; 19: Unexpected character '0'; 20: Unexpected character '0'; 21: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:37:48.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-06T13:0:00.000Z'; 19: Unexpected character '0'; 20: Unexpected character '0'; 21: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:38:16.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: Expected ',' or '}' after property value in JSON at position 121",
+  level: 'error',
+  timestamp: '2024-01-11T12:39:43.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

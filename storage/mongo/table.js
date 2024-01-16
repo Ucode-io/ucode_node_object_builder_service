@@ -1,15 +1,10 @@
-const cfg = require('../../config/index')
 const catchWrapDb = require("../../helper/catchWrapDb");
-const con = require("../../config/kafkaTopics");
-const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
-const menuStore = require("./menu");
 const os = require("os")
 const layoutStorage = require("./layout")
-const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPES, ACTION_TYPE_MAP } = require("../../helper/constants")
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const { STATIC_TABLE_IDS } = require("../../helper/constants")
-
 const mongoPool = require('../../pkg/pool');
 const { struct } = require('pb-util');
 

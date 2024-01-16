@@ -203,7 +203,7 @@ let objectBuilder = {
                 });
             
                 if (data.password != "") {
-                    let checkPassword = data.password.substring(0, 4)
+                    let checkPassword = data.password?.substring(0, 4)
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
                         if (response) {
                             if (tableModel && tableModel.is_login_table && !data.from_auth_service) {

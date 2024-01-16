@@ -7273,32 +7273,979 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
 >>>>>>> 830e8ddc5a7168bb5b11604c1db96f9e63c1832b
 {
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2024-01-11T08:17:11.463Z',
+=======
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T09:00:57.732Z',
+>>>>>>> 2a7301ea500d04585a24a197726af9942cc82585
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnectinag to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-01-11T08:17:11.465Z',
+=======
+  timestamp: '2024-01-11T09:00:57.739Z',
+>>>>>>> 2a7301ea500d04585a24a197726af9942cc82585
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T08:17:11.466Z',
+=======
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T09:00:57.739Z',
+>>>>>>> 2a7301ea500d04585a24a197726af9942cc82585
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+<<<<<<< HEAD
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T08:17:12.039Z',
+=======
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T09:00:58.417Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T09:02:33.689Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.getListAggregation: failed with error: Unexpected token 'I', ..."":{"$gte":ISODate('2"... is not valid JSON`,
+  level: 'error',
+  timestamp: '2024-01-11T09:04:45.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T10:11:13.157Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T10:11:13.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T10:11:13.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T10:11:14.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T10:12:48.705Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: "undefined" is not valid JSON',
+  level: 'error',
+  timestamp: '2024-01-11T10:18:34.061Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: "undefined" is not valid JSON',
+  level: 'error',
+  timestamp: '2024-01-11T10:19:18.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T10:21:49.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T10:21:49.035Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T10:21:49.036Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T10:21:49.713Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T10:23:25.231Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.getListAggregation: failed with error: Unexpected token 'I', ..."":{"$gte":ISODate('2"... is not valid JSON`,
+  level: 'error',
+  timestamp: '2024-01-11T10:24:32.408Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T10:28:00.780Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T10:28:00.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T10:28:00.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T10:28:01.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T10:29:35.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.getListAggregation: failed with error: Unexpected token 'I', ..."":{"$gte":ISODate('2"... is not valid JSON`,
+  level: 'error',
+  timestamp: '2024-01-11T10:30:49.446Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: UpdateISODate is not a function',
+  level: 'error',
+  timestamp: '2024-01-11T10:31:27.377Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T10:35:32.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T10:35:32.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T10:35:32.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T10:35:33.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T10:37:07.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: updateISODate is not a function',
+  level: 'error',
+  timestamp: '2024-01-11T10:43:18.400Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T10:44:28.539Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T10:44:28.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T10:44:28.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T10:44:29.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T10:46:02.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: updateISODate is not defined',
+  level: 'error',
+  timestamp: '2024-01-11T10:48:45.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T10:55:29.612Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T10:55:29.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T10:55:29.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T10:55:30.287Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T10:57:03.938Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: updateISODate is not defined',
+  level: 'error',
+  timestamp: '2024-01-11T10:58:28.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T11:06:28.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T11:06:28.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T11:06:28.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T11:06:29.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T11:12:42.839Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: updateISODate is not defined',
+  level: 'error',
+  timestamp: '2024-01-11T11:12:56.520Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T11:13:36.918Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T11:13:36.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T11:13:36.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T11:13:37.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T11:15:11.924Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: succeeded',
+  level: 'info',
+  timestamp: '2024-01-11T11:15:16.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T11:18:00.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T11:18:00.272Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T11:18:00.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T11:18:00.910Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T11:19:34.398Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: resp is not defined',
+  level: 'error',
+  timestamp: '2024-01-11T11:19:40.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T11:19:56.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T11:19:56.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T11:19:56.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T11:19:56.797Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T11:21:29.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2024-01-11T11:21:36.690Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T11:22:45.436Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T11:22:45.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T11:22:45.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T11:22:46.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T11:24:20.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2024-01-11T11:24:28.815Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:24:54.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T11:26:30.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T11:26:30.460Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T11:26:30.460Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T11:26:31.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T11:28:12.856Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:28:22.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:28:51.872Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T11:40:24.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T11:40:24.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T11:40:24.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T11:40:25.429Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T11:42:00.232Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:42:14.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T11:44:45.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T11:44:45.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T11:44:45.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T11:44:45.942Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T11:46:20.862Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:46:29.004Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T11:48:17.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T11:48:17.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T11:48:17.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T11:48:17.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T11:49:52.706Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T11:51:12.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T12:08:20.409Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T12:08:20.411Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T12:08:20.411Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T12:08:21.015Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T12:10:01.194Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:10:36.748Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T12:11:09.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T12:11:09.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T12:11:09.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T12:11:10.594Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T12:12:44.328Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:12:51.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: succeeded',
+  level: 'info',
+  timestamp: '2024-01-11T12:28:58.616Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-11T12:32:13.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-11T12:32:13.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-11T12:32:13.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-11T12:32:14.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-11T12:33:55.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T5:0:00.000Z'; 18: Unexpected character '0'; 19: Unexpected character '0'; 20: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:34:00.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-05T05:0:00.000Z'; 19: Unexpected character '0'; 20: Unexpected character '0'; 21: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:37:48.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: PlanExecutor error during aggregation :: caused by :: Error parsing date string '2023-09-06T13:0:00.000Z'; 19: Unexpected character '0'; 20: Unexpected character '0'; 21: Unexpected character '0'",
+  level: 'error',
+  timestamp: '2024-01-11T12:38:16.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: succeeded',
+  level: 'info',
+  timestamp: '2024-01-11T12:38:40.185Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: Expected ',' or '}' after property value in JSON at position 121",
+  level: 'error',
+  timestamp: '2024-01-11T12:39:43.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: succeeded',
+  level: 'info',
+  timestamp: '2024-01-11T12:40:00.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-12T05:37:09.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-12T05:37:09.863Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-12T05:37:09.864Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs:DqZ2tJdciA@142.93.164.37:27017/cardioapp_a4dc1f1cd20f4c1aabf5b819076604bc_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-12T05:37:10.498Z',
+>>>>>>> 2a7301ea500d04585a24a197726af9942cc82585
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-16T10:01:30.551Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-16T10:01:30.553Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'debug',
-  timestamp: '2024-01-11T08:17:11.466Z',
+  timestamp: '2024-01-16T10:01:30.553Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
   level: 'info',
-  timestamp: '2024-01-11T08:17:12.039Z',
+  timestamp: '2024-01-16T10:01:31.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-16T10:03:51.614Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-16T10:03:51.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-16T10:03:51.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs:bLjkGFjiva@65.109.239.69:30027/youtube_62d6f9d4dd9c425b84f6cb90860967a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-16T10:03:52.156Z',
   label: 'object_builder_service',
   metadata: {}
 }

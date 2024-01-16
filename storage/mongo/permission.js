@@ -4,7 +4,7 @@ let NAMESPACE = "storage.object_builder";
 const { struct } = require('pb-util');
 const { v4 } = require("uuid");
 const con = require("../../config/kafkaTopics");
-
+const { STATIC_TABLE_IDS } = require("../../helper/constants")
 const sendMessageToTopic = require("../../config/kafka");
 const converter = require("../../helper/converter");
 const tableVersion = require('../../helper/table_version');
@@ -282,7 +282,8 @@ let permission = {
         const tablePipeline = [
             {
                 $match: {
-                    deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') }
+                    deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') },
+                    id: { $nin: STATIC_TABLE_IDS }
                 }
             },
             {

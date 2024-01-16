@@ -243,7 +243,12 @@ let versionHistoryStorage = {
 
                 switch ((el.action_type).toUpperCase()) {
                     case ACTION_TYPE_MAP.UPDATE: {
-                        await layoutStorage.update(el.current)
+
+                        if(el.current.data) {
+                            el.current.data = JSON.parse(el.current.data)
+                        }
+
+                        await layoutStorage.update(el.current.data)
                         break
                     }
                     case ACTION_TYPE_MAP.DELETE: {

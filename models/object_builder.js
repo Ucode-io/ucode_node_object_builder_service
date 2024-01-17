@@ -16,7 +16,7 @@ async function buildModels(is_build = true, project_id) {
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }
-    console.log("TEST:::::::::::1", mongooseObject(project_id))
+    console.log("TEST:::::::::::1")
     // console.log("project_id:", project_id)
     const mongoDBConn = await mongoPool.get(project_id)
 

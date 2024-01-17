@@ -131,12 +131,8 @@ let menuStore = {
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
-<<<<<<< HEAD
-            console.log("\n\n ~~~~~~~~~ MENU GET ALL TEST #1>")
-=======
             console.log("\n\n\n ~~~~~~~~~~~~~> MENU GET ALL", data.project_id)
 
->>>>>>> 94f5b2e596badb738f638e73f40493d80965465d
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
 
             const Menu = mongoConn.models['object_builder_service.menu']

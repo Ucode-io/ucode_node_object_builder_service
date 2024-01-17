@@ -16,7 +16,7 @@ async function buildModels(is_build = true, project_id) {
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }
-    // console.log("TEST:::::::::::1")
+    console.log("TEST:::::::::::1")
     // console.log("project_id:", project_id)
     const mongoDBConn = await mongoPool.get(project_id)
 
@@ -25,7 +25,7 @@ async function buildModels(is_build = true, project_id) {
     const Relation = mongoDBConn.models['Relation']
     const Section = mongoDBConn.models['Section']
     const View = mongoDBConn.models['View']
-    // console.log("TEST:::::::::::2", is_build)
+    console.log("TEST:::::::::::2", is_build)
     // hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
 
     // all tables should be got to build their schema

@@ -2412,3 +2412,90 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-17T06:33:12.506Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-17T06:33:12.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-17T06:33:12.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-17T06:33:14.263Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-17T06:35:13.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: requested - {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",\n' +
+    '      "is_search": true\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "id": "d8127cf2-2d60-474e-94ba-317d3b1ba18a",\n' +
+    '      "is_search": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "dc3b8f74-aa46-4101-b255-d6b82ac0db2d"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T06:38:19.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: succeeded',
+  level: 'info',
+  timestamp: '2024-01-17T06:38:19.559Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: requested - {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",\n' +
+    '      "is_search": false\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "id": "d8127cf2-2d60-474e-94ba-317d3b1ba18a",\n' +
+    '      "is_search": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "dc3b8f74-aa46-4101-b255-d6b82ac0db2d"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T06:38:54.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: succeeded',
+  level: 'info',
+  timestamp: '2024-01-17T06:38:54.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

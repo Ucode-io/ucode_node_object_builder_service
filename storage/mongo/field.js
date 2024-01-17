@@ -353,6 +353,24 @@ let fieldStore = {
         }
 
     }),
+    updateSearch: catchWrapDb(`${NAMESPACE}.updateSearch`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Field = mongoConn.models['Field']
+                
+            let updateOperations = data.fields.map(field => ({
+                updateOne: {
+                    filter: { id: field.id },
+                    update: { $set: { is_search: field.is_search } },
+                    upsert: false
+                }
+            }));
+
+            await Field.bulkWrite(updateOperations)
+        } catch (err) {
+            throw err
+        }
+    }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

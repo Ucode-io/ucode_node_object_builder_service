@@ -201,6 +201,7 @@ let objectBuilder = {
                 let response = await allTableInfo[req.table_slug].models.findOne({
                     guid: data.id
                 });
+
             
                 if (data.password != "") {
                     let checkPassword = data.password?.substring(0, 4)

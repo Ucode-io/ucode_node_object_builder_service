@@ -5,6 +5,8 @@ const tableVersion = require('../../helper/table_version');
 const constants = require("../../helper/constants");
 const { struct } = require("pb-util/build");
 const folderMinio = require("../../helper/addMinioBucket");
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants");
+const logger = require("../../config/logger");
 let NAMESPACE = "storage.menu";
 
 
@@ -18,6 +20,8 @@ let menuStore = {
 
             const Menu = mongoConn.models['object_builder_service.menu']
             const menuPermissionTable = mongoConn.models['menu_permission']
+            const History = mongoConn.models['object_builder_service.version_history']
+
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
                 if (!data.icon) data.icon = table?.icon
@@ -70,8 +74,14 @@ let menuStore = {
 
             }
             if (permissions.length) {
-                await menuPermissionTable.insertMany(permissions)
+                try {
+                    await menuPermissionTable.insertMany(permissions)
+                } catch (err) {
+                    logger.error(err)
+                }
             }
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(response))) })
 
             return response;
         } catch (err) {
@@ -85,13 +95,18 @@ let menuStore = {
                 throw new Error("Unsupported menu type");
             }
             const mongoConn = await mongoPool.get(data.project_id)
-
             const Menu = mongoConn.models['object_builder_service.menu']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
                 if (!data.icon) data.icon = table?.icon
                 if (!data.label) data.label = table?.label
+            }
+
+            const beforeUpdate = await Menu.findOne({id: data.id})
+            if(!beforeUpdate) {
+                throw new Error("Menu not found with given id")
             }
 
             const menu = await Menu.findOneAndUpdate(
@@ -106,6 +121,8 @@ let menuStore = {
                 }
             )
 
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(response))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))) })
+            
             return menu;
         } catch (err) {
             throw err
@@ -114,7 +131,12 @@ let menuStore = {
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
+<<<<<<< HEAD
             console.log("\n\n ~~~~~~~~~ MENU GET ALL TEST #1>")
+=======
+            console.log("\n\n\n ~~~~~~~~~~~~~> MENU GET ALL", data.project_id)
+
+>>>>>>> 94f5b2e596badb738f638e73f40493d80965465d
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
 
             const Menu = mongoConn.models['object_builder_service.menu']
@@ -473,8 +495,6 @@ let menuStore = {
         } catch (err) {
             throw err
         }
-
-
     }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
@@ -483,6 +503,7 @@ let menuStore = {
                 throw new Error("Cannot delete default menu")
             }
             const Menu = mongoConn.models['object_builder_service.menu']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             let res = await Menu.findOne({ id: data.id });
             if (res && res.type == "MINIO_FOLDER") {
@@ -492,6 +513,9 @@ let menuStore = {
             const menu = await Menu.findOneAndDelete({ id: data.id }, { new: true });
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(res))) })
+
             return menu;
         } catch (err) {
             throw err

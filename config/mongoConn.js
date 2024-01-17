@@ -91,6 +91,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         conn.model('object_builder_service.menu.templates', require('../schemas/menu_template'))
         conn.model('function_service.function', require("../schemas/function_service_function.js"));
         conn.model('object_builder_service.file', require('../schemas/file'))
+        conn.model('object_builder_service.version_history', require('../schemas/version_history.js'))
         conn.model('IncrementSeq', require('../schemas/increment'))
     }
     return conn;

@@ -1,15 +1,12 @@
-const cfg = require('../../config/index')
 const catchWrapDb = require("../../helper/catchWrapDb");
-const con = require("../../config/kafkaTopics");
-const sendMessageToTopic = require("../../config/kafka");
 const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
-const menuStore = require("./menu");
 const os = require("os")
 const layoutStorage = require("./layout")
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const { STATIC_TABLE_IDS } = require("../../helper/constants")
-
 const mongoPool = require('../../pkg/pool');
+const { struct } = require('pb-util');
 
 
 
@@ -23,8 +20,7 @@ let tableStore = {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table.history']
-            const App = mongoConn.models['App']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             data.is_changed_by_host = {
                 [os.hostname()]: true
@@ -84,6 +80,8 @@ let tableStore = {
 
             await layoutStorage.createAll(default_layout)
 
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(table))) })
+            console.log("~~~~~~~~~~~~~~> TEST ##00")
             return table;
         } catch (err) {
             throw err
@@ -95,7 +93,7 @@ let tableStore = {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table.history']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             data.is_changed = true
             data.is_changed_by_host = {
@@ -146,7 +144,8 @@ let tableStore = {
                 }
             }
 
-            // await sendMessageToTopic(con.TopicTableUpdeteV1, event)
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.UPDATE, current: JSON.parse(JSON.stringify(table)), previus: struct.encode(JSON.parse(JSON.stringify(isSystemTable))) })
+            console.log("------ TABLE UPDATE ----- ")
             return table;
         } catch (err) {
             throw err
@@ -208,20 +207,15 @@ let tableStore = {
                 }
             }
 
-            if (data.version_id) {
-                query.version_id = data.version_id
-                tables = await TableVersion.find(query).skip(data.offset).limit(data.limit)
-            } else {
-                tables = await Table.find(
-                    query,
-                    null,
-                    {
-                        sort: { created_at: -1 }
-                    }
-                )
-                    .skip(data.offset)
-                    .limit(data.limit)
-            }
+            tables = await Table.find(
+                query,
+                null,
+                {
+                    sort: { created_at: -1 }
+                }
+            )
+                .skip(data.offset)
+                .limit(data.limit)
 
 
             const count = await Table.countDocuments(query);
@@ -277,12 +271,11 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const TableHistory = mongoConn.models['Table.history']
-            const TableVersion = mongoConn.models['Table.version']
             const Field = mongoConn.models['Field']
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
             const Menu = mongoConn.models['object_builder_service.menu']
+            const History = mongoConn.models['object_builder_service.version_history']
             
             const table = await Table.findOne({
                 id: data.id
@@ -351,8 +344,9 @@ let tableStore = {
 
             await collection.models.collection.drop()
             await Menu.deleteMany({table_id: table.id})
-           
 
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(resp))) })
+           
             return table;
         } catch (err) {
             throw err

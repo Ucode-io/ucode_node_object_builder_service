@@ -17,7 +17,9 @@ const xmlSerializer = new XMLSerializer();
 const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 const { VIEW_TYPES } = require('../../helper/constants')
-const os = require('os')
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
+const os = require('os');
+const logger = require("../../config/logger");
 
 console.log()
 // const mongoConn = await mongoPool.get(data.project_id)
@@ -41,6 +43,7 @@ let viewStore = {
             const View = mongoConn.models['View']
             const Role = mongoConn.models['role']
             const ViewPermission = mongoConn.models['view_permission']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
@@ -75,7 +78,13 @@ let viewStore = {
                     view_id: response.id
                 })
             }
-            await ViewPermission?.insertMany(query)
+            try {
+                await ViewPermission?.insertMany(query)
+            } catch (err) {
+                logger.error(err)
+            }
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(response))) })
 
             return response;
 
@@ -91,6 +100,7 @@ let viewStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
@@ -98,6 +108,11 @@ let viewStore = {
 
             if(data.type == VIEW_TYPES.BOARD) {
                 await BoardOrderChecker(mongoConn, data.table_slug)
+            }
+            
+            const beforeUpdate = await View.findOne({id: data.id})
+            if(!beforeUpdate) {
+                throw new Error("View not found with given id")
             }
 
             const view = await View.findOneAndUpdate(
@@ -127,7 +142,7 @@ let viewStore = {
                     new: true
                 })
 
-            console.log("\n\n HOST table view", data.table_slug, resp)
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(view))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))) })
 
             return view;
 
@@ -204,11 +219,12 @@ let viewStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
+            const History = mongoConn.models['object_builder_service.version_history']
 
-            const vieww = await View.findOne({ id: data.id })
+            const view = await View.findOne({ id: data.id })
 
             await Table.updateOne({
-                slug: vieww.table_slug,
+                slug: view.table_slug,
             },
                 {
                     $set: {
@@ -216,9 +232,11 @@ let viewStore = {
                     }
                 })
 
-            const resp = await View.deleteOne({ id: data.id });
+            await View.deleteOne({ id: data.id });
 
-            return vieww;
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(view))) })
+
+            return view;
 
         } catch (err) {
             throw err

@@ -18,42 +18,27 @@ const tableService = {
     Create: async (call, callback) => {
         logger.info(`[${NAMESPACE}].create request`);
         try {
+            console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~> TEST ##0.001")
             const response = await tableStore.create(call.request);
+            console.log("~~~~~~~~~~~~~~> TEST ##1")
 
             call.request.id = response.id
             const resp = await fieldStore.createAll(call.request);
+            console.log("~~~~~~~~~~~~~~> TEST ##2")
 
             const sectionResp = await layoutStore.createAll(call.request);
+            console.log("~~~~~~~~~~~~~~> TEST ##3")
 
             let viewData = {}
             viewData.table_slug = call.request.slug
             viewData.type = "TABLE"
             viewData.app_id = call.request.app_id
             viewData.project_id = call.request.project_id
+            viewData.env_id = call.env_id
             call.view = viewData
+            console.log("~~~~~~~~~~~~~~> TEST ##4", call.view)
             const viewResp = await viewStore.create(call.view);
-
-
-            let event = {}
-            let table = {}
-            let fields = []
-            table.slug = call.request.slug
-            for (const field of call.request.fields) {
-                let type = converter(field.type)
-                if (field.slug !== "guid") {
-                    fields.push({
-                        slug: field.slug,
-                        type: type,
-                        index: field.index,
-                        required: field.required,
-                        default: field.default,
-                    })
-                }
-
-            }
-            table.fields = fields
-            event.payload = table
-            event.project_id = call.request.project_id || cfg.ucodeDefaultProjectID
+            console.log("~~~~~~~~~~~~~~> TEST ##5")
 
             callback(null, {
                 id: response.id

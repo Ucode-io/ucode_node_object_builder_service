@@ -7,6 +7,7 @@ const { v4 } = require("uuid");
 const AddPermission = require('../../helper/addPermission');
 const { struct } = require('pb-util');
 const ObjectBuilder = require('../../models/object_builder');
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 
 
 let NAMESPACE = 'storage.layout'
@@ -20,7 +21,7 @@ let layoutStore = {
             const Table = mongoConn.models['Table']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
-
+            const History = mongoConn.models['object_builder_service.version_history']
             const resp = await Table.findOneAndUpdate({
                 id: data.table_id,
             },
@@ -31,7 +32,6 @@ let layoutStore = {
                 }, {
                 new: true
             })
-
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
                 layoutReq.id = v4()
@@ -68,6 +68,9 @@ let layoutStore = {
             await Tab.insertMany(tabs)
             await Section.insertMany(sections)
 
+            // layouts.length && await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.BULKWRITE, current: layouts })
+            // tabs.length && await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: tabs })
+            // sections.length && await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: sections })
             return;
         } catch (err) {
             throw err
@@ -75,7 +78,7 @@ let layoutStore = {
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
-            // console.log(":::::::::::TEST:::::::::::::::::::1")
+            console.log("\n\n\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LLLLLLLLLLLLLLL")
             const mongoConn = await mongoPool.get(data.project_id)
             const Tab = mongoConn.models['Tab']
             const Table = mongoConn.models['Table']
@@ -84,6 +87,7 @@ let layoutStore = {
             const RoleTable = (await ObjectBuilder(true, data.project_id))['role']
             const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
             const roles = await RoleTable?.models?.find({}).lean()
+            const History = mongoConn.models['object_builder_service.version_history']
             let bulkWriteTab = [], bulkWriteSection = [], relation_ids = [], insertManyRelationPermissions = []
 
             let layout = await Layout.findOne({id: data.id}).lean();
@@ -105,7 +109,7 @@ let layoutStore = {
                 }
             }
 
-            await Layout.findOneAndUpdate({id: layout.id}, {
+            const resp = await Layout.findOneAndUpdate({id: layout.id}, {
                 $set: {
                     label: data.label,
                     order: data.order,
@@ -121,7 +125,8 @@ let layoutStore = {
                     menu_id: data.menu_id
                 }
             }, {
-                upsert: true
+                upsert: true,
+                new: true
             })
 
             if(data.is_default) {
@@ -149,7 +154,7 @@ let layoutStore = {
                 let tab = data.tabs[i]
                 tab.id = tab.id || v4()
 
-                if(tab.type == "relation") {
+                if(tab.type === "relation") {
                     relation_ids.push(tab.relation_id)
                 }
 
@@ -174,6 +179,18 @@ let layoutStore = {
                         upsert: true
                     }
                 })
+
+                tabs.push({
+                    id: tab.id,
+                    label: tab.label,
+                    layout_id: tab.layout_id || data.id,
+                    relation_id: tab.relation_id,
+                    type: tab.type,
+                    order: data.order,
+                    icon: tab.icon,
+                    attributes: tab.attributes
+                })
+
                 for(let section of tab.sections) {
 
                     section.id = section.id || v4()
@@ -199,6 +216,18 @@ let layoutStore = {
                             },
                             upsert: true
                         }
+                    })
+
+                    sections.push({
+                        id: section.id,
+                        tab_id: tab.id,
+                        order: section.order,
+                        column: section.column,
+                        label: section.label,
+                        fields: section.fields,
+                        icon: section.icon,
+                        is_summary_section: section.is_summary_section,
+                        attributes: section.attributes
                     })
                 }
             }
@@ -238,7 +267,12 @@ let layoutStore = {
             deleted_section_ids.length && await Section.deleteMany({id: {$in: deleted_section_ids}})
             bulkWriteTab.length && await Tab.bulkWrite(bulkWriteTab)
             bulkWriteSection.length && await Section.bulkWrite(bulkWriteSection)
+
             insertManyRelationPermissions.length && await viewRelationPermissionTable?.models?.insertMany(insertManyRelationPermissions)
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode({ data: JSON.stringify(data || "")}), previus: struct.encode({data: JSON.stringify(layout || "")}) })
+            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TAB, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(tabs))), previus: struct.encode(JSON.parse(JSON.stringify(all_tabs))) })
+            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.BULKWRITE, current: struct.encode(JSON.parse(JSON.stringify(sections))), previus: struct.encode(JSON.parse(JSON.stringify(all_sections))) })
 
             return {}
         } catch (err) {
@@ -812,6 +846,7 @@ let layoutStore = {
             const Layout = mongoConn.models['Layout']
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             const layout = await Layout.findOne({ id: data.id })
             if(!layout) throw new Error('Layout not found with givern id')
@@ -822,6 +857,8 @@ let layoutStore = {
             await Section.deleteMany({ tab_id: { $in: tab_ids } })
             await Tab.deleteMany({ id: { $in: tab_ids } })
             await Layout.findOneAndDelete({ id: data.id })
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.LAYOUT, action_type: ACTION_TYPE_MAP.DELETE, previus: struct.encode(JSON.parse(JSON.stringify(layout))) })
 
             return {}
 

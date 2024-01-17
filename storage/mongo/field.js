@@ -9,6 +9,7 @@ const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require('../../pkg/pool');
 const tableVersion = require('../../helper/table_version');
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const os = require('os')
 
 
@@ -20,6 +21,7 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             data.fields.push({
                 slug: "guid",
@@ -99,7 +101,13 @@ let fieldStore = {
                     fieldPermissions.push(fieldPermission)
                 }
             }
-            fieldPermissionTable.models.insertMany(fieldPermissions)
+
+            try {
+                fieldPermissionTable.models.insertMany(fieldPermissions)
+            } catch (err) {
+                logger.error(err)
+            }
+            
             const resp = await Table.updateOne({
                 id: data.id,
             },
@@ -109,6 +117,9 @@ let fieldStore = {
                         [`is_changed_by_host.${os.hostname()}`]: true
                     }
                 })
+
+            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: table })
+
             return response;
         } catch (err) {
             throw err
@@ -123,7 +134,11 @@ let fieldStore = {
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
-            data.id = v4()
+            const History = mongoConn.models['object_builder_service.version_history']
+
+            if(!data.id) {
+                data.id = v4()
+            }
 
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 let autoFillTableSlug = data.autofill_table
@@ -188,12 +203,13 @@ let fieldStore = {
                 const fieldPermission = new fieldPermissionTable.models(permission)
                 fieldPermission.save()
             }
-
-            const layout = await Layout.findOne({table_id: table.id})
+     
+            const layout = await Layout.findOne({table_id: table?.id})
+   
             if (layout) {
                 const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                 if (tab) {
-                    const section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                    let section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
                     if(section[0]) {
                         const count_columns = section[0].fields ? section[0].fields.length : 0
                         if(count_columns < (table.section_column_count || 3)) {
@@ -215,7 +231,7 @@ let fieldStore = {
                                 }
                             )
                         } else {
-                            await Section.create({
+                            section = await Section.create({
                                 id: v4(),
                                 order: section.length + 1,
                                 column: "SINGLE",
@@ -232,12 +248,14 @@ let fieldStore = {
                                 attributes: {},
                                 tab_id: tab.id
                             })
+
+                            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(section))) })
                         }
                     }
                 }
             }
-
-             
+         
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(field))) })
 
             return field;
         } catch (err) {
@@ -250,6 +268,7 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             const fieldBeforUpdate = await Field.findOne(
                 {
@@ -326,11 +345,31 @@ let fieldStore = {
                 }
             )
 
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(field))), previus: struct.encode(JSON.parse(JSON.stringify(fieldBeforUpdate))) })
+
             return field;
         } catch (err) {
             throw err
         }
 
+    }),
+    updateSearch: catchWrapDb(`${NAMESPACE}.updateSearch`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Field = mongoConn.models['Field']
+                
+            let updateOperations = data.fields.map(field => ({
+                updateOne: {
+                    filter: { id: field.id },
+                    update: { $set: { is_search: field.is_search } },
+                    upsert: false
+                }
+            }));
+
+            await Field.bulkWrite(updateOperations)
+        } catch (err) {
+            throw err
+        }
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
@@ -791,6 +830,7 @@ let fieldStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const View = mongoConn.models['View']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             const deletedField = await Field.findOne({ id: data.id }).lean()
             if(deletedField && deletedField.is_system) {
@@ -844,6 +884,8 @@ let fieldStore = {
                     },
                 }
             )
+
+            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(deletedField))) })
 
             return field;
 

@@ -38,6 +38,8 @@ message CreateFunctionRequest {
     string pipeline_status = 18;
     string branch = 19;
     string repo_id = 20;
+    string error_message = 21;
+    string job_name = 22;
 }
 
 message Function {
@@ -59,6 +61,8 @@ message Function {
     string pipeline_status = 17;
     string branch = 18;
     string repo_id = 19;
+    string error_message = 20;
+    string job_name = 21;
 }
 
 message GetAllFunctionsRequest {

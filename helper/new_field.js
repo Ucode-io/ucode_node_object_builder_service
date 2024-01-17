@@ -1,6 +1,7 @@
 module.exports = async function (data) {
     try {
         const Menu = data.mongoDBConn.models['record_permission'];
+        const Field = data.mongoDBConn.models['Field'];
 
         console.log("Updating add_field and pdf_action fields based on the presence of language_btn");
 
@@ -30,8 +31,20 @@ module.exports = async function (data) {
             }
         );
 
+        console.log("Updating is_search field to false for all fields");
+        Field.updateMany(
+            {},
+            { $set: { is_search: true } },
+            (err, result) => {
+                if (err) {
+                    console.error('Error:', err);
+                    return;
+                }
+            }
+        )
+
         
     } catch (error) {
-        console.log("Error in yourFileName.js", error);
+        console.log("Error in new_field.js", error);
     }
 };

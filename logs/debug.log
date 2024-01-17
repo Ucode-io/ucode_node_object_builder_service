@@ -4088,3 +4088,141 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-17T13:16:39.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-17T13:16:40.002Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-17T13:16:40.006Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-17T13:16:41.994Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-17T13:19:46.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: requested - {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",\n' +
+    '      "is_search": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "ae7e025f-3d3c-4edc-af41-a71e5951f9bd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T13:20:24.559Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: succeeded',
+  level: 'info',
+  timestamp: '2024-01-17T13:20:24.995Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-17T13:21:52.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-17T13:21:52.310Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-17T13:21:52.311Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-17T13:21:54.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-17T13:25:38.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: requested - {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",\n' +
+    '      "is_search": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "ae7e025f-3d3c-4edc-af41-a71e5951f9bd",\n' +
+    '  "table_slug": "test_user"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T13:25:43.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: succeeded',
+  level: 'info',
+  timestamp: '2024-01-17T13:25:44.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: requested - {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",\n' +
+    '      "is_search": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "ae7e025f-3d3c-4edc-af41-a71e5951f9bd",\n' +
+    '  "table_slug": "just_test"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T13:27:32.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: succeeded',
+  level: 'info',
+  timestamp: '2024-01-17T13:27:33.126Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

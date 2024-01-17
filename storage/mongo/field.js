@@ -357,6 +357,7 @@ let fieldStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Field = mongoConn.models['Field']
+            const Table = mongoConn.models['Table']
                 
             let updateOperations = data.fields.map(field => ({
                 updateOne: {
@@ -367,6 +368,16 @@ let fieldStore = {
             }));
 
             await Field.bulkWrite(updateOperations)
+            await Table.updateOne({
+                slug: data.table_slug
+            }, {
+                $set: { 
+                    is_changed: true,
+                    is_changed_by_host: {
+                        [os.hostname()]: true
+                    }
+                },
+            })
         } catch (err) {
             throw err
         }

@@ -4031,3 +4031,60 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-17T12:25:37.336Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-17T12:25:37.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-17T12:25:37.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-17T12:25:38.868Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-17T12:28:02.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: requested - {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",\n' +
+    '      "is_search": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "ae7e025f-3d3c-4edc-af41-a71e5951f9bd"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T13:01:43.184Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: succeeded',
+  level: 'info',
+  timestamp: '2024-01-17T13:01:43.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

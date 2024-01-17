@@ -583,7 +583,9 @@ let objectBuilder = {
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
+        console.log("\n\n Get List Slim #1")
         const mongoConn = await mongoPool.get(req.project_id)
+        console.log("\n\n Get List Slim #2")
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -594,6 +596,7 @@ let objectBuilder = {
         delete params["limit"]
         delete params["offset"]
         const allTables = await ObjectBuilder(true, req.project_id)
+        console.log("\n\n Get List Slim #3")
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -604,7 +607,9 @@ let objectBuilder = {
         let order = params.order || {}
         let with_relations = params.with_relations
 
+        console.log("\n\n Get List Slim #4")
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+        console.log("\n\n Get List Slim #5")
 
         if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
@@ -809,6 +814,7 @@ let objectBuilder = {
         }
         count = await tableInfo.models.count(params);
 
+        console.log("\n\n Get List Slim #6")
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
@@ -827,6 +833,7 @@ let objectBuilder = {
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
 
+        console.log("\n\n Get List Slim #7")
         let attribute_table_from_slugs = []
         let attribute_table_from_relation_ids = []
         for (const field of formulaFields) {
@@ -878,7 +885,7 @@ let objectBuilder = {
                 dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
             }
         }
-
+        console.log("\n\n Get List Slim #8")
         for (const res of result) {
             let isChanged = false
             for (const field of formulaFields) {
@@ -954,6 +961,7 @@ let objectBuilder = {
             count: count,
             response: result,
         });
+        console.log("\n\n Get List Slim #9")
         const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
         return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
 

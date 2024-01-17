@@ -16,26 +16,29 @@ async function buildModels(is_build = true, project_id) {
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }
-    // console.log("TEST:::::::::::1")
+    console.log("TEST:::::::::::1")
     // console.log("project_id:", project_id)
     const mongoDBConn = await mongoPool.get(project_id)
 
     const Table = mongoDBConn.models['Table']
     const Field = mongoDBConn.models['Field']
     const Relation = mongoDBConn.models['Relation']
-    const Section = mongoDBConn.models['Section']
     const View = mongoDBConn.models['View']
-    // console.log("TEST:::::::::::2", is_build)
+    console.log("TEST:::::::::::2", is_build)
     // hi guys, comments will be written below in order to explain what is going on in auto-object-builder logic
 
     // all tables should be got to build their schema
     let tables = []
     if (!is_build) {
+        console.log("TEST:::::::::::2.1 --------------- is build false")
         await Table.updateMany({}, {$set: { is_changed_by_host: {} }})
+        console.log("TEST:::::::::::2.2 --------------- is build false")
         tables = await Table.find({
             deleted_at: "1970-01-01T18:00:00.000+00:00",
         });
+        console.log("TEST:::::::::::2.3 --------------- is build false")
     } else {
+        console.log("TEST:::::::::::2.4 --------------- true")
         tables = await Table.find({
             deleted_at: "1970-01-01T18:00:00.000+00:00",
             // is_changed: true
@@ -50,6 +53,7 @@ async function buildModels(is_build = true, project_id) {
                 }
             ]
         });
+        console.log("TEST:::::::::::2.5 --------------- true")
     }
 
     console.log("TEST:::::::::::3", tables.length)

@@ -12,6 +12,7 @@ module.exports = (namespace, fn) => {
         //     `${namespace}: requested - ${JSON.stringify(call.request, null, 2)}`
         // );
         let projectId = call.request.resource_environment_id || call.request.project_id
+        console.log("\n\n ~~~ Reuqest come to service layer ", projectId)
         try {
             await mongoPool.get(projectId)
         } catch (error) {

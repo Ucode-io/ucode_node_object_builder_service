@@ -82,7 +82,11 @@ const FieldSchema = mongoose.Schema(
         },
         minio_folder: {
             type: String,
-        }
+        },
+        is_search: {
+            type: Boolean,
+            default: true
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

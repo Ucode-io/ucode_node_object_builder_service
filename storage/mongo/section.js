@@ -513,8 +513,7 @@ let sectionStore = {
                         }
                     }
                 }
-                // this function add field permission for each field by role iddynamicTableInfo
-                console.log("~~~> ", fieldsRes)
+                
                 let {fieldsWithPermissions} = await AddPermission.toField(fieldsRes, data.role_id, data.table_slug ? data.table_slug : table.slug, data.project_id)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)

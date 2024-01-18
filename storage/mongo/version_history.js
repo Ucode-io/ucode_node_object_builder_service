@@ -28,6 +28,19 @@ let versionHistoryStorage = {
                 query.action_source = data.type
             }
             
+            if(data.env_id) {
+                query["$or"] = [
+                    {
+                        [`is_used.${data.env_id}`]: false
+                    },
+                    {
+                        [`is_used.${data.env_id}`]: {
+                            "$exists": false
+                        }
+                    }
+                ]
+            }
+            
             const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: 1})
             // console.log("_____---> ", query, resp)
 

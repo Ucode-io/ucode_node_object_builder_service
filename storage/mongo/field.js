@@ -353,6 +353,35 @@ let fieldStore = {
         }
 
     }),
+    updateSearch: catchWrapDb(`${NAMESPACE}.updateSearch`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Field = mongoConn.models['Field']
+            const Table = mongoConn.models['Table']
+                
+            let updateOperations = data.fields.map(field => ({
+                updateOne: {
+                    filter: { id: field.id },
+                    update: { $set: { is_search: field.is_search } },
+                    upsert: false
+                }
+            }));
+
+            await Field.bulkWrite(updateOperations)
+            await Table.updateOne({
+                slug: data.table_slug
+            }, {
+                $set: { 
+                    is_changed: true,
+                    is_changed_by_host: {
+                        [os.hostname()]: true
+                    }
+                },
+            })
+        } catch (err) {
+            throw err
+        }
+    }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

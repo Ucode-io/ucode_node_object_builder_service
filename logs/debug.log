@@ -2412,3 +2412,224 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-17T06:33:12.506Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-17T06:33:12.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-17T06:33:12.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-17T06:33:14.263Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-17T06:35:13.586Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: requested - {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",\n' +
+    '      "is_search": true\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "id": "d8127cf2-2d60-474e-94ba-317d3b1ba18a",\n' +
+    '      "is_search": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "dc3b8f74-aa46-4101-b255-d6b82ac0db2d"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T06:38:19.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: succeeded',
+  level: 'info',
+  timestamp: '2024-01-17T06:38:19.559Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: requested - {\n' +
+    '  "fields": [\n' +
+    '    {\n' +
+    '      "id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",\n' +
+    '      "is_search": false\n' +
+    '    },\n' +
+    '    {\n' +
+    '      "id": "d8127cf2-2d60-474e-94ba-317d3b1ba18a",\n' +
+    '      "is_search": false\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "project_id": "dc3b8f74-aa46-4101-b255-d6b82ac0db2d"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T06:38:54.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.updateSearch: succeeded',
+  level: 'info',
+  timestamp: '2024-01-17T06:38:54.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-17T07:57:53.165Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-17T07:57:53.171Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-17T07:57:53.172Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-17T07:57:54.984Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-17T08:00:13.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "9abbc25d-8174-4452-a408-1f213059215c",\n' +
+    '  "project_id": "dc3b8f74-aa46-4101-b255-d6b82ac0db2d",\n' +
+    '  "user_id": "",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T08:01:15.402Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2024-01-17T08:01:15.518Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-17T08:05:21.023Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-17T08:05:21.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-17T08:05:21.030Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-17T08:05:22.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-17T08:08:12.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.getByID: requested - {\n' +
+    '  "id": "9abbc25d-8174-4452-a408-1f213059215c",\n' +
+    '  "project_id": "dc3b8f74-aa46-4101-b255-d6b82ac0db2d",\n' +
+    '  "user_id": "",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-17T08:09:05.699Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2024-01-17T08:09:05.803Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}

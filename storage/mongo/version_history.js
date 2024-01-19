@@ -21,7 +21,8 @@ let versionHistoryStorage = {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const query = {}, sort = { created_at: 1 }
+            const query = {}
+            let sort = { created_at: 1 }
 
             if (data.type == "DOWN") {
                 sort = { created_at: -1 }

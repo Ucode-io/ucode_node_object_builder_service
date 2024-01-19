@@ -1298,6 +1298,7 @@ let objectBuilder = {
         if (params.calculate_formula) {
             let updatedObjects = []
             let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
+    
             let attribute_table_from_slugs = []
             let attribute_table_from_relation_ids = []
             for (const field of formulaFields) {
@@ -1314,6 +1315,7 @@ let objectBuilder = {
                     }
                 }
             }
+    
             let relationFieldTablesMap = {}
             let relationFieldTableIds = []
             if (attribute_table_from_slugs.length > 0) {
@@ -1348,6 +1350,7 @@ let objectBuilder = {
                     dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
                 }
             }
+    
             for (const res of result) {
                 let isChanged = false
                 for (const field of formulaFields) {
@@ -1390,7 +1393,7 @@ let objectBuilder = {
                                     res[field.slug] = resultFormula[0].res
                                     isChanged = true
                                 }
-
+    
                             } else {
                                 res[field.slug] = 0
                                 isChanged = true
@@ -1407,15 +1410,10 @@ let objectBuilder = {
                     }
                 }
                 if (isChanged) {
-                    updatedObjects.push({
-                        updateOne: {
-                            filter: { guid: res.guid },
-                            update: res
-                        }
-                    })
+                    updatedObjects.push(res)
                 }
             }
-
+    
             if (updatedObjects.length) {
                 await objectBuilder.multipleUpdateV2({
                     table_slug: req.table_slug,

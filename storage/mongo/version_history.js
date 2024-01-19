@@ -22,10 +22,10 @@ let versionHistoryStorage = {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const query = {}
+            const query = {}, sort = { created_at: 1 }
 
-            if (data.type) {
-                query.action_source = data.type
+            if (data.type == "DOWN") {
+                sort = { created_at: -1 }
             }
 
             if(data.env_id) {
@@ -41,8 +41,8 @@ let versionHistoryStorage = {
                 ]
             }
             
-            const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: 1})
-            // console.log("_____---> ", query, resp)
+            const resp = await History.find(query, {created_at: 0, update_at: 0}).sort(sort)
+            console.log("\n\n\n VERSION history---> ", query, sort, resp.length)
 
             return {histories: resp}
 

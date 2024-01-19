@@ -1163,6 +1163,8 @@ let objectBuilder = {
 
         let result = [], count;
         let populateArr = []
+        let calculateFormula = params.calculate_formula;
+        delete params['calculate_formula'];
 
         // check soft deleted datas
         if (params.$or) {

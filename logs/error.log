@@ -8882,7 +8882,240 @@
   label: 'object_builder_service',
   metadata: {}
 }
+<<<<<<< HEAD
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2024-01-17T05:20:28.800Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: no rows in result set
+        at Object.callErrorFromStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 13,
+      details: 'no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2024-01-17T05:21:31.160Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: no rows in result set
+        at Object.callErrorFromStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 13,
+      details: 'no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2024-01-17T05:23:08.511Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: no rows in result set
+        at Object.callErrorFromStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 13,
+      details: 'no rows in result set',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2024-01-17T05:35:02.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: Cannot read properties of undefined (reading 'models')",
+  level: 'error',
+  timestamp: '2024-01-17T05:36:37.946Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: imt is not defined',
+  level: 'error',
+  timestamp: '2024-01-17T05:45:36.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: imt is not defined',
+  level: 'error',
+  timestamp: '2024-01-17T05:45:52.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: imt is not defined',
+  level: 'error',
+  timestamp: '2024-01-17T05:46:08.075Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.object_builder.getListAggregation: failed with error: Unexpected token 'o', "[object Obj"... is not valid JSON`,
+  level: 'error',
+  timestamp: '2024-01-17T05:56:14.323Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: Unable to infer type for "Sat Aug 05 2023 11:21:27 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-17T05:59:05.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: Unable to infer type for "Sat Aug 05 2023 11:21:27 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-17T06:01:40.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: Unable to infer type for "Sat Aug 05 2023 11:21:27 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-17T06:06:53.848Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: Unable to infer type for "Sat Aug 05 2023 11:21:27 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-17T06:16:08.631Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: Unable to infer type for "Sat Aug 05 2023 11:21:27 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-17T06:20:37.007Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: Unable to infer type for "Sat Aug 05 2023 11:21:27 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-17T06:25:04.538Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: Unable to infer type for "Sat Aug 05 2023 11:21:27 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-17T06:37:08.184Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: Unable to infer type for "Fri Dec 22 2023 15:38:09 GMT+0500 (Uzbekistan Standard Time)".',
+  level: 'error',
+  timestamp: '2024-01-17T06:39:14.830Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2024-01-17T06:41:44.537Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:514:28)\n' +
+      '    at processIncomingData (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:556:12)\n' +
+      '    at _write (node:internal/streams/writable:490:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:494:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:985:22)\n' +
+      '    at Socket.emit (node:events:514:28)\n' +
+      '    at addChunk (node:internal/streams/readable:545:12)\n' +
+      '    at readableAddChunkPushByteMode (node:internal/streams/readable:495:3)\n' +
+      '    at Readable.push (node:internal/streams/readable:375:5)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'mongo connection error Authentication failed.',
+  level: 'error',
+  timestamp: '2024-01-17T06:41:45.059Z',
+  label: 'object_builder_service',
+  metadata: {
+    ok: 0,
+    code: 18,
+    codeName: 'AuthenticationFailed',
+    connectionGeneration: 0,
+    stack: 'MongoServerError: Authentication failed.\n' +
+      '    at Connection.onMessage (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:230:30)\n' +
+      '    at MessageStream.<anonymous> (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connection.js:61:60)\n' +
+      '    at MessageStream.emit (node:events:514:28)\n' +
+      '    at processIncomingData (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\n' +
+      '    at MessageStream._write (/home/kamron/go/src/github.com/Ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\n' +
+      '    at writeOrBuffer (node:internal/streams/writable:556:12)\n' +
+      '    at _write (node:internal/streams/writable:490:10)\n' +
+      '    at Writable.write (node:internal/streams/writable:494:10)\n' +
+      '    at Socket.ondata (node:internal/streams/readable:985:22)\n' +
+      '    at Socket.emit (node:events:514:28)\n' +
+      '    at addChunk (node:internal/streams/readable:545:12)\n' +
+      '    at readableAddChunkPushByteMode (node:internal/streams/readable:495:3)\n' +
+      '    at Readable.push (node:internal/streams/readable:375:5)\n' +
+      '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)'
+  },
+  [Symbol(errorLabels)]: Set(2) { 'HandshakeError', 'ResetPool' }
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: tableInfo.models.aggregate(...).lean is not a function',
+  level: 'error',
+  timestamp: '2024-01-17T06:45:58.636Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+=======
 >>>>>>> 87ca1cef0a7a670d3065360d8c960055a1a3a5b0
+<<<<<<< HEAD
 {
   message: 'Error while auto connecting by project id',
   level: 'error',
@@ -8923,3 +9156,6 @@
     }
   }
 }
+=======
+>>>>>>> 94f5b2e596badb738f638e73f40493d80965465d
+>>>>>>> adf4c192f08c1ac7dedc7c70b216893c0e3f9fe6

@@ -7,7 +7,6 @@ const ObjectBuilder = require("../../models/object_builder");
 const table = require("../../models/table");
 let NAMESPACE = "storage.app";
 
-
 let appStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {

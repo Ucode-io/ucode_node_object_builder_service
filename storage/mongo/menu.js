@@ -136,7 +136,7 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
 
             const Menu = mongoConn.models['object_builder_service.menu']
-
+            console.log("\n\n ~~~~~~~~~ MENU GET ALL TEST #2>")
             let query = {
                 parent_id: data.parent_id,
                 label: RegExp(data.search, "i")
@@ -146,7 +146,7 @@ let menuStore = {
                     $nin: constants.STATIC_MENU_IDS
                 }
             }
-
+            console.log("\n\n ~~~~~~~~~ MENU GET ALL TEST #3>")
             if(data.table_id) {
                 query = {
                     table_id: data.table_id
@@ -315,12 +315,17 @@ let menuStore = {
                     },
                 }]
 
+                console.log("\n\n ~~~~~~~~~ MENU GET ALL TEST #4>")
             let menus = await Menu.aggregate(pipelines)
+            console.log("\n\n ~~~~~~~~~ MENU GET ALL TEST #5>")
             menus = JSON.parse(JSON.stringify(menus))
+            console.log("\n\n ~~~~~~~~~ MENU GET ALL TEST #6>")
             menus.forEach(el => {
                 el.data = struct.encode(el.data)
             })
+            console.log("\n\n ~~~~~~~~~ MENU GET ALL TEST #7>")
             const count = await Menu.countDocuments(query);
+            console.log("\n\n ~~~~~~~~~ MENU GET ALL TEST #8>")
             console.log("\n\nMenu response", menus)
             return { menus, count };
         } catch (err) {

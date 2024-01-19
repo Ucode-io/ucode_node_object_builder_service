@@ -2,7 +2,6 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const { struct } = require('pb-util');
 const mongoPool = require('../../pkg/pool');
 const { v4 } = require("uuid");
-const { VIEW_TYPES } = require('../../helper/constants')
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const tableStorage = require('./table')
 const fieldStorage = require('./field')
@@ -27,7 +26,7 @@ let versionHistoryStorage = {
             if (data.type == "DOWN") {
                 sort = { created_at: -1 }
             }
-
+            
             if(data.env_id) {
                 query["$or"] = [
                     {
@@ -40,9 +39,9 @@ let versionHistoryStorage = {
                     }
                 ]
             }
-            
+
             const resp = await History.find(query, {created_at: 0, update_at: 0}).sort(sort)
-            console.log("\n\n\n VERSION history---> ", query, sort, resp.length)
+            // console.log("_____---> ", query, resp)
 
             return {histories: resp}
 
@@ -77,7 +76,7 @@ let versionHistoryStorage = {
             const tables = [], fields = [], relations = [], layouts = [], tabs = [], sections = [], menus = [], actions = [], views = [], ids = []
 
             data.histories = data.histories || []
-            for(let i = 0; i < data.histories.length; i++) {
+            for(let i = 0 ; i < data.histories.length; i++) {
                 el = data.histories[i]
                 if (el.current) {
                     el.current = struct.decode(el.current)
@@ -231,24 +230,27 @@ let versionHistoryStorage = {
                     }
                 }
             }
+
             console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #7")
+            for(const el of menus) {
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
+                delete el.current._id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await menuStorage.create(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await menuStorage.update(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await menuStorage.delete(el.previus)
+                    }
+                }
+            }
 
-            // let ready_tab_map = {}
-            // for(const el of tabs) {
-            //     for(let tab of tab.current) {
-            //         for(let el_s of sections) {
-            //             if(el_s.current?.length) {
-            //                 tab.sections = el_s.current.filter((s) => s.tab_id == tab.id)
-            //             }
-            //         }
-            //         if(ready_tab_map[tab.layout_id]) {
-            //             ready_tab_map[tab.layout_id].push(tab)
-            //         } else {
-            //             ready_tab_map[tab.layout_id] = [tab]
-            //         }
-            //     }
-            // }
-
+            console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #8")
             for(const el of layouts) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id
@@ -272,6 +274,210 @@ let versionHistoryStorage = {
             }
 
             return {ids}
+
+        } catch (err) {
+            throw err
+        }
+    }),
+    down: catchWrapDb(`${NAMESPACE}.down`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const History = mongoConn.models['object_builder_service.version_history']
+
+            const tables = [], fields = [], relations = [], layouts = [], menus = [], actions = [], views = [], ids = []
+            const map_tables = {}, map_fields = {}, map_relations = {}, map_layouts = {}, map_menus = {}, map_views = {}, map_actions = {}
+
+            data.histories = data.histories || []
+            for(let i = data.histories.length -1 ; i >= 0; i--) {
+                el = data.histories[i]
+                if (el.current) {
+                    el.current = struct.decode(el.current)
+                } else {
+                    el.current = {}
+                }
+
+                if (el.previus) {
+                    el.previus = struct.decode(el.previus)
+                } else {
+                    el.previus = {}
+                }
+                
+                ids.push(el.id)
+                switch(el.action_source) {
+                    case VERSION_SOURCE_TYPES_MAP.TABLE: {
+                        tables.push(el)
+                        map_tables[el.current.id || el.previus.id] = el
+                        break
+                    } 
+                    case VERSION_SOURCE_TYPES_MAP.FIELD: {
+                        fields.push(el)
+                        map_fields[el.current.id || el.previus.id] = el
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.RELATION: {
+                        relations.push(el)
+                        map_relations[el.current.id || el.previus.id] = el
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.LAYOUT: {
+                        layouts.push(el)
+                        let c_payload = JSON.parse(el.current.data || {})
+                        let p_payload = JSON.parse(el.previus.data || {})
+                        map_layouts[c_payload.id || p_payload.id] = el
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.MENU: {
+                        menus.push(el)
+                        map_menus[el.current.id || el.previus.id] = el
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.ACTION: {
+                        actions.push(el)
+                        map_actions[el.current.id || el.previus.id] = el
+                        break
+                    }
+                    case VERSION_SOURCE_TYPES_MAP.VIEW: {
+                        views.push(el)
+                        map_views[el.current.id || el.previus.id] = el
+                        break
+                    }
+                }
+            }
+
+            for(let key in map_tables) {
+
+                let el = map_tables[key]
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
+                delete el.current._id
+
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await tableStorage.delete(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await tableStorage.update(el.previus)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await tableStorage.create(el.previus)
+                        el.current.fields = []
+                        await fieldStorage.createAll(el.previus)
+                        break
+                    }
+                }
+            }
+
+            for(const key in map_fields) {
+                let el = map_fields[key]
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
+                delete el.current._id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await fieldStorage.delete(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await fieldStorage.update(el.previus)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await fieldStorage.create(el.previus)
+                    }
+                }
+            }
+
+            for(const key in map_relations) {
+                let el = map_relations[key]
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
+                delete el.current._id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await relationStorage.delete(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await relationStorage.update(el.previus)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await relationStorage.create(el.previus)
+                    }
+                }
+            }
+
+            for(const key in map_actions) {
+                let el = map_actions[key]
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
+                delete el.current._id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await actionStorage.delete(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await actionStorage.update(el.previus)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await actionStorage.create(el.previus)
+                    }
+                }
+            }
+
+            for(const key in map_views) {
+                let el = map_views[key]
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
+                delete el.current._id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await viewStorage.delete(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await viewStorage.update(el.previus)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await viewStorage.create(el.previus)
+                    }
+                }
+            }
+
+            for(const key in map_menus) {
+                let el = map_menus[key]
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
+                delete el.current._id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await menuStorage.delete(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await menuStorage.update(el.previus)
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await menuStorage.create(el.previus)
+                    }
+                }
+            }
+           
+            for(const key of map_layouts) {
+                let el = map_layouts[key]
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
+                delete el.current._id
+
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.UPDATE: {
+
+                        if(el.previus.data) {
+                            el.previus.data = JSON.parse(el.previus.data)
+                        }
+
+                        await layoutStorage.update(el.previus.data)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await layoutStorage.update(el.previus)
+                    }
+                }
+            }
 
         } catch (err) {
             throw err

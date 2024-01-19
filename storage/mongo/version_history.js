@@ -459,7 +459,7 @@ let versionHistoryStorage = {
                 }
             }
            
-            for(const key of map_layouts) {
+            for(const key in map_layouts) {
                 let el = map_layouts[key]
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id

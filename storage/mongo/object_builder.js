@@ -1163,8 +1163,6 @@ let objectBuilder = {
 
         let result = [], count;
         let populateArr = []
-        let calculateFormula = params.calculate_formula;
-        delete params['calculate_formula'];
 
         // check soft deleted datas
         if (params.$or) {
@@ -1297,7 +1295,7 @@ let objectBuilder = {
             let prev = result.length
             count = count - (prev - result.length)
         }
-        if (calculateFormula) {
+        if (params.calculate_formula) {
             let updatedObjects = []
             let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
             let attribute_table_from_slugs = []
@@ -1419,7 +1417,11 @@ let objectBuilder = {
             }
 
             if (updatedObjects.length) {
-                await tableInfo.bulkWrite(updatedObjects)
+                await objectBuilder.multipleUpdateV2({
+                    table_slug: req.table_slug,
+                    project_id: req.project_id,
+                    data: struct.encode({ objects: updatedObjects })
+                })
             }
         }
 

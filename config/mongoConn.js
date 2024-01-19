@@ -53,6 +53,8 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         };
     }
 
+    // mongoDBUrl = `mongodb://localhost:27017/sandbox`;
+
     Logger.debug("connecting to mongodb: " + mongoDBUrl);
 
     const conn = await mongoose.createConnection(mongoDBUrl, options);

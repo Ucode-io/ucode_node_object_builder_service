@@ -1297,7 +1297,7 @@ let objectBuilder = {
             let prev = result.length
             count = count - (prev - result.length)
         }
-        if (params.calculate_formula) {
+        if (calculateFormula) {
             let updatedObjects = []
             let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
             let attribute_table_from_slugs = []

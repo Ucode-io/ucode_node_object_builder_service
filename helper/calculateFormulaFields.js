@@ -17,7 +17,7 @@ let formulaFunction = {
                 value = JSON.stringify(value).toUpperCase()
             }
             if (typeof value === "string") {
-                value = `${value}`
+                value = `'${value}'`
             }
             if (typeof value === "object") {
                 value = `'${value[0]}'`

@@ -137,7 +137,7 @@ let prepareFunction = {
                 } else {
                     nextIncrement = parseInt(last[incrementNum.slug]) + 1
                     // console.log("!!!!!!!! ", nextIncrement)
-                    data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
+                    data[incrementNum.slug] = (nextIncrement + "").padStart(attributes.digit_number, '0')
                 }
 
             }

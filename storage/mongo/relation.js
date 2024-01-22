@@ -814,9 +814,11 @@ let relationStore = {
                 }
             );
          
-            relation.id = field_id
+            relation.attributes = data.attributes || {}
 
             await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(relation))) })
+            
+            relation.id = field_id
 
             return relation;
         } catch (err) {
@@ -831,7 +833,7 @@ let relationStore = {
             const Relation = mongoConn.models["Relation"];
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const beforeUpdate = await Relation.findOne({id: data.id})
+            const beforeUpdate = await Relation.findOne({id: data.id}).lean()
             if(!beforeUpdate) {
                 throw new Error("Relation not found")
             }
@@ -849,7 +851,7 @@ let relationStore = {
                 {
                     new: true
                 }
-            );
+            )
 
             const resp = await Table.findOneAndUpdate(
                 {
@@ -867,9 +869,6 @@ let relationStore = {
             
             const isViewExists = await View.findOne({
                 $and: [
-                    // {
-                    //     relation_table_slug: data.relation_table_slug,
-                    // },
                     {
                         relation_id: data.id,
                     },
@@ -878,6 +877,7 @@ let relationStore = {
             let viewRelationPermissions = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             await viewRelationPermissions.models.updateMany({ relation_id: data.id, table_slug: data.relation_table_slug }, { $set: { label: data.title } })
             if (isViewExists) {
+                beforeUpdate.attributes = isViewExists.attributes
                 
                 await View.findOneAndUpdate(
                     {
@@ -912,6 +912,7 @@ let relationStore = {
                         },
                     }
                 );
+                
             } else {
                 data.type = data.view_type;
                 data["name"] = data.title;
@@ -923,6 +924,8 @@ let relationStore = {
                 const view = new View(data);
                 await view.save();
             }
+
+            relation.attributes = data.attributes
 
             await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(relation))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))) })
 

@@ -21,7 +21,8 @@ let versionHistoryStorage = {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const query = {}, sort = { created_at: 1 }
+            const query = {}
+            let sort = { created_at: 1 }
 
             if (data.type == "DOWN") {
                 sort = { created_at: -1 }
@@ -458,7 +459,7 @@ let versionHistoryStorage = {
                 }
             }
            
-            for(const key of map_layouts) {
+            for(const key in map_layouts) {
                 let el = map_layouts[key]
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id

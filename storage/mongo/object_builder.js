@@ -61,7 +61,19 @@ let objectBuilder = {
                         )
 
                         if (!incInfo) {
-                            data[field.slug] = attributes.prefix + '-' + '1'.padStart(9, '0')
+                            let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+                            if (last) {
+                                let incrementLength = attributes.prefix?.length
+                                nextIncrement = parseInt(last[field.slug].slice(incrementLength + 1, last[field.slug]?.length)) + 1
+                                data[field.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(9, '0')
+                                await incrementInfo.updateOne({ table_slug: req.table_slug, field_slug: field.slug }, { $set: { increment_by: nextIncrement + 1 } })
+                            } else {
+                                data[field.slug] = attributes.prefix + '-' + '1'.padStart(9, '0')
+                                await incrementInfo.update(
+                                    { table_slug: req.table_slug, field_slug: field.slug },
+                                    { $set: { min_value: 1, max_value: 999999999 }, $inc: { increment_by: 1 } }
+                                )
+                            }
                         } else {
                             data[field.slug] = attributes.prefix + '-' + incInfo.increment_by.toString().padStart(9, '0')
                         }

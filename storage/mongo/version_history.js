@@ -276,7 +276,20 @@ let versionHistoryStorage = {
         } catch (err) {
             throw err
         }
-    })
+    }),
+    create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const History = mongoConn.models['object_builder_service.version_history']
+
+            const resp = await History.create(data)
+
+            return resp
+
+        } catch (err) {
+            throw err
+        }
+    }),
 };
 
 module.exports = versionHistoryStorage;

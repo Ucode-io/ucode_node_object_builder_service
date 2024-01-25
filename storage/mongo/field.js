@@ -118,7 +118,7 @@ let fieldStore = {
                     }
                 })
 
-            // await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: table })
+            //  
 
             return response;
         } catch (err) {
@@ -249,13 +249,13 @@ let fieldStore = {
                                 tab_id: tab.id
                             })
 
-                            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.SECTION, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(section))) })
+                             
                         }
                     }
                 }
             }
          
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(field))) })
+             
 
             return field;
         } catch (err) {
@@ -345,7 +345,7 @@ let fieldStore = {
                 }
             )
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(field))), previus: struct.encode(JSON.parse(JSON.stringify(fieldBeforUpdate))) })
+             
 
             return field;
         } catch (err) {
@@ -896,7 +896,7 @@ let fieldStore = {
                 }
             )
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.FIELD, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(deletedField))) })
+             
 
             return field;
 

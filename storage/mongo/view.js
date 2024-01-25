@@ -84,7 +84,7 @@ let viewStore = {
                 logger.error(err)
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(response))) })
+             
 
             return response;
 
@@ -142,7 +142,7 @@ let viewStore = {
                     new: true
                 })
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(view))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))) })
+             
 
             return view;
 
@@ -228,13 +228,16 @@ let viewStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
                     }
                 })
 
             await View.deleteOne({ id: data.id });
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.VIEW, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(view))) })
+             
 
             return view;
 

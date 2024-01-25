@@ -3,7 +3,6 @@ const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
 const os = require("os")
 const layoutStorage = require("./layout")
-const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const { STATIC_TABLE_IDS } = require("../../helper/constants")
 const mongoPool = require('../../pkg/pool');
 const { struct } = require('pb-util');
@@ -80,7 +79,7 @@ let tableStore = {
 
             await layoutStorage.createAll(default_layout)
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(table))) })
+             
             console.log("~~~~~~~~~~~~~~> TEST ##00")
             return table;
         } catch (err) {
@@ -108,13 +107,10 @@ let tableStore = {
                 throw  new Error("This table is system table")
             }
 
-            let tableBeforeUpdate = await Table.findOneAndDelete({
+            let table = await Table.findOneAndUpdate({
                 id: data.id,
-            })
+            }, { $set: data }, {new: true})
             
-            const table = await Table.create(data)
-            
-            data["older_slug"] = tableBeforeUpdate.slug
             let event = {}
             event.payload = data
             event.project_id = data.project_id
@@ -144,8 +140,6 @@ let tableStore = {
                 }
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.UPDATE, current: JSON.parse(JSON.stringify(table)), previus: struct.encode(JSON.parse(JSON.stringify(isSystemTable))) })
-            console.log("------ TABLE UPDATE ----- ")
             return table;
         } catch (err) {
             throw err
@@ -345,7 +339,7 @@ let tableStore = {
             await collection.models.collection.drop()
             await Menu.deleteMany({table_id: table.id})
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.TABLE, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(resp))) })
+             
            
             return table;
         } catch (err) {

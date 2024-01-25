@@ -1770,6 +1770,10 @@ let permission = {
     getTablePermission: catchWrapDbObjectBuilder(`${NAMESPACE}.getTablePermission`, async (req) => {
         const mongoConn = await mongoPool.get(req.resource_environment_id)
         const tablePermission = mongoConn.models['record_permission']
+        
+        if (req.table_slug == "template") {
+            return { is_have_permission: true }
+        }
         const resp = await tablePermission?.findOne(
             {
                 role_id: req.role_id,

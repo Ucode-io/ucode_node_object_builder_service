@@ -336,7 +336,7 @@ let sectionStore = {
                         let view_of_relation;
                         view_of_relation = await View.findOne({
                             relation_id: relation?.id,
-                            relation_table_slug: data.table_slug
+                            // relation_table_slug: data.table_slug
                         })
                         let viewFieldIds = relation?.view_fields
                         if (view_of_relation) {

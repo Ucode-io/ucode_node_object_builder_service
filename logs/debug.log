@@ -4229,35 +4229,188 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-01-18T08:44:08.451Z',
+=======
+  timestamp: '2024-01-19T06:21:12.981Z',
+>>>>>>> 67ea857265138656826ef472c3ef825ddef1964d
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnectinag to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-01-18T08:44:08.454Z',
+=======
+  timestamp: '2024-01-19T06:21:12.986Z',
+>>>>>>> 67ea857265138656826ef472c3ef825ddef1964d
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
   level: 'debug',
+<<<<<<< HEAD
   timestamp: '2024-01-18T08:44:08.454Z',
+=======
+  timestamp: '2024-01-19T06:21:12.986Z',
+>>>>>>> 67ea857265138656826ef472c3ef825ddef1964d
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-01-18T08:44:09.189Z',
+=======
+  timestamp: '2024-01-19T06:21:14.633Z',
+>>>>>>> 67ea857265138656826ef472c3ef825ddef1964d
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-01-18T08:45:48.279Z',
+=======
+  timestamp: '2024-01-19T06:23:47.353Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-19T06:26:06.686Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-19T06:26:06.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-19T06:26:06.692Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-19T06:26:07.828Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-19T06:29:09.577Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-01-19T06:29:21.559Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-01-19T06:30:21.764Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-01-19T06:30:26.369Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-19T06:30:58.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-19T06:30:58.051Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-19T06:30:58.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-19T06:30:59.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-19T06:33:45.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-01-19T06:35:46.483Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-01-19T06:35:48.600Z',
+>>>>>>> 67ea857265138656826ef472c3ef825ddef1964d
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-25T09:03:20.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-25T09:03:20.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-25T09:03:20.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-25T09:03:21.494Z',
   label: 'object_builder_service',
   metadata: {}
 }

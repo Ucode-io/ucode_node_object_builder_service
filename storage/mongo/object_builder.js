@@ -61,7 +61,19 @@ let objectBuilder = {
                         )
 
                         if (!incInfo) {
-                            data[field.slug] = attributes.prefix + '-' + '1'.padStart(9, '0')
+                            let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+                            if (last) {
+                                let incrementLength = attributes.prefix?.length
+                                nextIncrement = parseInt(last[field.slug].slice(incrementLength + 1, last[field.slug]?.length)) + 1
+                                data[field.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(9, '0')
+                                await incrementInfo.updateOne({ table_slug: req.table_slug, field_slug: field.slug }, { $set: { increment_by: nextIncrement + 1 } })
+                            } else {
+                                data[field.slug] = attributes.prefix + '-' + '1'.padStart(9, '0')
+                                await incrementInfo.update(
+                                    { table_slug: req.table_slug, field_slug: field.slug },
+                                    { $set: { min_value: 1, max_value: 999999999 }, $inc: { increment_by: 1 } }
+                                )
+                            }
                         } else {
                             data[field.slug] = attributes.prefix + '-' + incInfo.increment_by.toString().padStart(9, '0')
                         }
@@ -1298,6 +1310,7 @@ let objectBuilder = {
         if (params.calculate_formula) {
             let updatedObjects = []
             let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
+    
             let attribute_table_from_slugs = []
             let attribute_table_from_relation_ids = []
             for (const field of formulaFields) {
@@ -1314,6 +1327,7 @@ let objectBuilder = {
                     }
                 }
             }
+    
             let relationFieldTablesMap = {}
             let relationFieldTableIds = []
             if (attribute_table_from_slugs.length > 0) {
@@ -1348,6 +1362,7 @@ let objectBuilder = {
                     dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
                 }
             }
+    
             for (const res of result) {
                 let isChanged = false
                 for (const field of formulaFields) {
@@ -1390,7 +1405,7 @@ let objectBuilder = {
                                     res[field.slug] = resultFormula[0].res
                                     isChanged = true
                                 }
-
+    
                             } else {
                                 res[field.slug] = 0
                                 isChanged = true
@@ -1407,17 +1422,16 @@ let objectBuilder = {
                     }
                 }
                 if (isChanged) {
-                    updatedObjects.push({
-                        updateOne: {
-                            filter: { guid: res.guid },
-                            update: res
-                        }
-                    })
+                    updatedObjects.push(res)
                 }
             }
-
+    
             if (updatedObjects.length) {
-                await tableInfo.bulkWrite(updatedObjects)
+                await objectBuilder.multipleUpdateV2({
+                    table_slug: req.table_slug,
+                    project_id: req.project_id,
+                    data: struct.encode({ objects: updatedObjects })
+                })
             }
         }
 

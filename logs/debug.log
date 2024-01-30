@@ -1,0 +1,53 @@
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-01-30T03:46:11.862Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-01-30T03:46:11.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-01-30T03:46:11.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-01-30T03:46:13.556Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-01-30T03:50:06.812Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: requested - {\n' +
+    '  "id": "385ceb40-6267-4f5e-9327-f75fe79e8bfe",\n' +
+    '  "project_id": "1",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-01-30T03:50:39.371Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-01-30T03:50:39.573Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

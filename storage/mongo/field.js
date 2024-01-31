@@ -382,6 +382,30 @@ let fieldStore = {
             throw err
         }
     }),
+    getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Field = mongoConn.models['Field']
+
+            const field = await Field.findOne(
+                {
+                    id: data.id
+                },
+                {
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0,
+                    __v: 0
+                }
+            )
+            if (field.attributes) {
+                field.attributes = struct.encode(field.attributes)
+            }
+            return field;
+        } catch (err) {
+            throw err
+        }
+    }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

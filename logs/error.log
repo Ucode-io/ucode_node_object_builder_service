@@ -9116,3 +9116,31 @@
 =======
 >>>>>>> 87ca1cef0a7a670d3065360d8c960055a1a3a5b0
 >>>>>>> 94f5b2e596badb738f638e73f40493d80965465d
+{
+  message: 'service.version_history.migrate: failed with error: object_builder_service.version_history validation failed: action_source: `field` is not a valid enum value for path `action_source`.',
+  level: 'error',
+  timestamp: '2024-01-30T09:45:07.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: E11000 duplicate key error collection: samandar_977e12c7e4864d1f8d6d0693b082dc6e_p_obj_build_svcs.object_builder_service.version_histories index: id_1 dup key: { id: "" }',
+  level: 'error',
+  timestamp: '2024-01-30T10:16:50.725Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.version_histories index: id_1 dup key: { id: "" }',
+  level: 'error',
+  timestamp: '2024-01-30T10:41:58.725Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.version_histories index: id_1 dup key: { id: "" }',
+  level: 'error',
+  timestamp: '2024-01-30T10:58:58.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

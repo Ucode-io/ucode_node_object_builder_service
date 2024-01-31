@@ -27,6 +27,19 @@ let versionHistoryStorage = {
             if (data.type == "DOWN") {
                 sort = { created_at: -1 }
             }
+
+            if(data.env_id) {
+                query["$or"] = [
+                    {
+                        [`is_used.${data.env_id}`]: false
+                    },
+                    {
+                        [`is_used.${data.env_id}`]: {
+                            "$exists": false
+                        }
+                    }
+                ]
+            }
             
             if(data.env_id) {
                 query["$or"] = [

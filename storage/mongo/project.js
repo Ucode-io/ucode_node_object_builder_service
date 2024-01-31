@@ -24,6 +24,7 @@ const ceckPermissionScript = require("../../helper/checkPermissionScript");
 const initialDefaultPivot = require("../../helper/initialDefaultPivot");
 const is_static = require("../../helper/is_static");
 const new_field = require("../../helper/new_field");
+const add_permission_field = require("../../helper/add_record_permission");
 
 
 
@@ -168,6 +169,7 @@ let projectStore = {
                         await addFields({ project_id: data.project_id })
                         await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         await new_field({ project_id: data.project_id, mongoDBConn: mongoDBConn })
+                        await add_permission_field({project_id: data.project_id})
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })
                         // await initialGlobalPermission({ project_id: data.project_id })
@@ -242,8 +244,8 @@ let projectStore = {
         if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
 
         let reconnect_data = await client.autoConn(config.k8s_namespace, config.nodeType);
-    
-        // console.log("PROJECT-CRED >> ", reconnect_data.res.length, reconnect_data.res)
+        // console.log("TEST::::::::::::::::::: 2")
+        console.log("\n\n\n\n\n\nBuilding project count >> ", reconnect_data.res.length, "\n\n\n\n\n")
         for (let it of reconnect_data.res) {
             // console.log("credentials:::", it.resource_type)
             if (it.resource_type !== "MONGODB") continue

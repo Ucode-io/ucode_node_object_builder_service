@@ -30,8 +30,7 @@ const VersionHistory = mongoose.Schema(
             type: String
         },
         user_info: {
-            id: { type: String },
-            name: { type: String }
+            type: String
         },
         request: {
             type: String

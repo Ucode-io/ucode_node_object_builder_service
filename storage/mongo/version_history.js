@@ -24,6 +24,7 @@ let versionHistoryStorage = {
 
             const query = {}
 
+            console.log("Data->", req.data)
             if (data.type) {
                 query.action_source = data.type
             }
@@ -40,9 +41,23 @@ let versionHistoryStorage = {
                     }
                 ]
             }
+
+            if (data.from_time) {
+                query.created_at = {$gte: new Date(data.from_time)}
+            }
+            if (data.to_time) {
+                if (!query.created_at) {
+                    query.created_at = {};
+                }
+                query.created_at.$lte = new Date(data.to_time);
+            }
+            if (data.user_info) {
+                console.log("Hello World")
+                query.user_info = data.user_info;
+            }
             
             const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: -1})
-            // console.log("_____---> ", query, resp)
+            console.log("_____---> ", query, resp)
 
             return {histories: resp}
 

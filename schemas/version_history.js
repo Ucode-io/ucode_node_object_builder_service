@@ -11,7 +11,7 @@ const VersionHistory = mongoose.Schema(
         },
         action_source: {
             type: String,
-            enum: VERSION_SOURCE_TYPES
+            // enum: VERSION_SOURCE_TYPES
         },
         action_type: {
             type: String,
@@ -34,7 +34,10 @@ const VersionHistory = mongoose.Schema(
         },
         request: {
             type: String
-        }
+        },
+        response: {
+            type: String
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -9144,3 +9144,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.version_history.migrate: failed with error: object_builder_service.version_history validation failed: action_source: `` is not a valid enum value for path `action_source`.',
+  level: 'error',
+  timestamp: '2024-02-01T09:32:08.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

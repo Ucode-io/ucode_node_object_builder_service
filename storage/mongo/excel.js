@@ -129,7 +129,7 @@ let excelStore = {
                         let options = []
                         // console.log("test 4");
                         if (field.type == "MULTISELECT" && value !== null && value.length) {
-                            // console.log("\n\n~~~> field slug ", field.slug, "  ~~~~ value  ", value)
+                            console.log("\n\n~~~> field slug ", field.slug, "  ~~~~ value  ", value)
                             if (field.attributes) {
                                 let a = struct.decode(field.attributes)
                                 // console.log("~~~~ >> ", a,  a.options)

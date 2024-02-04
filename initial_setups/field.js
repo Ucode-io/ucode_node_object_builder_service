@@ -4968,7 +4968,37 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0
-	}, {
+	}, 
+	{
+		"id": "98412b66-0f8f-42a3-be9b-2adcc0169d8d",
+		"required": false,
+		"slug": "delete_all",
+		"label": "Delete all",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},{
 		"id": "04b4921f-323f-45ce-835c-8f5ad5486634",
 		"required": false,
 		"slug": "main_table_slug",

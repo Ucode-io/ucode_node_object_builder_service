@@ -24,6 +24,7 @@ const ceckPermissionScript = require("../../helper/checkPermissionScript");
 const initialDefaultPivot = require("../../helper/initialDefaultPivot");
 const is_static = require("../../helper/is_static");
 const new_field = require("../../helper/new_field");
+const add_permission_field = require("../../helper/add_record_permission");
 
 
 
@@ -168,6 +169,7 @@ let projectStore = {
                         await addFields({ project_id: data.project_id })
                         await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         await new_field({ project_id: data.project_id, mongoDBConn: mongoDBConn })
+                        await add_permission_field({project_id: data.project_id})
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })
                         // await initialGlobalPermission({ project_id: data.project_id })

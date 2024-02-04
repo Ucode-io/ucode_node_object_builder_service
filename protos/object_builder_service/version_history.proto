@@ -22,6 +22,8 @@ message GetAllRquest {
     string from_time = 6;
     string to_time = 7;
     string user_info = 8;
+    string api_key = 9;
+    bool order_by = 10;
 }
 
 message VersionHistory {
@@ -35,6 +37,7 @@ message VersionHistory {
     string user_info = 8;
     string request = 9;
     string response = 10;
+    string api_key = 11;
 }
 
 message CreateVersionHistoryRequest {
@@ -49,6 +52,7 @@ message CreateVersionHistoryRequest {
     string request = 9;
     string project_id = 10;
     string response = 11;
+    string api_key = 12;
 }
 
 message ListVersionHistory {

@@ -8704,9 +8704,6 @@
     }
   }
 }
-<<<<<<< HEAD
->>>>>>> 36bee11aea35d2927fdc15f990d0da5253b69441
-=======
 {
   message: `service.object_builder.getListAggregation: failed with error: Unexpected token 'I', ..."":{"$gte":ISODate('2"... is not valid JSON`,
   level: 'error',
@@ -8882,8 +8879,6 @@
   label: 'object_builder_service',
   metadata: {}
 }
-<<<<<<< HEAD
-{
   message: 'Error while auto connecting by project id',
   level: 'error',
   timestamp: '2024-01-17T05:20:28.800Z',
@@ -9156,6 +9151,45 @@
     }
   }
 }
-=======
->>>>>>> 94f5b2e596badb738f638e73f40493d80965465d
->>>>>>> adf4c192f08c1ac7dedc7c70b216893c0e3f9fe6
+{
+  message: 'service.version_history.migrate: failed with error: object_builder_service.version_history validation failed: action_source: `field` is not a valid enum value for path `action_source`.',
+  level: 'error',
+  timestamp: '2024-01-30T09:45:07.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: E11000 duplicate key error collection: samandar_977e12c7e4864d1f8d6d0693b082dc6e_p_obj_build_svcs.object_builder_service.version_histories index: id_1 dup key: { id: "" }',
+  level: 'error',
+  timestamp: '2024-01-30T10:16:50.725Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.version_histories index: id_1 dup key: { id: "" }',
+  level: 'error',
+  timestamp: '2024-01-30T10:41:58.725Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.version_histories index: id_1 dup key: { id: "" }',
+  level: 'error',
+  timestamp: '2024-01-30T10:58:58.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: object_builder_service.version_history validation failed: action_source: `` is not a valid enum value for path `action_source`.',
+  level: 'error',
+  timestamp: '2024-02-01T09:32:08.416Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-04T10:29:10.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

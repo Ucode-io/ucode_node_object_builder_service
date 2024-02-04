@@ -4,8 +4,6 @@ const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
 const { struct } = require("pb-util");
-const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
-
 let NAMESPACE = "storage.custom_event";
 
 let customEventStore = {
@@ -65,7 +63,7 @@ let customEventStore = {
         const field = new Field(fieldRequest);
         const resp = await field.save();
 
-        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(response))) })
+         
 
         return response;
     }),
@@ -96,7 +94,7 @@ let customEventStore = {
         let actionPermissions = (await ObjectBuilder(true, data.project_id))["action_permission"]
         await actionPermissions.models.updateMany({ custom_event_id: data.id }, { $set: { label: data.label } })
 
-        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(custom_event))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))) })
+         
 
         return custom_event;
     }),
@@ -173,7 +171,7 @@ let customEventStore = {
         });
         actionPermissionTable.models.deleteMany({ custom_event: data.id });
 
-        await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.ACTION, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus:struct.encode(JSON.parse(JSON.stringify(resp))) })
+         
 
         return custom_event;
     }),

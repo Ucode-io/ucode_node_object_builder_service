@@ -11,21 +11,36 @@ const VersionHistory = mongoose.Schema(
         },
         action_source: {
             type: String,
-            enum: VERSION_SOURCE_TYPES
+            // enum: VERSION_SOURCE_TYPES
         },
         action_type: {
             type: String,
             enum: ACTION_TYPES
         },
         previus: {
-            type: mongoose.Schema.Types.Mixed,
+            type: String,
         },
         current: {
-            type: mongoose.Schema.Types.Mixed
+            type: String
         },
-        is_used: {
+        used_envrironments: {
             type: mongoose.Schema.Types.Object
-        }
+        },
+        date: {
+            type: String
+        },
+        user_info: {
+            type: String
+        },
+        request: {
+            type: String
+        },
+        response: {
+            type: String
+        },
+        api_key: {
+            type: String
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

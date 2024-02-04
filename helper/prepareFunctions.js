@@ -108,6 +108,10 @@ let prepareFunction = {
                     await incrementInfo.updateOne({ table_slug: req.table_slug, field_slug: incrementField.slug }, { $set: { increment_by: nextIncrement + 1 } })
                 } else {
                     data[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(9, '0')
+                    await incrementInfo.update(
+                        { table_slug: req.table_slug, field_slug: incrementField.slug },
+                        { $set: { min_value: 1, max_value: 999999999 }, $inc: { increment_by: 1 } }
+                    )
                 }
             } else {
                 data[incrementField.slug] = attributes.prefix + '-' + incInfo.increment_by.toString().padStart(9, '0')

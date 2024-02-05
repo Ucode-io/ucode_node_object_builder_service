@@ -78,7 +78,12 @@ module.exports = {
         "DELETE": "DELETE",
         "BULKWRITE": "BULKWRITE", 
     },
-
+    VERSION_HISTORY_TYPES: {
+        "DOWN": "DOWN",
+        "UP": "UP",
+        "GLOBAL": "GLOBAL",
+        "API_KEY": "API_KEY",
+    },
 
     // KAFKA PRODUCER TOPICS
 

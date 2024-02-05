@@ -43,7 +43,7 @@ const VersionHistory = mongoose.Schema(
         },
         type: {
             type: String,
-            enum: ["GLOBAL", "API_KEY"],
+            enum: ["GLOBAL", "API_KEY", "DOWN", "UP"],
             default: "GLOBAL",
         },
     },

@@ -4,7 +4,6 @@ package object_builder_service;
 option go_package="genproto/object_builder_service";
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/struct.proto";
 
 
 service VersionHistoryService {
@@ -20,8 +19,8 @@ message GetAllRquest {
     int32 offset = 3;
     string type = 4;
     string env_id = 5;
-    string from_time = 6;
-    string to_time = 7;
+    string from_date = 6;
+    string to_date = 7;
     string user_info = 8;
     string api_key = 9;
     bool order_by = 10;

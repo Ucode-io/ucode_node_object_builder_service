@@ -41,14 +41,14 @@ let versionHistoryStorage = {
                 ]
             }
 
-            if (data.from_time) {
-                query.created_at = {$gte: new Date(data.from_time)}
+            if (data.from_date) {
+                query.created_at = {$gte: new Date(data.from_date)}
             }
-            if (data.to_time) {
+            if (data.to_date) {
                 if (!query.created_at) {
                     query.created_at = {};
                 }
-                query.created_at.$lte = new Date(data.to_time);
+                query.created_at.$lte = new Date(data.to_date);
             }
             if (data.user_info) {
                 query.user_info = data.user_info;
@@ -306,6 +306,56 @@ let versionHistoryStorage = {
             const resp = await History.create(data)
 
             return resp
+
+        } catch (err) {
+            throw err
+        }
+    }),
+    getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const History = mongoConn.models['object_builder_service.version_history']
+
+            const query = {}
+
+            if (data.type) {
+                query.action_source = data.type
+            }
+
+            if(data.env_id) {
+                query["$or"] = [
+                    {
+                        [`is_used.${data.env_id}`]: false
+                    },
+                    {
+                        [`is_used.${data.env_id}`]: {
+                            "$exists": false
+                        }
+                    }
+                ]
+            }
+
+            if (data.from_time) {
+                query.created_at = {$gte: new Date(data.from_time)}
+            }
+            if (data.to_time) {
+                if (!query.created_at) {
+                    query.created_at = {};
+                }
+                query.created_at.$lte = new Date(data.to_time);
+            }
+            if (data.user_info) {
+                query.user_info = data.user_info;
+            }
+            if (data.api_key) {
+                query.api_key = data.api_key
+            }
+
+            const sortOrder = data.order_by ? 1 : -1
+            
+            const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: sortOrder})
+
+            return {histories: resp}
 
         } catch (err) {
             throw err

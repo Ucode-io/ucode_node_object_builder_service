@@ -4824,3 +4824,221 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-05T09:18:41.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-05T09:18:41.257Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-05T09:18:41.258Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-05T09:18:42.759Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-05T09:18:51.494Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-05T09:18:51.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-05T09:18:51.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-05T09:18:52.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-05T09:20:19.185Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: requested - {\n' +
+    '  "id": "b031bed9-342b-488f-b506-12b90c1c06a9",\n' +
+    '  "project_id": "be7c5c11-3d76-43c0-b5db-aee833ee6849",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-05T09:23:52.972Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-05T09:23:53.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-05T09:23:54.192Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: requested - {\n' +
+    '  "id": "b031bed9-342b-488f-b506-12b90c1c06a9",\n' +
+    '  "project_id": "be7c5c11-3d76-43c0-b5db-aee833ee6849",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-05T09:24:26.368Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-02-05T09:24:26.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.delete: requested - {\n' +
+    '  "id": "b031bed9-342b-488f-b506-12b90c1c06a9",\n' +
+    '  "project_id": "be7c5c11-3d76-43c0-b5db-aee833ee6849",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-05T09:24:26.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: `service.field.delete: failed with error: Schema hasn't been registered for model "record_permission".\n` +
+    'Use mongoose.model(name, schema)',
+  level: 'error',
+  timestamp: '2024-02-05T09:24:27.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: requested - {\n' +
+    '  "id": "b031bed9-342b-488f-b506-12b90c1c06a9",\n' +
+    '  "project_id": "be7c5c11-3d76-43c0-b5db-aee833ee6849",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-05T09:25:18.184Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-02-05T09:25:18.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.delete: requested - {\n' +
+    '  "id": "b031bed9-342b-488f-b506-12b90c1c06a9",\n' +
+    '  "project_id": "be7c5c11-3d76-43c0-b5db-aee833ee6849",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-05T09:25:18.281Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.delete: succeeded',
+  level: 'info',
+  timestamp: '2024-02-05T09:25:18.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-02-05T09:25:19.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-05T09:25:19.609Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: requested - {\n' +
+    '  "id": "20943142-c97c-4b01-ac84-3ea0f46a21fb",\n' +
+    '  "project_id": "be7c5c11-3d76-43c0-b5db-aee833ee6849",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-05T09:28:31.168Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-02-05T09:28:31.300Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.delete: requested - {\n' +
+    '  "id": "20943142-c97c-4b01-ac84-3ea0f46a21fb",\n' +
+    '  "project_id": "be7c5c11-3d76-43c0-b5db-aee833ee6849",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-05T09:28:31.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.delete: succeeded',
+  level: 'info',
+  timestamp: '2024-02-05T09:28:36.074Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-02-05T09:28:36.208Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

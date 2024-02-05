@@ -41,6 +41,11 @@ const VersionHistory = mongoose.Schema(
         api_key: {
             type: String
         },
+        type: {
+            type: String,
+            enum: ["GLOBAL", "API_KEY"],
+            default: "GLOBAL",
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

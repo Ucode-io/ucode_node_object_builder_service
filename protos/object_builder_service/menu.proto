@@ -146,9 +146,13 @@ message Menu {
     bool is_static = 15;
     google.protobuf.Struct data = 16;
 <<<<<<< HEAD
+<<<<<<< HEAD
     string env_id = 17;
 =======
 >>>>>>> 2181f1b54a7691784a066ca200c834ef4bd67ddc
+=======
+    string env_id = 17;
+>>>>>>> featires/action-logs
 }
 
 message MenuForGetAll {

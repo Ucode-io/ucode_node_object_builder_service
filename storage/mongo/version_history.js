@@ -2,6 +2,7 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const { struct } = require('pb-util');
 const mongoPool = require('../../pkg/pool');
 const { v4 } = require("uuid");
+const { VIEW_TYPES, VERSION_HISTORY_TYPES } = require('../../helper/constants')
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const tableStorage = require('./table')
 const fieldStorage = require('./field')
@@ -302,6 +303,9 @@ let versionHistoryStorage = {
             console.log("Data->", data)
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
+            if (data.type == '') {
+                data.type = VERSION_HISTORY_TYPES.GLOBAL
+            }
 
             const resp = await History.create(data)
 

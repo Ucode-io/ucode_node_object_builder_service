@@ -79,7 +79,12 @@ module.exports = {
         "BULKWRITE": "BULKWRITE", 
         "GET": "GET`"
     },
-
+    VERSION_HISTORY_TYPES: {
+        "DOWN": "DOWN",
+        "UP": "UP",
+        "GLOBAL": "GLOBAL",
+        "API_KEY": "API_KEY",
+    },
 
     // KAFKA PRODUCER TOPICS
 

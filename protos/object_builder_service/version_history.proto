@@ -77,4 +77,6 @@ message UserInfo {
 
 message VersionHistoryPrimaryKey {
     string id = 1;
+    string project_id = 2;
+    string env_id = 3;
 }

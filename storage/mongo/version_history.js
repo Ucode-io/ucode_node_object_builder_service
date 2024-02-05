@@ -21,12 +21,16 @@ let versionHistoryStorage = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
-
+            console.log("Data->", data)
             const query = {}
             let sort = { created_at: 1 }
 
-            if (data.type == "DOWN") {
-                sort = { created_at: -1 }
+            // if (data.type == "DOWN") {
+            //     sort = { created_at: -1 }
+            // }
+
+            if (data.type) {
+                query.type = data.type
             }
 
             if(data.env_id) {
@@ -317,49 +321,21 @@ let versionHistoryStorage = {
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
+            console.log("Data->", data)
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const query = {}
-
-            if (data.type) {
-                query.action_source = data.type
-            }
-
-            if(data.env_id) {
-                query["$or"] = [
-                    {
-                        [`is_used.${data.env_id}`]: false
-                    },
-                    {
-                        [`is_used.${data.env_id}`]: {
-                            "$exists": false
-                        }
-                    }
-                ]
-            }
-
-            if (data.from_time) {
-                query.created_at = {$gte: new Date(data.from_time)}
-            }
-            if (data.to_time) {
-                if (!query.created_at) {
-                    query.created_at = {};
-                }
-                query.created_at.$lte = new Date(data.to_time);
-            }
-            if (data.user_info) {
-                query.user_info = data.user_info;
-            }
-            if (data.api_key) {
-                query.api_key = data.api_key
-            }
-
-            const sortOrder = data.order_by ? 1 : -1
-            
-            const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: sortOrder})
-
-            return {histories: resp}
+            const resp = await History.findOne(
+                {
+                    id: data.id
+                },
+                {
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0,
+                    __v: 0
+                });
+            return resp;
 
         } catch (err) {
             throw err

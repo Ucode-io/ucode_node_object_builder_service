@@ -4789,3 +4789,38 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-05T08:24:33.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-05T08:24:33.018Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-05T08:24:33.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-05T08:24:34.383Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-05T08:25:35.965Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

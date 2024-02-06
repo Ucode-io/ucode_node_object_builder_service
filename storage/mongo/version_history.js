@@ -23,7 +23,8 @@ let versionHistoryStorage = {
             const History = mongoConn.models['object_builder_service.version_history']
             console.log("Data->", data)
             const query = {}
-            let sort = { created_at: 1 }
+            const limit = data.limit
+            const offset = data.offset
 
             // if (data.type == "DOWN") {
             //     sort = { created_at: -1 }
@@ -64,7 +65,10 @@ let versionHistoryStorage = {
 
             const sortOrder = data.order_by ? 1 : -1
             
-            const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: sortOrder})
+            const resp = await History.find(query, {created_at: 0, update_at: 0})
+                .sort({created_at: sortOrder})
+                .skip(offset)
+                .limit(limit)
 
             return {histories: resp}
 

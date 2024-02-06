@@ -70,7 +70,9 @@ let versionHistoryStorage = {
                 .skip(offset)
                 .limit(limit)
 
-            return {histories: resp}
+            const count = await History.countDocuments(query);
+    
+            return {histories: resp, count: count}
 
         } catch (err) {
             throw err

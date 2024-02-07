@@ -5,7 +5,7 @@ const tableVersion = require('../../helper/table_version');
 const constants = require("../../helper/constants");
 const { struct } = require("pb-util/build");
 const folderMinio = require("../../helper/addMinioBucket");
-const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants");
+// const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants");
 const logger = require("../../config/logger");
 let NAMESPACE = "storage.menu";
 
@@ -20,7 +20,7 @@ let menuStore = {
 
             const Menu = mongoConn.models['object_builder_service.menu']
             const menuPermissionTable = mongoConn.models['menu_permission']
-            const History = mongoConn.models['object_builder_service.version_history']
+            //const History = mongoConn.models['object_builder_service.version_history']
 
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)

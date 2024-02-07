@@ -9207,3 +9207,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.version_history.getAll: failed with error: offset is not defined',
+  level: 'error',
+  timestamp: '2024-02-06T06:43:00.707Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.getAll: failed with error: View is not defined',
+  level: 'error',
+  timestamp: '2024-02-06T08:05:30.751Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -816,7 +816,7 @@ let relationStore = {
          
             relation.id = field_id
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(relation))) })
+    
 
             return relation;
         } catch (err) {
@@ -924,7 +924,7 @@ let relationStore = {
                 await view.save();
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(relation))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))) })
+            relation.attributes = data.attributes
 
             return relation;
         } catch (err) {
@@ -1141,7 +1141,6 @@ let relationStore = {
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
-            console.log("~~~> qweewq ", data)
             const mongoConn = await mongoPool.get(data.project_id);
             const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
@@ -1646,7 +1645,7 @@ let relationStore = {
             let count = await Tab.countDocuments({ relation_id: data.id })
             count && await Tab.deleteMany({ relation_id: data.id })
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.RELATION, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(relation))) })
+    
 
             return resp;
         } catch (err) {

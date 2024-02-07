@@ -81,7 +81,7 @@ let menuStore = {
                 }
             }
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.CREATE, current: struct.encode(JSON.parse(JSON.stringify(response))) })
+             
 
             return response;
         } catch (err) {
@@ -121,7 +121,7 @@ let menuStore = {
                 }
             )
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.UPDATE, current: struct.encode(JSON.parse(JSON.stringify(response))), previus: struct.encode(JSON.parse(JSON.stringify(beforeUpdate))) })
+             
             
             return menu;
         } catch (err) {
@@ -510,7 +510,7 @@ let menuStore = {
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
 
-            await History.create({ action_source: VERSION_SOURCE_TYPES_MAP.MENU, action_type: ACTION_TYPE_MAP.DELETE, current: {}, previus: struct.encode(JSON.parse(JSON.stringify(res))) })
+             
 
             return menu;
         } catch (err) {

@@ -2,7 +2,7 @@ const catchWrapDb = require("../../helper/catchWrapDb");
 const { struct } = require('pb-util');
 const mongoPool = require('../../pkg/pool');
 const { v4 } = require("uuid");
-const { VIEW_TYPES } = require('../../helper/constants')
+const { VIEW_TYPES, VERSION_HISTORY_TYPES } = require('../../helper/constants')
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const tableStorage = require('./table')
 const fieldStorage = require('./field')
@@ -21,11 +21,16 @@ let versionHistoryStorage = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
-
             const query = {}
+            const limit = data.limit
+            const offset = data.offset
+
+            // if (data.type == "DOWN") {
+            //     sort = { created_at: -1 }
+            // }
 
             if (data.type) {
-                query.action_source = data.type
+                query.type = data.type
             }
 
             if(data.env_id) {
@@ -40,11 +45,33 @@ let versionHistoryStorage = {
                     }
                 ]
             }
-            
-            const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: -1})
-            // console.log("_____---> ", query, resp)
 
-            return {histories: resp}
+            if (data.from_date) {
+                query.created_at = {$gte: new Date(data.from_date)}
+            }
+            if (data.to_date) {
+                if (!query.created_at) {
+                    query.created_at = {};
+                }
+                query.created_at.$lte = new Date(data.to_date);
+            }
+            if (data.user_info) {
+                query.user_info = data.user_info;
+            }
+            if (data.api_key) {
+                query.api_key = data.api_key
+            }
+
+            const sortOrder = data.order_by ? 1 : -1
+            
+            const resp = await History.find(query, {created_at: 0, update_at: 0})
+                .sort({created_at: sortOrder})
+                .skip(offset)
+                .limit(limit)
+
+            const count = await History.countDocuments(query);
+    
+            return {histories: resp, count: count}
 
         } catch (err) {
             throw err
@@ -276,7 +303,74 @@ let versionHistoryStorage = {
         } catch (err) {
             throw err
         }
-    })
+    }),
+    create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
+        try {
+            console.log("Data->", data)
+            const mongoConn = await mongoPool.get(data.project_id)
+            const History = mongoConn.models['object_builder_service.version_history']
+            if (data.type == '') {
+                data.type = VERSION_HISTORY_TYPES.GLOBAL
+            }
+
+            const resp = await History.create(data)
+
+            return resp
+
+        } catch (err) {
+            throw err
+        }
+    }),
+    getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const History = mongoConn.models['object_builder_service.version_history']
+
+            const query = {}
+
+            if (data.type) {
+                query.action_source = data.type
+            }
+
+            if(data.env_id) {
+                query["$or"] = [
+                    {
+                        [`is_used.${data.env_id}`]: false
+                    },
+                    {
+                        [`is_used.${data.env_id}`]: {
+                            "$exists": false
+                        }
+                    }
+                ]
+            }
+
+            if (data.from_time) {
+                query.created_at = {$gte: new Date(data.from_time)}
+            }
+            if (data.to_time) {
+                if (!query.created_at) {
+                    query.created_at = {};
+                }
+                query.created_at.$lte = new Date(data.to_time);
+            }
+            if (data.user_info) {
+                query.user_info = data.user_info;
+            }
+            if (data.api_key) {
+                query.api_key = data.api_key
+            }
+
+            const sortOrder = data.order_by ? 1 : -1
+            
+            const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: sortOrder})
+
+            return {histories: resp}
+
+        } catch (err) {
+            throw err
+        }
+    }),
 };
 
 module.exports = versionHistoryStorage;

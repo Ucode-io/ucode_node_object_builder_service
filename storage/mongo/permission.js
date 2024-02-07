@@ -769,6 +769,7 @@ let permission = {
                     language_btn: table?.record_permissions?.language_btn || "No",
                     pdf_action: table?.record_permissions?.pdf_action || "No",
                     add_field: table?.record_permissions?.add_field || "No",
+                    delete_all: table?.record_permissions?.delete_all || "No",
                 }
             }
             if (!tableCopy.record_permissions) {
@@ -1232,6 +1233,7 @@ let permission = {
                 view_create: table.custom_permission?.view_create || "No",
                 pdf_action: table.custom_permission?.pdf_action || "No",
                 add_field: table.custom_permission?.add_field || "No",
+                delete_all: table.custom_permission?.delete_all || "No",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {

@@ -21,6 +21,7 @@ let versionHistoryStorage = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
+            console.log("Data->", data)
             const query = {}
             const limit = data.limit
             const offset = data.offset
@@ -104,7 +105,7 @@ let versionHistoryStorage = {
             const tables = [], fields = [], relations = [], layouts = [], tabs = [], sections = [], menus = [], actions = [], views = [], ids = []
 
             data.histories = data.histories || []
-            for(let i = data.histories.length - 1; i >= 0; i--) {
+            for(let i = 0 ; i < data.histories.length; i++) {
                 el = data.histories[i]
                 if (el.current) {
                     el.current = struct.decode(el.current)
@@ -258,24 +259,27 @@ let versionHistoryStorage = {
                     }
                 }
             }
+
             console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #7")
+            for(const el of menus) {
+                el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
+                delete el.current._id
+                switch ((el.action_type).toUpperCase()) {
+                    case ACTION_TYPE_MAP.CREATE: {
+                        await menuStorage.create(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.UPDATE: {
+                        await menuStorage.update(el.current)
+                        break
+                    }
+                    case ACTION_TYPE_MAP.DELETE: {
+                        await menuStorage.delete(el.previus)
+                    }
+                }
+            }
 
-            // let ready_tab_map = {}
-            // for(const el of tabs) {
-            //     for(let tab of tab.current) {
-            //         for(let el_s of sections) {
-            //             if(el_s.current?.length) {
-            //                 tab.sections = el_s.current.filter((s) => s.tab_id == tab.id)
-            //             }
-            //         }
-            //         if(ready_tab_map[tab.layout_id]) {
-            //             ready_tab_map[tab.layout_id].push(tab)
-            //         } else {
-            //             ready_tab_map[tab.layout_id] = [tab]
-            //         }
-            //     }
-            // }
-
+            console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #8")
             for(const el of layouts) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id
@@ -323,49 +327,21 @@ let versionHistoryStorage = {
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
+            console.log("Data->", data)
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const query = {}
-
-            if (data.type) {
-                query.action_source = data.type
-            }
-
-            if(data.env_id) {
-                query["$or"] = [
-                    {
-                        [`is_used.${data.env_id}`]: false
-                    },
-                    {
-                        [`is_used.${data.env_id}`]: {
-                            "$exists": false
-                        }
-                    }
-                ]
-            }
-
-            if (data.from_time) {
-                query.created_at = {$gte: new Date(data.from_time)}
-            }
-            if (data.to_time) {
-                if (!query.created_at) {
-                    query.created_at = {};
-                }
-                query.created_at.$lte = new Date(data.to_time);
-            }
-            if (data.user_info) {
-                query.user_info = data.user_info;
-            }
-            if (data.api_key) {
-                query.api_key = data.api_key
-            }
-
-            const sortOrder = data.order_by ? 1 : -1
-            
-            const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: sortOrder})
-
-            return {histories: resp}
+            const resp = await History.findOne(
+                {
+                    id: data.id
+                },
+                {
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0,
+                    __v: 0
+                });
+            return resp;
 
         } catch (err) {
             throw err

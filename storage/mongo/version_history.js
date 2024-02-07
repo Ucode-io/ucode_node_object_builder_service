@@ -21,11 +21,16 @@ let versionHistoryStorage = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
-
             const query = {}
+            const limit = data.limit
+            const offset = data.offset
+
+            // if (data.type == "DOWN") {
+            //     sort = { created_at: -1 }
+            // }
 
             if (data.type) {
-                query.action_source = data.type
+                query.type = data.type
             }
 
             if(data.env_id) {
@@ -59,9 +64,14 @@ let versionHistoryStorage = {
 
             const sortOrder = data.order_by ? 1 : -1
             
-            const resp = await History.find(query, {created_at: 0, update_at: 0}).sort({created_at: sortOrder})
+            const resp = await History.find(query, {created_at: 0, update_at: 0})
+                .sort({created_at: sortOrder})
+                .skip(offset)
+                .limit(limit)
 
-            return {histories: resp}
+            const count = await History.countDocuments(query);
+    
+            return {histories: resp, count: count}
 
         } catch (err) {
             throw err

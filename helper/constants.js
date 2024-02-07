@@ -71,13 +71,15 @@ module.exports = {
         "ACTION": "ACTION", 
         "MENU": "MENU"
     },
-    ACTION_TYPES: ["CREATE", "UPDATE", "DELETE", "BULKWRITE", "GET"],
+    ACTION_TYPES: ["CREATE", "UPDATE", "DELETE", "BULKWRITE", "GET", "LOGIN"],
     ACTION_TYPE_MAP: {
         "CREATE": "CREATE", 
         "UPDATE": "UPDATE", 
         "DELETE": "DELETE",
         "BULKWRITE": "BULKWRITE", 
-        "GET": "GET`"
+        "GET": "GET",
+        "LOGIN": "LOGIN",
+
     },
     VERSION_HISTORY_TYPES: {
         "DOWN": "DOWN",

@@ -21,6 +21,10 @@ let tableStore = {
             const Table = mongoConn.models['Table']
             const History = mongoConn.models['object_builder_service.version_history']
 
+            if(!data.id) {
+                data.id = v4()
+            }
+
             data.is_changed_by_host = {
                 [os.hostname()]: true
             }

@@ -23,8 +23,6 @@ const tableService = {
             call.request.id = response.id
             const resp = await fieldStore.createAll(call.request);
 
-            const sectionResp = await layoutStore.createAll(call.request);
-
             let viewData = {}
             viewData.table_slug = call.request.slug
             viewData.type = "TABLE"

@@ -32,9 +32,9 @@ const logger = require("./config/logger");
             credentials: {
                 host: "65.109.239.69",
                 port: 30027,
-                database: "ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs",
-                username: "ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs",
-                password: "ugdvopAnMJ"
+                database: "marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs",
+                username: "marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs",
+                password: "XXKIzpW6oG"
             }
         })
 

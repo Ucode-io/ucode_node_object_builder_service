@@ -310,7 +310,6 @@ let versionHistoryStorage = {
     }),
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
-            console.log("Data->", data)
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
             const Table = mongoConn.models['Table']
@@ -329,7 +328,9 @@ let versionHistoryStorage = {
             }
 
             const table = await Table.findOne(query)
-            data.table_slug = table.label
+            if (table) {
+                data.table_slug = table.label
+            } 
 
             const resp = await History.create(data)
 

@@ -4,6 +4,7 @@ package new_function_service;
 option go_package="genproto/new_function_service";
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
 
 
 service FunctionServiceV2 {
@@ -40,11 +41,7 @@ message CreateFunctionRequest {
     string error_message = 21;
     string job_name = 22;
     string resource = 23;
-<<<<<<< HEAD
-    string provided_name = 24;
-=======
     string provided_name =  24;
->>>>>>> 243189926959e259e7d6ea6512f7f20770accb8d
 }
 
 message Function {
@@ -69,11 +66,7 @@ message Function {
     string error_message = 20;
     string job_name = 21;
     string resource = 22;
-<<<<<<< HEAD
-    string provided_name = 23;
-=======
     string provided_name =  23;
->>>>>>> 243189926959e259e7d6ea6512f7f20770accb8d
 }
 
 message GetAllFunctionsRequest {

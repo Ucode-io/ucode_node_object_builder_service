@@ -16,6 +16,19 @@ module.exports = async function (data) {
             }
           );
         console.log("is_static field is added to menu")
+
+        Menu.deleteOne(
+          { id: 'db4ffda3-7696-4f56-9f1f-be128d82ae68' },
+          (err, result) => {
+              if (err) {
+                  console.error('Error:', err);
+                  return;
+              }
+              console.log('Menu deleted successfully');
+          }
+      );
+
+      console.log("is_static field is added to menu")
     } catch(error) {
         console.log("Error in is_static.js", error)
     }

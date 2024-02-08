@@ -9221,3 +9221,45 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-08T09:54:45.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-08T09:54:47.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-08T09:54:48.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-08T09:55:05.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: Cannot read properties of null (reading 'label')",
+  level: 'error',
+  timestamp: '2024-02-08T09:58:10.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: Cannot read properties of null (reading 'label')",
+  level: 'error',
+  timestamp: '2024-02-08T10:00:55.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -5609,3 +5609,418 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-08T09:51:27.902Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-08T09:51:27.907Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-08T09:51:27.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-08T09:51:29.641Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-08T09:52:03.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: requested - {\n' +
+    '  "id": "5c1652e5-7642-4b2b-a09b-d30116a4d1a6",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T09:54:30.045Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-08T09:54:31.434Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-08T09:54:31.952Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: requested - {\n' +
+    '  "id": "5c1652e5-7642-4b2b-a09b-d30116a4d1a6",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T09:54:45.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-08T09:54:45.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: requested - {\n' +
+    '  "id": "5c1652e5-7642-4b2b-a09b-d30116a4d1a6",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T09:54:47.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-08T09:54:47.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.getByID: requested - {\n' +
+    '  "id": "5c1652e5-7642-4b2b-a09b-d30116a4d1a6",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T09:54:48.753Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-08T09:54:48.832Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.field.getByID: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-02-08T09:55:05.503Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "log_test_table",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T09:58:08.037Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T09:58:08.607Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T09:58:10.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: Cannot read properties of null (reading 'label')",
+  level: 'error',
+  timestamp: '2024-02-08T09:58:10.290Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-08T09:59:34.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-08T09:59:34.642Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-08T09:59:34.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-08T09:59:35.256Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:07.173Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "log_test_table",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:14.608Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-08T10:00:15.747Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:17.041Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "log_test_table",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:28.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:28.898Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:52.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "log_test_table",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:54.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:54.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:55.806Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version_history.migrate: failed with error: Cannot read properties of null (reading 'label')",
+  level: 'error',
+  timestamp: '2024-02-08T10:00:55.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:00:58.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-08T10:03:56.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-08T10:03:56.395Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-08T10:03:56.396Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-08T10:03:57.017Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-08T10:04:59.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "log_test_table",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T10:05:04.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-08T10:05:05.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-08T10:05:07.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "log_test_table",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T10:05:47.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:05:47.283Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:05:56.268Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:06:16.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "log_test_table",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-08T10:06:20.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:06:21.690Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:06:24.221Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-02-08T10:06:25.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

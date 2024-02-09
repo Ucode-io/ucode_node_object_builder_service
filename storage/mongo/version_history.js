@@ -310,12 +310,27 @@ let versionHistoryStorage = {
     }),
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
-            console.log("Data->", data)
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
+            const Table = mongoConn.models['Table']
             if (data.type == '') {
                 data.type = VERSION_HISTORY_TYPES.GLOBAL
             }
+
+            const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[8,9,a,b][0-9a-f]{3}-[0-9a-f]{12}$/i;
+            const isUUID = uuidRegex.test(data.table_slug);
+
+            let query;
+            if (isUUID) {
+                query = { id: data.table_slug };
+            } else {
+                query = { slug: data.table_slug };
+            }
+
+            const table = await Table.findOne(query)
+            if (table) {
+                data.table_slug = table.label
+            } 
 
             const resp = await History.create(data)
 

@@ -10178,3 +10178,209 @@
   }
 >>>>>>> 7b4d5822fc061629b59950cde89cb9f833d73ad5
 }
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T05:00:48.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T05:14:32.491Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T05:17:48.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getListAggregation: failed with error: Cannot read properties of undefined (reading 'Name')",
+  level: 'error',
+  timestamp: '2024-02-12T05:22:49.516Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T05:46:34.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T05:48:21.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T06:01:32.060Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: Aggregate has empty pipeline',
+  level: 'error',
+  timestamp: '2024-02-12T06:04:59.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T06:07:22.785Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T06:10:23.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T06:14:06.665Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T06:16:03.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T06:21:26.148Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T06:46:26.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T06:47:52.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T06:50:44.889Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T07:03:00.834Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T07:03:23.320Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T07:06:51.804Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2024-02-12T08:14:11.310Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: error encountered while reading secret at secret/data/k8s/ucode-dev/c928fc7c-586f-4a76-985f-e63bd466a85d/8fffdb8c-bff5-4645-a40d-bae0a272f6e7/d7d17d07-a802-4561-a2b4-f9bcf4b2c25a/MONGODB: Error making API request.
+    
+    URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-dev/c928fc7c-586f-4a76-985f-e63bd466a85d/8fffdb8c-bff5-4645-a40d-bae0a272f6e7/d7d17d07-a802-4561-a2b4-f9bcf4b2c25a/MONGODB
+    Code: 403. Errors:
+    
+    * permission denied
+        at Object.callErrorFromStatus (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 13,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-dev/c928fc7c-586f-4a76-985f-e63bd466a85d/8fffdb8c-bff5-4645-a40d-bae0a272f6e7/d7d17d07-a802-4561-a2b4-f9bcf4b2c25a/MONGODB: Error making API request.\n' +
+        '\n' +
+        'URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-dev/c928fc7c-586f-4a76-985f-e63bd466a85d/8fffdb8c-bff5-4645-a40d-bae0a272f6e7/d7d17d07-a802-4561-a2b4-f9bcf4b2c25a/MONGODB\n' +
+        'Code: 403. Errors:\n' +
+        '\n' +
+        '* permission denied',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2024-02-12T08:14:47.497Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 13 INTERNAL: error encountered while reading secret at secret/data/k8s/ucode-dev/c928fc7c-586f-4a76-985f-e63bd466a85d/8fffdb8c-bff5-4645-a40d-bae0a272f6e7/d7d17d07-a802-4561-a2b4-f9bcf4b2c25a/MONGODB: Error making API request.
+    
+    URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-dev/c928fc7c-586f-4a76-985f-e63bd466a85d/8fffdb8c-bff5-4645-a40d-bae0a272f6e7/d7d17d07-a802-4561-a2b4-f9bcf4b2c25a/MONGODB
+    Code: 403. Errors:
+    
+    * permission denied
+        at Object.callErrorFromStatus (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 13,
+      details: 'error encountered while reading secret at secret/data/k8s/ucode-dev/c928fc7c-586f-4a76-985f-e63bd466a85d/8fffdb8c-bff5-4645-a40d-bae0a272f6e7/d7d17d07-a802-4561-a2b4-f9bcf4b2c25a/MONGODB: Error making API request.\n' +
+        '\n' +
+        'URL: GET https://vault.udevs.io/v1/secret/data/k8s/ucode-dev/c928fc7c-586f-4a76-985f-e63bd466a85d/8fffdb8c-bff5-4645-a40d-bae0a272f6e7/d7d17d07-a802-4561-a2b4-f9bcf4b2c25a/MONGODB\n' +
+        'Code: 403. Errors:\n' +
+        '\n' +
+        '* permission denied',
+      metadata: Metadata {
+        internalRepr: Map(1) { 'content-type' => [ 'application/grpc' ] },
+        options: {}
+      }
+    }
+  }
+}
+{
+  message: 'service.object_builder.getListAggregation: failed with error: $regex has to be a string',
+  level: 'error',
+  timestamp: '2024-02-12T08:20:09.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -4621,134 +4621,28 @@
 {
   message: 'grpc server is running at 9102',
   level: 'info',
-  timestamp: '2024-02-12T04:44:35.935Z',
+  timestamp: '2024-02-12T08:29:02.298Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'autoconnectinag to resources',
+  message: 'autoconnecting to resources',
   level: 'info',
-  timestamp: '2024-02-12T04:44:35.940Z',
+  timestamp: '2024-02-12T08:29:02.299Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  message: 'connecting to mongodb: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
   level: 'debug',
-  timestamp: '2024-02-12T04:44:35.941Z',
+  timestamp: '2024-02-12T08:29:03.330Z',
   label: 'object_builder_service',
   metadata: {}
 }
 {
-  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
+  message: 'connected to the database: mongodb://uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs:PyKDBQlTN3@65.109.239.69:30027/uber_admin_1a4ff92126cf4ed49ebbc9461926b03b_p_obj_build_svcs',
   level: 'info',
-  timestamp: '2024-02-12T04:44:37.222Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnected successfully done!!!',
-  level: 'info',
-  timestamp: '2024-02-12T04:47:42.944Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2024-02-12T04:50:31.284Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnectinag to resources',
-  level: 'info',
-  timestamp: '2024-02-12T04:50:31.289Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
-  level: 'debug',
-  timestamp: '2024-02-12T04:50:31.290Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
-  level: 'info',
-  timestamp: '2024-02-12T04:50:32.462Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnected successfully done!!!',
-  level: 'info',
-  timestamp: '2024-02-12T04:53:44.822Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'grpc server is running at 9102',
-  level: 'info',
-  timestamp: '2024-02-12T06:28:23.204Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnectinag to resources',
-  level: 'info',
-  timestamp: '2024-02-12T06:28:23.209Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connecting to mongodb: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
-  level: 'debug',
-  timestamp: '2024-02-12T06:28:23.209Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'connected to the database: mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs',
-  level: 'info',
-  timestamp: '2024-02-12T06:28:25.005Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'autoconnected successfully done!!!',
-  level: 'info',
-  timestamp: '2024-02-12T06:32:57.903Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.getByID: requested - {\n' +
-    '  "id": "24f1d5b5-ec5b-4cee-8e8c-2112b1dff123",\n' +
-    '  "project_id": "ae7e025f-3d3c-4edc-af41-a71e5951f9bd",\n' +
-    '  "version_id": "",\n' +
-    '  "author_id": "",\n' +
-    '  "commit_type": "",\n' +
-    '  "name": "",\n' +
-    '  "env_id": ""\n' +
-    '}',
-  level: 'info',
-  timestamp: '2024-02-12T06:43:28.765Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.table.getByID: succeeded',
-  level: 'info',
-  timestamp: '2024-02-12T06:43:29.370Z',
-  label: 'object_builder_service',
-  metadata: {}
-}
-{
-  message: 'service.version_history.migrate: succeeded',
-  level: 'info',
-  timestamp: '2024-02-12T06:54:18.724Z',
+  timestamp: '2024-02-12T08:29:03.895Z',
   label: 'object_builder_service',
   metadata: {}
 }

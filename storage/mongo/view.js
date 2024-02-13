@@ -49,6 +49,10 @@ let viewStore = {
                 data.attributes = struct.decode(data.attributes)
             }
 
+            if (!data.id) {
+                data.id = v4()
+            }
+
             if(data.type == VIEW_TYPES.BOARD) {
                 await BoardOrderChecker(mongoConn, data.table_slug)
             }

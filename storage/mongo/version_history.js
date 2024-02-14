@@ -26,11 +26,11 @@ let versionHistoryStorage = {
             const limit = data.limit
             const offset = data.offset
 
-            // if (data.type == "DOWN") {
-            //     sort = { created_at: -1 }
-            // }
-
-            if (data.type) {
+            if (data.type == "DOWN" || data.type == "UP") {
+                query.action_source = { 
+                    $in: ["RELATION", "FIELD", "MENU","TABLE", "LAYOUT","VIEW"] 
+                }
+            } else if (data.type) {
                 query.type = data.type
             }
 
@@ -70,8 +70,7 @@ let versionHistoryStorage = {
                 .skip(offset)
                 .limit(limit)
 
-            const count = await History.countDocuments(query);
-    
+            const count = await History.countDocuments(query);  
             return {histories: resp, count: count}
 
         } catch (err) {
@@ -342,7 +341,6 @@ let versionHistoryStorage = {
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
-            console.log("Data->", data)
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
 

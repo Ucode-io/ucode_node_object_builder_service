@@ -829,7 +829,7 @@ let relationStore = {
             const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
-            const History = mongoConn.models['object_builder_service.version_history']
+            const Field = mongoConn.models["Field"]
 
             const beforeUpdate = await Relation.findOne({id: data.id}).lean()
             if(!beforeUpdate) {
@@ -849,7 +849,7 @@ let relationStore = {
                 {
                     new: true
                 }
-            )
+            ).lean();
 
             const resp = await Table.findOneAndUpdate(
                 {
@@ -862,8 +862,23 @@ let relationStore = {
                             [os.hostname()]: true
                         }
                     },
+                },
+                {
+                    new: true
                 }
             );
+
+            const tableFrom = await Table.findOne({ 
+                slug: data.table_from,
+            }).lean()
+
+            const tableTo = await Table.findOne({ 
+                slug: data.table_to,
+            }).lean()
+
+            const viewFields = await Field.find({ 
+                id: { $in: relation.view_fields },
+            }).lean()
             
             const isViewExists = await View.findOne({
                 $and: [
@@ -924,6 +939,10 @@ let relationStore = {
             }
 
             relation.attributes = data.attributes
+            relation.table_from = tableFrom
+            relation.table_to = tableTo
+            relation.view_fields = viewFields
+
 
             return relation;
         } catch (err) {

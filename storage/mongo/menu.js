@@ -26,10 +26,6 @@ let menuStore = {
                 data.id = v4()
             }
 
-            if(!data.id) {
-                data.id = v4()
-            }
-
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
                 if (!data.icon) data.icon = table?.icon

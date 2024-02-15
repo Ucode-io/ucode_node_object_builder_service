@@ -28,16 +28,18 @@ const logger = require("./config/logger");
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "ae7e025f-3d3c-4edc-af41-a71e5951f9bd",
+            project_id: "7025d211-05b6-4917-9605-38e7a200977e",
             credentials: {
-                host: "142.93.164.37",
-                port: 27017,
-                database: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                username: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                password: "vwdG8B7gzO"
+                host: "65.109.239.69",
+                port: 30027,
+                database: "ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs",
+                username: "ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs",
+                password: "ugdvopAnMJ"
             }
         })
 
+        //mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs
+        //mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs
         //mongodb://uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs:vBPqHBE2gm@142.93.164.37:27017/uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs
 
         //mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs

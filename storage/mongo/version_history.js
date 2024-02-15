@@ -37,10 +37,10 @@ let versionHistoryStorage = {
             if(data.env_id) {
                 query["$or"] = [
                     {
-                        [`is_used.${data.env_id}`]: false
+                        [`used_envrironments.${data.env_id}`]: false
                     },
                     {
-                        [`is_used.${data.env_id}`]: {
+                        [`used_envrironments.${data.env_id}`]: {
                             "$exists": false
                         }
                     }
@@ -87,7 +87,7 @@ let versionHistoryStorage = {
                     $in: data.ids
                 }
             }, {
-                [`is_used.${data.env_id}`]: true
+                [`used_envrironments.${data.env_id}`]: true
             })
 
             return resp

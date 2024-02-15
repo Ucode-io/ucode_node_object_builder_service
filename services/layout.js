@@ -6,7 +6,7 @@ const layoutService = {
     GetAll: catchWrapService(`service.layout.getAll`, layoutStore.getAll),
     GetSingleLayout: catchWrapService(`service.layout.GetSingleLayout`, layoutStore.GetSingleLayout),
     RemoveLayout: catchWrapService(`service.layout.RemoveLayout`, layoutStore.RemoveLayout),
-    
+    GetByID: catchWrapService(`service.layout.getByID`, layoutStore.GetByID),
 };
 
 module.exports = layoutService;

@@ -862,7 +862,30 @@ let layoutStore = {
             console.error(error)
             throw error
         }
-    })
+    }),
+    GetByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Layout = mongoConn.models['Layout']
+
+            const layout = await Layout.findOne(
+                {
+                    id: data.id
+                },
+                {
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0,
+                    __v: 0
+                });
+
+            return layout;
+
+        } catch (err) {
+            throw err
+        }
+    }
+    )
 }
 
 

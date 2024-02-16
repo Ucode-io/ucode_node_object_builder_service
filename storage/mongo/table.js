@@ -52,6 +52,7 @@ let tableStore = {
                 project_id: data.project_id,
                 id: table.id,
                 layouts: [{
+                    id: data.layout_id,
                     table_id: table.id,
                     order: 1,
                     label: "Layout",

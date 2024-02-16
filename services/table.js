@@ -23,14 +23,13 @@ const tableService = {
             call.request.id = response.id
             const resp = await fieldStore.createAll(call.request);
 
-            const sectionResp = await layoutStore.createAll(call.request);
-
             let viewData = {}
             viewData.table_slug = call.request.slug
             viewData.type = "TABLE"
             viewData.app_id = call.request.app_id
             viewData.project_id = call.request.project_id
             viewData.env_id = call.env_id
+            viewData.id = call.request.view_id
             call.view = viewData
             const viewResp = await viewStore.create(call.view);
 

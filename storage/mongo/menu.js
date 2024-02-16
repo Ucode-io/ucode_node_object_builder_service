@@ -20,7 +20,7 @@ let menuStore = {
 
             const Menu = mongoConn.models['object_builder_service.menu']
             const menuPermissionTable = mongoConn.models['menu_permission']
-            const History = mongoConn.models['object_builder_service.version_history']
+            //const History = mongoConn.models['object_builder_service.version_history']
 
             if(!data.id) {
                 data.id = v4()

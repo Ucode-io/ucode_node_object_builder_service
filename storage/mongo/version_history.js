@@ -21,26 +21,25 @@ let versionHistoryStorage = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const History = mongoConn.models['object_builder_service.version_history']
-            console.log("Data->", data)
             const query = {}
             const limit = data.limit
             const offset = data.offset
 
-            // if (data.type == "DOWN") {
-            //     sort = { created_at: -1 }
-            // }
-
-            if (data.type) {
+            if (data.type == "DOWN" || data.type == "UP") {
+                query.action_source = { 
+                    $in: ["RELATION", "FIELD", "MENU","TABLE", "LAYOUT","VIEW"] 
+                }
+            } else if (data.type) {
                 query.type = data.type
             }
 
             if(data.env_id) {
                 query["$or"] = [
                     {
-                        [`is_used.${data.env_id}`]: false
+                        [`used_envrironments.${data.env_id}`]: false
                     },
                     {
-                        [`is_used.${data.env_id}`]: {
+                        [`used_envrironments.${data.env_id}`]: {
                             "$exists": false
                         }
                     }
@@ -70,8 +69,7 @@ let versionHistoryStorage = {
                 .skip(offset)
                 .limit(limit)
 
-            const count = await History.countDocuments(query);
-    
+            const count = await History.countDocuments(query);  
             return {histories: resp, count: count}
 
         } catch (err) {
@@ -88,7 +86,7 @@ let versionHistoryStorage = {
                     $in: data.ids
                 }
             }, {
-                [`is_used.${data.env_id}`]: true
+                [`used_envrironments.${data.env_id}`]: true
             })
 
             return resp

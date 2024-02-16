@@ -64,14 +64,9 @@ let versionHistoryStorage = {
             }
 
             const sortOrder = data.order_by ? 1 : -1
-            let sortOpt = {}
-
-            if (data.type == "UP") {
-                sortOpt = {created_at: sortOrder}
-            }
             
             const resp = await History.find(query, {created_at: 0, update_at: 0})
-                .sort(sortOpt)
+                .sort({created_at: sortOrder})
                 .skip(offset)
                 .limit(limit)
 

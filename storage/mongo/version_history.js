@@ -29,9 +29,10 @@ let versionHistoryStorage = {
                 query.action_source = { 
                     $in: ["RELATION", "FIELD", "MENU","TABLE", "LAYOUT","VIEW"] 
                 }
-            } else if (data.type) {
-                query.type = data.type
-            }
+            } 
+            // else if (data.type) {
+            //     query.type = data.type
+            // }
 
             if(data.env_id) {
                 query["$or"] = [
@@ -63,6 +64,8 @@ let versionHistoryStorage = {
             }
 
             const sortOrder = data.order_by ? 1 : -1
+
+            console.log("\n\n LOG QUERY ", JSON.stringify(query), offset, limit)
             
             const resp = await History.find(query, {created_at: 0, update_at: 0})
                 .sort({created_at: sortOrder})

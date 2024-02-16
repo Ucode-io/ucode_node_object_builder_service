@@ -34,16 +34,19 @@ let layoutStore = {
             })
             let layouts = [], sections = [], tabs = [];
             for (const layoutReq of data.layouts) {
-                layoutReq.id = v4()
+                // layoutReq.id = v4()
+                if (data.id && data.layouts.length === 1) {
+                    layoutReq.id = data.id
+                } else {
+                    layoutReq.id = v4()
+                }
                 let layout = new Layout(layoutReq);
                 layout.table_id = data.id;
-                // console.log("\n.>>> layout ", layout)
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
                     tabReq.id = v4()
                     let tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
-                    // console.log("\n>>>>> tab", tab)
                     tabs.push({
                         id: tab.id,
                         order: tab.order,
@@ -59,7 +62,6 @@ let layoutStore = {
                         sectionReq.id = v4()
                         const section = new Section(sectionReq);
                         section.tab_id = tab.id;
-                        // console.log("\n>>>>> section", section)
                         sections.push(section);
                     }
                 }
@@ -68,9 +70,6 @@ let layoutStore = {
             await Tab.insertMany(tabs)
             await Section.insertMany(sections)
 
-            // layouts.length &&  
-            // tabs.length &&  
-            // sections.length &&  
             return;
         } catch (err) {
             throw err
@@ -94,6 +93,9 @@ let layoutStore = {
             if(!layout) {
                 layout = {}
                 layout.id = v4()
+                if (data.id) {
+                    layout.id = data.id
+                }
                 data.id = layout.id
             }
 

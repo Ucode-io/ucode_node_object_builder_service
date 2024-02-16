@@ -64,6 +64,7 @@ let relationStore = {
                     });
                
                     field = new Field({
+                        id: data.relation_field_id,
                         table_id: table.id,
                         slug: data.relation_field_slug,
                         label: "FROM " + data.table_from + " TO DYNAMIC",
@@ -197,6 +198,7 @@ let relationStore = {
                         data.field_to = result.lastField;
                     }
                     field = new Field({
+                        id: data.relation_field_id,
                         table_id: tableTo.id,
                         required: false,
                         slug: data.field_to,
@@ -355,6 +357,7 @@ let relationStore = {
                         data.field_from = result.lastField;
                     }
                     field = new Field({
+                        id: data.relation_to_field_id,
                         table_id: tableFrom.id,
                         required: false,
                         slug: data.field_from,
@@ -420,6 +423,7 @@ let relationStore = {
                         data.recursive_field = result.lastField;
                     }
                     field = new Field({
+                        id: data.relation_field_id,
                         table_id: table.id,
                         required: false,
                         slug: data.recursive_field,
@@ -569,7 +573,6 @@ let relationStore = {
                 case "Many2One":
  
                 case "One2One":
-                    
                     data.field_from = data.table_to + "_id";
                     data.field_to = "id";
                     table = await Table.findOne({
@@ -582,6 +585,7 @@ let relationStore = {
                         data.field_from = result.lastField;
                     }
                     field = new Field({
+                        id: data.relation_field_id,
                         table_id: table.id,
                         slug: data.field_from,
                         label:

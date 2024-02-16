@@ -63,6 +63,8 @@ let versionHistoryStorage = {
             }
 
             const sortOrder = data.order_by ? 1 : -1
+
+            console.log("\n\n LOG QUERY ", JSON.stringify(query), offset, limit)
             
             const resp = await History.find(query, {created_at: 0, update_at: 0})
                 .sort({created_at: sortOrder})

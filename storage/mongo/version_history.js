@@ -29,10 +29,9 @@ let versionHistoryStorage = {
                 query.action_source = { 
                     $in: ["RELATION", "FIELD", "MENU","TABLE", "LAYOUT","VIEW"] 
                 }
-            } 
-            // else if (data.type) {
-            //     query.type = data.type
-            // }
+            } else if (data.type) {
+                query.type = data.type
+            }
 
             if(data.env_id) {
                 query["$or"] = [

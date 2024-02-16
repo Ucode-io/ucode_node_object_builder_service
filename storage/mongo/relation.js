@@ -819,9 +819,7 @@ let relationStore = {
                 }
             );
          
-            relation.id = field_id
-
-    
+            relation.attributes = data.attributes || {}
 
             return relation;
         } catch (err) {
@@ -834,9 +832,9 @@ let relationStore = {
             const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
-            const History = mongoConn.models['object_builder_service.version_history']
+            const Field = mongoConn.models["Field"]
 
-            const beforeUpdate = await Relation.findOne({id: data.id})
+            const beforeUpdate = await Relation.findOne({id: data.id}).lean()
             if(!beforeUpdate) {
                 throw new Error("Relation not found")
             }
@@ -854,7 +852,7 @@ let relationStore = {
                 {
                     new: true
                 }
-            );
+            ).lean();
 
             const resp = await Table.findOneAndUpdate(
                 {
@@ -867,14 +865,26 @@ let relationStore = {
                             [os.hostname()]: true
                         }
                     },
+                },
+                {
+                    new: true
                 }
             );
+
+            const tableFrom = await Table.findOne({ 
+                slug: data.table_from,
+            }).lean()
+
+            const tableTo = await Table.findOne({ 
+                slug: data.table_to,
+            }).lean()
+
+            const viewFields = await Field.find({ 
+                id: { $in: relation.view_fields },
+            }).lean()
             
             const isViewExists = await View.findOne({
                 $and: [
-                    // {
-                    //     relation_table_slug: data.relation_table_slug,
-                    // },
                     {
                         relation_id: data.id,
                     },
@@ -883,6 +893,8 @@ let relationStore = {
             let viewRelationPermissions = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             await viewRelationPermissions.models.updateMany({ relation_id: data.id, table_slug: data.relation_table_slug }, { $set: { label: data.title } })
             if (isViewExists) {
+
+                beforeUpdate.attributes = isViewExists.attributes
                 
                 await View.findOneAndUpdate(
                     {
@@ -930,6 +942,10 @@ let relationStore = {
             }
 
             relation.attributes = data.attributes
+
+            relation.table_from = tableFrom
+            relation.table_to = tableTo
+            relation.view_fields = viewFields
 
             return relation;
         } catch (err) {

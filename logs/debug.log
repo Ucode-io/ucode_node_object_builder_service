@@ -9511,3 +9511,884 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-16T11:13:42.974Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-16T11:13:42.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-16T11:13:42.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-16T11:13:44.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-16T11:15:47.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-16T11:15:47.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-16T11:15:47.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-16T11:15:49.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-16T11:17:16.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: requested - {\n' +
+    '  "tabs": [],\n' +
+    '  "summary_fields": [],\n' +
+    '  "id": "e72b97b7-6415-4dad-8b0b-5870228bd645",\n' +
+    '  "label": "New Layout",\n' +
+    '  "order": 0,\n' +
+    '  "table_id": "feb19a6a-cc49-4231-b204-e53a6bc415cd",\n' +
+    '  "type": "SimpleLayout",\n' +
+    '  "icon": "",\n' +
+    '  "is_default": false,\n' +
+    '  "is_modal": false,\n' +
+    '  "is_visible_section": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "New Layout",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "menu_id": "",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": "0097c045-7a7c-42ec-a7b7-ead120d5498b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:17:23.664Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-16T11:17:25.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-16T11:17:26.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: requested - {\n' +
+    '  "tabs": [],\n' +
+    '  "summary_fields": [],\n' +
+    '  "id": "e72b97b7-6415-4dad-8b0b-5870228bd645",\n' +
+    '  "label": "New Layout",\n' +
+    '  "order": 0,\n' +
+    '  "table_id": "feb19a6a-cc49-4231-b204-e53a6bc415cd",\n' +
+    '  "type": "SimpleLayout",\n' +
+    '  "icon": "",\n' +
+    '  "is_default": false,\n' +
+    '  "is_modal": false,\n' +
+    '  "is_visible_section": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "New Layout",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "menu_id": "",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": "0097c045-7a7c-42ec-a7b7-ead120d5498b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:18:02.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: requested - {\n' +
+    '  "tabs": [],\n' +
+    '  "summary_fields": [],\n' +
+    '  "id": "e72b97b7-6415-4dad-8b0b-5870228bd645",\n' +
+    '  "label": "New Layout",\n' +
+    '  "order": 0,\n' +
+    '  "table_id": "feb19a6a-cc49-4231-b204-e53a6bc415cd",\n' +
+    '  "type": "SimpleLayout",\n' +
+    '  "icon": "",\n' +
+    '  "is_default": false,\n' +
+    '  "is_modal": false,\n' +
+    '  "is_visible_section": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "New Layout",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "menu_id": "",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": "0097c045-7a7c-42ec-a7b7-ead120d5498b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:18:57.648Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:18:58.348Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:19:00.131Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:19:12.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: requested - {\n' +
+    '  "tabs": [],\n' +
+    '  "summary_fields": [],\n' +
+    '  "id": "f28581ef-cd19-476f-846e-72693f33458d",\n' +
+    '  "label": "New Layout",\n' +
+    '  "order": 0,\n' +
+    '  "table_id": "feb19a6a-cc49-4231-b204-e53a6bc415cd",\n' +
+    '  "type": "SimpleLayout",\n' +
+    '  "icon": "",\n' +
+    '  "is_default": false,\n' +
+    '  "is_modal": false,\n' +
+    '  "is_visible_section": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "New Layout",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "menu_id": "",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": "0097c045-7a7c-42ec-a7b7-ead120d5498b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:19:49.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:19:51.281Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-16T11:42:49.058Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-16T11:42:49.063Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-16T11:42:49.064Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-16T11:42:49.701Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-16T11:43:39.807Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getByID: requested - {\n' +
+    '  "id": "4975c07a-3407-4d60-9c49-91107e163328",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:47:18.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-16T11:47:19.351Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-16T11:47:20.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getByID: requested - {\n' +
+    '  "id": "4975c07a-3407-4d60-9c49-91107e163328",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:47:56.720Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:47:56.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: requested - {\n' +
+    '  "tabs": [\n' +
+    '    {\n' +
+    '      "sections": [\n' +
+    '        {\n' +
+    '          "fields": [\n' +
+    '            {\n' +
+    '              "id": "car#4aa81761-8f8a-4b9b-959b-adfad19109a3",\n' +
+    '              "column": 0,\n' +
+    '              "order": 0,\n' +
+    '              "field_name": "",\n' +
+    '              "relation_type": "Many2One",\n' +
+    '              "show_label": false,\n' +
+    '              "attributes": {\n' +
+    '                "fields": {\n' +
+    '                  "fields": {\n' +
+    '                    "listValue": {\n' +
+    '                      "values": [\n' +
+    '                        {\n' +
+    '                          "structValue": {\n' +
+    '                            "fields": {\n' +
+    '                              "slug": {\n' +
+    '                                "stringValue": "names",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "table_id": {\n' +
+    '                                "stringValue": "ed7a161c-a2ec-4706-babf-061aa822f287",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "type": {\n' +
+    '                                "stringValue": "SINGLE_LINE",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "index": {\n' +
+    '                                "stringValue": "string",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "id": {\n' +
+    '                                "stringValue": "3242078e-cc33-4fad-8e79-86ca664758f6",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "is_search": {\n' +
+    '                                "boolValue": true,\n' +
+    '                                "kind": "boolValue"\n' +
+    '                              },\n' +
+    '                              "label": {\n' +
+    '                                "stringValue": "names",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "show_label": {\n' +
+    '                                "boolValue": true,\n' +
+    '                                "kind": "boolValue"\n' +
+    '                              },\n' +
+    '                              "attributes": {\n' +
+    '                                "structValue": {\n' +
+    '                                  "fields": {\n' +
+    '                                    "math": {\n' +
+    '                                      "structValue": {\n' +
+    '                                        "fields": {\n' +
+    '                                          "label": {\n' +
+    '                                            "stringValue": "plus",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "value": {\n' +
+    '                                            "stringValue": "+",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          }\n' +
+    '                                        }\n' +
+    '                                      },\n' +
+    '                                      "kind": "structValue"\n' +
+    '                                    },\n' +
+    '                                    "options": {\n' +
+    '                                      "listValue": {\n' +
+    '                                        "values": []\n' +
+    '                                      },\n' +
+    '                                      "kind": "listValue"\n' +
+    '                                    },\n' +
+    '                                    "field_permission": {\n' +
+    '                                      "structValue": {\n' +
+    '                                        "fields": {\n' +
+    '                                          "label": {\n' +
+    '                                            "stringValue": "namess",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "role_id": {\n' +
+    '                                            "stringValue": "1395fb2b-5547-408e-b10e-48ca688273e4",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "table_slug": {\n' +
+    '                                            "stringValue": "car",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "view_permission": {\n' +
+    '                                            "boolValue": true,\n' +
+    '                                            "kind": "boolValue"\n' +
+    '                                          },\n' +
+    '                                          "edit_permission": {\n' +
+    '                                            "boolValue": true,\n' +
+    '                                            "kind": "boolValue"\n' +
+    '                                          },\n' +
+    '                                          "field_id": {\n' +
+    '                                            "stringValue": "3242078e-cc33-4fad-8e79-86ca664758f6",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "guid": {\n' +
+    '                                            "stringValue": "02988737-bf5f-4219-a9b3-d9b18b4cacbb",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          }\n' +
+    '                                        }\n' +
+    '                                      },\n' +
+    '                                      "kind": "structValue"\n' +
+    '                                    },\n' +
+    '                                    "format": {\n' +
+    '                                      "stringValue": "SINGLE_LINE",\n' +
+    '                                      "kind": "stringValue"\n' +
+    '                                    },\n' +
+    '                                    "formula": {\n' +
+    '                                      "stringValue": "undefined + undefined",\n' +
+    '                                      "kind": "stringValue"\n' +
+    '                                    },\n' +
+    '                                    "label": {\n' +
+    '                                      "stringValue": "",\n' +
+    '                                      "kind": "stringValue"\n' +
+    '                                    },\n' +
+    '                                    "label_en": {\n' +
+    '                                      "stringValue": "names",\n' +
+    '                                      "kind": "stringValue"\n' +
+    '                                    }\n' +
+    '                                  }\n' +
+    '                                },\n' +
+    '                                "kind": "structValue"\n' +
+    '                              }\n' +
+    '                            }\n' +
+    '                          },\n' +
+    '                          "kind": "structValue"\n' +
+    '                        }\n' +
+    '                      ]\n' +
+    '                    },\n' +
+    '                    "kind": "listValue"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              },\n' +
+    '              "is_visible_layout": false\n' +
+    '            }\n' +
+    '          ],\n' +
+    '          "id": "b015fdfb-bdb1-44f8-8e9e-2674e75160df",\n' +
+    '          "order": 0,\n' +
+    '          "column": "",\n' +
+    '          "label": "",\n' +
+    '          "icon": "",\n' +
+    '          "is_summary_section": false,\n' +
+    '          "attributes": {\n' +
+    '            "fields": {\n' +
+    '              "label_en": {\n' +
+    '                "stringValue": "Hey",\n' +
+    '                "kind": "stringValue"\n' +
+    '              }\n' +
+    '            }\n' +
+    '          }\n' +
+    '        }\n' +
+    '      ],\n' +
+    '      "id": "610fdaab-2a7d-4159-bf62-89cce1d1b871",\n' +
+    '      "label": "",\n' +
+    '      "layout_id": "",\n' +
+    '      "relation_id": "",\n' +
+    '      "type": "section",\n' +
+    '      "order": 0,\n' +
+    '      "icon": "",\n' +
+    '      "attributes": {\n' +
+    '        "fields": {\n' +
+    '          "label_en": {\n' +
+    '            "stringValue": "Hello",\n' +
+    '            "kind": "stringValue"\n' +
+    '          }\n' +
+    '        }\n' +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "summary_fields": [],\n' +
+    '  "id": "4975c07a-3407-4d60-9c49-91107e163328",\n' +
+    '  "label": "New Layout",\n' +
+    '  "order": 0,\n' +
+    '  "table_id": "feb19a6a-cc49-4231-b204-e53a6bc415cd",\n' +
+    '  "type": "SimpleLayout",\n' +
+    '  "icon": "",\n' +
+    '  "is_default": false,\n' +
+    '  "is_modal": false,\n' +
+    '  "is_visible_section": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "New Layout",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "menu_id": "",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": "0097c045-7a7c-42ec-a7b7-ead120d5498b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:47:56.994Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:48:14.048Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:48:48.332Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-16T11:48:54.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-16T11:48:54.819Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-16T11:48:54.820Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-16T11:48:56.319Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-16T11:49:53.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getByID: requested - {\n' +
+    '  "id": "4975c07a-3407-4d60-9c49-91107e163328",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:50:01.253Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-16T11:50:01.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-16T11:50:02.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-16T11:50:37.185Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-16T11:50:37.190Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-16T11:50:37.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-16T11:50:38.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getByID: requested - {\n' +
+    '  "id": "4975c07a-3407-4d60-9c49-91107e163328",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:50:49.065Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-16T11:50:49.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-16T11:50:50.228Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getByID: requested - {\n' +
+    '  "id": "4975c07a-3407-4d60-9c49-91107e163328",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:51:22.533Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-16T11:51:26.663Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:51:34.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: requested - {\n' +
+    '  "tabs": [\n' +
+    '    {\n' +
+    '      "sections": [\n' +
+    '        {\n' +
+    '          "fields": [\n' +
+    '            {\n' +
+    '              "id": "car#4aa81761-8f8a-4b9b-959b-adfad19109a3",\n' +
+    '              "column": 0,\n' +
+    '              "order": 0,\n' +
+    '              "field_name": "",\n' +
+    '              "relation_type": "Many2One",\n' +
+    '              "show_label": false,\n' +
+    '              "attributes": {\n' +
+    '                "fields": {\n' +
+    '                  "fields": {\n' +
+    '                    "listValue": {\n' +
+    '                      "values": [\n' +
+    '                        {\n' +
+    '                          "structValue": {\n' +
+    '                            "fields": {\n' +
+    '                              "id": {\n' +
+    '                                "stringValue": "3242078e-cc33-4fad-8e79-86ca664758f6",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "index": {\n' +
+    '                                "stringValue": "string",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "is_search": {\n' +
+    '                                "boolValue": true,\n' +
+    '                                "kind": "boolValue"\n' +
+    '                              },\n' +
+    '                              "table_id": {\n' +
+    '                                "stringValue": "ed7a161c-a2ec-4706-babf-061aa822f287",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "type": {\n' +
+    '                                "stringValue": "SINGLE_LINE",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "attributes": {\n' +
+    '                                "structValue": {\n' +
+    '                                  "fields": {\n' +
+    '                                    "formula": {\n' +
+    '                                      "stringValue": "undefined + undefined",\n' +
+    '                                      "kind": "stringValue"\n' +
+    '                                    },\n' +
+    '                                    "label": {\n' +
+    '                                      "stringValue": "",\n' +
+    '                                      "kind": "stringValue"\n' +
+    '                                    },\n' +
+    '                                    "label_en": {\n' +
+    '                                      "stringValue": "names",\n' +
+    '                                      "kind": "stringValue"\n' +
+    '                                    },\n' +
+    '                                    "math": {\n' +
+    '                                      "structValue": {\n' +
+    '                                        "fields": {\n' +
+    '                                          "value": {\n' +
+    '                                            "stringValue": "+",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "label": {\n' +
+    '                                            "stringValue": "plus",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          }\n' +
+    '                                        }\n' +
+    '                                      },\n' +
+    '                                      "kind": "structValue"\n' +
+    '                                    },\n' +
+    '                                    "options": {\n' +
+    '                                      "listValue": {\n' +
+    '                                        "values": []\n' +
+    '                                      },\n' +
+    '                                      "kind": "listValue"\n' +
+    '                                    },\n' +
+    '                                    "field_permission": {\n' +
+    '                                      "structValue": {\n' +
+    '                                        "fields": {\n' +
+    '                                          "role_id": {\n' +
+    '                                            "stringValue": "1395fb2b-5547-408e-b10e-48ca688273e4",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "table_slug": {\n' +
+    '                                            "stringValue": "car",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "view_permission": {\n' +
+    '                                            "boolValue": true,\n' +
+    '                                            "kind": "boolValue"\n' +
+    '                                          },\n' +
+    '                                          "edit_permission": {\n' +
+    '                                            "boolValue": true,\n' +
+    '                                            "kind": "boolValue"\n' +
+    '                                          },\n' +
+    '                                          "field_id": {\n' +
+    '                                            "stringValue": "3242078e-cc33-4fad-8e79-86ca664758f6",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "guid": {\n' +
+    '                                            "stringValue": "02988737-bf5f-4219-a9b3-d9b18b4cacbb",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          },\n' +
+    '                                          "label": {\n' +
+    '                                            "stringValue": "namess",\n' +
+    '                                            "kind": "stringValue"\n' +
+    '                                          }\n' +
+    '                                        }\n' +
+    '                                      },\n' +
+    '                                      "kind": "structValue"\n' +
+    '                                    },\n' +
+    '                                    "format": {\n' +
+    '                                      "stringValue": "SINGLE_LINE",\n' +
+    '                                      "kind": "stringValue"\n' +
+    '                                    }\n' +
+    '                                  }\n' +
+    '                                },\n' +
+    '                                "kind": "structValue"\n' +
+    '                              },\n' +
+    '                              "label": {\n' +
+    '                                "stringValue": "names",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              },\n' +
+    '                              "show_label": {\n' +
+    '                                "boolValue": true,\n' +
+    '                                "kind": "boolValue"\n' +
+    '                              },\n' +
+    '                              "slug": {\n' +
+    '                                "stringValue": "names",\n' +
+    '                                "kind": "stringValue"\n' +
+    '                              }\n' +
+    '                            }\n' +
+    '                          },\n' +
+    '                          "kind": "structValue"\n' +
+    '                        }\n' +
+    '                      ]\n' +
+    '                    },\n' +
+    '                    "kind": "listValue"\n' +
+    '                  }\n' +
+    '                }\n' +
+    '              },\n' +
+    '              "is_visible_layout": false\n' +
+    '            }\n' +
+    '          ],\n' +
+    '          "id": "b015fdfb-bdb1-44f8-8e9e-2674e75160df",\n' +
+    '          "order": 0,\n' +
+    '          "column": "",\n' +
+    '          "label": "",\n' +
+    '          "icon": "",\n' +
+    '          "is_summary_section": false,\n' +
+    '          "attributes": {\n' +
+    '            "fields": {\n' +
+    '              "label_en": {\n' +
+    '                "stringValue": "Hey",\n' +
+    '                "kind": "stringValue"\n' +
+    '              }\n' +
+    '            }\n' +
+    '          }\n' +
+    '        }\n' +
+    '      ],\n' +
+    '      "id": "610fdaab-2a7d-4159-bf62-89cce1d1b871",\n' +
+    '      "label": "",\n' +
+    '      "layout_id": "",\n' +
+    '      "relation_id": "",\n' +
+    '      "type": "section",\n' +
+    '      "order": 0,\n' +
+    '      "icon": "",\n' +
+    '      "attributes": {\n' +
+    '        "fields": {\n' +
+    '          "label_en": {\n' +
+    '            "stringValue": "Hello",\n' +
+    '            "kind": "stringValue"\n' +
+    '          }\n' +
+    '        }\n' +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  "summary_fields": [],\n' +
+    '  "id": "4975c07a-3407-4d60-9c49-91107e163328",\n' +
+    '  "label": "New Layout",\n' +
+    '  "order": 0,\n' +
+    '  "table_id": "feb19a6a-cc49-4231-b204-e53a6bc415cd",\n' +
+    '  "type": "SimpleLayout",\n' +
+    '  "icon": "",\n' +
+    '  "is_default": false,\n' +
+    '  "is_modal": false,\n' +
+    '  "is_visible_section": false,\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "New Layout",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "menu_id": "",\n' +
+    '  "project_id": "e7650423-b575-4033-9dbe-b28f3526ba13",\n' +
+    '  "env_id": "0097c045-7a7c-42ec-a7b7-ead120d5498b"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-16T11:51:34.080Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.update: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:51:34.903Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.getByID: succeeded',
+  level: 'info',
+  timestamp: '2024-02-16T11:51:38.327Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

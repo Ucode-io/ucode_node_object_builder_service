@@ -225,7 +225,14 @@ let viewStore = {
             const View = mongoConn.models['View']
             const History = mongoConn.models['object_builder_service.version_history']
 
-            const view = await View.findOne({ id: data.id })
+            let filter;
+            if (data.id) {
+                filter = { id: data.id }; 
+            } else if (data.table_slug) {
+                filter = { table_slug: data.table_slug };
+            }
+
+            const view = await View.findOne( filter )
 
             await Table.updateOne({
                 slug: view.table_slug,
@@ -239,17 +246,14 @@ let viewStore = {
                     }
                 })
 
-            await View.deleteOne({ id: data.id });
-
-             
+            await View.deleteOne( filter );
 
             return view;
 
         } catch (err) {
             throw err
         }
-    }
-    ),
+    }),
     convertHtmlToPdf: catchWrapDb(`${NAMESPACE}.convertHtmlToPdf`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

@@ -10384,3 +10384,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.view.delete: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2024-02-17T12:23:17.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

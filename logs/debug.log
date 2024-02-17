@@ -10392,3 +10392,94 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-17T12:21:29.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-17T12:21:29.111Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs:MktIH85m1l@142.93.164.37:27017/swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-17T12:21:29.112Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs:MktIH85m1l@142.93.164.37:27017/swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-17T12:21:30.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-17T12:22:31.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.view.delete: failed with error: Cannot read properties of null (reading 'table_slug')",
+  level: 'error',
+  timestamp: '2024-02-17T12:23:17.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-17T12:24:33.578Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-17T12:24:33.584Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs:MktIH85m1l@142.93.164.37:27017/swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-17T12:24:33.585Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs:MktIH85m1l@142.93.164.37:27017/swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-17T12:24:34.968Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-17T12:25:32.670Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.delete: succeeded',
+  level: 'info',
+  timestamp: '2024-02-17T12:25:36.604Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.delete: succeeded',
+  level: 'info',
+  timestamp: '2024-02-17T12:26:41.019Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

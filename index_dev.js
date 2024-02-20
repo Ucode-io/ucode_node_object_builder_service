@@ -18,7 +18,7 @@ const logger = require("./config/logger");
 
     process.addListener("uncaughtException", (e) => {
         console.error("Custom Unhandled Exception", e);
-    });
+    }); 
 
     process.addListener("unhandledRejection", (e) => {
         console.error("Custom Unhandled Rejection", e);

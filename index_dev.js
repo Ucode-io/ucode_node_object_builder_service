@@ -36,7 +36,7 @@ const logger = require("./config/logger");
                 username: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
                 password: "vwdG8B7gzO"
             }
-        }) 
+        })  
 
         //mongodb://uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs:vBPqHBE2gm@142.93.164.37:27017/uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs
 

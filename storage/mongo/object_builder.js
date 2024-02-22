@@ -2468,16 +2468,16 @@ let objectBuilder = {
                                 if (!many2manyRelation) {
                                     params[autoFilter.custom_field] = objFromAuth.object_id
                                 } else {
-                                    params[autoFilter.custom_field] = params["user_id_from_token"] 
+                                    params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
                                 }
                             } else {
                                 params["guid"] = objFromAuth.object_id
                             }
                         }
                         
-                        // if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
-                        //     params[autoFilter.custom_field] = params["user_id_from_token"]
-                        // }
+                        if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
+                            params[autoFilter.custom_field] = params["user_id_from_token"]
+                        }
                     }
                 }
             }

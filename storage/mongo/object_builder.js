@@ -2475,7 +2475,9 @@ let objectBuilder = {
                             }
                         }
                         
-                        params[autoFilter.custom_field] = params["user_id_from_token"]
+                        if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
+                            params[autoFilter.custom_field] = params["user_id_from_token"]
+                        }
                     }
                 }
             }

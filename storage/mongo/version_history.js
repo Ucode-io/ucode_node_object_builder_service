@@ -34,6 +34,10 @@ let versionHistoryStorage = {
                 query.type = data.type
             }
 
+            if (data.version_ids) {
+                query.version_id = { $in: data.version_ids }
+            }
+
             if(data.env_id) {
                 query["$or"] = [
                     {

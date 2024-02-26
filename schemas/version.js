@@ -20,7 +20,10 @@ const Version = mongoose.Schema(
         },
         version_number: {
             type: Number
-        }
+        },
+        user_info: {
+            type: String
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

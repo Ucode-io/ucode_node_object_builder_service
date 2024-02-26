@@ -32,6 +32,11 @@ enum SettingType {
     TIMEZONE = 2;
 }
 
+enum AccessType {
+    PUBLIC = 0;
+    PRIVATE = 1;
+}
+
 message Resource {
     message Credentials {
         string host = 1;
@@ -57,7 +62,7 @@ message Environment {
     string display_color = 4;
     string description = 5;
     google.protobuf.Struct data = 6;
-
+    AccessType access_type = 7;
 }
 
 message EnvironmentWithResources {
@@ -73,6 +78,7 @@ message EnvironmentWithResources {
     string description = 5;
     Resources resources = 6;
     google.protobuf.Struct data = 7;
+    AccessType access_type = 8;
 }
 
 message NewResource {
@@ -97,6 +103,7 @@ message ResourceEnvironment {
     string database = 12;
     bool default = 13;
     string node_type = 14;
+    AccessType access_type = 15;
 }
 
 message Empty {

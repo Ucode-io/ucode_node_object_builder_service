@@ -40,6 +40,7 @@ let versionStorage = {
                     is_current: 1,
                     description: 1,
                     version_number: 1,
+                    user_info: 1,
                     created_at: {
                         $dateToString: {
                             format: "%Y-%m-%dT%H:%M:%S.%LZ",
@@ -49,6 +50,9 @@ let versionStorage = {
                 }
             };
             pipeline.push(projectionStage);
+
+            const count  = await Version.countDocuments(pipeline);
+            console.log('count', count)
     
             // Add sort, skip, and limit stages
             const sortStage = { $sort: { created_at: data.order_by ? 1 : -1 } };
@@ -61,9 +65,9 @@ let versionStorage = {
             const resp = await Version.aggregate(pipeline);
             
             // Count documents matching the query
-            const countPipeline = pipeline.slice(); // Create a copy of the pipeline
-            countPipeline.push({ $count: "count" });
-            const [{ count }] = await Version.aggregate(countPipeline);
+            // const countPipeline = pipeline.slice(); // Create a copy of the pipeline
+            // countPipeline.push({ $count: "count" });
+            // const [{ count }] = await Version.aggregate(countPipeline);
     
             
             return { versions: resp, count: count || 0 };

@@ -10391,3 +10391,31 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.version.getList: failed with error: Cannot read properties of undefined (reading 'count')",
+  level: 'error',
+  timestamp: '2024-02-26T03:59:45.919Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: failed with error: object_builder_service.version_history validation failed: action_type: `UPDATE VERSION` is not a valid enum value for path `action_type`.',
+  level: 'error',
+  timestamp: '2024-02-26T04:08:14.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.create: failed with error: There are no documents to update in activity log',
+  level: 'error',
+  timestamp: '2024-02-26T04:18:37.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.create: failed with error: There are no documents to update in activity log',
+  level: 'error',
+  timestamp: '2024-02-26T04:19:42.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

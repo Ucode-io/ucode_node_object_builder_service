@@ -10391,3 +10391,24 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
+  level: 'error',
+  timestamp: '2024-02-26T12:25:08.853Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
+  level: 'error',
+  timestamp: '2024-02-26T12:29:38.588Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
+  level: 'error',
+  timestamp: '2024-02-26T12:34:03.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

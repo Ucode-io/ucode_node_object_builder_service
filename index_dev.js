@@ -38,6 +38,7 @@ const logger = require("./config/logger");
             }
         })
 
+        // mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs
         //mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs
         //mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs
         //mongodb://uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs:vBPqHBE2gm@142.93.164.37:27017/uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs

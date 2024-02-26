@@ -5075,7 +5075,7 @@ let objectBuilder = {
                 }
             ]
         })
-        let lookups = [], lookupFields = {}, lookupFieldsWithAccumulator = {}, lookupGroupField = {};
+        let lookups = [], lookupFields = {}, lookupFieldsWithAccumulator = {}, lookupGroupField = {}, groupRelation;
         for (const relation of relations) {
             let table_to_slug = ""
             const field = fields?.find(val => (val.relation_id === relation?.id))
@@ -5088,6 +5088,7 @@ let objectBuilder = {
             let from = pluralize.plural(relation.table_to)
             if (groupColumnIds.includes(field.id)) {
                 lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
+                groupRelation = pluralize.plural(relation.table_to)
             } else {
                 lookupFields[table_to_slug] = "$" + table_to_slug
                 lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
@@ -5103,7 +5104,6 @@ let objectBuilder = {
         } 
 
         let typeOfLastLabel = "", groupBySlug = "", titleField = ""
-        console.log("VIEW_type->", params.view_type)
         function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i, lookupAddFields={}) {
             console.log("g:", groupFields);
             console.log("p:", projectFields);
@@ -5172,10 +5172,6 @@ let objectBuilder = {
                     }
                 };
             }
-            // console.log("Projection ->>", projection);
-            // console.log("test");
-        
-            // Return the modified aggregation pipeline with the $lookup stage
             return r.concat({$group: groupBy})
         }
 
@@ -5202,10 +5198,10 @@ let objectBuilder = {
         if (lookups.length != 0) {
             aggregationPipeline.push({
                 $lookup: {
-                    from: lookups[lookups.length-1]['$lookup']['from'],
+                    from: groupRelation,
                     localField: "_id",
                     foreignField: "guid",
-                    as: lookups[lookups.length-1]['$lookup']['as']
+                    as: titleField + "_data"
                 }
             })  
         }

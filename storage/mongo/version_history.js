@@ -24,8 +24,6 @@ let versionHistoryStorage = {
             const History = mongoConn.models['object_builder_service.version_history'];
     
             const query = {};
-            const limit = data.limit;
-            const offset = data.offset;
     
             if (data.type == "DOWN" || data.type == "UP") {
                 query.action_source = { $in: ["RELATION", "FIELD", "MENU", "TABLE", "LAYOUT", "VIEW"] };
@@ -56,7 +54,7 @@ let versionHistoryStorage = {
             const sortOrder = data.order_by ? 1 : -1;
             console.log("Query->", query);
     
-            const resp = await History.aggregate([
+            const aggregatePipeline = [
                 { $match: query },
                 {
                     $lookup: {
@@ -77,10 +75,17 @@ let versionHistoryStorage = {
                         "version.updated_at": 0
                     }
                 },
-                { $sort: { "versions.created_at": sortOrder } },
-                { $skip: offset },
-                { $limit: limit }
-            ]);
+                { $sort: { "versions.created_at": sortOrder } }
+            ];
+    
+            if (data.limit) {
+                aggregatePipeline.push({ $limit: data.limit });
+            }
+            if (data.offset) {
+                aggregatePipeline.push({ $skip: data.offset });
+            }
+    
+            const resp = await History.aggregate(aggregatePipeline);
     
             const count = await History.countDocuments(query);
             return { histories: resp, count: count };

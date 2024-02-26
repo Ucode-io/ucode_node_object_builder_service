@@ -11743,3 +11743,377 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-26T12:14:18.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-26T12:14:18.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-26T12:14:18.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-26T12:14:18.825Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-26T12:15:10.335Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:16:03.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-26T12:16:04.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-26T12:16:04.530Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:17:04.496Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.createMany: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.versions index: id_1 dup key: { id: "999f1f44-d6a6-4ea8-9c57-fe78489db8c1" }',
+  level: 'error',
+  timestamp: '2024-02-26T12:17:04.603Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.getAll: failed with error: the limit must be positive',
+  level: 'error',
+  timestamp: '2024-02-26T12:17:04.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-02-26T12:24:37.269Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-02-26T12:24:37.270Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-26T12:24:37.271Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-26T12:24:37.821Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.getSingle: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:24:47.425Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-02-26T12:24:47.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-02-26T12:24:48.420Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:27.802Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:48.771Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.createMany: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.versions index: id_1 dup key: { id: "999f1f44-d6a6-4ea8-9c57-fe78489db8c1" }',
+  level: 'error',
+  timestamp: '2024-02-26T12:25:48.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.getAll: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:49.285Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "Abduloaka folder",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "type": "FOLDER",\n' +
+    '  "project_id": "7025d211-05b6-4917-9605-38e7a200977e",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "Abduloaka folder",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "wiki_id": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "env_id": "7025d211-05b6-4917-9605-38e7a200977e",\n' +
+    '  "id": "eb7e14fa-7b88-4f07-856e-22f6e95d2c38"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:49.306Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:49.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:49.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'error while get index',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:50.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: requested - {\n' +
+    '  "label": "Abdulloaka table",\n' +
+    '  "icon": "",\n' +
+    '  "table_id": "7ea62ac5-2b33-4339-94a1-eec5641dee6a",\n' +
+    '  "layout_id": "",\n' +
+    '  "parent_id": "eb7e14fa-7b88-4f07-856e-22f6e95d2c38",\n' +
+    '  "type": "TABLE",\n' +
+    '  "project_id": "7025d211-05b6-4917-9605-38e7a200977e",\n' +
+    '  "microfrontend_id": "",\n' +
+    '  "webpage_id": "",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "Abdulloaka table",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "wiki_id": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "env_id": "7025d211-05b6-4917-9605-38e7a200977e",\n' +
+    '  "id": "d3534c21-b77e-4132-b59b-e8478f5bc087"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:51.671Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:52.089Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "SINGLE_LINE",\n' +
+    '  "index": "string",\n' +
+    '  "label": "new_field",\n' +
+    '  "slug": "new_field",\n' +
+    '  "table_id": "7ea62ac5-2b33-4339-94a1-eec5641dee6a",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "format": {\n' +
+    '        "stringValue": "SINGLE_LINE",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "formula": {\n' +
+    '        "stringValue": "undefined + undefined",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "new field",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "math": {\n' +
+    '        "structValue": {\n' +
+    '          "fields": {\n' +
+    '            "label": {\n' +
+    '              "stringValue": "plus",\n' +
+    '              "kind": "stringValue"\n' +
+    '            },\n' +
+    '            "value": {\n' +
+    '              "stringValue": "+",\n' +
+    '              "kind": "stringValue"\n' +
+    '            }\n' +
+    '          }\n' +
+    '        },\n' +
+    '        "kind": "structValue"\n' +
+    '      },\n' +
+    '      "options": {\n' +
+    '        "listValue": {\n' +
+    '          "values": []\n' +
+    '        },\n' +
+    '        "kind": "listValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "74db22d8-1f28-44b7-b332-f92f7c125ddc",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "7025d211-05b6-4917-9605-38e7a200977e",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": true,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": "",\n' +
+    '  "env_id": "7025d211-05b6-4917-9605-38e7a200977e"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:52.096Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:53.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.update: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:53.610Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.updateLive: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:53.779Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:53.957Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:54.289Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:54.291Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:54.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-02-26T12:25:54.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -10489,3 +10489,24 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.version.createMany: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.versions index: id_1 dup key: { id: "999f1f44-d6a6-4ea8-9c57-fe78489db8c1" }',
+  level: 'error',
+  timestamp: '2024-02-26T12:17:04.603Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.getAll: failed with error: the limit must be positive',
+  level: 'error',
+  timestamp: '2024-02-26T12:17:04.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.createMany: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.versions index: id_1 dup key: { id: "999f1f44-d6a6-4ea8-9c57-fe78489db8c1" }',
+  level: 'error',
+  timestamp: '2024-02-26T12:25:48.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

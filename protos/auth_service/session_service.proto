@@ -49,11 +49,6 @@ message ForgotPasswordResponse {
     string email = 4;
 }
 
-enum AccessType {
-    PUBLIC = 0;
-    PRIVATE = 1;
-}
-
 message ResourceEnvironmentV2MultiCompany {
     string id = 1;
     string project_id = 2;
@@ -67,7 +62,7 @@ message ResourceEnvironmentV2MultiCompany {
     string description = 10;
     google.protobuf.Struct client_types = 11;
     string node_type = 12;
-    AccessType access_type = 13;
+    string access_type = 13;
 }
 
 message Project2 {

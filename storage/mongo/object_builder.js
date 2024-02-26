@@ -5196,6 +5196,18 @@ let objectBuilder = {
         } else {
             titleField = "label"
         }
+
+         if (lookups.length != 0) {
+            aggregationPipeline.push({
+                $lookup: {
+                    from: lookups[lookups.length-1]['$lookup']['from'],
+                    localField: "_id",
+                    foreignField: "guid",
+                    as: lookups[lookups.length-1]['$lookup']['as']
+                }
+            })  
+        }
+
         aggregationPipeline.push({
             '$addFields': {
                 [titleField]: '$_id',

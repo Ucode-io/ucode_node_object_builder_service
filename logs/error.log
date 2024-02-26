@@ -10392,23 +10392,139 @@
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
   level: 'error',
   timestamp: '2024-02-26T12:25:08.853Z',
+=======
+  message: "service.version.getList: failed with error: Cannot read properties of undefined (reading 'count')",
+  level: 'error',
+  timestamp: '2024-02-26T03:59:45.919Z',
+>>>>>>> 9934e11bdc6b0804e99c3314c1f298a4859fdc0f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
   level: 'error',
   timestamp: '2024-02-26T12:29:38.588Z',
+=======
+  message: 'service.version_history.migrate: failed with error: object_builder_service.version_history validation failed: action_type: `UPDATE VERSION` is not a valid enum value for path `action_type`.',
+  level: 'error',
+  timestamp: '2024-02-26T04:08:14.646Z',
+>>>>>>> 9934e11bdc6b0804e99c3314c1f298a4859fdc0f
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
   level: 'error',
   timestamp: '2024-02-26T12:34:03.468Z',
+=======
+  message: 'service.version.create: failed with error: There are no documents to update in activity log',
+  level: 'error',
+  timestamp: '2024-02-26T04:18:37.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.create: failed with error: There are no documents to update in activity log',
+  level: 'error',
+  timestamp: '2024-02-26T04:19:42.191Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.version.getSingle: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2024-02-26T07:51:24.182Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.createMany: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs.object_builder_service.versions index: id_1 dup key: { id: "df8977e0-924e-425e-9055-551c3d4c359e" }',
+  level: 'error',
+  timestamp: '2024-02-26T07:51:24.683Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs.object_builder_service.menus index: id_1 dup key: { id: "79b53ddb-fa94-46b0-b597-82f833f6b50c" }',
+  level: 'error',
+  timestamp: '2024-02-26T07:51:25.219Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-02-26T07:51:25.321Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "Versiontable4.1", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2024-02-26T07:51:25.321Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs.object_builder_service.menus index: id_1 dup key: { id: "139e113a-c955-449d-9fe5-d3e14a312a90" }',
+  level: 'error',
+  timestamp: '2024-02-26T07:51:25.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.update: failed with error: View not found with given id',
+  level: 'error',
+  timestamp: '2024-02-26T07:51:27.960Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create request finished with FAILURE',
+  level: 'error',
+  timestamp: '2024-02-26T07:51:28.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: '[services.table].create - error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs.tables index: slug_1_deleted_at_1 dup key: { slug: "test", deleted_at: new Date(64800000) }',
+  level: 'error',
+  timestamp: '2024-02-26T07:51:28.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.menu.create: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs.object_builder_service.menus index: id_1 dup key: { id: "c89a6f19-7ec5-4080-83e8-5610f4c1250f" }',
+  level: 'error',
+  timestamp: '2024-02-26T07:51:28.451Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.createMany: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.versions index: id_1 dup key: { id: "999f1f44-d6a6-4ea8-9c57-fe78489db8c1" }',
+  level: 'error',
+  timestamp: '2024-02-26T12:17:04.603Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.getAll: failed with error: the limit must be positive',
+  level: 'error',
+  timestamp: '2024-02-26T12:17:04.963Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version.createMany: failed with error: E11000 duplicate key error collection: ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs.object_builder_service.versions index: id_1 dup key: { id: "999f1f44-d6a6-4ea8-9c57-fe78489db8c1" }',
+  level: 'error',
+  timestamp: '2024-02-26T12:25:48.876Z',
+>>>>>>> 9934e11bdc6b0804e99c3314c1f298a4859fdc0f
   label: 'object_builder_service',
   metadata: {}
 }

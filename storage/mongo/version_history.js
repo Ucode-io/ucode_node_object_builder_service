@@ -34,22 +34,22 @@ let versionHistoryStorage = {
                 query.type = data.type
             }
 
-            if (data.version_ids) {
+            if (data.version_ids.length > 0) {
                 query.version_id = { $in: data.version_ids }
             }
 
-            if(data.env_id) {
-                query["$or"] = [
-                    {
-                        [`used_envrironments.${data.env_id}`]: false
-                    },
-                    {
-                        [`used_envrironments.${data.env_id}`]: {
-                            "$exists": false
-                        }
-                    }
-                ]
-            }
+            // if(data.env_id) {
+            //     query["$or"] = [
+            //         {
+            //             [`used_envrironments.${data.env_id}`]: false
+            //         },
+            //         {
+            //             [`used_envrironments.${data.env_id}`]: {
+            //                 "$exists": false
+            //             }
+            //         }
+            //     ]
+            // }
 
             if (data.from_date) {
                 query.created_at = {$gte: new Date(data.from_date)}
@@ -68,6 +68,7 @@ let versionHistoryStorage = {
             }
 
             const sortOrder = data.order_by ? 1 : -1
+            console.log("Query->", query)
             
             const resp = await History.find(query, {created_at: 0, update_at: 0})
                 .sort({created_at: sortOrder})

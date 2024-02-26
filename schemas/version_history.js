@@ -48,7 +48,10 @@ const VersionHistory = mongoose.Schema(
         },
         table_slug: {
             type: String,
-        }
+        },
+        version_id: {
+            type: String,
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

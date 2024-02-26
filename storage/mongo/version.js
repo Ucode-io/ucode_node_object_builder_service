@@ -94,7 +94,16 @@ let versionStorage = {
                 throw new Error("There are no documents to update in activity log")
             }
 
+            const updateLive = await Version.updateMany({},
+                {$set: { is_current: false }}
+            )
+
+            data.is_current = true
+
             const resp = await Version.create(data)
+
+            
+
 
             return resp
         } catch (err) {

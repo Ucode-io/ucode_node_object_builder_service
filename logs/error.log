@@ -10528,3 +10528,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.groupByColumns: failed with error: inputObject is not defined',
+  level: 'error',
+  timestamp: '2024-02-27T06:19:22.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

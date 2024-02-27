@@ -5037,6 +5037,31 @@ let objectBuilder = {
 
             groupColumnIds = view.attributes.group_by_columns
         }
+
+        const { columns, attributes: { group_by_columns } } = view;
+
+        const reorderedColumns = [
+            ...group_by_columns.filter(column => columns.includes(column)),
+            ...columns.filter(column => !group_by_columns.includes(column))
+        ];
+
+        const modifiedObject = {
+            ...view,
+            columns: reorderedColumns
+        };
+
+        const newView = await View.findOneAndUpdate(
+            {
+                id: modifiedObject.id,
+            }, 
+            {
+                $set: modifiedObject
+            },
+            {
+                new: true
+            }
+        )
+
         const fields = tableInfo?.fields || []
         const fieldsMap = {}
         const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))

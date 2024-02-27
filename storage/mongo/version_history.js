@@ -52,7 +52,6 @@ let versionHistoryStorage = {
             }
     
             const sortOrder = data.order_by ? 1 : -1;
-            console.log("Query->", query);
     
             const aggregatePipeline = [
                 { $match: query },
@@ -75,7 +74,7 @@ let versionHistoryStorage = {
                         "version.updated_at": 0
                     }
                 },
-                { $sort: { "versions.created_at": sortOrder } }
+                { $sort: { "version.created_at": sortOrder } }
             ];
     
             if (data.limit) {

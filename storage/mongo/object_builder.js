@@ -381,7 +381,7 @@ let objectBuilder = {
             },
             data.version_id,
             false
-        );
+        ); 
         let relationFieldTablesMap = {}
         let relationFieldTableIds = []
         for (const table of relationFieldTables) {

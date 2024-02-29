@@ -442,6 +442,7 @@ let objectBuilder = {
                     }
                     const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, tables)
                     if (resultFormula.length) {
+                        output[field.slug] = resultFormula[0]?.res
                         if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
                             if (!isNaN(resultFormula[0].res)) {
                                 resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)

@@ -206,7 +206,7 @@ let fieldStore = {
      
             const layout = await Layout.findOne({table_id: table?.id})
    
-            if (layout) {
+            if (layout) { 
                 const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
                 if (tab) {
                     let section = await Section.find({tab_id: tab.id}).sort({created_at: -1})

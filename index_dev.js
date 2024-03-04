@@ -30,11 +30,11 @@ const logger = require("./config/logger");
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
             project_id: "1",
             credentials: {
-                host: "142.93.164.37",
-                port: 27017,
-                database: "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
-                username: "genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs",
-                password: "UAQljhZlWm"
+                host: "65.109.239.69",
+                port: 30027,
+                database: "ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs",
+                username: "ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs",
+                password: "ugdvopAnMJ"
             }
         })
 

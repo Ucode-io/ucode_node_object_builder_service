@@ -52,7 +52,6 @@ let versionHistoryStorage = {
             }
     
             const sortOrder = data.order_by ? 1 : -1;
-            console.log("Query->", query);
     
             const aggregatePipeline = [
                 { $match: query },
@@ -179,7 +178,6 @@ let versionHistoryStorage = {
                 }
             }
 
-            console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #1", tables.length)
             for(const el of tables) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id
@@ -200,7 +198,6 @@ let versionHistoryStorage = {
                 }
             }
 
-            console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #2")
             for(const el of fields) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id
@@ -218,7 +215,6 @@ let versionHistoryStorage = {
                 }
             }
 
-            console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #3")
             for(const el of relations) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id
@@ -237,7 +233,6 @@ let versionHistoryStorage = {
                 }
             }
 
-            console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #5")
             for(const el of actions) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id
@@ -256,7 +251,6 @@ let versionHistoryStorage = {
                 }
             }
 
-            console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #6")
             for(const el of views) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id
@@ -275,7 +269,6 @@ let versionHistoryStorage = {
                 }
             }
 
-            console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #7")
             for(const el of menus) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id
@@ -294,7 +287,6 @@ let versionHistoryStorage = {
                 }
             }
 
-            console.log("~~~~~~~~~~~~~~~ TEST MIGRATE #8")
             for(const el of layouts) {
                 el.current ? el.current.project_id = data.project_id : el.current = { project_id: data.project_id }
                 delete el.current._id

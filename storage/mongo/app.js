@@ -19,14 +19,10 @@ let appStore = {
             const app = new App(data);
 
             const response = await app.save();
-            console.log("test 00000:");
             const appPermission = (await ObjectBuilder(true, data.project_id))["app_permission"]
-            console.log("test 00001:");
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
-            console.log("test 00002:");
             const roles = await roleTable.models.find()
             let appPermissions = []
-            console.log("test aaaa:");
             for (const role of roles) {
                 let permisson = {
                     role_id: role.guid,
@@ -36,14 +32,10 @@ let appStore = {
                     update: true,
                     delete: true,
                 }
-                console.log("test permission models before");
                 const permissionModel = new appPermission.models(permisson)
-                console.log("permisison::", permissionModel);
                 appPermissions.push(permissionModel)
             }
-            console.log("test bbbb:");
             await appPermission.models.insertMany(appPermissions);
-            console.log("test cccc:");
             return response;
         } catch (err) {
             throw err
@@ -162,7 +154,6 @@ let appStore = {
                     }
                 }
             })
-            console.log("app:::", apps);
             const count = await App.countDocuments(query);
             return { apps, count };
         } catch (err) {
@@ -173,7 +164,6 @@ let appStore = {
     getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-            console.log("Data::::", data);
             const App = mongoConn.models['App']
             const Table = mongoConn.models['Table']
 
@@ -196,7 +186,6 @@ let appStore = {
                                 id: 0
                             }
                         )
-                        console.log("recordPermissions::", recordPermissions);
                         table._doc['record_permissions'] = recordPermissions ? recordPermissions : {}
                         tables.push({
                             ...table._doc,

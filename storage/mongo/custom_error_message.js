@@ -119,7 +119,6 @@ let customErrorMessageStore = {
                     sort: { created_at: -1 }
                 }
             );
-            // console.log("custom error messages:", custom_error_messages);
             return { custom_error_messages, count: custom_error_messages?.length };
 
         } catch (err) {
@@ -160,7 +159,6 @@ let customErrorMessageStore = {
                     sort: { created_at: -1 }
                 }
             );
-            // console.log("custom error messages:", custom_error_messages);
             return { custom_error_messages, count: custom_error_messages?.length };
 
         } catch (err) {

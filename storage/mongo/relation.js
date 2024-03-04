@@ -1318,7 +1318,6 @@ let relationStore = {
 
                 responseRelations.push(responseRelation);
             }
-            console.log(responseRelations);
             return responseRelations[0] ;
         } catch (err) {
             throw err;
@@ -1500,7 +1499,6 @@ let relationStore = {
                 table_from: data.table_slug,
             });
 
-            console.log("test test ", responseRelations)
 
             return { relations: responseRelations, count: count };
         } catch (err) {

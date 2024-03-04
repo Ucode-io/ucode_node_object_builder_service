@@ -276,7 +276,6 @@ let fieldStore = {
                 }
             ).lean()
             if(fieldBeforUpdate && fieldBeforUpdate.is_system) {
-                console.log("there #1")
                 throw new Error("This field is system field")
             }
 
@@ -317,7 +316,6 @@ let fieldStore = {
                     data.attributes = autoFillField.attributes
                 }
             }
-            // console.log("DATA::::::::::", data)
             const field = await Field.findOneAndUpdate(
                 {
                     id: data.id,

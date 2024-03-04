@@ -132,7 +132,6 @@ let objectBuilder = {
                             login_strategy: loginStrategy
                         }
                         const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
-                        console.log("responseFromAuth", responseFromAuth);
                         if (responseFromAuth) {
                             data.guid = responseFromAuth.user_id
                             await tableInfo.models.updateOne({
@@ -154,7 +153,6 @@ let objectBuilder = {
                 data.guid = payload.guid
             }
             const object = struct.encode({ data });
-            console.log("\n\n --> TEST LOG #3")
             let customMessage = ""
             if (tableData) {
                 const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
@@ -165,7 +163,6 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
-            console.log("\n\n --> TEST LOG #4")
 
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
@@ -371,8 +368,6 @@ let objectBuilder = {
                 }
             }
         }
-        // console.log("attribute_table_from_slugs:",attribute_table_from_slugs)
-        // console.log("attribute_table_from_relation_ids:",attribute_table_from_relation_ids)
         const relationFieldTables = await tableVersion(
             mongoConn,
             {
@@ -739,7 +734,6 @@ let objectBuilder = {
                             //         }
                             //     }
                             // }
-                            // console.log("it's dynamic relations");
                         } else {
                             deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
                             for (const deepRelation of deepPopulateRelations) {
@@ -1445,7 +1439,6 @@ let objectBuilder = {
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
 
-        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const startMemoryUsage = v8.getHeapStatistics();
 
         const mongoConn = await mongoPool.get(req.project_id)
@@ -1594,10 +1587,6 @@ let objectBuilder = {
                 params["guid"] = objFromAuth.object_id
             }
         }
-        // console.log("TEST::::::::::6")
-        // console.timeEnd("TIME_LOGGING:::is_have_condition")
-        // console.time("TIME_LOGGING:::view_fields")
-        // console.log(":::::::::::: TEST 11")
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
 
@@ -5428,7 +5417,6 @@ let objectBuilder = {
 
     }),
     getListAggregation: catchWrapDbObjectBuilder(`${NAMESPACE}.getListAggregation`, async (req) => {
-        // console.log("><>>>> data", req.data)
         const data = struct.decode(req?.data)
 
         if(!data.pipelines) {

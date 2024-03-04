@@ -63,7 +63,6 @@ let objectBuilderV2 = {
                             environment_id: data["company_service_environment_id"]
                         }
                         const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
-                        console.log("responseFromAuth", responseFromAuth);
                         if (responseFromAuth) {
                             data.guid = responseFromAuth.user_id
                             await tableInfo.models.updateOne({
@@ -289,7 +288,6 @@ let objectBuilderV2 = {
         }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -1009,15 +1007,11 @@ let objectBuilderV2 = {
                 }).lean()
                 if (Array.isArray(modelTo[data.table_from + "_ids"])) {
                     if (!modelTo[data.table_from + "_ids"].includes(data.id_from)) {
-                        // console.log("Debug >> test #1", modelTo)
-                        // console.log("Debug >> test #2", data.table_from + "_ids")
-                        // console.log("Debug >> test #3", modelTo[data.table_from + "_ids"])
                         modelTo[data.table_from + "_ids"].push(data.id_from)
                     }
                 } else {
                     modelTo[data.table_from + "_ids"] = [data.id_from]
                 }
-                // console.log("Debug >> test #4", modelTo[data.table_from + "_ids"])
                 await toTableModel.models.updateOne({
                     guid: el,
                 },

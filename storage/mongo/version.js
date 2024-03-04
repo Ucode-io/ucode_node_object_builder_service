@@ -52,7 +52,6 @@ let versionStorage = {
             pipeline.push(projectionStage);
 
             const count  = await Version.countDocuments(pipeline);
-            console.log('count', count)
     
             // Add sort, skip, and limit stages
             const sortStage = { $sort: { created_at: data.order_by ? 1 : -1 } };

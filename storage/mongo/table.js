@@ -85,7 +85,6 @@ let tableStore = {
             await layoutStorage.createAll(default_layout)
 
              
-            console.log("~~~~~~~~~~~~~~> TEST ##00")
             return table;
         } catch (err) {
             throw err

@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const logger = require('./logger')
 const ObjectBuilder = require("../models/object_builder");
 // ObjectBuilder(false).then(res => {
-//     console.log("object builder has successfully runned");
 // })
 
 let mongoDBUrl =

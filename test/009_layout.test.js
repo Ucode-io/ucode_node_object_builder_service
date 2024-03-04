@@ -82,7 +82,6 @@ describe('Layout testing', function () {
             layouts: [],
         })
 
-        console.log("--- Test stoped ", new Date(), " ---")
     })
 })
 

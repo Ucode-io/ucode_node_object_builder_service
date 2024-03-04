@@ -288,7 +288,6 @@ let layoutStore = {
             const Relation = mongoConn.models['Relation']
 
             let table = {};
-            console.log("~~~~> test #1")
             if (!data.table_id) {
                 table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
                 data.table_id = table.id;
@@ -296,7 +295,6 @@ let layoutStore = {
                 table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true);
                 data.table_slug = table.slug
             }
-            console.log("~~~~> test #2")
             let payload = {
                 table_id: data.table_id,
             }
@@ -542,7 +540,6 @@ let layoutStore = {
                             role_id: data.role_id,
                             table_slug: table.slug
                         })
-                    // console.log("relations:", relation);
                     tab.relation = relation ? relation : {}
                 }
 
@@ -824,7 +821,6 @@ let layoutStore = {
                             role_id: data.role_id,
                             table_slug: table.slug
                         })
-                    // console.log("relations:", relation);
                     tab.relation = relation ? relation : {}
                 }
             }
@@ -1121,7 +1117,6 @@ let layoutStore = {
                             role_id: data.role_id,
                             table_slug: table.slug
                         })
-                    // console.log("relations:", relation);
                     tab.relation = relation ? relation : {}
                 }
             }

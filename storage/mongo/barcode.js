@@ -86,9 +86,7 @@ let barcodeStore = {
                 }
             }
         } else if (data.type === "barcode" && field.type === "BARCODE") {
-            console.log("test::", data.type);
             let barcode = generateBarcode.generateBarcode()
-            console.log("test 22::", data.type);
 
             let params = {}
             params[field.slug] = barcode.toString()

@@ -34,7 +34,6 @@ let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
 
-            // console.log('data-->', data)
             if (!data.user_id) {
                 throw new Error('Error user_id is required')
             }
@@ -53,7 +52,6 @@ let projectStore = {
             }, false)
 
             mongoDBConn.once("open", async function () {
-                console.log("Connected to the database");
 
                 await insertCollections(mongoDBConn, data.user_id, data.project_id)
 
@@ -192,7 +190,6 @@ let projectStore = {
                 }
 
             })
-            // console.log("pool::::::::::::", pool.get(data?.project_id))
             return {}
 
         } catch (err) {
@@ -240,14 +237,11 @@ let projectStore = {
         }
     }),
     autoConnect: catchWrapDb(`${NAMESPACE}.autoConnect`, async (args) => {
-        // console.log("TEST::::::::::::::::::: 1")
         if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
 
         let reconnect_data = await client.autoConn(config.k8s_namespace, config.nodeType);
-        // console.log("TEST::::::::::::::::::: 2")
         console.log("\n\n\n\n\n\nBuilding project count >> ", reconnect_data.res.length, "\n\n\n\n\n")
         for (let it of reconnect_data.res) {
-            // console.log("credentials:::", it.resource_type)
             if (it.resource_type !== "MONGODB") continue
             // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
             try {

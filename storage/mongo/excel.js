@@ -18,7 +18,6 @@ let excelStore = {
     ExcelRead: catchWrapDb(`${NAMESPACE}.read`, async (data) => {
         const createFilePath = "./" + data.id + ".xlsx"
         let ssl = true
-        // console.log("ssl::", cfg.minioSSL, "typeof:::", typeof cfg.minioSSL);
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
             ssl = false
         }
@@ -36,9 +35,6 @@ let excelStore = {
 
         await new Promise((resolve, reject) => {
             minioClient.getObject(bucketName, fileObjectKey, async function (err, object) {
-                if (err) {
-                    console.log(err)
-                }
                 if (object) {
                     object.on("data", (chunk) => fileStream.write(chunk));
                     object.on("end", () => console.log(`Reading ${fileObjectKey} finished`))
@@ -50,7 +46,6 @@ let excelStore = {
                         });
                     })
                 } else {
-                    console.log('object not found')
                     reject()
                 }
             });
@@ -60,8 +55,6 @@ let excelStore = {
     ),
     ExcelToDb: catchWrapDb(`${NAMESPACE}.create`, async (req) => {
         const datas = struct.decode(req.data)
-        console.log("dataset: ", datas);
-        // console.log("test project id:::", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -103,7 +96,6 @@ let excelStore = {
                         i++;
                         continue;
                     }
-                    // console.log("test 1");
                     let objectToDb = {}
                     for (const column_slug of exColumnSlugs) {
                         let id = datas[column_slug]
@@ -113,51 +105,41 @@ let excelStore = {
                             viewFieldIds = splitedRelationFieldId.slice(1, splitedRelationFieldId.length)
                             id = splitedRelationFieldId[0]
                         }
-                        // console.log("test 2");
                         const field = fieldsMap[id]
                         if (!field) {
-                            // console.log("test 3");
                             continue;
                         }
                         let value = row[rows[0].indexOf(column_slug)]
-                        // console.log("VALUE:::::::::::::", value)
                         if (value === null) {
                             con.NUMBER_TYPES.includes(field.type) ? value = 0 :
                                 con.STRING_TYPES.includes(field.type) ? value = "" :
                                     con.BOOLEAN_TYPES.includes(field.type) ? value = "false" : ""
                         }
                         let options = []
-                        // console.log("test 4");
                         if (field.type == "MULTISELECT" && value !== null && value.length) {
-                            console.log("\n\n~~~> field slug ", field.slug, "  ~~~~ value  ", value)
                             if (field.attributes) {
                                 let a = struct.decode(field.attributes)
-                                // console.log("~~~~ >> ", a,  a.options)
                                 // options = struct.decode(field.attributes.options)
                                 options = a.options
                             }
                             let arrayMultiSelect = [], labelsOfMultiSelect = []
                             if (value.includes(",") && options.length) {
                                 labelsOfMultiSelect = value.split(",")
-                                // console.log(":#1")
                                 labelsOfMultiSelect.forEach(element => {
                                     let getValueOfMultiSelect = options?.find(val => (val.label === element))
                                     arrayMultiSelect.push(getValueOfMultiSelect.value)
                                 })
                             } else if (value.includes(" ") && options.length) {
-                                // console.log(":#2")
                                 labelsOfMultiSelect.forEach(element => {
                                     let getValueOfMultiSelect = options?.find(val => (val.label === element))
                                     arrayMultiSelect.push(getValueOfMultiSelect.value)
                                 })
                             } else {
-                                // console.log(":#3", value)
                                 let getValueOfMultiSelect = options?.find(val => (val.label === value))
                                 arrayMultiSelect.push(getValueOfMultiSelect?.value)
                             }
                             value = arrayMultiSelect
                             objectToDb[field?.slug] = value
-                            // console.log("~~~>> multiselect", value)
                         } else if (con.BOOLEAN_TYPES.includes(field.type)) {
                             if (typeof (value) == "string") {
                                 if (value.toUpperCase() === "ИСТИНА" || value.toUpperCase() == "TRUE") {
@@ -230,7 +212,6 @@ let excelStore = {
                                         project_id: req.project_id,
                                         data: params
                                     })
-                                    // console.log("test 0.1 ", objectFromObjectBuilder)
                                     if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                         if (field.attributes) {
                                             let fieldAttributes = struct.decode(field.attributes)
@@ -256,17 +237,13 @@ let excelStore = {
                                             data: struct.encode(payload)
                                         })
                                         let result = struct.decode(res.data)
-                                        // console.log("test #0.11", payload);
                                         objectToDb[field?.slug] = result?.data?.guid
                                     }
-                                    // console.log("test #0.2", objectToDb);
                                     continue
                                 }
 
                             } else if (relation && relation.type == "Many2Many") {
                                 let values = row[rows[0].indexOf(column_slug)].split(",")
-                                // console.log("val::", row[rows[0].indexOf(column_slug)], values)
-                                // console.log("~~~~ > values", values)
                                 let params = {}
                                 let payload = {}
                                 if (viewFields.length && viewFields.length > 1) {
@@ -305,7 +282,6 @@ let excelStore = {
                                                 project_id: req.project_id,
                                                 data: params
                                             })
-                                            // console.log("test #1.1", objectFromObjectBuilder)
                                             if (objectFromObjectBuilder && objectFromObjectBuilder.data) {
                                                 if (field.attributes) {
                                                     let fieldAttributes = struct.decode(field.attributes)
@@ -337,7 +313,6 @@ let excelStore = {
                                                     data: struct.encode(payload)
                                                 })
                                                 let result = struct.decode(res.data)
-                                                // console.log("test #1.2", result)
                                                 if(!objectToDb[field?.slug] || !objectToDb[field?.slug].length) {
                                                     objectToDb[field?.slug] = [ result?.data?.guid  ]
                                                 } else {
@@ -345,7 +320,6 @@ let excelStore = {
                                                 }
 
                                             }
-                                            // console.log("test #1.3", objectToDb);
                                             continue
                                         }
 
@@ -368,14 +342,11 @@ let excelStore = {
                             objectToDb[field?.slug] = value
 
                         } else if (con.STRING_TYPES.includes(field.type)) {
-                            // console.log("EXCEL::::::::::::::::::::::::::::::::::::::", value)
                             if (field.type === "DATE_TIME" || field.type === "DATE") {
                                 let i = ""
                                 try {
                                     let toDate = new Date(value).toISOString()
-                                    // console.log("TODATE::::::::::::", toDate)
                                     i = toDate
-                                    // console.log("DATE_TIME::::::::::::::::::", value)
                                 } catch (error) {
                                     logger.error("value: ", strNumber, "error: ", error);
                                     i = ""
@@ -398,7 +369,6 @@ let excelStore = {
                     objectsToDb.push(objectToDb)
                 }
 
-                // console.log(":>>> insert pipeline ", objectsToDb)
                 await obj.multipleInsert({
                     table_slug: req.table_slug,
                     data: struct.encode({ objects: objectsToDb }),

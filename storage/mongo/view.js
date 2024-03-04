@@ -264,14 +264,12 @@ let viewStore = {
 
             const object_builder = await ObjectBuilder(true, data.project_id)
 
-            // console.log("TEST:::::::::::::1")
             let filename = "document_" + Math.floor(Date.now() / 1000) + ".pdf"
             link = "https://" + cfg.minioEndpoint + "/docs/" + filename
 
             var html = data.html
             let patientIdField;
             let output;
-            // console.log("TEST:::::::::::::2")
             if (decodedData.linked_table_slug && decodedData.linked_object_id) {
                 data.html = data.html.replaceAll('[??', '{')
                 data.html = data.html.replaceAll('??]', '}')
@@ -300,7 +298,6 @@ let viewStore = {
                         type: "Many2Many"
                     }]
                 })
-                // console.log("TEST:::::::::::::3")
                 let relatedTable = []
                 for (const relation of relations) {
                     const field = await Field.findOne({
@@ -322,7 +319,6 @@ let viewStore = {
                         relatedTable.push(field?.slug + "_data")
                     }
                 }
-                console.log("TEST:::::::::::::4")
                 output = await tableInfo.models.findOne({
                     guid: decodedData.linked_object_id
                 },
@@ -345,7 +341,6 @@ let viewStore = {
                         output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 10%\"><img src=\"data:image/svg+xml;base64," +
                             base64_barcode +
                             "\"/></figure>"
-                        // console.log(output[it.slug])
                     }
                 }
 
@@ -353,9 +348,7 @@ let viewStore = {
                     table_to: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
-                // console.log("TEST:::::::::::::5")
                 for (const relation of relations) {
-                    // console.log("relation::::", relation)
                     let relation_field = decodedData.linked_table_slug + "_id"
                     // let m2mrelation_field = decodedData.linked_table_slug + "_ids"
 
@@ -392,7 +385,6 @@ let viewStore = {
                 decodedData.page_width = "210"
             }
 
-            // console.log("TEST:::::::::::::6")
             await new Promise((resolve, reject) => {
                 wkhtmltopdf(html, { output: filename, spawnOptions: { shell: true }, pageHeight: decodedData.page_height, pageWidth: decodedData.page_width }, () => {
                     let ssl = true
@@ -405,7 +397,6 @@ let viewStore = {
                         accessKey: cfg.minioAccessKeyID,
                         secretKey: cfg.minioSecretAccessKey
                     });
-                    // console.log("TEST:::::::::::::7")
                     var metaData = {
                         'Content-Type': "application/pdf",
                         'Content-Language': 123,
@@ -421,8 +412,6 @@ let viewStore = {
                         if (error) {
                             return console.log(error);
                         }
-                        // console.log("TEST:::::::::::::8")
-                        // console.log("uploaded successfully")
                         fs.stat(filename, async (err, stats) => {
                             if (err) {
                                 console.log(err)
@@ -453,12 +442,9 @@ let viewStore = {
                                 await objectBuilderStore.create(request)
                             }
                         })
-                        // console.log("TEST:::::::::::::9")
                         fs.unlink(filename, (err => {
                             if (err) console.log(err);
                             else {
-                                // console.log("Deleted file: ", filename);
-
                                 resolve()
 
                             }
@@ -487,7 +473,6 @@ let viewStore = {
 
             let filename = "document_" + Math.floor(Date.now() / 1000) + ".pdf"
             link = "https://" + "cdn.medion.uz" + "/docs/" + filename
-            // console.log("TEST::::::::1")
             var html = data.html
 
             data.html = data.html.replaceAll('[??', '{')
@@ -503,12 +488,10 @@ let viewStore = {
                 // data.html = data.html.replace('[??', '{')
                 // data.html = data.html.replace('??]', '}')
                 const tableInfo = object_builder[decodedData.linked_table_slug]
-                // console.log("TEST::::::::2")
                 let relations = await Relation.find({
                     table_from: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
-                // console.log("TEST::::::::3")
                 const relationsM2M = await Relation.find({
                     $or: [{
                         table_from: decodedData.linked_table_slug
@@ -520,7 +503,6 @@ let viewStore = {
                         type: "Many2Many"
                     }]
                 })
-                // console.log("TEST::::::::4")
                 let relatedTable = []
                 for (const relation of relations) {
                     const field = await Field.findOne({
@@ -563,17 +545,14 @@ let viewStore = {
                         output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 10%\"><img src=\"data:image/svg+xml;base64," +
                             base64_barcode +
                             "\"/></figure>"
-                        // console.log(output[it.slug])
                     }
                 }
-                // console.log("TEST::::::::7")
                 relations = await Relation.find({
                     table_to: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
 
                 for (const relation of relations) {
-                    // console.log("relation::::", relation)
                     let relation_field = decodedData.linked_table_slug + "_id"
                     // let m2mrelation_field = decodedData.linked_table_slug + "_ids"
 
@@ -593,15 +572,12 @@ let viewStore = {
                 }
 
 
-                // console.log("output:::::", output)
                 for (let key in output) {
                     if (typeof (output[key]) == "number") {
                         output[key] = numberFormatter(output[key])
                     }
                 }
-                // console.log("TEST::::::::8", output)
                 html = Eta.render(data.html, output)
-                // console.log("TEST::::::::9")
                 html = html.replaceAll('[??', '{')
                 html = html.replaceAll('??]', '}')
                 html = html.replaceAll('&lt;', '<')
@@ -618,7 +594,6 @@ let viewStore = {
         }
     }),
     updateViewOrder: catchWrapDb(`${NAMESPACE}.updateViewOrder`, async (data) => {
-        console.log("data::::", data)
         try {
             const mongoConn = await mongoPool.get(data.project_id)
 

@@ -5162,3 +5162,101 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-04T09:16:09.526Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-04T09:16:09.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://vertebra_vertebra_object_builder_service:f7NJv0ZaKr@142.93.164.37:27017/vertebra_vertebra_object_builder_service',
+  level: 'debug',
+  timestamp: '2024-03-04T09:16:09.532Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connect ECONNREFUSED 142.93.164.37:27017',
+  level: 'error',
+  timestamp: '2024-03-04T09:16:39.558Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '142.93.164.37:27017' => ServerDescription {
+          address: '142.93.164.37:27017',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 17856072,
+          lastWriteDate: 0,
+          error: MongoNetworkError: connect ECONNREFUSED 142.93.164.37:27017
+              at connectionFailureError (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:387:20)
+              at Socket.<anonymous> (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:628:26)
+              at Socket.emit (node:events:513:28)
+              at emitErrorNT (node:internal/streams/destroy:151:8)
+              at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+              at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+            cause: Error: connect ECONNREFUSED 142.93.164.37:27017
+                at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1481:16) {
+              errno: -111,
+              code: 'ECONNREFUSED',
+              syscall: 'connect',
+              address: '142.93.164.37',
+              port: 27017
+            },
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: connect ECONNREFUSED 142.93.164.37:27017\n' +
+      '    at Connection.openUri (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/config/mongoConn.js:60:33)\n' +
+      '    at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/storage/mongo/project.js:137:39\n' +
+      '    at Object.reconnect (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/index_dev.js:29:30\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: connect ECONNREFUSED 142.93.164.37:27017',
+  level: 'info',
+  timestamp: '2024-03-04T09:16:39.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

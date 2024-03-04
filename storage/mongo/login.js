@@ -614,7 +614,7 @@ let loginStore = {
                     if (Array.isArray(user[connection.field_slug])) {
                         params["guid"] = { $in: user[connection.field_slug] }
                     } else {
-                        params["guid"] = RegExp(user[connection.field_slug], "i")
+                        params["guid"] = RegExp(user[connection.table_slug +  "_id"], "i")
                     }
                     options = await (await ObjectBuilder(true, req.resource_environment_id))[connection?.table_slug]?.models?.find(params, { "__v": 0, "_id": 0 }).lean()
                 }

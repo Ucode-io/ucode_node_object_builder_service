@@ -1465,14 +1465,9 @@ let objectBuilder = {
         // const tableInfo = allTables[req.table_slug]
         let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
-            if (req.table_slug == "fuel") {
-                console.log("\n ~~ GetList check not found table, pod host ", os.hostname())
-            }
             throw new Error("table not found")
         }
-        if (req.table_slug == "fuel") {
-            console.log("\n ~~ GetList check found table, pod host ", os.hostname())
-        }
+
         let keys = Object.keys(params)
         let order = params.order || {}
         let fields = tableInfo.fields
@@ -1561,7 +1556,6 @@ let objectBuilder = {
                                 params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
                             }
                         } else {
-                            // console.log("\n\n>>>>> inside else")
                             // params["guid"] = params["user_id_from_token"]
                         }
                     } else {
@@ -1620,24 +1614,16 @@ let objectBuilder = {
                 }
             }
         }
-        // console.timeEnd("TIME_LOGGING:::view_fields")
-        // console.time("TIME_LOGGING:::client_type_id")
         if (clientTypeId) {
-            // console.log("\n\n>>>> client type ", clientTypeId);
             // const clientTypeTable = allTables["client_type"]
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
             if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
-                // console.log(">>>>>>>>>>. indside if");
                 params["guid"] = params["user_id_from_token"]
             }
         }
-        // console.log("TEST::::::::::7")
-        // console.timeEnd("TIME_LOGGING:::client_type_id")
-        // console.log("TEST::::::3")
         let views = tableInfo.views;
-        // console.time("TIME_LOGGING:::app_id")
         for (let view of views) {
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,
@@ -1672,15 +1658,8 @@ let objectBuilder = {
                 params[key] = RegExp(params[key], "i")
             }
         }
-        // console.log("TEST::::::::::8")
-        // console.timeEnd("TIME_LOGGING:::key_of_keys")
-        // console.log("TEST::::::4")
-        // console.time("TIME_LOGGING:::relation")
 
-        // console.log("TEST::::::::::9")
-        // console.log("TEST::::::5")
         let relationsFields = []
-        // console.time("TIME_LOGGING:::with_relations")
 
         //new code
 
@@ -1945,7 +1924,6 @@ let objectBuilder = {
                         }
                     }
                 }
-                // console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -1978,7 +1956,6 @@ let objectBuilder = {
                             //         }
                             //     }
                             // }
-                            // console.log("it's dynamic relations");
                         } else {
                             deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
                             for (const deepRelation of deepPopulateRelations) {
@@ -2015,7 +1992,6 @@ let objectBuilder = {
                             }
                         }
                     }
-                    // console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -2040,8 +2016,6 @@ let objectBuilder = {
                     }
                     populateArr.push(papulateTable)
                 }
-                // console.log("\n\n-----> T3\n\n", tableInfo, params)
-                // console.log("::::::::::::::::::: POPULATE ARR", populateArr)
                 result = await tableInfo.models.find({
                     ...params
                 },
@@ -2060,13 +2034,9 @@ let objectBuilder = {
                     .populate(populateArr)
                     .lean()
 
-                // console.log("\n\n-----> T4\n\n", tableParams)
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
-        // console.log("TEST::::::::::12")
-        // console.timeEnd("TIME_LOGGING:::limit")
-        // console.log("TEST::::::10")
 
         count = await tableInfo.models.count(params);
         // console.time("TIME_LOGGING:::result")
@@ -2074,10 +2044,6 @@ let objectBuilder = {
             let prev = result.length
             count = count - (prev - result.length)
         }
-        // console.timeEnd("TIME_LOGGING:::result")
-        // console.log("TEST::::::::::13")
-        // console.log("TEST::::::11")
-        // console.time("TIME_LOGGING:::toField")
         // this function add field permission for each field by role id
         // let {fieldsWithPermissions} = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
         // let decodedFields = []
@@ -2299,12 +2265,6 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-        // console.log(' --> P-M Memory used by getList:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
 
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
@@ -2314,7 +2274,6 @@ let objectBuilder = {
 
         const startMemoryUsage = v8.getHeapStatistics();
 
-        console.log(">> Table slug 11", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -2337,14 +2296,9 @@ let objectBuilder = {
         // const tableInfo = allTables[req.table_slug]
         let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
-            if (req.table_slug == "fuel") {
-                console.log("\n ~~ GetList check not found table, pod host ", os.hostname())
-            }
             throw new Error("table not found")
         }
-        if (req.table_slug == "fuel") {
-            console.log("\n ~~ GetList check found table, pod host ", os.hostname())
-        }
+       
         let keys = Object.keys(params)
         let order = params.order || {}
         let fields = tableInfo.fields
@@ -2447,7 +2401,6 @@ let objectBuilder = {
                                 params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
                             }
                         } else {
-                            // console.log("\n\n>>>>> inside else")
                             // params["guid"] = params["user_id_from_token"]
                         }
                     } else {
@@ -2515,13 +2468,11 @@ let objectBuilder = {
         }
 
         if (clientTypeId) {
-            // console.log("\n\n>>>> client type ", clientTypeId);
             // const clientTypeTable = allTables["client_type"]
             const clientType = await clientTypeTable?.models.findOne({
                 guid: clientTypeId
             })
             if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
-                // console.log(">>>>>>>>>>. indside if");
                 params["guid"] = params["user_id_from_token"]
             }
         }
@@ -2627,7 +2578,6 @@ let objectBuilder = {
                         }
                     }
                 }
-                // console.log("TEST::::::8")
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -2660,7 +2610,6 @@ let objectBuilder = {
                             //         }
                             //     }
                             // }
-                            // console.log("it's dynamic relations");
                         } else {
                             deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
                             for (const deepRelation of deepPopulateRelations) {
@@ -2694,7 +2643,6 @@ let objectBuilder = {
                             }
                         }
                     }
-                    // console.log("TEST::::::9")
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
@@ -2743,9 +2691,6 @@ let objectBuilder = {
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
-        // console.log("TEST::::::::::12")
-        // console.timeEnd("TIME_LOGGING:::limit")
-        // console.log("TEST::::::10")
 
         count = await tableInfo.models.count(params);
         // console.time("TIME_LOGGING:::result")
@@ -2802,9 +2747,6 @@ let objectBuilder = {
 
         }
 
-        // console.log("TEST::::::::::15")
-        // console.timeEnd("TIME_LOGGING:::additional_request")
-        // console.log("TEST::::::14")
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
 
@@ -2930,8 +2872,6 @@ let objectBuilder = {
                 data: struct.encode({ objects: updatedObjects })
             })
         }
-        // console.timeEnd("TIME_LOGGING:::length")
-        // console.log("TEST::::::15")
         const response = struct.encode({
             count: count,
             response: result,
@@ -2949,12 +2889,6 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-        // console.log(' --> P-M Memory used by getList2:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Used start heap size:', (startMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Used end heap size:', (endMemoryUsage.used_heap_size / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Total heap size:', (startMemoryUsage.total_heap_size / (1024 * 1024)) + ' MB');
-        // console.log(' --> P-M Total physical size:', (startMemoryUsage.total_physical_size / (1024 * 1024)) + ' MB');
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
@@ -3178,7 +3112,6 @@ let objectBuilder = {
             const response = struct.decode(res.data)
             const result = response.response
             const decodedFields = response.fields
-            // console.log("Ress::", result);
             excelArr = []
             for (const obj of result) {
                 excelObj = {}
@@ -3238,7 +3171,6 @@ let objectBuilder = {
                             try {
                                 obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
                             } catch (error) {
-                                // console.log(`${toDate}`, obj[field.slug]);
                             }
                         }
 
@@ -3247,7 +3179,6 @@ let objectBuilder = {
                             try {
                                 obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
                             } catch (error) {
-                                // console.log(`${toDate}`, obj[field.slug]);
                             }
                         }
                         if (field.type === "LOOKUP") {
@@ -3303,7 +3234,6 @@ let objectBuilder = {
             if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
                 ssl = false
             }
-            // console.log("ssl", ssl);
 
 
             let filepath = "./" + filename
@@ -3326,11 +3256,9 @@ let objectBuilder = {
                 if (error) {
                     return console.log(error);
                 }
-                // console.log("uploaded successfully")
                 fs.unlink(filename, (err => {
                     if (err) console.log(err);
                     else {
-                        // console.log("Deleted file: ", filename);
                     }
                 }));
             });
@@ -3450,15 +3378,11 @@ let objectBuilder = {
                 }).lean()
                 if (Array.isArray(modelTo[data.table_from + "_ids"])) {
                     if (!modelTo[data.table_from + "_ids"].includes(data.id_from)) {
-                        // console.log("Debug >> test #1", modelTo)
-                        // console.log("Debug >> test #2", data.table_from + "_ids")
-                        // console.log("Debug >> test #3", modelTo[data.table_from + "_ids"])
                         modelTo[data.table_from + "_ids"].push(data.id_from)
                     }
                 } else {
                     modelTo[data.table_from + "_ids"] = [data.id_from]
                 }
-                // console.log("Debug >> test #4>>", el,  " ~~~ ",data.table_from + "_ids", " ~~~ ",modelTo[data.table_from + "_ids"])
                 await toTableModel.models.updateOne({
                     guid: el,
                 },
@@ -3487,7 +3411,6 @@ let objectBuilder = {
 
     }),
     getTableDetails: catchWrapDbObjectBuilder(`${NAMESPACE}.getTableDetails`, async (req) => {
-        console.log(">> Table slug", req.table_slug, "------- > ", req.project_id);
         const mongoConn = await mongoPool.get(req.project_id)
         let params = struct.decode(req?.data)
         const Field = mongoConn.models['Field']
@@ -3743,14 +3666,11 @@ let objectBuilder = {
         };
 
 
-        // console.timeEnd("TIME_LOGGING:::length")
-        // console.log("TEST::::::15")
         const response = struct.encode({
             fields: decodedFields,
             views: views,
             relation_fields: relationsFields,
         });
-        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
         return { table_slug: req.table_slug, data: response }
 
     }),
@@ -3912,7 +3832,6 @@ let objectBuilder = {
             const data = struct.decode(req.data)
             const tableInfo = allTableInfos[req.table_slug]
             let objects = [], appendMany2ManyObj = [], authCheckRequests = [], guids = []
-            // console.log("~~~~~~~~~ >> data.objects ", data.objects)
             for (const object of data.objects) {
                 //this condition used for object.guid may be exists
                 if (!object.guid) {
@@ -3949,7 +3868,6 @@ let objectBuilder = {
                     }
                     authCheckRequests.push(authCheckRequest)
                 }
-                // console.log("~~~~~> ", appendMany2ManyObjects.length, appendMany2ManyObjects)
                 if (appendMany2ManyObjects.length) {
                     appendMany2ManyObj.push(...appendMany2ManyObjects)
                 }
@@ -3976,9 +3894,7 @@ let objectBuilder = {
                 }
             }
             await tableInfo.models.bulkWrite(bulkWriteGuids)
-            // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ", appendMany2ManyObj)
             for (const appendMany2Many of appendMany2ManyObj) {
-                // console.log("~~~~~~~~~~~~~~~~>>>> appendMany2Many ", appendMany2Many)
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
             return
@@ -4041,7 +3957,6 @@ let objectBuilder = {
             const View = mongoConn.models['View']
             const request = struct.decode(req.data)
 
-            // console.log(":::::::: request ", request)
             const view = await View.findOne({
                 id: request.view_id
             })
@@ -4059,18 +3974,15 @@ let objectBuilder = {
                 groupByOptions.push(chartOfAccount.group_by)
                 chartOfAccounts = chartOfAccounts.concat(chartOfAccount.chart_of_account)
             }
-            // console.log(":::::::::::::::::: test 1")
             if (field_slug === "") {
                 throw new Error("Укажите группу по полям")
             }
             request[field_slug] = groupByOptions
-            // console.log(":::::::::::::::::: test 2")
             let resp = await objectBuilder.getList({
                 project_id: req.project_id,
                 table_slug: req.table_slug,
                 data: struct.encode(request)
             })
-            // console.log(":::::::::::::::::: test 3")
             const data = struct.decode(resp.data)
             const objects = data.response
             if (objects.length) {
@@ -4078,12 +3990,10 @@ let objectBuilder = {
                     obj.amounts = []
                 }
             }
-            // console.log(":::::::::::::::::: test 4")
             let objStore = new Map()
             let cObjStore = new Map()
             let totalAmountByMonths = new Map()
             let dates = await RangeDate(request.start, request.end, request.interval)
-            // console.log("::::::::::::::::;; Dates", dates);
 
 
             let balance = {
@@ -4091,7 +4001,6 @@ let objectBuilder = {
                 total: []
             }
 
-            // console.log("::::::::::::::::; View ", view )
             if (view && view.attributes?.balance && view.attributes.balance?.table_slug && view.attributes.balance?.field_id) {
                 // get selected accaunts table
                 const req_accaunts_table = {
@@ -4126,9 +4035,7 @@ let objectBuilder = {
 
                 const copy_objects = JSON.parse(JSON.stringify(objects))
                 for (const obj of copy_objects) {
-                    // console.log("######## TEST 1")
                     for (const date of dates) {
-                        // console.log(">>>>>>>>> test 2")
                         let chartOfAccount = chartOfAccounts.find(element => element.object_id === obj.guid)
                         let keyDate = new Date(date.$gte)
                         keyDate = addDays(keyDate, 1)
@@ -4136,7 +4043,6 @@ let objectBuilder = {
                         let monthlyAmount = obj.amounts.find(el => el.month === key)
 
                         for (const acc of accounts) {
-                            // console.log("@@@@@@@@@@@@@@@ test 3")
                             if (chartOfAccount && chartOfAccount.options && chartOfAccount.options.length) {
                                 for (const option of chartOfAccount.options) {
                                     if (option.date_field === "") {
@@ -4271,10 +4177,6 @@ let objectBuilder = {
                 balance.items = items
                 balance.total = total_arr
             }
-
-            // for (let el of balance.items) {
-            //     console.log(el);
-            // }
 
             for (const obj of objects) {
                 for (const date of dates) {
@@ -4483,7 +4385,6 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
-            // console.log(":::::::::::::::::::::::::::: TIME ", endTime - startTime)
             return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage }
             // return { table_slug: "ok", data: struct.encode({}) }
             // return {}
@@ -4871,7 +4772,6 @@ let objectBuilder = {
         groupColumns.forEach(el => {
             firstGroup[el.slug] = "$" + el.slug
         })
-        console.log("test", firstGroup);
 
         const relations = await Relation.find({
             $or: [
@@ -5035,7 +4935,6 @@ let objectBuilder = {
         groupColumnIds.forEach(columnId => {
             groupColumns.push(fieldsMap[columnId])
         })
-        //console.log("Group columns", groupColumns)
         const projectColumns = fields.filter(el => (!groupColumnIds.includes(el.id) && !(constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA"))))
         const sumFieldWithDollorSign = {}
         const numberfieldWithDollorSign = {}
@@ -5053,7 +4952,6 @@ let objectBuilder = {
         groupColumns.forEach(el => {
             dynamicConfig.groupByFields.push(el.slug)
         })
-        //console.log("test", groupColumns);
 
         const relations = await Relation.find({
             $or: [
@@ -5093,8 +4991,6 @@ let objectBuilder = {
 
         let typeOfLastLabel = "", groupBySlug = "", titleField = ""
         function createDynamicAggregationPipeline(groupFields = [], projectFields = [], i, lookupAddFields={}) {
-            console.log("g:", groupFields);
-            console.log("p:", projectFields);
             typeOfLastLabel = groupColumns.find(obj => obj.slug === groupFields[0]).type
             if (typeOfLastLabel === "LOOKUP") {
                 groupBySlug = groupColumns.find(obj => obj.slug === groupFields[0]).table_slug
@@ -5222,7 +5118,6 @@ let objectBuilder = {
                 table_ids.push(el.table_id)
             }
         })
-        console.log(">>> table_ids ", table_ids)
         let menu_ids = req.menus?.map(el => el.id)
 
         try {

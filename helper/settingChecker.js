@@ -7,7 +7,6 @@ const objectBuilder = require("../models/object_builder");
 
 
 module.exports = async function (mongoConn, project_id) {
-    console.log("Language insert function working...")
     const Table = mongoConn.models['Table']
     const Field = mongoConn.models['Field']
     const Role = mongoConn.models['role']
@@ -41,7 +40,6 @@ module.exports = async function (mongoConn, project_id) {
             return true
         }
     })
-    // console.log("#test 1 ", setting_tables, table_data)
     let setting_field_ids = []
     let setting_fields = field_data.filter(el => {
         if (
@@ -57,7 +55,6 @@ module.exports = async function (mongoConn, project_id) {
             return true
         }
     })
-    console.log("#test 1", setting_fields.length, setting_field_ids)
     let setting_relation_ids = []
     let setting_relations = relation_data.filter(el => {
         if(
@@ -112,5 +109,4 @@ module.exports = async function (mongoConn, project_id) {
         await FieldPermission.insertMany(setting_field_permissions)
     }
 
-    console.log("Language insert function done")
 }

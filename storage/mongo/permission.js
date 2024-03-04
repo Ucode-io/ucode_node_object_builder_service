@@ -268,9 +268,7 @@ let permission = {
             null,
             { sort: { createdAt: -1 } }
         )
-        // console.log(">>>>>>>> test #1 ", new Date(), role) 
         if (!role) {
-            console.log('WARNING role not found')
             throw new Error('Error role not found')
         }
 
@@ -333,10 +331,8 @@ let permission = {
 
         const tables = await Table.aggregate(tablePipeline)
 
-        // console.log(">>>>>>>> test #2 ", new Date())
 
         if (!tables || !tables.length) {
-            console.log('WARNING apps not found')
             return roleCopy
         }
 
@@ -730,7 +726,6 @@ let permission = {
             }
         })
 
-        // console.log(">>>>>>>> test #3 ", new Date())
         let viewPermissions = await Tab.aggregate(tabPipeline)
         let viewPermission = {}
         viewPermissions.forEach(el => {
@@ -740,7 +735,6 @@ let permission = {
                 viewPermission[el.table_slug].push(el)
             }
         })
-        // console.log(">>>>>>>> test #4 ", new Date())
         let actionPermissions = await CustomEvent.aggregate(actionPermissionPipeline)
         let actionPermission = {}
         actionPermissions.forEach(el => {
@@ -756,7 +750,6 @@ let permission = {
 
         let tablesList = []
         for (let table of tables) {
-            console.log(">>>>>>>>>>>> table attributes ", table)
             let tableCopy = {
                 ...table,
                 record_permissions: table.record_permissions || null,
@@ -772,7 +765,6 @@ let permission = {
                 }
             }
             if (!tableCopy.record_permissions) {
-                console.log('WARNING record_permissions not found')
                 tableCopy.record_permissions = {
                     table_slug: table.slug,
                     role_id: req.role_id,
@@ -787,7 +779,6 @@ let permission = {
             let tableFields = fields[table.id]
             tableCopy.field_permissions = []
             tableFields && tableFields.length && tableFields.forEach(field => {
-                console.log(">>>>>>>>>>>> field attributes ", field.attributes)
                 if (field.field_permissions) {
                     const temp = field.field_permissions
                     tableCopy.field_permissions.push({
@@ -816,7 +807,6 @@ let permission = {
             let tableRelationViews = viewPermission[table.slug]
             tableCopy.view_permissions = []
             tableRelationViews && tableRelationViews.length && tableRelationViews.forEach(el => {
-                console.log(">>>>>>>>>>>> view attributes ", el.attributes)
                 if (el.view_permissions) {
                     const temp = el.view_permissions
                     tableCopy.view_permissions.push({
@@ -848,7 +838,6 @@ let permission = {
             let tableViews = tableViewPermission[table.slug]
             tableCopy.table_view_permissions = []
             tableViews && tableViews.length && tableViews.forEach(el => {
-                console.log(">>>>>>>>>>>> tab attributes ", el.attributes)
                 if (el.view_permissions) {
                     const temp = el.view_permissions
                     tableCopy.table_view_permissions.push({
@@ -875,7 +864,6 @@ let permission = {
             })
 
             if (actionPermission && actionPermission[table.slug]) {
-                // console.log(">>>>>>>>>>.. ", actionPermission[table.slug])
                 tableCopy.action_permissions = actionPermission[table.slug]
             } else {
                 tableCopy.action_permissions = []
@@ -885,14 +873,11 @@ let permission = {
             }
             tablesList.push(tableCopy)
         }
-        // console.log(">>>>>>>> test #7 ", new Date())
         // appCopy.tables = tablesList
         // appsList.push(appCopy)
         let end = new Date()
-        // console.log("tablesList length:::", tablesList.length);
         roleCopy.tables = tablesList
         roleCopy.global_permission = await CustomPermission?.findOne({ role_id: roleCopy.guid }) || {}
-        // console.log("\n\n time ", start, "\n", end, "\n", end - start)
         // return {project_id: "asd", data: {}}
         return { project_id: req.project_id, data: roleCopy }
 
@@ -1519,7 +1504,6 @@ let permission = {
     }),
     getAllMenuPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.gettAllMenuPermissions`, async (data) => {
         try {
-            // console.log("data:", data);
 
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
 

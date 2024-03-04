@@ -3652,7 +3652,7 @@ let objectBuilder = {
                     { slug: { $in: relationFieldSlugsR } },
                     params.version_id,
                     false
-                ); 
+                );  
                 for (const childRelationTable of childRelationTables) {
                     if (!childRelationTablesMap[childRelationTable.slug]) {
                         childRelationTablesMap[childRelationTable.slug] = childRelationTable;

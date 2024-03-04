@@ -3520,6 +3520,9 @@ let objectBuilder = {
             if (field.relation_id) {
                 tableRelationFields[fields.relation_id] = field
             }
+            if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
+                field.id = field.relation_id
+            }
         })
         let with_relations = params.with_relations
 

@@ -5019,8 +5019,6 @@ let objectBuilder = {
     }),
     groupByColumns: catchWrapDbObjectBuilder(`${NAMESPACE}.groupByColumns`, async (req) => {
         const mongoConn = await mongoPool.get(req.project_id)
-        const View = mongoConn.models['View']
-        const Table = mongoConn.models['Table']
         const Relation = mongoConn.models['Relation']
         const params = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
@@ -5041,45 +5039,6 @@ let objectBuilder = {
         if (view.attributes && view.attributes.group_by_columns && view.attributes.group_by_columns.length) {
             groupColumnIds = view.attributes.group_by_columns
         }
-
-        const { columns, attributes: { group_by_columns } } = view;
-
-        const reorderedColumns = [
-            ...group_by_columns.filter(column => columns.includes(column)),
-            ...columns.filter(column => !group_by_columns.includes(column))
-        ];
-
-        const modifiedObject = {
-            ...view,
-            columns: reorderedColumns
-        };
-
-        const newView = await View.findOneAndUpdate(
-            {
-                id: modifiedObject.id,
-            }, 
-            {
-                $set: modifiedObject
-            },
-            {
-                new: true
-            }
-        )
-
-        const resp = await Table.findOneAndUpdate({
-            slug: newView.table_slug,
-        },
-            {
-                $set: {
-                    is_changed: true,
-                    is_changed_by_host: {
-                        [os.hostname()]: true
-                    }
-                }
-            },
-            {
-                new: true
-            })
 
         const fields = tableInfo?.fields || []
         const fieldsMap = {}

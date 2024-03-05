@@ -5020,6 +5020,7 @@ let objectBuilder = {
     groupByColumns: catchWrapDbObjectBuilder(`${NAMESPACE}.groupByColumns`, async (req) => {
         const mongoConn = await mongoPool.get(req.project_id)
         const View = mongoConn.models['View']
+        const Table = mongoConn.models['Table']
         const Relation = mongoConn.models['Relation']
         const params = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
@@ -5064,6 +5065,21 @@ let objectBuilder = {
                 new: true
             }
         )
+
+        const resp = await Table.findOneAndUpdate({
+            slug: newView.table_slug,
+        },
+            {
+                $set: {
+                    is_changed: true,
+                    is_changed_by_host: {
+                        [os.hostname()]: true
+                    }
+                }
+            },
+            {
+                new: true
+            })
 
         const fields = tableInfo?.fields || []
         const fieldsMap = {}

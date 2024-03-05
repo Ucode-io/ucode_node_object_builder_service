@@ -119,17 +119,43 @@ let viewStore = {
                 throw new Error("View not found with given id")
             }
 
-            const view = await View.findOneAndUpdate(
-                {
-                    id: data.id,
-                },
-                {
-                    $set: data
-                },
-                {
-                    new: true
-                }
-            )
+            if (data.type == "TABLE" && data?.attributes?.group_by_columns) {
+                const { columns, attributes: { group_by_columns } } = data;
+
+                const reorderedColumns = [
+                ...group_by_columns.filter(column => columns.includes(column)),
+                ...columns.filter(column => !group_by_columns.includes(column))
+                ];
+
+                const modifiedObject = {
+                    ...data,
+                    columns: reorderedColumns
+                };
+
+                const newView = await View.findOneAndUpdate(
+                    {
+                        id: modifiedObject.id,
+                    }, 
+                    {
+                        $set: modifiedObject
+                    },
+                    {
+                        new: true
+                    }
+                )
+            } else {
+                const view = await View.findOneAndUpdate(
+                    {
+                        id: data.id,
+                    },
+                    {
+                        $set: data
+                    },
+                    {
+                        new: true
+                    }
+                )
+            }
 
             const resp = await Table.findOneAndUpdate({
                 slug: data.table_slug,

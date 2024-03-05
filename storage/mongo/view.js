@@ -114,13 +114,14 @@ let viewStore = {
                 await BoardOrderChecker(mongoConn, data.table_slug)
             }
             
-            const beforeUpdate = await View.findOne({id: data.id})
-            if(!beforeUpdate) {
-                throw new Error("View not found with given id")
-            }
+            // const beforeUpdate = await View.findOne({id: data.id})
+            // if(!beforeUpdate) {
+            //     throw new Error("View not found with given id")
+            // }
 
-            if (data.type == "TABLE" && data?.attributes?.group_by_columns) {
-                const { columns, attributes: { group_by_columns } } = data;
+            let view = data;
+            if (view.type == VIEW_TYPES.TABLE && view?.attributes?.group_by_columns.length != 0) {
+                const { columns, attributes: { group_by_columns } } = view;
 
                 const reorderedColumns = [
                 ...group_by_columns.filter(column => columns.includes(column)),
@@ -128,34 +129,24 @@ let viewStore = {
                 ];
 
                 const modifiedObject = {
-                    ...data,
+                    ...view,
                     columns: reorderedColumns
                 };
 
-                const newView = await View.findOneAndUpdate(
-                    {
-                        id: modifiedObject.id,
-                    }, 
-                    {
-                        $set: modifiedObject
-                    },
-                    {
-                        new: true
-                    }
-                )
-            } else {
-                const view = await View.findOneAndUpdate(
-                    {
-                        id: data.id,
-                    },
-                    {
-                        $set: data
-                    },
-                    {
-                        new: true
-                    }
-                )
+                view = modifiedObject
             }
+
+            const newView = await View.findOneAndUpdate(
+                {
+                    id: view.id,
+                }, 
+                {
+                    $set: view
+                },
+                {
+                    new: true
+                }
+            )
 
             const resp = await Table.findOneAndUpdate({
                 slug: data.table_slug,
@@ -174,7 +165,7 @@ let viewStore = {
 
              
 
-            return view;
+            return newView;
 
         } catch (err) {
             throw err

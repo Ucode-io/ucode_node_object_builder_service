@@ -88,15 +88,15 @@ deploy-object-builder-low:
   only:
     - master
 
-deploy-ett-prod:
-  stage: deploy
-  extends: .deploy_template
-  variables:
-    NAMESPACE: ett-prod
-    VALUES_FILE: .helm/values-ett-prod.yml
-    K8SCONFIGJSON: $UCODE_KUBECONFIG
-  only:
-    - master
+# deploy-ett-prod:
+#   stage: deploy
+#   extends: .deploy_template
+#   variables:
+#     NAMESPACE: ett-prod
+#     VALUES_FILE: .helm/values-ett-prod.yml
+#     K8SCONFIGJSON: $UCODE_KUBECONFIG
+#   only:
+#     - master
 
 
 

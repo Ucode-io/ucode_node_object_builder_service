@@ -121,19 +121,12 @@ let viewStore = {
 
             let view = data;
             if (view.type == VIEW_TYPES.TABLE && view?.attributes?.group_by_columns.length != 0) {
-                const { columns, attributes: { group_by_columns } } = view;
-
                 const reorderedColumns = [
-                ...group_by_columns.filter(column => columns.includes(column)),
-                ...columns.filter(column => !group_by_columns.includes(column))
-                ];
+                    ...view.attributes.group_by_columns,
+                    ...view.columns.filter(id => !view.attributes.group_by_columns.includes(id))
+                  ];
 
-                const modifiedObject = {
-                    ...view,
-                    columns: reorderedColumns
-                };
-
-                view = modifiedObject
+                view.columns = reorderedColumns
             }
 
             const newView = await View.findOneAndUpdate(

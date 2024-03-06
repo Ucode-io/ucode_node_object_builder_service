@@ -10795,3 +10795,37 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'Error while auto connecting by project id',
+  level: 'error',
+  timestamp: '2024-03-06T12:00:51.296Z',
+  label: 'object_builder_service',
+  metadata: {
+    function: 'autoConn',
+    error: Error: 14 UNAVAILABLE: No connection established
+        at Object.callErrorFromStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client.js:180:52)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+        at Object.onReceiveStatus (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+        at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      code: 14,
+      details: 'No connection established',
+      metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+    }
+  }
+}
+{
+  message: 'service.view.update: failed with error: groupBySet is not defined',
+  level: 'error',
+  timestamp: '2024-03-06T12:08:23.709Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.view.update: failed with error: data.attributes.group_by_columns.has is not a function',
+  level: 'error',
+  timestamp: '2024-03-06T12:11:26.294Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

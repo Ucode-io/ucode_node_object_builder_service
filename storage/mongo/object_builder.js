@@ -2680,11 +2680,7 @@ let objectBuilder = {
                     }
                   ).sort(order);
                   
-                  if (params.search && params.search !== "") {
-                    query = query.skip(0);
-                  } else {
-                    query = query.skip(offset);
-                  }
+                  query = query.skip(offset);
                   
                 result = await query.limit(limit).populate(populateArr).lean();
                   

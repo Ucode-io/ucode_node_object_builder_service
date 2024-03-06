@@ -120,7 +120,7 @@ let viewStore = {
             // }
 
             let view = data;
-            if (view.type == VIEW_TYPES.TABLE && view?.attributes?.group_by_columns.length != 0) {
+            if (view.type == VIEW_TYPES.TABLE && view?.attributes?.group_by_columns?.length != 0) {
                 const { columns, attributes: { group_by_columns } } = view;
 
                 const reorderedColumns = [

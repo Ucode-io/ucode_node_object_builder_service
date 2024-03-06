@@ -114,17 +114,34 @@ let viewStore = {
                 await BoardOrderChecker(mongoConn, data.table_slug)
             }
             
-            const beforeUpdate = await View.findOne({id: data.id})
-            if(!beforeUpdate) {
-                throw new Error("View not found with given id")
+            // const beforeUpdate = await View.findOne({id: data.id})
+            // if(!beforeUpdate) {
+            //     throw new Error("View not found with given id")
+            // }
+
+            let view = data;
+            if (view.type == VIEW_TYPES.TABLE && view?.attributes?.group_by_columns.length != 0) {
+                const { columns, attributes: { group_by_columns } } = view;
+
+                const reorderedColumns = [
+                ...group_by_columns.filter(column => columns.includes(column)),
+                ...columns.filter(column => !group_by_columns.includes(column))
+                ];
+
+                const modifiedObject = {
+                    ...view,
+                    columns: reorderedColumns
+                };
+
+                view = modifiedObject
             }
 
-            const view = await View.findOneAndUpdate(
+            const newView = await View.findOneAndUpdate(
                 {
-                    id: data.id,
-                },
+                    id: view.id,
+                }, 
                 {
-                    $set: data
+                    $set: view
                 },
                 {
                     new: true
@@ -148,7 +165,7 @@ let viewStore = {
 
              
 
-            return view;
+            return newView;
 
         } catch (err) {
             throw err

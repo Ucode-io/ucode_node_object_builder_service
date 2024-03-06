@@ -4904,7 +4904,6 @@ let objectBuilder = {
     }),
     groupByColumns: catchWrapDbObjectBuilder(`${NAMESPACE}.groupByColumns`, async (req) => {
         const mongoConn = await mongoPool.get(req.project_id)
-        const View = mongoConn.models['View']
         const Relation = mongoConn.models['Relation']
         const params = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
@@ -4920,11 +4919,12 @@ let objectBuilder = {
         if (!view) {
             throw new Error("View not found")
         }
+
         let groupColumnIds = []
         if (view.attributes && view.attributes.group_by_columns && view.attributes.group_by_columns.length) {
-
             groupColumnIds = view.attributes.group_by_columns
         }
+
         const fields = tableInfo?.fields || []
         const fieldsMap = {}
         const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))
@@ -4940,7 +4940,7 @@ let objectBuilder = {
         const numberfieldWithDollorSign = {}
         const projectColumnsWithDollorSign = {}
         const dynamicConfig = {
-            groupByFields: [], // Specify the two columns you want to group by
+            groupByFields: [], 
         };
         numberColumns.forEach(el => {
             sumFieldWithDollorSign[el.slug] = { $sum: "$" + el.slug }
@@ -4961,6 +4961,7 @@ let objectBuilder = {
                 }
             ]
         })
+
         let lookups = [], lookupFields = {}, lookupFieldsWithAccumulator = {}, lookupGroupField = {}, groupRelation;
         for (const relation of relations) {
             let table_to_slug = ""
@@ -5023,9 +5024,7 @@ let objectBuilder = {
                 groupFields.forEach(el => {
                     temp[el] = "$_id." + el
                 });
-                // if (i > 1) {
                 projection["data"] = '$data';
-                // }
                 if (Object.keys(temp).length === 1) {
                     groupBy["_id"] = temp[Object.keys(temp)[0]];
                 } else {
@@ -5079,7 +5078,7 @@ let objectBuilder = {
             titleField = "label"
         }
 
-        if (lookups.length != 0) {
+        if (typeOfLastLabel == "LOOKUP") {
             aggregationPipeline.push({
                 $lookup: {
                     from: groupRelation,

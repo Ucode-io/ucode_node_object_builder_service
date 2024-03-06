@@ -161,8 +161,8 @@ affinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
         - matchExpressions:
-            - key: kubernetes.io/object-builder-high
+            - key: workload
               operator: In
               values:
-                - "true"
+                - "ucode-prod"
 

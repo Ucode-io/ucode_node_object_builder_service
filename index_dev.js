@@ -28,19 +28,19 @@ const logger = require("./config/logger");
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "68f2d720-5bed-4ed6-81fd-6d7084c96bb6",  
+            project_id: "3bf18b7b-4c9f-4166-b20f-cbb430ea03bc",  
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "vertebra_vertebra_object_builder_service",
-                username: "vertebra_vertebra_object_builder_service",
-                password: "f7NJv0ZaKr"
+                database: "logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs",
+                username: "logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs",
+                password: "zWWzDFqtVQ"
             }
         })
 
+        //mongodb://logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs:zWWzDFqtVQ@142.93.164.37:27017/logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs
         //mongodb://vertebra_vertebra_object_builder_service:f7NJv0ZaKr@142.93.164.37:27017/vertebra_vertebra_object_builder_service
         //mongodb://uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs:vBPqHBE2gm@142.93.164.37:27017/uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs
-
         //mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs
         //mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs
         //mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service

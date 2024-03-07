@@ -1622,6 +1622,8 @@ let objectBuilder = {
             if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
                 params["guid"] = params["user_id_from_token"]
             }
+
+            params["client_type_id"] = clientTypeId
         }
         let views = tableInfo.views;
         for (let view of views) {

@@ -28,13 +28,13 @@ const logger = require("./config/logger");
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "ae7e025f-3d3c-4edc-af41-a71e5951f9bd",  
+            project_id: "68f2d720-5bed-4ed6-81fd-6d7084c96bb6",  
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                username: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                password: "vwdG8B7gzO"
+                database: "vertebra_vertebra_object_builder_service",
+                username: "vertebra_vertebra_object_builder_service",
+                password: "f7NJv0ZaKr"
             }
         })
 

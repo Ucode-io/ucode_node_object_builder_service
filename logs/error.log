@@ -10829,3 +10829,52 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2024-03-11T10:54:52.056Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2024-03-11T10:56:59.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2024-03-11T10:59:46.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2024-03-11T11:06:32.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
+  level: 'error',
+  timestamp: '2024-03-11T11:13:55.488Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
+  level: 'error',
+  timestamp: '2024-03-11T11:16:40.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
+  level: 'error',
+  timestamp: '2024-03-11T11:19:45.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

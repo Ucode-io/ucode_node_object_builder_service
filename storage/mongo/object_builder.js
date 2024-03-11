@@ -1622,6 +1622,8 @@ let objectBuilder = {
             if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
                 params["guid"] = params["user_id_from_token"]
             }
+
+            params["client_type_id"] = clientTypeId
         }
         let views = tableInfo.views;
         for (let view of views) {
@@ -2298,7 +2300,7 @@ let objectBuilder = {
         if (!tableInfo) {
             throw new Error("table not found")
         }
-       
+
         let keys = Object.keys(params)
         let order = params.order || {}
         let fields = tableInfo.fields
@@ -2501,7 +2503,6 @@ let objectBuilder = {
                 params[key] = RegExp(params[key], "i")
             }
         }
-
         let { unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
 
@@ -2704,8 +2705,16 @@ let objectBuilder = {
             if (ids.length) {
                 additional_param[params.additional_request.additional_field] = { $in: ids }
                 if (relations.length == 0) {
+                    const flattenedGuids = additional_param.guid.$in.flat();
+
+                    const outputQuery = {
+                        guid: {
+                            $in: flattenedGuids        
+                        }
+                    };
+
                     additional_results = await tableInfo.models.find({
-                        ...additional_param
+                        ...outputQuery
                     },
                         {
                             createdAt: 0,
@@ -2719,8 +2728,16 @@ let objectBuilder = {
                     )
                         .lean();
                 } else {
+                    const flattenedGuids = additional_param.guid.$in.flat();
+
+                    const outputQuery = {
+                        guid: {
+                            $in: flattenedGuids        
+                        }
+                    };
+                    
                     additional_results = await tableInfo.models.find({
-                        ...additional_param
+                        ...outputQuery
                     },
                         {
                             createdAt: 0,
@@ -2858,7 +2875,7 @@ let objectBuilder = {
                 updatedObjects.push(res)
             }
         }
-
+        
 
         // console.time("TIME_LOGGING:::length")
         if (updatedObjects.length) {

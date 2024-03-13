@@ -10322,3 +10322,157 @@
       '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
   }
 }
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2024-03-12T11:15:04.462Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2024-03-12T11:20:33.644Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2024-03-12T11:21:35.053Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'order_by')",
+  level: 'error',
+  timestamp: '2024-03-12T11:24:06.325Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2024-03-12T11:24:32.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2024-03-12T11:27:52.418Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2024-03-12T11:39:31.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2024-03-12T12:03:46.959Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'slug')",
+  level: 'error',
+  timestamp: '2024-03-12T12:09:45.581Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2024-03-12T12:44:04.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/5/i" (type RegExp) at path "amount" for model "transaction"',
+  level: 'error',
+  timestamp: '2024-03-13T05:28:43.078Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/5/i" (type RegExp) at path "amount" for model "transaction"',
+  level: 'error',
+  timestamp: '2024-03-13T05:39:21.707Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/5/i" (type RegExp) at path "amount" for model "transaction"',
+  level: 'error',
+  timestamp: '2024-03-13T07:43:57.367Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: table not found',
+  level: 'error',
+  timestamp: '2024-03-13T08:19:15.378Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/34/i" (type RegExp) at path "Amount" for model "test_table"',
+  level: 'error',
+  timestamp: '2024-03-13T08:21:14.204Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/34/i" (type RegExp) at path "Amount" for model "test_table"',
+  level: 'error',
+  timestamp: '2024-03-13T08:25:34.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/34/i" (type RegExp) at path "Amount" for model "test_table"',
+  level: 'error',
+  timestamp: '2024-03-13T08:26:42.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/34/i" (type RegExp) at path "Amount" for model "test_table"',
+  level: 'error',
+  timestamp: '2024-03-13T08:30:49.319Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/34/i" (type RegExp) at path "Amount" for model "test_table"',
+  level: 'error',
+  timestamp: '2024-03-13T08:34:13.067Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/34/i" (type RegExp) at path "Amount" for model "test_table"',
+  level: 'error',
+  timestamp: '2024-03-13T08:36:59.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/456.546456/i" (type RegExp) at path "Amount" for model "test_table"',
+  level: 'error',
+  timestamp: '2024-03-13T08:45:39.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Cast to Number failed for value "/456.546456/i" (type RegExp) at path "Amount" for model "test_table"',
+  level: 'error',
+  timestamp: '2024-03-13T08:47:59.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

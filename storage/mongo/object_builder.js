@@ -2500,7 +2500,13 @@ let objectBuilder = {
                         params[key] = params[key].replaceAll(")", ("\\)"))
                     }
                 }
-                params[key] = RegExp(params[key], "i")
+                const numberPattern = /^[0-9]*\.?[0-9]+$/;
+                if (numberPattern.test(params[key])) {
+                    parseNum = parseFloat(params[key])
+                    params[key] = parseNum
+                } else {
+                    params[key] = RegExp(params[key], "i")
+                }
             }
         }
         let { unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
@@ -4990,12 +4996,17 @@ let objectBuilder = {
                 continue
             }
             let from = pluralize.plural(relation.table_to)
-            if (groupColumnIds.includes(field.id) || groupColumnIds.includes(field.relation_id)) {
+            if (groupColumnIds.includes(field.id)) {
                 lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
                 groupRelation = pluralize.plural(relation.table_to)
             } else {
                 lookupFields[table_to_slug] = "$" + table_to_slug
                 lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
+            }
+
+            if (groupColumnIds.includes(field.relation_id)) {
+                lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
+                groupRelation = pluralize.plural(relation.table_to)
             }
             lookups.push({
                 $lookup: {

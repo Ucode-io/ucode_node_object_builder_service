@@ -2,13 +2,13 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 global:
-  replicaCount: 3
+  replicaCount: 1
   environment: {}
   # list of key: value
   # GLOBAL1: value
 labels:
   app: ucode-node-object-builder-service
-replicaCount: 3
+replicaCount: 1
 
 image:
   registry: gitlab.udevs.io:5050
@@ -164,4 +164,4 @@ affinity:
             - key: workload
               operator: In
               values:
-                - "ucode-prod"
+                - "object-builder-low"

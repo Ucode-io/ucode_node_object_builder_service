@@ -5118,11 +5118,12 @@ let objectBuilder = {
             }
             let projection = {}
             projectFields.forEach(el => {
-                if (params.view_type == "TIMELINE") {
-                    projection["label"] = "$_id." + el
-                } else if (params.view_type == "TABLE") {
-                    projection[el] = "$_id." + el
-                }
+                // if (params.view_type == "TIMELINE") {
+                //     projection["label"] = "$_id." + el
+                // } else if (params.view_type == "TABLE") {
+                //     projection[el] = "$_id." + el
+                // }
+                projection[el] = "$_id." + el
                 const matchingField = groupColumns.find(obj => obj.slug === el);
                 if (matchingField.type == "LOOKUP") {
                     projection["group_by_slug"] = matchingField.table_slug

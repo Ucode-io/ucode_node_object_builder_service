@@ -5192,11 +5192,8 @@ let objectBuilder = {
             let projectFields = dynamicConfig.groupByFields.slice(groupFieldsAgg.length, groupFieldsAgg.length + 1)
             aggregationPipeline = aggregationPipeline.concat(createDynamicAggregationPipeline(groupFieldsAgg, projectFields, i, lookupAddFields))
         }
-        if (params.view_type == "TABLE") {
-            titleField = groupFieldsAgg[0]
-        } else {
-            titleField = "label"
-        }
+
+        titleField = groupFieldsAgg[0]
 
         if (typeOfLastLabel == "LOOKUP") {
             aggregationPipeline.push({

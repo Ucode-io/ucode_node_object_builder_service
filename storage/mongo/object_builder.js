@@ -5045,11 +5045,7 @@ let objectBuilder = {
         const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))
         const groupColumns = []
         fields.forEach(el => {
-            if (el.type == "LOOKUP") {
-                fieldsMap[el.relation_id] = el
-            } else {
-                fieldsMap[el.id] = el
-            }
+            fieldsMap[el.id] = el
         })
         groupColumnIds.forEach(columnId => {
             groupColumns.push(fieldsMap[columnId])

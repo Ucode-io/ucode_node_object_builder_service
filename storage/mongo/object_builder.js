@@ -5194,11 +5194,12 @@ let objectBuilder = {
             aggregationPipeline = aggregationPipeline.concat(createDynamicAggregationPipeline(groupFieldsAgg, projectFields, i, lookupAddFields))
         }
 
+        let secTitleField = ""
         if (params.view_type == "TABLE") {
             titleField = groupFieldsAgg[0]
         } else {
             titleField = "label"
-            titleField = groupFieldsAgg[0]
+            secTitleField = groupFieldsAgg[0]
         }
 
         if (typeOfLastLabel == "LOOKUP") {
@@ -5212,18 +5213,34 @@ let objectBuilder = {
             })  
         }
 
-        aggregationPipeline.push({
-            '$addFields': {
-                [titleField]: '$_id',
-                'group_by_type': typeOfLastLabel,
-                'group_by_slug': groupBySlug,
-                'createdAt': {
-                    "$arrayElemAt": [
-                        "$data.createdAt", 0
-                    ]
-                }
-            },
-        }, {"$sort": order})
+        if (params.view_type == "TABLE") {
+            aggregationPipeline.push({
+                '$addFields': {
+                    [titleField]: '$_id',
+                    'group_by_type': typeOfLastLabel,
+                    'group_by_slug': groupBySlug,
+                    'createdAt': {
+                        "$arrayElemAt": [
+                            "$data.createdAt", 0
+                        ]
+                    }
+                },
+            }, {"$sort": order})
+        } else {
+            aggregationPipeline.push({
+                '$addFields': {
+                    [titleField]: '$_id',
+                    [secTitleField]: '$_id',
+                    'group_by_type': typeOfLastLabel,
+                    'group_by_slug': groupBySlug,
+                    'createdAt': {
+                        "$arrayElemAt": [
+                            "$data.createdAt", 0
+                        ]
+                    }
+                },
+            }, {"$sort": order})
+        }
 
         fs.writeFileSync('./a.json', JSON.stringify(aggregationPipeline))
 

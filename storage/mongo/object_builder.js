@@ -5120,6 +5120,7 @@ let objectBuilder = {
             projectFields.forEach(el => {
                 if (params.view_type == "TIMELINE") {
                     projection["label"] = "$_id." + el
+                    projection[el] = "$_id." + el
                 } else if (params.view_type == "TABLE") {
                     projection[el] = "$_id." + el
                 }
@@ -5197,6 +5198,7 @@ let objectBuilder = {
             titleField = groupFieldsAgg[0]
         } else {
             titleField = "label"
+            titleField = groupFieldsAgg[0]
         }
 
         if (typeOfLastLabel == "LOOKUP") {

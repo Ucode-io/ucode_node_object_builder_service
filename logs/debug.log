@@ -15783,3 +15783,255 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-18T08:22:43.855Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-18T08:22:43.863Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-18T08:22:43.865Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-18T08:22:45.265Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-18T08:24:59.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-18T08:25:16.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-18T08:40:42.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-18T08:40:42.786Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-18T08:40:42.788Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-18T08:40:43.998Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-18T08:41:43.681Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-18T08:43:58.699Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-18T08:44:44.621Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-18T08:44:44.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-18T08:44:44.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-18T08:44:45.994Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-18T08:46:13.921Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-18T08:47:48.714Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-18T08:48:39.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-18T08:48:39.454Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-18T08:48:39.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-18T08:48:41.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-18T08:49:45.508Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-18T08:50:15.370Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-18T08:52:02.447Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-18T08:52:02.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-18T08:52:02.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-18T08:52:03.247Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-18T08:53:07.946Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-18T08:54:17.579Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-18T08:58:14.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-18T08:58:14.276Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-18T08:58:14.277Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs:XXKIzpW6oG@65.109.239.69:30027/marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-18T08:58:15.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-18T08:59:49.705Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-18T09:01:18.715Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -5175,7 +5175,8 @@ let objectBuilder = {
                             [view.attributes.visible_field]: "$" + view.attributes.visible_field,
                             ...projectColumnsWithDollorSign,
                             ...numberfieldWithDollorSign,
-                            ...lookupAddFields
+                            ...lookupAddFields,
+                            ...lookupGroupField
                         }
                     };
                 } else {

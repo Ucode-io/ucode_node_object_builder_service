@@ -10919,3 +10919,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.groupByColumns: failed with error: View not found',
+  level: 'error',
+  timestamp: '2024-03-18T07:41:36.248Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

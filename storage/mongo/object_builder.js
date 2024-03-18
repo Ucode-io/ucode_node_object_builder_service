@@ -5216,7 +5216,16 @@ let objectBuilder = {
             secTitleField = groupFieldsAgg[0]
         }
 
-        if (typeOfLastLabel == "LOOKUP") {
+        if (typeOfLastLabel == "LOOKUP" && secTitleField != "") {
+            aggregationPipeline.push({
+                $lookup: {
+                    from: groupRelation,
+                    localField: "_id",
+                    foreignField: "guid",
+                    as: secTitleField + "_data"
+                }
+            })  
+        } else {
             aggregationPipeline.push({
                 $lookup: {
                     from: groupRelation,
@@ -5224,7 +5233,7 @@ let objectBuilder = {
                     foreignField: "guid",
                     as: titleField + "_data"
                 }
-            })  
+            })
         }
 
         if (params.view_type == "TABLE") {

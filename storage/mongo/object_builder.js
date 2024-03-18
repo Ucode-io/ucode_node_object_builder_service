@@ -5225,7 +5225,7 @@ let objectBuilder = {
                     as: secTitleField + "_data"
                 }
             })  
-        } else {
+        } else if (typeOfLastLabel == "LOOKUP") {
             aggregationPipeline.push({
                 $lookup: {
                     from: groupRelation,

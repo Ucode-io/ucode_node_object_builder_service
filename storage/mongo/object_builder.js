@@ -5166,15 +5166,29 @@ let objectBuilder = {
                 } else {
                     groupBy["_id"] = temp;
                 }
-                groupBy["data"] = {
-                    $push: {
-                        "guid": "$guid",
-                        "createdAt": "$createdAt",
-                        ...projectColumnsWithDollorSign,
-                        ...numberfieldWithDollorSign,
-                        ...lookupAddFields
-                    }
-                };
+
+                if (params.view_type == "TIMELINE") {
+                    groupBy["data"] = {
+                        $push: {
+                            "guid": "$guid",
+                            "createdAt": "$createdAt",
+                            [view.attributes.visible_field]: "$" + view.attributes.visible_field,
+                            ...projectColumnsWithDollorSign,
+                            ...numberfieldWithDollorSign,
+                            ...lookupAddFields
+                        }
+                    };
+                } else {
+                    groupBy["data"] = {
+                        $push: {
+                            "guid": "$guid",
+                            "createdAt": "$createdAt",
+                            ...projectColumnsWithDollorSign,
+                            ...numberfieldWithDollorSign,
+                            ...lookupAddFields
+                        }
+                    };
+                }
             }
             return r.concat({$group: groupBy})
         }

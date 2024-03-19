@@ -6,9 +6,10 @@ const secretKey = 'eezei5eaJah7mohNgohxo1Eb3wiex1sh';
 
 const minioClient = new Minio.Client({
     endPoint: endpoint,
+    port: 9002,
     accessKey: accessKey,
     secretKey: secretKey,
-    useSSL: true, 
+    useSSL: false, 
 })
 
 async function createMinioBucket(bucketName) {

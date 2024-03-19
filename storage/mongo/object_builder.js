@@ -4967,7 +4967,6 @@ let objectBuilder = {
         };
         numberColumns.forEach(el => {
             sumFieldWithDollorSign[el.slug] = { $sum: "$" + el.slug }
-            numberfieldWithDollorSign[el.slug] = "$" + el.slug
         })
         projectColumns.forEach(el => {
             projectColumnsWithDollorSign[el.slug] = "$" + el.slug
@@ -4985,7 +4984,7 @@ let objectBuilder = {
             ]
         })
 
-        let lookups = [], lookupFields = {}, lookupFieldsWithAccumulator = {}, lookupGroupField = {}, groupRelation;
+        let lookups = [], lookupFields = {}, lookupFieldsWithAccumulator = {}, lookupGroupField = {}, groupRelation, lookUpFor = [];
         for (const relation of relations) {
             let table_to_slug = ""
             const field = fields?.find(val => (val.relation_id === relation?.id))
@@ -4998,8 +4997,8 @@ let objectBuilder = {
             let from = pluralize.plural(relation.table_to)
             if (groupColumnIds.includes(field.id)) {
                 lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
-                numberfieldWithDollorSign[table_to_slug] = "$data." + table_to_slug
                 groupRelation = pluralize.plural(relation.table_to)
+                numberfieldWithDollorSign[table_to_slug] = "$" + table_to_slug
             } else {
                 lookupFields[table_to_slug] = "$" + table_to_slug
                 lookupFieldsWithAccumulator[table_to_slug] = { $first: "$" + table_to_slug }
@@ -5007,13 +5006,22 @@ let objectBuilder = {
 
             if (groupColumnIds.includes(field.relation_id)) {
                 lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
-                numberfieldWithDollorSign[table_to_slug] = "$data." + table_to_slug
-                groupRelation = pluralize.plural(relation.table_to)
+                if (groupColumnIds[0] == field.relation_id) {
+                    groupRelation = pluralize.plural(relation.table_to)
+                }
             }
             lookups.push({
                 $lookup: {
                     from: from,
                     localField: field.slug,
+                    foreignField: "guid",
+                    as: table_to_slug
+                }
+            })
+            lookUpFor.push({
+                $lookup: {
+                    from: from,
+                    localField: "_id." + field.slug,
                     foreignField: "guid",
                     as: table_to_slug
                 }
@@ -5050,6 +5058,7 @@ let objectBuilder = {
         
             let groupBy = {}
             if (projectFields.length) {
+                r = [...lookUpFor]
                 let temp = {}
                 Object.assign(projection, numberfieldWithDollorSign)
                 groupFields.forEach(el => {

@@ -6797,3 +6797,255 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:13:00.555Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:13:00.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:13:00.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:13:01.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:14:18.213Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'push')",
+  level: 'error',
+  timestamp: '2024-03-19T21:14:23.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:15:51.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:15:51.866Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:15:51.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:15:53.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:17:14.775Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: lookUpFor.push is not a function',
+  level: 'error',
+  timestamp: '2024-03-19T21:17:17.848Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:18:15.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:18:15.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:18:15.150Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:18:16.394Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:19:56.188Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-19T21:19:57.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:21:46.471Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:21:46.477Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:21:46.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:21:47.461Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:23:21.617Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-19T21:23:44.696Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:24:52.554Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:24:52.560Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:24:52.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:24:53.518Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:26:34.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-19T21:26:38.482Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:29:22.828Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:29:22.834Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:29:22.835Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:29:23.627Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:30:55.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-19T21:31:29.673Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

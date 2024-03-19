@@ -10525,3 +10525,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.object_builder.groupByColumns: failed with error: Cannot read properties of undefined (reading 'push')",
+  level: 'error',
+  timestamp: '2024-03-19T21:14:23.734Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: failed with error: lookUpFor.push is not a function',
+  level: 'error',
+  timestamp: '2024-03-19T21:17:17.848Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

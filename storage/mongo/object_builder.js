@@ -4949,7 +4949,7 @@ let objectBuilder = {
         const numberColumns = fields.filter(el => ((constants.NUMBER_TYPES.includes(el.type) || el.type.includes("FORMULA")) && !groupColumnIds.includes(el.id)))
         const groupColumns = []
         fields.forEach(el => {
-            if (el.type == "LOOKUP") {
+            if (el.type == "LOOKUP" && params.view_type == "TABLE") {
                 fieldsMap[el.relation_id] = el
             } else {
                 fieldsMap[el.id] = el
@@ -5028,6 +5028,7 @@ let objectBuilder = {
             projectFields.forEach(el => {
                 if (params.view_type == "TIMELINE") {
                     projection["label"] = "$_id." + el
+                    projection[el] = "$_id." + el
                 } else if (params.view_type == "TABLE") {
                     projection[el] = "$_id." + el
                 }
@@ -5073,15 +5074,30 @@ let objectBuilder = {
                 } else {
                     groupBy["_id"] = temp;
                 }
-                groupBy["data"] = {
-                    $push: {
-                        "guid": "$guid",
-                        "createdAt": "$createdAt",
-                        ...projectColumnsWithDollorSign,
-                        ...numberfieldWithDollorSign,
-                        ...lookupAddFields
-                    }
-                };
+
+                if (params.view_type == "TIMELINE") {
+                    groupBy["data"] = {
+                        $push: {
+                            "guid": "$guid",
+                            "createdAt": "$createdAt",
+                            [view.attributes.visible_field]: "$" + view.attributes.visible_field,
+                            ...projectColumnsWithDollorSign,
+                            ...numberfieldWithDollorSign,
+                            ...lookupAddFields,
+                            ...lookupGroupField
+                        }
+                    };
+                } else {
+                    groupBy["data"] = {
+                        $push: {
+                            "guid": "$guid",
+                            "createdAt": "$createdAt",
+                            ...projectColumnsWithDollorSign,
+                            ...numberfieldWithDollorSign,
+                            ...lookupAddFields
+                        }
+                    };
+                }
             }
             return r.concat({$group: groupBy})
         }
@@ -5100,13 +5116,25 @@ let objectBuilder = {
             let projectFields = dynamicConfig.groupByFields.slice(groupFieldsAgg.length, groupFieldsAgg.length + 1)
             aggregationPipeline = aggregationPipeline.concat(createDynamicAggregationPipeline(groupFieldsAgg, projectFields, i, lookupAddFields))
         }
+
+        let secTitleField = ""
         if (params.view_type == "TABLE") {
             titleField = groupFieldsAgg[0]
         } else {
             titleField = "label"
+            secTitleField = groupFieldsAgg[0]
         }
 
-        if (typeOfLastLabel == "LOOKUP") {
+        if (typeOfLastLabel == "LOOKUP" && secTitleField != "") {
+            aggregationPipeline.push({
+                $lookup: {
+                    from: groupRelation,
+                    localField: "_id",
+                    foreignField: "guid",
+                    as: secTitleField + "_data"
+                }
+            })  
+        } else if (typeOfLastLabel == "LOOKUP") {
             aggregationPipeline.push({
                 $lookup: {
                     from: groupRelation,
@@ -5114,21 +5142,37 @@ let objectBuilder = {
                     foreignField: "guid",
                     as: titleField + "_data"
                 }
-            })  
+            })
         }
 
-        aggregationPipeline.push({
-            '$addFields': {
-                [titleField]: '$_id',
-                'group_by_type': typeOfLastLabel,
-                'group_by_slug': groupBySlug,
-                'createdAt': {
-                    "$arrayElemAt": [
-                        "$data.createdAt", 0
-                    ]
-                }
-            },
-        }, {"$sort": order})
+        if (params.view_type == "TABLE") {
+            aggregationPipeline.push({
+                '$addFields': {
+                    [titleField]: '$_id',
+                    'group_by_type': typeOfLastLabel,
+                    'group_by_slug': groupBySlug,
+                    'createdAt': {
+                        "$arrayElemAt": [
+                            "$data.createdAt", 0
+                        ]
+                    }
+                },
+            }, {"$sort": order})
+        } else {
+            aggregationPipeline.push({
+                '$addFields': {
+                    [titleField]: '$_id',
+                    [secTitleField]: '$_id',
+                    'group_by_type': typeOfLastLabel,
+                    'group_by_slug': groupBySlug,
+                    'createdAt': {
+                        "$arrayElemAt": [
+                            "$data.createdAt", 0
+                        ]
+                    }
+                },
+            }, {"$sort": order})
+        }
 
         fs.writeFileSync('./a.json', JSON.stringify(aggregationPipeline))
 

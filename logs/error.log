@@ -10553,3 +10553,10 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.groupByColumns: failed with error: columnIds is not defined',
+  level: 'error',
+  timestamp: '2024-03-19T22:22:35.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -5006,7 +5006,9 @@ let objectBuilder = {
 
             if (groupColumnIds.includes(field.relation_id)) {
                 lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
-                groupRelation = pluralize.plural(relation.table_to)
+                if (groupColumnIds[0] == field.relation_id) {
+                    groupRelation = pluralize.plural(relation.table_to)
+                }
             }
             lookups.push({
                 $lookup: {

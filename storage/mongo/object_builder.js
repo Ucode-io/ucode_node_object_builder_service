@@ -4997,7 +4997,11 @@ let objectBuilder = {
             let from = pluralize.plural(relation.table_to)
             if (groupColumnIds.includes(field.id)) {
                 lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
-                groupRelation = pluralize.plural(relation.table_to)
+                if (groupColumnIds[0] == field.id && params.view_type == "TIMELINE") {
+                    groupRelation = pluralize.plural(relation.table_to)
+                } else {
+                    groupRelation = pluralize.plural(relation.table_to)
+                }
                 numberfieldWithDollorSign[table_to_slug] = "$" + table_to_slug
             } else {
                 lookupFields[table_to_slug] = "$" + table_to_slug

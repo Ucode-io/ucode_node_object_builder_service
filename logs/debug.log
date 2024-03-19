@@ -7049,3 +7049,199 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:38:41.158Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:38:41.163Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:38:41.164Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:38:42.235Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:40:16.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:40:16.754Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:40:16.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:40:17.544Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:41:51.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-19T21:42:21.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:46:09.162Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:46:09.169Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:46:09.170Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:46:10.331Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:47:39.796Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
+  level: 'error',
+  timestamp: '2024-03-19T21:48:01.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:48:39.790Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:48:39.797Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:48:39.797Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:48:40.610Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:50:22.363Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.groupByColumns: failed with error: $lookup 'from' field must be a string, but found null",
+  level: 'error',
+  timestamp: '2024-03-19T21:50:52.024Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-19T21:51:25.307Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-19T21:51:25.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-19T21:51:25.315Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs:l2AgrWH3cV@142.93.164.37:27017/upm_ad7633a0836f47c68d0613a7dec217a8_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-19T21:51:26.542Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-19T21:53:12.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.groupByColumns: succeeded',
+  level: 'info',
+  timestamp: '2024-03-19T21:53:27.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

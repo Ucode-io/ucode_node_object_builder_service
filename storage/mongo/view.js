@@ -574,6 +574,10 @@ let viewStore = {
                             base64_barcode +
                             "\"/></figure>"
                         // console.log(output[it.slug])
+                    } else if (it.type === "PHOTO") {
+                        const photoUrl = output[it.slug];
+                        const altText = "image";
+                        output[it.slug] = `<p style="text-align:center;"><img src="${photoUrl}" alt="${altText}"></p>`;
                     }
                 }
                 // console.log("TEST::::::::7")

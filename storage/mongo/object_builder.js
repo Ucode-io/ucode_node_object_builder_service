@@ -4998,6 +4998,7 @@ let objectBuilder = {
             let from = pluralize.plural(relation.table_to)
             if (groupColumnIds.includes(field.id)) {
                 lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
+                numberfieldWithDollorSign[table_to_slug] = "$data." + table_to_slug
                 groupRelation = pluralize.plural(relation.table_to)
             } else {
                 lookupFields[table_to_slug] = "$" + table_to_slug
@@ -5006,9 +5007,8 @@ let objectBuilder = {
 
             if (groupColumnIds.includes(field.relation_id)) {
                 lookupGroupField[table_to_slug] = { $first: "$" + table_to_slug }
-                if (groupColumnIds[0] == field.relation_id) {
-                    groupRelation = pluralize.plural(relation.table_to)
-                }
+                numberfieldWithDollorSign[table_to_slug] = "$data." + table_to_slug
+                groupRelation = pluralize.plural(relation.table_to)
             }
             lookups.push({
                 $lookup: {

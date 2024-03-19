@@ -1,8 +1,8 @@
 const Minio = require('minio')
 
-const endpoint = 'cdn.u-code.io';
-const accessKey = 'ongei0upha4DiaThioja6aip8dolai1o';
-const secretKey = 'aew8aeheungohf7vaiphoh7Tusie2vei';
+const endpoint = 'dev-cdn.ucode.run';
+const accessKey = 'Mouch0aij8hui2Aivie7Weethoobee3o';
+const secretKey = 'eezei5eaJah7mohNgohxo1Eb3wiex1sh';
 
 const minioClient = new Minio.Client({
     endPoint: endpoint,

@@ -7665,3 +7665,674 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T13:37:07.112Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T13:37:07.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T13:37:07.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T13:37:08.502Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T13:40:27.492Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T13:57:54.184Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T13:57:54.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T13:57:54.190Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connection timed out',
+  level: 'error',
+  timestamp: '2024-03-20T13:58:24.222Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '142.93.164.37:27017' => ServerDescription {
+          address: '142.93.164.37:27017',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 6805811,
+          lastWriteDate: 0,
+          error: MongoNetworkTimeoutError: connection timed out
+              at connectionFailureError (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)
+              at Socket.<anonymous> (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:627:28)
+              at Socket.emit (node:events:513:28)
+              at Socket._onTimeout (node:net:569:8)
+              at listOnTimeout (node:internal/timers:564:17)
+              at process.processTimers (node:internal/timers:507:7) {
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: connection timed out\n' +
+      '    at Connection.openUri (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/config/mongoConn.js:60:33)\n' +
+      '    at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/storage/mongo/project.js:135:39\n' +
+      '    at Object.reconnect (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/index_dev.js:29:30\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+  }
+}
+{
+  message: 'autoconnecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2024-03-20T13:58:24.231Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:02:44.638Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:02:44.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:02:44.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:02:46.813Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:06:32.993Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-20T14:08:31.000Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-20T14:09:36.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-20T14:10:31.117Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-20T14:11:00.244Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:11:41.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:13:07.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:13:07.089Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:13:07.090Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:13:09.273Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:18:30.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:18:36.572Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:20:05.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:20:05.202Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:20:05.203Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:20:07.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:23:15.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:23:17.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:24:23.338Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:24:23.344Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:24:23.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:24:24.940Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:27:39.715Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:28:43.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:29:32.724Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:29:32.730Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:29:32.730Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:29:34.467Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:32:45.468Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:32:58.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:34:06.047Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:34:06.054Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:34:06.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:34:07.722Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:38:16.723Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:38:33.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:39:17.881Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:39:17.886Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:39:17.887Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:39:18.844Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:42:26.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:42:41.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:44:02.443Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:44:02.448Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:44:02.449Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:44:03.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:47:42.591Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:47:44.521Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:48:17.536Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:48:17.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:48:17.542Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:48:18.398Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:51:06.372Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:51:33.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T14:52:53.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T14:52:53.608Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T14:52:53.609Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T14:52:54.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T14:56:09.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:56:15.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T15:02:33.949Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T15:02:33.954Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T15:02:33.955Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T15:02:35.210Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T15:06:49.195Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-20T15:10:55.114Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-20T15:13:10.721Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-20T15:14:49.440Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-20T15:14:49.445Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-20T15:14:49.446Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-20T15:14:50.620Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-20T15:18:05.348Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-20T15:18:21.419Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-20T15:18:51.912Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

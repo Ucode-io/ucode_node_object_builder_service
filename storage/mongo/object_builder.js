@@ -2445,6 +2445,8 @@ let objectBuilder = {
                             empty += "\\("
                         } else if (el == ")") {
                             empty += "\\)"
+                        } else if (el == "+") {
+                            empty += "\\+"
                         } else {
                             empty += el
                         }
@@ -2504,6 +2506,8 @@ let objectBuilder = {
                 if (numberPattern.test(params[key])) {
                     parseNum = parseFloat(params[key])
                     params[key] = parseNum
+                } else if (params[key].startsWith("+")) {
+                    params[key] = RegExp(params[key].replace("+", "\\+"), "i");
                 } else {
                     params[key] = RegExp(params[key], "i")
                 }

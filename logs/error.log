@@ -10560,3 +10560,135 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'connection timed out',
+  level: 'error',
+  timestamp: '2024-03-20T13:58:24.222Z',
+  label: 'object_builder_service',
+  metadata: {
+    reason: TopologyDescription {
+      type: 'Unknown',
+      servers: Map(1) {
+        '142.93.164.37:27017' => ServerDescription {
+          address: '142.93.164.37:27017',
+          type: 'Unknown',
+          hosts: [],
+          passives: [],
+          arbiters: [],
+          tags: {},
+          minWireVersion: 0,
+          maxWireVersion: 0,
+          roundTripTime: -1,
+          lastUpdateTime: 6805811,
+          lastWriteDate: 0,
+          error: MongoNetworkTimeoutError: connection timed out
+              at connectionFailureError (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)
+              at Socket.<anonymous> (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)
+              at Object.onceWrapper (node:events:627:28)
+              at Socket.emit (node:events:513:28)
+              at Socket._onTimeout (node:net:569:8)
+              at listOnTimeout (node:internal/timers:564:17)
+              at process.processTimers (node:internal/timers:507:7) {
+            [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+          },
+          topologyVersion: null,
+          setName: null,
+          setVersion: null,
+          electionId: null,
+          logicalSessionTimeoutMinutes: null,
+          primary: null,
+          me: null,
+          '$clusterTime': null
+        }
+      },
+      stale: false,
+      compatible: true,
+      heartbeatFrequencyMS: 10000,
+      localThresholdMS: 15,
+      setName: null,
+      maxElectionId: null,
+      maxSetVersion: null,
+      commonWireVersion: 0,
+      logicalSessionTimeoutMinutes: null
+    },
+    code: undefined,
+    stack: 'MongooseServerSelectionError: connection timed out\n' +
+      '    at Connection.openUri (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/connection.js:825:32)\n' +
+      '    at Mongoose.createConnection (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/node_modules/mongoose/lib/index.js:361:10)\n' +
+      '    at newMongoConn (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/config/mongoConn.js:60:33)\n' +
+      '    at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/storage/mongo/project.js:135:39\n' +
+      '    at Object.reconnect (/home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/helper/catchWrapDb.js:9:30)\n' +
+      '    at /home/shokhrukh/go/src/ucode/ucode_node_object_builder_service/index_dev.js:29:30\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+  }
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:11:41.507Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:18:30.913Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:23:15.685Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:28:43.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:32:58.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:38:33.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:42:41.055Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:47:42.591Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:51:33.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: Invalid regular expression: /+/: Nothing to repeat',
+  level: 'error',
+  timestamp: '2024-03-20T14:56:15.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

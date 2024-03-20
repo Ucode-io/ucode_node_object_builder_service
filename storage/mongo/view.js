@@ -563,6 +563,10 @@ let viewStore = {
                         output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 10%\"><img src=\"data:image/svg+xml;base64," +
                             base64_barcode +
                             "\"/></figure>"
+                    } else if (it.type === "PHOTO") {
+                        const photoUrl = output[it.slug];
+                        const altText = "image";
+                        output[it.slug] = `<p style="text-align:center;"><img src="${photoUrl}" alt="${altText}"></p>`;
                     }
                 }
                 relations = await Relation.find({

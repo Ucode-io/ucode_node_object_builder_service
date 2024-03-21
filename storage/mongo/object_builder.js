@@ -2456,7 +2456,7 @@ let objectBuilder = {
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))
-                    let obj = {};
+                    let obj = {}; 
                     if (!constants.NUMBER_TYPES.includes(field.type) && !constants.BOOLEAN_TYPES.includes(field.type)) {
                         obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }
                         arrayOfViewFields.push(obj)

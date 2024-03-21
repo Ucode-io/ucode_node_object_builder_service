@@ -2452,7 +2452,7 @@ let objectBuilder = {
                         }
                     }
                     params.search = empty
-                }
+                } 
                 let arrayOfViewFields = [];
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))

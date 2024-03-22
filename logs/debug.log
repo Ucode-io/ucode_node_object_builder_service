@@ -16336,3 +16336,45 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-22T08:20:00.104Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T08:20:00.107Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs:Dov4ocrqq0@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T08:20:00.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs:Dov4ocrqq0@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T08:20:00.608Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T08:20:27.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.getAll: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:20:59.392Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

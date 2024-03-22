@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { ACTION_TYPES, VERSION_SOURCE_TYPES } = require('../helper/constants')
 const { v4 } = require("uuid");
-const Version = require('./Version'); // Import the Version model
 
 const VersionHistory = mongoose.Schema(
     {

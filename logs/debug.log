@@ -16189,3 +16189,150 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-22T07:00:58.547Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T07:00:58.549Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs:Dov4ocrqq0@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T07:00:58.549Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs:Dov4ocrqq0@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T07:00:59.069Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T07:01:27.638Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_d_obj_build_svcs:adHASAnQ5o@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_d_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T07:01:51.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_d_obj_build_svcs:adHASAnQ5o@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_d_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T07:01:51.531Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T07:02:20.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_s_obj_build_svcs:OLvhwFdcNy@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T07:02:20.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_s_obj_build_svcs:OLvhwFdcNy@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T07:02:21.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T07:02:51.852Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T07:02:52.856Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:03:18.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:03:39.532Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:04:00.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:11:52.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:11:53.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:11:54.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://blabla2292_7076e58d50b14d298b3ee64855d74b53_p_obj_build_svcs:R6nWyJzucH@65.109.239.69:30027/blabla2292_7076e58d50b14d298b3ee64855d74b53_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T08:12:05.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://blabla2292_7076e58d50b14d298b3ee64855d74b53_p_obj_build_svcs:R6nWyJzucH@65.109.239.69:30027/blabla2292_7076e58d50b14d298b3ee64855d74b53_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T08:12:05.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:12:36.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

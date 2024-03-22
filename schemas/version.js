@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { v4 } = require("uuid");
 
-const Version = mongoose.Schema(
+const VersionSchema = mongoose.Schema(
     {
         id: {
             type: String,
@@ -32,4 +32,4 @@ const Version = mongoose.Schema(
     }
 );
 
-module.exports = Version;
+module.exports = VersionSchema;

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { ACTION_TYPES, VERSION_SOURCE_TYPES } = require('../helper/constants')
 const { v4 } = require("uuid");
+const Version = require('./Version'); // Import the Version model
 
 const VersionHistory = mongoose.Schema(
     {
@@ -61,10 +62,11 @@ const VersionHistory = mongoose.Schema(
 );
 
 VersionHistory.virtual('version', {
-    ref: 'Version', 
+    ref: 'object_builder_service.version', 
     localField: 'version_id',
     foreignField: 'id', 
     justOne: true 
 });
 
-module.exports = VersionHistory;
+
+module.exports = VersionHistory

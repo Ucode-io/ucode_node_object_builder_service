@@ -60,4 +60,11 @@ const VersionHistory = mongoose.Schema(
     }
 );
 
+VersionHistory.virtual('version', {
+    ref: 'Version', 
+    localField: 'version_id',
+    foreignField: 'id', 
+    justOne: true 
+});
+
 module.exports = VersionHistory;

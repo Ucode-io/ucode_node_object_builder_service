@@ -10692,3 +10692,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.object_builder.getList2: failed with error: phoneNumber is not defined',
+  level: 'error',
+  timestamp: '2024-03-22T10:48:31.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList2: failed with error: Cannot read properties of undefined (reading 'type')",
+  level: 'error',
+  timestamp: '2024-03-22T10:55:18.702Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

@@ -8336,3 +8336,416 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 41473',
+  level: 'info',
+  timestamp: '2024-03-22T09:23:33.474Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T09:23:33.479Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T09:23:33.480Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T09:23:35.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T09:27:07.209Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 45199',
+  level: 'info',
+  timestamp: '2024-03-22T09:28:34.206Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T09:28:34.211Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T09:28:34.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T09:28:35.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T09:32:10.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-22T09:36:00.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T09:36:00.152Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T09:36:00.153Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T09:36:01.311Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T09:38:46.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T09:38:54.280Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T09:39:22.828Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-22T09:42:18.915Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T09:42:18.921Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T09:42:18.922Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T09:42:20.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T09:45:12.720Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T09:45:23.183Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-22T09:50:41.450Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T09:50:41.456Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T09:50:41.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T09:50:43.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T09:53:57.031Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T09:54:03.908Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-22T10:27:19.632Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T10:27:19.636Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T10:27:19.637Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T10:27:20.974Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T10:30:39.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T10:31:26.746Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-22T10:45:16.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T10:45:16.115Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T10:45:16.116Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T10:45:17.526Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T10:48:19.721Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: failed with error: phoneNumber is not defined',
+  level: 'error',
+  timestamp: '2024-03-22T10:48:31.343Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-22T10:49:03.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T10:49:03.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T10:49:03.138Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T10:49:04.831Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-22T10:50:55.838Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T10:50:55.843Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T10:50:55.844Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T10:50:56.895Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T10:54:24.626Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.object_builder.getList2: failed with error: Cannot read properties of undefined (reading 'type')",
+  level: 'error',
+  timestamp: '2024-03-22T10:55:18.702Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-22T10:57:00.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-22T10:57:00.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T10:57:00.785Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs:8zUbJ4UYmy@142.93.164.37:27017/dasyor_25d16930b1a94ae5ab01b79cc993f06e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T10:57:01.550Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-22T10:59:34.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T11:00:05.190Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T11:00:34.190Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList2: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T11:01:08.419Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

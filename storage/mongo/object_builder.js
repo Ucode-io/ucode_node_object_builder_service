@@ -2503,11 +2503,20 @@ let objectBuilder = {
                     }
                 }
                 const numberPattern = /^[0-9]*\.?[0-9]+$/;
-                if (numberPattern.test(params[key])) {
+                let field = fields.find(val => (val.slug === key))
+                if (field?.type == "INTERNATION_PHONE" || field?.type == "PHONE") {
+                    let formattedNumber = '';
+                    for (let i = 0; i < params[key].length; i++) {
+                        const char = params[key].charAt(i);
+                        if (/\D/.test(char)) {
+                            formattedNumber += '\\';
+                        }
+                        formattedNumber += char
+                    }
+                    params[key] = RegExp(formattedNumber, "i")
+                } else if (numberPattern.test(params[key])) {
                     parseNum = parseFloat(params[key])
                     params[key] = parseNum
-                } else if (params[key].startsWith("+")) {
-                    params[key] = RegExp(params[key].replace("+", "\\+"), "i");
                 } else {
                     params[key] = RegExp(params[key], "i")
                 }

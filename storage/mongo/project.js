@@ -53,7 +53,7 @@ let projectStore = {
 
             mongoDBConn.once("open", async function () {
 
-                await insertCollections(mongoDBConn, data.user_id, data.project_id)
+                await insertCollections(mongoDBConn, data.user_id, data.project_id, data.client_type_id, data.role_id)
 
                 // compiling models after running migrations
                 mongoDBConn.model('App', require('../../schemas/app'))

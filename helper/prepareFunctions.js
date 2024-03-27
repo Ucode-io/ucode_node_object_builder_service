@@ -2,6 +2,7 @@ const { struct } = require('pb-util');
 const con = require("./constants");
 const converter = require("./converter");
 const generators = require("./generator")
+const { v4 } = require("uuid");
 const ObjectBuilder = require("./../models/object_builder");
 
 const tableVersion = require("../helper/table_version")

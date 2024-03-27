@@ -1682,7 +1682,16 @@ let permission = {
 
         let templates = await createTemplate(req.role_id);
         templates.forEach(el => {
-            bulkWriteFieldPermissions.push(el)
+            bulkWriteFieldPermissions.push({
+                updateOne: {
+                    filter: {
+                        guid: el.guid,
+                        role_id: req.role_id
+                    },
+                    update: el,
+                    upsert: true
+                }
+            })
         })
 
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)

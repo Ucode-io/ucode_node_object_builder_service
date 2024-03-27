@@ -10996,3 +10996,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.app.createDefaultPermission: failed with error: Invalid op passed to `bulkWrite()`',
+  level: 'error',
+  timestamp: '2024-03-27T04:08:04.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: Invalid op passed to `bulkWrite()`',
+  level: 'error',
+  timestamp: '2024-03-27T04:10:40.414Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

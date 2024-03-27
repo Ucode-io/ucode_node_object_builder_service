@@ -17014,3 +17014,423 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T04:05:03.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T04:05:03.648Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T04:05:03.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T04:05:04.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T04:06:15.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T04:08:02.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: Invalid op passed to `bulkWrite()`',
+  level: 'error',
+  timestamp: '2024-03-27T04:08:04.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T04:09:11.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T04:09:11.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T04:09:11.603Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T04:09:12.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T04:10:30.151Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T04:10:38.514Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: Invalid op passed to `bulkWrite()`',
+  level: 'error',
+  timestamp: '2024-03-27T04:10:40.414Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T04:12:16.731Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T04:12:16.736Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T04:12:16.737Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T04:12:18.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T04:13:34.880Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T04:16:55.125Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T04:16:58.197Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T04:18:40.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T04:18:40.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T04:18:40.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T04:18:42.046Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T04:19:16.684Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T04:20:41.474Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T04:20:43.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T04:22:00.123Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T04:22:00.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T04:22:00.135Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T04:22:01.579Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T04:22:49.848Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T04:23:24.798Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T04:23:26.854Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T04:49:05.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T04:49:05.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T04:49:05.784Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T04:49:07.126Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T04:50:17.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T05:12:47.657Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T05:12:47.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T05:12:47.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T05:12:48.704Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T05:14:13.696Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T05:15:25.517Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T05:15:25.522Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T05:15:25.523Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T05:15:26.475Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T05:16:48.381Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T05:17:06.458Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T05:17:06.463Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T05:17:06.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T05:17:07.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T05:18:23.380Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T05:20:10.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T05:20:10.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T05:20:10.764Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T05:20:12.086Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T05:21:14.688Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

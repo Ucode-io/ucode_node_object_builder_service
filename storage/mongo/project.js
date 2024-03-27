@@ -33,7 +33,7 @@ let NAMESPACE = "storage.project";
 let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
-
+            
             // console.log('data-->', data)
             if (!data.user_id) {
                 throw new Error('Error user_id is required')
@@ -55,7 +55,7 @@ let projectStore = {
             mongoDBConn.once("open", async function () {
                 console.log("Connected to the database");
 
-                await insertCollections(mongoDBConn, data.user_id, data.project_id)
+                await insertCollections(mongoDBConn, data.user_id, data.project_id, data.client_type_id, data.role_id)
 
                 // compiling models after running migrations
                 mongoDBConn.model('App', require('../../schemas/app'))

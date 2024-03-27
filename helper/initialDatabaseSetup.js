@@ -23,12 +23,15 @@ const guessRole = require("../initial_setups/defaultRole")
 const guessClientType = require("../initial_setups/guessClientType")
 const settingCheker = require("./settingChecker")
 
-async function insertCollections(conn, userId, projectId) {
-
+async function insertCollections(conn, userId, projectId, clientTypeID, roleID) {
     const projectID = projectId.toString()
     const clientPlatformID = v4().toString()
-    const clientTypeID = v4().toString()
-    const roleID = v4().toString()
+    if (clientTypeID == "") {
+        clientTypeID = v4().toString()
+    }
+    if (roleID == "") {
+        roleID = v4().toString()
+    }
     const userID = userId ? userId.toString() : ""
     const testLoginID = v4().toString()
     const connectionID = v4().toString()

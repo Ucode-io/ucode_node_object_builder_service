@@ -16190,97 +16190,259 @@
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2024-03-26T16:16:11.068Z',
+=======
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-22T07:00:58.547Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnectinag to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-03-26T16:16:11.073Z',
+=======
+  timestamp: '2024-03-22T07:00:58.549Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
   level: 'debug',
   timestamp: '2024-03-26T16:16:11.074Z',
+=======
+  message: 'connecting to mongodb: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs:Dov4ocrqq0@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T07:00:58.549Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
   level: 'info',
   timestamp: '2024-03-26T16:16:12.149Z',
+=======
+  message: 'connected to the database: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs:Dov4ocrqq0@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T07:00:59.069Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-03-26T16:16:52.218Z',
+=======
+  timestamp: '2024-03-22T07:01:27.638Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.createDefaultPermission: succeeded',
   level: 'info',
   timestamp: '2024-03-26T16:29:16.303Z',
+=======
+  message: 'connecting to mongodb: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_d_obj_build_svcs:adHASAnQ5o@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_d_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T07:01:51.066Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.createDefaultPermission: succeeded',
   level: 'info',
   timestamp: '2024-03-26T16:31:11.398Z',
+=======
+  message: 'connected to the database: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_d_obj_build_svcs:adHASAnQ5o@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_d_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T07:01:51.531Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.createDefaultPermission: succeeded',
   level: 'info',
   timestamp: '2024-03-26T16:48:25.758Z',
+=======
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T07:02:20.091Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'grpc server is running at 9102',
   level: 'info',
   timestamp: '2024-03-26T17:39:44.262Z',
+=======
+  message: 'connecting to mongodb: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_s_obj_build_svcs:OLvhwFdcNy@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T07:02:20.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_s_obj_build_svcs:OLvhwFdcNy@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T07:02:21.238Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T07:02:51.852Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T07:02:52.856Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:03:18.587Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:03:39.532Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:04:00.733Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:11:52.143Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:11:53.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:11:54.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://blabla2292_7076e58d50b14d298b3ee64855d74b53_p_obj_build_svcs:R6nWyJzucH@65.109.239.69:30027/blabla2292_7076e58d50b14d298b3ee64855d74b53_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T08:12:05.137Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://blabla2292_7076e58d50b14d298b3ee64855d74b53_p_obj_build_svcs:R6nWyJzucH@65.109.239.69:30027/blabla2292_7076e58d50b14d298b3ee64855d74b53_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T08:12:05.645Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:12:36.979Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-22T08:20:00.104Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnectinag to resources',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-03-26T17:39:44.267Z',
+=======
+  timestamp: '2024-03-22T08:20:00.107Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
   level: 'debug',
   timestamp: '2024-03-26T17:39:44.267Z',
+=======
+  message: 'connecting to mongodb: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs:Dov4ocrqq0@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-22T08:20:00.108Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
   level: 'info',
   timestamp: '2024-03-26T17:39:45.296Z',
+=======
+  message: 'connected to the database: mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs:Dov4ocrqq0@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-22T08:20:00.608Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
   message: 'autoconnected successfully done!!!',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2024-03-26T17:40:26.234Z',
+=======
+  timestamp: '2024-03-22T08:20:27.737Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }
 {
+<<<<<<< HEAD
   message: 'service.app.createDefaultPermission: succeeded',
   level: 'info',
   timestamp: '2024-03-26T17:40:29.299Z',
@@ -16844,6 +17006,11 @@
   message: 'service.app.createDefaultPermission: succeeded',
   level: 'info',
   timestamp: '2024-03-27T01:13:00.355Z',
+=======
+  message: 'service.version_history.getAll: succeeded',
+  level: 'info',
+  timestamp: '2024-03-22T08:20:59.392Z',
+>>>>>>> e11a803dffed67f65a37c28884c81abc51e311c2
   label: 'object_builder_service',
   metadata: {}
 }

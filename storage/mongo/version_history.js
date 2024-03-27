@@ -13,30 +13,28 @@ const viewStorage = require('./view')
 const layoutStorage = require('./layout')
 
 
-
 let NAMESPACE = "storage.version_history";
 
 let versionHistoryStorage = {
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
         try {
-            const mongoConn = await mongoPool.get(data.project_id);
-            const Version = mongoConn.models['object_builder_service.version'];
-            const History = mongoConn.models['object_builder_service.version_history'];
-    
-            const query = {};
-    
+            const mongoConn = await mongoPool.get(data.project_id)
+            const History = mongoConn.models['object_builder_service.version_history']
+            const query = {}
+            const limit = data.limit
+            const offset = data.offset
+            // console.log('data', JSON.stringify(data, nul,2))
+
             if (data.type == "DOWN" || data.type == "UP") {
-                query.action_source = { $in: ["RELATION", "FIELD", "MENU", "TABLE", "LAYOUT", "VIEW"] };
+                query.action_source = { 
+                    $in: ["RELATION", "FIELD", "MENU","TABLE", "LAYOUT","VIEW"] 
+                }
             } else if (data.type) {
-                query.type = data.type;
+                query.type = data.type
             }
-    
-            if (data.version_ids.length > 0) {
-                query.version_id = { $in: data.version_ids };
-            }
-    
+
             if (data.from_date) {
-                query.created_at = { $gte: new Date(data.from_date) };
+                query.created_at = {$gte: new Date(data.from_date)}
             }
             if (data.to_date) {
                 if (!query.created_at) {
@@ -48,50 +46,29 @@ let versionHistoryStorage = {
                 query.user_info = data.user_info;
             }
             if (data.api_key) {
-                query.api_key = data.api_key;
+                query.api_key = data.api_key
             }
-    
-            const sortOrder = data.order_by ? 1 : -1;
-    
-            const aggregatePipeline = [
-                { $match: query },
-                {
-                    $lookup: {
-                        from: "object_builder_service.versions",
-                        localField: "version_id",
-                        foreignField: "id",
-                        as: "version"
-                    }
-                },
-                { $unwind: "$version" },
-                {
-                    $project: {
-                        _id: 0,
-                        created_at: 0,
-                        update_at: 0,
-                        "version._id": 0,
-                        "version.created_at": 0,
-                        "version.updated_at": 0
-                    }
-                },
-                { $sort: { "version.created_at": sortOrder } }
-            ];
-    
-            if (data.limit) {
-                aggregatePipeline.push({ $limit: data.limit });
+            if (data.version_ids && data.version_ids.length > 0) {
+                query.version_id = { $in: data.version_ids };
             }
-            if (data.offset) {
-                aggregatePipeline.push({ $skip: data.offset });
-            }
-    
-            const resp = await History.aggregate(aggregatePipeline);
-    
-            const count = await History.countDocuments(query);
-            return { histories: resp, count: count };
+
+            const sortOrder = data.order_by ? 1 : -1
+
+            
+            const resp = await History.find(query, {created_at: 0, update_at: 0})
+                .sort({created_at: sortOrder})
+                .skip(offset)
+                .limit(limit)
+                .populate('version');
+
+            const count = await History.countDocuments(query);  
+            return {histories: resp, count: count}
+
         } catch (err) {
-            throw err;
+            throw err
         }
-    }),    
+    }),
+    
     usedForEnv: catchWrapDb(`${NAMESPACE}.usedForEnv`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

@@ -10,6 +10,7 @@ const converter = require("../../helper/converter");
 const tableVersion = require('../../helper/table_version');
 const mongoPool = require('../../pkg/pool');
 const getPermissionByTableSlug = require('../../helper/getPermissionByTableSlug');
+const createTemplate = require("../../initial_setups/template");
 
 
 let permission = {
@@ -1677,6 +1678,11 @@ let permission = {
                     upsert: true
                 }
             })
+        })
+
+        let templates = await createTemplate(req.role_id);
+        templates.forEach(el => {
+            bulkWriteFieldPermissions.push(el)
         })
 
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)

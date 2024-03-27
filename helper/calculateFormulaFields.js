@@ -19,6 +19,7 @@ let formulaFunction = {
             if (typeof value === "string") {
                 value = `'${value}'`
             }
+            
             if (typeof value === "object") {
                 value = `'${value[0]}'`
             }

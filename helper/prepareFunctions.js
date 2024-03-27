@@ -2,6 +2,7 @@ const { struct } = require('pb-util');
 const con = require("./constants");
 const converter = require("./converter");
 const generators = require("./generator")
+const { v4 } = require("uuid");
 const ObjectBuilder = require("./../models/object_builder");
 
 const tableVersion = require("../helper/table_version")
@@ -80,6 +81,36 @@ let prepareFunction = {
             } else {
                 data[randomNumbers.slug] = randomNumber
             }
+        }
+
+        let generatedStrs = await Field.findOne({
+            table_id: tableData?.id,
+            type: "RANDOM_TEXT"
+        })
+
+        if (generatedStrs) {
+            let attributes = struct.decode(generatedStrs.attributes)
+            let str = generators.generateRandomString(attributes.prefix, attributes.digit_number)
+            let params = {}
+            params[generatedStrs.slug] = str.toString()
+
+            const isExists = await tableInfo.models.findOne({
+                $and: [params]
+            })
+            if (isExists) {
+                return await prepareToCreateInObjectBuilder(req, mongoConn)
+            } else {
+                data[generatedStrs.slug] = str
+            }
+        }
+
+        let generateUUIDs = await Field.findOne({
+            table_id: tableData?.id,
+            type: "RANDOM_UUID"
+        })
+
+        if (generateUUIDs) {
+            data[generateUUIDs.slug] = v4()
         }
 
 

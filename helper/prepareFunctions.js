@@ -115,7 +115,7 @@ let prepareFunction = {
 
         let manually = await Field.findOne({
             table_id: tableData?.id,
-            type: "GENERATE_MANUALLY"
+            type: "MANUAL_STRING"
         })
 
         if (manually) {

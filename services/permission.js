@@ -8,7 +8,7 @@ const permissionService = {
     GetListWithAppTablePermissions: catchWrapServiceObjectBuilder(`service.app.getListWithAppTablePermissions`, permissionStore.getListWithAppTablePermissions),
     GetListWithRoleAppTablePermissions: catchWrapServiceObjectBuilder(`service.app.getListWithRoleAppTablePermissions`, permissionStore.getListWithRoleAppTablePermissions),
     UpdateRoleAppTablePermissions: catchWrapServiceObjectBuilder(`service.app.updateRoleAppTablePermissions`, permissionStore.updateRoleAppTablePermissions),
-    CreateRoleAppTablePermissions: catchWrapServiceObjectBuilder(`service.app.createRoleAppTablePermissions`, permissionStore.createRoleAppTablePermissions),
+    CreateDefaultPermission: catchWrapServiceObjectBuilder(`service.app.createDefaultPermission`, permissionStore.createDefaultPermission),
     GetActionPermissions: catchWrapServiceObjectBuilder("service.permissionStore.getActionPermissions", permissionStore.getActionPermissions),
     GetViewRelationPermissions: catchWrapServiceObjectBuilder("service.permissionStore.getViewRelationPermissions", permissionStore.getViewRelationPermissions),
     GetAllMenuPermissions: catchWrapServiceObjectBuilder("service.permissionStore.getAllMenuPermissions", permissionStore.getAllMenuPermissions),

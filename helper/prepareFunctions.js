@@ -114,7 +114,7 @@ let prepareFunction = {
 
         let manually = await Field.findOne({
             table_id: tableData?.id,
-            type: "GENERATE_MANUALLY"
+            type: "MANUAL_STRING"
         })
 
         console.log('manually', JSON.stringify(manually, null, 2))

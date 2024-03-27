@@ -28,16 +28,17 @@ const logger = require("./config/logger");
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "e7650423-b575-4033-9dbe-b28f3526ba13",
+            project_id: "ada73ee1-4f8b-4699-9abf-6b3be19de0f2",
             credentials: {
                 host: "65.109.239.69",
                 port: 30027,
-                database: "marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs",
-                username: "marvel_cb8f05e05dd3436d93d0cc31ed6874c2_p_obj_build_svcs",
-                password: "XXKIzpW6oG"
+                database: "transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs",
+                username: "transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs",
+                password: "a8AmenxuSm"
             }
         })
 
+        // mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs
         // mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs
         //mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs
         //mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs

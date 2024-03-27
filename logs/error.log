@@ -10947,3 +10947,52 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: "service.app.createDefaultPermission: failed with error: Cannot read properties of undefined (reading 'is_public')",
+  level: 'error',
+  timestamp: '2024-03-26T18:51:39.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2024-03-26T18:55:14.785Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T00:59:17.890Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T01:01:54.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T01:02:42.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T01:10:04.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T01:11:02.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

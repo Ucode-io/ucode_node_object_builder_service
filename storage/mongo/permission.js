@@ -1404,8 +1404,284 @@ let permission = {
         return {}
 
     }),
-    createRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.createRoleAppTablePermissions`, async (req) => {
+    createDefaultPermission: catchWrapDbObjectBuilder(`${NAMESPACE}.createDefaultPermission`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id);
+        const Table = mongoConn.models['Table'];
+        const RecordPermission = mongoConn.models['record_permission'];
+        const CustomPermission = mongoConn.models['global_permission'];
+        const Field = mongoConn.models['Field'];
+        const Menu = mongoConn.models['object_builder_service.menu'];
+        const FieldPermission = mongoConn.models['field_permission'];
+        const MenuPermission = mongoConn.models['menu_permission'];
 
+        if (!req?.role_id) {
+            throw ErrRoleNotFound
+        }
+
+        const tablePipeline = [
+            {
+                $match: {
+                    deleted_at: { $eq: new Date('1970-01-01T18:00:00.000+00:00') },
+                    id: { $nin: STATIC_TABLE_IDS }
+                }
+            },
+            {
+                $project: {
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
+                }
+            },
+            {
+                $lookup: {
+                    from: 'record_permissions',
+                    let: { tableSlug: '$slug' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$table_slug', '$$tableSlug'] },
+                                        { $eq: ['$role_id', req.role_id] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
+                        }
+                    ],
+                    as: 'record_permissions'
+                }
+            },
+            {
+                $project: {
+                    id: "$id",
+                    slug: '$slug',
+                    label: "$label",
+                    show_in_menu: "$show_in_menu",
+                    is_changed: "$is_cached",
+                    icon: "$icon",
+                    is_changed: "$is_cached",
+                    is_system: "$is_system",
+                    record_permissions: { $arrayElemAt: ['$record_permissions', 0] },
+                    attributes: "$attributes",
+                }
+            }
+        ];
+        const tables = await Table.aggregate(tablePipeline);
+
+        const fieldPipeline = [
+            {
+                $project: {
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
+                }
+            },
+            {
+                $lookup: {
+                    from: 'field_permissions',
+                    let: { fieldID: '$id' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$field_id', '$$fieldID'] },
+                                        { $eq: ['$role_id', req.role_id] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
+                        }
+                    ],
+                    as: 'field_permissions'
+                }
+            },
+            {
+                $project: {
+                    label: "$label",
+                    id: "$id",
+                    table_id: "$table_id",
+                    field_permissions: { $arrayElemAt: ['$field_permissions', 0] },
+                    attributes: "$attributes",
+                }
+            }
+        ]
+        const testFieldResp = await Field.aggregate(fieldPipeline);
+        let fields = {}
+        testFieldResp.forEach(el => {
+            if (!fields[el.table_id]) {
+                fields[el.table_id] = [el]
+            } else {
+                fields[el.table_id].push(el)
+            }
+        })
+
+        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteMenuPermissions = []
+        for (let table of tables) {
+            let isHaveCondition = false
+            if (table?.automatic_filters?.read?.length ||
+                table?.automatic_filters?.write?.length ||
+                table?.automatic_filters?.delete?.length ||
+                table?.automatic_filters?.update?.length) {
+                isHaveCondition = true
+                automaticFilters[table.slug] = {
+                    automatic_filters: table.automatic_filters
+                }
+            }
+            let recordPermissionDocument = {
+                read: "Yes",
+                write: "Yes",
+                update: "Yes",
+                delete: "Yes",
+                is_have_condition: isHaveCondition,
+                is_public: true,
+                role_id: req.role_id,
+                table_slug: table.slug,
+                language_btn: "Yes",
+                automation: "Yes",
+                settings: "Yes",
+                share_modal: "Yes",
+                view_create: "Yes",
+                pdf_action: "Yes",
+                add_field: "Yes",
+                delete_all: "Yes"
+            }
+            bulkWriteRecordPermissions.push({
+                updateOne: {
+                    filter: { role_id: req.role_id, table_slug: table.slug },
+                    update: recordPermissionDocument,
+                    upsert: true
+                }
+            })
+
+            let tableFields = fields[table.id]
+            tableFields && tableFields.length && tableFields.forEach(field => {
+                let fieldPermissionDocument = {
+                    view_permission: true,
+                    edit_permission: true,
+                    field_id: field.id,
+                    table_slug: table.slug,
+                    role_id: req.role_id,
+                    label: field.label,
+                    guid: v4()
+                }
+
+                bulkWriteFieldPermissions.push({
+                    updateOne: {
+                        filter: {
+                            field_id: field.id,
+                            role_id: req.role_id
+                        },
+                        update: fieldPermissionDocument,
+                        upsert: true
+                    }
+                })
+            })
+        }
+
+        let customPermissionDocument = {
+            chat: true,
+            menu_button: true,
+            settings_button: true,
+            projects_button: true,
+            environments_button: true,
+            api_keys_button: true,
+            redirects_button: true,
+            menu_setting_button: true,
+            profile_settings_button: true,
+            project_button: true,
+            sms_button: true,
+            version_button: true
+        }
+        await CustomPermission.findOneAndUpdate({
+            role_id: req.role_id,
+        }, {
+            $set: customPermissionDocument
+        }, { upsert: true })
+
+        const menuPipeline = [
+            {
+                '$lookup': {
+                    'from': 'menu_permissions',
+                    'let': {
+                        'menuId': '$id',
+                        'roleId': req.role_id
+                    },
+                    'pipeline': [
+                        {
+                            '$match': {
+                                '$expr': {
+                                    '$and': [
+                                        {
+                                            '$eq': [
+                                                '$role_id', '$$roleId'
+                                            ]
+                                        }, {
+                                            '$eq': [
+                                                '$menu_id', '$$menuId'
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    'as': 'permission'
+                }
+            }, {
+                '$unwind': {
+                    'path': '$permission',
+                    'preserveNullAndEmptyArrays': true
+                }
+            }, {
+                '$project': {
+                    "__v": 0,
+                    "_id": 0,
+                    'permission._id': 0,
+                    'permission.__v': 0,
+                    'permission.createdAt': 0,
+                    'permission.updatedAt': 0
+                }
+            }, {
+                '$sort': {
+                    'order': 1,
+                },
+            }
+        ]
+        let menus = await Menu.aggregate(menuPipeline)
+        menus.forEach(menu => {
+            let menuPermissionDocument = {
+                menu_id: menu.id,
+                role_id: req.role_id,
+                delete: true,
+                guid: v4(),
+                menu_settings: true,
+                read: true,
+                update: true,
+                write: true
+            }
+            bulkWriteMenuPermissions.push({
+                updateOne: {
+                    filter: {
+                        menu_id: menu.id,
+                        role_id: req.role_id
+                    },
+                    update: menuPermissionDocument,
+                    upsert: true
+                }
+            })
+        })
+
+        bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
+        bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
+        bulkWriteMenuPermissions.length && await MenuPermission.bulkWrite(bulkWriteMenuPermissions)
     }),
     getActionPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getActionPermissions`, async (req) => {
 

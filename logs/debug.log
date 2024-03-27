@@ -16189,3 +16189,661 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T16:16:11.068Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T16:16:11.073Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T16:16:11.074Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T16:16:12.149Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T16:16:52.218Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T16:29:16.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T16:31:11.398Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T16:48:25.758Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T17:39:44.262Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T17:39:44.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T17:39:44.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T17:39:45.296Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T17:40:26.234Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T17:40:29.299Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T17:44:01.898Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T17:44:01.903Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T17:44:01.904Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T17:44:03.050Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T17:44:52.236Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T17:45:53.508Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T17:46:35.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T17:46:35.646Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T17:46:35.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T17:46:36.358Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T17:47:26.504Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T17:47:28.970Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T17:53:49.405Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T17:53:49.411Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T17:53:49.412Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T17:53:50.382Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T17:54:41.174Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T17:55:00.895Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T18:26:14.630Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T18:26:14.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T18:26:14.635Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T18:26:15.364Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T18:26:55.204Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T18:28:28.032Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T18:29:45.317Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T18:29:45.324Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T18:29:45.325Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T18:29:46.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T18:30:40.398Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T18:31:02.167Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T18:50:50.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T18:50:50.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T18:50:50.348Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T18:50:51.081Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T18:51:34.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.app.createDefaultPermission: failed with error: Cannot read properties of undefined (reading 'is_public')",
+  level: 'error',
+  timestamp: '2024-03-26T18:51:39.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T18:54:01.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T18:54:01.082Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T18:54:01.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T18:54:02.006Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T18:54:43.159Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: data is not defined',
+  level: 'error',
+  timestamp: '2024-03-26T18:55:14.785Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T18:56:31.122Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T18:56:31.129Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T18:56:31.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T18:56:32.253Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T18:57:15.571Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T18:57:32.966Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-26T19:01:17.548Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-26T19:01:17.553Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-26T19:01:17.554Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-26T19:01:18.652Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-26T19:02:14.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-26T19:02:41.851Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T00:05:32.110Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T00:05:32.119Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T00:05:32.120Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T00:05:33.374Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T00:06:20.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T00:45:18.792Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T00:45:20.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T00:48:09.973Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T00:49:19.406Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-27T00:58:01.377Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T00:58:01.387Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T00:58:01.389Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T00:58:02.729Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T00:58:59.134Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T00:59:17.867Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T00:59:17.890Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T01:01:54.130Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T01:01:54.139Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T01:02:42.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T01:02:42.366Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T01:10:04.426Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T01:10:04.442Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T01:11:02.860Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: ErrRoleNotFound is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T01:11:02.875Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T01:12:58.907Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T01:13:00.355Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

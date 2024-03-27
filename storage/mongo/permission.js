@@ -1414,6 +1414,8 @@ let permission = {
         const Menu = mongoConn.models['object_builder_service.menu'];
         const FieldPermission = mongoConn.models['field_permission'];
         const MenuPermission = mongoConn.models['menu_permission'];
+        const TableViewPermission = mongoConn.models['view_permission'];
+        const View = mongoConn.models['View'];
 
         if (!req?.role_id) {
             throw ErrRoleNotFound
@@ -1524,7 +1526,58 @@ let permission = {
             }
         })
 
-        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteMenuPermissions = []
+        const viewPipeline = [
+            {
+                $project: {
+                    __v: 0,
+                    _id: 0,
+                    created_at: 0,
+                    updated_at: 0
+                }
+            },
+            {
+                $lookup: {
+                    from: 'view_permissions',
+                    let: { viewID: '$id' },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ['$view_id', '$$viewID'] },
+                                        { $eq: ['$role_id', req.role_id] }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            $limit: 1
+                        }
+                    ],
+                    as: 'view_permissions'
+                }
+            },
+            {
+                $project: {
+                    name: "$name",
+                    id: "$id",
+                    table_slug: "$table_slug",
+                    view_permissions: { $arrayElemAt: ['$view_permissions', 0] },
+                    attributes: "$attributes",
+                }
+            }
+        ]
+        let tableViewPermissions = await View.aggregate(viewPipeline)
+        let tableViewPermission = {}
+        tableViewPermissions.forEach(el => {
+            if (!tableViewPermission[el.table_slug]) {
+                tableViewPermission[el.table_slug] = [el]
+            } else {
+                tableViewPermission[el.table_slug].push(el)
+            }
+        })
+
+        let bulkWriteRecordPermissions = [], bulkWriteFieldPermissions = [], bulkWriteMenuPermissions = [], bulkWriteViewPermissions = []
         for (let table of tables) {
             let isHaveCondition = false
             if (table?.automatic_filters?.read?.length ||
@@ -1581,6 +1634,30 @@ let permission = {
                             role_id: req.role_id
                         },
                         update: fieldPermissionDocument,
+                        upsert: true
+                    }
+                })
+            })
+
+            let tableViews = tableViewPermission[table.slug]
+            tableViews && tableViews.length && tableViews.forEach(view => {
+                let tableViewPermissionDocument = {
+                    guid: v4(),
+                    view_permission: true,
+                    edit_permission: true,
+                    create_permission: true,
+                    delete_permission: true,
+                    name: view.name,
+                    view_id: view.id,
+                    attributes: view.attributes
+                }
+                bulkWriteViewPermissions.push({
+                    updateOne: {
+                        filter: {
+                            role_id: req.role_id,
+                            view_id: view.id
+                        },
+                        update: tableViewPermissionDocument,
                         upsert: true
                     }
                 })
@@ -1697,6 +1774,7 @@ let permission = {
         bulkWriteRecordPermissions.length && await RecordPermission.bulkWrite(bulkWriteRecordPermissions)
         bulkWriteFieldPermissions.length && await FieldPermission.bulkWrite(bulkWriteFieldPermissions)
         bulkWriteMenuPermissions.length && await MenuPermission.bulkWrite(bulkWriteMenuPermissions)
+        bulkWriteViewPermissions.length && await TableViewPermission.bulkWrite(bulkWriteViewPermissions)
     }),
     getActionPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getActionPermissions`, async (req) => {
 

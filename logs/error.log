@@ -11010,3 +11010,17 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'service.app.createDefaultPermission: failed with error: View is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T06:37:37.991Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.app.createDefaultPermission: failed with error: el is not defined',
+  level: 'error',
+  timestamp: '2024-03-27T06:48:21.708Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

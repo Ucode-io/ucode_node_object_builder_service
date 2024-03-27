@@ -1643,13 +1643,11 @@ let permission = {
             tableViews && tableViews.length && tableViews.forEach(view => {
                 let tableViewPermissionDocument = {
                     guid: v4(),
-                    view_permission: true,
-                    edit_permission: true,
-                    create_permission: true,
-                    delete_permission: true,
-                    name: view.name,
+                    view: true,
+                    edit: true,
+                    delete: true,
                     view_id: view.id,
-                    attributes: view.attributes
+                    role_id: req.role_id
                 }
                 bulkWriteViewPermissions.push({
                     updateOne: {

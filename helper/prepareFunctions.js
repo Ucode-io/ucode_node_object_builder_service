@@ -115,23 +115,21 @@ let prepareFunction = {
 
         let manually = await Field.findOne({
             table_id: tableData?.id,
-            type: "MANUAL_STRING"
+            type: "GENERATE_MANUALLY"
         })
 
-        console.log('manually', JSON.stringify(manually, null, 2))
-        console.log('req.data', req.data)
         if (manually) {
             let sortedFields = tableInfo.fields.sort((a, b) => {
             return b.slug.length - a.slug.length
         })
             let computedFormula = manually.attributes.fields.formula.stringValue
             sortedFields.forEach(el => {
-                if (typeof req.data.fields[el.slug] === 'undefined') {
-                    return; // Move to the next iteration
+                let dataSLug = req.data.fields[el.slug]
+                if (typeof dataSLug === 'undefined') {
+                    return;
                 }
-                let kinda = req.data.fields[el.slug].kind
-                console.log('kind', kinda)
-                let value = req.data.fields[el.slug].kinda ?? 0;
+                let kinda = dataSLug.kind
+                let value = dataSLug[kinda] ?? 0;
                 if (typeof value === "booleanValue") {
                     value = JSON.stringify(value).toUpperCase()
                 }
@@ -150,8 +148,6 @@ let prepareFunction = {
 
             data[manually.slug] = computedFormula
         }
-
-        
 
         let incrementField = await Field.findOne({
             table_id: tableData?.id,

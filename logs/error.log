@@ -11024,3 +11024,21 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'mongo connection error connection timed out',
+  level: 'error',
+  timestamp: '2024-03-27T10:35:39.594Z',
+  label: 'object_builder_service',
+  metadata: {
+    connectionGeneration: 0,
+    stack: 'MongoNetworkTimeoutError: connection timed out\n' +
+      '    at connectionFailureError (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)\n' +
+      '    at Socket.<anonymous> (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)\n' +
+      '    at Object.onceWrapper (node:events:627:28)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at Socket._onTimeout (node:net:568:8)\n' +
+      '    at listOnTimeout (node:internal/timers:564:17)\n' +
+      '    at process.processTimers (node:internal/timers:507:7)'
+  },
+  [Symbol(errorLabels)]: Set(0) {}
+}

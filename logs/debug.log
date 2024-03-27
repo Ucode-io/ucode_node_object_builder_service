@@ -17609,3 +17609,491 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-27T09:19:23.024Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T09:19:23.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T09:19:23.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T09:19:23.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T09:19:52.961Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "praymeri_kiy",\n' +
+    '  "project_id": "afcbed3e-730c-45fb-9fb5-0e6676e4e85d",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-03-27T09:20:14.421Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T09:20:14.578Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T09:20:15.859Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T09:20:16.193Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-27T09:31:28.485Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T09:31:28.486Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T09:31:28.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T09:31:29.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T09:31:57.686Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "praymeri_kiy",\n' +
+    '  "project_id": "afcbed3e-730c-45fb-9fb5-0e6676e4e85d",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-03-27T09:32:45.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T09:32:45.967Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T09:32:47.291Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T09:32:47.546Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-27T10:35:09.413Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T10:35:09.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T10:35:09.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'mongo connection error connection timed out',
+  level: 'error',
+  timestamp: '2024-03-27T10:35:39.594Z',
+  label: 'object_builder_service',
+  metadata: {
+    connectionGeneration: 0,
+    stack: 'MongoNetworkTimeoutError: connection timed out\n' +
+      '    at connectionFailureError (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:389:20)\n' +
+      '    at Socket.<anonymous> (/Users/otabek/go/src/ucode/ucode_node_object_builder_service/node_modules/mongodb/lib/cmap/connect.js:310:22)\n' +
+      '    at Object.onceWrapper (node:events:627:28)\n' +
+      '    at Socket.emit (node:events:513:28)\n' +
+      '    at Socket._onTimeout (node:net:568:8)\n' +
+      '    at listOnTimeout (node:internal/timers:564:17)\n' +
+      '    at process.processTimers (node:internal/timers:507:7)'
+  },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+{
+  message: 'autoconnecting to resources failed: Error: connection timed out',
+  level: 'info',
+  timestamp: '2024-03-27T10:35:39.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-27T10:36:01.265Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T10:36:01.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T10:36:01.267Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T10:36:01.809Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T10:36:30.752Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "praymeri_kiy",\n' +
+    '  "project_id": "afcbed3e-730c-45fb-9fb5-0e6676e4e85d",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-03-27T10:36:33.906Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:36:34.063Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:36:35.340Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:36:35.666Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-27T10:42:07.312Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T10:42:07.313Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T10:42:07.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T10:42:07.861Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-27T10:42:35.368Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T10:42:35.370Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T10:42:35.370Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T10:42:35.876Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T10:43:05.552Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "praymeri_kiy",\n' +
+    '  "project_id": "afcbed3e-730c-45fb-9fb5-0e6676e4e85d",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-03-27T10:43:23.917Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:43:24.084Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:43:25.385Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:43:25.634Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-27T10:46:11.337Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T10:46:11.341Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T10:46:11.342Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T10:46:11.864Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T10:46:41.643Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "praymeri_kiy",\n' +
+    '  "project_id": "afcbed3e-730c-45fb-9fb5-0e6676e4e85d",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-03-27T10:46:45.960Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:46:46.127Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:46:47.401Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:46:47.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9019',
+  level: 'info',
+  timestamp: '2024-03-27T10:47:08.539Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-27T10:47:08.540Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-27T10:47:08.541Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs:5viH4opRtR@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_s_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-27T10:47:09.083Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-27T10:47:41.147Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: requested - {\n' +
+    '  "table_slug": "praymeri_kiy",\n' +
+    '  "project_id": "afcbed3e-730c-45fb-9fb5-0e6676e4e85d",\n' +
+    '  "method": "CREATE",\n' +
+    '  "role_id": "",\n' +
+    '  "version_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-03-27T10:47:55.029Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.custom_event.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:47:55.187Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.create: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:47:56.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-03-27T10:47:56.742Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

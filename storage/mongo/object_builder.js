@@ -2315,7 +2315,7 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
-        const endMemoryUsage = v8.getHeapStatistics();
+        const endMemoryUsage = v8.getHeapStatistics(); 
 
         // console.log(' --> P-M Memory used by getList:', ((endMemoryUsage.used_heap_size - startMemoryUsage.used_heap_size) / (1024 * 1024)) + ' MB');
         // console.log(' --> P-M Heap size limit:', (startMemoryUsage.heap_size_limit / (1024 * 1024)) + ' MB');

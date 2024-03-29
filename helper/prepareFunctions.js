@@ -4,8 +4,8 @@ const converter = require("./converter");
 const generators = require("./generator")
 const { v4 } = require("uuid");
 const ObjectBuilder = require("./../models/object_builder");
-
-const tableVersion = require("../helper/table_version")
+const FormulaFunction = require("./calculateFormulaFields");
+const tableVersion = require("../helper/table_version");
 const grpcClient = require("./../services/grpc/client");
 
 
@@ -113,6 +113,41 @@ let prepareFunction = {
             data[generateUUIDs.slug] = v4()
         }
 
+        let manually = await Field.findOne({
+            table_id: tableData?.id,
+            type: "MANUAL_STRING"
+        })
+
+        if (manually) {
+            let sortedFields = tableInfo.fields.sort((a, b) => {
+            return b.slug.length - a.slug.length
+        })
+            let computedFormula = manually.attributes.fields.formula.stringValue
+            sortedFields.forEach(el => {
+                let dataSLug = req.data.fields[el.slug]
+                if (typeof dataSLug === 'undefined') {
+                    return;
+                }
+                let kinda = dataSLug.kind
+                let value = dataSLug[kinda] ?? 0;
+                if (typeof value === "booleanValue") {
+                    value = JSON.stringify(value).toUpperCase()
+                }
+                if (typeof value === "stringValue") {
+                    value = `'${value}'`
+                }
+            
+                if (typeof value === "object") {
+                    value = `'${value[0]}'`
+                }
+                if (typeof value === "numberValue") {
+                    value = `${value}`
+                }
+                computedFormula = computedFormula.replaceAll(`${el.slug}`, `${value}`)
+            })
+
+            data[manually.slug] = computedFormula
+        }
 
         let incrementField = await Field.findOne({
             table_id: tableData?.id,

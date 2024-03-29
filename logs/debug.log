@@ -8798,3 +8798,150 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-28T13:19:05.926Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-28T13:19:05.931Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-28T13:19:05.932Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-28T13:19:07.467Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-28T13:23:23.200Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-03-28T13:25:01.154Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getConnetionOptions: succeeded',
+  level: 'info',
+  timestamp: '2024-03-28T13:25:02.689Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-28T13:26:36.595Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-28T13:26:36.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-28T13:26:36.602Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-28T13:26:38.464Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-28T13:29:25.667Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-03-28T13:31:45.615Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getConnetionOptions: succeeded',
+  level: 'info',
+  timestamp: '2024-03-28T13:31:46.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-03-28T13:39:37.410Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-03-28T13:39:37.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-03-28T13:39:37.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs:aGyWxtfz4n@142.93.164.37:27017/medpay_f82a36a0f5684572bf8ccacf932114cb_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-03-28T13:39:38.170Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-03-28T13:44:26.901Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-03-28T13:44:35.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.loginStore.getConnetionOptions: succeeded',
+  level: 'info',
+  timestamp: '2024-03-28T13:44:37.798Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

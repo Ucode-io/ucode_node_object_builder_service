@@ -4978,7 +4978,7 @@ let objectBuilder = {
         const dynamicConfig = {
             groupByFields: [], 
         };
-        numberColumns.forEach(el => {
+        numberColumns.forEach(el => { 
             sumFieldWithDollorSign[el.slug] = { $sum: "$" + el.slug }
         })
         projectColumns.forEach(el => {

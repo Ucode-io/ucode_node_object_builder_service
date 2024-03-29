@@ -22,7 +22,7 @@ const CustomEventSchema = mongoose.Schema(
         },
         url: {
             type: String,
-        },
+        }, 
         disable: {
             type: Boolean,
             default: false,

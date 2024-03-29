@@ -565,7 +565,7 @@ let loginStore = {
                     tableSlug = clientType.table_slug
                 }
                 const user = await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]?.models?.findOne({ guid: req.user_id }).lean()
-                if (user && user[connection.field_slug]) {
+                if ((user && user[connection.field_slug]) || user && user['guid']) {
                     let params = {}
                     if (Array.isArray(user[connection.field_slug])) {
                         params["guid"] = { $in: user[connection.field_slug] }

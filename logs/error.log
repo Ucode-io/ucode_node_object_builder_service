@@ -11042,3 +11042,17 @@
   },
   [Symbol(errorLabels)]: Set(0) {}
 }
+{
+  message: "service.version.getSingle: failed with error: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2024-03-29T11:56:56.215Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: failed with error: Field validation failed: slug: Field must have slug, label: Field must have label',
+  level: 'error',
+  timestamp: '2024-03-29T12:54:54.118Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

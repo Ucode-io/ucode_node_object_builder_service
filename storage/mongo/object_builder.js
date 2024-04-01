@@ -5425,6 +5425,7 @@ let objectBuilder = {
         }
 
 
+        console.log("PIPELINE: ", JSON.stringify(pipeline))
         await updateISODateFunction.updateISODate(pipeline)
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]

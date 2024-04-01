@@ -4979,7 +4979,7 @@ let objectBuilder = {
             groupByFields: [], 
         };
         numberColumns.forEach(el => { 
-            sumFieldWithDollorSign[el.slug] = { $sum: "$" + el.slug }
+            sumFieldWithDollorSign[el.slug] = "$" + el.slug 
         })
         projectColumns.forEach(el => {
             projectColumnsWithDollorSign[el.slug] = "$" + el.slug
@@ -5111,7 +5111,7 @@ let objectBuilder = {
                             ...projectColumnsWithDollorSign,
                             ...numberfieldWithDollorSign,
                             ...lookupAddFields,
-                            ...lookupGroupField
+                            ...lookupGroupField,
                         }
                     };
                 } else {
@@ -5121,7 +5121,8 @@ let objectBuilder = {
                             "createdAt": "$createdAt",
                             ...projectColumnsWithDollorSign,
                             ...numberfieldWithDollorSign,
-                            ...lookupAddFields
+                            ...lookupAddFields,
+                            ...sumFieldWithDollorSign
                         }
                     };
                 }

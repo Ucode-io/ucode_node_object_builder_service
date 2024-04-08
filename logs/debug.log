@@ -9190,3 +9190,274 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 64738',
+  level: 'info',
+  timestamp: '2024-04-05T03:27:13.132Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-05T03:27:13.136Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-05T03:27:13.136Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-05T03:27:13.660Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-05T03:27:50.355Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "MULTIPHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Multi Photo",\n' +
+    '  "slug": "multiphoto",\n' +
+    '  "table_id": "49dd6da4-5d80-4b41-a50a-a6c99a39461b",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "Multi Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "path": {\n' +
+    '        "stringValue": "Media",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": true,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": "",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-05T03:33:59.592Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 51135',
+  level: 'info',
+  timestamp: '2024-04-05T03:38:18.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-05T03:38:18.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-05T03:38:18.305Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-05T03:38:18.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-05T03:38:52.727Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "MULTIPHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Multi Photo",\n' +
+    '  "slug": "multiphoto",\n' +
+    '  "table_id": "49dd6da4-5d80-4b41-a50a-a6c99a39461b",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "Multi Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "path": {\n' +
+    '        "stringValue": "Media",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": true,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": "",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-05T03:40:11.877Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 52166',
+  level: 'info',
+  timestamp: '2024-04-05T03:42:21.936Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-05T03:42:21.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-05T03:42:21.939Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-05T03:42:22.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-05T03:42:55.554Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: requested - {\n' +
+    '  "default": "",\n' +
+    '  "type": "MULTIPHOTO",\n' +
+    '  "index": "string",\n' +
+    '  "label": "Multi Photo",\n' +
+    '  "slug": "multiphoto",\n' +
+    '  "table_id": "49dd6da4-5d80-4b41-a50a-a6c99a39461b",\n' +
+    '  "attributes": {\n' +
+    '    "fields": {\n' +
+    '      "label": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "label_en": {\n' +
+    '        "stringValue": "Multi Photo",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "number_of_rounds": {\n' +
+    '        "nullValue": "NULL_VALUE",\n' +
+    '        "kind": "nullValue"\n' +
+    '      },\n' +
+    '      "path": {\n' +
+    '        "stringValue": "Media",\n' +
+    '        "kind": "stringValue"\n' +
+    '      },\n' +
+    '      "defaultValue": {\n' +
+    '        "stringValue": "",\n' +
+    '        "kind": "stringValue"\n' +
+    '      }\n' +
+    '    }\n' +
+    '  },\n' +
+    '  "id": "",\n' +
+    '  "is_visible": false,\n' +
+    '  "autofill_table": "",\n' +
+    '  "autofill_field": "",\n' +
+    '  "unique": false,\n' +
+    '  "automatic": false,\n' +
+    '  "project_id": "ada73ee1-4f8b-4699-9abf-6b3be19de0f2",\n' +
+    '  "commit_id": "",\n' +
+    '  "version_id": "",\n' +
+    '  "relation_field": "",\n' +
+    '  "show_label": true,\n' +
+    '  "enable_multilanguage": false,\n' +
+    '  "hide_multilanguage": false,\n' +
+    '  "minio_folder": "",\n' +
+    '  "env_id": ""\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-05T03:43:15.027Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.field.create: succeeded',
+  level: 'info',
+  timestamp: '2024-04-05T03:43:16.891Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

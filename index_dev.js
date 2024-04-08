@@ -28,13 +28,13 @@ const logger = require("./config/logger");
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "ae7e025f-3d3c-4edc-af41-a71e5951f9bd",  
+            project_id: "ada73ee1-4f8b-4699-9abf-6b3be19de0f2",  
             credentials: {
-                host: "142.93.164.37",
-                port: 27017,
-                database: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                username: "swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs",
-                password: "vwdG8B7gzO"
+                host: "65.109.239.69",
+                port: 30027,
+                database: "transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs",
+                username: "transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs",
+                password: "a8AmenxuSm"
             }
         })
 
@@ -47,6 +47,7 @@ const logger = require("./config/logger");
         //mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service
         // mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs
         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
+        // mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs
 
         // await projectStorage.autoConnect(
         //     {

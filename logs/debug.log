@@ -11588,3 +11588,1445 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T04:35:32.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T04:35:32.984Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T04:35:32.984Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T04:35:33.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T04:36:07.640Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getObjectDetails: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T04:36:30.705Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T04:37:06.754Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T04:37:06.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T04:37:06.756Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T04:37:07.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T04:37:48.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getObjectDetails: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T04:37:52.836Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T04:49:42.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T04:49:42.981Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T04:49:42.981Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T04:49:43.500Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T04:50:22.211Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getObjectDetails: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T04:50:48.669Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T04:51:08.868Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T04:51:08.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T04:51:08.870Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T04:51:09.378Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T04:51:43.472Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getObjectDetails: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T04:51:53.266Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T04:52:51.177Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T04:52:51.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T04:52:51.179Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T04:52:51.739Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T04:53:29.484Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getObjectDetails: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T04:54:05.787Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T04:54:35.647Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T04:54:35.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T04:54:35.651Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T04:54:36.175Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T04:55:13.700Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T04:55:43.304Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: failed with error: Invalid endPoint : ',
+  level: 'error',
+  timestamp: '2024-04-09T04:55:44.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T04:57:33.099Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T04:57:33.102Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T04:57:33.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T04:57:33.601Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T04:58:10.197Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T04:58:55.009Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: failed with error: Invalid endPoint : ',
+  level: 'error',
+  timestamp: '2024-04-09T04:58:56.357Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T05:00:00.558Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T05:00:00.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T05:00:00.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T05:00:01.184Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T05:00:37.710Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:01:56.544Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: failed with error: Invalid endPoint : ',
+  level: 'error',
+  timestamp: '2024-04-09T05:01:57.763Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T05:04:58.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T05:04:58.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T05:04:58.529Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T05:04:59.052Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T05:05:36.210Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:07:38.740Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: failed with error: Invalid endPoint : ',
+  level: 'error',
+  timestamp: '2024-04-09T05:07:39.975Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T05:10:47.412Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T05:10:47.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T05:10:47.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T05:10:47.951Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T05:11:24.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:11:50.435Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: failed with error: Invalid endPoint : ',
+  level: 'error',
+  timestamp: '2024-04-09T05:11:54.038Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T05:14:06.212Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T05:14:06.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T05:14:06.214Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T05:14:06.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T05:14:41.830Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:14:45.842Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: failed with error: Invalid endPoint : ',
+  level: 'error',
+  timestamp: '2024-04-09T05:14:47.088Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T05:16:54.495Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T05:16:54.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T05:16:54.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T05:16:55.040Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T05:17:31.415Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:18:13.041Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:18:14.561Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:19:00.691Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:19:02.703Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:40:00.526Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListInExcel: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T05:40:02.049Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T07:32:16.388Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T07:32:16.392Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T07:32:16.392Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T07:32:16.869Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T07:32:50.345Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T07:49:05.185Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T07:49:05.188Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T07:49:05.189Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs:a8AmenxuSm@65.109.239.69:30027/transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T07:49:05.721Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T07:49:42.169Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T09:12:05.301Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T09:12:05.308Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T09:12:05.308Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T09:12:06.014Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T09:13:34.021Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.permissionStore.getTablePermission: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T09:21:33.649Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getListSlim: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T09:21:35.233Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.version_history.migrate: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T09:21:36.012Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T09:21:59.393Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T09:22:12.966Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T09:30:13.373Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T09:30:13.376Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T09:30:13.377Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T09:30:14.100Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T09:31:45.623Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T09:35:33.929Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T09:35:47.141Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T09:37:25.553Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T09:37:25.562Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T09:37:25.563Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T09:37:26.251Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T09:38:53.254Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T09:38:58.306Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T09:39:12.662Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T09:44:44.005Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T09:44:44.010Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T09:44:44.011Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T09:44:44.777Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T09:46:20.629Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T09:46:43.422Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T09:46:58.217Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T09:47:59.176Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T09:47:59.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T09:47:59.178Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T09:47:59.916Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T09:49:37.432Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T09:49:41.941Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T09:49:57.230Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T13:49:48.062Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T13:49:48.066Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T13:49:48.067Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T13:49:48.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T13:51:18.207Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T13:51:42.900Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T13:51:57.039Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T13:57:10.022Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T13:57:10.025Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T13:57:10.026Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T13:57:10.717Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T13:58:35.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T13:58:42.359Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T13:58:56.288Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T14:19:59.181Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T14:19:59.184Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T14:19:59.185Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T14:19:59.853Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T14:21:25.814Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T14:21:33.838Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T14:21:47.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T14:22:27.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T14:22:27.482Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T14:22:27.482Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T14:22:28.160Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T14:23:57.589Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T14:24:36.702Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T14:24:50.749Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T14:25:21.499Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T14:25:21.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T14:25:21.501Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T14:25:22.199Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T14:26:52.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T14:27:21.219Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T14:27:35.263Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T14:27:52.487Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T14:27:52.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T14:27:52.489Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T14:27:53.187Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T14:29:17.567Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T14:29:56.061Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T14:30:10.113Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T14:32:37.452Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T14:32:37.456Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T14:32:37.457Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T14:32:38.151Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T14:34:07.314Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T14:35:28.326Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: "service.layout.GetSingleLayout: failed with error: Cannot read properties of null (reading 'attributes')",
+  level: 'error',
+  timestamp: '2024-04-09T14:35:42.596Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T14:37:33.356Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T14:37:33.360Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T14:37:33.361Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T14:37:34.018Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T14:39:02.976Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T14:39:23.580Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: failed with error: Assignment to constant variable.',
+  level: 'error',
+  timestamp: '2024-04-09T14:39:37.347Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-09T15:36:45.778Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-09T15:36:45.782Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-09T15:36:45.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-09T15:36:46.478Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-09T15:38:15.618Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: requested - {\n' +
+    '  "project_id": "49ae6c46-5397-4975-b238-320617f0190c",\n' +
+    '  "table_id": "",\n' +
+    '  "menu_id": "c57eedc3-a954-4262-a0af-376c65b5a284",\n' +
+    '  "table_slug": "orders",\n' +
+    '  "role_id": "203a3f65-d6ef-4ce9-8141-8368d78a39a7"\n' +
+    '}',
+  level: 'info',
+  timestamp: '2024-04-09T15:38:27.980Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.layout.GetSingleLayout: succeeded',
+  level: 'info',
+  timestamp: '2024-04-09T15:38:43.699Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

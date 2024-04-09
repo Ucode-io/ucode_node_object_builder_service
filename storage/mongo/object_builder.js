@@ -969,7 +969,9 @@ let objectBuilder = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
+        console.log("111 ")
         let params = struct.decode(req?.data)
+        // let params = req?.data;
         const limit = params.limit
         const offset = params.offset
         delete params["offset"]
@@ -988,7 +990,6 @@ let objectBuilder = {
                 tableRelationFields[field.relation_id] = field
             }
         })
-
 
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
 
@@ -1152,7 +1153,12 @@ let objectBuilder = {
                 if (params[key]) {
                     let is_array = Array.isArray(params[key])
                     if (is_array) {
-                        params[key] = { $in: params[key] }
+                        console.log("yes is_array")
+                        if (key == "$or") {
+                            console.log("or case")
+                        } else {
+                            params[key] = { $in: params[key] }
+                        }
                     }
                 }
             } else if (!key.includes('.') && typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
@@ -1167,7 +1173,6 @@ let objectBuilder = {
                 params[key] = RegExp(params[key], "i")
             }
         }
-
         let result = [], count;
         let populateArr = []
 

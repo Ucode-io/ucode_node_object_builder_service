@@ -3149,10 +3149,14 @@ let objectBuilder = {
             const response = struct.decode(res.data)
             const result = response.response
             const decodedFields = response.fields
+            const allTables = (await ObjectBuilder(true, req.project_id))
+            const tableInfo = allTables[req.table_slug]
+            let views = tableInfo.views;
+            const selectedFields = decodedFields.filter(obj => views[0].columns.includes(obj.id));
             excelArr = []
             for (const obj of result) {
                 excelObj = {}
-                for (const field of decodedFields) {
+                for (const field of selectedFields) {
                     // if (field.type === "FORMULA") {
                     //     let attributes = field.attributes
 
@@ -3485,7 +3489,7 @@ let objectBuilder = {
         })
 
         let views = tableInfo.views;
-        // console.time("TIME_LOGGING:::app_id")
+        console.log("views colums >>>>>> ", views[0].columns)
         for (let view of views) {
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,

@@ -28,16 +28,17 @@ const logger = require("./config/logger");
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "ada73ee1-4f8b-4699-9abf-6b3be19de0f2",  
+            project_id: "49ae6c46-5397-4975-b238-320617f0190c",  
             credentials: {
-                host: "65.109.239.69",
-                port: 30027,
-                database: "transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs",
-                username: "transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs",
-                password: "a8AmenxuSm"
+                host: "142.93.164.37",
+                port: 27017,
+                database: "starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs",
+                username: "starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs",
+                password: "oyGGjfQFI8"
             }
         })
 
+        // mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs pr_id: "49ae6c46-5397-4975-b238-320617f0190c"
         // mongodb://rizo_42ab0799deff4f8cbf3f64bf9665d304_s_obj_build_svcs:ivymDZFcdA@142.93.164.37:27017/rizo_42ab0799deff4f8cbf3f64bf9665d304_s_obj_build_svcs
         //mongodb://logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs:zWWzDFqtVQ@142.93.164.37:27017/logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs
         //mongodb://vertebra_vertebra_object_builder_service:f7NJv0ZaKr@142.93.164.37:27017/vertebra_vertebra_object_builder_service

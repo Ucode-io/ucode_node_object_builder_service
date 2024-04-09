@@ -824,7 +824,7 @@ let layoutStore = {
                     tab.relation = relation ? relation : {}
                 }
             }
-            
+
             tabs.sort((a, b) => a.order - b.order)
             layout.tabs = tabs
             return layout 

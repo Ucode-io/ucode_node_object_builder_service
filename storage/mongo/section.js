@@ -84,7 +84,7 @@ let sectionStore = {
                 })
 
             return;
-        } catch (err) {
+        } catch (err) { 
             throw err
         }
 
@@ -97,7 +97,7 @@ let sectionStore = {
 
             await ViewRelation.deleteMany(
                 {
-                    table_slug: data.table_slug,
+                    table_slug: data.table_slug, 
                 }
             )
             if (data.table_slug === "") {

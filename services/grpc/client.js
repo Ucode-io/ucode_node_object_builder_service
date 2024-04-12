@@ -139,13 +139,13 @@ const deleteUserAuth = async (data) => {
                 });
                 console.log("err: ", err)
                 reject(err);
-                return;
+                return; 
             }
 
             resolve(res);
         });
-    });
-};
+    }); 
+}; 
 
 const deleteUsersAuth = async (data) => {
     return new Promise((resolve, reject) => {

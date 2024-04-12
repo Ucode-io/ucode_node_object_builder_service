@@ -297,7 +297,6 @@ let sectionStore = {
                 }
             );
             let sectionsResponse = []
-            console.log("SECTION 111 >>> ")
             for (const section of sections) {
                 let fieldsRes = []
                 for (const fieldReq of (section.fields || [])) {

@@ -969,7 +969,6 @@ let objectBuilder = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
-        console.log("111 ")
         let params = struct.decode(req?.data)
         // let params = req?.data;
         const limit = params.limit
@@ -5435,6 +5434,7 @@ let objectBuilder = {
 
 
         console.log("PIPELINE: ", JSON.stringify(pipeline))
+        console.log("Project Id->", req.project_id)
         await updateISODateFunction.updateISODate(pipeline)
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]

@@ -3185,16 +3185,23 @@ let objectBuilder = {
     }),
     getListInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListInExcel`, async (req) => {
         try {
+            let data = struct.decode(req.data)
+            let field_ids = data.field_ids
+            delete req.data.field_ids
             const mongoConn = await mongoPool.get(req.project_id)
             const res = await objectBuilder.getList(req)
             const response = struct.decode(res.data)
             const result = response.response
             const decodedFields = response.fields
-            // console.log("Ress::", result);
+            const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
             excelArr = []
             for (const obj of result) {
                 excelObj = {}
-                for (const field of decodedFields) {
+                for (const field of selectedFields) {
+
+                    if (field.label == '') {
+                        field.label = field.attributes.label_uz
+                    }
                     // if (field.type === "FORMULA") {
                     //     let attributes = field.attributes
 
@@ -3250,7 +3257,6 @@ let objectBuilder = {
                             try {
                                 obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
                             } catch (error) {
-                                // console.log(`${toDate}`, obj[field.slug]);
                             }
                         }
 
@@ -3259,7 +3265,6 @@ let objectBuilder = {
                             try {
                                 obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
                             } catch (error) {
-                                // console.log(`${toDate}`, obj[field.slug]);
                             }
                         }
                         if (field.type === "LOOKUP") {
@@ -3315,7 +3320,6 @@ let objectBuilder = {
             if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
                 ssl = false
             }
-            // console.log("ssl", ssl);
 
 
             let filepath = "./" + filename
@@ -3338,11 +3342,9 @@ let objectBuilder = {
                 if (error) {
                     return console.log(error);
                 }
-                // console.log("uploaded successfully")
                 fs.unlink(filename, (err => {
                     if (err) console.log(err);
                     else {
-                        // console.log("Deleted file: ", filename);
                     }
                 }));
             });
@@ -5504,6 +5506,150 @@ let objectBuilder = {
 
         resp = struct.encode({data: JSON.parse(JSON.stringify(resp))})
         return { table_slug: req.table_slug, data: resp }
+    }),
+
+    getListRelationTabInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListRelationTabInExcel`, async (req) => {
+        try {
+            let data = struct.decode(req.data)
+            let field_ids = data.field_ids
+            delete req.data.field_ids
+            const mongoConn = await mongoPool.get(req.project_id)
+            const res = await objectBuilder.getList(req)
+            const response = struct.decode(res.data)
+            const result = response.response
+            const decodedFields = response.fields
+            const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
+            console.log("selectedFields >>> ", selectedFields)
+            excelArr = []
+            for (const obj of result) {
+                excelObj = {}
+                for (const field of selectedFields) {
+    
+                    if (obj[field.slug]) {
+
+                        if (field.label == '') {
+                            field.label = field.attributes.label_uz
+                        }
+
+                        if (field.type === "MULTI_LINE") {
+                            obj[field.slug] = obj[field.slug].replace(/<[^>]+>/g, '')
+                        }
+
+                        if (field.type === "DATE") {
+                            toDate = new Date(obj[field.slug])
+                            try {
+                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
+                            } catch (error) {
+                            }
+                        }
+
+                        if (field.type === "DATE_TIME") {
+                            toDate = new Date(obj[field.slug])
+                            try {
+                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
+                            } catch (error) {
+                            }
+                        }
+                        if (field.type === "LOOKUP") {
+                            let overall = ""
+                            if (typeof field.view_fields === "object" && field.view_fields.length) {
+                                for (const view of field.view_fields) {
+                                    if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
+                                        overall += obj[field.slug + "_data"][view.slug]
+                                    }
+                                }
+                            }
+                            obj[field.slug] = overall
+
+                        }
+                        if (field.type === "MULTISELECT") {
+                            let options = []
+                            let multiselectValue = "";
+                            if (field.attributes) {
+                                options = field.attributes.options
+                            }
+                            if (obj[field.slug].length && options.length && Array.isArray(obj[field.slug])) {
+                                obj[field.slug].forEach(element => {
+                                    let getLabelOfMultiSelect = options.find(val => (val.value === element))
+                                    if (getLabelOfMultiSelect) {
+                                        if (getLabelOfMultiSelect.label) {
+                                            multiselectValue += getLabelOfMultiSelect.label + ","
+                                        } else {
+                                            multiselectValue += getLabelOfMultiSelect.value + ","
+                                        }
+                                    }
+                                })
+                            }
+                            if (multiselectValue.length) {
+                                multiselectValue = multiselectValue.slice(0, multiselectValue.length - 1)
+                            }
+                            obj[field.slug] = multiselectValue
+                        }   
+                        console.log("obj[field.slug] >>> ", obj[field.slug])
+                        excelObj[field.label] = obj[field.slug]
+                    } else {
+                        excelObj[field.label] = ""
+                    }
+                }
+                excelArr.push(excelObj)
+            }
+            console.log("excelArr >>>> ", excelArr)
+            const workSheet = XLSX.utils.json_to_sheet(excelArr);
+            const workBook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
+            let filename = "report_" + Math.floor(Date.now() / 1000) + ".xlsx"
+            XLSX.writeFile(workBook, "./" + filename);
+
+            let ssl = true
+            if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
+                ssl = false
+            }
+
+
+            let filepath = "./" + filename
+            var minioClient = new Minio.Client({
+                endPoint: cfg.minioEndpoint,
+                useSSL: ssl,
+                accessKey: cfg.minioAccessKeyID,
+                secretKey: cfg.minioSecretAccessKey
+            });
+
+            var metaData = {
+                'Content-Type': "application/octet-stream",
+                'Content-Language': 123,
+                'X-Amz-Meta-Testing': 1234,
+                'example': 5678
+            }
+
+
+            minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
+                if (error) {
+                    return console.log(error);
+                }
+                fs.unlink(filename, (err => {
+                    if (err) console.log(err);
+                    else {
+                    }
+                }));
+            });
+
+            const respExcel = struct.encode({
+                link: cfg.minioEndpoint + "/reports/" + filename,
+            });
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "GET_LIST_IN_EXCEL"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return { table_slug: req.table_slug, data: respExcel, custom_message: customMessage }
+        } catch (err) {
+            throw err
+        }
     }),
 }
 

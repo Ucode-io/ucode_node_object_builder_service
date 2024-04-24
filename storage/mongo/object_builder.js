@@ -3200,7 +3200,7 @@ let objectBuilder = {
                 for (const field of selectedFields) {
 
                     if (field.label == '') {
-                        field.label = field.attributes.label_uz
+                        field.label = field.attributes.label_en
                     }
                     // if (field.type === "FORMULA") {
                     //     let attributes = field.attributes

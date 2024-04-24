@@ -32,9 +32,9 @@ const logger = require("./config/logger");
             credentials: {
                 host: "65.109.239.69",
                 port: 30027,
-                database: "montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs",
-                username: "montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs",
-                password: "NCHVE6jdEh"
+                database: "transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs",
+                username: "transforme_88a09f9111d6422eaaa37fd9973b7315_p_obj_build_svcs",
+                password: "a8AmenxuSm"
             }
         })
 

@@ -193,7 +193,7 @@ let relationStore = {
                     table = tableTo
                     
                     let  = await tableVersion(mongoConn, { slug: data.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                    result = await relationFieldChecker(data.field_to, tableTo.id, data.project_id)
+                    result = await relationFieldChecker(data.field_to, tableTo.id, data.project_id, "LOOKUPS")
                     if (result.exists) {
                         data.field_to = result.lastField;
                     }
@@ -352,7 +352,7 @@ let relationStore = {
                         }
                     }
                  
-                    result = await relationFieldChecker(data.field_from, tableFrom.id, data.project_id)
+                    result = await relationFieldChecker(data.field_from, tableFrom.id, data.project_id, "LOOKUPS")
                     if (result.exists) {
                         data.field_from = result.lastField;
                     }
@@ -418,7 +418,7 @@ let relationStore = {
                         deleted_at: "1970-01-01T18:00:00.000+00:00"
                     });
                    
-                    result = await relationFieldChecker(data.recursive_field, table.id, data.project_id)
+                    result = await relationFieldChecker(data.recursive_field, table.id, data.project_id, "LOOKUP")
                     if (result.exists) {
                         data.recursive_field = result.lastField;
                     }
@@ -580,7 +580,7 @@ let relationStore = {
                         deleted_at: "1970-01-01T18:00:00.000+00:00",
                     });
                     // table = await tableVersion(mongoConn, { slug: data.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                    result = await relationFieldChecker(data.field_from, table.id, data.project_id)
+                    result = await relationFieldChecker(data.field_from, table.id, data.project_id, "LOOKUP")
                     if (result.exists) {
                         data.field_from = result.lastField;
                     }

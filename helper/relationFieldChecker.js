@@ -1,11 +1,10 @@
 const mongoPool = require('../pkg/pool');
 const config = require('../config/index')
 
-async function checkRelationFieldExists (field_name, table_id, project_id) {
+async function checkRelationFieldExists(field_name, table_id, project_id, field_type) {
     if (!project_id) {
         console.warn('WARNING:: Using default project id in checkRelationFieldExists...')
     }
-
     const mongoConn = await mongoPool.get(project_id)
     const Table = mongoConn.models['Table']
     const Field = mongoConn.models['Field']
@@ -18,7 +17,8 @@ async function checkRelationFieldExists (field_name, table_id, project_id) {
     const relationFields = await Field.find(
         {
             table_id: table_id,
-            slug: filter
+            slug: filter,
+            type: field_type
             // slug: {$regex: field_name+"*"}
         },
         {

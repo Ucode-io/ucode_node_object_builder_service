@@ -51,5 +51,4 @@ async function checkRelationFieldExists(field_name, table_id, project_id, field_
     }
     return {exists: false, lastField: ""}
 };
-//
 module.exports = checkRelationFieldExists;

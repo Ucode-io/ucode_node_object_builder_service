@@ -63,8 +63,8 @@ module.exports = async function () {
                 ).object_builder_service;
 
             var server = new grpc.Server({
-                "grpc.max_receive_message_length": 10 * 1024 * 1024,
-                "grpc.max_send_message_length": 10 * 1024 * 1024,
+                "grpc.max_receive_message_length": 50 * 1024 * 1024,
+                "grpc.max_send_message_length": 50 * 1024 * 1024,
             });
 
             server.addService(objectBuilderProto.TableService.service, tableService);

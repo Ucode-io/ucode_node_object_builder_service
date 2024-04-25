@@ -13030,3 +13030,514 @@
   label: 'object_builder_service',
   metadata: {}
 }
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-22T12:10:02.222Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-22T12:10:02.227Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-22T12:10:02.228Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-22T12:10:03.925Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-22T12:11:52.983Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: failed with error: table not found',
+  level: 'error',
+  timestamp: '2024-04-22T12:11:54.839Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-22T12:15:18.780Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-22T12:20:56.297Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-22T12:20:56.302Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-22T12:20:56.303Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-22T12:20:57.826Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-22T12:22:22.476Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-22T12:30:53.883Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-22T12:32:35.972Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-22T12:32:35.977Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-22T12:32:35.978Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-22T12:32:37.122Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-22T12:33:59.455Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-22T12:34:08.020Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-22T12:35:44.570Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-22T12:35:44.576Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-22T12:35:44.577Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-22T12:35:46.131Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-22T12:37:24.013Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-22T12:37:31.701Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-22T12:37:47.705Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-22T12:37:47.711Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-22T12:37:47.712Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-22T12:37:49.840Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-22T12:39:19.728Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-22T12:39:27.498Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-22T14:06:27.103Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-22T14:06:27.108Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-22T14:06:27.109Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-22T14:06:28.281Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-22T14:07:56.544Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-22T14:11:24.654Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-22T14:13:32.519Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-22T14:13:32.525Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-22T14:13:32.526Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-22T14:13:34.456Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-22T14:14:52.858Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-22T14:15:05.693Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-23T03:22:46.594Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-23T03:22:46.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-23T03:22:46.600Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-23T03:22:47.783Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-23T03:23:43.762Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-23T03:24:25.057Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-23T03:33:02.559Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-23T03:33:02.564Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-23T03:33:02.566Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-23T03:33:03.433Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-23T03:33:56.554Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-23T03:34:05.776Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-23T04:19:38.327Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-23T04:19:38.332Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-23T04:19:38.334Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-23T04:19:40.091Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-23T04:21:01.657Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-23T04:22:57.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-23T04:34:32.592Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-23T04:34:32.597Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-23T04:34:32.599Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-23T04:34:33.395Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-23T04:36:19.424Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-23T04:37:22.076Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'grpc server is running at 9102',
+  level: 'info',
+  timestamp: '2024-04-23T04:48:16.958Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnectinag to resources',
+  level: 'info',
+  timestamp: '2024-04-23T04:48:16.966Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connecting to mongodb: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'debug',
+  timestamp: '2024-04-23T04:48:16.968Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'connected to the database: mongodb://postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs:4ckLk5aySI@142.93.164.37:27017/postgres_3f266a7aa9b64f76ba041d52cfcf388e_p_obj_build_svcs',
+  level: 'info',
+  timestamp: '2024-04-23T04:48:18.953Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'autoconnected successfully done!!!',
+  level: 'info',
+  timestamp: '2024-04-23T04:49:52.438Z',
+  label: 'object_builder_service',
+  metadata: {}
+}
+{
+  message: 'service.object_builder.getList: succeeded',
+  level: 'info',
+  timestamp: '2024-04-23T04:54:36.163Z',
+  label: 'object_builder_service',
+  metadata: {}
+}

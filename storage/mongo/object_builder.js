@@ -1881,6 +1881,7 @@ let objectBuilder = {
             ]
         }
         if (limit !== 0) {
+            console.log("Hello World")
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
                     $and: [params]

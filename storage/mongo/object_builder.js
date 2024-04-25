@@ -3143,19 +3143,24 @@ let objectBuilder = {
     }),
     getListInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListInExcel`, async (req) => {
         try {
+            let data = struct.decode(req.data)
+            let field_ids = data.field_ids
+            delete req.data.field_ids
             const mongoConn = await mongoPool.get(req.project_id)
             const res = await objectBuilder.getList(req)
             const response = struct.decode(res.data)
             const result = response.response
             const decodedFields = response.fields
-            const allTables = (await ObjectBuilder(true, req.project_id))
-            const tableInfo = allTables[req.table_slug]
-            let views = tableInfo.views;
-            const selectedFields = decodedFields.filter(obj => views[0].columns.includes(obj.id));
+            const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
             excelArr = []
             for (const obj of result) {
                 excelObj = {}
                 for (const field of selectedFields) {
+
+                    if (field.label == '') {
+                        field.label = field.attributes.label_uz
+                    }
+
                     // if (field.type === "FORMULA") {
                     //     let attributes = field.attributes
 

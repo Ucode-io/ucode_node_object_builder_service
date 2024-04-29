@@ -31,7 +31,7 @@ const logger = winston.createLogger({
     //         filename: "logs/error.log",
     //         level: "error"
     //     })
-    // ]
+    // ]//
 });
 
 if (process.env.NODE_ENV !== "production") {

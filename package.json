@@ -45,6 +45,6 @@
     "xmldom": "^0.6.0"
   },
   "devDependencies": {
-    "jest": "^29.6.2"
+    "mocha": "^10.2.0"
   }
 }

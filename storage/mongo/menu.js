@@ -5,6 +5,8 @@ const tableVersion = require('../../helper/table_version');
 const constants = require("../../helper/constants");
 const { struct } = require("pb-util/build");
 const folderMinio = require("../../helper/addMinioBucket");
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants");
+const logger = require("../../config/logger");
 let NAMESPACE = "storage.menu";
 
 
@@ -19,6 +21,12 @@ let menuStore = {
 
             const Menu = mongoConn.models['object_builder_service.menu']
             const menuPermissionTable = mongoConn.models['menu_permission']
+            //const History = mongoConn.models['object_builder_service.version_history']
+
+            if(!data.id) {
+                data.id = v4()
+            }
+
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
                 if (!data.icon) data.icon = table?.icon
@@ -26,7 +34,6 @@ let menuStore = {
             }
 
             if (data.type == "MINIO_FOLDER") {
-                console.log("CREATING FOLDER INSIDE ID STORAGE")
                 let folder_name = ""
                 let menu
                 if (data.parent_id != "" && data.parent_id != "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9") {
@@ -71,12 +78,21 @@ let menuStore = {
 
             }
             if (permissions.length) {
-                await menuPermissionTable.insertMany(permissions)
+                try {
+                    await menuPermissionTable.insertMany(permissions)
+                } catch (err) {
+                    logger.error(err)
+                }
             }
 
+<<<<<<< HEAD
             if(!response.attributes) {
                 response.attributes = {"ok": "abc"}
             }
+=======
+             
+
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
             return response;
         } catch (err) {
             throw err
@@ -89,13 +105,18 @@ let menuStore = {
                 throw new Error("Unsupported menu type");
             }
             const mongoConn = await mongoPool.get(data.project_id)
-
             const Menu = mongoConn.models['object_builder_service.menu']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             if (data.type === "TABLE") {
                 let table = await tableVersion(mongoConn, { id: data.table_id, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
                 if (!data.icon) data.icon = table?.icon
                 if (!data.label) data.label = table?.label
+            }
+
+            const beforeUpdate = await Menu.findOne({id: data.id})
+            if(!beforeUpdate) {
+                throw new Error("Menu not found with given id")
             }
 
             const menu = await Menu.findOneAndUpdate(
@@ -110,6 +131,8 @@ let menuStore = {
                 }
             )
 
+             
+            
             return menu;
         } catch (err) {
             throw err
@@ -122,7 +145,6 @@ let menuStore = {
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
 
             const Menu = mongoConn.models['object_builder_service.menu']
-
             let query = {
                 parent_id: data.parent_id,
                 label: RegExp(data.search, "i")
@@ -132,6 +154,19 @@ let menuStore = {
                     $nin: constants.STATIC_MENU_IDS
                 }
             }
+            if(data.table_id) {
+                query = {
+                    table_id: data.table_id
+                }
+                // const menus = await Menu.find(query)
+                // const menu_ids = menus.map(el => el.parent_id)
+                // query = {
+                //     id: {
+                //         $in: menu_ids
+                //     }
+                // }
+            }
+           
             const pipelines = [
                 {
                     '$match': query
@@ -297,22 +332,166 @@ let menuStore = {
         } catch (err) {
             throw err
         }
-
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-
             const Menu = mongoConn.models['object_builder_service.menu']
 
-            const menu = await Menu.findOne({ id: data.id });
+            const query = {id: data.id}
 
-            return menu;
+            const pipeline = [
+                {
+                    '$match': query
+                },
+                {
+                    '$lookup': {
+                        'from': 'tables',
+                        'localField': 'table_id',
+                        'foreignField': 'id',
+                        'as': 'table'
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'function_service.functions',
+                        'localField': 'microfrontend_id',
+                        'foreignField': 'id',
+                        'as': 'microfrontend'
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'pivottemplates',
+                        'localField': 'pivot_template_id',
+                        'foreignField': 'id',
+                        'as': 'pivot'
+                    }
+                },
+                {
+                    '$lookup': {
+                        from: "web_pages.web_page",
+                        let: {
+                            webpage_id: "$webpage_id",
+                        },
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: {
+                                        $and: [
+                                            {
+                                                $eq: ["$id", "$$webpage_id"],
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                            {
+                                $sort: {
+                                    created_at: -1,
+                                },
+                            },
+                            {
+                                $group: {
+                                    _id: "$webpage_id",
+                                    webpage: {
+                                        $first: "$$ROOT",
+                                    },
+                                },
+                            },
+                        ],
+                        as: "webpage"
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$table',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$microfrontend',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$pivot',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$unwind': {
+                        'path': '$webpage',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$lookup': {
+                        'from': 'menu_permissions',
+                        'let': {
+                            'menuId': '$id',
+                            'roleId': data.role_id
+                        },
+                        'pipeline': [
+                            {
+                                '$match': {
+                                    '$expr': {
+                                        '$and': [
+                                            {
+                                                '$eq': ['$role_id', '$$roleId']
+                                            },
+                                            {
+                                                '$eq': ['$menu_id', '$$menuId']
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        'as': 'permission'
+                    },
+                },
+                {
+                    '$unwind': {
+                        'path': '$permission',
+                        'preserveNullAndEmptyArrays': true
+                    }
+                },
+                {
+                    '$project': {
+                        'permission._id': 0,
+                        'permission.__v': 0,
+                        'permission.createdAt': 0,
+                        'permission.updatedAt': 0,
+                    }
+                },
+                {
+                    '$addFields': {
+                        'data': {
+                            'table': '$table',
+                            'microfrontend': '$microfrontend',
+                            'webpage': '$webpage.webpage',
+                            'permission': '$permission',
+                            'pivot': '$pivot',
+                        }
+                    }
+                }
+            ];
+
+            let menu = await Menu.aggregate(pipeline)
+            menu = JSON.parse(JSON.stringify(menu))
+
+            if (menu.length !== 0) {
+                menu[0].data = struct.encode(menu[0].data);
+                return menu[0];
+            }
+
+            return null
         } catch (err) {
             throw err
         }
-
-
     }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {
@@ -321,15 +500,23 @@ let menuStore = {
                 throw new Error("Cannot delete default menu")
             }
             const Menu = mongoConn.models['object_builder_service.menu']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             let res = await Menu.findOne({ id: data.id });
             if (res && res.type == "MINIO_FOLDER") {
                 let attributes = struct.decode(res.attributes)
                 await folderMinio.deleteMinioFolder(data.project_id, attributes.path)
             }
+<<<<<<< HEAD
             const menu = await Menu.findOneAndDelete({ id: data.id }, {new: true});
+=======
+            const menu = await Menu.findOneAndDelete({ id: data.id }, { new: true });
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
+
+             
+
             return menu;
         } catch (err) {
             throw err
@@ -538,8 +725,8 @@ let menuStore = {
                 }
             }
 
-            await MenuModel.deleteMany({id: {$in: data.menu_ids}})
-            await MenuPermissionModel.deleteMany({menu_id: {$in: data.menu_ids}})
+            await MenuModel.deleteMany({ id: { $in: data.menu_ids } })
+            await MenuPermissionModel.deleteMany({ menu_id: { $in: data.menu_ids } })
 
             await MenuModel.insertMany(data.menus)
             await MenuPermissionModel.insertMany(menu_permissions)
@@ -741,7 +928,6 @@ let menuStore = {
             // menus.forEach(el => {
             //     el.data = struct.encode(el.data)
             // })
-            console.log(">>>>>>>>>>>>", menus)
             const count = await Menu.countDocuments(query);
             return { menus, count };
         } catch (err) {

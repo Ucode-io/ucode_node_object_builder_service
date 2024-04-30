@@ -1,10 +1,9 @@
 const logger = require("../config/logger");
 const grpc = require("@grpc/grpc-js");
-const { struct } = require("pb-util");
-const mongoPool = require("../pkg/pool");
 const grpcClient = require("../services/grpc/client");
 const config = require("../config/index");
 const projectStore = require("../storage/mongo/project");
+const mongoPool = require("../pkg/pool");
 const ObjectBuilder = require("../models/object_builder")
 
 module.exports = (namespace, fn) => {

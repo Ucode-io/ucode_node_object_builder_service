@@ -6,6 +6,7 @@
         "id": "c57eedc3-a954-4262-a0af-376c65b5a283",
         "created_at": new Date(),
         "updated_at": new Date(),
+        "is_system": true,
         "__v": 0,
         "tables": [
           {

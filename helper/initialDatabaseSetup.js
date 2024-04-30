@@ -17,16 +17,29 @@ const createRelation = require("../initial_setups/relation");
 const createSettingLanguage = require("../initial_setups/setting_language");
 const createSettingCurrency = require("../initial_setups/setting_currency");
 const createSettingTimezone = require("../initial_setups/setting_timezone");
+<<<<<<< HEAD
 const createMenu = require("../initial_setups/menu");
 const createAppPermission = require("../initial_setups/appPermission");
+=======
+const createGlobalPermission = require("../initial_setups/global_permission");
+const createMenu = require("../initial_setups/menu");
+const guessRole = require("../initial_setups/defaultRole")
+const guessClientType = require("../initial_setups/guessClientType")
+const settingCheker = require("./settingChecker")
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 
-async function insertCollections(conn, userId, projectId) {
+async function insertCollections(conn, userId, projectId, clientTypeID, roleID) {
 
     const projectID = projectId.toString()
     const clientPlatformID = v4().toString()
-    const clientTypeID = v4().toString()
-    const roleID = v4().toString()
-    const userID = userId.toString()
+    if (clientTypeID == "") {
+        clientTypeID = v4().toString()
+    }
+    if (roleID == "") {
+        roleID = v4().toString()
+    }
+
+    const userID = userId ? userId.toString() : ""
     const testLoginID = v4().toString()
     const connectionID = v4().toString()
 
@@ -47,8 +60,6 @@ async function insertCollections(conn, userId, projectId) {
                 resolve(collections)
             });
     })
-
-    // console.log('available collections', collections)
 
 
     if (!collections['apps']) {
@@ -124,13 +135,13 @@ async function insertCollections(conn, userId, projectId) {
         })
     }
 
-    // if (!collections['connections']) {
-    //     const connections = await createConnection(connectionID, clientTypeID)
-    //     conn.collection('connections').insertMany(connections, function (err, result) {
-    //         if (err) throw err;
-    //         console.log("Inserted Connections : ", result.insertedCount)
-    //     })
-    // }
+    if (!collections['global_permissions']) {
+        const permissions = await createGlobalPermission(v4().toString(), roleID)
+        conn.collection('global_permissions').insertMany(permissions, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted GlobalPermission : ", permissions, result.insertedCount)
+        })
+    }
 
     if (!collections['relations']) {
         const relation = await createRelation()
@@ -141,7 +152,9 @@ async function insertCollections(conn, userId, projectId) {
     }
 
     if (!collections['record_permissions']) {
-        const recordPermission = await createRecordPermision(roleID)
+        let recordPermission = await createRecordPermision(roleID)
+        let guessRecordPermission = await createRecordPermision(guessRole.id)
+        recordPermission.push(...guessRecordPermission)
         conn.collection('record_permissions').insertMany(recordPermission, function (err, result) {
             if (err) throw err;
             console.log("Inserted Record Permission :", result.insertedCount)
@@ -149,7 +162,9 @@ async function insertCollections(conn, userId, projectId) {
     }
 
     if (!collections['field_permissions']) {
-        const fieldPermissions = await createFieldPermission(roleID)
+        let fieldPermissions = await createFieldPermission(roleID)
+        let guessFieldPermissions = await createFieldPermission(guessRole.id)
+        fieldPermissions.push(...guessFieldPermissions)
         conn.collection('field_permissions').insertMany(fieldPermissions, function (err, result) {
             if (err) throw err;
             console.log("Inserted Field Permissions :", result.insertedCount)
@@ -164,15 +179,16 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted View Permissions :", result.insertedCount)
         })
     }
+
     if (!collections['setting.languages']) {
-        console.log("TEST::::::3")
+        
         const settingLanguages = await createSettingLanguage()
         conn.collection('setting.languages').insertMany(settingLanguages, function (err, result) {
             if (err) throw err;
             console.log("Inserted Languages :", result.insertedCount)
         })
     }
-    console.log("TEST::::::2")
+    
     if (!collections['setting.currencies']) {
 
         const settingCurrencies = await createSettingCurrency()
@@ -190,6 +206,7 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted Timezone :", result.insertedCount)
         })
     }
+<<<<<<< HEAD
     if (!collections['object_builder_service.menus']) {
 
         const menus = await createMenu()
@@ -206,6 +223,10 @@ async function insertCollections(conn, userId, projectId) {
             console.log("Inserted App Permissions :", result.insertedCount)
         })
     }
+=======
+
+    await settingCheker(conn, projectId)
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 }
 
 module.exports = insertCollections

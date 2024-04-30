@@ -47,6 +47,14 @@ const TableSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
+        is_system: {
+            type: Boolean,
+            default: false
+        },
+        soft_delete: {
+            type: Boolean,
+            default: false
+        },
         is_login_table: {
             type: Boolean,
             default: false
@@ -54,23 +62,25 @@ const TableSchema = mongoose.Schema(
         attributes: {
             type: mongoose.Schema.Types.Mixed
         },
-        soft_delete: {
+        is_system: {
             type: Boolean,
-            default: false
         },
         order_by: {
             type: Boolean,
             default: false
         },
-        attributes: {
-            type: mongoose.Schema.Types.Mixed
+        is_changed_by_host: {
+            type: mongoose.Schema.Types.Object
         },
+        section_column_count: {
+            type: Number,
+            default: 3
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
         toObject: { virtuals: true },
         toJSON: { virtuals: true },
-        strict: false
     }
 );
 

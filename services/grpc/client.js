@@ -18,7 +18,6 @@ const ResourceService = () => {
         });
 
     const resource_service = grpc.loadPackageDefinition(packageDefinition).company_service;
-    // console.log(companyServiceHost, companyServicePort)
     return new resource_service.ResourceService(`${companyServiceHost}${companyServicePort}`, grpc.credentials.createInsecure());
 };
 
@@ -36,13 +35,13 @@ const SyncUserService = () => {
         });
 
     const sync_user_with_auth_service = grpc.loadPackageDefinition(packageDefinition).auth_service;
-    // console.log(companyServiceHost, companyServicePort)
     return new sync_user_with_auth_service.SyncUserService(`${authServiceHost}${authServicePort}`, grpc.credentials.createInsecure());
 };
 
-const autoConn = async (k8s_namespace) => {
+const autoConn = async (k8s_namespace, node_type) => {
     return new Promise((resolve, reject) => {
-        ResourceService().AutoConnect({ k8s_namespace: k8s_namespace }, (err, res) => {
+        console.log("\n\n ~~~ NODE TYPE --> ", node_type);
+        ResourceService().AutoConnect({ k8s_namespace: k8s_namespace, node_type: node_type }, (err, res) => {
             if (err) {
                 logger.error("Error while auto connecting", {
                     function: "autoConn",
@@ -58,9 +57,9 @@ const autoConn = async (k8s_namespace) => {
     });
 };
 
-const reConn = async (k8s_namespace, project_id) => {
+const reConn = async (k8s_namespace, project_id, node_type) => {
     return new Promise((resolve, reject) => {
-        ResourceService().AutoConnectByProjectId({ k8s_namespace: k8s_namespace, project_id: project_id }, (err, res) => {
+        ResourceService().AutoConnectByProjectId({ k8s_namespace: k8s_namespace, project_id: project_id, node_type }, (err, res) => {
             if (err) {
                 logger.error("Error while auto connecting by project id", {
                     function: "autoConn",
@@ -114,7 +113,7 @@ const createUsersAuth = async (data) => {
 
 const updateUserAuth = async (data) => {
     return new Promise((resolve, reject) => {
-        SyncUserService().UpdateteUser(data, (err, res) => {
+        SyncUserService().UpdateUser(data, (err, res) => {
             if (err) {
                 logger.error("Error synchronize user with auth service", {
                     function: "updateUserAuth",
@@ -140,13 +139,13 @@ const deleteUserAuth = async (data) => {
                 });
                 console.log("err: ", err)
                 reject(err);
-                return;
+                return; 
             }
 
             resolve(res);
         });
-    });
-};
+    }); 
+}; 
 
 const deleteUsersAuth = async (data) => {
     return new Promise((resolve, reject) => {

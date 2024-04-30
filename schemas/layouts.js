@@ -46,6 +46,12 @@ const LayoutSchema = mongoose.Schema(
         is_modal: {
             type: Boolean,
         },
+<<<<<<< HEAD
+=======
+        menu_id: {
+            type: String
+        }
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
@@ -60,5 +66,7 @@ LayoutSchema.virtual("tabs", {
     foreignField: 'layout_id',
     justOne: false
 })
+
+LayoutSchema.index({ 'table_id': 1 }, { unique: true });
 
 module.exports = LayoutSchema;

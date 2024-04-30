@@ -33,11 +33,14 @@ const tableHelpersService = require("../services/table_helpers");
 const fieldsRelationsService = require("../services/fields_and_relations");
 const settingService = require("../services/setting")
 const tableFolderService = require("../services/table_folder");
-const layoutService = require("../services/layout");
+const layoutService = require("../services/layout")
 const menuService = require("../services/menu");
 const customErrorMessageService = require("../services/custom_error_message");
 const reportSettting = require("../services/report_setting_service");
+const itemsService = require("../services/items");
 const fileService = require("../services/file");
+const versionHistoryServiceService = require("../services/version_history");
+const versionService = require("../services/version");
 
 const PROTO_URL =
     __dirname +
@@ -60,8 +63,8 @@ module.exports = async function () {
                 ).object_builder_service;
 
             var server = new grpc.Server({
-                "grpc.max_receive_message_length": 10 * 1024 * 1024,
-                "grpc.max_send_message_length": 10 * 1024 * 1024,
+                "grpc.max_receive_message_length": 50 * 1024 * 1024,
+                "grpc.max_send_message_length": 50 * 1024 * 1024,
             });
 
             server.addService(objectBuilderProto.TableService.service, tableService);
@@ -97,7 +100,10 @@ module.exports = async function () {
             server.addService(objectBuilderProto.MenuService.service, menuService);
             server.addService(objectBuilderProto.CustomErrorMessageService.service, customErrorMessageService);
             server.addService(objectBuilderProto.ReportSettingService.service, reportSettting);
+            server.addService(objectBuilderProto.ItemsService.service, itemsService)
             server.addService(objectBuilderProto.FileService.service, fileService);
+            server.addService(objectBuilderProto.VersionHistoryService.service, versionHistoryServiceService);
+            server.addService(objectBuilderProto.VersionService.service, versionService);
 
             server.bindAsync(
                 "0.0.0.0:" + cfg.RPCPort,

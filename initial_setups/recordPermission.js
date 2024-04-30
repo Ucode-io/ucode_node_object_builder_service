@@ -1,5 +1,30 @@
 async function createRecordPermision(roleID) {
-    let recordPermission = [{
+    let recordPermission = [
+        {
+            "update": "Yes",
+            "table_slug": "setting.languages",
+            "write": "Yes",
+            "guid": "3d78d446-4e3a-4e9a-a100-cd4ad099e3d1",
+            "read": "Yes",
+            "delete": "Yes",
+            "role_id": roleID || "",
+            "createdAt": new Date(),
+            "updatedAt": new Date(),
+            "__v": 0
+        },
+        {
+            "update": "Yes",
+            "table_slug": "setting.timezones",
+            "write": "Yes",
+            "guid": "e5806ca9-f7b5-44e8-a88a-876bfb7ec8f9",
+            "read": "Yes",
+            "delete": "Yes",
+            "role_id": roleID || "",
+            "createdAt": new Date(),
+            "updatedAt": new Date(),
+            "__v": 0
+        },
+        {
         "update": "Yes",
         "table_slug": "app",
         "write": "Yes",

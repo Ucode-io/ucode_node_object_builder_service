@@ -4,7 +4,6 @@ const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
 const { struct } = require("pb-util");
-
 let NAMESPACE = "storage.custom_event";
 
 let customEventStore = {
@@ -18,6 +17,7 @@ let customEventStore = {
         const Table = mongoConn.models["Table"];
         const Function = mongoConn.models["function_service.function"];
         const Field = mongoConn.models["Field"];
+        const History = mongoConn.models['object_builder_service.version_history']
 
         const custom_event = new CustomEvent(data);
 
@@ -63,16 +63,23 @@ let customEventStore = {
         const field = new Field(fieldRequest);
         const resp = await field.save();
 
+         
+
         return response;
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id);
-
+        const History = mongoConn.models['object_builder_service.version_history']
         const CustomEvent = mongoConn.models["CustomEvent"];
+
         if (data.attributes) {
             data.attributes = struct.decode(data.attributes);
         }
 
+        const beforeUpdate = await CustomEvent.findOne({ id: data.id })
+        if(!beforeUpdate) {
+            throw new Error("Action not found with given id")
+        }
         const custom_event = await CustomEvent.findOneAndUpdate(
             {
                 id: data.id,
@@ -87,19 +94,19 @@ let customEventStore = {
         let actionPermissions = (await ObjectBuilder(true, data.project_id))["action_permission"]
         await actionPermissions.models.updateMany({ custom_event_id: data.id }, { $set: { label: data.label } })
 
+         
+
         return custom_event;
     }),
     getList: catchWrapDb(`${NAMESPACE}.getList`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id);
         const CustomEvent = mongoConn.models["CustomEvent"];
-        // console.log(">>>>>>>>> custom_event test 1")
         let query = {
             table_slug: data.table_slug,
         };
         if (data.method) {
             query.method = data.method;
         }
-        // console.log(">>>>>>>>> custom_event test 2")
         const customEvents = await CustomEvent.find(
             {
                 $and: [query],
@@ -116,20 +123,16 @@ let customEventStore = {
                 sort: { created_at: -1 },
             }
         ).populate("functions");
-        // console.log(">>>>>>>>> custom_event test 3")
         customEvents.forEach((el) => {
             if (el.attributes) el.attributes = struct.encode(el.attributes);
         });
-        // console.log(">>>>>>>>> custom_event test 4")
         let customEventWithPermission = await AddPermission.toCustomEvent(
             customEvents,
             data.role_id,
             data.table_slug,
             data.project_id
         );
-        // console.log(">>>>>>>>> custom_event test 5")
         const count = await CustomEvent.countDocuments(query);
-        // console.log(">>>>>>>>> custom_event test 6")
         return { custom_events: customEventWithPermission, count: count };
     }),
     getSingle: catchWrapDb(`${NAMESPACE}.getSingle`, async (data) => {
@@ -146,6 +149,8 @@ let customEventStore = {
         const Table = mongoConn.models["Table"];
         const Function = mongoConn.models["function_service.function"];
         const Field = mongoConn.models["Field"];
+        const History = mongoConn.models['object_builder_service.version_history']
+
         const actionPermissionTable = (
             await ObjectBuilder(true, data.project_id)
         )["action_permission"];
@@ -159,6 +164,9 @@ let customEventStore = {
             slug: func.path + "_disable",
         });
         actionPermissionTable.models.deleteMany({ custom_event: data.id });
+
+         
+
         return custom_event;
     }),
     updateCustomEventByFunctionId: catchWrapDb(

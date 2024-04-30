@@ -15,7 +15,7 @@ let dashboardStore = {
     update: catchWrapDb(`${NAMESPACE}.update`, async(data) => {
         const dashboard = await Dashboard.updateOne(
             {
-                id: data.id,
+                id: data.id, 
             },
             {
                 $set: data

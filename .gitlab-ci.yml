@@ -74,7 +74,7 @@ deploy-object-builder-low:
   variables:
     NAMESPACE: ucode-test
     WORKLOAD: low
-    VALUES_FILE: .helm/values-test-obj-low.yml.yml
+    VALUES_FILE: .helm/values-test-obj-low.yml
     K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
   only:
     - staging

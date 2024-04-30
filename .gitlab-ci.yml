@@ -42,6 +42,31 @@ deploy-staging:
     K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
   only:
     - staging
+  
+
+deploy-object-builder-high:
+  stage: deploy
+  extends: .deploy_object_builder_template
+  variables:
+    NAMESPACE: ucode-test
+    WORKLOAD: high
+    VALUES_FILE: .helm/values-test-obj-high.yml
+    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
+  only:
+    - staging
+
+deploy-object-builder-low:
+  stage: deploy
+  extends: .deploy_object_builder_template
+  variables:
+    NAMESPACE: ucode-test
+    WORKLOAD: low
+    VALUES_FILE: .helm/values-test-obj-low.yml.yml
+    K8SCONFIGJSON: $UCODE_HZN_KUBECONFIG
+  only:
+    - staging
+
+  
 
 deploy-dev:
   stage: deploy

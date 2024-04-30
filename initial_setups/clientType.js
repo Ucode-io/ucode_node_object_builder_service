@@ -11,7 +11,8 @@ async function createClientType(clientPlatformID, clientTypeID, projectID) {
         "__v": 0,
         "client_platform_ids": [
           clientPlatformID
-        ]
+        ],
+        "is_system": true
       }]
 
     return clientTypes

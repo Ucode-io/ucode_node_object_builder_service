@@ -175,10 +175,8 @@ let tableHelpers = {
 
         minioClient.putObject("docs", filename, jsonStr, function (error, etag) {
             if (error) {
-                console.log("errr:", error);
                 return error
             }
-            console.log("uploaded successfully");
             fs.unlink(filename, (err => {
                 if (err)
                     console.log(err);
@@ -226,7 +224,6 @@ let tableHelpers = {
         await new Promise((resolve, reject) => {
             minioClient.getObject(bucketName, data.file_name, (error, object) => {
                 if (error) {
-                    console.log('---ERROR---1', error)
                     reject()
                 }
 
@@ -243,7 +240,6 @@ let tableHelpers = {
         })
 
         await new Promise((resolve, reject) => {
-            console.log('-----> FILEPATH', filePath)
 
             fs.readFile(filePath, 'utf8', (err, data) => {
                 if (err) reject(err);

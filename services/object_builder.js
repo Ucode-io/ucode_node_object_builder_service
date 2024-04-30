@@ -9,6 +9,7 @@ const objectBuilderService = {
     GetList2: catchWrapServiceObjectBuilder(`service.object_builder.getList2`, objectBuilderStore.getList2),
     GetSingleSlim: catchWrapServiceObjectBuilder(`service.object_builder.getSingleSlim`, objectBuilderStore.getSingleSlim),
     GetListSlim: catchWrapServiceObjectBuilder(`service.object_builder.getListSlim`, objectBuilderStore.getListSlim),
+    GetListSlimV2: catchWrapServiceObjectBuilder(`service.object_builder.getListSlim2`, objectBuilderStore.getListSlim2),
     GetListInExcel: catchWrapServiceObjectBuilder(`service.object_builder.getListInExcel`, objectBuilderStore.getListInExcel),
     Delete: catchWrapServiceObjectBuilder(`service.object_builder.delete`, objectBuilderStore.delete),
     ManyToManyAppend: catchWrapServiceObjectBuilder(`service.object_builder.appendManyToMany`, objectBuilderStore.appendManyToMany),
@@ -19,10 +20,11 @@ const objectBuilderService = {
     GetFinancialAnalytics: catchWrapServiceObjectBuilder("service.object_builder.getFinancialAnalytics", objectBuilderStore.getFinancialAnalytics),
     GetGroupReportTables: catchWrapServiceObjectBuilder("service.object_builder.getGroupReportTables", objectBuilderStore.getGroupReportTables),
     GetGroupByField: catchWrapServiceObjectBuilder("service.object_builder.getGroupByField", objectBuilderStore.getGroupByField),
+    DeleteMany: catchWrapServiceObjectBuilder("service.object_builder.deleteMany", objectBuilderStore.deleteMany),
     GroupByColumns: catchWrapServiceObjectBuilder("service.object_builder.groupByColumns", objectBuilderStore.groupByColumns),
     CopyFromProject: catchWrapServiceObjectBuilder("service.object_builder.copyFromProject", objectBuilderStore.copyFromProject),
-    DeleteMany: catchWrapServiceObjectBuilder("service.object_builder.deleteMany", objectBuilderStore.deleteMany),
     GetListWithOutRelations: catchWrapServiceObjectBuilder("service.object_builder.getListWithOutRelations", objectBuilderStore.getListWithOutRelations),
+    GetListAggregation: catchWrapServiceObjectBuilder("service.object_builder.getListAggregation", objectBuilderStore.getListAggregation),
 };
 
 module.exports = objectBuilderService;  

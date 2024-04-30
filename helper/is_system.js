@@ -1,18 +1,45 @@
-
+let initialFields = require("../initial_setups/field")
+let createApp  = require("../initial_setups/app")
+let initialTables = require("../initial_setups/tables")
+let initialRelations = require("../initial_setups/relation")
 
 module.exports = async function (mongoConn) {
-    // user table system field ids
-    console.log("Field table is_system true checking...");
-    let field_ids = ["2a77fd05-5278-4188-ba34-a7b8d13e2e51", "be11f4ac-1f91-4e04-872d-31cef96954e9", "5ca9db39-f165-4877-a191-57b5e8fedaf5", "bd5f353e-52d6-4b07-946c-678534a624ec"]
-
+    console.log("\nIs_system true checking...");
     const Field = mongoConn.models['Field']
-
-    const fields = await Field.find({id: {$in: field_ids}})
+    const Table = mongoConn.models['Table']
+    const Relation = mongoConn.models['Relation']
+    const App = mongoConn.models['App']
+    
+    let c = 0
+    let initial_field_ids = (await initialFields()).map(el => el.id)
+    const fields = await Field.find({id: {$in: initial_field_ids}, $or: [{is_system: false}, {is_system: null}]})
     for(let field of fields) {
-        if(!field.is_system) {
             field.is_system = true
             await field.save()
+    }
+    console.log("Field table is_system true done ✅");
+    // console.log("APPS ", createApp)
+    let initialApps = await createApp()
+    const app = await App.findOneAndUpdate({id: initialApps[0]?.id}, {is_system: true})
+    console.log("Авторизация app is_system true done ✅");
+
+    let initial_table_ids = (await initialTables()).map(el => el.id)
+    const tables = await Table.find({id: {$in: initial_table_ids}, $or: [{is_system: false}, {is_system: null}]})
+    for(let table of tables) {
+        if(!table.is_system) {
+            table.is_system = true
+            await table.save()
         }
     }
-    console.log("Field table is_system true done");
+    console.log("Table table is_system true done ✅");
+
+    let initial_relation_ids = (await initialRelations()).map(el => el.id)
+    const relations = await Relation.find({id: {$in: initial_relation_ids}, $or: [{is_system: false}, {is_system: null}]})
+    for(let relation of relations) {
+        if(!relation.is_system) {
+            relation.is_system = true
+            await relation.save()
+        }
+    }
+    console.log("Relation table is_system true done ✅");
 }

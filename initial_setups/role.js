@@ -7,6 +7,7 @@ async function createRole(roleID, clientPlatformID, clientTypeID, projectID) {
         "client_type_id": clientTypeID,
         "createdAt": new Date(),
         "updatedAt": new Date(),
+        "is_system": true,
       }]
 
     return role

@@ -2,9 +2,11 @@ const { struct } = require('pb-util');
 const con = require("./constants");
 const converter = require("./converter");
 const generators = require("./generator")
+const { v4 } = require("uuid");
 const ObjectBuilder = require("./../models/object_builder");
+const FormulaFunction = require("./calculateFormulaFields");
+const tableVersion = require("../helper/table_version");
 const grpcClient = require("./../services/grpc/client");
-const uuid = require('uuid');
 
 
 
@@ -81,22 +83,107 @@ let prepareFunction = {
             }
         }
 
+        let generatedStrs = await Field.findOne({
+            table_id: tableData?.id,
+            type: "RANDOM_TEXT"
+        })
+
+        if (generatedStrs) {
+            let attributes = struct.decode(generatedStrs.attributes)
+            let str = generators.generateRandomString(attributes.prefix, attributes.digit_number)
+            let params = {}
+            params[generatedStrs.slug] = str.toString()
+
+            const isExists = await tableInfo.models.findOne({
+                $and: [params]
+            })
+            if (isExists) {
+                return await prepareToCreateInObjectBuilder(req, mongoConn)
+            } else {
+                data[generatedStrs.slug] = str
+            }
+        }
+
+        let generateUUIDs = await Field.findOne({
+            table_id: tableData?.id,
+            type: "RANDOM_UUID"
+        })
+
+        if (generateUUIDs) {
+            data[generateUUIDs.slug] = v4()
+        }
+
+        let manually = await Field.findOne({
+            table_id: tableData?.id,
+            type: "MANUAL_STRING"
+        })
+
+        if (manually) {
+            let sortedFields = tableInfo.fields.sort((a, b) => {
+            return b.slug.length - a.slug.length
+        })
+            let computedFormula = manually.attributes.fields.formula.stringValue
+            sortedFields.forEach(el => {
+                let dataSLug = req.data.fields[el.slug]
+                if (typeof dataSLug === 'undefined') {
+                    return;
+                }
+                let kinda = dataSLug.kind
+                let value = dataSLug[kinda] ?? 0;
+                if (typeof value === "booleanValue") {
+                    value = JSON.stringify(value).toUpperCase()
+                }
+                if (typeof value === "stringValue") {
+                    value = `'${value}'`
+                }
+            
+                if (typeof value === "object") {
+                    value = `'${value[0]}'`
+                }
+                if (typeof value === "numberValue") {
+                    value = `${value}`
+                }
+                computedFormula = computedFormula.replaceAll(`${el.slug}`, `${value}`)
+            })
+
+            data[manually.slug] = computedFormula
+        }
 
         let incrementField = await Field.findOne({
             table_id: tableData?.id,
             type: "INCREMENT_ID"
         })
         if (incrementField) {
-            let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+            const incrementInfo = mongoConn.models['IncrementSeq']
+            const incInfo = await incrementInfo.findOneAndUpdate(
+                    { table_slug: req.table_slug, field_slug: incrementField.slug },
+                    {  
+                        $set: { min_value: 1, max_value: 999999999,},
+                        $inc: { increment_by: 1 },
+                    },
+                    {upsert: true}
+            )
+
             let attributes = struct.decode(incrementField.attributes)
-            let incrementLength = attributes.prefix?.length
-            if (!last || !last[incrementField.slug]) {
-                data[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(attributes.digit_number, '0')
+            if (!incInfo) {
+                let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
+                if (last) {
+                    let incrementLength = attributes.prefix?.length
+                    nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug]?.length)) + 1
+                    data[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(9, '0')
+                    await incrementInfo.updateOne({ table_slug: req.table_slug, field_slug: incrementField.slug }, { $set: { increment_by: nextIncrement + 1 } })
+                } else {
+                    data[incrementField.slug] = attributes.prefix + '-' + '1'.padStart(9, '0')
+                    await incrementInfo.update(
+                        { table_slug: req.table_slug, field_slug: incrementField.slug },
+                        { $set: { min_value: 1, max_value: 999999999 }, $inc: { increment_by: 1 } }
+                    )
+                }
             } else {
-                nextIncrement = parseInt(last[incrementField.slug].slice(incrementLength + 1, last[incrementField.slug]?.length)) + 1
-                data[incrementField.slug] = attributes.prefix + '-' + nextIncrement.toString().padStart(attributes.digit_number, '0')
+                data[incrementField.slug] = attributes.prefix + '-' + incInfo.increment_by.toString().padStart(9, '0')
             }
         }
+        
 
         let incrementNum = await Field.findOne({
             table_id: tableData?.id,
@@ -120,17 +207,54 @@ let prepareFunction = {
                 } else {
                     nextIncrement = parseInt(last[incrementNum.slug]) + 1
                     // console.log("!!!!!!!! ", nextIncrement)
-                    data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
+                    data[incrementNum.slug] = (nextIncrement + "").padStart(attributes.digit_number, '0')
                 }
 
             }
         }
+        const relations = await Relation.find({
+            table_from: req.table_slug
+        })
+        let decodedFields = []
+        for (const element of tableInfo.fields) {
+            if (element.attributes && (element.type === "LOOKUP" || element.type === "LOOKUPS")) {
+                let autofillFields = []
+                let elementField = { ...element }
+                const relation = relations.find(val => (val.id === elementField.relation_id))
 
+                let relationTableSlug;
+                if (relation) {
+                    if (relation?.table_from === req.table_slug) {
+                        relationTableSlug = relation?.table_to
+                    } else {
+                        relationTableSlug = relation?.table_from
+                    }
+                    elementField.table_slug = relationTableSlug
+                }
+                elementField.attributes = struct.decode(element.attributes)
+                const tableElement = await tableVersion(mongoConn, { slug: req.table_slug }, data.version_id, true)
+                const tableElementFields = await Field.find({
+                    table_id: tableElement.id
+                })
+                for (const field of tableElementFields) {
+                    if (field.autofill_field && field.autofill_table && field.autofill_table === relationTableSlug) {
+                        let autofill = {
+                            field_from: field.autofill_field,
+                            field_to: field.slug,
+                        }
+                        autofillFields.push(autofill)
+                    }
+                }
+                elementField.attributes["autofill"] = autofillFields,
+                    decodedFields.push(elementField)
+            }
+        };
         for (let el of tableInfo.fields) {
             if (!data[el.slug] && el.autofill_table && el.autofill_field) {
-                const AutiFillTable = allTableInfos[el.autofill_table]
+                splitArr = el.autofill_table.split("#")
+                const AutiFillTable = allTableInfos[splitArr[0]]
                 if (AutiFillTable) {
-                    const autofillObject = await AutiFillTable.models.findOne({ guid: data[el.autofill_table + "_id"] }).lean() || {}
+                    const autofillObject = await AutiFillTable.models.findOne({ guid: data[splitArr[0] + "_id"] }).lean() || {}
                     data[el.slug] = autofillObject[el.autofill_field]
                 }
             }
@@ -162,7 +286,7 @@ let prepareFunction = {
         }
 
         let payload = new tableInfo.models(data);
-        
+
         if (ownGuid) {
             payload.guid = ownGuid
         }
@@ -294,14 +418,17 @@ let prepareFunction = {
                     deleteMany2Many.push(deleteMany2ManyObj)
                 }
                 dataToAnalytics[field.slug] = data[field.slug]
+            } else if (field.type === "MULTISELECT") {
+                // console.log("~~~>", data[field.slug], data, field)
+                if (field.required && (!data[field.slug] || !data[field.slug].length)) {
+                    throw new Error("Multiselect field is required")
+                }
             }
         }
         field_types.guid = "String"
         event.payload.field_types = field_types
         event.payload.data = dataToAnalytics
         event.project_id = req.project_id
-        console.log(":: prepare function 1", appendMany2Many)
-        console.log(":: prepare function 2", deleteMany2Many)
         return { data, event, appendMany2Many, deleteMany2Many }
     },
 }

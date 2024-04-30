@@ -282,7 +282,10 @@ let fieldsRelationsStore = {
                             await fieldPermissionWithModel.save()
                         }
 
+<<<<<<< HEAD
                         console.log("response from field create while creating relation", res)
+=======
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
                         // await sendMessageToTopic(con.TopicRelationToCreateV1, eventTo)
                         type = converter(field.type);
                         let fieldsTo = []

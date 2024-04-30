@@ -5,7 +5,8 @@ function createProject(projectID) {
         "guid": "80cc11d9-2ee6-494a-a09d-40150d151145",
         "createdAt": new Date(),
         "updatedAt": new Date(),
-        "__v": 0
+        "__v": 0,
+        "is_system": true,
     }]
 
     return project

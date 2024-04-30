@@ -68,6 +68,13 @@ const FieldSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
+<<<<<<< HEAD
+=======
+        show_label: {
+            type: Boolean,
+            default: true
+        },
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
         enable_multilanguage: {
             type: Boolean,
             default: false
@@ -78,7 +85,15 @@ const FieldSchema = mongoose.Schema(
         },
         minio_folder: {
             type: String,
+<<<<<<< HEAD
         }
+=======
+        },
+        is_search: {
+            type: Boolean,
+            default: true
+        },
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

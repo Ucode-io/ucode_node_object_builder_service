@@ -84,7 +84,7 @@ let sectionStore = {
                 })
 
             return;
-        } catch (err) {
+        } catch (err) { 
             throw err
         }
 
@@ -97,7 +97,7 @@ let sectionStore = {
 
             await ViewRelation.deleteMany(
                 {
-                    table_slug: data.table_slug,
+                    table_slug: data.table_slug, 
                 }
             )
             if (data.table_slug === "") {
@@ -116,7 +116,6 @@ let sectionStore = {
             viewRelation.table_slug = data.table_slug;
             viewRelation.save();
 
-            // console.log("TEST::::::::1")
 
             const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             await viewRelationPermissionTable.models.deleteMany(
@@ -124,13 +123,10 @@ let sectionStore = {
                     table_slug: data.table_slug,
                 }
             )
-            // console.log("TEST::::::::2")
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
-            // console.log("TEST::::::::3", roles)
             for (const role of roles) {
                 let view_relations = data.view_relations ? data.view_relations : []
-                // console.log("TEST::::::::4", view_relations)
                 for (const relation of view_relations) {
                     let is_exist_view = await viewRelationPermissionTable?.models.findOne({
                         $and: [
@@ -145,9 +141,7 @@ let sectionStore = {
                             }
                         ]
                     }).lean()
-                    // console.log("TEST::::::::5", is_exist_view)
                     if (!is_exist_view) {
-                        // console.log("TEST::::::::6")
                         let permissionViewRelation = {
                             table_slug: data.table_slug,
                             relation_id: relation.relation_id,
@@ -282,22 +276,15 @@ let sectionStore = {
 
             let table = {};
             if (!data.table_id) {
-                // table = await Table.findOne({
-                //     slug: data.table_slug,
-                // });
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                // console.log("bbbbb::", table);
-                console.log("test 11");
+                table = await Table.findOne({
+                    slug: data.table_slug,
+                });
+    
                 data.table_id = table.id;
-                console.log("test 12");
             }
-            // console.log("table id:::: " + table?.id);
-            // console.log("table:::: " + table);
 
             let query = {}
-            // if (data.table_id) {
-            //     query.table_id = data.table_id;
-            // }
+        
             if (data.tab_id) {
                 query.tab_id = data.tab_id;
             }
@@ -309,16 +296,16 @@ let sectionStore = {
                     sort: { order: 1 }
                 }
             );
-            // console.log("length: " + sections.length);
             let sectionsResponse = []
             for (const section of sections) {
-                // console.log("Section: " + section.fields);
                 let fieldsRes = []
-                for (const fieldReq of section.fields) {
+                for (const fieldReq of (section.fields || [])) {
                     let guid;
                     let field = {};
+                    field.is_visible_layout = fieldReq.is_visible_layout
                     let encodedAttributes = {};
                     if (fieldReq?.id?.includes("#")) {
+                        
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order
@@ -329,7 +316,7 @@ let sectionStore = {
                             relation_id: relationID,
                             table_id: data.table_id
                         })
-                        
+
                         if (!fieldResp) continue
 
                         if (fieldResp) {
@@ -341,7 +328,7 @@ let sectionStore = {
                         let view_of_relation;
                         view_of_relation = await View.findOne({
                             relation_id: relation?.id,
-                            relation_table_slug: data.table_slug
+                            // relation_table_slug: data.table_slug
                         })
                         let viewFieldIds = relation?.view_fields
                         if (view_of_relation) {
@@ -376,6 +363,7 @@ let sectionStore = {
                             }
 
                             field.is_editable = view_of_relation?.is_editable
+                            field.is_visible_layout = fieldReq.is_visible_layout
                         }
                         let tableFields = await Field.find({ table_id: data.table_id })
                         let autofillFields = []
@@ -453,6 +441,7 @@ let sectionStore = {
                                         originalAttributes = { ...struct.decode(viewOfDynamicRelation.attributes || {}) }
                                     }
                                 }
+                                
                                 originalAttributes = {
                                     ...originalAttributes,
                                     autofill: autofillFields,
@@ -470,7 +459,7 @@ let sectionStore = {
                             }
                         } else {
                             if (view_of_relation) {
-                                originalAttributes = { ...struct.decode(view_of_relation.attributes || {}) }
+                                originalAttributes = { ...struct.decode(relation?.attributes || {}), ...struct.decode(view_of_relation?.attributes || {}) }
                             }
                             originalAttributes = {
                                 ...originalAttributes,
@@ -484,7 +473,10 @@ let sectionStore = {
                                 cascading_tree_field_slug: relation?.cascading_tree_field_slug,
                                 function_path: view_of_relation?.function_path,
                             }
+                            console.log("SECTION 5.....5")
                         }
+                            console.log("SECTION 666 >>> ")
+
 
                         if (view_of_relation) {
 
@@ -506,6 +498,7 @@ let sectionStore = {
                             id: guid
                         });
                         if (field) {
+                            field.is_visible_layout = fieldReq.is_visible_layout
                             field.order = fieldReq.order;
                             field.column = fieldReq.column;
                             field.id = fieldReq.id;
@@ -514,7 +507,10 @@ let sectionStore = {
                         }
                     }
                 }
-                // this function add field permission for each field by role iddynamicTableInfo
+
+                 console.log("SECTION ENDING >>> ")
+
+                
                 let {fieldsWithPermissions} = await AddPermission.toField(fieldsRes, data.role_id, data.table_slug ? data.table_slug : table.slug, data.project_id)
                 section.fields = fieldsWithPermissions
                 sectionsResponse.push(section)

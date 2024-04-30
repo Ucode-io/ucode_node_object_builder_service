@@ -9,11 +9,13 @@ import "google/protobuf/struct.proto";
 
 service FieldService {
     rpc Create(CreateFieldRequest) returns (Field) {}
+    rpc GetByID(FieldPrimaryKey) returns (Field) {}
     rpc GetAll(GetAllFieldsRequest) returns (GetAllFieldsResponse) {}
-    rpc Update(Field) returns (google.protobuf.Empty) {}
+    rpc GetAllForItems(GetAllFieldsForItemsRequest) returns (AllFields) {}
+    rpc Update(Field) returns (Field) {}
+    rpc UpdateSearch(SearchUpdateRequest) returns (google.protobuf.Empty) {}
     rpc Delete(FieldPrimaryKey) returns (google.protobuf.Empty) {}
 }
-
 
 message CreateFieldRequest {
     string default = 1;
@@ -36,6 +38,11 @@ message CreateFieldRequest {
     bool show_label = 18;
     bool enable_multilanguage = 19;
     bool hide_multilanguage = 20;
+<<<<<<< HEAD
+=======
+    string minio_folder = 21;
+    string env_id = 22;
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 }
 
 message CreateFieldsRequest {
@@ -52,6 +59,7 @@ message CreateFieldsRequest {
     bool automatic = 11;
     string project_id = 12;
     string commit_id = 13;
+    string minio_folder = 14;
 }
 
 message Field {
@@ -78,6 +86,23 @@ message Field {
     bool show_label = 21;
     bool enable_multilanguage = 22;
     bool hide_multilanguage = 23;
+<<<<<<< HEAD
+=======
+    string minio_folder = 24;
+    string env_id = 25;
+    bool is_search = 26;
+}
+
+message SearchUpdate {
+    string id = 1;
+    bool is_search = 2;
+}
+
+message SearchUpdateRequest {
+    string project_id = 1;
+    string table_slug = 2;
+    repeated SearchUpdate fields = 3;
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 }
 
 message GetAllFieldsResponse {
@@ -102,4 +127,19 @@ message GetAllFieldsRequest {
 message FieldPrimaryKey {
     string id = 1;
     string project_id = 2;
+    string env_id = 3;
+}
+
+message GetAllFieldsForItemsRequest {
+    string collection = 1;
+    string role_id = 2;
+    string project_id = 3;
+    string version_id = 4;
+    string language_settings = 5;
+    bool with_relations = 6;
+}
+
+message AllFields {
+    string collection = 1;
+    google.protobuf.Struct data = 2;
 }

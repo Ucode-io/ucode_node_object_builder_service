@@ -1,4 +1,5 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
+const { BoardOrderChecker } = require("../../helper/board_order");
 const Minio = require('minio');
 const fs = require("fs");
 const cfg = require("../../config/index");
@@ -8,16 +9,17 @@ var Eta = require("eta");
 const ObjectBuilder = require("../../models/object_builder");
 const objectBuilderStore = require("./object_builder");
 const numberFormatter = require("../../helper/formatNumber")
-
 const mongoPool = require('../../pkg/pool');
-
 var JsBarcode = require('jsbarcode');
-
 const { DOMImplementation, XMLSerializer } = require('xmldom');
 const { v4 } = require("uuid");
 const xmlSerializer = new XMLSerializer();
 const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+const { VIEW_TYPES } = require('../../helper/constants')
+const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
+const os = require('os');
+const logger = require("../../config/logger");
 
 console.log()
 // const mongoConn = await mongoPool.get(data.project_id)
@@ -41,11 +43,19 @@ let viewStore = {
             const View = mongoConn.models['View']
             const Role = mongoConn.models['role']
             const ViewPermission = mongoConn.models['view_permission']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
             }
 
+            if (!data.id) {
+                data.id = v4()
+            }
+
+            if(data.type == VIEW_TYPES.BOARD) {
+                await BoardOrderChecker(mongoConn, data.table_slug)
+            }
             const response = await View.create(data)
 
             const resp = await Table.updateOne({
@@ -53,13 +63,16 @@ let viewStore = {
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
                     }
-                })
+            })
 
             const roles = await Role.find()
             let query = []
-            for(let el of roles) {
+            for (let el of roles) {
                 query.push({
                     guid: v4(),
                     view: true,
@@ -69,7 +82,13 @@ let viewStore = {
                     view_id: response.id
                 })
             }
-            await ViewPermission?.insertMany(query)
+            try {
+                await ViewPermission?.insertMany(query)
+            } catch (err) {
+                logger.error(err)
+            }
+
+             
 
             return response;
 
@@ -85,33 +104,69 @@ let viewStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
+            const History = mongoConn.models['object_builder_service.version_history']
 
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
             }
-            const view = await View.findOneAndUpdate(
+
+            if(data.type == VIEW_TYPES.BOARD) {
+                await BoardOrderChecker(mongoConn, data.table_slug)
+            }
+            
+            // const beforeUpdate = await View.findOne({id: data.id})
+            // if(!beforeUpdate) {
+            //     throw new Error("View not found with given id")
+            // }
+
+            console.log("Inside view update")
+            let view = data;
+            if (view.type == VIEW_TYPES.TABLE && view?.attributes?.group_by_columns) {
+                const { columns, attributes: { group_by_columns } } = view;
+
+                const reorderedColumns = [
+                ...group_by_columns.filter(column => columns.includes(column)),
+                ...columns.filter(column => !group_by_columns.includes(column))
+                ];
+
+                const modifiedObject = {
+                    ...view,
+                    columns: reorderedColumns
+                };
+
+                view = modifiedObject
+            }
+
+            const newView = await View.findOneAndUpdate(
                 {
-                    id: data.id,
-                },
+                    id: view.id,
+                }, 
                 {
-                    $set: data
+                    $set: view
                 },
                 {
                     new: true
                 }
             )
 
-            const resp = await Table.updateOne({
+            const resp = await Table.findOneAndUpdate({
                 slug: data.table_slug,
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
                     }
+                },
+                {
+                    new: true
                 })
 
+             
 
-            return view;
+            return newView;
 
         } catch (err) {
             throw err
@@ -140,9 +195,10 @@ let viewStore = {
                 {
                     sort: { order: 1 }
                 }
-            ).lean();
+            ).populate({ path: "view_permissions", $match: { role_id: data.role_id } }).lean();
             views.forEach(el => {
                 if (el.attributes) {
+                    el.attributes["view_permissions"] = el["view_permissions"]
                     el.attributes = struct.encode(el)
                 }
             })
@@ -155,7 +211,7 @@ let viewStore = {
         }
     }
     ),
-    getSingle: catchWrapDb(`${NAMESPACE}.getList`, async (data) => {
+    getSingle: catchWrapDb(`${NAMESPACE}.getSingle`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const View = mongoConn.models['View']
@@ -185,32 +241,39 @@ let viewStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
+            const History = mongoConn.models['object_builder_service.version_history']
 
-            const vieww = await View.findOne({ id: data.id })
+            let filter;
+            if (data.id) {
+                filter = { id: data.id }; 
+            } else if (data.table_slug) {
+                filter = { table_slug: data.table_slug };
+            }
+
+            const view = await View.findOne( filter )
 
             await Table.updateOne({
-                slug: vieww.table_slug,
+                slug: view.table_slug,
             },
                 {
                     $set: {
-                        is_changed: true
+                        is_changed: true,
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
                     }
                 })
 
-            const resp = await View.deleteOne({ id: data.id });
+            await View.deleteOne( filter );
 
-            return vieww;
+            return view;
 
         } catch (err) {
             throw err
         }
-    }
-    ),
+    }),
     convertHtmlToPdf: catchWrapDb(`${NAMESPACE}.convertHtmlToPdf`, async (data) => {
         try {
-            console.log("project id::::::::::", data.project_id)
-
-
             const mongoConn = await mongoPool.get(data.project_id)
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models['Relation']
@@ -219,14 +282,12 @@ let viewStore = {
 
             const object_builder = await ObjectBuilder(true, data.project_id)
 
-            // console.log("TEST:::::::::::::1")
             let filename = "document_" + Math.floor(Date.now() / 1000) + ".pdf"
             link = "https://" + cfg.minioEndpoint + "/docs/" + filename
 
             var html = data.html
             let patientIdField;
             let output;
-            // console.log("TEST:::::::::::::2")
             if (decodedData.linked_table_slug && decodedData.linked_object_id) {
                 data.html = data.html.replaceAll('[??', '{')
                 data.html = data.html.replaceAll('??]', '}')
@@ -255,7 +316,6 @@ let viewStore = {
                         type: "Many2Many"
                     }]
                 })
-                // console.log("TEST:::::::::::::3")
                 let relatedTable = []
                 for (const relation of relations) {
                     const field = await Field.findOne({
@@ -277,7 +337,6 @@ let viewStore = {
                         relatedTable.push(field?.slug + "_data")
                     }
                 }
-                console.log("TEST:::::::::::::4")
                 output = await tableInfo.models.findOne({
                     guid: decodedData.linked_object_id
                 },
@@ -300,7 +359,6 @@ let viewStore = {
                         output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 10%\"><img src=\"data:image/svg+xml;base64," +
                             base64_barcode +
                             "\"/></figure>"
-                        // console.log(output[it.slug])
                     }
                 }
 
@@ -308,9 +366,7 @@ let viewStore = {
                     table_to: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
-                // console.log("TEST:::::::::::::5")
                 for (const relation of relations) {
-                    // console.log("relation::::", relation)
                     let relation_field = decodedData.linked_table_slug + "_id"
                     // let m2mrelation_field = decodedData.linked_table_slug + "_ids"
 
@@ -347,7 +403,6 @@ let viewStore = {
                 decodedData.page_width = "210"
             }
 
-            // console.log("TEST:::::::::::::6")
             await new Promise((resolve, reject) => {
                 wkhtmltopdf(html, { output: filename, spawnOptions: { shell: true }, pageHeight: decodedData.page_height, pageWidth: decodedData.page_width }, () => {
                     let ssl = true
@@ -360,7 +415,6 @@ let viewStore = {
                         accessKey: cfg.minioAccessKeyID,
                         secretKey: cfg.minioSecretAccessKey
                     });
-                    // console.log("TEST:::::::::::::7")
                     var metaData = {
                         'Content-Type': "application/pdf",
                         'Content-Language': 123,
@@ -376,8 +430,6 @@ let viewStore = {
                         if (error) {
                             return console.log(error);
                         }
-                        // console.log("TEST:::::::::::::8")
-                        // console.log("uploaded successfully")
                         fs.stat(filename, async (err, stats) => {
                             if (err) {
                                 console.log(err)
@@ -408,12 +460,9 @@ let viewStore = {
                                 await objectBuilderStore.create(request)
                             }
                         })
-                        // console.log("TEST:::::::::::::9")
                         fs.unlink(filename, (err => {
                             if (err) console.log(err);
                             else {
-                                // console.log("Deleted file: ", filename);
-
                                 resolve()
 
                             }
@@ -442,7 +491,6 @@ let viewStore = {
 
             let filename = "document_" + Math.floor(Date.now() / 1000) + ".pdf"
             link = "https://" + "cdn.medion.uz" + "/docs/" + filename
-            // console.log("TEST::::::::1")
             var html = data.html
 
             data.html = data.html.replaceAll('[??', '{')
@@ -458,12 +506,10 @@ let viewStore = {
                 // data.html = data.html.replace('[??', '{')
                 // data.html = data.html.replace('??]', '}')
                 const tableInfo = object_builder[decodedData.linked_table_slug]
-                // console.log("TEST::::::::2")
                 let relations = await Relation.find({
                     table_from: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
-                // console.log("TEST::::::::3")
                 const relationsM2M = await Relation.find({
                     $or: [{
                         table_from: decodedData.linked_table_slug
@@ -475,7 +521,6 @@ let viewStore = {
                         type: "Many2Many"
                     }]
                 })
-                // console.log("TEST::::::::4")
                 let relatedTable = []
                 for (const relation of relations) {
                     const field = await Field.findOne({
@@ -518,17 +563,18 @@ let viewStore = {
                         output[it.slug] = "<figure class=\"image image_resized\" style=\"width: 10%\"><img src=\"data:image/svg+xml;base64," +
                             base64_barcode +
                             "\"/></figure>"
-                        // console.log(output[it.slug])
+                    } else if (it.type === "PHOTO") {
+                        const photoUrl = output[it.slug];
+                        const altText = "image";
+                        output[it.slug] = `<p style="text-align:center;"><img src="${photoUrl}" alt="${altText}"></p>`;
                     }
                 }
-                // console.log("TEST::::::::7")
                 relations = await Relation.find({
                     table_to: decodedData.linked_table_slug,
                     type: "Many2One"
                 })
 
                 for (const relation of relations) {
-                    // console.log("relation::::", relation)
                     let relation_field = decodedData.linked_table_slug + "_id"
                     // let m2mrelation_field = decodedData.linked_table_slug + "_ids"
 
@@ -548,15 +594,12 @@ let viewStore = {
                 }
 
 
-                // console.log("output:::::", output)
                 for (let key in output) {
                     if (typeof (output[key]) == "number") {
                         output[key] = numberFormatter(output[key])
                     }
                 }
-                // console.log("TEST::::::::8", output)
                 html = Eta.render(data.html, output)
-                // console.log("TEST::::::::9")
                 html = html.replaceAll('[??', '{')
                 html = html.replaceAll('??]', '}')
                 html = html.replaceAll('&lt;', '<')
@@ -594,7 +637,12 @@ let viewStore = {
             await Table.updateOne({
                 slug: data.table_slug
             }, {
-                $set: { is_changed: true },
+                $set: { 
+                    is_changed: true,
+                    is_changed_by_host: {
+                        [os.hostname()]: true
+                    }
+                },
             })
             return;
         } catch (err) {

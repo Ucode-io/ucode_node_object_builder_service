@@ -12,21 +12,48 @@ const minioClient = new Minio.Client({
 })
 
 async function createMinioBucket(bucketName) {
-    minioClient.bucketExists(bucketName, function(err, exists) {
-        if (err) {
-          throw new Error(err)
+  minioClient.bucketExists(bucketName, function(err, exists) {
+      if (err) {
+        throw new Error(err)
+      } else {
+        if (exists) {
+          console.log(`Bucket '${bucketName}' exists.`)
         } else {
-          if (exists) {
-            console.log(`Bucket '${bucketName}' exists.`)
-          } else {
-            minioClient.makeBucket(bucketName, '', function(err) {
-                if (err) {
-                  throw new Error(err)
-                }
-                })
-          }
+          const policy = {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Principal": {
+                  "AWS": "*" 
+                },
+                "Action": [
+                  "s3:GetBucketLocation",
+                  "s3:ListBucket",
+                  "s3:GetObject"
+                ],
+                "Resource": [
+                  `arn:aws:s3:::${bucketName}`,
+                  `arn:aws:s3:::${bucketName}/*`
+                ]
+              }
+            ]
+          };
+
+          minioClient.makeBucket(bucketName, '', function(err) {
+            if (err) {
+              throw new Error(err)
+            }
+          })
+
+          minioClient.setBucketPolicy(bucketName, JSON.stringify(policy), (err) => {
+            if (err) {
+              console.log('Error setting bucket policy:', err);
+            }
+          })
         }
-      })
+      }
+    })
 }
 
 async function createFolderToBucket(bucketName, folderName) {

@@ -20,6 +20,9 @@ const AppSchema = mongoose.Schema(
         },
         icon: {
             type: String,
+        },
+        is_system: {
+            type: Boolean,
         }
     },
     {

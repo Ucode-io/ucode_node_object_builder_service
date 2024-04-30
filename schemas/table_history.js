@@ -17,7 +17,7 @@ const TableHistorySchema = mongoose.Schema(
         },
         slug: {
             type: String,
-            required: [true, "Table must have slug"],
+            // required: [true, "Table must have slug"],
         },
         description: {
             type: String,

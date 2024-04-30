@@ -7,6 +7,7 @@ const client = require('../../services/grpc/client');
 const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
+<<<<<<< HEAD
 const initialMenu = require("../../helper/initialMenu");
 
 const initialTableFolder = require("../../helper/initialTableFolder")
@@ -15,13 +16,30 @@ const initialCustomMessage = require("../../helper/initialCustomMessage")
 const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
 const initialUserLoginTable = require("../../helper/initialUserLoginTable");
 const defaultPage = require("../../helper/addFieldForDefaultPage");
+=======
+const initialTableFolder = require("../../helper/initialTableFolder")
+const isSystemChecker = require("../../helper/is_system")
+const initialMenu = require("../../helper/initialMenu");
+const defaultRoles = require("../../helper/defaultRole")
+const defaultPage = require("../../helper/addFieldForDefaultPage");
+const initialCustomMessage = require("../../helper/initialCustomMessage");
+const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 const initialMenuPermission = require("../../helper/initialMenuPermission");
 const initialGlobalPermission = require("../../helper/initialCustomPermission");
 const initialViewPermission = require("../../helper/initialViewPermission");
 const addFields = require("../../helper/addFields");
+const systemChecker = require("../../helper/systemChecker");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
 const ceckPermissionScript = require("../../helper/checkPermissionScript")
 const initialDefaultPivot = require("../../helper/initialDefaultPivot");
+<<<<<<< HEAD
+=======
+const is_static = require("../../helper/is_static");
+const new_field = require("../../helper/new_field");
+const add_permission_field = require("../../helper/add_record_permission");
+
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 
 
 let NAMESPACE = "storage.project";
@@ -30,7 +48,6 @@ let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
 
-            // console.log('data-->', data)
             if (!data.user_id) {
                 throw new Error('Error user_id is required')
             }
@@ -49,9 +66,8 @@ let projectStore = {
             }, false)
 
             mongoDBConn.once("open", async function () {
-                console.log("Connected to the database");
 
-                await insertCollections(mongoDBConn, data.user_id, data.project_id)
+                await insertCollections(mongoDBConn, data.user_id, data.project_id, data.client_type_id, data.role_id)
 
                 // compiling models after running migrations
                 mongoDBConn.model('App', require('../../schemas/app'))
@@ -80,11 +96,16 @@ let projectStore = {
                 mongoDBConn.model('Setting.Currencies', require('../../schemas/setting_currency'))
                 mongoDBConn.model('Setting.Timezones', require('../../schemas/setting_timezone'))
                 mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
+<<<<<<< HEAD
+=======
+                mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
+>>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
                 mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
                 mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
                 mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                 mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                 mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
+                mongoDBConn.model('IncrementSeq', require('../../schemas/increment'))
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)
@@ -144,23 +165,27 @@ let projectStore = {
                     mongoDBConn.once("open", async function () {
                         // await insertCollectioinitialTableFolders(mongoDBConn, "", data.project_id)
                         console.log("Connected to the database, building models for", data.project_id);
-                        mongoDBConn.model('Field', require('../../schemas/field'))
                         await isSystemChecker(mongoDBConn)
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
                         mongoDBConn.model('Table.version', require('../../schemas/table_version'))
                         mongoDBConn.model('Tab', require('../../schemas/tab'))
                         mongoDBConn.model('Layout', require('../../schemas/layouts'))
+                        mongoDBConn.model('App', require('../../schemas/app'))
                         mongoDBConn.model('object_builder_service.menu', require('../../schemas/menu'))
                         mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
+                        mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
+                        mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
                         mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                         mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                         await objectBuilder(false, data.project_id)
-                        console.log(">>>>>>>> ")
                         // await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
                         await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
+                        await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
+                        await new_field({ project_id: data.project_id, mongoDBConn: mongoDBConn })
+                        await add_permission_field({project_id: data.project_id, })
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })
                         // await initialGlobalPermission({ project_id: data.project_id })
@@ -170,7 +195,7 @@ let projectStore = {
                         // await addFields({ project_id: data.project_id })
                         // await ceckPermissionScript({ project_id: data.project_id })
                         // await initialDefaultPivot({ project_id: data.project_id })
-                        console.log("Object builder has successfully runned for", data.project_id);
+                        console.log("Object builder has successfully runned for --->>", data.project_id);
                         resolve()
                     });
 
@@ -183,7 +208,6 @@ let projectStore = {
                 }
 
             })
-            // console.log("pool::::::::::::", pool.get(data?.project_id))
             return {}
 
         } catch (err) {
@@ -231,20 +255,17 @@ let projectStore = {
         }
     }),
     autoConnect: catchWrapDb(`${NAMESPACE}.autoConnect`, async (args) => {
-        console.log("TEST::::::::::::::::::: 1")
         if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
 
-        let reconnect_data = await client.autoConn(config.k8s_namespace);
-        console.log("TEST::::::::::::::::::: 2")
-        // console.log("PROJECT-CRED >> ", reconnect_data.res.length, reconnect_data.res)
+        let reconnect_data = await client.autoConn(config.k8s_namespace, config.nodeType);
+        console.log("\n\n\n\n\n\nBuilding project count >> ", reconnect_data.res.length, "\n\n\n\n\n")
         for (let it of reconnect_data.res) {
-            // console.log("credentials:::", it.resource_type)
             if (it.resource_type !== "MONGODB") continue
             // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
             try {
                 await projectStore.reconnect(it)
             } catch (err) {
-                logger.info(`autoconnecting to resources failed: ${err}`);
+                logger.info(`auto connecting to resources failed: ${err}`);
             }
         }
 
@@ -253,5 +274,5 @@ let projectStore = {
 };
 
 module.exports = projectStore;
-
+ 
 

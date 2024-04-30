@@ -62,6 +62,9 @@ const RelationSchema = mongoose.Schema(
         },
         cascading_tree_field_slug: {
             type: String
+        },
+        is_system: {
+            type: Boolean
         }
     },
     {

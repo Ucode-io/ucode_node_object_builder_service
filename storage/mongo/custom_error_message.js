@@ -119,7 +119,6 @@ let customErrorMessageStore = {
                     sort: { created_at: -1 }
                 }
             );
-            // console.log("custom error messages:", custom_error_messages);
             return { custom_error_messages, count: custom_error_messages?.length };
 
         } catch (err) {
@@ -149,11 +148,9 @@ let customErrorMessageStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const CustomErrorMessage = mongoConn.models['CustomErrorMessage']
 
-            let table = {};
-            if (data.table_id === "") {
-                table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
-                data.table_id = table.id;
-            }
+            let table = await tableVersion(mongoConn, { slug: data.table_slug }, data.version_id, true);
+            data.table_id = table.id;
+
 
             const custom_error_messages = await CustomErrorMessage.find(
                 data,
@@ -162,7 +159,6 @@ let customErrorMessageStore = {
                     sort: { created_at: -1 }
                 }
             );
-            // console.log("custom error messages:", custom_error_messages);
             return { custom_error_messages, count: custom_error_messages?.length };
 
         } catch (err) {

@@ -1,5 +1,42 @@
 async function createRelation() {
-  let relation = [{
+  let relation = [
+    {
+      "id": "9be077e7-d2e1-459a-a54b-04cb2a65c552",
+      "table_from": "user",
+      "field_from": "setting.languages_id",
+      "table_to": "setting.languages",
+      "field_to": "id",
+      "type": "Many2One",
+      "view_fields": [
+        "366a5ecd-993f-44b5-9d98-0155f12bb01b"
+      ],
+      "relation_field_slug": "",
+      "dynamic_tables": [],
+      "editable": false,
+      "created_at": new Date(),
+      "updated_at": new Date(),
+      "__v": 0,
+      "is_system": true
+    },
+    {
+      "id": "c168f2df-c6a2-4921-8c56-56e708a8d766",
+      "table_from": "user",
+      "field_from": "setting.timezones_id",
+      "table_to": "setting.timezones",
+      "field_to": "id",
+      "type": "Many2One",
+      "view_fields": [
+        "da225ef5-7d7c-4e27-a036-6ff895749fa3"
+      ],
+      "relation_field_slug": "",
+      "dynamic_tables": [],
+      "editable": false,
+      "created_at": new Date(),
+      "updated_at": new Date(),
+      "__v": 0,
+      "is_system": true
+    },
+    {
     "id": "426a0cd6-958d-4317-bf23-3b4ea4720e53",
     "table_from": "client_type",
     "field_from": "client_platform_ids",
@@ -12,10 +49,12 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
     "__v": 0,
-    "auto_filters": []
+    "auto_filters": [],
+    "is_system": true,
   }, {
     "id": "ca008469-cfe2-4227-86db-efdf69680310",
     "table_from": "role",
@@ -29,9 +68,11 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "e03071ed-a3e1-417d-a654-c0998a7c74bc",
     "table_from": "user",
@@ -45,9 +86,11 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "8ab28259-800d-4079-8572-a0f033d70e35",
     "table_from": "role",
@@ -61,9 +104,11 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "8f123dec-dfe4-4b89-956c-f607c84a84bd",
     "table_from": "user",
@@ -77,9 +122,11 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "65a2d42f-5479-422f-84db-1a98547dfa04",
     "table_from": "connections",
@@ -93,9 +140,11 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "79bdd075-eef0-48d1-b763-db8dfd819043",
     "table_from": "test_login",
@@ -109,9 +158,11 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   },
   //  {
   //   "id": "c1492b03-8e76-4a09-9961-f61d413dbe68",
@@ -194,9 +245,11 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "82e93baf-2e02-432a-942b-2c93cbe26b89",
     "table_from": "record_permission",
@@ -210,9 +263,11 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "697fbd16-97d8-4233-ab21-4ce12dd6c5c6",
     "table_from": "automatic_filter",
@@ -226,9 +281,11 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "8283449e-7978-4e75-83d6-1b6f3a194683",
     "table_from": "field_permission",
@@ -242,10 +299,12 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "d522a2ac-7fb4-413d-b5bb-8d1d34b65b98",
     "table_from": "action_permission",
@@ -259,10 +318,12 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "158213ef-f38d-4c0d-b9ec-815e4d27db7e",
     "table_from": "view_relation_permission",
@@ -276,12 +337,14 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "is_user_id_default": false,
     "cascadings": [],
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "0ab05a13-d077-4086-9b7e-a4029d451acd",
     "table_from": "cashbox",
@@ -296,6 +359,7 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "created_at": new Date(),
     "updated_at": new Date(),
@@ -304,7 +368,8 @@ async function createRelation() {
     "is_user_id_default": true,
     "cascading_tree_field_slug": "",
     "cascading_tree_table_slug": "",
-    "object_id_from_jwt": false
+    "object_id_from_jwt": false,
+    "is_system": true,
   }, {
     "id": "4d5f933c-3d46-4303-95aa-31daccef96cf",
     "table_from": "doctors",
@@ -318,6 +383,7 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "created_at": new Date(),
     "updated_at": new Date(),
@@ -326,7 +392,8 @@ async function createRelation() {
     "cascading_tree_table_slug": "",
     "cascadings": [],
     "is_user_id_default": false,
-    "object_id_from_jwt": false
+    "object_id_from_jwt": false,
+    "is_system": true,
   },
   {
     "id": "37f23a8e-2820-4759-a4b5-dfae0fb073e2",
@@ -341,6 +408,7 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "is_user_id_default": false,
     "cascadings": [],
@@ -349,7 +417,8 @@ async function createRelation() {
     "cascading_tree_field_slug": "",
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   },
   {
     "id": "ccc39e6d-f3f6-43b0-82f3-eee3044d25f8",
@@ -362,10 +431,12 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   },
   {
     "id": "c257fe1d-488b-4d0f-a657-b0b729811a56",
@@ -378,10 +449,12 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   },
   {
     "id": "dae09c03-247a-4353-8f17-fc35e545a44e",
@@ -394,12 +467,14 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "created_at": new Date(),
     "updated_at": new Date(),
     "__v": 0,
     "cascadings": [],
-    "is_user_id_default": false
+    "is_user_id_default": false,
+    "is_system": true,
   },
   {
     "id": "e7604b67-027f-4314-a270-86db31e33887",
@@ -412,6 +487,7 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "is_user_id_default": false,
     "cascadings": [],
@@ -420,7 +496,8 @@ async function createRelation() {
     "cascading_tree_field_slug": "",
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   },
   {
     "id": "df8b1c3b-7f1a-43f4-8368-b37f191c888d",
@@ -433,6 +510,7 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "is_user_id_default": false,
     "cascadings": [],
@@ -441,7 +519,8 @@ async function createRelation() {
     "cascading_tree_field_slug": "",
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   },
   {
     "id": "89afc0b2-431b-4243-a22f-53539f50deff",
@@ -454,6 +533,7 @@ async function createRelation() {
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "is_system": true,
     "auto_filters": [],
     "is_user_id_default": false,
     "cascadings": [],
@@ -462,7 +542,8 @@ async function createRelation() {
     "cascading_tree_field_slug": "",
     "created_at": new Date(),
     "updated_at": new Date(),
-    "__v": 0
+    "__v": 0,
+    "is_system": true,
   }, {
     "id": "3f21b211-deaf-4869-8558-31a9359411e9",
     "table_from": "menu_permission",

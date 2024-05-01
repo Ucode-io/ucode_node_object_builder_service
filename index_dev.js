@@ -38,7 +38,7 @@ const logger = require("./config/logger");
             }
         })
 
-        // mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs pr_id: "49ae6c46-5397-4975-b238-320617f0190c"
+        // // mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs pr_id: "49ae6c46-5397-4975-b238-320617f0190c"
         // mongodb://rizo_42ab0799deff4f8cbf3f64bf9665d304_s_obj_build_svcs:ivymDZFcdA@142.93.164.37:27017/rizo_42ab0799deff4f8cbf3f64bf9665d304_s_obj_build_svcs
         //mongodb://logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs:zWWzDFqtVQ@142.93.164.37:27017/logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs
         //mongodb://vertebra_vertebra_object_builder_service:f7NJv0ZaKr@142.93.164.37:27017/vertebra_vertebra_object_builder_service

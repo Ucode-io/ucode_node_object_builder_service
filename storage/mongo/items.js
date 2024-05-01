@@ -149,7 +149,7 @@ let objectBuilderV2 = {
                 updatedAt: 0,
                 _id: 0,
                 __v: 0
-            }).lean();
+        }).lean();
 
         if (!output) { logger.error(`failed to find object in table ${req.table_slug} with given id: ${data.id}`) };
         let isChanged = false
@@ -247,8 +247,9 @@ let objectBuilderV2 = {
                             isChanged = true
                         }
                     } else {
-                        output[field.slug] = 0
-                        isChanged = true
+                        // console.log("test 7 >>> ", output[field.slug]);
+                        // output[field.slug] = 0
+                        // isChanged = true
                     }
                 }
             } else if (field.type === "FORMULA_FRONTEND") {

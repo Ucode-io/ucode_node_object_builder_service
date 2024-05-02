@@ -23,7 +23,7 @@ const AppSchema = mongoose.Schema(
         },
         is_system: {
             type: Boolean,
-        }
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -1,9 +1,4 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
-<<<<<<< HEAD
-const con = require("../../config/kafkaTopics");
-// const sendMessageToTopic = require("../../config/kafka");
-=======
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
 const os = require("os")

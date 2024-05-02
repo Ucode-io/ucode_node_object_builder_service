@@ -17,16 +17,11 @@ const createRelation = require("../initial_setups/relation");
 const createSettingLanguage = require("../initial_setups/setting_language");
 const createSettingCurrency = require("../initial_setups/setting_currency");
 const createSettingTimezone = require("../initial_setups/setting_timezone");
-<<<<<<< HEAD
-const createMenu = require("../initial_setups/menu");
-const createAppPermission = require("../initial_setups/appPermission");
-=======
 const createGlobalPermission = require("../initial_setups/global_permission");
 const createMenu = require("../initial_setups/menu");
 const guessRole = require("../initial_setups/defaultRole")
 const guessClientType = require("../initial_setups/guessClientType")
 const settingCheker = require("./settingChecker")
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 
 async function insertCollections(conn, userId, projectId, clientTypeID, roleID) {
 
@@ -206,27 +201,8 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
             console.log("Inserted Timezone :", result.insertedCount)
         })
     }
-<<<<<<< HEAD
-    if (!collections['object_builder_service.menus']) {
-
-        const menus = await createMenu()
-        conn.collection('object_builder_service.menus').insertMany(menus, function (err, result) {
-            if (err) throw err;
-            console.log("Inserted Default Menus :", result.insertedCount)
-        })
-    }
-    if (!collections['app_permission']) {
-
-        const appPermissions = await createAppPermission(roleID)
-        conn.collection('app_permissions').insertMany(appPermissions, function (err, result) {
-            if (err) throw err;
-            console.log("Inserted App Permissions :", result.insertedCount)
-        })
-    }
-=======
 
     await settingCheker(conn, projectId)
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 }
 
 module.exports = insertCollections

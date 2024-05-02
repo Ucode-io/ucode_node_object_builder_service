@@ -969,23 +969,12 @@ let objectBuilder = {
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
-<<<<<<< HEAD
-        const View = mongoConn.models['View']
-        let params = struct.decode(req?.data)
-=======
         let params = struct.decode(req?.data)
         // let params = req?.data;
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
         const limit = params.limit
         const offset = params.offset
         delete params["offset"]
         delete params["limit"]
-<<<<<<< HEAD
-        const languageSetting = params.language_setting
-        let clientTypeId = params["client_type_id_from_token"]
-        delete params["client_type_id_from_token"]
-=======
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
         const allTables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
@@ -1001,11 +990,6 @@ let objectBuilder = {
             }
         })
 
-<<<<<<< HEAD
-        let with_relations = params.with_relations
-
-=======
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
 
         if (currentTable.order_by && !Object.keys(order).length) {
@@ -1024,20 +1008,6 @@ let objectBuilder = {
                 }
             ]
         })
-<<<<<<< HEAD
-        const relations = await Relation.find({
-            $or: [{
-                table_from: req.table_slug,
-            },
-            {
-                table_to: req.table_slug,
-            },
-            {
-                "dynamic_tables.table_slug": req.table_slug
-            }
-            ]
-        })
-=======
         let relations = []
         if (params.with_relations) {
             if (params.selected_relations && params.selected_relations.length) {
@@ -1070,7 +1040,6 @@ let objectBuilder = {
         }
 
 
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
         if (permission?.is_have_condition) {
             const automaticFilterTable = allTables["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
@@ -1875,93 +1844,6 @@ let objectBuilder = {
             }
         }
 
-<<<<<<< HEAD
-        //////old code
-
-        // if (with_relations && !params.new_code) {
-        //     for (const relation of relations) {
-        //         if (relation.type !== "Many2Dynamic") {
-        //             if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
-        //                 relation.table_to = relation.table_from
-        //             }
-        //             // let relationTable = await table.findOne({ slug: relation.table_to })
-        //             let relationTable = await tableVersion(mongoConn, { slug: relation.table_to }, params.version_id, true)
-        //             let relationFields = await Field.find(
-        //                 {
-        //                     table_id: relationTable?.id
-        //                 },
-        //                 {
-        //                     createdAt: 0,
-        //                     updatedAt: 0,
-        //                     created_at: 0,
-        //                     updated_at: 0,
-        //                     _id: 0,
-        //                     __v: 0
-        //                 })
-        //             for (const field of relationFields) {
-        //                 let changedField = {}
-        //                 if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
-        //                     let viewFields = []
-        //                     let table_slug
-        //                     if (field.type === "LOOKUP") {
-        //                         table_slug = field.slug.slice(0, -3)
-        //                     } else {
-        //                         table_slug = field.slug.slice(0, -4)
-        //                     }
-
-        //                     childRelation = await Relation.findOne({ table_from: relationTable.slug, table_to: table_slug })
-        //                     if (childRelation) {
-        //                         for (const view_field of childRelation.view_fields) {
-        //                             let viewField = await Field.findOne(
-        //                                 {
-        //                                     id: view_field
-        //                                 },
-        //                                 {
-        //                                     createdAt: 0,
-        //                                     updatedAt: 0,
-        //                                     created_at: 0,
-        //                                     updated_at: 0,
-        //                                     _id: 0,
-        //                                     __v: 0
-        //                                 })
-        //                             if (viewField) {
-        //                                 if (viewField.attributes) {
-        //                                     viewField.attributes = struct.decode(viewField.attributes)
-        //                                 }
-        //                                 viewFields.push(viewField._doc)
-        //                             }
-        //                         }
-        //                     }
-        //                     field._doc.view_fields = viewFields
-        //                     // let childRelationTable = await table.findOne({ slug: table_slug })
-        //                     let childRelationTable = await tableVersion(mongoConn, { slug: table_slug }, params.version_id, true)
-        //                     field._doc.table_label = relationTable?.label
-        //                     field.label = childRelationTable?.label
-        //                     changedField = field
-        //                     changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
-        //                     changedField._doc.table_slug = table_slug
-        //                     relationsFields.push(changedField._doc)
-        //                 } else {
-        //                     if (field.attributes) {
-        //                         field.attributes = struct.decode(field.attributes)
-        //                     }
-        //                     field._doc.table_label = relationTable?.label
-        //                     changedField = field
-        //                     changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug
-        //                     relationsFields.push(changedField._doc)
-        //                 }
-        //             }
-
-        //         }
-
-        //     }
-        // }  
-        // console.timeEnd("TIME_LOGGING:::with_relations")
-        console.log("TEST::::::6")
-
-
-=======
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
         let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []
 
@@ -2324,81 +2206,6 @@ let objectBuilder = {
                             continue
                         }
                         const dynamicRelation = dynamicRelationsMap[relation_id]
-<<<<<<< HEAD
-                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                        }
-                        let matchParams = {
-                            [matchField]: { '$eq': res.guid },
-                            ...filters
-                        }
-                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, allTables)
-                        if (resultFormula.length) {
-                            if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
-                                if (!isNaN(resultFormula[0].res)) {
-                                    resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
-                                }
-                            }
-                            if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
-                                res[field.slug] = resultFormula[0].res
-                                isChanged = true
-                            }
-
-                        } else {
-                            res[field.slug] = 0
-                            isChanged = true
-                        }
-                    }
-                } else {
-                    if (attributes && attributes.formula) {
-                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-                        if (res[field.slug] !== resultFormula) {
-                            isChanged = true
-                        }
-                        res[field.slug] = resultFormula
-                    }
-                }
-            }
-            if (isChanged) {
-                updatedObjects.push(res)
-            }
-        }
-
-        /*
-        //eskisi
-        for (const res of result) {
-            let isChanged = false
-            for (const field of formulaFields) {
-                let attributes = struct.decode(field.attributes)
-                if (field.type === "FORMULA") {
-                    if (attributes.table_from && attributes.sum_field) {
-                        let filters = {}
-                        if (attributes.formula_filters) {
-                            attributes.formula_filters.forEach(el => {
-                                filters[el.key.split("#")[0]] = el.value
-                                if (Array.isArray(el.value)) {
-                                    filters[el.key.split("#")[0]] = { $in: el.value }
-                                }
-                            })
-                        }
-                        const relationFieldTable = await table.findOne({
-                            slug: attributes.table_from.split('#')[0],
-                            deleted_at: "1970-01-01T18:00:00.000+00:00"
-                        })
-                        const relationField = await Field.findOne({
-                            relation_id: attributes.table_from.split('#')[1],
-                            table_id: relationFieldTable.id
-                        })
-                        console.log("rel table::", relationFieldTable)
-                        console.log("field:::", relationField);
-                        if (!relationField || !relationFieldTable) {
-                            console.log("relation field not found")
-                            res[field.slug] = 0
-                            continue
-                        }
-=======
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
                         let matchParams = {
                             [matchField]: { '$eq': res.guid },
@@ -2459,15 +2266,11 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
-<<<<<<< HEAD
-        // console.log(">>>>>>>>>>>>>>>>> RESPONSE", result, relationsFields)
-=======
 
         const endMemoryUsage = v8.getHeapStatistics();
 
 
 
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),

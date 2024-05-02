@@ -85,14 +85,8 @@ let menuStore = {
                 }
             }
 
-<<<<<<< HEAD
-            if(!response.attributes) {
-                response.attributes = {"ok": "abc"}
-            }
-=======
              
 
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
             return response;
         } catch (err) {
             throw err
@@ -507,11 +501,7 @@ let menuStore = {
                 let attributes = struct.decode(res.attributes)
                 await folderMinio.deleteMinioFolder(data.project_id, attributes.path)
             }
-<<<<<<< HEAD
-            const menu = await Menu.findOneAndDelete({ id: data.id }, {new: true});
-=======
             const menu = await Menu.findOneAndDelete({ id: data.id }, { new: true });
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
 

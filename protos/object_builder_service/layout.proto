@@ -55,10 +55,7 @@ message LayoutResponse {
     bool is_visible_section = 10;
     repeated FieldResponse summary_fields = 11;
     google.protobuf.Struct attributes = 12;
-<<<<<<< HEAD
-=======
     string menu_id = 13;
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 }
 
 message GetListLayoutResponse {
@@ -215,15 +212,9 @@ message CreateLayoutRequest {
 }
 
 message UpdateLayoutRequest {
-<<<<<<< HEAD
-    repeated LayoutRequest layouts = 1;
-    string project_id = 2;
-    string table_id = 3;
-=======
     repeated LayoutRequest layout = 1;
     string table_id = 2;
     string project_id = 3;
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 }
 
 message LayoutPrimaryKey {
@@ -239,8 +230,5 @@ message GetListLayoutRequest {
     string table_id = 4;
     string role_id = 5;
     string language_setting = 6;
-<<<<<<< HEAD
-=======
     string menu_id = 7;
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 }

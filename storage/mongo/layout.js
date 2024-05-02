@@ -7,10 +7,7 @@ const { v4 } = require("uuid");
 const AddPermission = require('../../helper/addPermission');
 const { struct } = require('pb-util');
 const ObjectBuilder = require('../../models/object_builder');
-<<<<<<< HEAD
-=======
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 
 
 let NAMESPACE = 'storage.layout'
@@ -44,19 +41,11 @@ let layoutStore = {
                 }
                 let layout = new Layout(layoutReq);
                 layout.table_id = data.id;
-<<<<<<< HEAD
-                // console.log("\n.>>> layout ", layout)
-=======
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
                 layouts.push(layout);
                 for (const tabReq of layoutReq.tabs) {
                     tabReq.id = v4()
                     let tab = new Tab(tabReq);
                     tab.layout_id = layout.id;
-<<<<<<< HEAD
-                    // console.log("\n>>>>> tab", tab)
-=======
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
                     tabs.push({
                         id: tab.id,
                         order: tab.order,
@@ -72,10 +61,6 @@ let layoutStore = {
                         sectionReq.id = v4()
                         const section = new Section(sectionReq);
                         section.tab_id = tab.id;
-<<<<<<< HEAD
-                        // console.log("\n>>>>> section", section)
-=======
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
                         sections.push(section);
                     }
                 }
@@ -99,10 +84,6 @@ let layoutStore = {
             const RoleTable = (await ObjectBuilder(true, data.project_id))['role']
             const viewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
             const roles = await RoleTable?.models?.find({}).lean()
-<<<<<<< HEAD
-            let layoutIds = [], tabIds = [], insertManyRelationPermissions = [];
-            const resp = await Table.findOneAndUpdate({
-=======
             const History = mongoConn.models['object_builder_service.version_history']
             let bulkWriteTab = [], bulkWriteSection = [], relation_ids = [], insertManyRelationPermissions = []
 
@@ -120,7 +101,6 @@ let layoutStore = {
 
 
             const table = await Table.findOne({
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
                 id: data.table_id,
             }).lean()
        
@@ -536,13 +516,8 @@ let layoutStore = {
                     let { fieldsWithPermissions } = await AddPermission.toField(summaryFields, data.role_id, table.slug, data.project_id)
                     layout.summary_fields = fieldsWithPermissions
                 }
-<<<<<<< HEAD
-                const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()
-
-=======
             }
             const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 
                 const map_tab = {}
                 for (let tab of tabs) {
@@ -555,46 +530,6 @@ let layoutStore = {
                             table_slug: table.slug,
                             language_setting: data.language_setting || undefined,
                         })
-<<<<<<< HEAD
-
-                        tab.sections = sections
-                    } else if (tab.type === "relation" && tab.relation_id) {
-                        const { relation } = await relationStorage.getSingleViewForRelation(
-                            {
-                                id: tab.relation_id,
-                                project_id: data.project_id,
-                                tab_id: tab.id,
-                                role_id: data.role_id,
-                                table_slug: table.slug
-                            })
-
-                        tab.sections = sections
-                    } else if (tab.type === "relation" && tab.relation_id) {
-                        const { relation } = await relationStorage.getSingleViewForRelation(
-                            {
-                                id: tab.relation_id,
-                                project_id: data.project_id,
-                                role_id: data.role_id,
-                                table_slug: table.slug
-                            })
-                        // console.log("relations:", relation);
-                        tab.relation = relation ? relation : {}
-                    }
-
-                    if (map_tab[tab.layout_id]) {
-                        map_tab[tab.layout_id].push(tab)
-                    } else {
-                        map_tab[tab.layout_id] = [tab]
-                    }
-                }
-
-                if (Object.keys(map_tab).length > 0) {
-                    for (let layout of layouts) {
-                        layout.tabs = map_tab[layout.id]
-                    }
-                }
-            }
-=======
                     tab.relation = relation ? relation : {}
                 }
 
@@ -613,7 +548,6 @@ let layoutStore = {
                     layout.tabs = map_tab[layout.id]
                 }
             }
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
             return { layouts: layouts }
 
         } catch (error) {

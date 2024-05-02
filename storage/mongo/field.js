@@ -257,18 +257,7 @@ let fieldStore = {
          
              
 
-<<<<<<< HEAD
-
-            // tableRes.fields = fields
-            // event.payload = tableRes
-            // event.project_id = data.project_id
-            // await sendMessageToTopic(topics.TopicFieldCreateV1, event)
-
-
-            return response;
-=======
             return field;
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
         } catch (err) {
             throw err
         }
@@ -354,29 +343,7 @@ let fieldStore = {
                 }
             )
 
-<<<<<<< HEAD
-            // });
-            // let event = {}
-            // let fieldRes = {}
-            // let fieldToAnalytics = {}
-            // let type = converter(data.type);
-            // fieldRes.table_slug = table.slug
-            // fieldRes.older_field_name = fieldBeforUpdate.slug
-
-            // if (field.slug !== "guid") {
-            //     fieldToAnalytics = {
-            //         slug: data.slug,
-            //         type: type,
-            //     }
-            // }
-            // fieldRes.field = fieldToAnalytics
-            // event.payload = fieldRes
-
-            // event.project_id = data.project_id
-            // await sendMessageToTopic(topics.TopicFieldUpdateV1, event)
-=======
              
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 
             return field;
         } catch (err) {
@@ -921,10 +888,6 @@ let fieldStore = {
                         columns.push(id)
                     }
 
-<<<<<<< HEAD
-            // event.project_id = data.project_id
-            // await sendMessageToTopic(topics.TopicFieldDeleteV1, event)
-=======
                 }
 
                 if(is_exists) {
@@ -956,7 +919,6 @@ let fieldStore = {
             )
 
              
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 
             return field;
 

@@ -333,10 +333,6 @@ let permission = {
 
 
         if (!tables || !tables.length) {
-<<<<<<< HEAD
-            console.log('WARNING apps not found')
-=======
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
             return roleCopy
         }
 

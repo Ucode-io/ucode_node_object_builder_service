@@ -46,12 +46,9 @@ const LayoutSchema = mongoose.Schema(
         is_modal: {
             type: Boolean,
         },
-<<<<<<< HEAD
-=======
         menu_id: {
             type: String
         }
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

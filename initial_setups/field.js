@@ -4154,54 +4154,10 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0,
 		"is_system": true
-<<<<<<< HEAD
-	}, {
-		"id": "43f4ca6b-0d98-4829-ac87-15bbcaf7af3f",
-		"required": false,
-		"slug": "table_id",
-		"label": "Table Id",
-		"default": "",
-		"type": "SINGLE_LINE",
-		"index": "string",
-		"attributes": {
-			"fields": {
-				"defaultValue": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"icon": {
-					"stringValue": "",
-					"kind": "stringValue"
-				},
-				"showTooltip": {
-					"boolValue": false,
-					"kind": "boolValue"
-				},
-				"show_label": {
-					"boolValue": false,
-					"kind": "boolValue"
-				}
-			}
-		},
-		"is_visible": false,
-		"unique": false,
-		"automatic": false,
-		"commit_id": "",
-		"is_system": false,
-		"show_label": true,
-		"table_id": "eca81c06-c4fc-4242-8dc9-ecca575e1762",
-		"created_at": new Date(),
-		"updated_at": new Date(),
-		"is_system": true,
-		"__v": 0,
-		"is_system": true
-	}, {
-=======
 	},
 
 
 	{
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 		"required": false,
 		"slug": "guid",
 		"label": "ID",
@@ -5016,9 +4972,6 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0
-<<<<<<< HEAD
-	}, {
-=======
 	}, 
 	{
 		"id": "98412b66-0f8f-42a3-be9b-2adcc0169d8d",
@@ -5050,7 +5003,6 @@ async function createField() {
 		"updated_at": new Date(),
 		"__v": 0
 	},{
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 		"id": "04b4921f-323f-45ce-835c-8f5ad5486634",
 		"required": false,
 		"slug": "main_table_slug",

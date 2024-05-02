@@ -448,8 +448,8 @@ let objectBuilder = {
                             isChanged = true
                         }
                     } else {
-                        output[field.slug] = 0
-                        isChanged = true
+                        // output[field.slug] = 0
+                        // isChanged = true
                     }
                 }
             } else if (field.type === "FORMULA_FRONTEND") {

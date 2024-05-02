@@ -7,7 +7,7 @@ const AppSchema = mongoose.Schema(
             type: String,
             default: v4,
             unique: true
-        },
+        }, 
         name: {
             type: String,
             required: [true, "App must have name"],

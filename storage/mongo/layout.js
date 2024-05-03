@@ -1017,6 +1017,8 @@ let layoutStore = {
                         }
                     }
                 }
+                let { fieldsWithPermissions } = await AddPermission.toField(summaryFields, data.role_id, table.slug, data.project_id)
+                summaryFields = fieldsWithPermissions
             }
 
             const tabs = await Tab.find({ layout_id: layout.id }).lean()

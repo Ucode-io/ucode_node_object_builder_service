@@ -194,7 +194,7 @@ let layoutStore = {
                 })
 
                 for(let section of tab.sections) {
-
+                    // need to change for to let j = 0
                     section.id = section.id || v4()
 
                     if (map_sections[section.id]) {

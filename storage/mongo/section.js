@@ -472,9 +472,7 @@ let sectionStore = {
                                 cascading_tree_field_slug: relation?.cascading_tree_field_slug,
                                 function_path: view_of_relation?.function_path,
                             }
-                            console.log("SECTION 5.....5")
                         }
-                            console.log("SECTION 666 >>> ")
 
 
                         if (view_of_relation) {
@@ -507,7 +505,6 @@ let sectionStore = {
                     }
                 }
 
-                 console.log("SECTION ENDING >>> ")
 
                 
                 let {fieldsWithPermissions} = await AddPermission.toField(fieldsRes, data.role_id, data.table_slug ? data.table_slug : table.slug, data.project_id)

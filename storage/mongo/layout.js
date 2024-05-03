@@ -601,11 +601,13 @@ let layoutStore = {
 
             let summaryFields = [];
             if (layout.summary_fields && layout.summary_fields.length) {
+                console.log("layout.summary_fields >>>> ", layout.summary_fields);
                 for (const fieldReq of layout.summary_fields) {
                     let guid;
                     let field = {};
                     let encodedAttributes = {};
                     if (fieldReq.id.includes("#")) {
+                        console.log("here >>>>> ", fieldReq);
                         field.id = fieldReq.id
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order
@@ -797,6 +799,223 @@ let layoutStore = {
                 }
                 let { fieldsWithPermissions } = await AddPermission.toField(summaryFields, data.role_id, table.slug, data.project_id)
                 layout.summary_fields = fieldsWithPermissions
+            } else {
+                const layoutTabs = await Tab.find({ layout_id: layout.id }).lean()
+                let allFields = []
+                for (let tab of layoutTabs) {
+                    if (tab.type === "section") {
+
+                        const { sections } = await sectionStorage.getAll({
+                            project_id: data.project_id,
+                            tab_id: tab.id,
+                            role_id: data.role_id,
+                            table_slug: table.slug,
+                            language_setting: data.language_setting || undefined,
+                        })
+
+                        allFields = sections.flatMap(section => section.fields);
+                        console.log("allFields >>>  ", allFields)
+                    }
+                }
+                for (const fieldReq of allFields) {
+                    let guid;
+                    let field = {};
+                    let encodedAttributes = {};
+                    if (fieldReq.id.includes("#")) {
+                        field.id = fieldReq.id
+                        field.label = fieldReq.field_name
+                        field.order = fieldReq.order
+                        field.relation_type = fieldReq.relation_type
+                        let relationID = fieldReq.id.split("#")[1]
+                        console.log("THIS IS relationID >>> ", relationID)
+                        const fieldResp = await Field.findOne({
+                            relation_id: relationID,
+                            table_id: data.table_id
+                        })
+                        console.log("this is response from fieldResp >>>> ", fieldResp);
+                        if (fieldResp) {
+                            field.slug = fieldResp.slug
+                            field.required = fieldResp.required
+                        }
+
+                        const relation = await Relation.findOne({ id: relationID })
+                        console.log("this is relation of field  >>>>>> ", relation);
+                        if(!relation) continue
+                        let fieldAsAttribute = []
+                        let view_of_relation;
+                        view_of_relation = await View.findOne({
+                            relation_id: relation.id,
+                            relation_table_slug: data.table_slug
+                        })
+                        let viewFieldIds = relation.view_fields
+                        if (view_of_relation) {
+                            if (view_of_relation.view_fields && view_of_relation.view_fields.length) {
+                                viewFieldIds = view_of_relation.view_fields
+                            }
+                        }
+                        
+                        if (relation) {
+                            for (const fieldID of viewFieldIds) {
+                                let field = await Field.findOne({
+                                    id: fieldID
+                                },
+                                    {
+                                        created_at: 0,
+                                        updated_at: 0,
+                                        createdAt: 0,
+                                        updatedAt: 0,
+                                        _id: 0,
+                                        __v: 0
+                                    }).lean();
+                                if (field) {
+                                    if (data.language_setting && field.enable_multilanguage) {
+                                        if (field?.slug.endsWith("_" + data.language_setting)) {
+                                            fieldAsAttribute.push(field)
+                                        } else {
+                                            continue
+                                        }
+                                    } else {
+                                        fieldAsAttribute.push(field)
+                                    }
+                                }
+                            }
+
+                            field.is_editable = view_of_relation?.is_editable
+                        }
+                        let tableFields = await Field.find({ table_id: data.table_id })
+                        let autofillFields = []
+                        for (const field of tableFields) {
+                            let autoFillTable = field.autofill_table
+                            let splitedAutoFillTable = []
+                            if (field?.autofill_table?.includes('#')) {
+                                splitedAutoFillTable = field.autofill_table.split('#')
+                                autoFillTable = splitedAutoFillTable[0]
+                            }
+                            console.log("this is auto_fill table >>>> ", autoFillTable);
+                            if (field.autofill_field && autoFillTable && autoFillTable === fieldReq.id.split("#")[0]) {
+                                let autofill = {
+                                    field_from: field.autofill_field,
+                                    field_to: field.slug,
+                                    automatic: field.automatic,
+                                }
+                                console.log("fieldResp.slug === splitedAutoFillTable[1] ", fieldResp.slug === autoFillTable + "_" + splitedAutoFillTable[1], fieldResp.slug, autoFillTable + "_" + splitedAutoFillTable[1])
+                                if (fieldResp.slug === autoFillTable + "_" + splitedAutoFillTable[1]) {
+                                    autofillFields.push(autofill)
+                                }
+                            }
+                        }
+                        let originalAttributes = {}
+                        let dynamicTables = [];
+                        if (relation?.type === "Many2Dynamic") {
+                            if (relation.dynamic_tables.length) {
+                                let dynamicTableToAttribute;
+                                for (const dynamic_table of relation.dynamic_tables) {
+                                    const dynamicTableInfo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
+                                    dynamicTableToAttribute = dynamic_table
+                                    let viewFieldsOfDynamicRelation = dynamicTableToAttribute.view_fields;
+                                    const viewOfDynamicRelation = await View.findOne({
+                                        relation_id: relation.id,
+                                        relation_table_slug: dynamic_table.table_slug
+                                    })
+                                    if (viewOfDynamicRelation && viewOfDynamicRelation.view_fields && viewOfDynamicRelation.view_fields.length) {
+                                        viewFieldsOfDynamicRelation = viewOfDynamicRelation.view_fields
+                                    }
+
+                                    dynamicTableToAttribute["table"] = dynamicTableInfo._doc
+                                    viewFieldsInDynamicTable = []
+                                    for (const fieldId of viewFieldsOfDynamicRelation) {
+                                        let view_field = await Field.findOne(
+                                            {
+                                                id: fieldId
+                                            },
+                                            {
+                                                created_at: 0,
+                                                updated_at: 0,
+                                                createdAt: 0,
+                                                updatedAt: 0,
+                                                _id: 0,
+                                                __v: 0
+                                            }
+                                        )
+                                        if (view_field) {
+                                            if (view_field.attributes) {
+                                                view_field.attributes = struct.decode(view_field.attributes)
+                                            }
+                                            if (data.language_setting && view_field.enable_multilanguage) {
+                                                if (view_field.slug.endsWith("_" + data.language_setting)) {
+                                                    viewFieldsInDynamicTable.push(view_field._doc)
+                                                } else {
+                                                    continue
+                                                }
+                                            } else {
+                                                viewFieldsInDynamicTable.push(view_field._doc)
+                                            }
+
+                                        }
+                                    }
+                                    dynamicTableToAttribute.view_fields = viewFieldsInDynamicTable
+                                    dynamicTables.push(dynamicTableToAttribute)
+                                }
+                                originalAttributes = {
+                                    autofill: autofillFields,
+                                    view_fields: fieldAsAttribute,
+                                    auto_filters: relation?.auto_filters,
+                                    relation_field_slug: relation?.relation_field_slug,
+                                    dynamic_tables: dynamicTables,
+                                    is_user_id_default: relation?.is_user_id_default,
+                                    object_id_from_jwt: relation?.object_id_from_jwt,
+                                    cascadings: relation?.cascadings,
+                                    cascading_tree_table_slug: relation?.cascading_tree_table_slug,
+                                    cascading_tree_field_slug: relation?.cascading_tree_field_slug,
+                                    function_path: view_of_relation?.function_path
+                                }
+                            }
+                        } else {
+                            if (view_of_relation) {
+                                originalAttributes = { ...struct.decode(view_of_relation.attributes || {}) }
+                            }
+                            originalAttributes = {
+                                ...originalAttributes,
+                                autofill: autofillFields,
+                                view_fields: fieldAsAttribute,
+                                auto_filters: relation?.auto_filters,
+                                is_user_id_default: relation?.is_user_id_default,
+                                object_id_from_jwt: relation?.object_id_from_jwt,
+                                cascadings: relation?.cascadings,
+                                cascading_tree_table_slug: relation?.cascading_tree_table_slug,
+                                cascading_tree_field_slug: relation?.cascading_tree_field_slug,
+                                function_path: view_of_relation?.function_path,
+                            }
+                        }
+
+                        if (view_of_relation) {
+
+                            if (view_of_relation.default_values && view_of_relation.default_values.length) {
+                                originalAttributes["default_values"] = view_of_relation.default_values
+                            }
+                            originalAttributes["creatable"] = view_of_relation.creatable
+                        }
+                        originalAttributes = JSON.stringify(originalAttributes)
+                        originalAttributes = JSON.parse(originalAttributes)
+                        encodedAttributes = struct.encode(originalAttributes)
+                        field.attributes = encodedAttributes
+                        summaryFields.push(field)
+                    } else if (fieldReq.id.includes("@")) {
+                        field.id = fieldReq.id
+                    } else {
+                        guid = fieldReq.id
+                        field = await Field.findOne({
+                            id: guid
+                        });
+                        if (field) {
+                            field.order = fieldReq.order;
+                            field.column = fieldReq.column;
+                            field.id = fieldReq.id;
+                            field.relation_type = fieldReq.relation_type;
+                            summaryFields.push(field);
+                        }
+                    }
+                }
             }
 
             const tabs = await Tab.find({ layout_id: layout.id }).lean()
@@ -811,6 +1030,18 @@ let layoutStore = {
                         table_slug: table.slug,
                         language_setting: data.language_setting || undefined,
                     })
+
+                    function findFieldById(id) {
+                        return sections.flatMap(section => section.fields).find(field => field.id === id);
+                    }
+                    
+                    // Iterate over summary fields and update corresponding fields in sections
+                    summaryFields.forEach(summaryField => {
+                        const correspondingField = findFieldById(summaryField.id);
+                        if (correspondingField) {
+                            correspondingField.attributes = summaryField.attributes;
+                        }
+                    });
 
                     tab.sections = sections
                 } else if (tab.type === "relation" && tab.relation_id) {

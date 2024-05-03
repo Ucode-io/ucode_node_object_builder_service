@@ -1152,9 +1152,7 @@ let objectBuilder = {
                 if (params[key]) {
                     let is_array = Array.isArray(params[key])
                     if (is_array) {
-                        console.log("yes is_array")
                         if (key == "$or") {
-                            console.log("or case")
                         } else {
                             params[key] = { $in: params[key] }
                         }

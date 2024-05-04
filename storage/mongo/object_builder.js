@@ -3156,10 +3156,9 @@ let objectBuilder = {
                 excelObj = {}
                 for (const field of selectedFields) {
 
-                    if (field.label == '') {
-                        field.label = field.attributes.label_uz
+                    if (field.label == '' || !field.label) {
+                        field.label = field.attributes.label_en
                     }
-
                     // if (field.type === "FORMULA") {
                     //     let attributes = field.attributes
 

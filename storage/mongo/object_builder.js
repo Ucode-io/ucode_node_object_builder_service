@@ -3205,7 +3205,7 @@ let objectBuilder = {
                     // if (field.type === "FORMULA") {
                     //     let attributes = field.attributes
 
-                    //     if (attributes.table_from && attributes.sum_field) {
+                    // /    if (attributes.table_from && attributes.sum_field) {
                     //         let groupBy = req.table_slug + '_id'
                     //         let groupByWithDollorSign = '$' + req.table_slug + '_id'
                     //         let sumFieldWithDollowSign = '$' + attributes["sum_field"]

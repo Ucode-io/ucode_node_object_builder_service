@@ -3144,6 +3144,7 @@ let objectBuilder = {
         try {
             let data = struct.decode(req.data)
             let field_ids = data.field_ids
+            let language = data.language
             delete req.data.field_ids
             const mongoConn = await mongoPool.get(req.project_id)
             const res = await objectBuilder.getList(req)
@@ -3152,6 +3153,7 @@ let objectBuilder = {
             const decodedFields = response.fields
             const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
             excelArr = []
+            let i = 0
             for (const obj of result) {
                 excelObj = {}
                 for (const field of selectedFields) {
@@ -3229,12 +3231,20 @@ let objectBuilder = {
                             if (typeof field.view_fields === "object" && field.view_fields.length) {
                                 for (const view of field.view_fields) {
                                     if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
-                                        overall += obj[field.slug + "_data"][view.slug]
+                                        if (view.enable_multilanguage){
+                                            let lang = ""
+                                            let splittedString = view.slug.split("_")
+                                            lang = splittedString[splittedString.length - 1]
+                                            if (language == lang) {
+                                                overall += obj[field.slug + "_data"][view.slug]
+                                            }
+                                        } else {
+                                            overall += obj[field.slug + "_data"][view.slug]
+                                        }
                                     }
                                 }
                             }
                             obj[field.slug] = overall
-
                         }
                         if (field.type === "MULTISELECT") {
                             let options = []

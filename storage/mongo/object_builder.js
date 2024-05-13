@@ -2290,7 +2290,6 @@ let objectBuilder = {
         delete params["limit"]
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-
         const { 
             [req.table_slug]: tableInfo,
             record_permission: permissionTable,
@@ -2517,7 +2516,7 @@ let objectBuilder = {
                         formattedNumber += char
                     }
                     params[key] = RegExp(formattedNumber, "i")
-                } else if (numberPattern.test(params[key])) {
+                } else if (numberPattern.test(params[key]) && field.type != "SINGLE_LINE") {
                     parseNum = parseFloat(params[key])
                     params[key] = parseNum
                 } else {
@@ -4963,7 +4962,6 @@ let objectBuilder = {
         const view = await tableInfo?.views?.find(el => el.id === params.builder_service_view_id)
         let order = params.order || {}
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
-
         if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
         } else if (!currentTable.order_by && !Object.keys(order).length) {

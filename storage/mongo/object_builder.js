@@ -2516,7 +2516,7 @@ let objectBuilder = {
                         formattedNumber += char
                     }
                     params[key] = RegExp(formattedNumber, "i")
-                } else if (numberPattern.test(params[key]) && field.type != "SINGLE_LINE") {
+                } else if (numberPattern.test(params[key]) && field.type != "SINGLE_LINE" && field.type != "INCREMENT_ID ") {
                     parseNum = parseFloat(params[key])
                     params[key] = parseNum
                 } else {

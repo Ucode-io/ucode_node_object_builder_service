@@ -247,15 +247,14 @@ let permission = {
     }),
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
         // return { project_id: "okok", data: {} }
-        let start = new Date()
+
         const mongoConn = await mongoPool.get(req.project_id)
-        const App = mongoConn.models['App']
+
         const Role = (await ObjectBuilder(true, req.project_id))['role'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
         // const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
         const Field = mongoConn.models['Field']
-        const FieldPermission = mongoConn.models['field_permission']
-        const ViewRelation = mongoConn.models['ViewRelation']
+
         const Tab = mongoConn.models['Tab']
         const CustomEvent = mongoConn.models['CustomEvent']
         const Table = mongoConn.models['Table']
@@ -378,84 +377,7 @@ let permission = {
                 }
             }
         ]
-        const getListViewRelationPermissions = [{
-            '$lookup': {
-                'from': 'view_relation_permissions',
-                'localField': 'relations.relation_id',
-                'foreignField': 'relation_id',
-                'as': 'view_permissions'
-            }
-        }, {
-            '$addFields': {
-                'view_permissions': {
-                    '$filter': {
-                        'input': '$view_permissions',
-                        'as': 'view_permission',
-                        'cond': {
-                            '$eq': [
-                                '$$view_permission.role_id', req.role_id
-                            ]
-                        }
-                    }
-                }
-            }
-        }, {
-            '$group': {
-                '_id': null,
-                'view_permission': {
-                    '$push': {
-                        'k': '$table_slug',
-                        'v': '$view_permissions'
-                    }
-                }
-            }
-        }, {
-            '$replaceRoot': {
-                'newRoot': {
-                    '$arrayToObject': '$view_permission'
-                }
-            }
-        }]
-        const getListActionPermissions = [
-            {
-                '$lookup': {
-                    'from': 'action_permissions',
-                    'localField': 'id',
-                    'foreignField': 'custom_event_id',
-                    'as': 'action_permissions'
-                }
-            }, {
-                '$addFields': {
-                    'action_permissions': {
-                        '$filter': {
-                            'input': '$action_permissions',
-                            'as': 'action_permission',
-                            'cond': {
-                                '$eq': [
-                                    '$$action_permission.role_id', req.role_id
-                                ]
-                            }
-                        }
-                    }
-                }
-            }, {
-                '$group': {
-                    '_id': null,
-                    'action_permission': {
-                        '$push': {
-                            'k': '$table_slug',
-                            'v': '$action_permissions'
-                        }
-                    }
-                }
-            }, {
-                '$replaceRoot': {
-                    'newRoot': {
-                        '$arrayToObject': '$action_permission'
-                    }
-                }
-            }
-        ]
+     
         const getAutoFilters = [
             {
                 '$match': { role_id: req.role_id }

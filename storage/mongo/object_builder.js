@@ -3242,6 +3242,7 @@ let objectBuilder = {
                             if (field.attributes) {
                                 options = field.attributes.options
                             }
+
                             if (obj[field.slug].length && options.length && Array.isArray(obj[field.slug])) {
                                 obj[field.slug].forEach(element => {
                                     let getLabelOfMultiSelect = options.find(val => (val.value === element))

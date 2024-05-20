@@ -2290,7 +2290,6 @@ let objectBuilder = {
         delete params["limit"]
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-
         const { 
             [req.table_slug]: tableInfo,
             record_permission: permissionTable,
@@ -2376,63 +2375,106 @@ let objectBuilder = {
                 ]
             })
             if (automatic_filters.length) {
+
+                const dupMap = new Map()
+                const query = []
+                let isDup = false
+
                 for (const autoFilter of automatic_filters) {
-                    if (autoFilter.not_use_in_tab && params.from_tab) {
-                        continue
-                    }
-                    let many2manyRelation = false
                     if (autoFilter?.object_field?.includes('#')) {
                         let splitedElement = autoFilter.object_field.split('#')
-                        autoFilter.object_field = splitedElement[0]
+                        autoFilter.object_field = splitedElement[0]   // branches
                         let obj = relations.find(el => el.id === splitedElement[1])
                         if (obj) {
                             if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
                                 autoFilter.custom_field = obj.field_from
                             } else if (obj.type === 'Many2Many') {
                                 many2manyRelation = true
-                                if (obj.table_from === req.table_slug) {
-                                    autoFilter.custom_field = obj.field_from
-                                } else if (obj.table_to === req.table_slug) {
-                                    autoFilter.custom_field = obj.field_to
-                                }
+                            }
+
+                            if (obj.table_from === req.table_slug) {
+                                autoFilter.custom_field = obj.field_from
+                            } else if (obj.table_to === req.table_slug) {
+                                autoFilter.custom_field = obj.field_to
                             }
                         }
                     }
-                    if (autoFilter.custom_field === "user_id") {
-                        if (autoFilter.object_field !== req.table_slug) {
-                            if (!many2manyRelation) {
-                                params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+
+                    let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                    let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                    if (objFromAuth) {
+                        if (connectionTableSlug !== req.table_slug) {
+                            if (dupMap.has(autoFilter.object_field)) {
+                                isDup = true
                             } else {
-                                params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+                                dupMap.set(autoFilter.object_field, true)
                             }
-                        } else {
-                            // params["guid"] = params["user_id_from_token"]
+                            query.push({ [autoFilter.custom_field]: objFromAuth.object_id })
                         }
-                    } else {
-                        let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
-                        let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
-                        if (objFromAuth) {
-                            if (connectionTableSlug !== req.table_slug) {
+                    }
+                }
+
+                if (isDup) {
+                    params.$or = query
+                } else {
+                    for (const autoFilter of automatic_filters) {
+                        if (autoFilter.not_use_in_tab && params.from_tab) {
+                            continue
+                        }
+                        let many2manyRelation = false
+                        if (autoFilter?.object_field?.includes('#')) {
+                            let splitedElement = autoFilter.object_field.split('#')
+                            autoFilter.object_field = splitedElement[0]
+                            let obj = relations.find(el => el.id === splitedElement[1])
+                            if (obj) {
+                                if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
+                                    autoFilter.custom_field = obj.field_from
+                                } else if (obj.type === 'Many2Many') {
+                                    many2manyRelation = true
+                                    if (obj.table_from === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_from
+                                    } else if (obj.table_to === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_to
+                                    }
+                                }
+                            }
+                        }
+                        if (autoFilter.custom_field === "user_id") {
+                            if (autoFilter.object_field !== req.table_slug) {
                                 if (!many2manyRelation) {
-                                    params[autoFilter.custom_field] = objFromAuth.object_id
+                                    params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
                                 } else {
-                                    params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
                                 }
                             } else {
-                                params["guid"] = objFromAuth.object_id
+                                // params["guid"] = params["user_id_from_token"]
                             }
                         } else {
-                            params[autoFilter.custom_field] = params["user_id_from_token"]
+                            let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                            let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                            if (objFromAuth) {
+                                if (connectionTableSlug !== req.table_slug) {
+                                    if (!many2manyRelation) {
+                                        params[autoFilter.custom_field] = objFromAuth.object_id
+                                    } else {
+                                        params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    }
+                                } else {
+                                    params["guid"] = objFromAuth.object_id
+                                }
+                            } else {
+                                params[autoFilter.custom_field] = params["user_id_from_token"]
+                            }
+                            
+                            // if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
+                            //     params[autoFilter.custom_field] = params["user_id_from_token"]
+                            // }
                         }
-                        
-                        // if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
-                        //     params[autoFilter.custom_field] = params["user_id_from_token"]
-                        // }
                     }
                 }
             }
         } else {
-            let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
+            objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
             if (objFromAuth) {
                 params["guid"] = objFromAuth.object_id
             }
@@ -2517,7 +2559,7 @@ let objectBuilder = {
                         formattedNumber += char
                     }
                     params[key] = RegExp(formattedNumber, "i")
-                } else if (numberPattern.test(params[key])) {
+                } else if (numberPattern.test(params[key]) && field?.type != "SINGLE_LINE" && field?.type != "INCREMENT_ID") {
                     parseNum = parseFloat(params[key])
                     params[key] = parseNum
                 } else {
@@ -3144,6 +3186,7 @@ let objectBuilder = {
         try {
             let data = struct.decode(req.data)
             let field_ids = data.field_ids
+            let language = data.language
             delete req.data.field_ids
             const mongoConn = await mongoPool.get(req.project_id)
             const res = await objectBuilder.getList(req)
@@ -3152,6 +3195,7 @@ let objectBuilder = {
             const decodedFields = response.fields
             const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
             excelArr = []
+            let i = 0
             for (const obj of result) {
                 excelObj = {}
                 for (const field of selectedFields) {
@@ -3229,12 +3273,20 @@ let objectBuilder = {
                             if (typeof field.view_fields === "object" && field.view_fields.length) {
                                 for (const view of field.view_fields) {
                                     if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
-                                        overall += obj[field.slug + "_data"][view.slug]
+                                        if (view.enable_multilanguage){
+                                            let lang = ""
+                                            let splittedString = view.slug.split("_")
+                                            lang = splittedString[splittedString.length - 1]
+                                            if (language == lang) {
+                                                overall += obj[field.slug + "_data"][view.slug]
+                                            }
+                                        } else {
+                                            overall += obj[field.slug + "_data"][view.slug]
+                                        }
                                     }
                                 }
                             }
                             obj[field.slug] = overall
-
                         }
                         if (field.type === "MULTISELECT") {
                             let options = []
@@ -4954,7 +5006,6 @@ let objectBuilder = {
         const view = await tableInfo?.views?.find(el => el.id === params.builder_service_view_id)
         let order = params.order || {}
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
-
         if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
         } else if (!currentTable.order_by && !Object.keys(order).length) {

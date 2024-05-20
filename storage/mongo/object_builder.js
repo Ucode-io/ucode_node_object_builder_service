@@ -2375,63 +2375,106 @@ let objectBuilder = {
                 ]
             })
             if (automatic_filters.length) {
+
+                const dupMap = new Map()
+                const query = []
+                let isDup = false
+
                 for (const autoFilter of automatic_filters) {
-                    if (autoFilter.not_use_in_tab && params.from_tab) {
-                        continue
-                    }
-                    let many2manyRelation = false
                     if (autoFilter?.object_field?.includes('#')) {
                         let splitedElement = autoFilter.object_field.split('#')
-                        autoFilter.object_field = splitedElement[0]
+                        autoFilter.object_field = splitedElement[0]   // branches
                         let obj = relations.find(el => el.id === splitedElement[1])
                         if (obj) {
                             if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
                                 autoFilter.custom_field = obj.field_from
                             } else if (obj.type === 'Many2Many') {
                                 many2manyRelation = true
-                                if (obj.table_from === req.table_slug) {
-                                    autoFilter.custom_field = obj.field_from
-                                } else if (obj.table_to === req.table_slug) {
-                                    autoFilter.custom_field = obj.field_to
-                                }
+                            }
+
+                            if (obj.table_from === req.table_slug) {
+                                autoFilter.custom_field = obj.field_from
+                            } else if (obj.table_to === req.table_slug) {
+                                autoFilter.custom_field = obj.field_to
                             }
                         }
                     }
-                    if (autoFilter.custom_field === "user_id") {
-                        if (autoFilter.object_field !== req.table_slug) {
-                            if (!many2manyRelation) {
-                                params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+
+                    let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                    let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                    if (objFromAuth) {
+                        if (connectionTableSlug !== req.table_slug) {
+                            if (dupMap.has(autoFilter.object_field)) {
+                                isDup = true
                             } else {
-                                params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+                                dupMap.set(autoFilter.object_field, true)
                             }
-                        } else {
-                            // params["guid"] = params["user_id_from_token"]
+                            query.push({ [autoFilter.custom_field]: objFromAuth.object_id })
                         }
-                    } else {
-                        let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
-                        let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
-                        if (objFromAuth) {
-                            if (connectionTableSlug !== req.table_slug) {
+                    }
+                }
+
+                if (isDup) {
+                    params.$or = query
+                } else {
+                    for (const autoFilter of automatic_filters) {
+                        if (autoFilter.not_use_in_tab && params.from_tab) {
+                            continue
+                        }
+                        let many2manyRelation = false
+                        if (autoFilter?.object_field?.includes('#')) {
+                            let splitedElement = autoFilter.object_field.split('#')
+                            autoFilter.object_field = splitedElement[0]
+                            let obj = relations.find(el => el.id === splitedElement[1])
+                            if (obj) {
+                                if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
+                                    autoFilter.custom_field = obj.field_from
+                                } else if (obj.type === 'Many2Many') {
+                                    many2manyRelation = true
+                                    if (obj.table_from === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_from
+                                    } else if (obj.table_to === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_to
+                                    }
+                                }
+                            }
+                        }
+                        if (autoFilter.custom_field === "user_id") {
+                            if (autoFilter.object_field !== req.table_slug) {
                                 if (!many2manyRelation) {
-                                    params[autoFilter.custom_field] = objFromAuth.object_id
+                                    params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
                                 } else {
-                                    params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
                                 }
                             } else {
-                                params["guid"] = objFromAuth.object_id
+                                // params["guid"] = params["user_id_from_token"]
                             }
                         } else {
-                            params[autoFilter.custom_field] = params["user_id_from_token"]
+                            let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                            let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                            if (objFromAuth) {
+                                if (connectionTableSlug !== req.table_slug) {
+                                    if (!many2manyRelation) {
+                                        params[autoFilter.custom_field] = objFromAuth.object_id
+                                    } else {
+                                        params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    }
+                                } else {
+                                    params["guid"] = objFromAuth.object_id
+                                }
+                            } else {
+                                params[autoFilter.custom_field] = params["user_id_from_token"]
+                            }
+                            
+                            // if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
+                            //     params[autoFilter.custom_field] = params["user_id_from_token"]
+                            // }
                         }
-                        
-                        // if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
-                        //     params[autoFilter.custom_field] = params["user_id_from_token"]
-                        // }
                     }
                 }
             }
         } else {
-            let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
+            objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
             if (objFromAuth) {
                 params["guid"] = objFromAuth.object_id
             }

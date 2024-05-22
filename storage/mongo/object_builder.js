@@ -2383,7 +2383,7 @@ let objectBuilder = {
                 for (const autoFilter of automatic_filters) {
                     if (autoFilter?.object_field?.includes('#')) {
                         let splitedElement = autoFilter.object_field.split('#')
-                        autoFilter.object_field = splitedElement[0]   // branches
+                        autoFilter.object_field = splitedElement[0]   
                         let obj = relations.find(el => el.id === splitedElement[1])
                         if (obj) {
                             if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
@@ -2474,11 +2474,13 @@ let objectBuilder = {
                 }
             }
         } else {
-            objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
-            if (objFromAuth) {
-                params["guid"] = objFromAuth.object_id
+            if (permission?.is_all == "undefined" || !permission?.is_all) {
+                objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
+                if (objFromAuth) {
+                    params["guid"] = objFromAuth.object_id
+                }
             }
-        }
+        } 
 
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {

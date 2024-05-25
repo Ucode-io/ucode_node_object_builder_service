@@ -1,7 +1,7 @@
 const con = require("./constants");
 
 
-function convertToClickhouseType (type) {
+function convertToClickhouseType(type) {
     if (con.STRING_TYPES.includes(type)) {
         return "String";
     } else if (con.NUMBER_TYPES.includes(type)) {
@@ -15,4 +15,17 @@ function convertToClickhouseType (type) {
     }
 }
 
-module.exports = convertToClickhouseType;
+function updatePaidStatus(order, options) {
+    const paidStatus = order.paid_status[0];
+    for (let i = 0; i < options.length; i++) {
+        if (options[i].value === paidStatus) {
+          order.paid_status = [options[i].label];
+          labelFound = true;
+          break;
+        }
+      }
+    console.log("return >>> ");
+    return order
+  }
+
+module.exports = {convertToClickhouseType, updatePaidStatus}

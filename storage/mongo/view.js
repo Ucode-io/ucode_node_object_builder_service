@@ -1,5 +1,5 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
-const converter  = require("../../helper/converter");
+const updatePaidStatus  = require("../../helper/template_to_html_multiselect");
 const { BoardOrderChecker } = require("../../helper/board_order");
 const Minio = require('minio');
 const fs = require("fs");
@@ -558,7 +558,7 @@ let viewStore = {
                 for (const it of tableInfo.fields) {
                     if (it.type == "MULTISELECT" && it.slug == "paid_status") {
                         let fieldAttributes = struct.decode(it.attributes)
-                        let output2 = converter.updatePaidStatus(output, fieldAttributes.options)
+                        let output2 = updatePaidStatus(output, fieldAttributes.options)
                     }
                     if (it.type === "CODABAR") {
                         JsBarcode(svgNode, output[it.slug], {

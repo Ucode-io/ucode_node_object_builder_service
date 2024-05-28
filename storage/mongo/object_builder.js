@@ -32,6 +32,7 @@ const cluster = require('cluster');
 const v8 = require('v8');
 const { pipeline } = require('stream');
 const updateISODateFunction = require('../../helper/updateISODate');
+const { log } = require('console');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -448,8 +449,8 @@ let objectBuilder = {
                             isChanged = true
                         }
                     } else {
-                        output[field.slug] = 0
-                        isChanged = true
+                        // output[field.slug] = 0
+                        // isChanged = true
                     }
                 }
             } else if (field.type === "FORMULA_FRONTEND") {
@@ -1152,9 +1153,7 @@ let objectBuilder = {
                 if (params[key]) {
                     let is_array = Array.isArray(params[key])
                     if (is_array) {
-                        console.log("yes is_array")
                         if (key == "$or") {
-                            console.log("or case")
                         } else {
                             params[key] = { $in: params[key] }
                         }
@@ -2277,7 +2276,7 @@ let objectBuilder = {
     getList2: catchWrapDbObjectBuilder(`${NAMESPACE}.getList2`, async (req) => {
 
         const startMemoryUsage = v8.getHeapStatistics();
-
+        console.log("coming here <<<<<< >>>> ");
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -2289,7 +2288,6 @@ let objectBuilder = {
         delete params["limit"]
         let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-
         const { 
             [req.table_slug]: tableInfo,
             record_permission: permissionTable,
@@ -2375,67 +2373,112 @@ let objectBuilder = {
                 ]
             })
             if (automatic_filters.length) {
+
+                const dupMap = new Map()
+                const query = []
+                let isDup = false
+
                 for (const autoFilter of automatic_filters) {
-                    if (autoFilter.not_use_in_tab && params.from_tab) {
-                        continue
-                    }
-                    let many2manyRelation = false
                     if (autoFilter?.object_field?.includes('#')) {
                         let splitedElement = autoFilter.object_field.split('#')
-                        autoFilter.object_field = splitedElement[0]
+                        autoFilter.object_field = splitedElement[0]   
                         let obj = relations.find(el => el.id === splitedElement[1])
                         if (obj) {
                             if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
                                 autoFilter.custom_field = obj.field_from
                             } else if (obj.type === 'Many2Many') {
                                 many2manyRelation = true
-                                if (obj.table_from === req.table_slug) {
-                                    autoFilter.custom_field = obj.field_from
-                                } else if (obj.table_to === req.table_slug) {
-                                    autoFilter.custom_field = obj.field_to
-                                }
+                            }
+
+                            if (obj.table_from === req.table_slug) {
+                                autoFilter.custom_field = obj.field_from
+                            } else if (obj.table_to === req.table_slug) {
+                                autoFilter.custom_field = obj.field_to
                             }
                         }
                     }
-                    if (autoFilter.custom_field === "user_id") {
-                        if (autoFilter.object_field !== req.table_slug) {
-                            if (!many2manyRelation) {
-                                params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+
+                    let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                    let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                    if (objFromAuth) {
+                        if (connectionTableSlug !== req.table_slug) {
+                            if (dupMap.has(autoFilter.object_field)) {
+                                isDup = true
                             } else {
-                                params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+                                dupMap.set(autoFilter.object_field, true)
                             }
-                        } else {
-                            // params["guid"] = params["user_id_from_token"]
+                            query.push({ [autoFilter.custom_field]: objFromAuth.object_id })
                         }
-                    } else {
-                        let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
-                        let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
-                        if (objFromAuth) {
-                            if (connectionTableSlug !== req.table_slug) {
+                    }
+                }
+
+                if (isDup) {
+                    params.$or = query
+                } else {
+                    for (const autoFilter of automatic_filters) {
+                        if (autoFilter.not_use_in_tab && params.from_tab) {
+                            continue
+                        }
+                        let many2manyRelation = false
+                        if (autoFilter?.object_field?.includes('#')) {
+                            let splitedElement = autoFilter.object_field.split('#')
+                            autoFilter.object_field = splitedElement[0]
+                            let obj = relations.find(el => el.id === splitedElement[1])
+                            if (obj) {
+                                if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
+                                    autoFilter.custom_field = obj.field_from
+                                } else if (obj.type === 'Many2Many') {
+                                    many2manyRelation = true
+                                    if (obj.table_from === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_from
+                                    } else if (obj.table_to === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_to
+                                    }
+                                }
+                            }
+                        }
+                        if (autoFilter.custom_field === "user_id") {
+                            if (autoFilter.object_field !== req.table_slug) {
                                 if (!many2manyRelation) {
-                                    params[autoFilter.custom_field] = objFromAuth.object_id
+                                    params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
                                 } else {
-                                    params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
                                 }
                             } else {
-                                params["guid"] = objFromAuth.object_id
+                                // params["guid"] = params["user_id_from_token"]
                             }
                         } else {
-                            params[autoFilter.custom_field] = params["user_id_from_token"]
+                            let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                            let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                            if (objFromAuth) {
+                                if (connectionTableSlug !== req.table_slug) {
+                                    if (!many2manyRelation) {
+                                        params[autoFilter.custom_field] = objFromAuth.object_id
+                                    } else {
+                                        params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    }
+                                } else {
+                                    params["guid"] = objFromAuth.object_id
+                                }
+                            } else {
+                                params[autoFilter.custom_field] = params["user_id_from_token"]
+                            }
+                            
+                            // if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
+                            //     params[autoFilter.custom_field] = params["user_id_from_token"]
+                            // }
                         }
-                        
-                        // if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
-                        //     params[autoFilter.custom_field] = params["user_id_from_token"]
-                        // }
                     }
                 }
             }
         } else {
-            let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
-            if (objFromAuth) {
-                params["guid"] = objFromAuth.object_id
+            if (permission?.is_all == "undefined" || !permission?.is_all) {
+                objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
+                if (objFromAuth) {
+                    params["guid"] = objFromAuth.object_id
+                }
             }
-        }
+        } 
 
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
@@ -2516,7 +2559,7 @@ let objectBuilder = {
                         formattedNumber += char
                     }
                     params[key] = RegExp(formattedNumber, "i")
-                } else if (numberPattern.test(params[key])) {
+                } else if (numberPattern.test(params[key]) && field?.type != "SINGLE_LINE" && field?.type != "INCREMENT_ID") {
                     parseNum = parseFloat(params[key])
                     params[key] = parseNum
                 } else {
@@ -2923,7 +2966,7 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-
+        console.log("response goinh <<<<<<< >>>>> ", response);
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),
@@ -3143,6 +3186,7 @@ let objectBuilder = {
         try {
             let data = struct.decode(req.data)
             let field_ids = data.field_ids
+            let language = data.language
             delete req.data.field_ids
             const mongoConn = await mongoPool.get(req.project_id)
             const res = await objectBuilder.getList(req)
@@ -3151,14 +3195,14 @@ let objectBuilder = {
             const decodedFields = response.fields
             const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
             excelArr = []
+            let i = 0
             for (const obj of result) {
                 excelObj = {}
                 for (const field of selectedFields) {
 
-                    if (field.label == '') {
-                        field.label = field.attributes.label_uz
+                    if (field.label == '' || !field.label) {
+                        field.label = field.attributes.label_en
                     }
-
                     // if (field.type === "FORMULA") {
                     //     let attributes = field.attributes
 
@@ -3229,12 +3273,20 @@ let objectBuilder = {
                             if (typeof field.view_fields === "object" && field.view_fields.length) {
                                 for (const view of field.view_fields) {
                                     if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
-                                        overall += obj[field.slug + "_data"][view.slug]
+                                        if (view.enable_multilanguage){
+                                            let lang = ""
+                                            let splittedString = view.slug.split("_")
+                                            lang = splittedString[splittedString.length - 1]
+                                            if (language == lang) {
+                                                overall += obj[field.slug + "_data"][view.slug]
+                                            }
+                                        } else {
+                                            overall += obj[field.slug + "_data"][view.slug]
+                                        }
                                     }
                                 }
                             }
                             obj[field.slug] = overall
-
                         }
                         if (field.type === "MULTISELECT") {
                             let options = []
@@ -3491,7 +3543,7 @@ let objectBuilder = {
         })
 
         let views = tableInfo.views;
-        console.log("views colums >>>>>> ", views[0].columns)
+
         for (let view of views) {
             const permission = await viewPermission.models.findOne({
                 view_id: view.id,
@@ -3511,6 +3563,9 @@ let objectBuilder = {
                     ) {
                         relation.table_to = relation.table_from;
                     }
+                    // if (relation.field_from == "regions_id_2") {
+                    //     console.log("BEGIUNNNIGNNGINING >>>> ", relation.table_to);
+                    // }
                     relation_table_to_slugs.push(relation.table_to);
                 }
             }
@@ -3523,7 +3578,11 @@ let objectBuilder = {
                     params.version_id,
                     false
                 );
+                // console.log("here >>>>> ", relationTables[0]);
                 for (const relationTable of relationTables) {
+                    // if (relationTable.slug == "regions") {
+                    //     console.log("THIS IS FIELD >>> ", relationTable);
+                    // }
                     relationTableIds.push(relationTable.id);
                     if (!relationTablesMap[relationTable.slug]) {
                         relationTablesMap[relationTable.slug] = relationTable;
@@ -3551,6 +3610,10 @@ let objectBuilder = {
                     if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                         let table_slug;
                         if (field.type === "LOOKUP") {
+                            // let num = field.slug[field.slug.length - 1]
+                            // if (!isNaN(num)) {
+                            //     table_slug = field.slug.slice(0, -5)
+                            // }
                             table_slug = field.slug.slice(0, -3);
                         } else {
                             table_slug = field.slug.slice(0, -4);
@@ -3558,6 +3621,9 @@ let objectBuilder = {
                         relationFieldSlugsR.push(table_slug);
                     }
                     if (relationFieldsMap[field.table_id]) {
+                        if (field.slug == "regions_id_2") {
+                            // console.log("here regions_id_2 >>>> ", field);
+                        }
                         relationFieldsMap[field.table_id].push(field)
                     } else {
                         relationFieldsMap[field.table_id] = [field]
@@ -3574,8 +3640,12 @@ let objectBuilder = {
                 });
                 for (const childRelation of childRelations) {
                     if (!childRelationsMap[childRelation.table_from + "_" + childRelation.table_to]) {
+                        // console.log("here juba juba >>>.> ", childRelation, "\n", childRelation.table_from + "_" + childRelation.table_to);
                         childRelationsMap[childRelation.table_from + "_" + childRelation.table_to] = childRelation;
                     }
+                    // if (childRelation.field_from == "regions_id_2" && childRelation.table_from == "orders") {
+                    //     console.log("here coming child relation field >>>>> ", childRelation, childRelation.table_from + "_" + childRelation.table_to);
+                    // }
                     for (const view_field_id of childRelation.view_fields) {
                         view_field_ids.push(view_field_id);
                     }
@@ -3632,12 +3702,19 @@ let objectBuilder = {
                                 let viewFields = [];
                                 let table_slug;
                                 if (field.type === "LOOKUP") {
+                                        // let num = field.slug[field.slug.length - 1]
+                                        // if (!isNaN(num)) {
+                                        //     table_slug = field.slug.slice(0, -5)
+                                        // }
                                     table_slug = field.slug.slice(0, -3);
                                 } else {
                                     table_slug = field.slug.slice(0, -4);
                                 }
 
                                 const childRelation = childRelationsMap[relationTable.slug + "_" + table_slug];
+                                // if (relationTable.slug + "_" + table_slug == "orders_regions") {
+                                //     console.log("childRelation IS COMIN >>>>>> <<<<< ", relationTable.slug + "_" + table_slug, childRelation);
+                                // }
                                 if (childRelation) {
                                     for (const view_field of childRelation.view_fields) {
                                         let viewField = viewFieldsMap[view_field]
@@ -3658,6 +3735,9 @@ let objectBuilder = {
                                 changedField = field;
                                 changedField._doc.path_slug =
                                     relationTable?.slug + "_id_data" + "." + field.slug;
+                                // if (field.slug == "regions_id" && relationTable?.slug == "regions") {
+                                //     // console.log("changing number relation field her>>>>>>>> ", changedField._doc);
+                                // }
                                 changedField._doc.table_slug = table_slug;
                                 relationsFields.push(changedField._doc);
                             } else {
@@ -4953,7 +5033,6 @@ let objectBuilder = {
         const view = await tableInfo?.views?.find(el => el.id === params.builder_service_view_id)
         let order = params.order || {}
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
-
         if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
         } else if (!currentTable.order_by && !Object.keys(order).length) {

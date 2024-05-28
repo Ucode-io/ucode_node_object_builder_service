@@ -270,6 +270,8 @@ let tableStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
+            const Layout = mongoConn.models['Layout']
+            const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
             const Menu = mongoConn.models['object_builder_service.menu']
@@ -290,6 +292,16 @@ let tableStore = {
                     id: data.id
                 }
             );
+
+            const layouts = await Layout.find({table_id: data.id})
+            const layout_ids = layouts.map(el => el.id)
+
+            const tabs = await Tab.find({layout_id: {$in: layout_ids}})
+            const tab_ids = tabs.map(el => el.id)
+
+            await Section.deleteMany({ tab_id: { $in: tab_ids } })
+            await Tab.deleteMany({ id: { $in: tab_ids } })
+            await Layout.findOneAndDelete({ id: {$in: layout_ids} })
 
             const getRelations = await Relation.find({
                 $or: [
@@ -319,9 +331,9 @@ let tableStore = {
                     relation_id: params["relation_id"]
                 });
             }
-            const sections = await Section.deleteMany({
-                table_id: data.id
-            });
+            // const sections = await Section.deleteMany({
+            //     table_id: data.id
+            // });
 
             const relations = await Relation.deleteMany({
                 $or: [

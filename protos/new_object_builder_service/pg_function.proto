@@ -1,10 +1,9 @@
 syntax="proto3";
 
-package new_function_service;
-option go_package="genproto/new_function_service";
+package new_object_builder_service;
+option go_package="genproto/new_object_builder_service";
 
 import "google/protobuf/empty.proto";
-
 
 service FunctionServiceV2 {
     rpc Create(CreateFunctionRequest) returns (Function) {}
@@ -41,7 +40,6 @@ message CreateFunctionRequest {
     string job_name = 22;
     string resource = 23;
     string provided_name = 24;
-    string request_type = 25;
 }
 
 message Function {
@@ -67,7 +65,6 @@ message Function {
     string job_name = 21;
     string resource = 22;
     string provided_name = 23;
-    string request_type = 24;
 }
 
 message GetAllFunctionsRequest {

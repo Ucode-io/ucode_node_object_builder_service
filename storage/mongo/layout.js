@@ -193,8 +193,8 @@ let layoutStore = {
                     attributes: tab.attributes
                 })
 
-                for(let section of tab.sections) {
-
+                for (let j = 0; j < tab.sections.length; j++) {
+                    let section = tab.sections[j];
                     section.id = section.id || v4()
 
                     if (map_sections[section.id]) {
@@ -208,7 +208,7 @@ let layoutStore = {
                             }, 
                             update: {
                                 tab_id: tab.id,
-                                order: section.order,
+                                order: j,
                                 column: section.column,
                                 label: section.label,
                                 fields: section.fields,
@@ -532,7 +532,7 @@ let layoutStore = {
                         table_slug: table.slug,
                         language_setting: data.language_setting || undefined,
                     })
-
+                    sections.sort((a, b) => a.order - b.order);
                     tab.sections = sections
                 } else if (tab.type === "relation" && tab.relation_id) {
                     const { relation } = await relationStorage.getSingleViewForRelation(
@@ -814,6 +814,7 @@ let layoutStore = {
                         table_slug: table.slug,
                         language_setting: data.language_setting || undefined,
                     })
+                    sections.sort((a, b) => a.order - b.order)
 
                     tab.sections = sections
                 } else if (tab.type === "relation" && tab.relation_id) {
@@ -838,6 +839,7 @@ let layoutStore = {
             throw error
         }
     }),
+
     RemoveLayout: catchWrapDb(`${NAMESPACE}.GetSingleLayout`, async function (data) {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

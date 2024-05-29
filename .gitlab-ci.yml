@@ -2,7 +2,6 @@ include:
   - .gitlab/ci/*.gitlab-ci.yml
 
 stages:
-  # - test
   - build
   - deploy
   - deploy-builder
@@ -93,7 +92,7 @@ deploy-dev:
 
 deploy-object-builder-high:
   stage: deploy
-  extends: .deploy_object_builder_template
+  extends: .deploy_template
   variables:
     NAMESPACE: ucode-prod
     WORKLOAD: high
@@ -104,7 +103,7 @@ deploy-object-builder-high:
 
 deploy-object-builder-low:
   stage: deploy
-  extends: .deploy_object_builder_template
+  extends: .deploy_template
   variables:
     NAMESPACE: ucode-prod
     WORKLOAD: low

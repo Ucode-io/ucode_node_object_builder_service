@@ -260,10 +260,6 @@ async function createTable() {
         "id": "08972256-30fb-4d75-b8cf-940d8c4fc8ac",
         "created_at": new Date(),
         "updated_at": new Date(),
-<<<<<<< HEAD
-        "__v": 0
-    }, {
-=======
         "is_system": true,
         "__v": 0,
         "soft_delete": false,
@@ -286,7 +282,6 @@ async function createTable() {
         "soft_delete": false,
         "is_system": true,
       },{
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
         "label": "Файл",
         "slug": "file",
         "description": "Файлы",

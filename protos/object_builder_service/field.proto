@@ -38,11 +38,8 @@ message CreateFieldRequest {
     bool show_label = 18;
     bool enable_multilanguage = 19;
     bool hide_multilanguage = 20;
-<<<<<<< HEAD
-=======
     string minio_folder = 21;
     string env_id = 22;
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 }
 
 message CreateFieldsRequest {
@@ -86,8 +83,6 @@ message Field {
     bool show_label = 21;
     bool enable_multilanguage = 22;
     bool hide_multilanguage = 23;
-<<<<<<< HEAD
-=======
     string minio_folder = 24;
     string env_id = 25;
     bool is_search = 26;
@@ -102,7 +97,6 @@ message SearchUpdateRequest {
     string project_id = 1;
     string table_slug = 2;
     repeated SearchUpdate fields = 3;
->>>>>>> 27ee110e887312399e2f9b2911e66e2affc00b4b
 }
 
 message GetAllFieldsResponse {

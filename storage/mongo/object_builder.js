@@ -1441,7 +1441,7 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-
+        console.log("MAYBE HERE > >> >  > >> > > > > > > > > > > > > > > > > > >  >");
         const startMemoryUsage = v8.getHeapStatistics();
 
         const mongoConn = await mongoPool.get(req.project_id)
@@ -3613,11 +3613,13 @@ let objectBuilder = {
                     if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                         let table_slug;
                         if (field.type === "LOOKUP") {
-                            // let num = field.slug[field.slug.length - 1]
-                            // if (!isNaN(num)) {
-                            //     table_slug = field.slug.slice(0, -5)
-                            // }
-                            table_slug = field.slug.slice(0, -3);
+                            let num = field.slug[field.slug.length - 1]
+                            if (!isNaN(num)) {
+                                table_slug = field.slug.slice(0, -5)
+                            } else {
+                                table_slug = field.slug.slice(0, -3);
+                            }
+                            
                         } else {
                             table_slug = field.slug.slice(0, -4);
                         }
@@ -3647,7 +3649,7 @@ let objectBuilder = {
                         childRelationsMap[childRelation.table_from + "_" + childRelation.table_to] = childRelation;
                     }
                     // if (childRelation.field_from == "regions_id_2" && childRelation.table_from == "orders") {
-                    //     console.log("here coming child relation field >>>>> ", childRelation, childRelation.table_from + "_" + childRelation.table_to);
+                        // console.log("here coming child relation field >>>>> ", childRelation, childRelation.table_from + "_" + childRelation.table_to);
                     // }
                     for (const view_field_id of childRelation.view_fields) {
                         view_field_ids.push(view_field_id);
@@ -3687,7 +3689,7 @@ let objectBuilder = {
                     }
                 }
             }
-
+            const pathSlugCount = {};
             for (const relation of relations) {
                 if (relation.type !== "Many2Dynamic") {
                     if (
@@ -3701,22 +3703,25 @@ let objectBuilder = {
                     if (tableRelationFields) {
                         for (const field of tableRelationFields) {
                             let changedField = {};
+                            let num = 0;
                             if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                                 let viewFields = [];
                                 let table_slug;
                                 if (field.type === "LOOKUP") {
-                                        // let num = field.slug[field.slug.length - 1]
-                                        // if (!isNaN(num)) {
-                                        //     table_slug = field.slug.slice(0, -5)
-                                        // }
-                                    table_slug = field.slug.slice(0, -3);
+                                        num = field.slug[field.slug.length - 1]
+                                        if (!isNaN(num)) {
+                                            table_slug = field.slug.slice(0, -5);
+                                        } else {
+                                            table_slug = field.slug.slice(0, -3);
+                                        }
                                 } else {
                                     table_slug = field.slug.slice(0, -4);
                                 }
 
-                                const childRelation = childRelationsMap[relationTable.slug + "_" + table_slug];
+                                // const childRelation = childRelationsMap[relationTable.slug + "_" + table_slug];
+                                const childRelation = childRelationsMap[field.relation_id + "_" + table_slug];
                                 // if (relationTable.slug + "_" + table_slug == "orders_regions") {
-                                //     console.log("childRelation IS COMIN >>>>>> <<<<< ", relationTable.slug + "_" + table_slug, childRelation);
+                                    // console.log("childRelation IS COMIN >>>>>> <<<<< \n ", field.relation_id + "_" + table_slug, childRelation);
                                 // }
                                 if (childRelation) {
                                     for (const view_field of childRelation.view_fields) {
@@ -3736,21 +3741,50 @@ let objectBuilder = {
                                 field._doc.table_label = relationTable?.label;
                                 field.label = childRelationTable?.label;
                                 changedField = field;
-                                changedField._doc.path_slug =
-                                    relationTable?.slug + "_id_data" + "." + field.slug;
-                                // if (field.slug == "regions_id" && relationTable?.slug == "regions") {
-                                //     // console.log("changing number relation field her>>>>>>>> ", changedField._doc);
+                                num = field.slug[field.slug.length - 1]
+                                if (!isNaN(num)) {
+                                    changedField._doc.path_slug = relationTable?.slug + "_id_" + field.slug[field.slug.length - 1] + "_data" + "." + field.slug;
+                                } else {
+                                    changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug;
+                                }
+                                // if (changedField._doc.path_slug == "regions_id_data.name_en") {
+                                    // console.log("changing number relation field her>>>>>>>> ", changedField._doc);
                                 // }
                                 changedField._doc.table_slug = table_slug;
                                 relationsFields.push(changedField._doc);
                             } else {
+
                                 if (field.attributes && field.attributes.fields) {
                                     field.attributes = struct.decode(field.attributes);
                                 }
                                 field._doc.table_label = relationTable?.label;
                                 changedField = field;
-                                changedField._doc.path_slug =
-                                    relationTable?.slug + "_id_data" + "." + field.slug;
+                                changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug;
+                                if (changedField._doc.path_slug == "regions_id_data.name_en") {
+                                    // console.log("changing number relation field her>>>>>>>> ", changedField._doc, changedField._doc.path_slug);
+                                }
+                                console.log("THIS IS FINAL PATH_SLUG >>>>>> ", changedField._doc);
+
+                                changedField._doc.edited = false;
+                                let pathSlug = changedField._doc.path_slug;
+                                let parts = pathSlug.split('.');
+                                let baseSlug = parts[0];
+
+                                if (baseSlug.endsWith("id_data")) {
+                                  if (!pathSlugCount[pathSlug]) {
+                                    pathSlugCount[pathSlug] = 0;
+                                  }
+                                  pathSlugCount[pathSlug] += 1;
+                              
+                                  if (pathSlugCount[pathSlug] > 1 && !changedField._doc.edited) {
+                                    changedField._doc.edited = true;
+                                    let toaddnum = baseSlug.split("_data");
+                                    changedField._doc.path_slug = `${toaddnum[0]}_${pathSlugCount[pathSlug]}_data.${parts[1]}`;
+                                  }
+                                }
+
+                                
+                                // console.log("THIS IS FINAL PATH_SLUG >>>>>> ", changedField._doc);
                                 relationsFields.push(changedField._doc);
                             }
                         }

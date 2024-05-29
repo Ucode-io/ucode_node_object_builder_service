@@ -3555,7 +3555,7 @@ let objectBuilder = {
             view.attributes ? view.attributes.view_permission = permission : view.attributes = { view_permission: permission }
         }
 
-        let relationsFields = []
+        const relationsFields = []
         if (with_relations) {
             let relation_table_to_slugs = [];
             for (const relation of relations) {
@@ -3566,9 +3566,6 @@ let objectBuilder = {
                     ) {
                         relation.table_to = relation.table_from;
                     }
-                    // if (relation.field_from == "regions_id_2") {
-                    //     console.log("BEGIUNNNIGNNGINING >>>> ", relation.table_to);
-                    // }
                     relation_table_to_slugs.push(relation.table_to);
                 }
             }
@@ -3581,11 +3578,7 @@ let objectBuilder = {
                     params.version_id,
                     false
                 );
-                // console.log("here >>>>> ", relationTables[0]);
                 for (const relationTable of relationTables) {
-                    // if (relationTable.slug == "regions") {
-                    //     console.log("THIS IS FIELD >>> ", relationTable);
-                    // }
                     relationTableIds.push(relationTable.id);
                     if (!relationTablesMap[relationTable.slug]) {
                         relationTablesMap[relationTable.slug] = relationTable;
@@ -3626,9 +3619,6 @@ let objectBuilder = {
                         relationFieldSlugsR.push(table_slug);
                     }
                     if (relationFieldsMap[field.table_id]) {
-                        if (field.slug == "regions_id_2") {
-                            // console.log("here regions_id_2 >>>> ", field);
-                        }
                         relationFieldsMap[field.table_id].push(field)
                     } else {
                         relationFieldsMap[field.table_id] = [field]
@@ -3645,12 +3635,9 @@ let objectBuilder = {
                 });
                 for (const childRelation of childRelations) {
                     if (!childRelationsMap[childRelation.table_from + "_" + childRelation.table_to]) {
-                        // console.log("here juba juba >>>.> ", childRelation, "\n", childRelation.table_from + "_" + childRelation.table_to);
                         childRelationsMap[childRelation.table_from + "_" + childRelation.table_to] = childRelation;
                     }
-                    // if (childRelation.field_from == "regions_id_2" && childRelation.table_from == "orders") {
-                        // console.log("here coming child relation field >>>>> ", childRelation, childRelation.table_from + "_" + childRelation.table_to);
-                    // }
+
                     for (const view_field_id of childRelation.view_fields) {
                         view_field_ids.push(view_field_id);
                     }
@@ -3689,7 +3676,7 @@ let objectBuilder = {
                     }
                 }
             }
-            const pathSlugCount = {};
+            const newmapCount = {};
             for (const relation of relations) {
                 if (relation.type !== "Many2Dynamic") {
                     if (
@@ -3718,11 +3705,8 @@ let objectBuilder = {
                                     table_slug = field.slug.slice(0, -4);
                                 }
 
-                                // const childRelation = childRelationsMap[relationTable.slug + "_" + table_slug];
                                 const childRelation = childRelationsMap[field.relation_id + "_" + table_slug];
-                                // if (relationTable.slug + "_" + table_slug == "orders_regions") {
-                                    // console.log("childRelation IS COMIN >>>>>> <<<<< \n ", field.relation_id + "_" + table_slug, childRelation);
-                                // }
+
                                 if (childRelation) {
                                     for (const view_field of childRelation.view_fields) {
                                         let viewField = viewFieldsMap[view_field]
@@ -3747,9 +3731,7 @@ let objectBuilder = {
                                 } else {
                                     changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug;
                                 }
-                                // if (changedField._doc.path_slug == "regions_id_data.name_en") {
-                                    // console.log("changing number relation field her>>>>>>>> ", changedField._doc);
-                                // }
+
                                 changedField._doc.table_slug = table_slug;
                                 relationsFields.push(changedField._doc);
                             } else {
@@ -3760,38 +3742,59 @@ let objectBuilder = {
                                 field._doc.table_label = relationTable?.label;
                                 changedField = field;
                                 changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug;
-                                if (changedField._doc.path_slug == "regions_id_data.name_en") {
-                                    // console.log("changing number relation field her>>>>>>>> ", changedField._doc, changedField._doc.path_slug);
-                                }
-                                console.log("THIS IS FINAL PATH_SLUG >>>>>> ", changedField._doc);
 
-                                changedField._doc.edited = false;
-                                let pathSlug = changedField._doc.path_slug;
-                                let parts = pathSlug.split('.');
-                                let baseSlug = parts[0];
+                                    let newField = JSON.parse(JSON.stringify(changedField._doc));
 
-                                if (baseSlug.endsWith("id_data")) {
-                                  if (!pathSlugCount[pathSlug]) {
-                                    pathSlugCount[pathSlug] = 0;
-                                  }
-                                  pathSlugCount[pathSlug] += 1;
-                              
-                                  if (pathSlugCount[pathSlug] > 1 && !changedField._doc.edited) {
-                                    changedField._doc.edited = true;
-                                    let toaddnum = baseSlug.split("_data");
-                                    changedField._doc.path_slug = `${toaddnum[0]}_${pathSlugCount[pathSlug]}_data.${parts[1]}`;
-                                  }
-                                }
+                                    let pathSlug = newField.path_slug;
+                                    let parts = pathSlug.split('.');
+                                    let baseSlug = parts[0];
+                                                    
+                                    if (baseSlug.endsWith("id_data")) {
+                                      if (!newmapCount[newField.id]) {
+                                        newmapCount[newField.id] = 0;
+                                      } 
+                                                    
+                                      if (newmapCount[newField.id] > 1) {
+                                        let toaddnum = baseSlug.split("_data");
+                                        newField.path_slug = `${toaddnum[0]}_${newmapCount[newField.id]}_data.${parts[1]}`;
+                                      } else if (newmapCount[newField.id] == 0) {
+                                        let toaddnum = baseSlug.split("_data");
+                                        newField.path_slug = `${toaddnum[0]}_data.${parts[1]}`;
+                                      }
+                                                    
+                                                    
+                                      if ( newmapCount[newField.id] == 0 ) {
+                                        newmapCount[newField.id] = 2;
+                                      } else {
+                                        newmapCount[newField.id] += 1;
+                                      }
+                                    }
+                                                    
+                                    // if (newField.id == "64bd5d7c-4588-49f7-ae28-6bd0ccc0b637") {
+                                    //     newField.number = number;
+                                    //     number++
+                                    //     console.log("her field  > > > >>  >>", newField);
+                                    // }
 
-                                
-                                // console.log("THIS IS FINAL PATH_SLUG >>>>>> ", changedField._doc);
-                                relationsFields.push(changedField._doc);
+
+                                relationsFields.push(newField)
                             }
                         }
                     }
                 }
             }
         }
+
+        // console.log(relationsFields)
+
+        console.log("AFTER FOOR")
+
+        for (let r of relationsFields) {
+            if (r.id == "64bd5d7c-4588-49f7-ae28-6bd0ccc0b637") {
+                console.log("her field  > > > >>  >>", r);
+            }
+        }
+        
         // this function add field permission for each field by role id
         let { fieldsWithPermissions } = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
         let decodedFields = []

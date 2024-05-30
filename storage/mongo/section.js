@@ -310,6 +310,7 @@ let sectionStore = {
                         field.label = fieldReq.field_name
                         field.order = fieldReq.order
                         field.relation_type = fieldReq.relation_type
+                        field.show_label = fieldReq.show_label || false
                         let relationID = fieldReq.id.split("#")[1]
                         const fieldResp = await Field.findOne({
                             relation_id: relationID,

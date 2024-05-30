@@ -4004,6 +4004,10 @@ async function createField() {
 				"showTooltip": {
 					"boolValue": false,
 					"kind": "boolValue"
+				},
+				"creatable": {
+					"boolValue": false,
+					"kind": "boolValue"
 				}
 			}
 		},

@@ -520,9 +520,9 @@ let layoutStore = {
             }
             const tabs = await Tab.find({ layout_id: { $in: layout_ids } }).lean()
 
-            const map_tab = {}
-            for (let tab of tabs) {
-                if (tab.type === "section") {
+                const map_tab = {}
+                for (let tab of tabs) {
+                    if (tab.type === "section") {
 
                     const { sections } = await sectionStorage.getAll({
                         project_id: data.project_id,
@@ -538,8 +538,10 @@ let layoutStore = {
                         {
                             id: tab.relation_id,
                             project_id: data.project_id,
+                            tab_id: tab.id,
                             role_id: data.role_id,
-                            table_slug: table.slug
+                            table_slug: table.slug,
+                            language_setting: data.language_setting || undefined,
                         })
                     tab.relation = relation ? relation : {}
                 }

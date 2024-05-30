@@ -2206,9 +2206,6 @@ let objectBuilder = {
                         }
                         const dynamicRelation = dynamicRelationsMap[relation_id]
                         let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                        }
                         let matchParams = {
                             [matchField]: { '$eq': res.guid },
                             ...filters

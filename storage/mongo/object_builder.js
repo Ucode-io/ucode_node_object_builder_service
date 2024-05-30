@@ -3782,15 +3782,6 @@ let objectBuilder = {
             }
         }
 
-        // console.log(relationsFields)
-
-        console.log("AFTER FOOR")
-
-        for (let r of relationsFields) {
-            if (r.id == "64bd5d7c-4588-49f7-ae28-6bd0ccc0b637") {
-                console.log("her field  > > > >>  >>", r);
-            }
-        }
         
         // this function add field permission for each field by role id
         let { fieldsWithPermissions } = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)

@@ -7,7 +7,7 @@ const AppSchema = mongoose.Schema(
             type: String,
             default: v4,
             unique: true
-        },
+        }, 
         name: {
             type: String,
             required: [true, "App must have name"],
@@ -23,7 +23,7 @@ const AppSchema = mongoose.Schema(
         },
         is_system: {
             type: Boolean,
-        }
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -20,7 +20,7 @@ const initialViewPermission = require("../../helper/initialViewPermission");
 const addFields = require("../../helper/addFields");
 const systemChecker = require("../../helper/systemChecker");
 const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
-const ceckPermissionScript = require("../../helper/checkPermissionScript");
+const ceckPermissionScript = require("../../helper/checkPermissionScript")
 const initialDefaultPivot = require("../../helper/initialDefaultPivot");
 const is_static = require("../../helper/is_static");
 const new_field = require("../../helper/new_field");
@@ -85,6 +85,7 @@ let projectStore = {
                 mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                 mongoDBConn.model('object_builder_service.menu.settings', require('../../schemas/menu_settings'))
                 mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
+                mongoDBConn.model('CustomErrorMessage', require('../../schemas/custom_error_message'))
                 mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                 mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                 mongoDBConn.model('IncrementSeq', require('../../schemas/increment'))

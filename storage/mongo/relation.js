@@ -1396,6 +1396,7 @@ let relationStore = {
                             relations[i].cascading_tree_table_slug,
                         cascading_tree_field_slug:
                             relations[i].cascading_tree_field_slug,
+                        is_system: relations[i].is_system,
                         relation_buttons: relations[i].relation_buttons,
                     };
                     if (tableTo) {
@@ -1554,7 +1555,7 @@ let relationStore = {
                 //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                 // });
                 table = await tableVersion(mongoConn, { slug: relation.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                resp = await Field.findOneAndDelete({
+                resp = await Field.deleteOne({
                     table_id: table.id,
                     slug: relation.field_to,
                     relation_id: relation.id,
@@ -1569,7 +1570,7 @@ let relationStore = {
                 //     deleted_at: "1970-01-01T18:00:00.000+00:00"
                 // });
                 table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                resp = await Field.findOneAndDelete({
+                resp = await Field.deleteOne({
                     table_id: table.id,
                     slug: relation.field_from,
                     relation_id: relation.id,
@@ -1585,7 +1586,7 @@ let relationStore = {
                 //     deleted_at: '1970-01-01T18:00:00.000+00:00'
                 // });
                 table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                resp = await Field.findOneAndDelete({
+                resp = await Field.deleteOne({
                     table_id: table.id,
                     slug: relation.field_to,
                     relation_id: relation.id,
@@ -1601,7 +1602,7 @@ let relationStore = {
                 //     deleted_at: '1970-01-01T18:00:00.000+00:00'
                 // });
                 table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                resp = await Field.findOneAndDelete({
+                resp = await Field.deleteOne({
                     table_id: table.id,
                     slug: relation.field_from,
                     relation_id: relation.id,

@@ -248,6 +248,7 @@ let permission = {
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
         // return { project_id: "okok", data: {} }
 
+        let start = new Date()
         const mongoConn = await mongoPool.get(req.project_id)
 
         const Role = (await ObjectBuilder(true, req.project_id))['role'].models
@@ -1886,6 +1887,14 @@ let permission = {
             throw err
         }
 
+    }),
+    getGlobalPermissionByRoleId: catchWrapDbObjectBuilder(`${NAMESPACE}.getGlobalPermissionByRoleId`, async (req) => {
+        const mongoConn = await mongoPool.get(req.project_id)
+        const GlobalPermission = mongoConn.models['global_permission']
+
+        const resp = await GlobalPermission?.findOne({role_id: req.role_id}).lean() || {}
+
+        return resp
     }),
     getPermissionsByTableSlug: catchWrapDbObjectBuilder(`${NAMESPACE}.getPermissionsByTableSlug`, async (req) => {
         const current_user_permission = await getPermissionByTableSlug(

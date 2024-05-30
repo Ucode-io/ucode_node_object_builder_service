@@ -47,7 +47,12 @@ const FunctionServiceCustomEventSchema = mongoose.Schema({
         },
         gitlab_group_id: {
             type: String
-        }
+        },
+        request_type: {
+            type: String,
+            enum: ["ASYNC", "SYNC"],
+            default: "ASYNC"
+        }  
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

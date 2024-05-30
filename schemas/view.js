@@ -101,6 +101,9 @@ const ViewSchema = mongoose.Schema(
         function_path: {
             type: String
         },
+        navigate: {
+            type: mongoose.Schema.Types.Mixed
+        },
         order: {
             type: Number,
             default: 0

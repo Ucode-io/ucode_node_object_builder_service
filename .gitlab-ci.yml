@@ -2,7 +2,6 @@ include:
   - .gitlab/ci/*.gitlab-ci.yml
 
 stages:
-  # - test
   - build
   - deploy
   - deploy-builder
@@ -57,7 +56,7 @@ build-prod:
 #     - staging
   
 
-deploy-object-builder-high:
+deploy-object-builder-high-staging:
   stage: deploy
   extends: .deploy_template
   variables:
@@ -68,7 +67,7 @@ deploy-object-builder-high:
   only:
     - staging
 
-deploy-object-builder-low:
+deploy-object-builder-low-staging:
   stage: deploy
   extends: .deploy_template
   variables:
@@ -91,27 +90,27 @@ deploy-dev:
   only:
     - dev
 
-# deploy-object-builder-high:
-#   stage: deploy
-#   extends: .deploy_object_builder_template
-#   variables:
-#     NAMESPACE: ucode-prod
-#     WORKLOAD: high
-#     VALUES_FILE: .helm/values-object-builder-high.yml
-#     K8SCONFIGJSON: $UCODE_KUBECONFIG
-#   only:
-#     - master
+deploy-object-builder-high:
+  stage: deploy
+  extends: .deploy_template
+  variables:
+    NAMESPACE: ucode-prod
+    WORKLOAD: high
+    VALUES_FILE: .helm/values-object-builder-high.yml
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
+  only:
+    - master
 
-# deploy-object-builder-low:
-#   stage: deploy
-#   extends: .deploy_object_builder_template
-#   variables:
-#     NAMESPACE: ucode-prod
-#     WORKLOAD: low
-#     VALUES_FILE: .helm/values-object-builder-low.yml
-#     K8SCONFIGJSON: $UCODE_KUBECONFIG
-#   only:
-#     - master
+deploy-object-builder-low:
+  stage: deploy
+  extends: .deploy_template
+  variables:
+    NAMESPACE: ucode-prod
+    WORKLOAD: low
+    VALUES_FILE: .helm/values-object-builder-low.yml
+    K8SCONFIGJSON: $UCODE_KUBECONFIG
+  only:
+    - master
 
 rollback-staging:
   stage: rollback

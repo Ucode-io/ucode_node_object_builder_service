@@ -33,6 +33,7 @@ const v8 = require('v8');
 const { pipeline } = require('stream');
 const updateISODateFunction = require('../../helper/updateISODate');
 const { log } = require('console');
+const { isArray } = require('minio/dist/main/helpers');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -3544,9 +3545,11 @@ let objectBuilder = {
         let views = tableInfo.views;
 
         for (let view of views) {
-            for (let qf of view.attributes.quick_filters) {
-                if (qf.label == "") {
-                    qf.label = qf.attributes.label_ru
+            if (isArray(view.attributes.quick_filters)) {
+                for (let qf of view.attributes.quick_filters) {
+                    if (qf.label == "") {
+                        qf.label = qf.attributes.label_ru
+                    }
                 }
             }
         }

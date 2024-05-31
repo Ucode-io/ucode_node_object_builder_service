@@ -120,7 +120,6 @@ let viewStore = {
             //     throw new Error("View not found with given id")
             // }
 
-            console.log("Inside view update")
             let view = data;
             if (view.type == VIEW_TYPES.TABLE && view?.attributes?.group_by_columns) {
                 const { columns, attributes: { group_by_columns } } = view;

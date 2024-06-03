@@ -51,7 +51,7 @@ const VersionHistory = mongoose.Schema(
         },
         version_id: {
             type: String,
-        },
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
@@ -60,4 +60,12 @@ const VersionHistory = mongoose.Schema(
     }
 );
 
-module.exports = VersionHistory;
+VersionHistory.virtual('version', {
+    ref: 'object_builder_service.version', 
+    localField: 'version_id',
+    foreignField: 'id', 
+    justOne: true 
+});
+
+
+module.exports = VersionHistory

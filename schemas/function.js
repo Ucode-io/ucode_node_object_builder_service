@@ -20,6 +20,11 @@ const FunctionSchema = mongoose.Schema(
         body: {
             type: mongoose.Schema.Types.Mixed,
         },
+        request_type: {
+            type: String,
+            enum: ["ASYNC", "SYNC"],
+            default: "ASYNC"
+        }  
         // commit_id: {
         //     type: Number,
         //     required: [true, "commit_id is required"],

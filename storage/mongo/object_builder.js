@@ -3755,6 +3755,7 @@ let objectBuilder = {
                                       if (newmapCount[newField.id] > 1) {
                                         let toaddnum = baseSlug.split("_data");
                                         newField.path_slug = `${toaddnum[0]}_${newmapCount[newField.id]}_data.${parts[1]}`;
+                                        newField.label = newField.label + " " + newmapCount[newField.id]
                                       } else if (newmapCount[newField.id] == 0) {
                                         let toaddnum = baseSlug.split("_data");
                                         newField.path_slug = `${toaddnum[0]}_data.${parts[1]}`;

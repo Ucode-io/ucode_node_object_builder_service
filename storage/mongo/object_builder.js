@@ -3545,7 +3545,7 @@ let objectBuilder = {
         let views = tableInfo.views;
 
         for (let view of views) {
-            if (isArray(view.attributes.quick_filters)) {
+            if (isArray(view?.attributes?.quick_filters)) {
                 for (let qf of view.attributes.quick_filters) {
                     if (qf.label == "") {
                         qf.label = qf.attributes.label_ru

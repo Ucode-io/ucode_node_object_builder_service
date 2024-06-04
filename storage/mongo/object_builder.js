@@ -3729,9 +3729,44 @@ let objectBuilder = {
                                 }
                                 field._doc.table_label = relationTable?.label;
                                 changedField = field;
-                                changedField._doc.path_slug =
-                                    relationTable?.slug + "_id_data" + "." + field.slug;
-                                relationsFields.push(changedField._doc);
+                                changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug;
+
+                                    let newField = JSON.parse(JSON.stringify(changedField._doc));
+
+                                    let pathSlug = newField.path_slug;
+                                    let parts = pathSlug.split('.');
+                                    let baseSlug = parts[0];
+                                                    
+                                    if (baseSlug.endsWith("id_data")) {
+                                      if (!newmapCount[newField.id]) {
+                                        newmapCount[newField.id] = 0;
+                                      } 
+                                                    
+                                      if (newmapCount[newField.id] > 1) {
+                                        let toaddnum = baseSlug.split("_data");
+                                        newField.path_slug = `${toaddnum[0]}_${newmapCount[newField.id]}_data.${parts[1]}`;
+                                        newField.label = newField.label + " " + newmapCount[newField.id]
+                                      } else if (newmapCount[newField.id] == 0) {
+                                        let toaddnum = baseSlug.split("_data");
+                                        newField.path_slug = `${toaddnum[0]}_data.${parts[1]}`;
+                                      }
+                                                    
+                                                    
+                                      if ( newmapCount[newField.id] == 0 ) {
+                                        newmapCount[newField.id] = 2;
+                                      } else {
+                                        newmapCount[newField.id] += 1;
+                                      }
+                                    }
+                                                    
+                                    // if (newField.id == "64bd5d7c-4588-49f7-ae28-6bd0ccc0b637") {
+                                    //     newField.number = number;
+                                    //     number++
+                                    //     console.log("her field  > > > >>  >>", newField);
+                                    // } //
+
+
+                                relationsFields.push(newField)
                             }
                         }
                     }

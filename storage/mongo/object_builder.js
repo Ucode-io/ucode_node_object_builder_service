@@ -3677,7 +3677,7 @@ let objectBuilder = {
                     }
                 }
             }
-
+            const newmapCount = {};
             for (const relation of relations) {
                 if (relation.type !== "Many2Dynamic") {
                     if (

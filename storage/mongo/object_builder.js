@@ -245,7 +245,6 @@ let objectBuilder = {
                     
                                     if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab") {
                                         if (loginTable) {
-                                            console.log("here cmon >>>>> ", data?.email, response['guid']);
                                             let updateUserRequest = {
                                                 guid: response['guid'],
                                                 login: data?.login,

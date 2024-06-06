@@ -232,14 +232,29 @@ let objectBuilder = {
                                         guid: response[authInfo['client_type_id']],
                                         table_slug: tableModel.slug
                                     });
-                    
-                                    if (loginTable) {
+
+                                    if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
                                         let updateUserRequest = {
                                             guid: response['guid'],
                                             password: data?.password,
                                         };
                     
                                         await grpcClient.updateUserAuth(updateUserRequest);
+                                    }
+
+                    
+                                    if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab") {
+                                        if (loginTable) {
+                                            console.log("here cmon >>>>> ", data?.email, response['guid']);
+                                            let updateUserRequest = {
+                                                guid: response['guid'],
+                                                login: data?.login,
+                                                email: data?.email,
+                                                password: data?.password
+                                            };
+                        
+                                            await grpcClient.updateUserAuth(updateUserRequest);
+                                        }
                                     }
                                 }
                             }

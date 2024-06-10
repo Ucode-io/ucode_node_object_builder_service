@@ -68,7 +68,7 @@ let versionHistoryStorage = {
         } catch (err) {
             throw err
         }
-    }),    
+    }),     
     usedForEnv: catchWrapDb(`${NAMESPACE}.usedForEnv`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

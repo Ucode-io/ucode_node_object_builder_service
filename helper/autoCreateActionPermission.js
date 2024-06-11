@@ -4,7 +4,6 @@ const ObjectBuilder = require("../models/object_builder");
 const customErrMsg = require('../initial_setups/customErrMsg');
 
 module.exports = async function (data) {
-    console.log("Auto creating action permissions...")
     const mongoConn = await mongoPool.get(data.project_id)
     const Role = mongoConn.models['role']
     const ActionPermission = mongoConn.models['action_permission']
@@ -37,6 +36,4 @@ module.exports = async function (data) {
     }
 
     await ActionPermission.bulkWrite(pipelineBulkwrite)
-
-    console.log("Auto creating action done")
 }

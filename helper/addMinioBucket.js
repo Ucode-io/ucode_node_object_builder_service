@@ -17,7 +17,6 @@ async function createMinioBucket(bucketName) {
         throw new Error(err)
       } else {
         if (exists) {
-          console.log(`Bucket '${bucketName}' exists.`)
         } else {
           const policy = {
             "Version": "2012-10-17",
@@ -48,7 +47,6 @@ async function createMinioBucket(bucketName) {
 
           minioClient.setBucketPolicy(bucketName, JSON.stringify(policy), (err) => {
             if (err) {
-              console.log('Error setting bucket policy:', err);
             }
           })
         }
@@ -63,13 +61,10 @@ async function createFolderToBucket(bucketName, folderName) {
       if (err.code === 'NotFound') {
         minioClient.putObject(bucketName, fullFolderName, '', 0, function (createErr) {
           if (createErr) {
-            console.error('Error creating folder:', createErr);
           } else {
-            console.log('Folder created successfully!');
           }
         });
       } else {
-        console.error('Error checking folder:', err);
       }
     } else {
       throw new Error("Folder already exists");;
@@ -83,9 +78,7 @@ async function deleteMinioFolder(bucketName, folderName) {
       // Delete each object
       minioClient.removeObject(bucketName, obj.name, (err) => {
         if (err) {
-          console.error(`Error deleting object ${obj.name}: ${err}`);
         } else {
-          console.log(`Deleted object: ${obj.name}`);
         }
       });
     })
@@ -93,9 +86,7 @@ async function deleteMinioFolder(bucketName, folderName) {
       // The folder is empty, you can now remove the folder itself
       minioClient.removeObject(bucketName, folderName, (err) => {
         if (err) {
-          console.error(`Error deleting folder ${folderName}: ${err}`);
         } else {
-          console.log(`Deleted folder: ${folderName}`);
         }
       });
     });

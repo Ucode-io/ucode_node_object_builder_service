@@ -10,7 +10,6 @@ const kafka = require("./config/kafka");
 const logger = require("./config/logger");
 
 (async function () {
-    console.log("~~~~~> config ", config)
     try {
         await grpcConnection()
 
@@ -19,18 +18,14 @@ const logger = require("./config/logger");
     }
 
     process.addListener("uncaughtException", (e) => {
-        console.error("Custom Unhandled Exception", e);
     });
 
     process.addListener("unhandledRejection", (e) => {
-        console.error("Custom Unhandled Rejection", e);
     });
-    console.log("mongo credentials:1111 ", config.mongoHost, config.mongoPort, config.mongoUser, config.mongoDatabase, config.mongoPassword)
     try {
         logger.info(`autoconnecting to resources`);
         
         // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
-        console.log("\n\n\n\n\n\n RESTART OBJECT BUILDER...", config.nodeType)
         await projectStorage.autoConnect(
             {
                 request: {

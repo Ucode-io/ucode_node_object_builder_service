@@ -3,7 +3,6 @@ const { v4 } = require("uuid")
 const ObjectBuilder = require('../models/object_builder');
 
 module.exports = async function (data) {
-    console.log("Create index permission function working...")
     const mongoConn = await mongoPool.get(data.project_id)
     const fieldPermission = mongoConn.models['field_permission']
     const actionPermission = mongoConn.models['action_permission']
@@ -113,41 +112,30 @@ module.exports = async function (data) {
     try {
         await fieldPermission.collection.createIndex({ field_id: 1, role_id: 1 }, { unique: true })
     } catch (error) {
-        console.log("Couldn't create index for field permission");
-        console.log(error);
     }
     try {
         await actionPermission.collection.createIndex({ custom_event_id: 1, role_id: 1 }, { unique: true })
     } catch (error) {
-        console.log("Couldn't create index for action permission");
-        console.log(error);
     }
     try {
         await viewRelationPermission.collection.createIndex({ relation_id: 1, role_id: 1, table_slug: 1 }, { unique: true })
     } catch (error) {
-        console.log("Couldn't create index for view relation permission");
-        console.log(error);
     }
 
     try {
         await recordPermission.collection.createIndex({ role_id: 1, table_slug: 1 }, { unique: true })
     } catch (error) {
-        console.log("Couldn't create index for table permission");
-        console.log(error);
+
     }
 
     try {
         await recordPermission.collection.createIndex({ role_id: 1, table_slug: 1 }, { unique: true })
     } catch (error) {
-        console.log("Couldn't create index for table permission");
-        console.log(error);
+
     }
     try {
         await menuPermisssion.collection.createIndex({ menu_id: 1, role_id: 1 }, { unique: true })
     } catch (error) {
-        console.log("Couldn't create index for menu permission");
-        console.log(error);
-    }
 
-    console.log("create index done !!!")
+    }
 }

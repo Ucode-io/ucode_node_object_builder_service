@@ -44,7 +44,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         conn.db.listCollections()
             .toArray(function (err, collectionNames) {
                 if (err) {
-                    console.log(err);
                     reject(err)
                 }
 
@@ -68,7 +67,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const table = await createTable()
         conn.collection('tables').insertMany(table, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Table :", result.insertedCount)
         })
     }
 
@@ -76,7 +74,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const fields = await createField()
         conn.collection('fields').insertMany(fields, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Field :", result.insertedCount)
         })
 
     }
@@ -85,7 +82,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const section = await createSection()
         conn.collection('sections').insertMany(section, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Section :", result.insertedCount)
         })
     }
 
@@ -94,7 +90,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const clientPlatform = await createClientPlatform(clientPlatformID, clientTypeID, projectID)
         conn.collection('client_platforms').insertMany(clientPlatform, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Client Platform : ", result.insertedCount)
         })
     }
 
@@ -102,7 +97,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const clientType = await createClientType(clientPlatformID, clientTypeID, projectID)
         conn.collection('client_types').insertMany(clientType, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Client Type :", result.insertedCount)
         })
     }
 
@@ -110,7 +104,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const role = await createRole(roleID, clientPlatformID, clientTypeID, projectID)
         conn.collection('roles').insertMany(role, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Role :", result.insertedCount)
         })
     }
 
@@ -118,7 +111,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const user = await createUser(userID, roleID, clientTypeID, clientPlatformID, projectID)
         conn.collection('users').insertMany(user, function (err, result) {
             if (err) throw err;
-            console.log("Inserted User :", result.insertedCount)
         })
     }
 
@@ -126,7 +118,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const testLogin = await createTestLogin(testLoginID, clientTypeID)
         conn.collection('test_logins').insertMany(testLogin, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Test Login :", result.insertedCount)
         })
     }
 
@@ -134,7 +125,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const permissions = await createGlobalPermission(v4().toString(), roleID)
         conn.collection('global_permissions').insertMany(permissions, function (err, result) {
             if (err) throw err;
-            console.log("Inserted GlobalPermission : ", permissions, result.insertedCount)
         })
     }
 
@@ -142,7 +132,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const relation = await createRelation()
         conn.collection('relations').insertMany(relation, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Relation :", result.insertedCount)
         })
     }
 
@@ -152,7 +141,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         recordPermission.push(...guessRecordPermission)
         conn.collection('record_permissions').insertMany(recordPermission, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Record Permission :", result.insertedCount)
         })
     }
 
@@ -162,7 +150,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         fieldPermissions.push(...guessFieldPermissions)
         conn.collection('field_permissions').insertMany(fieldPermissions, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Field Permissions :", result.insertedCount)
         })
     }
 
@@ -171,7 +158,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const viewRelationPermissions = await createViewRelationPermissions(roleID)
         conn.collection('view_relation_permissions').insertMany(viewRelationPermissions, function (err, result) {
             if (err) throw err;
-            console.log("Inserted View Permissions :", result.insertedCount)
         })
     }
 
@@ -180,7 +166,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const settingLanguages = await createSettingLanguage()
         conn.collection('setting.languages').insertMany(settingLanguages, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Languages :", result.insertedCount)
         })
     }
     
@@ -189,7 +174,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const settingCurrencies = await createSettingCurrency()
         conn.collection('setting.currencies').insertMany(settingCurrencies, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Currencies :", result.insertedCount)
         })
     }
 
@@ -198,7 +182,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
         const settingTimezones = await createSettingTimezone()
         conn.collection('setting.timezones').insertMany(settingTimezones, function (err, result) {
             if (err) throw err;
-            console.log("Inserted Timezone :", result.insertedCount)
         })
     }
 

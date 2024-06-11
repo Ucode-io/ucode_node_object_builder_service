@@ -10,7 +10,6 @@ const mongoPool = require('../pkg/pool');
 
 module.exports = async function (data) {
     try {
-        console.log("Custom Permission update function working...")
         const mongoConn = await mongoPool.get(data.project_id)
         const Role = mongoConn.models['role']
         const View = mongoConn.models['View']
@@ -53,9 +52,7 @@ module.exports = async function (data) {
         //     settings: "Yes",
         //     share_modal: "Yes"
         // })
-        console.log("Check permission function done")
     } catch (err) {
-        console.log("checkPermission err >>", err)
     }
     
 

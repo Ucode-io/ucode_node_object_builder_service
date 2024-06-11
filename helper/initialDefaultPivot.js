@@ -3,7 +3,6 @@ const { v4 } = require("uuid")
 const menuStore = require('../storage/mongo/menu')
 
 module.exports = async function (data) {
-    console.log(": Default pivot checking...")
     const mongoConn = await mongoPool.get(data.project_id)
     const PivotTemplateSetting = mongoConn.models['PivotTemplate']
     const menuTable = mongoConn.models['object_builder_service.menu']
@@ -27,5 +26,4 @@ module.exports = async function (data) {
             pivot_template_id: id,
         })
     }
-    console.log(": Default pivot checking done...")
 }

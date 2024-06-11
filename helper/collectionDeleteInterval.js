@@ -17,7 +17,6 @@ module.exports = setInterval(async function () {
             })
         }
     } catch (error) {
-        console.log(`delete collections failed: ${error}`);
     }
 
     

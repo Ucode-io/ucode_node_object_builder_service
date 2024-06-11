@@ -25,7 +25,6 @@ async function produceMessageToTopic(topic, payload) {
     })
 
     await producer.disconnect()
-    console.log("message is send to " + topic + ", and producer is closed")
 }
 
 module.exports = produceMessageToTopic

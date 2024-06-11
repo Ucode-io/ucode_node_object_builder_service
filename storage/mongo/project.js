@@ -92,8 +92,6 @@ let projectStore = {
 
                 await pool.add(data.project_id, mongoDBConn)
                 await objectBuilder(false, data.project_id)
-
-                console.log("Object builder has successfully runned for", data.project_id);
             });
 
             return {}
@@ -147,7 +145,6 @@ let projectStore = {
                 try {
                     mongoDBConn.once("open", async function () {
                         // await insertCollectioinitialTableFolders(mongoDBConn, "", data.project_id)
-                        console.log("Connected to the database, building models for", data.project_id);
                         await isSystemChecker(mongoDBConn)
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))
@@ -178,7 +175,6 @@ let projectStore = {
                         // await addFields({ project_id: data.project_id })
                         // await ceckPermissionScript({ project_id: data.project_id })
                         // await initialDefaultPivot({ project_id: data.project_id })
-                        console.log("Object builder has successfully runned for --->>", data.project_id);
                         resolve()
                     });
 
@@ -203,13 +199,6 @@ let projectStore = {
 
             // shouldCompileModels=false since we have to list
             // existing collections in mongodb before running migrations
-            console.log("--->Mongo->Credentials--->", {
-                mongoHost: data.credentials.host,
-                mongoPort: data.credentials.port,
-                mongoDatabase: data.credentials.database,
-                mongoUser: data.credentials.username,
-                mongoPassword: data.credentials.password
-            })
 
             const mongoDBConn = await newMongoDBConn({
                 mongoHost: data.credentials.host,
@@ -224,10 +213,9 @@ let projectStore = {
             await pool.add(data?.project_id, mongoDBConn)
 
             mongoDBConn.once("open", async function () {
-                console.log("Connected to the database, building models");
 
                 await objectBuilder(false, data?.project_id).then(res => {
-                    console.log("Object builder has successfully runned for", data?.project_id);
+                    logger.info("Object builder has successfully runned for", data?.project_id);
                 })
             });
 
@@ -241,7 +229,6 @@ let projectStore = {
         if (!config.k8s_namespace) { throw new Error("k8s_namespace is required to get project") };
 
         let reconnect_data = await client.autoConn(config.k8s_namespace, config.nodeType);
-        console.log("\n\n\n\n\n\nBuilding project count >> ", reconnect_data.res.length, "\n\n\n\n\n")
         for (let it of reconnect_data.res) {
             if (it.resource_type !== "MONGODB") continue
             // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 

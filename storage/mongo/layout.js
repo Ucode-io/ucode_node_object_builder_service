@@ -564,7 +564,6 @@ let layoutStore = {
             return { layouts: layouts }
 
         } catch (error) {
-            console.error(error)
             throw error
         }
     }),
@@ -833,7 +832,6 @@ let layoutStore = {
             return layout 
 
         } catch (error) {
-            console.error(error)
             throw error
         }
     }),
@@ -860,7 +858,6 @@ let layoutStore = {
             return {}
 
         } catch (error) {
-            console.error(error)
             throw error
         }
     }),

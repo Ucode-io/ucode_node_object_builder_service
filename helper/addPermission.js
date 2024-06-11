@@ -93,14 +93,12 @@ let permissionFunctions = {
                     fieldsWithPermissions.push(field);
                 } else if (!roleId) {
                     if(tableSlug == "move_shipping_item") {
-                        console.log("~~> $test 2 field permission ", JSON.stringify(fieldPer))
                     }
                     fieldsWithPermissions.push(field);
                 } else {
                     unusedFieldsSlugs[field.slug] = 0
                 }
             }
-            console.log(":~~~~> unused fields ", roleId, unusedFieldsSlugs)
             return {fieldsWithPermissions, unusedFieldsSlugs};
 
         } catch (err) {

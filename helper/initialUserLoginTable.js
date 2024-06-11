@@ -2,7 +2,6 @@ const mongoPool = require('../pkg/pool');
 const { v4 } = require("uuid")
 
 module.exports = async function (data) {
-    console.log(": Default user login table checking...")
     const mongoConn = await mongoPool.get(data.project_id)
     const Table = mongoConn.models['Table']
     const Field = mongoConn.models['Field']
@@ -180,8 +179,4 @@ module.exports = async function (data) {
         }
     ]
     await Relation.bulkWrite(bulkRelation)
-
-
-
-    console.log(": Default user login table checking done!!!")
 }

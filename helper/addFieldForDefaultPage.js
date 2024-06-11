@@ -4,7 +4,6 @@ const mongoPool = require('../pkg/pool');
 
 module.exports = async function (data) {
     try {
-        console.log(": Default page checking...")
         const mongoConn = await mongoPool.get(data.project_id)
         const Field = mongoConn.models['Field']
         const Table = mongoConn.models['Table']
@@ -47,6 +46,6 @@ module.exports = async function (data) {
         }
 
     } catch (error) {
-        console.log("error creating default menu:", error)
+        Logger.info("error creating default menu:", error)
     }
 }

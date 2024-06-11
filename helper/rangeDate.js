@@ -33,7 +33,6 @@ async function rangeDate(startDate, endDate, interval) {
             dateObject.$lte = fromDate.toISOString().substring(0,10) + lastPart
             dates.push(dateObject)
         } catch (error) {
-            console.log(`${fromDate}`, error);
         }
     }
     return dates

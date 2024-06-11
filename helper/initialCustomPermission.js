@@ -10,7 +10,6 @@ const mongoPool = require('../pkg/pool');
 module.exports = async function (data) {
     try {
         const mongoConn = await mongoPool.get(data.project_id)
-        console.log("Initial global check function working...")
         const Table = mongoConn.models['Table']
         const Role = mongoConn.models['role']
         const Field = mongoConn.models['Field']
@@ -84,7 +83,6 @@ module.exports = async function (data) {
         })
         const exist_tables = await Table.find({ id: menu_permission_id })
         if (!exist_tables.length) {
-            console.log("Insert table collection >> ", JSON.stringify(menu_tables))
             await Table.insertMany(menu_tables)
         }
         const exist_fields = await Field.find({ id: { $in: menu_field_ids } })
@@ -130,8 +128,6 @@ module.exports = async function (data) {
             await ModelCustomPermission.collection.createIndex({ role_id: 1 }, { unique: true })
         }
 
-        console.log("Initial custom check function done 132 ✅")
     } catch (err) {
-        console.log("Custom permission err >>", err)
     }
 }

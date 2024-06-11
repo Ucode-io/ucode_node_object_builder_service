@@ -18,7 +18,6 @@ module.exports = async (req) => {
     ).lean()
 
     if (!role) {
-        console.log('WARNING role not found')
         throw new Error('Error role not found')
     }
 
@@ -78,7 +77,6 @@ module.exports = async (req) => {
     // console.log(">>>>>>>> test #2 ", new Date())
 
     if (!table) {
-        console.log('WARNING apps not found')
         return role
     }
 

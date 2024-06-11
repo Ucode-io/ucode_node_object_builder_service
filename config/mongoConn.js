@@ -63,7 +63,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
     });
 
     conn.on("error", async function (err) {
-        console.log(`Error while connecting to ${Config.mongoHost}: ${err}`);
+        Logger.info(`Error while connecting to ${Config.mongoHost}: ${err}`);
     });
     if (shouldCompileModels) {
         conn.model('App', require('../schemas/app'))

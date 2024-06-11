@@ -40,14 +40,12 @@ const SyncUserService = () => {
 
 const autoConn = async (k8s_namespace, node_type) => {
     return new Promise((resolve, reject) => {
-        console.log("\n\n ~~~ NODE TYPE --> ", node_type);
         ResourceService().AutoConnect({ k8s_namespace: k8s_namespace, node_type: node_type }, (err, res) => {
             if (err) {
                 logger.error("Error while auto connecting", {
                     function: "autoConn",
                     error: err
                 });
-                console.log("err: >> while company service", err)
                 reject(err);
                 return;
             }
@@ -65,7 +63,6 @@ const reConn = async (k8s_namespace, project_id, node_type) => {
                     function: "autoConn",
                     error: err
                 });
-                console.log("err: ", err)
                 reject(err);
                 return;
             }
@@ -83,7 +80,6 @@ const createUserAuth = async (data) => {
                     function: "createUserAuth",
                     error: err
                 });
-                console.log("err: ", err)
                 reject(err);
                 return;
             }
@@ -101,7 +97,6 @@ const createUsersAuth = async (data) => {
                     function: "createUsersAuth",
                     error: err
                 });
-                console.log("err: ", err)
                 reject(err);
                 return;
             }
@@ -119,7 +114,6 @@ const updateUserAuth = async (data) => {
                     function: "updateUserAuth",
                     error: err
                 });
-                console.log("err: ", err)
                 reject(err);
                 return;
             }
@@ -137,7 +131,6 @@ const deleteUserAuth = async (data) => {
                     function: "deleteUserAuth",
                     error: err
                 });
-                console.log("err: ", err)
                 reject(err);
                 return; 
             }
@@ -155,7 +148,6 @@ const deleteUsersAuth = async (data) => {
                     function: "deleteUsersAuth",
                     error: err
                 });
-                console.log("err: ", err)
                 reject(err);
                 return;
             }

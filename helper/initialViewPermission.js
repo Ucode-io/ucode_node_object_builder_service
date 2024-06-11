@@ -10,7 +10,6 @@ const mongoPool = require('../pkg/pool');
 module.exports = async function (data) {
     try {
         const mongoConn = await mongoPool.get(data.project_id)
-        console.log("Initial View check function working...")
         const Table = mongoConn.models['Table']
         const Role = mongoConn.models['role']
         const Field = mongoConn.models['Field']
@@ -100,13 +99,9 @@ module.exports = async function (data) {
         const indexs = await ModelCustomPermission.collection.getIndexes()
 
         if (!indexs['role_id_1_view_id_1']) {
-            console.log(".>>>>")
             await ModelCustomPermission.collection.createIndex({ role_id: 1, view_id: 1 }, { unique: true })
         }
-
-        console.log("Initial view permission check function done ✅")
     } catch (error) {
-        console.log("failed to initial view permission")
     }
 
 }

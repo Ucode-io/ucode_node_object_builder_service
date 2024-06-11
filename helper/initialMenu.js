@@ -6,7 +6,6 @@ const folderMinio = require("./addMinioBucket");
 
 module.exports = async function (data) {
     try {
-        console.log(": Default menu checking...")
         const mongoConn = await mongoPool.get(data.project_id)
         const Menu = mongoConn.models['object_builder_service.menu']
         const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
@@ -343,9 +342,7 @@ module.exports = async function (data) {
         }
         await Menu.bulkWrite(bulkWriteMenus)
 
-        console.log("done creating default menu")
 
     } catch (error) {
-        console.log("error creating default menu:", error)
     }
 }

@@ -40,7 +40,6 @@ module.exports = (namespace, fn) => {
             logger.error(`${namespace}: failed with error: ${error.message}`);
             let code = grpc.status.INTERNAL
             let message = error.message
-            console.log("message", message);
 
             // this is for custom error message that user can write custom error for yourself
             const mongoConn = await mongoPool.get(call.request.project_id)

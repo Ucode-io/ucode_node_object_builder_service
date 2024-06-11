@@ -13,7 +13,6 @@ let NAMESPACE = "storage.menu";
 let menuStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
-            console.log(">>>>> income data", data)
             if (!constants.MENU_TYPES.includes(data.type)) {
                 throw new Error("Unsupported menu type");
             }

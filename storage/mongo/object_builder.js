@@ -262,6 +262,7 @@ let objectBuilder = {
                 }
             } catch (error) {
                 console.error('Something went wrong in update', error);
+                throw error
             }
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)

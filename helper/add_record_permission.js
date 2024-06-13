@@ -4,7 +4,6 @@ const mongoPool = require('../pkg/pool');
 
 module.exports = async function (data) {
     try {
-        console.log(": Record permission delete_All...")
         const mongoConn = await mongoPool.get(data.project_id)
         const Field = mongoConn.models['Field']
 
@@ -44,6 +43,5 @@ module.exports = async function (data) {
         }
 
     } catch (error) {
-        console.log("error Record permission delete_All:", error)
     }
 }

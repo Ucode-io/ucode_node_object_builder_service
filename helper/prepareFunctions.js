@@ -267,6 +267,17 @@ let prepareFunction = {
                             data[el.slug] = Number(struct.decode(el.attributes).defaultValue)
                         } else if (el.type === "DATE_TIME" || el.type === "DATE") {
                             data[el.slug] = new Date().toISOString()
+                        } else if (el.type === "DATE_TIME_WITHOUT_TIME_ZONE") {
+                            let date = new Date();
+
+                            let day = String(date.getDate()).padStart(2, '0');
+                            let month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+                            let year = date.getFullYear();
+                            let hours = String(date.getHours()).padStart(2, '0');
+                            let minutes = String(date.getMinutes()).padStart(2, '0');
+
+                            let formattedDate = `${day}.${month}.${year} ${hours}:${minutes}`;
+                            data[el.slug] = formattedDate
                         } else if (el.type === "SWITCH") {
                             let default_value = struct.decode(el.attributes).defaultValue?.toLocaleLowerCase()
                             if (default_value == "true") {

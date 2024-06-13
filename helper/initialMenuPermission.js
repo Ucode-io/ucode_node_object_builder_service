@@ -9,7 +9,6 @@ const mongoPool = require('../pkg/pool');
 module.exports = async function (data) {
     try {
         const mongoConn = await mongoPool.get(data.project_id)
-        console.log("Menu permission insert function working...")
         const Table = mongoConn.models['Table']
         const Role = mongoConn.models['role']
         const Field = mongoConn.models['Field']
@@ -148,8 +147,6 @@ module.exports = async function (data) {
             slug: "menu_permission"
         }, { $set: { is_changed: true } })
 
-        console.log("Menu permission insert function done ✅")
     } catch (err) { 
-        console.log("error while inserting menu permission");
     }
 }

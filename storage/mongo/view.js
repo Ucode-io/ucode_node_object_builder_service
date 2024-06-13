@@ -22,7 +22,6 @@ const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/cons
 const os = require('os');
 const logger = require("../../config/logger");
 
-console.log()
 // const mongoConn = await mongoPool.get(data.project_id)
 // const Table = mongoConn.models['Table']
 // const Field = mongoConn.models['Field']
@@ -432,7 +431,7 @@ let viewStore = {
                         }
                         fs.stat(filename, async (err, stats) => {
                             if (err) {
-                                console.log(err)
+                                
                             } else {
                                 let doc = {}
                                 splitedFielName = filename.split(".")
@@ -461,7 +460,7 @@ let viewStore = {
                             }
                         })
                         fs.unlink(filename, (err => {
-                            if (err) console.log(err);
+                            if (err) {}
                             else {
                                 resolve()
 

@@ -196,6 +196,6 @@ let versionStorage = {
             throw err
         }
     }),
-};
+}; 
 
 module.exports = versionStorage;

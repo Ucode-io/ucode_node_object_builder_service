@@ -6,7 +6,6 @@ const mongoPool = require('../pkg/pool');
 
 module.exports = async function (data) {
     const mongoConn = await mongoPool.get(data.project_id)
-    console.log("System checker function working...")
     const Table = mongoConn.models['Table']
     const ClientType = mongoConn.models['client_type']
     const Role = mongoConn.models['role']
@@ -88,7 +87,5 @@ module.exports = async function (data) {
         relation_update_ids.push(el.id)
     })
     await Relation.updateMany({id: {$in: relation_update_ids}}, {$set: {is_system: true}})
-
-    console.log("System checker function done")
 
 }

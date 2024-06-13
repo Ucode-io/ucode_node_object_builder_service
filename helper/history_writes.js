@@ -5,6 +5,5 @@ module.exports = async function (mongoConn, data) {
         const history = data.mongoDBConn.models['object_builder_service.version_history']
        
     } catch(error) {
-        console.log("Error in is_static.js", error)
     }
 }

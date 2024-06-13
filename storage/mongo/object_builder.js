@@ -232,8 +232,8 @@ let objectBuilder = {
                                         guid: response[authInfo['client_type_id']],
                                         table_slug: tableModel.slug
                                     });
-                    
-                                    if (loginTable) {
+
+                                    if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
                                         let updateUserRequest = {
                                             guid: response['guid'],
                                             password: data?.password,
@@ -241,13 +241,27 @@ let objectBuilder = {
                     
                                         await grpcClient.updateUserAuth(updateUserRequest);
                                     }
+
+                    
+                                    if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab") {
+                                        if (loginTable) {
+                                            let updateUserRequest = {
+                                                guid: response['guid'],
+                                                login: data?.login,
+                                                email: data?.email,
+                                                password: data?.password
+                                            };
+                        
+                                            await grpcClient.updateUserAuth(updateUserRequest);
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
             } catch (error) {
-                console.error('Something went wrong in update', error);
+                throw error
             }
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
@@ -1880,7 +1894,6 @@ let objectBuilder = {
             ]
         }
         if (limit !== 0) {
-            console.log("Hello World")
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
                     $and: [params]
@@ -2276,7 +2289,6 @@ let objectBuilder = {
     getList2: catchWrapDbObjectBuilder(`${NAMESPACE}.getList2`, async (req) => {
 
         const startMemoryUsage = v8.getHeapStatistics();
-        console.log("coming here <<<<<< >>>> ");
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -2966,7 +2978,6 @@ let objectBuilder = {
 
         const endMemoryUsage = v8.getHeapStatistics();
 
-        console.log("response goinh <<<<<<< >>>>> ", response);
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),
@@ -3353,7 +3364,7 @@ let objectBuilder = {
                     return console.log(error);
                 }
                 fs.unlink(filename, (err => {
-                    if (err) console.log(err);
+                    if (err) {}
                     else {
                     }
                 }));
@@ -3546,7 +3557,7 @@ let objectBuilder = {
         let views = tableInfo.views;
 
         for (let view of views) {
-            if (isArray(view.attributes.quick_filters)) {
+            if (isArray(view?.attributes?.quick_filters)) {
                 for (let qf of view.attributes.quick_filters) {
                     if (qf.label == "") {
                         qf.label = qf.attributes.label_ru
@@ -3677,7 +3688,7 @@ let objectBuilder = {
                     }
                 }
             }
-
+            const newmapCount = {};
             for (const relation of relations) {
                 if (relation.type !== "Many2Dynamic") {
                     if (
@@ -3729,9 +3740,44 @@ let objectBuilder = {
                                 }
                                 field._doc.table_label = relationTable?.label;
                                 changedField = field;
-                                changedField._doc.path_slug =
-                                    relationTable?.slug + "_id_data" + "." + field.slug;
-                                relationsFields.push(changedField._doc);
+                                changedField._doc.path_slug = relationTable?.slug + "_id_data" + "." + field.slug;
+
+                                    let newField = JSON.parse(JSON.stringify(changedField._doc));
+
+                                    let pathSlug = newField.path_slug;
+                                    let parts = pathSlug.split('.');
+                                    let baseSlug = parts[0];
+                                                    
+                                    if (baseSlug.endsWith("id_data")) {
+                                      if (!newmapCount[newField.id]) {
+                                        newmapCount[newField.id] = 0;
+                                      } 
+                                                    
+                                      if (newmapCount[newField.id] > 1) {
+                                        let toaddnum = baseSlug.split("_data");
+                                        newField.path_slug = `${toaddnum[0]}_${newmapCount[newField.id]}_data.${parts[1]}`;
+                                        newField.label = newField.label + " " + newmapCount[newField.id]
+                                      } else if (newmapCount[newField.id] == 0) {
+                                        let toaddnum = baseSlug.split("_data");
+                                        newField.path_slug = `${toaddnum[0]}_data.${parts[1]}`;
+                                      }
+                                                    
+                                                    
+                                      if ( newmapCount[newField.id] == 0 ) {
+                                        newmapCount[newField.id] = 2;
+                                      } else {
+                                        newmapCount[newField.id] += 1;
+                                      }
+                                    }
+                                                    
+                                    // if (newField.id == "64bd5d7c-4588-49f7-ae28-6bd0ccc0b637") {
+                                    //     newField.number = number;
+                                    //     number++
+                                    //     console.log("her field  > > > >>  >>", newField);
+                                    // } //
+
+
+                                relationsFields.push(newField)
                             }
                         }
                     }
@@ -5167,7 +5213,6 @@ let objectBuilder = {
             } else {
                 let temp = {}
                 groupFields.forEach(el => {
-                    console.log("el:", el);
                     temp[el] = "$" + el;
                 });
                 if (Object.keys(temp).length === 1) {
@@ -5322,9 +5367,6 @@ let objectBuilder = {
             let table_slugs = tables_from.map(el => el.slug)
             if (tables_from.length) {
                 await TableStorage.CreateAll({tables: tables_from, project_id: req.project_id, table_ids, table_slugs})
-                console.log(`Copied ${tables_from.length} tables from ${req.from_project_id} -> ${req.project_id}`)
-            } else {
-                console.log(`Copied 0 tables from ${req.from_project_id} -> ${req.project_id}`)
             }
 
             // copy menus
@@ -5334,10 +5376,7 @@ let objectBuilder = {
             const fields_from = await F_FieldModel.find({table_id: { $in: table_ids }})
             if (tables_from.length) {
                 await FieldStorage.CopyFields({project_id: req.project_id, fields: fields_from, table_ids})
-                console.log(`Copied ${fields_from.length} fields from ${req.from_project_id} -> ${req.project_id}`)
-            } else {
-                console.log(`Copied 0 fields from ${req.from_project_id} -> ${req.project_id}`)
-            }
+            } 
 
             // copy relation and relation_views
             const relations_from = await F_RelationModel.find({$or: [{table_from: {$in: table_slugs}}, {field_from: {$in: table_slugs}}]})
@@ -5374,7 +5413,6 @@ let objectBuilder = {
 
             return {}
         } catch (err) {
-            console.log(err)
             throw err
         }
 
@@ -5499,8 +5537,6 @@ let objectBuilder = {
         }
 
 
-        console.log("PIPELINE: ", JSON.stringify(pipeline))
-        console.log("Project Id->", req.project_id)
         await updateISODateFunction.updateISODate(pipeline)
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]

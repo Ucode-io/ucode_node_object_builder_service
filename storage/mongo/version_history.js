@@ -24,7 +24,6 @@ let versionHistoryStorage = {
             const query = {}
             const limit = data.limit
             const offset = data.offset
-            // console.log('data', JSON.stringify(data, nul,2))
 
             if (data.type == "DOWN" || data.type == "UP") {
                 query.action_source = { 
@@ -68,7 +67,7 @@ let versionHistoryStorage = {
         } catch (err) {
             throw err
         }
-    }),    
+    }),     
     usedForEnv: catchWrapDb(`${NAMESPACE}.usedForEnv`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

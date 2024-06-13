@@ -3,7 +3,6 @@ const { v4 } = require("uuid")
 
 module.exports = async function (data) {
     try {
-        console.log(": add additional field to view_relation_permissison and role checking...")
         const mongoConn = await mongoPool.get(data.project_id)
         const Field = mongoConn.models['Field']
         const Table = mongoConn.models['Table']
@@ -386,8 +385,6 @@ module.exports = async function (data) {
             id: { $in: ["074fcb3b-038d-483d-b390-ca69490fc4c3", "1ab7fadc-1f2b-4934-879d-4e99772526ad", "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea", "4c1f5c95-1528-4462-8d8c-cd377c23f7f7"] }
         }, { $set: { is_changed: true } })
 
-        console.log("done creating additional field for view_relaiton_permission and role")
     } catch (err) {
-        console.log("Error in add fields >>> ", err.message)
     }
 }

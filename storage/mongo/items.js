@@ -19,15 +19,26 @@ let NAMESPACE = "storage.items";
 let objectBuilderV2 = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
         //if you will be change this function, you need to change multipleInsert function
+
+        const tm = Date.now();
+
         let allTableInfos = await ObjectBuilder(true, req.project_id)
         const tableInfo = allTableInfos[req.table_slug]
         let ownGuid = "";
+
+        console.log("AFTER GET ALL TABLES AND TABLE INFO")
+        console.log(Date.now()-tm)
+
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
+            console.log("AFTER HELPER")
+            console.log(Date.now()-tm)
             await payload.save();
+            console.log("AFTER CREATE")
+            console.log(Date.now()-tm)
             ownGuid = payload.guid;
             let funcs = []
             for (const appendMany2Many of appendMany2ManyObjects) {
@@ -88,6 +99,10 @@ let objectBuilderV2 = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+
+            console.log("END OF FUNCTION")
+            console.log(Date.now()-tm)
+
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {

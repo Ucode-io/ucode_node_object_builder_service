@@ -29,12 +29,9 @@ let prepareFunction = {
         if (!tableInfo) {
             throw new Error("table not found")
         }
-        let tableData = await table.findOne(
-            {
-                slug: req.table_slug
-            }
-        )
+        
         if (req.table_slug === "template" || req.table_slug === "file") {
+
             const relation = await Relation.findOne({
                 $or: [
                     {
@@ -52,6 +49,13 @@ let prepareFunction = {
                 ]
             })
             if (relation) {
+
+                let tableData = await table.findOne(
+                    {
+                        slug: req.table_slug
+                    }
+                )
+
                 const field = await Field.findOne({
                     relation_id: relation.id,
                     table_id: tableData?.id
@@ -62,10 +66,22 @@ let prepareFunction = {
             }
         }
 
-        let randomNumbers = await Field.findOne({
-            table_id: tableData?.id,
-            type: "RANDOM_NUMBERS"
-        })
+        // const mFields = await Field.find({table_id: tableData?.id});
+        let tableFields = []
+
+        const fieldM = tableInfo.fields.reduce((acc, doc) => {
+            acc[doc.type] = {
+                slug: doc.slug,
+                attributes: doc.attributes
+            };
+            tableFields.push(doc.slug)
+            return acc;
+        }, {});
+
+        console.log(fieldM["RANDOM_UUID"])
+        console.log(tableFields)
+
+        let randomNumbers = fieldM["RANDOM_NUMBERS"]
 
         if (randomNumbers) {
             let attributes = struct.decode(randomNumbers.attributes)
@@ -83,10 +99,7 @@ let prepareFunction = {
             }
         }
 
-        let generatedStrs = await Field.findOne({
-            table_id: tableData?.id,
-            type: "RANDOM_TEXT"
-        })
+        let generatedStrs = fieldM["RANDOM_TEXT"]
 
         if (generatedStrs) {
             let attributes = struct.decode(generatedStrs.attributes)
@@ -104,26 +117,17 @@ let prepareFunction = {
             }
         }
 
-        let generateUUIDs = await Field.findOne({
-            table_id: tableData?.id,
-            type: "RANDOM_UUID"
-        })
-
+        let generateUUIDs = fieldM["RANDOM_UUID"]
         if (generateUUIDs) {
             data[generateUUIDs.slug] = v4()
         }
 
-        let manually = await Field.findOne({
-            table_id: tableData?.id,
-            type: "MANUAL_STRING"
-        })
+        let manually = fieldM["MANUAL_STRING"]
 
         if (manually) {
-            let sortedFields = tableInfo.fields.sort((a, b) => {
-            return b.slug.length - a.slug.length
-        })
+            
             let computedFormula = manually.attributes.fields.formula.stringValue
-            sortedFields.forEach(el => {
+            tableFields.forEach(el => {
                 let dataSLug = req.data.fields[el.slug]
                 if (typeof dataSLug === 'undefined') {
                     return;
@@ -149,10 +153,7 @@ let prepareFunction = {
             data[manually.slug] = computedFormula
         }
 
-        let incrementField = await Field.findOne({
-            table_id: tableData?.id,
-            type: "INCREMENT_ID"
-        })
+        let incrementField = fieldM["INCREMENT_ID"]
         if (incrementField) {
             const incrementInfo = mongoConn.models['IncrementSeq']
             const incInfo = await incrementInfo.findOneAndUpdate(
@@ -185,10 +186,7 @@ let prepareFunction = {
         }
         
 
-        let incrementNum = await Field.findOne({
-            table_id: tableData?.id,
-            type: "INCREMENT_NUMBER"
-        })
+        let incrementNum = fieldM["INCREMENT_NUMBER"]
         if (incrementNum) {
             let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
             // console.log(">>>>>>>>>>>>>>> last ", last)
@@ -301,15 +299,15 @@ let prepareFunction = {
         if (ownGuid) {
             payload.guid = ownGuid
         }
-        let fields = await Field.find(
-            {
-                table_id: tableData?.id
-            }
-        )
+        // let fields = await Field.find(
+        //     {
+        //         table_id: tableData?.id
+        //     }
+        // )
 
         //deleted kafka to send topic to analytics
         let appendMany2ManyObjects = []
-        for (const field of fields) {
+        for (const field of tableInfo.fields) {
             if (field.type === "LOOKUPS") {
                 if (data[field.slug] && data[field.slug]?.length) {
                     const relation = await Relation.findOne({

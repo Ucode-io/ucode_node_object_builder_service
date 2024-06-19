@@ -8,6 +8,9 @@ const RelationSchema = mongoose.Schema(
             default: v4,
             // unique: true
         },
+        relation_index: {
+            type: Number,
+        },
         table_from: {
             type: String,
             required: [true, "Relation must have table_from"],

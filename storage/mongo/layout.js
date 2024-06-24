@@ -825,11 +825,11 @@ let layoutStore = {
                             table_slug: table.slug
                         })
                         if (relIdxMap.has(relation.relation_table_slug)) {
-                            relIdxMap[relation.relation_table_slug]++;
+                            relIdxMap.set(relation.relation_table_slug, relIdxMap.get(relation.relation_table_slug) + 1);
                         } else {
-                            relIdxMap[relation.relation_table_slug] = 1;
+                            relIdxMap.set(relation.relation_table_slug, 1);
                         }
-                    relation.relation_index = relIdxMap[relation.relation_table_slug]
+                    relation.relation_index = relIdxMap.get(relation.relation_table_slug)
                     tab.relation = relation ? relation : {}
                 }
             }

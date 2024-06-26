@@ -824,12 +824,12 @@ let layoutStore = {
                             role_id: data.role_id,
                             table_slug: table.slug
                         })
-                        if (relIdxMap.has(relation.relation_table_slug)) {
-                            relIdxMap.set(relation.relation_table_slug, relIdxMap.get(relation.relation_table_slug) + 1);
+                        if (relIdxMap.has(relation?.table_from?.slug)) {
+                            relIdxMap.set(relation?.table_from?.slug, relIdxMap.get(relation?.table_from?.slug) + 1);
                         } else {
-                            relIdxMap.set(relation.relation_table_slug, 1);
+                            relIdxMap.set(relation?.table_from?.slug, 1);
                         }
-                    relation.relation_index = relIdxMap.get(relation.relation_table_slug)
+                    relation.relation_index = relIdxMap.get(relation?.table_from?.slug)
                     tab.relation = relation ? relation : {}
                 }
             }

@@ -150,6 +150,12 @@ autoscaling:
 
 nodeSelector: {}
 
+resources:
+  limits:
+    ephemeral-storage: "2Gi" 
+  requests:
+    ephemeral-storage: "128Mi"  
+
 tolerations:
 - key: "workload"
   operator: "Equal"

@@ -803,6 +803,7 @@ let layoutStore = {
 
             const tabs = await Tab.find({ layout_id: layout.id }).lean()
         
+            relIdxMap = new Map();
             for (let tab of tabs) {
                 if (tab.type === "section") {
 
@@ -823,6 +824,12 @@ let layoutStore = {
                             role_id: data.role_id,
                             table_slug: table.slug
                         })
+                        if (relIdxMap.has(relation?.table_from?.slug)) {
+                            relIdxMap.set(relation?.table_from?.slug, relIdxMap.get(relation?.table_from?.slug) + 1);
+                        } else {
+                            relIdxMap.set(relation?.table_from?.slug, 1);
+                        }
+                    relation.relation_index = relIdxMap.get(relation?.table_from?.slug)
                     tab.relation = relation ? relation : {}
                 }
             }

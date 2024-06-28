@@ -292,9 +292,9 @@ let prepareFunction = {
             }
         }
 
-        let rowOrder = getLastValue(mongoConn, req.table_slug)
+        // let rowOrder = getLastValue(mongoConn, req.table_slug)
 
-        data.row_order = rowOrder
+        // data.row_order = rowOrder
 
         let payload = new tableInfo.models(data);
 

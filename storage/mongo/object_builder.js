@@ -236,8 +236,8 @@ let objectBuilder = {
                                     if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
                                         let updateUserRequest = {
                                             guid: response['guid'],
-                                            // login: data?.login,
-                                            // email: data?.email,
+                                            login: data?.login,
+                                            email: data?.email,
                                             password: data[authInfo['password']],
                                         };
                     

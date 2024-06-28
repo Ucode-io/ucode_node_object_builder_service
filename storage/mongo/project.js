@@ -234,6 +234,15 @@ let projectStore = {
             // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
             try {
                 await projectStore.reconnect(it)
+
+                console.log("HERE ID >>>")
+                console.log(it?.id)
+                console.log(it?.project_id)
+                console.log(it?.credentials.database)
+                console.log("HERE STOP")
+
+
+                // await addRowOrder({project_id: it.project_id})
             } catch (err) {
                 logger.info(`auto connecting to resources failed: ${err}`);
             }

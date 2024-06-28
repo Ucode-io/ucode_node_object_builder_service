@@ -236,6 +236,8 @@ let objectBuilder = {
                                     if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
                                         let updateUserRequest = {
                                             guid: response['guid'],
+                                            // login: data?.login,
+                                            // email: data?.email,
                                             password: data[authInfo['password']],
                                         };
                     
@@ -2337,11 +2339,17 @@ let objectBuilder = {
 
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
 
-        if (currentTable.order_by && !Object.keys(order).length) {
-            order = { createdAt: 1 }
-        } else if (!currentTable.order_by && !Object.keys(order).length) {
-            order = { createdAt: -1 }
+        // ! PUSH WHEN TEST ALL CASE
+        if (view?.attributes?.table_draggable == true) {
+            order = {row_order: 1}
+        } else {
+            if (currentTable.order_by && !Object.keys(order).length) {
+                order = { createdAt: 1 }
+            } else if (!currentTable.order_by && !Object.keys(order).length) {
+                order = { createdAt: -1 }
+            }
         }
+     
         // const permissionTable = allTables["record_permission"]
         const permission = await permissionTable.models.findOne({
             $and: [

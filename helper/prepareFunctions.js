@@ -7,6 +7,7 @@ const ObjectBuilder = require("./../models/object_builder");
 const FormulaFunction = require("./calculateFormulaFields");
 const tableVersion = require("../helper/table_version");
 const grpcClient = require("./../services/grpc/client");
+const getLastValue = require("../helper/getLastValue")
 
 
 
@@ -77,9 +78,6 @@ let prepareFunction = {
             tableFields.push(doc.slug)
             return acc;
         }, {});
-
-        console.log(fieldM["RANDOM_UUID"])
-        console.log(tableFields)
 
         let randomNumbers = fieldM["RANDOM_NUMBERS"]
 
@@ -294,16 +292,15 @@ let prepareFunction = {
             }
         }
 
+        let rowOrder = getLastValue(mongoConn, req.table_slug)
+
+        data.row_order = rowOrder
+
         let payload = new tableInfo.models(data);
 
         if (ownGuid) {
             payload.guid = ownGuid
         }
-        // let fields = await Field.find(
-        //     {
-        //         table_id: tableData?.id
-        //     }
-        // )
 
         //deleted kafka to send topic to analytics
         let appendMany2ManyObjects = []
@@ -329,6 +326,8 @@ let prepareFunction = {
                 }
             }
         }
+
+
 
         return { payload, data, appendMany2ManyObjects }
     },
@@ -362,7 +361,7 @@ let prepareFunction = {
                 relation_ids.push(field.relation_id)
             }
         }
-
+        
         const relations = await Relation.find({
             id: { $in: relation_ids }
         })

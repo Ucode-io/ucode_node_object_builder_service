@@ -5,6 +5,7 @@ const menuService = {
     Create: catchWrapService(`service.menu.create`, menuStore.create),
     Update: catchWrapService(`service.menu.update`, menuStore.update),
     GetByID: catchWrapService(`service.menu.getByID`, menuStore.getByID),
+    GetByLabel: catchWrapService(`service.menu.getByLabel`, menuStore.getByLabel),
     GetAll: catchWrapService(`service.menu.getAll`, menuStore.getAll),
     Delete: catchWrapService(`service.menu.delete`, menuStore.delete),
     UpdateMenuOrder: catchWrapService(`service.menu.updateMenuOrder`, menuStore.updateMenuOrder),

@@ -152,7 +152,7 @@ nodeSelector: {}
 
 resources:
   limits:
-    ephemeral-storage: "2Gi" 
+    ephemeral-storage: "10Gi" 
   requests:
     ephemeral-storage: "128Mi"  
 

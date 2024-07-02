@@ -479,7 +479,7 @@ let menuStore = {
             if (menu.length !== 0) {
                 menu[0].data = struct.encode(menu[0].data);
                 return menu[0];
-            }
+            } 
 
             return null
         } catch (err) {

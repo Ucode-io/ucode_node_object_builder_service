@@ -563,7 +563,9 @@ let tableStore = {
 
             const tables = await Table.find({label: data.label})
 
-            return tables;
+            return {
+                tables
+            };
         } catch (err) {
             throw err
         }

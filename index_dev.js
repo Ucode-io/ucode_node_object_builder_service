@@ -22,17 +22,16 @@ const logger = require("./config/logger");
     process.addListener("unhandledRejection", (e) => {
     });
 
-    try { 
+    try {
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
-            // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "6de3c0c4-4715-4021-9cc9-08bde066fb93",
+            project_id: "0b544ab7-6311-49ea-bf71-081173d7c740",
             credentials: {
-                host: "65.109.239.69",
+                host: "95.217.155.57",
                 port: 30027,
-                database: "mongo_dev__d09c8fd0201b4781aaf0e81ccdacde29_p_obj_build_svcs",
-                username: "mongo_dev__d09c8fd0201b4781aaf0e81ccdacde29_p_obj_build_svcs",
-                password: "QmovRDh8JB"
+                database: "montella_8b7c563bcce343778d0827d4bbe0904c_p_obj_build_svcs",
+                username: "montella_8b7c563bcce343778d0827d4bbe0904c_p_obj_build_svcs",
+                password: "ozr2XNipkW"
             }
         })
 

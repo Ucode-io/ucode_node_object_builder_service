@@ -555,23 +555,15 @@ let tableStore = {
         }
 
     }),
-    updateLabel: catchWrapDb(`${NAMESPACE}.updateLabel`, async (data) => {
+    getTablesByLabel: catchWrapDb(`${NAMESPACE}.getTablesByLabel`, async (data) => {
         try {
 
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
 
-            let table = await Table.findOneAndUpdate(
-                {label: data.old_label},
-                {
-                    $set: {
-                        label: data.new_label,
-                        attributes: data.attributes
-                    }
-                }
-            )
+            const tables = await Table.find({label: data.label})
 
-            return table;
+            return tables;
         } catch (err) {
             throw err
         }

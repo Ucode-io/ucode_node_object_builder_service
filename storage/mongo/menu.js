@@ -479,12 +479,19 @@ let menuStore = {
             if (menu.length !== 0) {
                 menu[0].data = struct.encode(menu[0].data);
                 return menu[0];
-            }
+            } 
 
             return null
         } catch (err) {
             throw err
         }
+    }),
+    getByLabel: catchWrapDb(`${NAMESPACE}.getByLable`, async (data) => {
+        const mongoConn = await mongoPool.get(data.project_id)
+        const Menu = mongoConn.models['object_builder_service.menu']
+
+        let menus = await Menu.find({label: data.label});
+        return {menus}
     }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {

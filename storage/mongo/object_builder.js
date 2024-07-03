@@ -609,7 +609,9 @@ let objectBuilder = {
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
+        console.log("\n\n Get List Slim #1")
         const mongoConn = await mongoPool.get(req.project_id)
+        console.log("\n\n Get List Slim #2")
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -620,6 +622,7 @@ let objectBuilder = {
         delete params["limit"]
         delete params["offset"]
         const allTables = await ObjectBuilder(true, req.project_id)
+        console.log("\n\n Get List Slim #3")
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -630,7 +633,9 @@ let objectBuilder = {
         let order = params.order || {}
         let with_relations = params.with_relations
 
+        console.log("\n\n Get List Slim #4")
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+        console.log("\n\n Get List Slim #5")
 
         if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
@@ -834,6 +839,7 @@ let objectBuilder = {
         }
         count = await tableInfo.models.count(params);
 
+        console.log("\n\n Get List Slim #6")
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
@@ -852,6 +858,7 @@ let objectBuilder = {
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
 
+        console.log("\n\n Get List Slim #7")
         let attribute_table_from_slugs = []
         let attribute_table_from_relation_ids = []
         for (const field of formulaFields) {
@@ -903,7 +910,7 @@ let objectBuilder = {
                 dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
             }
         }
-
+        console.log("\n\n Get List Slim #8")
         for (const res of result) {
             let isChanged = false
             for (const field of formulaFields) {
@@ -979,6 +986,7 @@ let objectBuilder = {
             count: count,
             response: result,
         });
+        console.log("\n\n Get List Slim #9")
         const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
         return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
 
@@ -2281,7 +2289,7 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
-        const endMemoryUsage = v8.getHeapStatistics();
+        const endMemoryUsage = v8.getHeapStatistics(); 
 
 
 
@@ -3226,7 +3234,7 @@ let objectBuilder = {
                     // if (field.type === "FORMULA") {
                     //     let attributes = field.attributes
 
-                    //     if (attributes.table_from && attributes.sum_field) {
+                    // /    if (attributes.table_from && attributes.sum_field) {
                     //         let groupBy = req.table_slug + '_id'
                     //         let groupByWithDollorSign = '$' + req.table_slug + '_id'
                     //         let sumFieldWithDollowSign = '$' + attributes["sum_field"]
@@ -3547,6 +3555,9 @@ let objectBuilder = {
             if (field.relation_id) {
                 tableRelationFields[fields.relation_id] = field
             }
+            // if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
+            //     field.id = field.relation_id
+            // }
         })
         let with_relations = params.with_relations
 
@@ -5555,6 +5566,150 @@ let objectBuilder = {
 
         resp = struct.encode({data: JSON.parse(JSON.stringify(resp))})
         return { table_slug: req.table_slug, data: resp }
+    }),
+
+    getListRelationTabInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListRelationTabInExcel`, async (req) => {
+        try {
+            let data = struct.decode(req.data)
+            let field_ids = data.field_ids
+            delete req.data.field_ids
+            const mongoConn = await mongoPool.get(req.project_id)
+            const res = await objectBuilder.getList(req)
+            const response = struct.decode(res.data)
+            const result = response.response
+            const decodedFields = response.fields
+            const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
+            console.log("selectedFields >>> ", selectedFields)
+            excelArr = []
+            for (const obj of result) {
+                excelObj = {}
+                for (const field of selectedFields) {
+    
+                    if (obj[field.slug]) {
+
+                        if (field.label == '') {
+                            field.label = field.attributes.label_uz
+                        }
+
+                        if (field.type === "MULTI_LINE") {
+                            obj[field.slug] = obj[field.slug].replace(/<[^>]+>/g, '')
+                        }
+
+                        if (field.type === "DATE") {
+                            toDate = new Date(obj[field.slug])
+                            try {
+                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
+                            } catch (error) {
+                            }
+                        }
+
+                        if (field.type === "DATE_TIME") {
+                            toDate = new Date(obj[field.slug])
+                            try {
+                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
+                            } catch (error) {
+                            }
+                        }
+                        if (field.type === "LOOKUP") {
+                            let overall = ""
+                            if (typeof field.view_fields === "object" && field.view_fields.length) {
+                                for (const view of field.view_fields) {
+                                    if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
+                                        overall += obj[field.slug + "_data"][view.slug]
+                                    }
+                                }
+                            }
+                            obj[field.slug] = overall
+
+                        }
+                        if (field.type === "MULTISELECT") {
+                            let options = []
+                            let multiselectValue = "";
+                            if (field.attributes) {
+                                options = field.attributes.options
+                            }
+                            if (obj[field.slug].length && options.length && Array.isArray(obj[field.slug])) {
+                                obj[field.slug].forEach(element => {
+                                    let getLabelOfMultiSelect = options.find(val => (val.value === element))
+                                    if (getLabelOfMultiSelect) {
+                                        if (getLabelOfMultiSelect.label) {
+                                            multiselectValue += getLabelOfMultiSelect.label + ","
+                                        } else {
+                                            multiselectValue += getLabelOfMultiSelect.value + ","
+                                        }
+                                    }
+                                })
+                            }
+                            if (multiselectValue.length) {
+                                multiselectValue = multiselectValue.slice(0, multiselectValue.length - 1)
+                            }
+                            obj[field.slug] = multiselectValue
+                        }   
+                        console.log("obj[field.slug] >>> ", obj[field.slug])
+                        excelObj[field.label] = obj[field.slug]
+                    } else {
+                        excelObj[field.label] = ""
+                    }
+                }
+                excelArr.push(excelObj)
+            }
+            console.log("excelArr >>>> ", excelArr)
+            const workSheet = XLSX.utils.json_to_sheet(excelArr);
+            const workBook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
+            let filename = "report_" + Math.floor(Date.now() / 1000) + ".xlsx"
+            XLSX.writeFile(workBook, "./" + filename);
+
+            let ssl = true
+            if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
+                ssl = false
+            }
+
+
+            let filepath = "./" + filename
+            var minioClient = new Minio.Client({
+                endPoint: cfg.minioEndpoint,
+                useSSL: ssl,
+                accessKey: cfg.minioAccessKeyID,
+                secretKey: cfg.minioSecretAccessKey
+            });
+
+            var metaData = {
+                'Content-Type': "application/octet-stream",
+                'Content-Language': 123,
+                'X-Amz-Meta-Testing': 1234,
+                'example': 5678
+            }
+
+
+            minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
+                if (error) {
+                    return console.log(error);
+                }
+                fs.unlink(filename, (err => {
+                    if (err) console.log(err);
+                    else {
+                    }
+                }));
+            });
+
+            const respExcel = struct.encode({
+                link: cfg.minioEndpoint + "/reports/" + filename,
+            });
+            const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+            let customMessage = ""
+            if (tableWithVersion) {
+                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+                    code: 200,
+                    table_id: tableWithVersion.id,
+                    action_type: "GET_LIST_IN_EXCEL"
+                })
+                if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            return { table_slug: req.table_slug, data: respExcel, custom_message: customMessage }
+        } catch (err) {
+            throw err
+        }
     }),
 }
 

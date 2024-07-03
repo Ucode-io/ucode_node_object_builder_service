@@ -13,7 +13,6 @@ const viewStorage = require('./view')
 const layoutStorage = require('./layout')
 
 
-
 let NAMESPACE = "storage.version_history";
 
 let versionHistoryStorage = {
@@ -24,6 +23,7 @@ let versionHistoryStorage = {
             const query = {}
             const limit = data.limit
             const offset = data.offset
+            // console.log('data', JSON.stringify(data, nul,2))
 
             if (data.type == "DOWN" || data.type == "UP") {
                 query.action_source = { 

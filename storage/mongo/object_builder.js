@@ -2323,6 +2323,7 @@ let objectBuilder = {
         let relationIdsForPopulate = []
         let selectedRelations = false
         let view = await View.findOne({ id: params.view_id })
+        let viewV2 = await View.findOne({ id: params.row_view_id })
         view && view.columns && view.columns.length && view.columns.forEach(id => {
             columnIds[id] = id
             selectedRelations = true
@@ -2340,7 +2341,7 @@ let objectBuilder = {
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
 
         // ! PUSH WHEN TEST ALL CASE
-        if (view?.attributes?.table_draggable == true) {
+        if (viewV2?.attributes?.table_draggable == true) {
             order = {row_order: 1}
         } else {
             if (currentTable.order_by && !Object.keys(order).length) {

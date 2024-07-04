@@ -136,10 +136,18 @@ module.exports = async function (data) {
             id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
         })
         if (files) {
-            await bucket.createMinioBucket(data.project_id)
+            try {
+                await bucket.createMinioBucket(data.project_id)
+            } catch (err) {
+                logger.error(err)
+            }
         }
         if (!files) {
-            await bucket.createMinioBucket(data.project_id)
+            try {
+                await bucket.createMinioBucket(data.project_id)
+            } catch (err) {
+                logger.error(err)
+            }
             await Menu.create({
                 "label": "Files",
                 "icon": "file-pdf.svg",

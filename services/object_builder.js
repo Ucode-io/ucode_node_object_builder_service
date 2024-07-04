@@ -25,6 +25,7 @@ const objectBuilderService = {
     CopyFromProject: catchWrapServiceObjectBuilder("service.object_builder.copyFromProject", objectBuilderStore.copyFromProject),
     GetListWithOutRelations: catchWrapServiceObjectBuilder("service.object_builder.getListWithOutRelations", objectBuilderStore.getListWithOutRelations),
     GetListAggregation: catchWrapServiceObjectBuilder("service.object_builder.getListAggregation", objectBuilderStore.getListAggregation),
+    GetListRelationTabInExcel:catchWrapServiceObjectBuilder(`service.object_builder.getListRelationTabInExcel`, objectBuilderStore.getListRelationTabInExcel),
 };
 
 module.exports = objectBuilderService;  

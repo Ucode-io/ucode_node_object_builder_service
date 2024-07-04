@@ -1,1 +1,0 @@
-[{"$addFields":{"undefined":"$_id","group_by_type":"","group_by_slug":"","createdAt":{"$arrayElemAt":["$data.createdAt",0]}}},{"$sort":{"createdAt":-1}}]

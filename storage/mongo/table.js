@@ -554,6 +554,19 @@ let tableStore = {
             throw err
         }
 
+    }),
+    getTablesByLabel: catchWrapDb(`${NAMESPACE}.getTablesByLabel`, async (data) => {
+        try {
+
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+
+            const tables = await Table.find({label: data.label})
+
+            return tables;
+        } catch (err) {
+            throw err
+        }
     })
 };
 

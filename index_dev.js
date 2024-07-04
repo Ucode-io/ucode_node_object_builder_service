@@ -26,24 +26,23 @@ const logger = require("./config/logger");
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",
-            project_id: "e6c95e62-f1fb-4556-aa12-e512a14ecd52",
+            project_id: "6de3c0c4-4715-4021-9cc9-08bde066fb93",
             credentials: {
-                host: "142.93.164.37",
-                port: 27017,
-                database: "mongo_02eed38482ff4496b5aa30f77a16fb85_p_obj_build_svcs",
-                username: "mongo_02eed38482ff4496b5aa30f77a16fb85_p_obj_build_svcs",
-                password: "nrGN7dGRYB"
+                host: "65.109.239.69",
+                port: 30027,
+                database: "mongo_dev__d09c8fd0201b4781aaf0e81ccdacde29_p_obj_build_svcs",
+                username: "mongo_dev__d09c8fd0201b4781aaf0e81ccdacde29_p_obj_build_svcs",
+                password: "QmovRDh8JB"
             }
         })
 
-
-        //mongodb://wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs:xLezOfqNj0@142.93.164.37:27017/wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs
-        //mongodb://mongo_02eed38482ff4496b5aa30f77a16fb85_p_obj_build_svcs:nrGN7dGRYB@142.93.164.37:27017/mongo_02eed38482ff4496b5aa30f77a16fb85_p_obj_build_svcs
-        // mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs pr_id: "49ae6c46-5397-4975-b238-320617f0190c"
-        // mongodb://rizo_42ab0799deff4f8cbf3f64bf9665d304_s_obj_build_svcs:ivymDZFcdA@142.93.164.37:27017/rizo_42ab0799deff4f8cbf3f64bf9665d304_s_obj_build_svcs
-        //mongodb://logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs:zWWzDFqtVQ@142.93.164.37:27017/logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs
-        //mongodb://vertebra_vertebra_object_builder_service:f7NJv0ZaKr@142.93.164.37:27017/vertebra_vertebra_object_builder_service
+        //mongodb://montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs:NCHVE6jdEh@65.109.239.69:30027/montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs
+        //mongodb://swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs:MktIH85m1l@142.93.164.37:27017/swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs
+        // mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs
+        //mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs:ugdvopAnMJ@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_p_obj_build_svcs
+        //mongodb://ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs:AvZtXGmSFi@65.109.239.69:30027/ett_8fffdb8cbff54645a40dbae0a272f6e7_s_obj_build_svcs
         //mongodb://uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs:vBPqHBE2gm@142.93.164.37:27017/uzcard_1cc4c7e54cc64415b074f331c6a13cc1_p_obj_build_svcs
+        //mongodb://balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs:Dov4ocrqq0@65.109.239.69:30027/balenciaga_d94b7c0e3f6446e7a362345c9fe6800d_p_obj_build_svcs
         //mongodb://swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs:vwdG8B7gzO@142.93.164.37:27017/swift_7214baf774da4fd2a1166477a9528c83_p_obj_build_svcs
         //mongodb://dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs:QoRidVg9iL@65.109.239.69:30027/dev_b7a9b7317ba04a97a1ecebc6da74f0af_p_obj_build_svcs
         //mongodb://rizo-company_rizo-company_object_builder_service:uEzqO8YsIt@142.93.164.37:27017/rizo-company_rizo-company_object_builder_service

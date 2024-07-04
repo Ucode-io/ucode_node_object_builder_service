@@ -573,7 +573,6 @@ let relationStore = {
                 case "Many2One":
  
                 case "One2One":
-                    
                     data.field_from = data.table_to + "_id";
                     data.field_to = "id";
                     table = await Table.findOne({
@@ -893,7 +892,6 @@ let relationStore = {
             let viewRelationPermissions = (await ObjectBuilder(true, data.project_id))["view_relation_permission"]
             await viewRelationPermissions.models.updateMany({ relation_id: data.id, table_slug: data.relation_table_slug }, { $set: { label: data.title } })
             if (isViewExists) {
-
                 beforeUpdate.attributes = isViewExists.attributes
                 
                 await View.findOneAndUpdate(
@@ -929,6 +927,7 @@ let relationStore = {
                         },
                     }
                 );
+                
             } else {
                 data.type = data.view_type;
                 data["name"] = data.title;
@@ -942,6 +941,10 @@ let relationStore = {
             }
 
             relation.attributes = data.attributes
+            relation.table_from = tableFrom
+            relation.table_to = tableTo
+            relation.view_fields = viewFields
+
 
             relation.table_from = tableFrom
             relation.table_to = tableTo

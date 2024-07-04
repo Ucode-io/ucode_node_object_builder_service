@@ -195,7 +195,6 @@ let layoutStore = {
 
                 for (let j = 0; j < tab.sections.length; j++) {
                     let section = tab.sections[j];
-
                     section.id = section.id || v4()
 
                     if (map_sections[section.id]) {
@@ -842,6 +841,7 @@ let layoutStore = {
             throw error
         }
     }),
+
     RemoveLayout: catchWrapDb(`${NAMESPACE}.GetSingleLayout`, async function (data) {
         try {
             const mongoConn = await mongoPool.get(data.project_id)

@@ -24,7 +24,6 @@ const guessClientType = require("../initial_setups/guessClientType")
 const settingCheker = require("./settingChecker")
 
 async function insertCollections(conn, userId, projectId, clientTypeID, roleID) {
-
     const projectID = projectId.toString()
     const clientPlatformID = v4().toString()
     if (clientTypeID == "") {
@@ -33,7 +32,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
     if (roleID == "") {
         roleID = v4().toString()
     }
-
     const userID = userId ? userId.toString() : ""
     const testLoginID = v4().toString()
     const connectionID = v4().toString()

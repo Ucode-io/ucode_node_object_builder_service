@@ -33,7 +33,6 @@ let NAMESPACE = "storage.project";
 let projectStore = {
     register: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
-
             if (!data.user_id) {
                 throw new Error('Error user_id is required')
             }
@@ -165,7 +164,7 @@ let projectStore = {
                         await addFields({ project_id: data.project_id })
                         await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         await new_field({ project_id: data.project_id, mongoDBConn: mongoDBConn })
-                        await add_permission_field({project_id: data.project_id, })
+                        await add_permission_field({project_id: data.project_id})
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })
                         // await initialGlobalPermission({ project_id: data.project_id })

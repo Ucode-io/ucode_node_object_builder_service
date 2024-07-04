@@ -686,9 +686,9 @@ let permission = {
                     pdf_action: table?.record_permissions?.pdf_action || "No",
                     add_field: table?.record_permissions?.add_field || "No",
                     delete_all: table?.record_permissions?.delete_all || "No",
-                    add_filter: table.custom_permission?.add_filter || "No",
-                    header: table.custom_permission?.header || "No",
-                    field_filter: table.custom_permission?.field_filter || "No",
+                    add_filter: table?.record_permissions?.add_filter || "No",
+                    header: table?.record_permissions?.header || "No",
+                    field_filter: table?.record_permissions?.field_filter || "No",
                 }
             }
             if (!tableCopy.record_permissions) {

@@ -4824,10 +4824,160 @@ async function createField() {
 		"__v": 0
 	},
 	{
-		"id": "ccb7c75e-599f-429d-acaa-76c1e15b7041",
+		"id": "7d7d3a79-6e24-4406-8382-22725d832f31",
 		"required": false,
-		"slug": "header",
-		"label": "Header",
+		"slug": "fix_column",
+		"label": "Fix Column",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "278012fb-2e19-4096-8d33-a89b5c2bb2cc",
+		"required": false,
+		"slug": "tab_group",
+		"label": "Tab Group",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "4f2ee4ef-5255-473f-900e-0446c7affe69",
+		"required": false,
+		"slug": "columns",
+		"label": "Columns",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "2bfa9e02-56ee-489f-bd52-5fa872e01756",
+		"required": false,
+		"slug": "group",
+		"label": "Group",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "d59fed1e-ac23-4409-bd7f-1a415e885876",
+		"required": false,
+		"slug": "excel_menu",
+		"label": "Excel Menu",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+			"fields": {
+				"maxLength": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"placeholder": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"showTooltip": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"is_visible": false,
+		"table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	},
+	{
+		"id": "286ea44a-8684-4527-b0df-d73d04e29db8",
+		"required": false,
+		"slug": "search_button",
+		"label": "Search Button",
 		"default": "",
 		"type": "SINGLE_LINE",
 		"index": "string",

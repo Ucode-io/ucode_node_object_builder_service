@@ -7,7 +7,7 @@ const config = {
     mongoPassword: getConf("MONGO_PASSWORD", ""),
     mongoDatabase: getConf("MONGO_DATABASE", ""),
 
-    RPCPort: getConf("RPC_PORT", 0),
+    RPCPort: getConf("RPC_PORT", 9102),
 
     kafkaHost: getConf("KAFKA_HOST", ""),
     kafkaPort: getConf("KAFKA_PORT", ""),

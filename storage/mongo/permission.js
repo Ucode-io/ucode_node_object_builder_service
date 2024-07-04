@@ -686,6 +686,9 @@ let permission = {
                     pdf_action: table?.record_permissions?.pdf_action || "No",
                     add_field: table?.record_permissions?.add_field || "No",
                     delete_all: table?.record_permissions?.delete_all || "No",
+                    add_filter: table.custom_permission?.add_filter || "No",
+                    header: table.custom_permission?.header || "No",
+                    field_filter: table.custom_permission?.field_filter || "No",
                 }
             }
             if (!tableCopy.record_permissions) {
@@ -1137,6 +1140,9 @@ let permission = {
                 pdf_action: table.custom_permission?.pdf_action || "No",
                 add_field: table.custom_permission?.add_field || "No",
                 delete_all: table.custom_permission?.delete_all || "No",
+                add_filter: table.custom_permission?.add_filter || "No",
+                header: table.custom_permission?.header || "No",
+                field_filter: table.custom_permission?.field_filter || "No",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {
@@ -1497,7 +1503,10 @@ let permission = {
                 view_create: "Yes",
                 pdf_action: "Yes",
                 add_field: "Yes",
-                delete_all: "Yes"
+                delete_all: "Yes",
+                add_filter: "Yes",
+                header: "Yes",
+                field_filter: "Yes",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {

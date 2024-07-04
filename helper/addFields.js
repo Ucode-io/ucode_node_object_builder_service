@@ -362,7 +362,94 @@ module.exports = async function (data) {
             "created_at": new Date(),
             "updated_at": new Date(),
             "__v": 0
-        }]
+        }, {
+            "id": "6f50514c-7ce9-43ed-8aa0-38840d1ab59f",
+            "required": false,
+            "slug": "add_filter",
+            "label": "Add Filter",
+            "default": "",
+            "type": "SINGLE_LINE",
+            "index": "string",
+            "attributes": {
+                "fields": {
+                    "maxLength": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "placeholder": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "showTooltip": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    }
+                }
+            },
+            "is_visible": false,
+            "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0
+        }, {
+            "id": "ccb7c75e-599f-429d-acaa-76c1e15b7041",
+            "required": false,
+            "slug": "header",
+            "label": "Header",
+            "default": "",
+            "type": "SINGLE_LINE",
+            "index": "string",
+            "attributes": {
+                "fields": {
+                    "maxLength": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "placeholder": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "showTooltip": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    }
+                }
+            },
+            "is_visible": false,
+            "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0
+        }, {
+            "id": "1649f334-94e8-4211-a60c-955817ce0147",
+            "required": false,
+            "slug": "field_filter",
+            "label": "Field Filter",
+            "default": "",
+            "type": "SINGLE_LINE",
+            "index": "string",
+            "attributes": {
+                "fields": {
+                    "maxLength": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "placeholder": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "showTooltip": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    }
+                }
+            },
+            "is_visible": false,
+            "table_id": "25698624-5491-4c39-99ec-aed2eaf07b97",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0
+        },]
         let bulkWriteFields = []
         fields.forEach(field => {
             bulkWriteFields.push(

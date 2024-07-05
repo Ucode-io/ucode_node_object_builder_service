@@ -486,12 +486,18 @@ let menuStore = {
             throw err
         }
     }),
-    getByLabel: catchWrapDb(`${NAMESPACE}.getByLable`, async (data) => {
-        const mongoConn = await mongoPool.get(data.project_id)
-        const Menu = mongoConn.models['object_builder_service.menu']
-
+    getByLabel: catchWrapDb(`${NAMESPACE}.getByLabel`, async (data) => {
+        const mongoConn = await mongoPool.get(data.project_id);
+        const Menu = mongoConn.models['object_builder_service.menu'];
+    
         let menus = await Menu.find({label: data.label});
-        return {menus}
+    
+        if (menus.length === 0) {
+            const regex = new RegExp(data.label, 'i'); 
+            menus = await Menu.find({label: regex});
+        }
+    
+        return {menus};
     }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {

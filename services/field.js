@@ -9,6 +9,7 @@ const fieldService = {
     GetAll: catchWrapService(`service.field.getAll`, fieldStore.getAll),
     Delete: catchWrapService(`service.field.delete`, fieldStore.delete),
     GetAllForItems: catchWrapService(`service.field.getAllForItems`, fieldStore.getAllForItems),
+    GetAllByLabel: catchWrapService(`service.field.getAllByLabel`, fieldStore.getAllByLabel),
 };
 
 module.exports = fieldService;

@@ -1003,6 +1003,21 @@ let fieldStore = {
         }
 
     }),
+    getAllByLabel: catchWrapDb(`${NAMESPACE}.getAllByLabel`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+
+            const Field = mongoConn.models['Field']
+
+            const fields = await Field.find({table_id: data.table_id, label: data.field_label})
+
+            // console.log(fields)
+
+            return {fields: fields}
+        } catch (err) {
+            throw err
+        }
+    })
 };
 
 module.exports = fieldStore;

@@ -8,8 +8,6 @@ const mongoPool = require('../../pkg/pool');
 const { struct } = require('pb-util');
 
 
-
-
 let NAMESPACE = "storage.table";
 
 

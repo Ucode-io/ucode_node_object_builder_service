@@ -493,8 +493,13 @@ let menuStore = {
         let menus = await Menu.find({label: data.label});
     
         if (menus.length === 0) {
-            const regex = new RegExp(data.label, 'i'); 
-            menus = await Menu.find({label: regex});
+            menus = await Menu.find({
+                $text: {
+                    $search: data.label,
+                    $caseSensitive: false,
+                    $diacriticSensitive: false
+                }
+            });
         }
     
         return {menus};

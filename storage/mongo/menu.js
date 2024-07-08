@@ -8,6 +8,7 @@ const folderMinio = require("../../helper/addMinioBucket");
 // const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants");
 const logger = require("../../config/logger");
 let NAMESPACE = "storage.menu";
+const fuzz = require('fuzzball');
 
 
 let menuStore = {
@@ -486,12 +487,30 @@ let menuStore = {
             throw err
         }
     }),
-    getByLabel: catchWrapDb(`${NAMESPACE}.getByLable`, async (data) => {
-        const mongoConn = await mongoPool.get(data.project_id)
-        const Menu = mongoConn.models['object_builder_service.menu']
+    getByLabel: catchWrapDb(`${NAMESPACE}.getByLabel`, async (data) => {
+        const mongoConn = await mongoPool.get(data.project_id);
+        const Menu = mongoConn.models['object_builder_service.menu'];
+    
+        // Fetch all menus (or a larger subset if the dataset is too big)
+        let allMenus = await Menu.find({});
+    
+        // Use fuzzy matching to find similar labels
+        let matches = allMenus.map(menu => {
+            return {
+                menu: menu,
+                score: fuzz.ratio(data.label, menu.label)
+            };
+        });
+    
+        // Filter and sort matches based on score
+        matches = matches.filter(match => match.score > 70).sort((a, b) => b.score - a.score);
+    
+        // Extract the matched menus
+        let menus = matches.map(match => match.menu);
 
-        let menus = await Menu.find({label: data.label});
-        return {menus}
+        console.log("Menus->", menus)
+    
+        return {menus};
     }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
         try {

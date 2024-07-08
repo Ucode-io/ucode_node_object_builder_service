@@ -8,6 +8,7 @@ const folderMinio = require("../../helper/addMinioBucket");
 // const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants");
 const logger = require("../../config/logger");
 let NAMESPACE = "storage.menu";
+const fuzz = require('fuzzball');
 
 
 let menuStore = {
@@ -490,17 +491,24 @@ let menuStore = {
         const mongoConn = await mongoPool.get(data.project_id);
         const Menu = mongoConn.models['object_builder_service.menu'];
     
-        let menus = await Menu.find({label: data.label});
+        // Fetch all menus (or a larger subset if the dataset is too big)
+        let allMenus = await Menu.find({});
     
-        if (menus.length === 0) {
-            menus = await Menu.find({
-                $text: {
-                    $search: data.label,
-                    $caseSensitive: false,
-                    $diacriticSensitive: false
-                }
-            });
-        }
+        // Use fuzzy matching to find similar labels
+        let matches = allMenus.map(menu => {
+            return {
+                menu: menu,
+                score: fuzz.ratio(data.label, menu.label)
+            };
+        });
+    
+        // Filter and sort matches based on score
+        matches = matches.filter(match => match.score > 70).sort((a, b) => b.score - a.score);
+    
+        // Extract the matched menus
+        let menus = matches.map(match => match.menu);
+
+        console.log("Menus->", menus)
     
         return {menus};
     }),

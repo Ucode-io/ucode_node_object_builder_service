@@ -292,13 +292,13 @@ let prepareFunction = {
             }
         }
 
-        let rO = fieldM["NUMBER"]
+        // let rO = fieldM["NUMBER"]
 
-        if (rO && rO?.slug == "row_order") {
-            let rowOrder = await getLastValue(mongoConn, req.table_slug)
+        // if (rO && rO?.slug == "row_order") {
+        //     let rowOrder = await getLastValue(mongoConn, req.table_slug)
 
-            data.row_order = rowOrder.value
-        }
+        //     data.row_order = rowOrder.value
+        // }
 
         let payload = new tableInfo.models(data);
 

@@ -686,6 +686,14 @@ let permission = {
                     pdf_action: table?.record_permissions?.pdf_action || "No",
                     add_field: table?.record_permissions?.add_field || "No",
                     delete_all: table?.record_permissions?.delete_all || "No",
+                    add_filter: table?.record_permissions?.add_filter || "Yes",
+                    field_filter: table?.record_permissions?.field_filter || "Yes",
+                    fix_column: table?.record_permissions?.fix_column || "Yes",
+                    tab_group: table?.record_permissions?.tab_group || "Yes",
+                    columns: table?.record_permissions?.columns || "Yes",
+                    group: table?.record_permissions?.group || "Yes",
+                    excel_menu: table?.record_permissions?.excel_menu || "Yes",
+                    search_button: table?.record_permissions?.search_button || "Yes"
                 }
             }
             if (!tableCopy.record_permissions) {
@@ -1137,6 +1145,14 @@ let permission = {
                 pdf_action: table.custom_permission?.pdf_action || "No",
                 add_field: table.custom_permission?.add_field || "No",
                 delete_all: table.custom_permission?.delete_all || "No",
+                add_filter: table.custom_permission?.add_filter || "Yes",
+                field_filter: table.custom_permission?.field_filter || "Yes",
+                fix_column: table.custom_permission?.fix_column || "Yes",
+                tab_group: table.custom_permission?.tab_group || "Yes",
+                columns: table.custom_permission?.columns || "Yes",
+                group: table.custom_permission?.group || "Yes",
+                excel_menu: table.custom_permission?.excel_menu || "Yes",
+                search_button: table.custom_permission?.search_button || "Yes",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {
@@ -1497,7 +1513,15 @@ let permission = {
                 view_create: "Yes",
                 pdf_action: "Yes",
                 add_field: "Yes",
-                delete_all: "Yes"
+                delete_all: "Yes",
+                add_filter: "Yes",
+                field_filter: "Yes",
+                fix_column: "Yes",
+                tab_group: "Yes",
+                columns: "Yes",
+                group: "Yes",
+                excel_menu: "Yes",
+                search_button: "Yes",
             }
             bulkWriteRecordPermissions.push({
                 updateOne: {

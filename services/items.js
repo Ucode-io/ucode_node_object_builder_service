@@ -14,6 +14,9 @@ const objectBuilderService = {
     ManyToManyDelete: catchWrapServiceObjectBuilder(`service.${NAMESPACE}.deleteManyToMany`, objectBuilderStoreV2.deleteManyToMany),
     MultipleUpdate: catchWrapServiceObjectBuilder(`service.${NAMESPACE}.multipleUpdate`, objectBuilderStoreV2.multipleUpdate),
     MultipleInsert: catchWrapServiceObjectBuilder(`service.${NAMESPACE}.multipleInsert`, objectBuilderStoreV2.multipleInsert),
+    GetSlugsByTable: catchWrapServiceObjectBuilder(`service.${NAMESPACE}.getSlugsByTable`, objectBuilderStoreV2.getSlugsByTable),
+    UpdateBySearch: catchWrapServiceObjectBuilder(`service.${NAMESPACE}.updateBySearch`, objectBuilderStoreV2.updateBySearch),
+    DeleteBySearch: catchWrapServiceObjectBuilder(`service.${NAMESPACE}.deleteBySearch`, objectBuilderStoreV2.deleteBySearch)
 };
 
 module.exports = objectBuilderService;  

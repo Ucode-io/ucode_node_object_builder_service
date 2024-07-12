@@ -10,6 +10,7 @@ const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const os = require('os');
+const { data } = require("../../config/logger");
 
 let NAMESPACE = "storage.relation";
 
@@ -1863,6 +1864,41 @@ let relationStore = {
             await View.insertMany(data.views)
 
             return {};
+        } catch (err) {
+            throw err;
+        }
+    }),
+    getIds: catchWrapDb(`${NAMESPACE}.getIds`, async (data) => {
+        try {
+
+            const mongoConn = await mongoPool.get(data.project_id);
+            const Relation = mongoConn.models["Relation"];
+
+            let ids = []
+
+            let query = {
+                table_from: data.table_from,
+                table_to: data.table_to
+            }
+
+            if (data.type) {
+                query = {
+                    table_from: data.table_from,
+                    table_to: data.table_to,
+                    type: data.type
+                }
+            }
+
+            let relations = await Relation.find(query)
+
+            for (let r of relations) {
+                ids.push(r.id)
+            }
+
+            return {
+                ids: ids
+            }
+
         } catch (err) {
             throw err;
         }

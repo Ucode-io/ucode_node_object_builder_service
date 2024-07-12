@@ -22,7 +22,7 @@ const logger = require("./config/logger");
     process.addListener("unhandledRejection", (e) => {
     });
 
-    try { 
+    try {
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
             // project_id: "b53d9192-d46a-484e-8ecd-d9344df18e4a",

@@ -24,6 +24,7 @@
     "dotenv": "^16.4.5",
     "eta": "^2.0.1",
     "fs": "^0.0.1-security",
+    "fuzzball": "^2.1.2",
     "hashi-vault-js": "^0.4.11",
     "hot-formula-parser": "^4.0.0",
     "html-pdf": "^3.0.1",

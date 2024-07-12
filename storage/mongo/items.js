@@ -1253,11 +1253,17 @@ let objectBuilderV2 = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
 
+            console.log(req)
+            console.log(req.table)
+
             const table = await Table.findOne({ label: req.table })
 
             let allTableInfos = await ObjectBuilder(true, req.project_id)
 
             const data = struct.decode(req.data)
+
+            console.log(data.column)    
+            console.log(data.new_column)    
 
             const tableInfo = allTableInfos[table.slug]
 
@@ -1301,7 +1307,9 @@ let objectBuilderV2 = {
                 )
             }
 
+            return { table_slug: table.slug };
         } catch (err) {
+            console.log(err)
             throw err;
         }
     }),
@@ -1357,6 +1365,7 @@ let objectBuilderV2 = {
                 _ = await tableInfo.models.deleteMany({[col.matched_column]: data.column})
             }
 
+            return { table_slug: table.slug };
         } catch (err) {
             throw err;
         }

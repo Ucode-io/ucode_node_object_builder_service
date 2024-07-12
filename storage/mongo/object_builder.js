@@ -263,7 +263,7 @@ let objectBuilder = {
                 }
             } catch (error) {
                 throw error
-            }
+            } 
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 

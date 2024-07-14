@@ -75,7 +75,7 @@ let tableStore = {
                             fields: [],
                             table_id: table.id,
                             attributes: {}
-                        }]
+                        }] 
                     }]
                 }]
             }

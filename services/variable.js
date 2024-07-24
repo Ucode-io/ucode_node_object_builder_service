@@ -7,6 +7,6 @@ const variableService = {
     GetSingle: catchWrapServiceObjectBuilder(`service.variableStore.getSingle`, variableStore.getSingle),
     GetList: catchWrapServiceObjectBuilder(`service.variableStore.getList`, variableStore.getList),
     Delete: catchWrapServiceObjectBuilder(`service.variableStore.delete`, variableStore.delete),
-}; 
+};  
 
 module.exports = variableService;

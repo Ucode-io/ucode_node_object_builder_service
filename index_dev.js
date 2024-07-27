@@ -32,7 +32,7 @@ const logger = require("./config/logger");
                 database: "rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs",
                 username: "rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs",
                 password: "oDgRRrJR7U"
-            }
+            } 
         })
 
         //mongodb://montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs:NCHVE6jdEh@65.109.239.69:30027/montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs

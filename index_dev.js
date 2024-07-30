@@ -25,13 +25,13 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
-            project_id: "583184ec-1762-48dd-b4a5-a1390099c1e2",
+            project_id: "49ae6c46-5397-4975-b238-320617f0190c",
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs",
-                username: "rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs",
-                password: "oDgRRrJR7U"
+                database: "starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs",
+                username: "starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs",
+                password: "oyGGjfQFI8"
             } 
         })
 

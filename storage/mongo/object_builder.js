@@ -3249,7 +3249,9 @@ let objectBuilder = {
             let language = data.language
             delete req.data.field_ids
             const mongoConn = await mongoPool.get(req.project_id)
+            req.data.limit = 100
             const res = await objectBuilder.getList(req)
+            delete req.data.limit
             const response = struct.decode(res.data)
             const result = response.response
             const decodedFields = response.fields

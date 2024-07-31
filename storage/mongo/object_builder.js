@@ -635,8 +635,6 @@ let objectBuilder = {
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
-        logger.info("getListSlim-->Project->" + req.project_id)
-        logger.info("Request->" + JSON.stringify(req))
         const startMemoryUsage = process.memoryUsage();
 
         const mongoConn = await mongoPool.get(req.project_id)
@@ -1007,15 +1005,20 @@ let objectBuilder = {
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
-        logger.info(`--> P-M Memory used by getListSlim: ${memoryUsed.toFixed(2)} MB`);
-        logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+        if (memoryUsed > 500) {
+            logger.info("getListSlim-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getListSlim: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
         
-        logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
-        logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        }
 
         const response = struct.encode({
             count: count,
@@ -1026,8 +1029,6 @@ let objectBuilder = {
 
     }),
     getListSlim2: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim2`, async (req) => {
-        logger.info("getListSlim2-->Project->" + req.project_id)
-        logger.info("Request->" + JSON.stringify(req))
         const startMemoryUsage = process.memoryUsage();
 
         const mongoConn = await mongoPool.get(req.project_id)
@@ -1500,15 +1501,19 @@ let objectBuilder = {
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
-        logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB`);
-        logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
-        
-        logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
-        logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        if (memoryUsed > 500) {
+            logger.info("getListSlim2-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+            logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        }
 
         const response = struct.encode({
             count: count,
@@ -1518,8 +1523,6 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        logger.info("getList-->Project->" + req.project_id)
-        logger.info("Request->" + JSON.stringify(req))
         const startMemoryUsage = process.memoryUsage();
 
         const mongoConn = await mongoPool.get(req.project_id)
@@ -2346,23 +2349,24 @@ let objectBuilder = {
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
-        logger.info(`--> P-M Memory used by getList: ${memoryUsed.toFixed(2)} MB`);
-        logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
-        
-        logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
-        logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        if (memoryUsed > 500) {
+            logger.info("getList-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+            logger.info(`--> P-M Memory used by getList: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        }
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),
     getList2: catchWrapDbObjectBuilder(`${NAMESPACE}.getList2`, async (req) => {
-
-        logger.info("getList2-->Project->" + req.project_id)
-        logger.info("Request->" + JSON.stringify(req))
         const startMemoryUsage = process.memoryUsage();
 
         const mongoConn = await mongoPool.get(req.project_id)
@@ -3068,15 +3072,20 @@ let objectBuilder = {
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
-        logger.info(`--> P-M Memory used by getList2: ${memoryUsed.toFixed(2)} MB`);
-        logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
-        logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
-        
-        logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
-        logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        if (memoryUsed > 1) {
+            logger.info("getList2-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getList2: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        }
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 

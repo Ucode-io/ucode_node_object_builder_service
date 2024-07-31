@@ -208,7 +208,7 @@ let fileStore = {
                 useSSL: ssl,
                 accessKey: cfg.minioAccessKeyID,
                 secretKey: cfg.minioSecretAccessKey,
-                port: 9001,
+                port: cfg.minioPort,
             })
 
             minioClient.putObject('wayll', genName1, buf, function (error, etag) {

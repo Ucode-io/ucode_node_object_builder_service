@@ -1004,7 +1004,7 @@ let objectBuilder = {
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
-        if (memoryUsed > 500) {
+        if (memoryUsed > 300) {
             logger.info("getListSlim-->Project->" + req.project_id)
             logger.info("Request->" + JSON.stringify(req))
 
@@ -1017,6 +1017,8 @@ let objectBuilder = {
         
             logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
             logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getListSlim: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
         }
 
         const response = struct.encode({
@@ -1500,7 +1502,7 @@ let objectBuilder = {
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
-        if (memoryUsed > 500) {
+        if (memoryUsed > 300) {
             logger.info("getListSlim2-->Project->" + req.project_id)
             logger.info("Request->" + JSON.stringify(req))
             logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB`);
@@ -1512,6 +1514,8 @@ let objectBuilder = {
             
             logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
             logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
         }
 
         const response = struct.encode({
@@ -2348,7 +2352,7 @@ let objectBuilder = {
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
-        if (memoryUsed > 500) {
+        if (memoryUsed > 300) {
             logger.info("getList-->Project->" + req.project_id)
             logger.info("Request->" + JSON.stringify(req))
             logger.info(`--> P-M Memory used by getList: ${memoryUsed.toFixed(2)} MB`);
@@ -2360,6 +2364,8 @@ let objectBuilder = {
             
             logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
             logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getList: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
         }
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
@@ -3071,7 +3077,7 @@ let objectBuilder = {
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
-        if (memoryUsed > 1) {
+        if (memoryUsed > 300) {
             logger.info("getList2-->Project->" + req.project_id)
             logger.info("Request->" + JSON.stringify(req))
 
@@ -3084,6 +3090,8 @@ let objectBuilder = {
             
             logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
             logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getList2: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
         }
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }

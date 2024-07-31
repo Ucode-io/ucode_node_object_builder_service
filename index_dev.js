@@ -25,16 +25,17 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
-            project_id: "e6c95e62-f1fb-4556-aa12-e512a14ecd52",
+            project_id: "088bf450-6381-45b5-a236-2cb0880dcaab",
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "mongo_02eed38482ff4496b5aa30f77a16fb85_p_obj_build_svcs",
-                username: "mongo_02eed38482ff4496b5aa30f77a16fb85_p_obj_build_svcs",
-                password: "nrGN7dGRYB"
+                database: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
+                username: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
+                password: "xLezOfqNj0"
             }
         })
 
+        //mongodb://wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs:xLezOfqNj0@142.93.164.37:27017/wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs
         //mongodb://montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs:NCHVE6jdEh@65.109.239.69:30027/montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs
         //mongodb://swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs:MktIH85m1l@142.93.164.37:27017/swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs
         // mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs

@@ -117,7 +117,7 @@ let fileStore = {
             let name3 = '3.Устав.docx'
             let genName3 = '3.Устав_gen' + v4().toString() + '.docx'
             let name4 = '4.Ишончли_бошқарув_шартномаси.docx'
-            let genName4 = '4.Ишончли_бошқарув_шартномаси' + v4().toString() + '.docx'
+            let genName4 = '4.Ишончли_бошқарув_шартномаси_gen' + v4().toString() + '.docx'
             let files = []
 
             const filename1 = path.join(__dirname, '..', '..', 'document', name1);
@@ -198,17 +198,17 @@ let fileStore = {
             let genFileName4 = path.join(__dirname, '..', '..', 'document', genName4);
             fs.writeFileSync(genFileName4, buf4);
 
-            let ssl = true
-            if (cfg.minioSSL !== true) {
-                ssl = false
-            }
+            // let ssl = true
+            // if (cfg.minioSSL !== true) {
+            //     ssl = false
+            // }
 
             var minioClient = new Client({
                 endPoint: cfg.minioEndpoint,
-                useSSL: ssl,
+                useSSL: false,
                 accessKey: cfg.minioAccessKeyID,
                 secretKey: cfg.minioSecretAccessKey,
-                port: cfg.minioPort,
+                port: Number(cfg.minioPort),
             })
 
             minioClient.putObject('wayll', genName1, buf, function (error, etag) {

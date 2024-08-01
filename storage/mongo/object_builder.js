@@ -33,7 +33,6 @@ const v8 = require('v8');
 const { pipeline } = require('stream');
 const updateISODateFunction = require('../../helper/updateISODate');
 const { log } = require('console');
-const { isArray } = require('minio/dist/main/helpers');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -213,8 +212,7 @@ let objectBuilder = {
                     guid: data.id
                 });
 
-            
-                if (data.password != "") {
+                if (data.password != "" && data.password) {
                     let checkPassword = data.password?.substring(0, 4)
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
                         if (response) {
@@ -261,10 +259,37 @@ let objectBuilder = {
                             }
                         }
                     }
+                } else if (data.phone) {
+                    if (response) { 
+                        if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                            let tableAttributes = struct.decode(tableModel.attributes);
+                
+                            if (tableAttributes && tableAttributes.auth_info) {
+                                let authInfo = tableAttributes.auth_info;
+                
+                                if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                    throw new Error('This table is an auth table. Auth information not fully given');
+                                }
+
+                                let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                    guid: response[authInfo['client_type_id']],
+                                    table_slug: tableModel.slug
+                                });
+
+                                if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
+                                    let updateUserRequest = {
+                                        guid: response['guid'],
+                                        phone: data[authInfo['phone']],
+                                    };
+                                    await grpcClient.updateUserAuth(updateUserRequest);
+                                }
+                            }
+                        }
+                    }
                 }
             } catch (error) {
                 throw error
-            }
+            } 
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 
@@ -609,9 +634,9 @@ let objectBuilder = {
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
-        console.log("\n\n Get List Slim #1")
+        const startMemoryUsage = process.memoryUsage();
+
         const mongoConn = await mongoPool.get(req.project_id)
-        console.log("\n\n Get List Slim #2")
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -622,7 +647,6 @@ let objectBuilder = {
         delete params["limit"]
         delete params["offset"]
         const allTables = await ObjectBuilder(true, req.project_id)
-        console.log("\n\n Get List Slim #3")
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -633,9 +657,7 @@ let objectBuilder = {
         let order = params.order || {}
         let with_relations = params.with_relations
 
-        console.log("\n\n Get List Slim #4")
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
-        console.log("\n\n Get List Slim #5")
 
         if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
@@ -839,7 +861,6 @@ let objectBuilder = {
         }
         count = await tableInfo.models.count(params);
 
-        console.log("\n\n Get List Slim #6")
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
@@ -858,7 +879,6 @@ let objectBuilder = {
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
 
-        console.log("\n\n Get List Slim #7")
         let attribute_table_from_slugs = []
         let attribute_table_from_relation_ids = []
         for (const field of formulaFields) {
@@ -910,7 +930,6 @@ let objectBuilder = {
                 dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
             }
         }
-        console.log("\n\n Get List Slim #8")
         for (const res of result) {
             let isChanged = false
             for (const field of formulaFields) {
@@ -982,16 +1001,37 @@ let objectBuilder = {
             })
         }
 
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getListSlim-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getListSlim: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+        
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getListSlim: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         const response = struct.encode({
             count: count,
             response: result,
         });
-        console.log("\n\n Get List Slim #9")
         const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
         return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
 
     }),
     getListSlim2: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim2`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -1458,6 +1498,26 @@ let objectBuilder = {
             }
         }
 
+
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getListSlim2-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+            logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         const response = struct.encode({
             count: count,
             response: result,
@@ -1466,7 +1526,7 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        const startMemoryUsage = v8.getHeapStatistics();
+        const startMemoryUsage = process.memoryUsage();
 
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
@@ -2289,16 +2349,31 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
-        const endMemoryUsage = v8.getHeapStatistics(); 
+        const endMemoryUsage = process.memoryUsage();
 
-
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getList-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+            logger.info(`--> P-M Memory used by getList: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getList: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),
     getList2: catchWrapDbObjectBuilder(`${NAMESPACE}.getList2`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
 
-        const startMemoryUsage = v8.getHeapStatistics();
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -2999,7 +3074,25 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
-        const endMemoryUsage = v8.getHeapStatistics();
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getList2-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getList2: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getList2: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
@@ -3223,7 +3316,9 @@ let objectBuilder = {
             let language = data.language
             delete req.data.field_ids
             const mongoConn = await mongoPool.get(req.project_id)
+            req.data.limit = 100
             const res = await objectBuilder.getList(req)
+            delete req.data.limit
             const response = struct.decode(res.data)
             const result = response.response
             const decodedFields = response.fields
@@ -3384,7 +3479,7 @@ let objectBuilder = {
 
             minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
                 if (error) {
-                    return console.log(error);
+                    return logger.error(error);
                 }
                 fs.unlink(filename, (err => {
                     if (err) {}
@@ -3583,7 +3678,7 @@ let objectBuilder = {
         let views = tableInfo.views;
 
         for (let view of views) {
-            if (isArray(view?.attributes?.quick_filters)) {
+            if (Array.isArray(view?.attributes?.quick_filters)) {
                 for (let qf of view.attributes.quick_filters) {
                     if (qf.label == "") {
                         qf.label = qf.attributes.label_ru
@@ -5585,7 +5680,6 @@ let objectBuilder = {
             const result = response.response
             const decodedFields = response.fields
             const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
-            console.log("selectedFields >>> ", selectedFields)
             excelArr = []
             for (const obj of result) {
                 excelObj = {}
@@ -5651,7 +5745,6 @@ let objectBuilder = {
                             }
                             obj[field.slug] = multiselectValue
                         }   
-                        console.log("obj[field.slug] >>> ", obj[field.slug])
                         excelObj[field.label] = obj[field.slug]
                     } else {
                         excelObj[field.label] = ""
@@ -5659,7 +5752,6 @@ let objectBuilder = {
                 }
                 excelArr.push(excelObj)
             }
-            console.log("excelArr >>>> ", excelArr)
             const workSheet = XLSX.utils.json_to_sheet(excelArr);
             const workBook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
@@ -5690,10 +5782,10 @@ let objectBuilder = {
 
             minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
                 if (error) {
-                    return console.log(error);
+                    return logger.error(error);
                 }
                 fs.unlink(filename, (err => {
-                    if (err) console.log(err);
+                    if (err) logger.error(err);
                     else {
                     }
                 }));

@@ -152,7 +152,7 @@ let objectBuilderV2 = {
                 updatedAt: 0,
                 _id: 0,
                 __v: 0
-        }).lean();
+            }).lean();
 
         if (!output) { logger.error(`failed to find object in table ${req.table_slug} with given id: ${data.id}`) };
         let isChanged = false
@@ -1209,6 +1209,156 @@ let objectBuilderV2 = {
             return
         } catch (err) {
             throw err
+        }
+    }),
+    getSlugsByTable: catchWrapDbObjectBuilder(`${NAMESPACE}.getSlugsByTable`, async (req) => {
+        try {
+
+            const mongoConn = await mongoPool.get(req.project_id)
+            const Table = mongoConn.models['Table']
+            const View = mongoConn.models['View']
+            const Field = mongoConn.models['Field']
+
+            const table = await Table.findOne({ label: req.table_label })
+
+            const view = await View.findOne({ table_slug: table.slug, type: "TABLE" })
+
+            let slugs = []
+
+            if (view) {
+                let fields = await Field.find({ table_id: table.id })
+
+                const fieldM = fields.reduce((acc, doc) => {
+                    acc[doc.id] = doc.slug;
+                    return acc;
+                }, {});
+
+                for (let id of view.columns) {
+                    slugs.push(fieldM[id])
+                }
+            }
+
+            return {
+                slugs: slugs,
+                table_slug: table.slug
+            }
+
+        } catch (err) {
+            throw err;
+        }
+    }),
+    updateBySearch: catchWrapDbObjectBuilder(`${NAMESPACE}.updateBySearch`, async (req) => {
+        try {
+            const mongoConn = await mongoPool.get(req.project_id)
+            const Table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+
+            const table = await Table.findOne({ label: req.table })
+
+            let allTableInfos = await ObjectBuilder(true, req.project_id)
+
+            const data = struct.decode(req.data)
+
+            const tableInfo = allTableInfos[table.slug]
+
+            const fields = await Field.find({ table_id: table.id })
+
+            let match = []
+            let branches = []
+
+            for (let f of fields) {
+                match.push({ [f.slug]: data.column })
+                branches.push({ case: { $eq: [`$${f.slug}`, data.column] }, then: `${f.slug}` })
+            }
+
+            let resp = await tableInfo.models.aggregate([
+                {
+                    $match: {
+                        $or: match
+                    }
+                },
+                {
+                    $addFields: {
+                        matched_column: {
+                            $switch: {
+                                branches: branches,
+                                default: null
+                            }
+                        }
+                    }
+                },
+                {
+                    $project: {
+                        matched_column: 1
+                    }
+                }
+            ])
+
+            for (let col of resp) {
+                _ = await tableInfo.models.updateMany(
+                    {[col.matched_column]: data.column},
+                    {$set: {[col.matched_column]: data.new_column}}
+                )
+            }
+
+        } catch (err) {
+            throw err;
+        }
+    }),
+    deleteBySearch: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteBySearch`, async (req) => {
+        try {
+            console.log(req)
+            const mongoConn = await mongoPool.get(req.project_id)
+            const Table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+
+            const table = await Table.findOne({ label: req.table })
+
+            let allTableInfos = await ObjectBuilder(true, req.project_id)
+
+            const data = struct.decode(req.data)
+
+            const tableInfo = allTableInfos[table.slug]
+
+            const fields = await Field.find({ table_id: table.id })
+
+            let match = []
+            let branches = []
+
+            for (let f of fields) {
+                match.push({ [f.slug]: data.column })
+                branches.push({ case: { $eq: [`$${f.slug}`, data.column] }, then: `${f.slug}` })
+            }
+
+            let resp = await tableInfo.models.aggregate([
+                {
+                    $match: {
+                        $or: match
+                    }
+                },
+                {
+                    $addFields: {
+                        matched_column: {
+                            $switch: {
+                                branches: branches,
+                                default: null
+                            }
+                        }
+                    }
+                },
+                {
+                    $project: {
+                        matched_column: 1
+                    }
+                }
+            ])
+
+            for (let col of resp) {
+                _ = await tableInfo.models.deleteMany({[col.matched_column]: data.column})
+            }
+
+        } catch (err) {
+            throw err;
         }
     }),
 }

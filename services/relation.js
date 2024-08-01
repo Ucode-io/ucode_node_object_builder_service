@@ -8,7 +8,8 @@ const relationService = {
     GetByID: catchWrapService(`service.relation.getByID`, relationStore.getByID),
     GetAll: catchWrapService(`service.relation.getAll`, relationStore.getAll),
     Delete: catchWrapService(`service.relation.delete`, relationStore.delete),
-    GetCascaders: catchWrapService(`service.relation.getCascaderList`, cascaderStore.getCascaderList)
+    GetCascaders: catchWrapService(`service.relation.getCascaderList`, cascaderStore.getCascaderList),
+    GetIds: catchWrapService(`service.relation.getIds`, relationStore.getIds)
 };
 
 module.exports = relationService;

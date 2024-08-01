@@ -8,8 +8,6 @@ const mongoPool = require('../../pkg/pool');
 const { struct } = require('pb-util');
 
 
-
-
 let NAMESPACE = "storage.table";
 
 
@@ -77,7 +75,7 @@ let tableStore = {
                             fields: [],
                             table_id: table.id,
                             attributes: {}
-                        }]
+                        }]  
                     }]
                 }]
             }
@@ -563,7 +561,29 @@ let tableStore = {
 
             const tables = await Table.find({label: data.label})
 
-            return tables;
+            return {
+                tables
+            };
+        } catch (err) {
+            throw err
+        }
+    }),
+    getFieldsByTable: catchWrapDb(`${NAMESPACE}.getFieldsByTable`, async (data) => {
+        try {
+
+            const mongoConn = await mongoPool.get(data.project_id)
+
+            const Table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+
+            const table = await Table.findOne({label: data.table_label})
+
+            const fields = await Field.find({table_id: table.id})
+
+            return {
+                fields: fields,
+                table: table
+            }
         } catch (err) {
             throw err
         }

@@ -9,3 +9,4 @@
     - DEPLOYMENT=$(echo $CI_PROJECT_NAME | sed s/_/-/g | sed s/$CI_PROJECT_NAMESPACE-//g)
     - helm repo add --username $HELM_REGISTRY_USERNAME --password $HELM_REGISTRY_PASSWORD $HELM_REPO_NAME $HELM_REGISTRY_PATH
     - helm upgrade --install $DEPLOYMENT-$WORKLOAD $HELM_REPO_NAME/$HELM_CHART_NAME --set=image.tag=$CI_PIPELINE_IID --values $VALUES_FILE -n $NAMESPACE
+    # - helm upgrade --install $DEPLOYMENT $HELM_REPO_NAME/$HELM_CHART_NAME --set=image.tag=$CI_PIPELINE_IID --values $VALUES_FILE -n $NAMESPACE

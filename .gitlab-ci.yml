@@ -102,6 +102,7 @@ deploy-object-builder-high:
     K8SCONFIGJSON: $UCODE_KUBECONFIG
   only:
     - master
+  when: manual
 
 deploy-object-builder-low:
   stage: deploy
@@ -113,6 +114,7 @@ deploy-object-builder-low:
     K8SCONFIGJSON: $UCODE_KUBECONFIG
   only:
     - master
+  when: manual
 
 rollback-staging:
   stage: rollback

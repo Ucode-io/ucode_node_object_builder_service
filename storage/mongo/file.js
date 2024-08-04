@@ -9,9 +9,6 @@ const path = require('path');
 const { struct } = require('pb-util');
 const { v4 } = require("uuid");
 
-
-
-
 let NAMESPACE = "storage.file";
 
 let fileStore = {

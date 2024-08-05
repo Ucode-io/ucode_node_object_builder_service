@@ -29,12 +29,13 @@ const logger = require("./config/logger");
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs",
-                username: "starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs",
-                password: "oyGGjfQFI8"
+                database: "logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs",
+                username: "logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs",
+                password: "zWWzDFqtVQ"
             } 
         })
 
+        // mongodb://logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs:zWWzDFqtVQ@142.93.164.37:27017/logistika_f539f64b961e4c6c8534140091f7f27b_p_obj_build_svcs
         //mongodb://montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs:NCHVE6jdEh@65.109.239.69:30027/montella_f930fbfd10fa482ca97b7caa9f14611b_p_obj_build_svcs
         //mongodb://swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs:MktIH85m1l@142.93.164.37:27017/swift_2fce779a85e64bdeac6b1c92219a73e4_p_obj_build_svcs
         // mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs

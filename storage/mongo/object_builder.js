@@ -32,7 +32,7 @@ const cluster = require('cluster');
 const v8 = require('v8');
 const { pipeline } = require('stream');
 const updateISODateFunction = require('../../helper/updateISODate');
-const { log } = require('console');
+const { log, table } = require('console');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -238,6 +238,9 @@ let objectBuilder = {
                                             email: data?.email,
                                             password: data[authInfo['password']],
                                         };
+                                        if (data.phone) {
+                                            updateUserRequest["phone"] = data[authInfo['phone']]
+                                        }
                     
                                         await grpcClient.updateUserAuth(updateUserRequest);
                                     }

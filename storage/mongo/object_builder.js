@@ -9,6 +9,7 @@ const { v4 } = require("uuid");
 const con = require("../../helper/constants");
 const tableVersion = require('../../helper/table_version')
 var fns_format = require('date-fns/format');
+const { format } = require('date-fns');
 var { addDays } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
 const RangeDate = require("../../helper/rangeDate");
@@ -3314,145 +3315,186 @@ let objectBuilder = {
     }),
     getListInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListInExcel`, async (req) => {
         try {
-            let data = struct.decode(req.data)
-            let field_ids = data.field_ids
-            let language = data.language
-            delete req.data.field_ids
             const mongoConn = await mongoPool.get(req.project_id)
-            req.data.limit = 100
-            const res = await objectBuilder.getList(req)
-            delete req.data.limit
-            const response = struct.decode(res.data)
-            const result = response.response
-            const decodedFields = response.fields
-            const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
-            excelArr = []
-            let i = 0
-            for (const obj of result) {
-                excelObj = {}
-                for (const field of selectedFields) {
 
-                    if (field.label == '' || !field.label) {
-                        field.label = field.attributes.label_en
-                    }
-                    // if (field.type === "FORMULA") {
-                    //     let attributes = field.attributes
+            let workSheet;
+            if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab" && req.table_slug == "contact") {
+                const contactRes = await objectBuilder.getList(req)
+                req.table_slug = "contact_eith_client"
+                const clientRes = await objectBuilder.getList(req)
 
-                    // /    if (attributes.table_from && attributes.sum_field) {
-                    //         let groupBy = req.table_slug + '_id'
-                    //         let groupByWithDollorSign = '$' + req.table_slug + '_id'
-                    //         let sumFieldWithDollowSign = '$' + attributes["sum_field"]
-                    //         let aggregateFunction = '$sum';
-                    //         switch (attributes.type) {
-                    //             case 'SUMM':
-                    //                 aggregateFunction = '$sum'
-                    //                 break;
-                    //             case 'AVG':
-                    //                 aggregateFunction = '$avg'
-                    //                 break;
-                    //             case 'MAX':
-                    //                 aggregateFunction = '$max'
-                    //                 break;
-                    //         }
-                    //         const pipelines = [
-                    //             {
-                    //                 '$match': {
-                    //                     [groupBy]: {
-                    //                         '$eq': obj.guid
-                    //                     }
-                    //                 }
-                    //             }, {
-                    //                 '$group': {
-                    //                     '_id': groupByWithDollorSign,
-                    //                     'res': {
-                    //                         [aggregateFunction]: sumFieldWithDollowSign
-                    //                     }
-                    //                 }
-                    //             }
-                    //         ];
+                const contactResponse = struct.decode(contactRes.data)
+                const clientResponse = struct.decode(clientRes.data)
 
-                    //         const resultFormula = await allTables[attributes.table_from].models.aggregate(pipelines)
+                const contactResult = contactResponse.response
+                const clientResult = clientResponse.response
 
-                    //         if (resultFormula.length) {
-                    //             obj[field.slug] = resultFormula[0].res
-                    //         }
-                    //     }
-                    // }
+                const excelData = []
+                const headers = [
+                    'Фамилия', 'Номер телефона', 'Дата создании', 'Сотрудник',
+                    'Дата и время', 'Тип встречи', 'Источник клиента', 'Заметка', 'Сумма инвестиции', 'Сотрудники'
+                ];
+                excelData.push(headers)
 
-                    if (obj[field.slug]) {
+                contactResult.forEach(contact => {
+                    date = new Date(contact.created_time)
+                    let newDate;
+                    try {
+                        newDate = format(date, 'dd.MM.yyyy HH:mm'); 
+                    } catch (error) {}
 
-                        if (field.type === "MULTI_LINE") {
-                            obj[field.slug] = obj[field.slug].replace(/<[^>]+>/g, '')
-                        }
+                    excelData.push([
+                        contact.surname,
+                        contact.phone_number,
+                        newDate,
+                        contact?.Employees_id_data?.name,
+                        '', '', '', '', '', ''
+                    ]);
 
-                        if (field.type === "DATE") {
-                            toDate = new Date(obj[field.slug])
+                    clientResult
+                        .filter(client => client.contact_id === contact.guid)
+                        .forEach(client => {
+                            const interviewTypeMap = {
+                                'call': 'Исходящий звонок',
+                                'offline': 'Входящий звонок',
+                                'client': 'Клиент приехал в офис',
+                                'manager': 'Менеджер подъехал в офис клиента'
+                            };
+                            const sourceMap = {
+                                'site': 'Сайт',
+                                'instagram': 'Инстаграм'
+                            };
+
+                            const interviewTypes = Array.isArray(client.interview_type) 
+                                ? client.interview_type 
+                                : [client.interview_type];
+
+                            const sources = Array.isArray(client.source) 
+                                ? client.source 
+                                : [client.source];
+
+                            const interviewType = interviewTypes.map(type => interviewTypeMap[type] || type).join(', ');
+                            const source = sources.map(src => sourceMap[src] || src).join(', ');
+
+                            const date = new Date(client.created_time);
+                            let newDate;
                             try {
-                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
-                            } catch (error) {
-                            }
-                        }
+                                newDate = format(date, 'dd.MM.yyyy HH:mm'); 
+                            } catch (error) {}
 
-                        if (field.type === "DATE_TIME") {
-                            toDate = new Date(obj[field.slug])
-                            try {
-                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
-                            } catch (error) {
-                            }
+                            const description = client.description.replace(/<[^>]+>/g, '');
+
+                            excelData.push([
+                                '', '', '', '',
+                                newDate,
+                                interviewType,
+                                source,
+                                description,
+                                client.amount,
+                                client?.Employees_id_data?.name
+                            ]);
+                        });
+                })
+
+                workSheet = XLSX.utils.aoa_to_sheet(excelData);
+            } else {
+                let data = struct.decode(req.data)
+                let field_ids = data.field_ids
+                let language = data.language
+                delete req.data.field_ids
+                req.data.fields.limit = {kind: 'intValue', value: 100}
+                const res = await objectBuilder.getList(req)
+                delete req.data.fields.limit
+                const response = struct.decode(res.data)
+                const result = response.response
+                const decodedFields = response.fields
+                const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
+                excelArr = []
+                let i = 0
+                for (const obj of result) {
+                    excelObj = {}
+                    for (const field of selectedFields) {
+    
+                        if (field.label == '' || !field.label) {
+                            field.label = field.attributes.label_en
                         }
-                        if (field.type === "LOOKUP") {
-                            let overall = ""
-                            if (typeof field.view_fields === "object" && field.view_fields.length) {
-                                for (const view of field.view_fields) {
-                                    if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
-                                        if (view.enable_multilanguage){
-                                            let lang = ""
-                                            let splittedString = view.slug.split("_")
-                                            lang = splittedString[splittedString.length - 1]
-                                            if (language == lang) {
+    
+                        if (obj[field.slug]) {
+    
+                            if (field.type === "MULTI_LINE") {
+                                obj[field.slug] = obj[field.slug].replace(/<[^>]+>/g, '')
+                            }
+    
+                            if (field.type === "DATE") {
+                                toDate = new Date(obj[field.slug])
+                                try {
+                                    obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
+                                } catch (error) {
+                                }
+                            }
+    
+                            if (field.type === "DATE_TIME") {
+                                toDate = new Date(obj[field.slug])
+                                try {
+                                    obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
+                                } catch (error) {
+                                }
+                            }
+                            if (field.type === "LOOKUP") {
+                                let overall = ""
+                                if (typeof field.view_fields === "object" && field.view_fields.length) {
+                                    for (const view of field.view_fields) {
+                                        if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
+                                            if (view.enable_multilanguage){
+                                                let lang = ""
+                                                let splittedString = view.slug.split("_")
+                                                lang = splittedString[splittedString.length - 1]
+                                                if (language == lang) {
+                                                    overall += obj[field.slug + "_data"][view.slug]
+                                                }
+                                            } else {
                                                 overall += obj[field.slug + "_data"][view.slug]
                                             }
-                                        } else {
-                                            overall += obj[field.slug + "_data"][view.slug]
                                         }
                                     }
                                 }
+                                obj[field.slug] = overall
                             }
-                            obj[field.slug] = overall
-                        }
-                        if (field.type === "MULTISELECT") {
-                            let options = []
-                            let multiselectValue = "";
-                            if (field.attributes) {
-                                options = field.attributes.options
-                            }
-
-                            if (obj[field.slug].length && options.length && Array.isArray(obj[field.slug])) {
-                                obj[field.slug].forEach(element => {
-                                    let getLabelOfMultiSelect = options.find(val => (val.value === element))
-                                    if (getLabelOfMultiSelect) {
-                                        if (getLabelOfMultiSelect.label) {
-                                            multiselectValue += getLabelOfMultiSelect.label + ","
-                                        } else {
-                                            multiselectValue += getLabelOfMultiSelect.value + ","
+                            if (field.type === "MULTISELECT") {
+                                let options = []
+                                let multiselectValue = "";
+                                if (field.attributes) {
+                                    options = field.attributes.options
+                                }
+    
+                                if (obj[field.slug].length && options.length && Array.isArray(obj[field.slug])) {
+                                    obj[field.slug].forEach(element => {
+                                        let getLabelOfMultiSelect = options.find(val => (val.value === element))
+                                        if (getLabelOfMultiSelect) {
+                                            if (getLabelOfMultiSelect.label) {
+                                                multiselectValue += getLabelOfMultiSelect.label + ","
+                                            } else {
+                                                multiselectValue += getLabelOfMultiSelect.value + ","
+                                            }
                                         }
-                                    }
-                                })
+                                    })
+                                }
+                                if (multiselectValue.length) {
+                                    multiselectValue = multiselectValue.slice(0, multiselectValue.length - 1)
+                                }
+                                obj[field.slug] = multiselectValue
                             }
-                            if (multiselectValue.length) {
-                                multiselectValue = multiselectValue.slice(0, multiselectValue.length - 1)
-                            }
-                            obj[field.slug] = multiselectValue
+    
+                            excelObj[field.label] = obj[field.slug]
+                        } else {
+                            excelObj[field.label] = ""
                         }
-
-                        excelObj[field.label] = obj[field.slug]
-                    } else {
-                        excelObj[field.label] = ""
                     }
+                    excelArr.push(excelObj)
                 }
-                excelArr.push(excelObj)
+
+                workSheet = XLSX.utils.json_to_sheet(excelArr);
             }
-            const workSheet = XLSX.utils.json_to_sheet(excelArr);
             const workBook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
             let filename = "report_" + Math.floor(Date.now() / 1000) + ".xlsx"

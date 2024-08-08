@@ -3318,7 +3318,7 @@ let objectBuilder = {
             const mongoConn = await mongoPool.get(req.project_id)
 
             let workSheet;
-            console.log("EXCEL->", req.project_id, req.table_slug)
+            logger.info("excel->" + req.project_id + " " + req.table_slug)
             if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab" && req.table_slug == "contact") {
                 const contactRes = await objectBuilder.getList(req)
                 req.table_slug = "contact_eith_client"

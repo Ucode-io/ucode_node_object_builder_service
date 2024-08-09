@@ -3076,7 +3076,7 @@ let objectBuilder = {
                 action_type: "GET_LIST"
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
-        }
+        } 
 
         const endMemoryUsage = process.memoryUsage();
 

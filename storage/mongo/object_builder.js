@@ -3332,7 +3332,7 @@ let objectBuilder = {
 
                 const excelData = []
                 const headers = [
-                    'Имя', 'Фамилия', 'Номер телефона', 'Дата создании', 'Сотрудник',
+                    'Имя', 'Фамилия', 'Номер телефона', 'Дата создании', 'Сотрудник', 'Возраст', 'Расположение',
                     'Дата и время', 'Тип встречи', 'Источник клиента', 'Заметка', 'Сумма инвестиции', 'Сотрудники'
                 ];
                 excelData.push(headers)
@@ -3350,7 +3350,9 @@ let objectBuilder = {
                         contact.phone_number,
                         newDate,
                         contact?.Employees_id_data?.name,
-                        '', '', '', '', '', ''
+                        contact?.age,
+                        contact?.location,
+                        '', '', '', '', '', '',
                     ]);
 
                     clientResult
@@ -3387,7 +3389,7 @@ let objectBuilder = {
                             const description = client.description.replace(/<[^>]+>/g, '');
 
                             excelData.push([
-                                '', '', '', '', '',
+                                '', '', '', '', '', '', '',
                                 newDate,
                                 interviewType,
                                 source,

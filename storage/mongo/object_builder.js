@@ -3344,6 +3344,30 @@ let objectBuilder = {
                         newDate = format(date, 'dd.MM.yyyy HH:mm'); 
                     } catch (error) {}
 
+                    const locationTypeMap = {
+                        'tashkent': 'Ташкент',
+                        'kashkadarya': 'Кашкадарья',
+                        'samarkand': 'Самарканд',
+                        'bukhara': 'Бухара',
+                        'surkhandarya': 'Сурхандарья',
+                        'fergana': 'Фергана',
+                        'navai': 'Наваий',
+                        'khorezm': 'Xoрезм',
+                        'andijan': 'Андижан',
+                        'djizakh': 'Джизак',
+                        'namangan': 'Наманган',
+                        'sirdarya': 'Сырдарья',
+                        'karakalpakstan': 'Каракалпакстан',
+                        'tashkent_district': 'Ташкентская обл.',
+                        'foreghn': 'Загран.',
+                    };
+
+                    const locationTypes = Array.isArray(contact.loaction_select) 
+                                ? contact.loaction_select 
+                                : [contact.loaction_select];
+                      
+                    const locationType = locationTypes.map(type => locationTypeMap[type] || type).join(', ');
+
                     excelData.push([
                         contact.fullname,
                         contact.surname,
@@ -3351,7 +3375,7 @@ let objectBuilder = {
                         newDate,
                         contact?.Employees_id_data?.name,
                         contact?.age,
-                        contact?.location,
+                        locationType,
                         '', '', '', '', '', '',
                     ]);
 

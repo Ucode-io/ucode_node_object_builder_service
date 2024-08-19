@@ -262,6 +262,38 @@ let objectBuilder = {
                                 }
                             }
                         }
+                    } else {
+                        if (response) {
+                            if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                                let tableAttributes = struct.decode(tableModel.attributes);
+                    
+                                if (tableAttributes && tableAttributes.auth_info) {
+                                    let authInfo = tableAttributes.auth_info;
+                    
+                                    if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                        throw new Error('This table is an auth table. Auth information not fully given');
+                                    }
+                    
+                                    let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                        guid: response[authInfo['client_type_id']],
+                                        table_slug: tableModel.slug
+                                    });
+
+                                    if (loginTable) {
+                                        let updateUserRequest = {
+                                            guid: response['guid'],
+                                            login: data?.login,
+                                            email: data?.email,
+                                        };
+                                        if (data.phone) {
+                                            updateUserRequest["phone"] = data[authInfo['phone']]
+                                        }
+                    
+                                        await grpcClient.updateUserAuth(updateUserRequest);
+                                    }
+                                }
+                            }
+                        }
                     }
                 } else if (data.phone) {
                     if (response) { 

@@ -9,6 +9,7 @@ const { v4 } = require("uuid");
 const con = require("../../helper/constants");
 const tableVersion = require('../../helper/table_version')
 var fns_format = require('date-fns/format');
+const { format } = require('date-fns');
 var { addDays } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
 const RangeDate = require("../../helper/rangeDate");
@@ -32,8 +33,7 @@ const cluster = require('cluster');
 const v8 = require('v8');
 const { pipeline } = require('stream');
 const updateISODateFunction = require('../../helper/updateISODate');
-const { log } = require('console');
-const { isArray } = require('minio/dist/main/helpers');
+const { log, table } = require('console');
 
 
 let NAMESPACE = "storage.object_builder";
@@ -41,6 +41,8 @@ let NAMESPACE = "storage.object_builder";
 let objectBuilder = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
         //if you will be change this function, you need to change multipleInsert function
+        const startMemoryUsage = process.memoryUsage();
+        
         let allTableInfos = await ObjectBuilder(true, req.project_id)
         const tableInfo = allTableInfos[req.table_slug]
         let ownGuid = "";
@@ -166,6 +168,26 @@ let objectBuilder = {
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("create-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by create: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by create: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
@@ -175,6 +197,7 @@ let objectBuilder = {
     }),
     update: catchWrapDbObjectBuilder(`${NAMESPACE}.update`, async (req) => {
         //if you will be change this function, you need to change multipleUpdateV2 function
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const allTableInfo = (await ObjectBuilder(true, req.project_id))
@@ -213,8 +236,7 @@ let objectBuilder = {
                     guid: data.id
                 });
 
-            
-                if (data.password != "") {
+                if (data.password != "" && data.password) {
                     let checkPassword = data.password?.substring(0, 4)
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
                         if (response) {
@@ -240,6 +262,9 @@ let objectBuilder = {
                                             email: data?.email,
                                             password: data[authInfo['password']],
                                         };
+                                        if (data.phone) {
+                                            updateUserRequest["phone"] = data[authInfo['phone']]
+                                        }
                     
                                         await grpcClient.updateUserAuth(updateUserRequest);
                                     }
@@ -260,11 +285,70 @@ let objectBuilder = {
                                 }
                             }
                         }
+                    } else {
+                        if (response) {
+                            if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                                let tableAttributes = struct.decode(tableModel.attributes);
+                    
+                                if (tableAttributes && tableAttributes.auth_info) {
+                                    let authInfo = tableAttributes.auth_info;
+                    
+                                    if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                        throw new Error('This table is an auth table. Auth information not fully given');
+                                    }
+                    
+                                    let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                        guid: response[authInfo['client_type_id']],
+                                        table_slug: tableModel.slug
+                                    });
+
+                                    if (loginTable) {
+                                        let updateUserRequest = {
+                                            guid: response['guid'],
+                                            login: data?.login,
+                                            email: data?.email,
+                                        };
+                                        if (data.phone) {
+                                            updateUserRequest["phone"] = data[authInfo['phone']]
+                                        }
+                    
+                                        await grpcClient.updateUserAuth(updateUserRequest);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else if (data.phone) {
+                    if (response) { 
+                        if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                            let tableAttributes = struct.decode(tableModel.attributes);
+                
+                            if (tableAttributes && tableAttributes.auth_info) {
+                                let authInfo = tableAttributes.auth_info;
+                
+                                if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                    throw new Error('This table is an auth table. Auth information not fully given');
+                                }
+
+                                let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                    guid: response[authInfo['client_type_id']],
+                                    table_slug: tableModel.slug
+                                });
+
+                                if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
+                                    let updateUserRequest = {
+                                        guid: response['guid'],
+                                        phone: data[authInfo['phone']],
+                                    };
+                                    await grpcClient.updateUserAuth(updateUserRequest);
+                                }
+                            }
+                        }
                     }
                 }
             } catch (error) {
                 throw error
-            }
+            } 
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 
@@ -283,6 +367,26 @@ let objectBuilder = {
 
             await Promise.all(funcs)
             // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("update-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by update: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by update: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
             
             return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage };
         } catch (err) {
@@ -290,6 +394,7 @@ let objectBuilder = {
         }
     }),
     getSingle: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingle`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
         // Prepare Stage
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
@@ -599,6 +704,26 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
+        const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getSingle-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by getSingle: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getSingle: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
         return {
             table_slug: data.table_slug,
             data: struct.encode({
@@ -609,9 +734,9 @@ let objectBuilder = {
         }
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
-        console.log("\n\n Get List Slim #1")
+        const startMemoryUsage = process.memoryUsage();
+
         const mongoConn = await mongoPool.get(req.project_id)
-        console.log("\n\n Get List Slim #2")
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -622,7 +747,6 @@ let objectBuilder = {
         delete params["limit"]
         delete params["offset"]
         const allTables = await ObjectBuilder(true, req.project_id)
-        console.log("\n\n Get List Slim #3")
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -633,9 +757,7 @@ let objectBuilder = {
         let order = params.order || {}
         let with_relations = params.with_relations
 
-        console.log("\n\n Get List Slim #4")
         const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
-        console.log("\n\n Get List Slim #5")
 
         if (currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: 1 }
@@ -839,7 +961,6 @@ let objectBuilder = {
         }
         count = await tableInfo.models.count(params);
 
-        console.log("\n\n Get List Slim #6")
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
@@ -858,7 +979,6 @@ let objectBuilder = {
         let updatedObjects = []
         let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
 
-        console.log("\n\n Get List Slim #7")
         let attribute_table_from_slugs = []
         let attribute_table_from_relation_ids = []
         for (const field of formulaFields) {
@@ -910,7 +1030,6 @@ let objectBuilder = {
                 dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
             }
         }
-        console.log("\n\n Get List Slim #8")
         for (const res of result) {
             let isChanged = false
             for (const field of formulaFields) {
@@ -982,16 +1101,37 @@ let objectBuilder = {
             })
         }
 
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getListSlim-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getListSlim: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+        
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getListSlim: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         const response = struct.encode({
             count: count,
             response: result,
         });
-        console.log("\n\n Get List Slim #9")
         const tableResp = await table.findOne({ slug: req.table_slug }) || { is_cached: false }
         return { table_slug: req.table_slug, data: response, is_cached: tableResp.is_cached, custom_message: customMessage }
 
     }),
     getListSlim2: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim2`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -1458,6 +1598,26 @@ let objectBuilder = {
             }
         }
 
+
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getListSlim2-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+            logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         const response = struct.encode({
             count: count,
             response: result,
@@ -1466,7 +1626,7 @@ let objectBuilder = {
 
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
-        const startMemoryUsage = v8.getHeapStatistics();
+        const startMemoryUsage = process.memoryUsage();
 
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
@@ -2289,16 +2449,31 @@ let objectBuilder = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
-        const endMemoryUsage = v8.getHeapStatistics(); 
+        const endMemoryUsage = process.memoryUsage();
 
-
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getList-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+            logger.info(`--> P-M Memory used by getList: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getList: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),
     getList2: catchWrapDbObjectBuilder(`${NAMESPACE}.getList2`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
 
-        const startMemoryUsage = v8.getHeapStatistics();
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -2997,15 +3172,35 @@ let objectBuilder = {
                 action_type: "GET_LIST"
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
-        }
+        } 
 
-        const endMemoryUsage = v8.getHeapStatistics();
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getList2-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getList2: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getList2: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
 
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
 
     }),
     getSingleSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingleSlim`, async (req) => {
         // Prepare Stage
+        const startMemoryUsage = process.memoryUsage();
+
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -3160,6 +3355,27 @@ let objectBuilder = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
+
+        const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getSingleSlim-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by getSingleSlim: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getSingleSlim: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
         return {
             table_slug: data.table_slug,
             data: struct.encode({
@@ -3170,6 +3386,8 @@ let objectBuilder = {
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         try {
+            const startMemoryUsage = process.memoryUsage();
+
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
             const allTableInfo = (await ObjectBuilder(true, req.project_id))
@@ -3210,6 +3428,26 @@ let objectBuilder = {
                 response = await allTableInfo[req.table_slug].models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("delete-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by delete: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by delete: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: response};
 
         } catch (err) {
@@ -3218,143 +3456,216 @@ let objectBuilder = {
     }),
     getListInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListInExcel`, async (req) => {
         try {
-            let data = struct.decode(req.data)
-            let field_ids = data.field_ids
-            let language = data.language
-            delete req.data.field_ids
             const mongoConn = await mongoPool.get(req.project_id)
-            const res = await objectBuilder.getList(req)
-            const response = struct.decode(res.data)
-            const result = response.response
-            const decodedFields = response.fields
-            const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
-            excelArr = []
-            let i = 0
-            for (const obj of result) {
-                excelObj = {}
-                for (const field of selectedFields) {
 
-                    if (field.label == '' || !field.label) {
-                        field.label = field.attributes.label_en
-                    }
-                    // if (field.type === "FORMULA") {
-                    //     let attributes = field.attributes
+            const startMemoryUsage = process.memoryUsage();
 
-                    // /    if (attributes.table_from && attributes.sum_field) {
-                    //         let groupBy = req.table_slug + '_id'
-                    //         let groupByWithDollorSign = '$' + req.table_slug + '_id'
-                    //         let sumFieldWithDollowSign = '$' + attributes["sum_field"]
-                    //         let aggregateFunction = '$sum';
-                    //         switch (attributes.type) {
-                    //             case 'SUMM':
-                    //                 aggregateFunction = '$sum'
-                    //                 break;
-                    //             case 'AVG':
-                    //                 aggregateFunction = '$avg'
-                    //                 break;
-                    //             case 'MAX':
-                    //                 aggregateFunction = '$max'
-                    //                 break;
-                    //         }
-                    //         const pipelines = [
-                    //             {
-                    //                 '$match': {
-                    //                     [groupBy]: {
-                    //                         '$eq': obj.guid
-                    //                     }
-                    //                 }
-                    //             }, {
-                    //                 '$group': {
-                    //                     '_id': groupByWithDollorSign,
-                    //                     'res': {
-                    //                         [aggregateFunction]: sumFieldWithDollowSign
-                    //                     }
-                    //                 }
-                    //             }
-                    //         ];
+            let workSheet;
+            logger.info("excel->" + req.project_id + " " + req.table_slug)
+            if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab" && req.table_slug == "contact") {
+                const contactRes = await objectBuilder.getList(req)
+                req.table_slug = "contact_eith_client"
+                const clientRes = await objectBuilder.getList(req)
 
-                    //         const resultFormula = await allTables[attributes.table_from].models.aggregate(pipelines)
+                const contactResponse = struct.decode(contactRes.data)
+                const clientResponse = struct.decode(clientRes.data)
 
-                    //         if (resultFormula.length) {
-                    //             obj[field.slug] = resultFormula[0].res
-                    //         }
-                    //     }
-                    // }
+                const contactResult = contactResponse.response
+                const clientResult = clientResponse.response
 
-                    if (obj[field.slug]) {
+                const excelData = []
+                const headers = [
+                    'Имя', 'Фамилия', 'Номер телефона', 'Дата создании', 'Сотрудник', 'Возраст', 'Расположение',
+                    'Дата и время', 'Тип встречи', 'Источник клиента', 'Заметка', 'Сумма инвестиции', 'Сотрудники'
+                ];
+                excelData.push(headers)
 
-                        if (field.type === "MULTI_LINE") {
-                            obj[field.slug] = obj[field.slug].replace(/<[^>]+>/g, '')
-                        }
+                contactResult.forEach(contact => {
+                    date = new Date(contact.created_time)
+                    let newDate;
+                    try {
+                        newDate = format(date, 'dd.MM.yyyy HH:mm'); 
+                    } catch (error) {}
 
-                        if (field.type === "DATE") {
-                            toDate = new Date(obj[field.slug])
+                    const locationTypeMap = {
+                        'tashkent': 'Ташкент',
+                        'kashkadarya': 'Кашкадарья',
+                        'samarkand': 'Самарканд',
+                        'bukhara': 'Бухара',
+                        'surkhandarya': 'Сурхандарья',
+                        'fergana': 'Фергана',
+                        'navai': 'Наваий',
+                        'khorezm': 'Xoрезм',
+                        'andijan': 'Андижан',
+                        'djizakh': 'Джизак',
+                        'namangan': 'Наманган',
+                        'sirdarya': 'Сырдарья',
+                        'karakalpakstan': 'Каракалпакстан',
+                        'tashkent_district': 'Ташкентская обл.',
+                        'foreghn': 'Загран.',
+                    };
+
+                    const locationTypes = Array.isArray(contact.loaction_select) 
+                                ? contact.loaction_select 
+                                : [contact.loaction_select];
+                      
+                    const locationType = locationTypes.map(type => locationTypeMap[type] || type).join(', ');
+
+                    excelData.push([
+                        contact.fullname,
+                        contact.surname,
+                        contact.phone_number,
+                        newDate,
+                        contact?.Employees_id_data?.name,
+                        contact?.age,
+                        locationType,
+                        '', '', '', '', '', '',
+                    ]);
+
+                    clientResult
+                        .filter(client => client.contact_id === contact.guid)
+                        .forEach(client => {
+                            const interviewTypeMap = {
+                                'call': 'Исходящий звонок',
+                                'offline': 'Входящий звонок',
+                                'client': 'Клиент приехал в офис',
+                                'manager': 'Менеджер подъехал в офис клиента'
+                            };
+                            const sourceMap = {
+                                'site': 'Сайт',
+                                'instagram': 'Инстаграм'
+                            };
+
+                            const interviewTypes = Array.isArray(client.interview_type) 
+                                ? client.interview_type 
+                                : [client.interview_type];
+
+                            const sources = Array.isArray(client.source) 
+                                ? client.source 
+                                : [client.source];
+
+                            const interviewType = interviewTypes.map(type => interviewTypeMap[type] || type).join(', ');
+                            const source = sources.map(src => sourceMap[src] || src).join(', ');
+
+                            const date = new Date(client.created_time);
+                            let newDate;
                             try {
-                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
-                            } catch (error) {
-                            }
-                        }
+                                newDate = format(date, 'dd.MM.yyyy HH:mm'); 
+                            } catch (error) {}
 
-                        if (field.type === "DATE_TIME") {
-                            toDate = new Date(obj[field.slug])
-                            try {
-                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
-                            } catch (error) {
-                            }
+                            const description = client.description.replace(/<[^>]+>/g, '');
+
+                            excelData.push([
+                                '', '', '', '', '', '', '',
+                                newDate,
+                                interviewType,
+                                source,
+                                description,
+                                client.amount,
+                                client?.Employees_id_data?.name
+                            ]);
+                        });
+                })
+
+                workSheet = XLSX.utils.aoa_to_sheet(excelData);
+            } else {
+                let data = struct.decode(req.data)
+                let field_ids = data.field_ids
+                let language = data.language
+                delete req.data.field_ids
+                req.data.fields.limit = {kind: 'intValue', value: 100}
+                const res = await objectBuilder.getList(req)
+                delete req.data.fields.limit
+                const response = struct.decode(res.data)
+                const result = response.response
+                const decodedFields = response.fields
+                const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
+                excelArr = []
+                let i = 0
+                for (const obj of result) {
+                    excelObj = {}
+                    for (const field of selectedFields) {
+    
+                        if (field.label == '' || !field.label) {
+                            field.label = field.attributes.label_en
                         }
-                        if (field.type === "LOOKUP") {
-                            let overall = ""
-                            if (typeof field.view_fields === "object" && field.view_fields.length) {
-                                for (const view of field.view_fields) {
-                                    if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
-                                        if (view.enable_multilanguage){
-                                            let lang = ""
-                                            let splittedString = view.slug.split("_")
-                                            lang = splittedString[splittedString.length - 1]
-                                            if (language == lang) {
+    
+                        if (obj[field.slug]) {
+    
+                            if (field.type === "MULTI_LINE") {
+                                obj[field.slug] = obj[field.slug].replace(/<[^>]+>/g, '')
+                            }
+    
+                            if (field.type === "DATE") {
+                                toDate = new Date(obj[field.slug])
+                                try {
+                                    obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
+                                } catch (error) {
+                                }
+                            }
+    
+                            if (field.type === "DATE_TIME") {
+                                toDate = new Date(obj[field.slug])
+                                try {
+                                    obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
+                                } catch (error) {
+                                }
+                            }
+                            if (field.type === "LOOKUP") {
+                                let overall = ""
+                                if (typeof field.view_fields === "object" && field.view_fields.length) {
+                                    for (const view of field.view_fields) {
+                                        if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
+                                            if (view.enable_multilanguage){
+                                                let lang = ""
+                                                let splittedString = view.slug.split("_")
+                                                lang = splittedString[splittedString.length - 1]
+                                                if (language == lang) {
+                                                    overall += obj[field.slug + "_data"][view.slug]
+                                                }
+                                            } else {
                                                 overall += obj[field.slug + "_data"][view.slug]
                                             }
-                                        } else {
-                                            overall += obj[field.slug + "_data"][view.slug]
                                         }
                                     }
                                 }
+                                obj[field.slug] = overall
                             }
-                            obj[field.slug] = overall
-                        }
-                        if (field.type === "MULTISELECT") {
-                            let options = []
-                            let multiselectValue = "";
-                            if (field.attributes) {
-                                options = field.attributes.options
-                            }
-
-                            if (obj[field.slug].length && options.length && Array.isArray(obj[field.slug])) {
-                                obj[field.slug].forEach(element => {
-                                    let getLabelOfMultiSelect = options.find(val => (val.value === element))
-                                    if (getLabelOfMultiSelect) {
-                                        if (getLabelOfMultiSelect.label) {
-                                            multiselectValue += getLabelOfMultiSelect.label + ","
-                                        } else {
-                                            multiselectValue += getLabelOfMultiSelect.value + ","
+                            if (field.type === "MULTISELECT") {
+                                let options = []
+                                let multiselectValue = "";
+                                if (field.attributes) {
+                                    options = field.attributes.options
+                                }
+    
+                                if (obj[field.slug].length && options.length && Array.isArray(obj[field.slug])) {
+                                    obj[field.slug].forEach(element => {
+                                        let getLabelOfMultiSelect = options.find(val => (val.value === element))
+                                        if (getLabelOfMultiSelect) {
+                                            if (getLabelOfMultiSelect.label) {
+                                                multiselectValue += getLabelOfMultiSelect.label + ","
+                                            } else {
+                                                multiselectValue += getLabelOfMultiSelect.value + ","
+                                            }
                                         }
-                                    }
-                                })
+                                    })
+                                }
+                                if (multiselectValue.length) {
+                                    multiselectValue = multiselectValue.slice(0, multiselectValue.length - 1)
+                                }
+                                obj[field.slug] = multiselectValue
                             }
-                            if (multiselectValue.length) {
-                                multiselectValue = multiselectValue.slice(0, multiselectValue.length - 1)
-                            }
-                            obj[field.slug] = multiselectValue
+    
+                            excelObj[field.label] = obj[field.slug]
+                        } else {
+                            excelObj[field.label] = ""
                         }
-
-                        excelObj[field.label] = obj[field.slug]
-                    } else {
-                        excelObj[field.label] = ""
                     }
+                    excelArr.push(excelObj)
                 }
-                excelArr.push(excelObj)
+
+                workSheet = XLSX.utils.json_to_sheet(excelArr);
             }
-            const workSheet = XLSX.utils.json_to_sheet(excelArr);
             const workBook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
             let filename = "report_" + Math.floor(Date.now() / 1000) + ".xlsx"
@@ -3384,7 +3695,7 @@ let objectBuilder = {
 
             minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
                 if (error) {
-                    return console.log(error);
+                    return logger.error(error);
                 }
                 fs.unlink(filename, (err => {
                     if (err) {}
@@ -3406,6 +3717,27 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getListInExcel-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by getListInExcel: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getListInExcel: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: respExcel, custom_message: customMessage }
         } catch (err) {
             throw err
@@ -3413,6 +3745,8 @@ let objectBuilder = {
     }),
     deleteManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteManyToMany`, async (data) => {
         try {
+            const startMemoryUsage = process.memoryUsage();
+
             const mongoConn = await mongoPool.get(data.project_id)
 
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
@@ -3461,6 +3795,27 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("deleteManyToMany-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by deleteManyToMany: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by deleteManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { data: data, custom_message: customMessage };
         } catch (err) {
             throw err
@@ -3468,6 +3823,8 @@ let objectBuilder = {
     }),
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
         try {
+
+            const startMemoryUsage = process.memoryUsage();
 
             const mongoConn = await mongoPool.get(data.project_id)
             const fromTableModel = (await ObjectBuilder(true, data.project_id))[data.table_from]
@@ -3533,6 +3890,25 @@ let objectBuilder = {
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("appendManyToMany-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by appendManyToMany: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by appendManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
 
             return { data, custom_message: customMessage };
         } catch (err) {
@@ -3541,6 +3917,7 @@ let objectBuilder = {
 
     }),
     getTableDetails: catchWrapDbObjectBuilder(`${NAMESPACE}.getTableDetails`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
         const mongoConn = await mongoPool.get(req.project_id)
         let params = struct.decode(req?.data)
         const Field = mongoConn.models['Field']
@@ -3583,7 +3960,7 @@ let objectBuilder = {
         let views = tableInfo.views;
 
         for (let view of views) {
-            if (isArray(view?.attributes?.quick_filters)) {
+            if (Array.isArray(view?.attributes?.quick_filters)) {
                 for (let qf of view.attributes.quick_filters) {
                     if (qf.label == "") {
                         qf.label = qf.attributes.label_ru
@@ -3849,12 +4226,34 @@ let objectBuilder = {
             views: views,
             relation_fields: relationsFields,
         });
+
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getTableDetails-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getTableDetails: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getTableDetails: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         return { table_slug: req.table_slug, data: response }
 
     }),
 
     batch: catchWrapDbObjectBuilder(`${NAMESPACE}.batch`, async (req) => {
         try {
+            const startMemoryUsage = process.memoryUsage();
             const mongoConn = await mongoPool.get(req.project_id)
 
             const params = {}
@@ -3905,6 +4304,26 @@ let objectBuilder = {
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("batch-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by batch: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by batch: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: result, custom_message: customMessage };
         } catch (err) {
             throw err
@@ -3913,6 +4332,7 @@ let objectBuilder = {
     }),
     multipleUpdate: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
         try {
+            const startMemoryUsage = process.memoryUsage();
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
             let response = []
@@ -3961,6 +4381,27 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("multipleUpdate-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by multipleUpdate: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by multipleUpdate: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return {
                 table_slug: data.table_slug,
                 data: struct.encode({
@@ -4809,6 +5250,7 @@ let objectBuilder = {
         return { table_slug: req.table_slug, data: response }
     }),
     getGroupByField: catchWrapDbObjectBuilder(`${NAMESPACE}.getGroupByField`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
 
         const params = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
@@ -4846,11 +5288,32 @@ let objectBuilder = {
         results = await tableInfo.models.aggregate(aggregationPipeline);
         response = struct.encode({ count: countResult.length, response: results, });
 
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getGroupByField-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getGroupByField: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getGroupByField: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         return { table_slug: req.table_slug, data: response }
 
     }),
     deleteMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteMany`, async (req) => {
         try {
+            const startMemoryUsage = process.memoryUsage();
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
             const allTableInfo = (await ObjectBuilder(true, req.project_id))
@@ -4903,6 +5366,27 @@ let objectBuilder = {
                     data.ids.length && await allTableInfo[req.table_slug].models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
                 }
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("deleteMany-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by deleteMany: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by deleteMany: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: {} };
         } catch (err) {
             throw err
@@ -5082,6 +5566,8 @@ let objectBuilder = {
         return { table_slug: req.table_slug, data: data }
     }),
     groupByColumns: catchWrapDbObjectBuilder(`${NAMESPACE}.groupByColumns`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         const mongoConn = await mongoPool.get(req.project_id)
         const Relation = mongoConn.models['Relation']
         const params = struct.decode(req.data)
@@ -5352,6 +5838,27 @@ let objectBuilder = {
         const response = await tableInfo.models.aggregate(aggregationPipeline)
         res = JSON.parse(JSON.stringify(response))
         const data = struct.encode({ response: res });
+
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("groupByColumns-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by groupByColumns: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by groupByColumns: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         return { table_slug: req.table_slug, data: data }
     }),
     copyFromProject: catchWrapDbObjectBuilder(`${NAMESPACE}.copyFromProject`, async (req) => {
@@ -5481,6 +5988,8 @@ let objectBuilder = {
         }
     }),
     getListWithOutRelations: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithOutRelations`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         const mongoConn = await mongoPool.get(req.project_id)
         let params = struct.decode(req?.data)
         const limit = params.limit
@@ -5545,10 +6054,31 @@ let objectBuilder = {
             count: count,
             response: result,
         });
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getListWithoutRelations-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getListWithoutRelations: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getListWithoutRelations: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         return { table_slug: req.table_slug, data: response }
 
     }),
     getListAggregation: catchWrapDbObjectBuilder(`${NAMESPACE}.getListAggregation`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
         const data = struct.decode(req?.data)
 
         if(!data.pipelines) {
@@ -5571,11 +6101,31 @@ let objectBuilder = {
         let resp = [...result]
 
         resp = struct.encode({data: JSON.parse(JSON.stringify(resp))})
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getListAggregation-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getListAggregation: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getListAggregation: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
         return { table_slug: req.table_slug, data: resp }
     }),
 
     getListRelationTabInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListRelationTabInExcel`, async (req) => {
         try {
+            const startMemoryUsage = process.memoryUsage();
             let data = struct.decode(req.data)
             let field_ids = data.field_ids
             delete req.data.field_ids
@@ -5585,7 +6135,6 @@ let objectBuilder = {
             const result = response.response
             const decodedFields = response.fields
             const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
-            console.log("selectedFields >>> ", selectedFields)
             excelArr = []
             for (const obj of result) {
                 excelObj = {}
@@ -5651,7 +6200,6 @@ let objectBuilder = {
                             }
                             obj[field.slug] = multiselectValue
                         }   
-                        console.log("obj[field.slug] >>> ", obj[field.slug])
                         excelObj[field.label] = obj[field.slug]
                     } else {
                         excelObj[field.label] = ""
@@ -5659,7 +6207,6 @@ let objectBuilder = {
                 }
                 excelArr.push(excelObj)
             }
-            console.log("excelArr >>>> ", excelArr)
             const workSheet = XLSX.utils.json_to_sheet(excelArr);
             const workBook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
@@ -5690,10 +6237,10 @@ let objectBuilder = {
 
             minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
                 if (error) {
-                    return console.log(error);
+                    return logger.error(error);
                 }
                 fs.unlink(filename, (err => {
-                    if (err) console.log(err);
+                    if (err) logger.error(err);
                     else {
                     }
                 }));
@@ -5711,6 +6258,25 @@ let objectBuilder = {
                     action_type: "GET_LIST_IN_EXCEL"
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getListRelationTabInExcel-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by getListRelationTabInExcel: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getListRelationTabInExcel: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
             }
             return { table_slug: req.table_slug, data: respExcel, custom_message: customMessage }
         } catch (err) {

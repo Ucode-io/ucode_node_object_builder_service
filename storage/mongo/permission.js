@@ -15,6 +15,8 @@ const createTemplate = require("../../initial_setups/template");
 
 let permission = {
     upsertPermissionsByAppId: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertPermissionsByAppId`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
@@ -113,6 +115,26 @@ let permission = {
                         response.push(res)
                     }
                 }
+            }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("upsertPermissionsByAppId-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by upsertPermissionsByAppId: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by upsertPermissionsByAppId: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
             }
             return { app: app.name, data: response }
         } catch (err) {

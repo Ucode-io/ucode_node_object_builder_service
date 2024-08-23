@@ -19,7 +19,7 @@ let NAMESPACE = "storage.items";
 let objectBuilderV2 = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
         //if you will be change this function, you need to change multipleInsert function
-
+        const startMemoryUsage = process.memoryUsage();
         let allTableInfos = await ObjectBuilder(true, req.project_id)
         const tableInfo = allTableInfos[req.table_slug]
         let ownGuid = "";
@@ -91,6 +91,26 @@ let objectBuilderV2 = {
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("create items-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by create items: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by create items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
@@ -99,6 +119,7 @@ let objectBuilderV2 = {
         }
     }),
     update: catchWrapDbObjectBuilder(`${NAMESPACE}.update`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(req.project_id)
 
@@ -127,12 +148,33 @@ let objectBuilderV2 = {
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("update items-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by update items: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by update items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage };
         } catch (err) {
             throw err
         }
     }),
     getSingle: catchWrapDbObjectBuilder(`${NAMESPACE}.getSingle`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -282,6 +324,26 @@ let objectBuilderV2 = {
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getSingle-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getSingle: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getSingle: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         return {
             table_slug: data.table_slug,
             data: struct.encode({
@@ -291,6 +353,8 @@ let objectBuilderV2 = {
         }
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -808,9 +872,32 @@ let objectBuilderV2 = {
             })
             if (customErrMsg) { customMessage = customErrMsg.message }
         }
+
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getList items-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by getList items: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getList items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
     }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
@@ -851,12 +938,34 @@ let objectBuilderV2 = {
             } else if (tableModel.soft_delete) {
                 response = await allTableInfo[req.table_slug].models.findOneAndUpdate({ guid: data.id }, { $set: { deleted_at: new Date() } })
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("delete items-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by delete items: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by delete items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: response };
         } catch (err) {
             throw err
         }
     }),
     deleteMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteMany`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
@@ -908,12 +1017,34 @@ let objectBuilderV2 = {
                     data.ids.length && await allTableInfo[req.table_slug].models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
                 }
             }
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("deleteMany items-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by deleteMany items: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by deleteMany items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: {} };
         } catch (err) {
             throw err
         }
     }),
     deleteManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteManyToMany`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(data.project_id)
 
@@ -963,12 +1094,35 @@ let objectBuilderV2 = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("deleteManyToMany items-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by deleteManyToMany items: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by deleteManyToMany items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { data: data, custom_message: customMessage };
         } catch (err) {
             throw err
         }
     }),
     appendManyToMany: catchWrapDbObjectBuilder(`${NAMESPACE}.appendManyToMany`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
 
             const mongoConn = await mongoPool.get(data.project_id)
@@ -1035,6 +1189,25 @@ let objectBuilderV2 = {
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("appendManyToMany items-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by appendManyToMany items: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by appendManyToMany items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
 
             return { data, custom_message: customMessage };
         } catch (err) {
@@ -1043,6 +1216,8 @@ let objectBuilderV2 = {
 
     }),
     multipleUpdate: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const data = struct.decode(req.data)
@@ -1100,6 +1275,27 @@ let objectBuilderV2 = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("multipleUpdate items-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by multipleUpdate items: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by multipleUpdate items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return {
                 table_slug: data.table_slug,
                 data: struct.encode({
@@ -1113,6 +1309,7 @@ let objectBuilderV2 = {
     }),
     multipleInsert: catchWrapDbObjectBuilder(`${NAMESPACE}.multipleUpdate`, async (req) => {
         //if you will be change this function, you need to change create function
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
@@ -1206,12 +1403,35 @@ let objectBuilderV2 = {
             for (const appendMany2Many of appendMany2ManyObj) {
                 await objectBuilderV2.appendManyToMany(appendMany2Many)
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("multipleInsert-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by multipleInsert: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by multipleInsert: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return
         } catch (err) {
             throw err
         }
     }),
     getSlugsByTable: catchWrapDbObjectBuilder(`${NAMESPACE}.getSlugsByTable`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
 
             const mongoConn = await mongoPool.get(req.project_id)
@@ -1238,6 +1458,26 @@ let objectBuilderV2 = {
                 }
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getSlugsByTable-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by getSlugsByTable: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getSlugsByTable: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return {
                 slugs: slugs,
                 table_slug: table.slug
@@ -1248,22 +1488,18 @@ let objectBuilderV2 = {
         }
     }),
     updateBySearch: catchWrapDbObjectBuilder(`${NAMESPACE}.updateBySearch`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-
-            console.log(req)
-            console.log(req.table)
 
             const table = await Table.findOne({ label: req.table })
 
             let allTableInfos = await ObjectBuilder(true, req.project_id)
 
             const data = struct.decode(req.data)
-
-            console.log(data.column)    
-            console.log(data.new_column)    
 
             const tableInfo = allTableInfos[table.slug]
 
@@ -1307,6 +1543,26 @@ let objectBuilderV2 = {
                 )
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("updateBySearch-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by updateBySearch: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by updateBySearch: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: table.slug };
         } catch (err) {
             console.log(err)
@@ -1314,6 +1570,7 @@ let objectBuilderV2 = {
         }
     }),
     deleteBySearch: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteBySearch`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             console.log(req)
             const mongoConn = await mongoPool.get(req.project_id)
@@ -1363,6 +1620,26 @@ let objectBuilderV2 = {
 
             for (let col of resp) {
                 _ = await tableInfo.models.deleteMany({[col.matched_column]: data.column})
+            }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("deleteBySearch-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by deleteBySearch: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by deleteBySearch: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
             }
 
             return { table_slug: table.slug };

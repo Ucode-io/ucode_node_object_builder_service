@@ -163,7 +163,7 @@ let projectStore = {
                         await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
                         await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
-                        await new_field({ project_id: data.project_id, mongoDBConn: mongoDBConn })
+                        // await new_field({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         await add_permission_field({project_id: data.project_id})
                         // await initialCustomMessage({ project_id: data.project_id })
                         // await initialMenuPermission({ project_id: data.project_id })

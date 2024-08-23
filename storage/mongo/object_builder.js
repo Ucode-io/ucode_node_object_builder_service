@@ -3772,8 +3772,8 @@ let objectBuilder = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("deleteManyToMany-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("deleteManyToMany-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by deleteManyToMany: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -3785,7 +3785,7 @@ let objectBuilder = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by deleteManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by deleteManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return { data: data, custom_message: customMessage };
@@ -3866,8 +3866,8 @@ let objectBuilder = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("appendManyToMany-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("appendManyToMany-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by appendManyToMany: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -3879,7 +3879,7 @@ let objectBuilder = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by appendManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by appendManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return { data, custom_message: customMessage };

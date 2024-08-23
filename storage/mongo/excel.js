@@ -56,8 +56,8 @@ let excelStore = {
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
         if (memoryUsed > 300) {
-            logger.info("ExcelRead-->Project->" + req.project_id)
-            logger.info("Request->" + JSON.stringify(req))
+            logger.info("ExcelRead-->Project->" + data.project_id)
+            logger.info("Request->" + JSON.stringify(data))
 
             logger.info(`--> P-M Memory used by ExcelRead: ${memoryUsed.toFixed(2)} MB`);
             logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -69,7 +69,7 @@ let excelStore = {
             logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
             logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
         } else {
-            logger.info(`--> P-M Memory used by ExcelRead: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            logger.info(`--> P-M Memory used by ExcelRead: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
         }
 
         return objectRow;

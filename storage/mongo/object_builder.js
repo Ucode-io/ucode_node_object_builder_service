@@ -33,12 +33,7 @@ const cluster = require('cluster');
 const v8 = require('v8');
 const { pipeline } = require('stream');
 const updateISODateFunction = require('../../helper/updateISODate');
-<<<<<<< HEAD
-const { log, table } = require('console');
-
-=======
 const { log } = require('console');
->>>>>>> 438143ea61df5f01a5f4497063d052b0e4fa12bb
 
 let NAMESPACE = "storage.object_builder";
 
@@ -297,11 +292,6 @@ let objectBuilder = {
                                 if (tableAttributes && tableAttributes.auth_info) {
                                     let authInfo = tableAttributes.auth_info;
                     
-<<<<<<< HEAD
-=======
-                                    console.log("authInfo", JSON.stringify(authInfo))
-                                    console.log("response", JSON.stringify(tableAttributes))
->>>>>>> 438143ea61df5f01a5f4497063d052b0e4fa12bb
                                     if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                                         throw new Error('This table is an auth table. Auth information not fully given');
                                     }
@@ -326,36 +316,6 @@ let objectBuilder = {
                                 }
                             }
                         }
-<<<<<<< HEAD
-                    }
-                } else if (data.phone) {
-                    if (response) { 
-                        if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                            let tableAttributes = struct.decode(tableModel.attributes);
-                
-                            if (tableAttributes && tableAttributes.auth_info) {
-                                let authInfo = tableAttributes.auth_info;
-                
-                                if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                                    throw new Error('This table is an auth table. Auth information not fully given');
-                                }
-
-                                let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                    guid: response[authInfo['client_type_id']],
-                                    table_slug: tableModel.slug
-                                });
-
-                                if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
-                                    let updateUserRequest = {
-                                        guid: response['guid'],
-                                        phone: data[authInfo['phone']],
-                                    };
-                                    await grpcClient.updateUserAuth(updateUserRequest);
-                                }
-                            }
-                        }
-=======
->>>>>>> 438143ea61df5f01a5f4497063d052b0e4fa12bb
                     }
                 }
             } catch (error) {

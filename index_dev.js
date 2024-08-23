@@ -14,7 +14,7 @@ const logger = require("./config/logger");
 
     } catch (err) {
         throw err
-    }
+    } 
 
     process.addListener("uncaughtException", (e) => {
     }); 

@@ -31,33 +31,33 @@ let fieldStore = {
                 unique: true,
                 type: "UUID",
             });
-            data.fields.push({
-                "id": v4(),
-                "label": "row_order",
-                "slug": "row_order",
-                "default": "",
-                "required": false,
-                "type": "NUMBER",
-                "index": "string",
-                "attributes": {
-                    "fields": {
-                        "icon": {
-                            "stringValue": "",
-                            "kind": "stringValue"
-                        },
-                        "placeholder": {
-                            "stringValue": "",
-                            "kind": "stringValue"
-                        },
-                        "showTooltip": {
-                            "boolValue": false,
-                            "kind": "boolValue"
-                        }
-                    }
-                },
-                "is_visible": false,
-                "is_visible": false,
-            })
+            // data.fields.push({
+            //     "id": v4(),
+            //     "label": "row_order",
+            //     "slug": "row_order",
+            //     "default": "",
+            //     "required": false,
+            //     "type": "NUMBER",
+            //     "index": "string",
+            //     "attributes": {
+            //         "fields": {
+            //             "icon": {
+            //                 "stringValue": "",
+            //                 "kind": "stringValue"
+            //             },
+            //             "placeholder": {
+            //                 "stringValue": "",
+            //                 "kind": "stringValue"
+            //             },
+            //             "showTooltip": {
+            //                 "boolValue": false,
+            //                 "kind": "boolValue"
+            //             }
+            //         }
+            //     },
+            //     "is_visible": false,
+            //     "is_visible": false,
+            // })
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             let fieldPermissions = []
             for (const fieldReq of data.fields) {

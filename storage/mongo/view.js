@@ -93,8 +93,8 @@ let viewStore = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("create view-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("create view-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by create view: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -106,7 +106,7 @@ let viewStore = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by create view: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by create view: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return response;
@@ -188,8 +188,8 @@ let viewStore = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("update-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("update-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by update: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -201,7 +201,7 @@ let viewStore = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by update: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by update: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return newView;
@@ -248,8 +248,8 @@ let viewStore = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("getList view-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("getList view-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by getList view: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -261,7 +261,7 @@ let viewStore = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by getList view: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by getList view: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return { views, count };
@@ -295,8 +295,8 @@ let viewStore = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("getSingle view-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("getSingle view-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by getSingle view: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -308,7 +308,7 @@ let viewStore = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by getSingle view: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by getSingle view: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return view;
@@ -353,8 +353,8 @@ let viewStore = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("delete view-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("delete view-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by delete view: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -366,7 +366,7 @@ let viewStore = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by delete view: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by delete view: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return view;
@@ -580,8 +580,8 @@ let viewStore = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("convertHtmlToPdf-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("convertHtmlToPdf-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by convertHtmlToPdf: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -593,7 +593,7 @@ let viewStore = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by convertHtmlToPdf: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by convertHtmlToPdf: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return { link }
@@ -743,8 +743,8 @@ let viewStore = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("convertTemplateToHtml-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("convertTemplateToHtml-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by convertTemplateToHtml: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -756,7 +756,7 @@ let viewStore = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by convertTemplateToHtml: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by convertTemplateToHtml: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return { html }
@@ -801,8 +801,8 @@ let viewStore = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("updateViewOrder-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("updateViewOrder-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by updateViewOrder: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -814,7 +814,7 @@ let viewStore = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by updateViewOrder: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by updateViewOrder: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return;

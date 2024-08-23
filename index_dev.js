@@ -8,13 +8,13 @@ const config = require('./config/index')
 const grpcConnection = require("./config/grpcConnection");
 const logger = require("./config/logger");
 
-(async function () {
+(async function () { 
     try {
         await grpcConnection()
 
     } catch (err) {
         throw err
-    }
+    } 
 
     process.addListener("uncaughtException", (e) => {
     }); 

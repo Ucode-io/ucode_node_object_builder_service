@@ -13,6 +13,7 @@ const fuzz = require('fuzzball');
 
 let menuStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             if (!constants.MENU_TYPES.includes(data.type)) {
                 throw new Error("Unsupported menu type");
@@ -85,7 +86,25 @@ let menuStore = {
                 }
             }
 
-             
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("create menu-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by create menu: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by create menu: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
 
             return response;
         } catch (err) {
@@ -94,6 +113,7 @@ let menuStore = {
 
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             if (!constants.MENU_TYPES.includes(data.type)) {
                 throw new Error("Unsupported menu type");
@@ -125,7 +145,25 @@ let menuStore = {
                 }
             )
 
-             
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("update menu-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by update menu: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by update menu: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
             
             return menu;
         } catch (err) {
@@ -134,6 +172,7 @@ let menuStore = {
 
     }),
     getAll: catchWrapDb(`${NAMESPACE}.getAll`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
 
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
@@ -322,12 +361,34 @@ let menuStore = {
                 el.data = struct.encode(el.data)
             })
             const count = await Menu.countDocuments(query);
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getAll menu-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by getAll menu: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getAll menu: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return { menus, count };
         } catch (err) {
             throw err
         }
     }),
     getByID: catchWrapDb(`${NAMESPACE}.getById`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Menu = mongoConn.models['object_builder_service.menu']
@@ -482,12 +543,33 @@ let menuStore = {
                 return menu[0];
             } 
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getById menu-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by getById menu: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getById menu: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return null
         } catch (err) {
             throw err
         }
     }),
     getByLabel: catchWrapDb(`${NAMESPACE}.getByLabel`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         const mongoConn = await mongoPool.get(data.project_id);
         const Menu = mongoConn.models['object_builder_service.menu'];
     
@@ -508,11 +590,31 @@ let menuStore = {
         // Extract the matched menus
         let menus = matches.map(match => match.menu);
 
-        console.log("Menus->", menus)
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("getByLabel menu-->Project->" + data.project_id)
+            logger.info("Request->" + JSON.stringify(data))
+
+            logger.info(`--> P-M Memory used by getByLabel menu: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by getByLabel menu: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+        }
     
         return {menus};
     }),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             if (constants.STATIC_MENU_IDS.includes(data.id)) {
@@ -530,7 +632,25 @@ let menuStore = {
             const menuPermissionTable = mongoConn.models['menu_permission']
             await menuPermissionTable.deleteMany({ menu_id: data.id })
 
-             
+                         const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("delete menu-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by delete menu: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by delete menu: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
 
             return menu;
         } catch (err) {
@@ -538,6 +658,7 @@ let menuStore = {
         }
     }),
     updateMenuOrder: catchWrapDb(`${NAMESPACE}.updateMenuOrder`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
 
@@ -555,17 +676,61 @@ let menuStore = {
                 i += 1
             }
             await Menu.bulkWrite(bulkWriteMenus)
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("update menu order-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by update menu order: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by update menu order: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return;
         } catch (err) {
             throw err
         }
     }),
     createMenuSettings: catchWrapDb(`${NAMESPACE}.createMenuSettings`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
 
             let resp = await MenuSettings.create(data)
+
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("createMenuSettings-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by createMenuSettings: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by createMenuSettings: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
 
             return resp;
         } catch (err) {
@@ -574,12 +739,35 @@ let menuStore = {
 
     }),
     getAllMenuSettings: catchWrapDb(`${NAMESPACE}.getAllMenuSettings`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
 
             let resp = await MenuSettings.find({}).skip(data.offset || 0).limit(data.limit || 1000);
             let count = await MenuSettings.count()
+
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getAllMenuSettings-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by getAllMenuSettings: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getAllMenuSettings: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
 
             return { menu_settings: resp, count: count };
         } catch (err) {
@@ -588,6 +776,7 @@ let menuStore = {
 
     }),
     getByIDMenuSettings: catchWrapDb(`${NAMESPACE}.getByIDMenuSettings`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
@@ -604,6 +793,26 @@ let menuStore = {
                 }
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getByIDMenuSettings-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by getByIDMenuSettings: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getByIDMenuSettings: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return resp;
         } catch (err) {
             throw err
@@ -611,6 +820,7 @@ let menuStore = {
 
     }),
     updateMenuSettings: catchWrapDb(`${NAMESPACE}.updateMenuSettings`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
@@ -620,6 +830,26 @@ let menuStore = {
                 throw Error("Menu Templete not found with given id!")
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("updateMenuSettings-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by updateMenuSettings: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by updateMenuSettings: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return resp;
         } catch (err) {
             throw err
@@ -627,6 +857,7 @@ let menuStore = {
 
     }),
     deleteMenuSettings: catchWrapDb(`${NAMESPACE}.deleteMenuSettings`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
@@ -636,6 +867,26 @@ let menuStore = {
                 throw Error("Menu Templete not found with given id!")
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("deleteMenuSettings-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by deleteMenuSettings: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by deleteMenuSettings: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return resp;
         } catch (err) {
             throw err
@@ -643,11 +894,32 @@ let menuStore = {
 
     }),
     createMenuTemplate: catchWrapDb(`${NAMESPACE}.createMenuTemplate`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
             let resp = await MenuTemplate.create(data)
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("createMenuTemplate-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by createMenuTemplate: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by createMenuTemplate: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
 
             return resp;
         } catch (err) {
@@ -656,12 +928,33 @@ let menuStore = {
 
     }),
     getAllMenuTemplate: catchWrapDb(`${NAMESPACE}.getAllMenuTemplate`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
 
             let resp = await MenuTemplate.find({}).skip(data.offset || 0).limit(data.limit || 1000);
             const count = await MenuTemplate.count({})
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getAllMenuTemplate-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by getAllMenuTemplate: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getAllMenuTemplate: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
 
             return { menu_templates: resp, count };
         } catch (err) {
@@ -670,6 +963,7 @@ let menuStore = {
 
     }),
     getByIDMenuTemplate: catchWrapDb(`${NAMESPACE}.getByIDMenuTemplate`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
@@ -678,6 +972,27 @@ let menuStore = {
             // if(!resp) {
             //     throw Error("Menu Templete not found with given id!")
             // }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getByIDMenuTemplate-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by getByIDMenuTemplate: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getByIDMenuTemplate: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return resp;
         } catch (err) {
             throw err
@@ -685,6 +1000,7 @@ let menuStore = {
 
     }),
     updateMenuTemplate: catchWrapDb(`${NAMESPACE}.updateMenuTemplate`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
@@ -694,6 +1010,26 @@ let menuStore = {
                 throw Error("Menu Templete not found with given id!")
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("updateMenuTemplate-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by updateMenuTemplate: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by updateMenuTemplate: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return resp;
         } catch (err) {
             throw err
@@ -701,6 +1037,7 @@ let menuStore = {
 
     }),
     deleteMenuTemplate: catchWrapDb(`${NAMESPACE}.deleteMenuTemplate`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuTemplate = mongoConn.models['object_builder_service.menu.templates']
@@ -710,6 +1047,26 @@ let menuStore = {
                 throw Error("Menu Templete not found with given id!")
             }
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("deleteMenuTemplate-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by deleteMenuTemplate: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by deleteMenuTemplate: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return resp;
         } catch (err) {
             throw err
@@ -717,6 +1074,7 @@ let menuStore = {
 
     }),
     CopyMenus: catchWrapDb(`${NAMESPACE}.CopyMenus`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const MenuModel = mongoConn.models['object_builder_service.menu']
@@ -746,12 +1104,33 @@ let menuStore = {
             await MenuModel.insertMany(data.menus)
             await MenuPermissionModel.insertMany(menu_permissions)
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("CopyMenus-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by CopyMenus: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by CopyMenus: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return data.tables;
         } catch (err) {
             throw err
         }
     }),
     getWikiFolder: catchWrapDb(`${NAMESPACE}.getWikiFolder`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
 
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
@@ -944,6 +1323,27 @@ let menuStore = {
             //     el.data = struct.encode(el.data)
             // })
             const count = await Menu.countDocuments(query);
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getWikiFolder-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by getWikiFolder: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getWikiFolder: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return { menus, count };
         } catch (err) {
             throw err

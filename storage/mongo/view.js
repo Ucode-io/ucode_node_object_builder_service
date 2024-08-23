@@ -37,6 +37,7 @@ let NAMESPACE = "storage.view";
 
 let viewStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
@@ -88,7 +89,25 @@ let viewStore = {
                 logger.error(err)
             }
 
-             
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("create view-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by create view: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by create view: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
 
             return response;
 
@@ -100,6 +119,7 @@ let viewStore = {
 
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
@@ -164,6 +184,25 @@ let viewStore = {
                 })
 
              
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("update-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by update: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by update: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
 
             return newView;
 
@@ -172,6 +211,7 @@ let viewStore = {
         }
     }),
     getList: catchWrapDb(`${NAMESPACE}.getList`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const View = mongoConn.models['View']
@@ -203,6 +243,27 @@ let viewStore = {
             })
 
             const count = await View.countDocuments(query);
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getList view-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by getList view: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getList view: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return { views, count };
 
         } catch (err) {
@@ -211,6 +272,7 @@ let viewStore = {
     }
     ),
     getSingle: catchWrapDb(`${NAMESPACE}.getSingle`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const View = mongoConn.models['View']
@@ -228,6 +290,27 @@ let viewStore = {
             if (view.attributes) {
                 view.attributes = struct.encode(view.attributes)
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getSingle view-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by getSingle view: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getSingle view: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return view;
 
         } catch (err) {
@@ -236,6 +319,7 @@ let viewStore = {
     }
     ),
     delete: catchWrapDb(`${NAMESPACE}.delete`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
@@ -265,6 +349,26 @@ let viewStore = {
 
             await View.deleteOne( filter );
 
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("delete view-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by delete view: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by delete view: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return view;
 
         } catch (err) {
@@ -272,6 +376,8 @@ let viewStore = {
         }
     }),
     convertHtmlToPdf: catchWrapDb(`${NAMESPACE}.convertHtmlToPdf`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Field = mongoConn.models['Field']
@@ -470,7 +576,25 @@ let viewStore = {
                 });
             })
 
+            const endMemoryUsage = process.memoryUsage();
 
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("convertHtmlToPdf-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by convertHtmlToPdf: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by convertHtmlToPdf: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
 
             return { link }
 
@@ -479,6 +603,8 @@ let viewStore = {
         }
     }),
     convertTemplateToHtml: catchWrapDb(`${NAMESPACE}.convertTemplateToHtml`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Field = mongoConn.models['Field']
@@ -612,6 +738,27 @@ let viewStore = {
                 html = html.replaceAll('&quot;', '"')
                 html = html.replaceAll('&apos;', `'`)
             }
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("convertTemplateToHtml-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by convertTemplateToHtml: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by convertTemplateToHtml: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return { html }
 
         } catch (err) {
@@ -619,6 +766,8 @@ let viewStore = {
         }
     }),
     updateViewOrder: catchWrapDb(`${NAMESPACE}.updateViewOrder`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
+
         try {
             const mongoConn = await mongoPool.get(data.project_id)
 
@@ -647,6 +796,27 @@ let viewStore = {
                     }
                 },
             })
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("updateViewOrder-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
+
+                logger.info(`--> P-M Memory used by updateViewOrder: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by updateViewOrder: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
+            }
+
             return;
         } catch (err) {
             throw err

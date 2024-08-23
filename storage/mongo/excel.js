@@ -16,6 +16,8 @@ let NAMESPACE = "storage.excel";
 
 let excelStore = {
     ExcelRead: catchWrapDb(`${NAMESPACE}.read`, async (data) => {
+        const startMemoryUsage = process.memoryUsage();
+
         const createFilePath = "./" + data.id + ".xlsx"
         let ssl = true
         if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
@@ -50,10 +52,31 @@ let excelStore = {
                 }
             });
         })
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("ExcelRead-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by ExcelRead: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by ExcelRead: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
+
         return objectRow;
     }
     ),
     ExcelToDb: catchWrapDb(`${NAMESPACE}.create`, async (req) => {
+        const startMemoryUsage = process.memoryUsage();
         const datas = struct.decode(req.data)
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
@@ -380,6 +403,26 @@ let excelStore = {
                 });
             })
         });
+
+        const endMemoryUsage = process.memoryUsage();
+
+        const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+        if (memoryUsed > 300) {
+            logger.info("ExcelToDb-->Project->" + req.project_id)
+            logger.info("Request->" + JSON.stringify(req))
+
+            logger.info(`--> P-M Memory used by ExcelToDb: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+            logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+            logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+            logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+        } else {
+            logger.info(`--> P-M Memory used by ExcelToDb: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+        }
     }
     ),
 };

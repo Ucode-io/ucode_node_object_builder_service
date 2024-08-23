@@ -1,6 +1,6 @@
+const cfg = require("../../config/index");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const mongoPool = require('../../pkg/pool');
-const cfg = require("../../config/index");
 const fs = require('fs');
 const Docxtemplater = require('docxtemplater');
 const PizZip = require('pizzip');
@@ -108,15 +108,14 @@ let fileStore = {
             console.log('data', JSON.stringify(data))
 
             let name1 = '1_Иштирокчилар_умумий_йиғилиши_протокол.docx'
-            let genName1 = v4().toString() + '_1_Иштирокчилар_умумий_йиғилиши_протокол_gen.docx'
+            let genName1 = '1_Иштирокчилар_умумий_йиғилиши_протокол_gen'+v4().toString() +'.docx'
             let name2 = '2_Таъсис_шартномаси_учр_договор.docx'
-            let genName2 = v4().toString() + '_2_Таъсис_шартномаси_учр_договор_gen.docx'
+            let genName2 = '2_Таъсис_шартномаси_учр_договор_gen' + v4().toString() + '.docx'
             let name3 = '3.Устав.docx'
-            let genName3 = v4().toString() + '_3.Устав_gen.docx'
+            let genName3 = '3.Устав_gen' + v4().toString() + '.docx'
             let name4 = '4.Ишончли_бошқарув_шартномаси.docx'
-            let genName4 = v4().toString() + '4.Ишончли_бошқарув_шартномаси_gen.docx'
+            let genName4 = '4.Ишончли_бошқарув_шартномаси' + v4().toString() + '.docx'
             let files = []
-            let projectId = req.project_id
 
             const filename1 = path.join(__dirname, '..', '..', 'document', name1);
 
@@ -196,20 +195,20 @@ let fileStore = {
             let genFileName4 = path.join(__dirname, '..', '..', 'document', genName4);
             fs.writeFileSync(genFileName4, buf4);
 
-            // let ssl = true
-            // if (cfg.minioSSL !== true) {
-            //     ssl = false
-            // }
+            let ssl = true
+            if (cfg.minioSSL !== true) {
+                ssl = false
+            }
 
             var minioClient = new Client({
                 endPoint: cfg.minioEndpoint,
-                useSSL: false,
+                useSSL: ssl,
                 accessKey: cfg.minioAccessKeyID,
                 secretKey: cfg.minioSecretAccessKey,
-                port: Number(cfg.minioPort),
+                port: 9001,
             })
 
-            minioClient.putObject(projectId, 'Media/'+genName1, buf, function (error, etag) {
+            minioClient.putObject('wayll', genName1, buf, function (error, etag) {
                 if (error) {
                     return console.log(error);
                 }
@@ -221,7 +220,7 @@ let fileStore = {
             })
 
             //2nd file
-            minioClient.putObject(projectId, 'Media/'+genName2, buf2, function (error, etag) {
+            minioClient.putObject('wayll', genName2, buf2, function (error, etag) {
                 if (error) {
                     return console.log(error);
                 }
@@ -233,7 +232,7 @@ let fileStore = {
             })
 
             //3rd file
-            minioClient.putObject(projectId, 'Media/'+genName3, buf3, function (error, etag) {
+            minioClient.putObject('wayll', genName3, buf3, function (error, etag) {
                 if (error) {
                     return console.log(error);
                 }
@@ -245,7 +244,7 @@ let fileStore = {
             })
 
             //4rd file
-            minioClient.putObject(projectId, 'Media/'+genName4, buf4, function (error, etag) {
+            minioClient.putObject('wayll', genName4, buf4, function (error, etag) {
                 if (error) {
                     return console.log(error);
                 }
@@ -257,12 +256,11 @@ let fileStore = {
             })
 
 
-            files.push('https://' + cfg.minioEndpoint + '/' +projectId + '/Media/' + genName1)
-            files.push('https://' + cfg.minioEndpoint + '/' +projectId + '/Media/' + genName2)
-            files.push('https://' + cfg.minioEndpoint + '/' +projectId + '/Media/' + genName3)
-            files.push('https://' + cfg.minioEndpoint + '/' +projectId + '/Media/' + genName4)
+            files.push(cfg.minioEndpoint + "/wayll/" + genName1)
+            files.push(cfg.minioEndpoint + "/wayll/" + genName2)
+            files.push(cfg.minioEndpoint + "/wayll/" + genName3)
+            files.push(cfg.minioEndpoint + "/wayll/" + genName4)
             
-            console.log('files', files)
             return { files: files };
         } catch (error) {
             throw error;

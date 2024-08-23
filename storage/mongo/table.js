@@ -40,7 +40,24 @@ let tableStore = {
                     read: "Yes",
                     is_have_condition: false,
                     role_id: role.guid,
-                    guid: v4()
+                    guid: v4(),
+                    pdf_action: "Yes",
+                    add_field: "Yes",
+                    language_btn: "Yes",
+                    view_create: "Yes",
+                    automation: "Yes",
+                    settings: "Yes",
+                    share_modal: "Yes",
+                    delete_all: "Yes",
+                    add_filter: "Yes",
+                    header: "Yes",
+                    field_filter: "Yes",
+                    fix_column: "Yes",
+                    tab_group: "Yes",
+                    columns: "Yes",
+                    group: "Yes",
+                    excel_menu: "Yes",
+                    search_button: "Yes",
                 }
                 const recordPermission = new recordPermissionTable.models(permissionRecord)
                 recordPermission.save()

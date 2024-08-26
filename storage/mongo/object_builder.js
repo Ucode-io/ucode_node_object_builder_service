@@ -317,6 +317,33 @@ let objectBuilder = {
                             }
                         }
                     }
+                } else if (data.phone) {
+                    if (response) { 
+                        if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                            let tableAttributes = struct.decode(tableModel.attributes);
+                
+                            if (tableAttributes && tableAttributes.auth_info) {
+                                let authInfo = tableAttributes.auth_info;
+                
+                                if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                    throw new Error('This table is an auth table. Auth information not fully given');
+                                }
+
+                                let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                    guid: response[authInfo['client_type_id']],
+                                    table_slug: tableModel.slug
+                                });
+
+                                if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
+                                    let updateUserRequest = {
+                                        guid: response['guid'],
+                                        phone: data[authInfo['phone']],
+                                    };
+                                    await grpcClient.updateUserAuth(updateUserRequest);
+                                }
+                            }
+                        }
+                    }
                 }
             } catch (error) {
                 throw error

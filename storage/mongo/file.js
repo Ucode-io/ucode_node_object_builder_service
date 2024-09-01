@@ -107,7 +107,7 @@ let fileStore = {
 
             let files = []
 
-            console.log("Hey from DOC->", another_doc)
+            console.log("Hey from DOC->", data.another_doc)
             if (data.another_doc) {
                 let name5 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3.docx"
                 let genName5 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen" + v4().toString() + ".docx"

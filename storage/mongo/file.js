@@ -103,9 +103,54 @@ let fileStore = {
     ),
     wordTemplate: catchWrapDb(`${NAMESPACE}.wordTemplate`, async(req) => {
         try {
-            let data = struct.decode(req.data)
+            let data = struct.decode(req.request.data)
 
-            console.log('data', JSON.stringify(data))
+            let files = []
+
+            if (data.another_doc) {
+                let name5 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3.docx"
+                let genName5 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen" + v4().toString() + ".docx"
+
+                const filename5 = path.join(__dirname, '..', '..', 'document', name5);
+                const content5 = fs.readFileSync(filename5);
+                const zip5 = new PizZip(content5);
+                const doc5 = new Docxtemplater();
+                doc5.loadZip(zip5);
+                doc5.setData(data)
+
+                try {
+                    doc5.render();
+                } catch (error) {
+                    console.error('Error rendering document:', error);
+                    throw error
+                }
+
+                const buf5 = doc5.getZip().generate({ type: 'nodebuffer' });
+                let genFileName5 = path.join(__dirname, '..', '..', 'document', genName5);
+                fs.writeFileSync(genFileName5, buf5);
+
+                var minioClient = new Client({
+                    endPoint: cfg.minioEndpoint,
+                    useSSL: ssl,
+                    accessKey: cfg.minioAccessKeyID,
+                    secretKey: cfg.minioSecretAccessKey,
+                    port: 9001,
+                })
+
+                minioClient.putObject('wayll', genName5, buf5, function (error, etag) {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    fs.unlink(genFileName5, (err => {
+                        if (err) console.log(err);
+                        else {
+                        }
+                    }));
+                })
+
+                files.push(cfg.minioEndpoint + "/wayll/" + genName5)
+                return { files: files };
+            }
 
             let name1 = '1_Иштирокчилар_умумий_йиғилиши_протокол.docx'
             let genName1 = '1_Иштирокчилар_умумий_йиғилиши_протокол_gen'+v4().toString() +'.docx'
@@ -115,7 +160,6 @@ let fileStore = {
             let genName3 = '3.Устав_gen' + v4().toString() + '.docx'
             let name4 = '4.Ишончли_бошқарув_шартномаси.docx'
             let genName4 = '4.Ишончли_бошқарув_шартномаси' + v4().toString() + '.docx'
-            let files = []
 
             const filename1 = path.join(__dirname, '..', '..', 'document', name1);
 

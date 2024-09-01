@@ -108,26 +108,26 @@ let fileStore = {
             let files = []
 
             if (data.another_doc) {
-                let name5 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3.docx"
-                let genName5 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen" + v4().toString() + ".docx"
+                let name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3.docx"
+                let genName1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen" + v4().toString() + ".docx"
 
-                const filename5 = path.join(__dirname, '..', '..', 'document', name5);
-                const content5 = fs.readFileSync(filename5);
-                const zip5 = new PizZip(content5);
-                const doc5 = new Docxtemplater();
-                doc5.loadZip(zip5);
-                doc5.setData(data)
+                const filename1 = path.join(__dirname, '..', '..', 'document', name1);
+                const content = fs.readFileSync(filename1);
+                const zip5 = new PizZip(content);
+                const doc = new Docxtemplater();
+                doc.loadZip(zip5);
+                doc.setData(data)
 
                 try {
-                    doc5.render();
+                    doc.render();
                 } catch (error) {
                     console.error('Error rendering document:', error);
                     throw error
                 }
 
-                const buf5 = doc5.getZip().generate({ type: 'nodebuffer' });
-                let genFileName5 = path.join(__dirname, '..', '..', 'document', genName5);
-                fs.writeFileSync(genFileName5, buf5);
+                const buf = doc.getZip().generate({ type: 'nodebuffer' });
+                let genFileName1 = path.join(__dirname, '..', '..', 'document', genName1);
+                fs.writeFileSync(genFileName1, buf);
 
                 let ssl = true
                 if (cfg.minioSSL !== true) {
@@ -141,18 +141,18 @@ let fileStore = {
                     port: 9001,
                 })
 
-                minioClient.putObject('wayll', genName5, buf5, function (error, etag) {
+                minioClient.putObject('wayll', genName1, buf, function (error, etag) {
                     if (error) {
                         return console.log(error);
                     }
-                    fs.unlink(genFileName5, (err => {
+                    fs.unlink(genFileName1, (err => {
                         if (err) console.log(err);
                         else {
                         }
                     }));
                 })
 
-                files.push(cfg.minioEndpoint + "/wayll/" + genName5)
+                files.push(cfg.minioEndpoint + "/wayll/" + genName1)
                 return { files: files };
             }
 

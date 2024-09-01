@@ -103,7 +103,7 @@ let fileStore = {
     ),
     wordTemplate: catchWrapDb(`${NAMESPACE}.wordTemplate`, async(req) => {
         try {
-            let data = struct.decode(req.request.data)
+            let data = struct.decode(req.data)
 
             let files = []
 

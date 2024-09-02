@@ -134,6 +134,7 @@ let fileStore = {
                 // if (cfg.minioSSL !== true) {
                 //     ssl = false
                 // }
+                let ssl = false
                 var minioClient = new Client({
                     endPoint: cfg.minioEndpoint,
                     useSSL: false,

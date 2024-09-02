@@ -107,7 +107,6 @@ let fileStore = {
 
             let files = []
 
-            console.log("Data->", data)
             if (data.another_doc) {
                 let name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3.docx"
                 let genName1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen" + v4().toString() + ".docx"
@@ -134,7 +133,6 @@ let fileStore = {
                 // if (cfg.minioSSL !== true) {
                 //     ssl = false
                 // }
-                let ssl = false
                 var minioClient = new Client({
                     endPoint: cfg.minioEndpoint,
                     useSSL: false,
@@ -143,21 +141,18 @@ let fileStore = {
                     port: 9001,
                 })
 
-                console.log("SSL->", ssl, " endpoint->", cfg.minioEndpoint, " access key->", cfg.minioAccessKeyID, " secretKey->", cfg.minioSecretAccessKey)
-
-                minioClient.putObject('wayll', genName1, buf, function (error, etag) {
+                minioClient.putObject('088bf450-6381-45b5-a236-2cb0880dcaab', 'Media/' + genName1, buf, function (error, etag) {
                     if (error) {
                         return console.log(error);
                     }
-                    fs.unlink(genFileName1, (err => {
-                        if (err) console.log("This is err", err);
-                        else {
+                    fs.unlink(genFileName1, (err) => {
+                        if (err) {
+                            console.log("This is err", err);
                         }
-                    }));
-                })
+                    });
+                });
 
-                files.push(cfg.minioEndpoint + "/wayll/" + genName1)
-                console.log("FILES_>", files)
+                files.push(cfg.minioEndpoint + "/088bf450-6381-45b5-a236-2cb0880dcaab/Media/" + genName1)
                 return { files: files };
             }
 

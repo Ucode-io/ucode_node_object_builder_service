@@ -130,13 +130,13 @@ let fileStore = {
                 let genFileName1 = path.join(__dirname, '..', '..', 'document', genName1);
                 fs.writeFileSync(genFileName1, buf);
 
-                let ssl = true
-                if (cfg.minioSSL !== true) {
-                    ssl = false
-                }
+                // let ssl = false
+                // if (cfg.minioSSL !== true) {
+                //     ssl = false
+                // }
                 var minioClient = new Client({
                     endPoint: cfg.minioEndpoint,
-                    useSSL: ssl,
+                    useSSL: false,
                     accessKey: cfg.minioAccessKeyID,
                     secretKey: cfg.minioSecretAccessKey,
                     port: 9001,

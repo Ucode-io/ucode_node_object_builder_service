@@ -114,7 +114,7 @@ let fileStore = {
                     name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3.docx"
                     genName1 = "Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen" + v4().toString() + ".docx"
                 } else if (data.language == "ru") {
-                    name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_ru.docx"
+                    name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_ru.docx"
                     genName1 = "Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen_ru" + v4().toString() + ".docx"
                 } else {
                     name1 = "3_Учредительный_договор_КТ_NP_ENG.docx"

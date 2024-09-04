@@ -108,8 +108,18 @@ let fileStore = {
             let files = []
 
             if (data.another_doc) {
-                let name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3.docx"
-                let genName1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen" + v4().toString() + ".docx"
+                let name1 = ""
+                let genName1 = ""
+                if (data.language == "uz") {
+                    name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3.docx"
+                    genName1 = "Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen" + v4().toString() + ".docx"
+                } else if (data.language == "ru") {
+                    name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_ru.docx"
+                    genName1 = "Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_gen_ru" + v4().toString() + ".docx"
+                } else {
+                    name1 = "3_Учредительный_договор_КТ_NP_ENG.docx"
+                    genName1 = "Учредительный_договор_КТ_NP_ENG" + v4().toString() + ".docx"
+                }
 
                 const filename1 = path.join(__dirname, '..', '..', 'document', name1);
                 const content = fs.readFileSync(filename1);
@@ -129,10 +139,6 @@ let fileStore = {
                 let genFileName1 = path.join(__dirname, '..', '..', 'document', genName1);
                 fs.writeFileSync(genFileName1, buf);
 
-                // let ssl = false
-                // if (cfg.minioSSL !== true) {
-                //     ssl = false
-                // }
                 var minioClient = new Client({
                     endPoint: cfg.minioEndpoint,
                     useSSL: false,

@@ -235,16 +235,15 @@ let objectBuilder = {
                     guid: data.id
                 });
 
-                if (data.password != "" && data.password) {
-                    let checkPassword = data.password?.substring(0, 4)
+                let tableAttributes = struct.decode(tableModel.attributes);
+                let authInfo = tableAttributes.auth_info;
+
+                if (data[authInfo['password']] != "" && data[authInfo['password']]) {
+                    let checkPassword = data[authInfo['password']].substring(0, 4)
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
                         if (response) {
                             if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                                let tableAttributes = struct.decode(tableModel.attributes);
-                    
                                 if (tableAttributes && tableAttributes.auth_info) {
-                                    let authInfo = tableAttributes.auth_info;
-                    
                                     if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                                         throw new Error('This table is an auth table. Auth information not fully given');
                                     }
@@ -257,11 +256,11 @@ let objectBuilder = {
                                     if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
                                         let updateUserRequest = {
                                             guid: response['guid'],
-                                            login: data?.login,
-                                            email: data?.email,
+                                            login: data[authInfo['login']],
+                                            email: data[authInfo['email']],
                                             password: data[authInfo['password']],
                                         };
-                                        if (data.phone) {
+                                        if (data[authInfo['phone']]) {
                                             updateUserRequest["phone"] = data[authInfo['phone']]
                                         }
                     
@@ -273,8 +272,8 @@ let objectBuilder = {
                                         if (loginTable) {
                                             let updateUserRequest = {
                                                 guid: response['guid'],
-                                                login: data?.login,
-                                                email: data?.email,
+                                                login: data[authInfo['login']],
+                                                email: data[authInfo['email']],
                                                 password: data[authInfo['password']],
                                             };
                         
@@ -304,10 +303,10 @@ let objectBuilder = {
                                     if (loginTable) {
                                         let updateUserRequest = {
                                             guid: response['guid'],
-                                            login: data?.login,
-                                            email: data?.email,
+                                            login: data[authInfo['login']],
+                                            email: data[authInfo['email']],
                                         };
-                                        if (data.phone) {
+                                        if (data[authInfo['phone']]) {
                                             updateUserRequest["phone"] = data[authInfo['phone']]
                                         }
                     
@@ -317,7 +316,7 @@ let objectBuilder = {
                             }
                         }
                     }
-                } else if (data.phone) {
+                } else if (data[authInfo['phone']]) {
                     if (response) { 
                         if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                             let tableAttributes = struct.decode(tableModel.attributes);

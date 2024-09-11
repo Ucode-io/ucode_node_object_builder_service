@@ -70,7 +70,8 @@ let objectBuilderV2 = {
                             await tableInfo.models.updateOne({
                                 guid: ownGuid
                             }, {
-                                $set: { guid: responseFromAuth.user_id }
+                                // $set: { guid: responseFromAuth.user_id }
+                                $set: { user_id_auth: responseFromAuth.user_id }
                             })
                             data.guid = responseFromAuth.user_id
                         }
@@ -925,7 +926,8 @@ let objectBuilderV2 = {
                                 client_type_id: response[authInfo['client_type_id']],
                                 role_id: response[authInfo['role_id']],
                                 project_id: data['company_service_project_id'],
-                                user_id: response['guid'],
+                                // user_id: response['guid'],
+                                user_id: response['user_id_auth'],
                                 environment_id: data['company_service_environment_id']
                             }
                             await grpcClient.deleteUserAuth(authDeleteUserRequest)
@@ -996,7 +998,8 @@ let objectBuilderV2 = {
                                 readyForAuth.push({
                                     client_type_id: obj[authInfo['client_type_id']],
                                     role_id: obj[authInfo['role_id']],
-                                    user_id: obj['guid']
+                                    // user_id: obj['guid']
+                                    user_id: obj['user_id_auth']
                                 })
 
                             }

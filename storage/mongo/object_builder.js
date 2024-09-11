@@ -258,7 +258,8 @@ let objectBuilder = {
 
                                     if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
                                         let updateUserRequest = {
-                                            guid: response['guid'],
+                                            // guid: response['guid'],
+                                            guid: response['user_id_auth'],
                                             login: data[authInfo['login']],
                                             email: data[authInfo['email']],
                                             password: data[authInfo['password']],
@@ -274,7 +275,8 @@ let objectBuilder = {
                                     if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab") {
                                         if (loginTable) {
                                             let updateUserRequest = {
-                                                guid: response['guid'],
+                                                // guid: response['guid'],
+                                                guid: response['user_id_auth'],
                                                 login: data[authInfo['login']],
                                                 email: data[authInfo['email']],
                                                 password: data[authInfo['password']],
@@ -305,7 +307,8 @@ let objectBuilder = {
 
                                     if (loginTable) {
                                         let updateUserRequest = {
-                                            guid: response['guid'],
+                                            // guid: response['guid'],
+                                            guid: response['user_id_auth'],
                                             login: data[authInfo['login']],
                                             email: data[authInfo['email']],
                                         };
@@ -338,7 +341,8 @@ let objectBuilder = {
 
                                 if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
                                     let updateUserRequest = {
-                                        guid: response['guid'],
+                                        // guid: response['guid'],
+                                        guid: response['user_id_auth'],
                                         phone: data[authInfo['phone']],
                                     };
                                     await grpcClient.updateUserAuth(updateUserRequest);
@@ -3415,7 +3419,8 @@ let objectBuilder = {
                                 client_type_id: response[authInfo['client_type_id']],
                                 role_id: response[authInfo['role_id']],
                                 project_id: data['company_service_project_id'],
-                                user_id: response['guid'],
+                                // user_id: response['guid'],
+                                user_id: response['user_id_auth'],
                                 environment_id: data['company_service_environment_id']
                             }
                             await grpcClient.deleteUserAuth(authDeleteUserRequest)
@@ -4507,7 +4512,8 @@ let objectBuilder = {
                             filter: { guid: el },
                             update: {
                                 $set: {
-                                    guid: responseFromAuth.user_ids[i]
+                                    // guid: responseFromAuth.user_ids[i]
+                                    user_id_auth: responseFromAuth.user_ids[i]
                                 }
                             }
                         }
@@ -4527,9 +4533,6 @@ let objectBuilder = {
         //if you will be change this function, you need to change update function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Relation = mongoConn.models['Relation']
 
             const datas = struct.decode(req.data)
             let objects = []
@@ -5345,7 +5348,8 @@ let objectBuilder = {
                                     readyForAuth.push({
                                         client_type_id: obj[authInfo['client_type_id']],
                                         role_id: obj[authInfo['role_id']],
-                                        user_id: obj['guid']
+                                        // user_id: obj['guid']
+                                        user_id: obj['user_id_auth']
                                     })
 
                                 }

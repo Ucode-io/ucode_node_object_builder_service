@@ -5,19 +5,14 @@ const os = require("os")
 const layoutStorage = require("./layout")
 const { STATIC_TABLE_IDS } = require("../../helper/constants")
 const mongoPool = require('../../pkg/pool');
-const { struct } = require('pb-util');
-
 
 let NAMESPACE = "storage.table";
-
 
 let tableStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
-
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const History = mongoConn.models['object_builder_service.version_history']
 
             if(!data.id) {
                 data.id = v4()
@@ -108,10 +103,9 @@ let tableStore = {
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {   
-
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const History = mongoConn.models['object_builder_service.version_history']
+            const Field = mongoConn.models["Field"]
 
             data.is_changed = true
             data.is_changed_by_host = {
@@ -157,6 +151,51 @@ let tableStore = {
                     const recordPermission = new recordPermissionTable.models(permissionRecord)
                     recordPermission.save()
                 }
+            }
+
+            if (data.is_login_table && data.is_login_table === true) {
+                let label = {
+                    id: v4(),
+                    table_id: data.id,
+                    required: false,
+                    slug: "user_id_auth",
+                    label: "User ID Auth",
+                    default: "",
+                    type: "SINGLE_LINE",
+                    index: "string",
+                    attributes: {
+                        fields: {
+                            disabled: {
+                                boolValue: false,
+                                kind: "boolValue"
+                            },
+                            icon: {
+                                stringValue: "",
+                                kind: "stringValue"
+                            },
+                            placeholder: {
+                                stringValue: "",
+                                kind: "stringValue"
+                            },
+                            showTooltip: {
+                                boolValue: false,
+                                kind: "boolValue"
+                            },
+                            defaultValue: {
+                                stringValue: "",
+                                kind: "stringValue"
+                            }
+                        }
+                    },
+                    is_visible: false,
+                    is_system: true,
+                    autofill_field: "",
+                    autofill_table: "",
+                    created_at: new Date(),
+                    updated_at: new Date(),
+                    __v: 0
+                }
+                await Field.create(label)
             }
 
             return table;

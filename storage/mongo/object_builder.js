@@ -119,7 +119,6 @@ let objectBuilder = {
                         if (authInfo['login_strategy'] && authInfo['login_strategy'].length) {
                             loginStrategy = authInfo['login_strategy']
                         }
-                        payload.email = (payload.email || "").toLowerCase()
                         let authCheckRequest = {
                             client_type_id: data['client_type_id'],
                             role_id: data['role_id'],
@@ -141,8 +140,9 @@ let objectBuilder = {
                                 guid: ownGuid
                             }, {
                                 $set: { 
-                                    guid: responseFromAuth.user_id,
-                                    email: (authCheckRequest.email) 
+                                    // guid: responseFromAuth.user_id,
+                                    email: (authCheckRequest.email) ,
+                                    user_id_auth: responseFromAuth.user_id,
                                 }
                             })
                             payload.guid = responseFromAuth.user_id
@@ -238,7 +238,7 @@ let objectBuilder = {
                 let tableAttributes = struct.decode(tableModel.attributes);
                 let authInfo = tableAttributes.auth_info;
 
-                if (data[authInfo['password']] != "" && data[authInfo['password']]) {
+                if (authInfo && authInfo['password'] && data[authInfo['password']] !== "") {
                     let checkPassword = data[authInfo['password']].substring(0, 4)
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
                         if (response) {
@@ -312,6 +312,33 @@ let objectBuilder = {
                     
                                         await grpcClient.updateUserAuth(updateUserRequest);
                                     }
+                                }
+                            }
+                        }
+                    }
+                } else if (authInfo && authInfo['phone'] && data[authInfo['phone']]) {
+                    if (response) { 
+                        if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                            let tableAttributes = struct.decode(tableModel.attributes);
+                
+                            if (tableAttributes && tableAttributes.auth_info) {
+                                let authInfo = tableAttributes.auth_info;
+                
+                                if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                    throw new Error('This table is an auth table. Auth information not fully given');
+                                }
+
+                                let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                    guid: response[authInfo['client_type_id']],
+                                    table_slug: tableModel.slug
+                                });
+
+                                if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
+                                    let updateUserRequest = {
+                                        guid: response['guid'],
+                                        phone: data[authInfo['phone']],
+                                    };
+                                    await grpcClient.updateUserAuth(updateUserRequest);
                                 }
                             }
                         }

@@ -360,9 +360,9 @@ let objectBuilder = {
 
             console.log("After OrderUpdate", req.project_id)
 
-            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
+            let updateResp = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
 
-            console.log("After Update Req Table Slug Data", req.project_id)
+            console.log("After Update Req Table Slug Data", req.project_id, req.table_slug, updateResp)
             
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {

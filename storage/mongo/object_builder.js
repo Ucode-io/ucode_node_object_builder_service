@@ -239,7 +239,10 @@ let objectBuilder = {
                 let authInfo = tableAttributes.auth_info;
 
                 if (authInfo && authInfo['password'] && data[authInfo['password']] !== "") {
-                    let checkPassword = data[authInfo['password']].substring(0, 4)
+                    let checkPassword = ""
+                    if (data[authInfo['password']]) {
+                        checkPassword = data[authInfo['password']].substring(0, 4)
+                    }
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
                         if (response) {
                             if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
@@ -348,6 +351,7 @@ let objectBuilder = {
                 throw error
             } 
 
+            console.log("Before update")
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)

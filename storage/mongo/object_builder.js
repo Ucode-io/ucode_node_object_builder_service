@@ -351,7 +351,6 @@ let objectBuilder = {
                 throw error
             } 
 
-            console.log("Before update")
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)

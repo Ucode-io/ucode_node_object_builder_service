@@ -210,7 +210,7 @@ let objectBuilder = {
 
                 return { table_slug: req.table_slug, data: struct.encode(data), custom_message: "" };
             }
-
+            console.log("ObjectBuilder DoesNot Blocked", req.project_id)
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
             if (tableModel) {
@@ -221,7 +221,7 @@ let objectBuilder = {
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
-
+            console.log("Get Table Model", req.project_id)
             try {
                 const data = struct.decode(req.data)
                 if (!data.guid) {
@@ -350,13 +350,19 @@ let objectBuilder = {
             } catch (error) {
                 throw error
             } 
+            console.log("After Auth Info", req.project_id)
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
 
+            console.log("After PrapareToUpdate", req.project_id)
+
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
+
+            console.log("After OrderUpdate", req.project_id)
 
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
 
+            console.log("After Update Req Table Slug Data", req.project_id)
             
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
@@ -366,7 +372,11 @@ let objectBuilder = {
                 funcs.push(objectBuilder.deleteManyToMany(resDeleteM2M))
             }
 
+            console.log("After Funcs Fors", req.project_id)
+
             await Promise.all(funcs)
+
+            console.log("After Prosmise All", req.project_id)
             // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
 
             const endMemoryUsage = process.memoryUsage();

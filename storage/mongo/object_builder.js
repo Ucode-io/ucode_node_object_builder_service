@@ -238,8 +238,11 @@ let objectBuilder = {
                 let tableAttributes = struct.decode(tableModel.attributes);
                 let authInfo = tableAttributes.auth_info;
 
-                if (data[authInfo['password']] != "" && data[authInfo['password']]) {
-                    let checkPassword = data[authInfo['password']].substring(0, 4)
+                if (authInfo && authInfo['password'] && data[authInfo['password']] !== "") {
+                    let checkPassword = ""
+                    if (data[authInfo['password']]) {
+                        checkPassword = data[authInfo['password']].substring(0, 4)
+                    }
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
                         if (response) {
                             if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
@@ -316,7 +319,7 @@ let objectBuilder = {
                             }
                         }
                     }
-                } else if (data[authInfo['phone']]) {
+                } else if (authInfo && authInfo['phone'] && data[authInfo['phone']]) {
                     if (response) { 
                         if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                             let tableAttributes = struct.decode(tableModel.attributes);

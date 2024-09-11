@@ -238,12 +238,12 @@ let objectBuilder = {
                 let tableAttributes = struct.decode(tableModel.attributes);
                 let authInfo = tableAttributes.auth_info;
 
-                if (authInfo && authInfo['password'] && data[authInfo['password']] !== "") {
+                if (data[authInfo['password']] != "" && data[authInfo['password']]) {
                     let checkPassword = data[authInfo['password']].substring(0, 4)
                     if (checkPassword != "$2b$" && checkPassword != "$2a$") {
                         if (response) {
                             if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                                if (tableAttributes && tableAttributes.auth_info) {                    
+                                if (tableAttributes && tableAttributes.auth_info) {
                                     if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                                         throw new Error('This table is an auth table. Auth information not fully given');
                                     }
@@ -303,10 +303,10 @@ let objectBuilder = {
                                     if (loginTable) {
                                         let updateUserRequest = {
                                             guid: response['guid'],
-                                            login: data?.login,
-                                            email: data?.email,
+                                            login: data[authInfo['login']],
+                                            email: data[authInfo['email']],
                                         };
-                                        if (data.phone) {
+                                        if (data[authInfo['phone']]) {
                                             updateUserRequest["phone"] = data[authInfo['phone']]
                                         }
                     
@@ -316,7 +316,7 @@ let objectBuilder = {
                             }
                         }
                     }
-                } else if (authInfo && authInfo['phone'] && data[authInfo['phone']]) {
+                } else if (data[authInfo['phone']]) {
                     if (response) { 
                         if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                             let tableAttributes = struct.decode(tableModel.attributes);
@@ -3798,8 +3798,8 @@ let objectBuilder = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("deleteManyToMany-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("deleteManyToMany-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by deleteManyToMany: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -3811,7 +3811,7 @@ let objectBuilder = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by deleteManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by deleteManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return { data: data, custom_message: customMessage };
@@ -3892,8 +3892,8 @@ let objectBuilder = {
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("appendManyToMany-->Project->" + req.project_id)
-                logger.info("Request->" + JSON.stringify(req))
+                logger.info("appendManyToMany-->Project->" + data.project_id)
+                logger.info("Request->" + JSON.stringify(data))
 
                 logger.info(`--> P-M Memory used by appendManyToMany: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
@@ -3905,7 +3905,7 @@ let objectBuilder = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by appendManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by appendManyToMany: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
             return { data, custom_message: customMessage };

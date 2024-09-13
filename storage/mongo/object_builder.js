@@ -336,7 +336,7 @@ let objectBuilder = {
                                     table_slug: tableModel.slug
                                 });
 
-                                if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
+                                if (loginTable) {
                                     let updateUserRequest = {
                                         guid: response['guid'],
                                         phone: data[authInfo['phone']],
@@ -2533,6 +2533,10 @@ let objectBuilder = {
             } else if (!currentTable.order_by && !Object.keys(order).length) {
                 order = { createdAt: -1 }
             }
+        }
+        
+        if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab" && req.table_slug == "transaction") {
+            order = { createdAt: -1 }
         }
      
         // const permissionTable = allTables["record_permission"]

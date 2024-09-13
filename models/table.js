@@ -51,6 +51,9 @@ const TableSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
+        },
         soft_delete: {
             type: Boolean,
             default: false

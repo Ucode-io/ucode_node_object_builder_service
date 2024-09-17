@@ -2544,10 +2544,6 @@ let objectBuilder = {
                 order = { createdAt: -1 }
             }
         }
-        
-        if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab" && req.table_slug == "transaction") {
-            order = { createdAt: -1 }
-        }
      
         // const permissionTable = allTables["record_permission"]
         const permission = await permissionTable.models.findOne({

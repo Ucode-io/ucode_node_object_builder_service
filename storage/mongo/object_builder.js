@@ -3592,7 +3592,6 @@ let objectBuilder = {
                 const decodedFields = response.fields
                 const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
                 excelArr = []
-                let i = 0
                 for (const obj of result) {
                     excelObj = {}
                     for (const field of selectedFields) {
@@ -3704,16 +3703,15 @@ let objectBuilder = {
             }
 
 
-            minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
-                if (error) {
-                    return logger.error(error);
+            await minioClient.fPutObject("reports", filename, filepath, metaData);
+    
+            fs.unlink(filename, (err => {
+                if (err) {
+                    logger.error(`Error deleting file: ${err}`);
+                } else {
+                    logger.info(`File ${filename} deleted successfully.`);
                 }
-                fs.unlink(filename, (err => {
-                    if (err) {}
-                    else {
-                    }
-                }));
-            });
+            }));
 
             const respExcel = struct.encode({
                 link: cfg.minioEndpoint + "/reports/" + filename,

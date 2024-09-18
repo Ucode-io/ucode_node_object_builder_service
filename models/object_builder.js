@@ -10,8 +10,6 @@ const logger = require("../config/logger");
 let mongooseObject = {};
 
 async function buildModels(is_build = true, project_id) {
-
-    const startAt = new Date()
     if (!project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }

@@ -23,7 +23,6 @@ let versionHistoryStorage = {
             const query = {}
             const limit = data.limit
             const offset = data.offset
-            // console.log('data', JSON.stringify(data, nul,2))
 
             if (data.type == "DOWN" || data.type == "UP") {
                 query.action_source = { 

@@ -1568,14 +1568,12 @@ let objectBuilderV2 = {
 
             return { table_slug: table.slug };
         } catch (err) {
-            console.log(err)
             throw err;
         }
     }),
     deleteBySearch: catchWrapDbObjectBuilder(`${NAMESPACE}.deleteBySearch`, async (req) => {
         const startMemoryUsage = process.memoryUsage();
         try {
-            console.log(req)
             const mongoConn = await mongoPool.get(req.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']

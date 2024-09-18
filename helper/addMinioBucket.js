@@ -95,15 +95,6 @@ async function deleteMinioFolder(bucketName, folderName) {
     });
 }
 
-// async function createFolderToBucket(bucketName, folderName) {
-//   minioClient.putObject(bucketName, folderName+'/', '', 0, function(err) {
-//     console.log("CREATING FOLDER")
-//     if (err) {
-//       throw new Error(err)
-//     } else {
-//       console.log('Folder created successfully!')
-//     }
-//   })
-// }
+
 
 module.exports = {createMinioBucket, createFolderToBucket, deleteMinioFolder}

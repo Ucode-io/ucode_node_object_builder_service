@@ -1011,8 +1011,6 @@ let fieldStore = {
 
             const fields = await Field.find({table_id: data.table_id, label: data.field_label})
 
-            // console.log(fields)
-
             return {fields: fields}
         } catch (err) {
             throw err
@@ -1031,8 +1029,6 @@ let fieldStore = {
             for (let f of fields) {
                 ids.push(f.id)
             }
-
-            console.log(ids)
 
             return {
                 ids: ids

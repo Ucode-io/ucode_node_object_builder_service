@@ -68,10 +68,8 @@ let permissionFunctions = {
                     id = relationFieldPermissionMap.get(id.split("#")[1]);
                 }
                 let fieldPer = fieldPermissionMap.get(id);
-                // console.log("::---- test 1", field.slug, roleId, !roleId, fieldPer)
                 if (fieldPer && roleId) {
                     if(tableSlug == "move_shipping_item") {
-                        // console.log("~~> $test 1 field permission ", JSON.stringify(fieldPer), roleId)
                     }
                     if (field.attributes) {
                         let decodedAttributes = struct.decode(field.attributes);
@@ -86,7 +84,6 @@ let permissionFunctions = {
                         field["attributes"] = encodedAttributes;
                     }
                     if (!fieldPer.view_permission) {
-                        // console.log("~~>> unused field slugs ", field.slug)
                         unusedFieldsSlugs[field.slug] = 0
                         continue
                     }
@@ -168,7 +165,6 @@ let permissionFunctions = {
             relations.forEach(element => {
                 relationIds.push(element.id)
             })
-            // console.log(project_id, roleId, relationIds, tableSlug)
             const relationPermissionTable = (await ObjectBuilder(true, project_id))["view_relation_permission"]
             let viewRelationPermissions = await relationPermissionTable.models.find({
                 role_id: roleId,
@@ -184,7 +180,6 @@ let permissionFunctions = {
                     __v: 0
                 }
             )
-            // console.log("TEST:::::::::1", viewRelationPermissions)
             for (const relation of relations) {
                 let encodedPermission = {}
                 let permission = viewRelationPermissions.find(obj => obj.relation_id === relation.id)
@@ -197,7 +192,6 @@ let permissionFunctions = {
                 }
                 relation["permission"] = encodedPermission
             }
-            // console.log("relations", relations)
             return relations
 
         } catch (err) {

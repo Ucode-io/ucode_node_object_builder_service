@@ -93,7 +93,6 @@ let tableStore = {
             }
 
             await layoutStorage.createAll(default_layout)
-
              
             return table;
         } catch (err) {
@@ -165,21 +164,13 @@ let tableStore = {
                     index: "string",
                     attributes: {
                         fields: {
-                            disabled: {
-                                boolValue: false,
-                                kind: "boolValue"
-                            },
-                            icon: {
-                                stringValue: "",
+                            label_en: {
+                                stringValue: "User Id Auth",
                                 kind: "stringValue"
                             },
-                            placeholder: {
+                            label: {
                                 stringValue: "",
                                 kind: "stringValue"
-                            },
-                            showTooltip: {
-                                boolValue: false,
-                                kind: "boolValue"
                             },
                             defaultValue: {
                                 stringValue: "",
@@ -195,7 +186,12 @@ let tableStore = {
                     updated_at: new Date(),
                     __v: 0
                 }
-                await Field.create(label)
+
+                await Field.updateOne(
+                    { table_id: data.id, slug: "user_id_auth" },
+                    { $set: label },
+                    { upsert: true }
+                )
             }
 
             return table;

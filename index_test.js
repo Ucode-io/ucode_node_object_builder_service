@@ -2,11 +2,7 @@ require('dotenv').config({ path: '/app/.env' });
 require("dotenv").config({ path: "./.env" })
 const projectStorage = require('./storage/mongo/project')
 const config = require('./config/index')
-// const mongooseConnection = require("./config/mongooseConnection");
-// @TODO:: add collection Delete Interval function for resources
-// const collectionDeleteInterval = require("./helper/collectionDeleteInterval"); 
 const grpcConnection = require("./config/grpcConnection");
-const kafka = require("./config/kafka");
 const logger = require("./config/logger");
 
 (async function () {
@@ -26,16 +22,17 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "27f1591c-7144-4b27-8c7b-6bd3cdf9bf83", // alldental
+            project_id: "43715880-3534-453e-b1df-a7546f69305e", // alldental
             credentials: {
                 host: "95.217.155.57",
                 port: 30027,
-                database: "sync_user_848ec3dcbfc0449682240b30041b22a1_p_obj_build_svcs",
-                username: "sync_user_848ec3dcbfc0449682240b30041b22a1_p_obj_build_svcs",
-                password: "LTorSVui1P"
+                database: "swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs",
+                username: "swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs",
+                password: "J65e1tOKfd"
             }
         })
 
+        //mongodb://swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs:J65e1tOKfd@95.217.155.57:30027/swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs
         //mongodb://sync_user_848ec3dcbfc0449682240b30041b22a1_p_obj_build_svcs:LTorSVui1P@95.217.155.57:30027/sync_user_848ec3dcbfc0449682240b30041b22a1_p_obj_build_svcs
         //mongodb://datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs:6WgABcjpbe@142.93.164.37:27017/datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs
         //mongodb://rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs:oDgRRrJR7U@142.93.164.37:27017/rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs

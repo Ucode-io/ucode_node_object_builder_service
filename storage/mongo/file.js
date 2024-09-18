@@ -144,7 +144,6 @@ let fileStore = {
                     useSSL: false,
                     accessKey: cfg.minioAccessKeyID,
                     secretKey: cfg.minioSecretAccessKey,
-                    port: 9001,
                 })
 
                 minioClient.putObject('088bf450-6381-45b5-a236-2cb0880dcaab', 'Media/' + genName1, buf, function (error, etag) {

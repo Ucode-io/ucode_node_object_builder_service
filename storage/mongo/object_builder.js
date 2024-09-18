@@ -204,7 +204,6 @@ let objectBuilder = {
 
                 return { table_slug: req.table_slug, data: struct.encode(data), custom_message: "" };
             }
-
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
             let updatedUser = {}
@@ -359,9 +358,14 @@ let objectBuilder = {
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             data.user_id_auth = updatedUser.user_id
 
+            console.log("After PrapareToUpdate", req.project_id)
+
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
 
+            let updateResp = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
+
+            console.log("After Update Req Table Slug Data", req.project_id, req.table_slug, updateResp)
             
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
@@ -370,6 +374,8 @@ let objectBuilder = {
             for (const resDeleteM2M of deleteMany2Many) {
                 funcs.push(objectBuilder.deleteManyToMany(resDeleteM2M))
             }
+
+            console.log("After Funcs Fors", req.project_id)
 
             await Promise.all(funcs)
 
@@ -3586,7 +3592,6 @@ let objectBuilder = {
                 const decodedFields = response.fields
                 const selectedFields = decodedFields.filter(obj => field_ids.includes(obj.id));
                 excelArr = []
-                let i = 0
                 for (const obj of result) {
                     excelObj = {}
                     for (const field of selectedFields) {
@@ -3698,16 +3703,15 @@ let objectBuilder = {
             }
 
 
-            minioClient.fPutObject("reports", filename, filepath, metaData, function (error, etag) {
-                if (error) {
-                    return logger.error(error);
+            await minioClient.fPutObject("reports", filename, filepath, metaData);
+    
+            fs.unlink(filename, (err => {
+                if (err) {
+                    logger.error(`Error deleting file: ${err}`);
+                } else {
+                    logger.info(`File ${filename} deleted successfully.`);
                 }
-                fs.unlink(filename, (err => {
-                    if (err) {}
-                    else {
-                    }
-                }));
-            });
+            }));
 
             const respExcel = struct.encode({
                 link: cfg.minioEndpoint + "/reports/" + filename,

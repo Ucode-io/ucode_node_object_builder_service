@@ -428,7 +428,7 @@ let loginStore = {
         let userId;
         if (user) {
             user_found = true
-            userId = user.guid
+            userId = user.user_id_auth
         }
         
 

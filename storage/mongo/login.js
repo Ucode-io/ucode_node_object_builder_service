@@ -429,6 +429,9 @@ let loginStore = {
         if (user) {
             user_found = true
             userId = user.user_id_auth
+            if (tableSlug === "user") {
+                userId = user.guid
+            }
         }
         
 

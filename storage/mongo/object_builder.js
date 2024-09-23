@@ -127,21 +127,27 @@ let objectBuilder = {
                             environment_id: data["company_service_environment_id"],
                             login_strategy: loginStrategy
                         }
-                        const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
-                        if (responseFromAuth) {
-                            data.guid = responseFromAuth.user_id
-                            await tableInfo.models.updateOne({
+
+                        await grpcClient.createUserAuth(authCheckRequest)
+                        .catch((err) => {
+                            console.error("error while creating user in auth service", JSON.stringify(err))
+                        })
+                        .then((res)=> {
+                            data.guid = res?.user_id
+                            tableInfo.models.updateOne({
                                 guid: ownGuid
                             }, {
                                 $set: { 
-                                    // guid: responseFromAuth.user_id,
                                     email: (authCheckRequest.email) ,
-                                    user_id_auth: responseFromAuth.user_id,
+                                    user_id_auth: res.user_id,
                                 }
                             })
-                            payload.user_id_auth = responseFromAuth.user_id
-                            // payload.guid = responseFromAuth.user_id
-                        }
+                            .catch((err) => {
+                                console.error("error update login table", JSON.stringify(err));
+                            });
+
+                            payload.user_id_auth = res.user_id
+                        })
                     }
                 }
                 await payload.save();

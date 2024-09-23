@@ -341,7 +341,6 @@ let tableHelpers = {
                 try {
                     await relationStore.create(relation)
                 } catch (error) {
-                    console.log(error, "relation id:::", relation.id)
                     continue
                 }
             }

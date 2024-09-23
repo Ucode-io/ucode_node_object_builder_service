@@ -221,8 +221,12 @@ let objectBuilder = {
                     guid: data.id
                 });
 
-                let tableAttributes = struct.decode(tableModel.attributes);
-                let authInfo = tableAttributes.auth_info;
+                let tableAttributes;
+                let authInfo;
+                if (tableModel.attributes) {
+                    tableAttributes = struct.decode(tableModel.attributes);
+                    authInfo = tableAttributes.auth_info;
+                }
 
                 if (authInfo && authInfo['password'] && data[authInfo['password']] !== "") {
                     let checkPassword = ""
@@ -358,14 +362,10 @@ let objectBuilder = {
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             data.user_id_auth = updatedUser.user_id
 
-            console.log("After PrapareToUpdate", req.project_id)
-
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
 
             let updateResp = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
-
-            console.log("After Update Req Table Slug Data", req.project_id, req.table_slug, updateResp)
             
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
@@ -374,8 +374,6 @@ let objectBuilder = {
             for (const resDeleteM2M of deleteMany2Many) {
                 funcs.push(objectBuilder.deleteManyToMany(resDeleteM2M))
             }
-
-            console.log("After Funcs Fors", req.project_id)
 
             await Promise.all(funcs)
 

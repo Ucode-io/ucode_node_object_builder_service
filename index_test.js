@@ -22,16 +22,17 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "43715880-3534-453e-b1df-a7546f69305e", // alldental
+            project_id: "088bf450-6381-45b5-a236-2cb0880dcaab", // alldental
             credentials: {
-                host: "95.217.155.57",
-                port: 30027,
-                database: "swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs",
-                username: "swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs",
-                password: "J65e1tOKfd"
+                host: "142.93.164.37",
+                port: 27017,
+                database: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
+                username: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
+                password: "xLezOfqNj0"
             }
         })
 
+        //mongodb://wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs:xLezOfqNj0@142.93.164.37:27017/wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs
         //mongodb://swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs:J65e1tOKfd@95.217.155.57:30027/swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs
         //mongodb://sync_user_848ec3dcbfc0449682240b30041b22a1_p_obj_build_svcs:LTorSVui1P@95.217.155.57:30027/sync_user_848ec3dcbfc0449682240b30041b22a1_p_obj_build_svcs
         //mongodb://datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs:6WgABcjpbe@142.93.164.37:27017/datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs

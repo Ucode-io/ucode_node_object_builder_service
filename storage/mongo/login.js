@@ -365,9 +365,13 @@ let loginStore = {
                 ]
             }
         ).lean()
-        let params = {}
-        params["user_id_auth"] = req.user_id
-        params["client_type_id"] = req.client_type
+        let params = {
+            $or: [
+                { guid: req.user_id },
+                { user_id_auth: req.user_id }
+            ],
+            client_type_id: req.client_type,
+        }
         let tableSlug = "user"
         if (clientType && clientType.table_slug) {
             tableSlug = clientType.table_slug
@@ -429,6 +433,9 @@ let loginStore = {
         if (user) {
             user_found = true
             userId = user.user_id_auth
+            if (!userId || userId.length === 0) {
+                userId = user.guid;
+            }
             if (tableSlug === "user") {
                 userId = user.guid
             }

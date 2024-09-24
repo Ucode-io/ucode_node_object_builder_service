@@ -21,19 +21,13 @@ const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
 const constants = require('../../helper/constants');
 const pluralize = require('pluralize');
-const os = require('os')
 
 const TableStorage = require('./table')
 const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
 const MenuStorage = require('./menu');
 const { OrderUpdate } = require('../../helper/board_order')
-
-const cluster = require('cluster');
-const v8 = require('v8');
-const { pipeline } = require('stream');
 const updateISODateFunction = require('../../helper/updateISODate');
-const { log } = require('console');
 
 let NAMESPACE = "storage.object_builder";
 
@@ -119,7 +113,6 @@ let objectBuilder = {
                         if (authInfo['login_strategy'] && authInfo['login_strategy'].length) {
                             loginStrategy = authInfo['login_strategy']
                         }
-                        payload.email = (payload.email || "").toLowerCase()
                         let authCheckRequest = {
                             client_type_id: data['client_type_id'],
                             role_id: data['role_id'],
@@ -134,19 +127,27 @@ let objectBuilder = {
                             environment_id: data["company_service_environment_id"],
                             login_strategy: loginStrategy
                         }
-                        const responseFromAuth = await grpcClient.createUserAuth(authCheckRequest)
-                        if (responseFromAuth) {
-                            data.guid = responseFromAuth.user_id
-                            await tableInfo.models.updateOne({
+
+                        await grpcClient.createUserAuth(authCheckRequest)
+                        .catch((err) => {
+                            console.error("error while creating user in auth service", JSON.stringify(err))
+                        })
+                        .then((res)=> {
+                            data.guid = res?.user_id
+                            tableInfo.models.updateOne({
                                 guid: ownGuid
                             }, {
                                 $set: { 
-                                    guid: responseFromAuth.user_id,
-                                    email: (authCheckRequest.email) 
+                                    email: (authCheckRequest.email) ,
+                                    user_id_auth: res.user_id,
                                 }
                             })
-                            payload.guid = responseFromAuth.user_id
-                        }
+                            .catch((err) => {
+                                console.error("error update login table", JSON.stringify(err));
+                            });
+
+                            payload.user_id_auth = res.user_id
+                        })
                     }
                 }
                 await payload.save();
@@ -205,23 +206,14 @@ let objectBuilder = {
 
             if (req.blocked_builder) {
                 const data = struct.decode(req.data)
-
                 await tableInfo.models.findOneAndUpdate({ guid: data.guid }, { $set: data });
 
                 return { table_slug: req.table_slug, data: struct.encode(data), custom_message: "" };
             }
-            console.log("ObjectBuilder DoesNot Blocked", req.project_id)
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
-            if (tableModel) {
-                const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
-                    code: 200,
-                    table_id: tableModel.id,
-                    action_type: "UPDATE"
-                })
-                if (customErrMsg) { customMessage = customErrMsg.message }
-            }
-            console.log("Get Table Model", req.project_id)
+            let updatedUser = {}
+
             try {
                 const data = struct.decode(req.data)
                 if (!data.guid) {
@@ -235,8 +227,12 @@ let objectBuilder = {
                     guid: data.id
                 });
 
-                let tableAttributes = struct.decode(tableModel.attributes);
-                let authInfo = tableAttributes.auth_info;
+                let tableAttributes;
+                let authInfo;
+                if (tableModel.attributes) {
+                    tableAttributes = struct.decode(tableModel.attributes);
+                    authInfo = tableAttributes.auth_info;
+                }
 
                 if (authInfo && authInfo['password'] && data[authInfo['password']] !== "") {
                     let checkPassword = ""
@@ -256,32 +252,32 @@ let objectBuilder = {
                                         table_slug: tableModel.slug
                                     });
 
-                                    if (loginTable && req.project_id != "088bf450-6381-45b5-a236-2cb0880dcaab") {
+                                    if (loginTable) {
                                         let updateUserRequest = {
-                                            guid: response['guid'],
-                                            login: data[authInfo['login']],
-                                            email: data[authInfo['email']],
-                                            password: data[authInfo['password']],
+                                            guid: response['user_id_auth'],
+                                            env_id: req.env_id,
+                                            role_id: response[authInfo['role_id']],
+                                            project_id: req.company_project_id,
+                                            client_type_id: response[authInfo['client_type_id']],
                                         };
-                                        if (data[authInfo['phone']]) {
-                                            updateUserRequest["phone"] = data[authInfo['phone']]
-                                        }
-                    
-                                        await grpcClient.updateUserAuth(updateUserRequest);
-                                    }
 
-                    
-                                    if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab") {
-                                        if (loginTable) {
-                                            let updateUserRequest = {
-                                                guid: response['guid'],
-                                                login: data[authInfo['login']],
-                                                email: data[authInfo['email']],
-                                                password: data[authInfo['password']],
-                                            };
-                        
-                                            await grpcClient.updateUserAuth(updateUserRequest);
+                                        if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
+                                            updateUserRequest['phone'] = data[authInfo['phone']]
                                         }
+
+                                        if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
+                                            updateUserRequest['login'] = data[authInfo['login']]
+                                        }
+
+                                        if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
+                                            updateUserRequest['email'] = data[authInfo['email']]
+                                        }
+
+                                        if (data[authInfo['password']] && data[authInfo['password']] !== response[authInfo['password']]) {
+                                            updateUserRequest['password'] = data[authInfo['password']]
+                                        }
+                    
+                                        updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
                                     }
                                 }
                             }
@@ -305,15 +301,25 @@ let objectBuilder = {
 
                                     if (loginTable) {
                                         let updateUserRequest = {
-                                            guid: response['guid'],
-                                            login: data[authInfo['login']],
-                                            email: data[authInfo['email']],
+                                            guid: response['user_id_auth'],
+                                            env_id: req.env_id,
+                                            role_id: response[authInfo['role_id']],
+                                            project_id: req.company_project_id,
+                                            client_type_id: response[authInfo['client_type_id']],
                                         };
-                                        if (data[authInfo['phone']]) {
-                                            updateUserRequest["phone"] = data[authInfo['phone']]
+                                        if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
+                                            updateUserRequest['phone'] = data[authInfo['phone']]
+                                        }
+
+                                        if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
+                                            updateUserRequest['login'] = data[authInfo['login']]
+                                        }
+
+                                        if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
+                                            updateUserRequest['email'] = data[authInfo['email']]
                                         }
                     
-                                        await grpcClient.updateUserAuth(updateUserRequest);
+                                        updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
                                     }
                                 }
                             }
@@ -338,10 +344,18 @@ let objectBuilder = {
 
                                 if (loginTable) {
                                     let updateUserRequest = {
-                                        guid: response['guid'],
-                                        phone: data[authInfo['phone']],
+                                        guid: response['user_id_auth'],
+                                        env_id: req.env_id,
+                                        role_id: response[authInfo['role_id']],
+                                        project_id: req.company_project_id,
+                                        client_type_id: response[authInfo['client_type_id']],
                                     };
-                                    await grpcClient.updateUserAuth(updateUserRequest);
+
+                                    if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
+                                        updateUserRequest['phone'] = data[authInfo['phone']]
+                                    }
+
+                                    updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
                                 }
                             }
                         }
@@ -349,20 +363,15 @@ let objectBuilder = {
                 }
             } catch (error) {
                 throw error
-            } 
-            console.log("After Auth Info", req.project_id)
+            }
 
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
-
-            console.log("After PrapareToUpdate", req.project_id)
+            data.user_id_auth = updatedUser.user_id
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
-
-            console.log("After OrderUpdate", req.project_id)
+            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
 
             let updateResp = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
-
-            console.log("After Update Req Table Slug Data", req.project_id, req.table_slug, updateResp)
             
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
@@ -372,12 +381,7 @@ let objectBuilder = {
                 funcs.push(objectBuilder.deleteManyToMany(resDeleteM2M))
             }
 
-            console.log("After Funcs Fors", req.project_id)
-
             await Promise.all(funcs)
-
-            console.log("After Prosmise All", req.project_id)
-            // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
 
             const endMemoryUsage = process.memoryUsage();
 
@@ -3425,7 +3429,7 @@ let objectBuilder = {
                                 client_type_id: response[authInfo['client_type_id']],
                                 role_id: response[authInfo['role_id']],
                                 project_id: data['company_service_project_id'],
-                                user_id: response['guid'],
+                                user_id: response['user_id_auth'],
                                 environment_id: data['company_service_environment_id']
                             }
                             await grpcClient.deleteUserAuth(authDeleteUserRequest)
@@ -4181,13 +4185,6 @@ let objectBuilder = {
                                         newmapCount[newField.id] += 1;
                                       }
                                     }
-                                                    
-                                    // if (newField.id == "64bd5d7c-4588-49f7-ae28-6bd0ccc0b637") {
-                                    //     newField.number = number;
-                                    //     number++
-                                    //     console.log("her field  > > > >>  >>", newField);
-                                    // } //
-
 
                                 relationsFields.push(newField)
                             }
@@ -4515,7 +4512,8 @@ let objectBuilder = {
                             filter: { guid: el },
                             update: {
                                 $set: {
-                                    guid: responseFromAuth.user_ids[i]
+                                    // guid: responseFromAuth.user_ids[i]
+                                    user_id_auth: responseFromAuth.user_ids[i]
                                 }
                             }
                         }
@@ -4535,9 +4533,6 @@ let objectBuilder = {
         //if you will be change this function, you need to change update function
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Relation = mongoConn.models['Relation']
 
             const datas = struct.decode(req.data)
             let objects = []
@@ -5353,7 +5348,8 @@ let objectBuilder = {
                                     readyForAuth.push({
                                         client_type_id: obj[authInfo['client_type_id']],
                                         role_id: obj[authInfo['role_id']],
-                                        user_id: obj['guid']
+                                        // user_id: obj['guid']
+                                        user_id: obj['user_id_auth']
                                     })
 
                                 }

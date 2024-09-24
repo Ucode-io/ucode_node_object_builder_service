@@ -187,8 +187,6 @@ let prepareFunction = {
         let incrementNum = fieldM["INCREMENT_NUMBER"]
         if (incrementNum) {
             let last = await tableInfo.models.findOne({}, {}, { sort: { 'createdAt': -1 } })
-            // console.log(">>>>>>>>>>>>>>> last ", last)
-            // console.log(">>>>>>>>>>>>>>> increment field ", incrementNum)
 
             let attributes = struct.decode(incrementNum.attributes)
             let incrementLength = attributes.prefix?.length
@@ -197,12 +195,10 @@ let prepareFunction = {
             } else {
                 if (incrementLength) {
                     nextIncrement = parseInt(last[incrementNum.slug].slice(incrementLength + 1, last[incrementNum.slug]?.length)) + 1
-                    // console.log("@@@@@@@@@@  ", nextIncrement)
                     data[incrementNum.slug] = attributes.prefix + (nextIncrement + "").padStart(attributes.digit_number, '0')
 
                 } else {
                     nextIncrement = parseInt(last[incrementNum.slug]) + 1
-                    // console.log("!!!!!!!! ", nextIncrement)
                     data[incrementNum.slug] = (nextIncrement + "").padStart(attributes.digit_number, '0')
                 }
 
@@ -387,17 +383,14 @@ let prepareFunction = {
 
             // this is many2many append and delete when many2many relation field type input
             if (field.type === "LOOKUPS") {
-                // console.log('~~~ lookups field slug', field.slug, JSON.stringify(data[field.slug]))
                 if (data[field.slug]) {
                     let olderArr = objectBeforeUpdate[field.slug] || []
                     let newArr = data[field.slug]
-                    // console.log(":: prepare function 0.1", field.slug, data[field.slug], Array.isArray(newArr), olderArr)
                     if (Array.isArray(newArr)) {
                         newIds = newArr.filter(val => !olderArr.includes(val))
                         deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))
                     }
                 }
-                
 
                 const relation = relationMap[field.relation_id]
 
@@ -432,7 +425,6 @@ let prepareFunction = {
                 }
                 dataToAnalytics[field.slug] = data[field.slug]
             } else if (field.type === "MULTISELECT") {
-                // console.log("~~~>", data[field.slug], data, field)
                 if (field.required && (!data[field.slug] || !data[field.slug].length)) {
                     throw new Error("Multiselect field is required")
                 }

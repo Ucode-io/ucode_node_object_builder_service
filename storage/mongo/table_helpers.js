@@ -166,13 +166,6 @@ let tableHelpers = {
             secretKey: cfg.minioSecretAccessKey
         });
 
-        var metaData = {
-            'Content-Type': "application/json",
-            'Content-Language': 123,
-            'X-Amz-Meta-Testing': 1234,
-            'example': 5678
-        }
-
         minioClient.putObject("docs", filename, jsonStr, function (error, etag) {
             if (error) {
                 return error
@@ -348,7 +341,6 @@ let tableHelpers = {
                 try {
                     await relationStore.create(relation)
                 } catch (error) {
-                    console.log(error, "relation id:::", relation.id)
                     continue
                 }
             }

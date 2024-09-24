@@ -74,7 +74,6 @@ module.exports = async (req) => {
     }
 
     const table = tables[0]
-    // console.log(">>>>>>>> test #2 ", new Date())
 
     if (!table) {
         return role
@@ -266,22 +265,14 @@ module.exports = async (req) => {
 
     let fields = await Field.aggregate(fieldPipeline)
 
-    // console.log(">>>>>>>> test #3 ", new Date())
     let viewPermissions = await Tab.aggregate(tabPipeline)
 
-    // console.log(">>>>>>>> test #4 ", new Date())
     let actionPermissions = await CustomEvent.aggregate(getListActionPermissions)
 
-    // console.log(">>>>>>>> test #5 ", new Date())
     table.field_permissions = fields
     table.view_permissions = viewPermissions
     table.action_permissions = actionPermissions
     role.table = table
     role.project_id = req.project_id
-    // for (const key of Object.keys(role)) {
-    //     console.log("aaa::::Bbbb", role[key])
-    //     console.log("aaa::::key", key)
-    // }
-    // console.log("\n\n time ", start, "\n", end, "\n", end - start)
     return role
 }

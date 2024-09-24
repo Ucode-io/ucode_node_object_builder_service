@@ -39,7 +39,6 @@ let excelStore = {
             minioClient.getObject(bucketName, fileObjectKey, async function (err, object) {
                 if (object) {
                     object.on("data", (chunk) => fileStream.write(chunk));
-                    // object.on("end", () => console.log(`Reading ${fileObjectKey} finished`))
                     xlsxFile(createFilePath).then((rows) => {
                         objectRow["rows"] = rows[0]
                         fs.unlink(createFilePath, function (err) {
@@ -108,7 +107,6 @@ let excelStore = {
                 throw err
             }
             object.on("data", (chunk) => fileStream.write(chunk));
-            // object.on("end", () => console.log(`Reading ${fileObjectKey} finished`))
             xlsxFile(createFilePath).then(async (rows) => {
                 let i = 0;
                 let objectsToDb = []

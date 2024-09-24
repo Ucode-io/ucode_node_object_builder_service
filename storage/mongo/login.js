@@ -366,8 +366,7 @@ let loginStore = {
             }
         ).lean()
         let params = {}
-        params["guid"] = req.user_id
-        // params["project_id"] = req.project_id
+        params["user_id_auth"] = req.user_id
         params["client_type_id"] = req.client_type
         let tableSlug = "user"
         if (clientType && clientType.table_slug) {
@@ -429,20 +428,12 @@ let loginStore = {
         let userId;
         if (user) {
             user_found = true
-            userId = user.guid
-        }
-        const appPermissions = await recordPermission.models.find(
-            {
-                $and: [
-                    {
-                        table_slug: "app"
-                    },
-                    {
-                        role_id: user.role_id
-                    }
-                ]
+            userId = user.user_id_auth
+            if (tableSlug === "user") {
+                userId = user.guid
             }
-        ).lean()
+        }
+        
 
         const global_permission = await globalPermission?.models.findOne({ role_id: user.role_id }) || {}
 
@@ -452,7 +443,6 @@ let loginStore = {
             client_platform: clientPlatform,
             client_type: clientTypeResp,
             user_id: userId,
-            // app_permissions: appPermissions,
             role: role,
             permissions: permissions,
             global_permission: global_permission,

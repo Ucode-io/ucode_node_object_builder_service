@@ -18,9 +18,7 @@ const createSettingLanguage = require("../initial_setups/setting_language");
 const createSettingCurrency = require("../initial_setups/setting_currency");
 const createSettingTimezone = require("../initial_setups/setting_timezone");
 const createGlobalPermission = require("../initial_setups/global_permission");
-const createMenu = require("../initial_setups/menu");
 const guessRole = require("../initial_setups/defaultRole")
-const guessClientType = require("../initial_setups/guessClientType")
 const settingCheker = require("./settingChecker")
 
 async function insertCollections(conn, userId, projectId, clientTypeID, roleID) {
@@ -34,8 +32,6 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
     }
     const userID = userId ? userId.toString() : ""
     const testLoginID = v4().toString()
-    const connectionID = v4().toString()
-
 
     collections = await new Promise((resolve, reject) => {
         let collections = {}

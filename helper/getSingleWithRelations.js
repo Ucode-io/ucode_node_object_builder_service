@@ -90,7 +90,6 @@ let getSingleWithRelations = {
                 if (table_to_slug === "") {
                     continue
                 }
-                // console.log("TEST::::::9")
                 if (tableParams[table_to_slug]) {
                     papulateTable = {
                         path: table_to_slug,

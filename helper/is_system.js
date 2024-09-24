@@ -16,7 +16,6 @@ module.exports = async function (mongoConn) {
             field.is_system = true
             await field.save()
     }
-    // console.log("APPS ", createApp)
     let initialApps = await createApp()
     const app = await App.findOneAndUpdate({id: initialApps[0]?.id}, {is_system: true})
 

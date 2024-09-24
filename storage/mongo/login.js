@@ -356,7 +356,11 @@ let loginStore = {
         const allTables = (await ObjectBuilder(true, req.resource_environment_id))
         const clientTypeTable = allTables["client_type"]
         const globalPermission = allTables["global_permission"]
-
+        if (req.user_id === "") {
+            return {
+                user_found: false
+            }
+        }
         const clientType = await clientTypeTable.models.findOne(
             {
                 $or: [

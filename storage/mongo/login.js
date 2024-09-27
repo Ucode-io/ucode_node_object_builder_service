@@ -453,12 +453,13 @@ let loginStore = {
             user_found: user_found,
             client_platform: clientPlatform,
             client_type: clientTypeResp,
-            user_id: userId,
+            user_id: user.guid,
             role: role,
             permissions: permissions,
             global_permission: global_permission,
             login_table_slug: tableSlug,
-            user_data: struct.encode(user)
+            user_data: struct.encode(user),
+            user_id_auth: userId
         }
 
         return response

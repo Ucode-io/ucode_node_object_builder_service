@@ -6,7 +6,6 @@ const createClientType = require("../initial_setups/clientType");
 const createRole = require("../initial_setups/role");
 const createUser = require("../initial_setups/user");
 const createTestLogin = require("../initial_setups/testLogin");
-const createConnection = require("../initial_setups/connections");
 const createField = require("../initial_setups/field");
 const createTable = require("../initial_setups/tables");
 const createRecordPermision = require("../initial_setups/recordPermission");

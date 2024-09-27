@@ -111,13 +111,13 @@ let fileStore = {
                 let name1 = ""
                 let genName1 = ""
                 if (data.language == "uz") {
-                    name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_3.docx"
+                    name1 = "4_Учредительный_договор_КТ_NP.docx"
                     genName1 = "Учредительный_договор_КТ_NP_reviewed_от_27082024г_UZ_Gen_" + v4().toString() + ".docx"
                 } else if (data.language == "ru") {
-                    name1 = "3_Учредительный_договор_КТ_NP_reviewed_от_27082024г_ru.docx"
+                    name1 = "4_Учредительный_договор_КТ_NP_RU.docx"
                     genName1 = "Учредительный_договор_КТ_NP_reviewed_от_27082024г_3_RU_Gen_" + v4().toString() + ".docx"
                 } else {
-                    name1 = "3_Учредительный_договор_КТ_NP_ENG.docx"
+                    name1 = "4_Учредительный_договор_КТ_NP_ENG.docx"
                     genName1 = "Учредительный_договор_КТ_NP_ENG_Gen_" + v4().toString() + ".docx"
                 }
 

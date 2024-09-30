@@ -587,7 +587,9 @@ let loginStore = {
     }),
     updateUserPassword: catchWrapDbObjectBuilder(`${NAMESPACE}.updateUserPassword`, async (req) => {
         const mongoConn = await mongoPool.get(req.resource_environment_id)
-        const clientType = await (await ObjectBuilder(true, req.resource_environment_id))["client_type"].models.findOne({ guid: req.client_type_id }).lean()
+        const clientType = await (await ObjectBuilder(true, req.resource_environment_id))["client_type"].models.findOne(
+            { guid: req.client_type_id })
+        .lean()
         if (clientType) {
             let tableSlug = "user"
             let field = "password"
@@ -605,7 +607,7 @@ let loginStore = {
                     }
                 }
             }
-            await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]?.models?.updateOne(
+            const updatedUser = await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]?.models?.findOneAndUpdate(
                 {
                     guid: req.guid
                 }, 
@@ -615,6 +617,13 @@ let loginStore = {
                     }
                 }
             )
+
+            let response = {
+                user_id_auth: updatedUser?.user_id_auth,
+                user_id: updatedUser?.guid
+            }
+
+            return response
         }
     })
 }

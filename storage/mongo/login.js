@@ -356,7 +356,11 @@ let loginStore = {
         const allTables = (await ObjectBuilder(true, req.resource_environment_id))
         const clientTypeTable = allTables["client_type"]
         const globalPermission = allTables["global_permission"]
-
+        if (req.user_id === "") {
+            return {
+                user_found: false
+            }
+        }
         const clientType = await clientTypeTable.models.findOne(
             {
                 $or: [
@@ -365,9 +369,13 @@ let loginStore = {
                 ]
             }
         ).lean()
-        let params = {}
-        params["user_id_auth"] = req.user_id
-        params["client_type_id"] = req.client_type
+        let params = {
+            $or: [
+                { guid: req.user_id },
+                { user_id_auth: req.user_id }
+            ],
+            client_type_id: req.client_type,
+        }
         let tableSlug = "user"
         if (clientType && clientType.table_slug) {
             tableSlug = clientType.table_slug
@@ -429,6 +437,9 @@ let loginStore = {
         if (user) {
             user_found = true
             userId = user.user_id_auth
+            if (!userId || userId.length === 0) {
+                userId = user.guid;
+            }
             if (tableSlug === "user") {
                 userId = user.guid
             }
@@ -442,12 +453,13 @@ let loginStore = {
             user_found: user_found,
             client_platform: clientPlatform,
             client_type: clientTypeResp,
-            user_id: userId,
+            user_id: user.guid,
             role: role,
             permissions: permissions,
             global_permission: global_permission,
             login_table_slug: tableSlug,
-            user_data: struct.encode(user)
+            user_data: struct.encode(user),
+            user_id_auth: userId
         }
 
         return response
@@ -554,7 +566,12 @@ let loginStore = {
                 if (clientType.table_slug) {
                     tableSlug = clientType.table_slug
                 }
-                const user = await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]?.models?.findOne({ guid: req.user_id }).lean()
+                const user = await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]?.models?.findOne({
+                    $or: [
+                        { guid: req.user_id },
+                        { user_id_auth: req.user_id }
+                    ]
+                }).lean();
                 if ((user && user[connection.field_slug]) || user && user['guid']) {
                     let params = {}
                     if (Array.isArray(user[connection.field_slug])) {
@@ -570,7 +587,9 @@ let loginStore = {
     }),
     updateUserPassword: catchWrapDbObjectBuilder(`${NAMESPACE}.updateUserPassword`, async (req) => {
         const mongoConn = await mongoPool.get(req.resource_environment_id)
-        const clientType = await (await ObjectBuilder(true, req.resource_environment_id))["client_type"].models.findOne({ guid: req.client_type_id }).lean()
+        const clientType = await (await ObjectBuilder(true, req.resource_environment_id))["client_type"].models.findOne(
+            { guid: req.client_type_id })
+        .lean()
         if (clientType) {
             let tableSlug = "user"
             let field = "password"
@@ -588,7 +607,7 @@ let loginStore = {
                     }
                 }
             }
-            await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]?.models?.updateOne(
+            const updatedUser = await (await ObjectBuilder(true, req.resource_environment_id))[tableSlug]?.models?.findOneAndUpdate(
                 {
                     guid: req.guid
                 }, 
@@ -598,6 +617,13 @@ let loginStore = {
                     }
                 }
             )
+
+            let response = {
+                user_id_auth: updatedUser?.user_id_auth,
+                user_id: updatedUser?.guid
+            }
+
+            return response
         }
     })
 }

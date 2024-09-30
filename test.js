@@ -35,19 +35,7 @@ const { count } = require('./models/relation');
             },
             "project_id": "ec28bc8b-264a-4e9d-b4fb-5eeca18de6cf"
         })
-        //premium_plaza_lounges_plaza_object_builder_service:BCie5TDrVJ@142.93.164.37:27017/premium_plaza_lounges_plaza_object_builder_service
-        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
 
-        // await projectStorage.autoConnect(
-        //     {
-        //         request: {
-        //             k8s_namespace: config.k8s_namespace
-        //         }
-        //     },
-        //     (code, result) => {
-        //         logger.info(`autoconnected to resources ${code} - ${result}`);
-        //     }
-        // )
         logger.info(`autoconnected successfully done!!!`);
 
     } catch (err) {

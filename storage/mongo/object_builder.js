@@ -750,7 +750,6 @@ let objectBuilder = {
     }),
     getListSlim: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim`, async (req) => {
         const startMemoryUsage = process.memoryUsage();
-
         const mongoConn = await mongoPool.get(req.project_id)
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
@@ -1146,12 +1145,10 @@ let objectBuilder = {
     }),
     getListSlim2: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim2`, async (req) => {
         const startMemoryUsage = process.memoryUsage();
-
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
         let params = struct.decode(req?.data)
-        // let params = req?.data;
         const limit = params.limit
         const offset = params.offset
         delete params["offset"]
@@ -1642,7 +1639,6 @@ let objectBuilder = {
     }),
     getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
         const startMemoryUsage = process.memoryUsage();
-
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -1652,14 +1648,11 @@ let objectBuilder = {
         delete params["offset"]
         delete params["limit"]
         const languageSetting = params.language_setting
-        let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
-        // const allTables = (await ObjectBuilder(true, req.project_id))
         const { 
             [req.table_slug]: tableInfo,
             record_permission: permissionTable,
             automatic_filter: automaticFilterTable,
-            client_type: clientTypeTable,
             view_permission: viewPermission
          } = await ObjectBuilder(true, req.project_id)
 
@@ -1689,7 +1682,7 @@ let objectBuilder = {
         } else if (!currentTable.order_by && !Object.keys(order).length) {
             order = { createdAt: -1 }
         }
-        // const permissionTable = allTables["record_permission"]
+
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -1712,8 +1705,8 @@ let objectBuilder = {
             }
             ]
         })
+
         if (permission?.is_have_condition) {
-            // const automaticFilterTable = allTables["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
                 $and: [
                     {
@@ -1728,61 +1721,107 @@ let objectBuilder = {
                 ]
             })
             if (automatic_filters.length) {
+
+                const dupMap = new Map()
+                const query = []
+                let isDup = false
+
                 for (const autoFilter of automatic_filters) {
-                    if (autoFilter.not_use_in_tab && params.from_tab) {
-                        continue
-                    }
-                    let many2manyRelation = false
                     if (autoFilter?.object_field?.includes('#')) {
                         let splitedElement = autoFilter.object_field.split('#')
-                        autoFilter.object_field = splitedElement[0]
+                        autoFilter.object_field = splitedElement[0]   
                         let obj = relations.find(el => el.id === splitedElement[1])
                         if (obj) {
                             if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
                                 autoFilter.custom_field = obj.field_from
                             } else if (obj.type === 'Many2Many') {
                                 many2manyRelation = true
-                                if (obj.table_from === req.table_slug) {
-                                    autoFilter.custom_field = obj.field_from
-                                } else if (obj.table_to === req.table_slug) {
-                                    autoFilter.custom_field = obj.field_to
-                                }
+                            }
+
+                            if (obj.table_from === req.table_slug) {
+                                autoFilter.custom_field = obj.field_from
+                            } else if (obj.table_to === req.table_slug) {
+                                autoFilter.custom_field = obj.field_to
                             }
                         }
                     }
-                    if (autoFilter.custom_field === "user_id") {
-                        if (autoFilter.object_field !== req.table_slug) {
-                            if (!many2manyRelation) {
-                                params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+
+                    let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                    let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                    if (objFromAuth) {
+                        if (connectionTableSlug !== req.table_slug) {
+                            if (dupMap.has(autoFilter.object_field)) {
+                                isDup = true
                             } else {
-                                params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+                                dupMap.set(autoFilter.object_field, true)
                             }
-                        } else {
-                            // params["guid"] = params["user_id_from_token"]
+                            query.push({ [autoFilter.custom_field]: objFromAuth.object_id })
                         }
-                    } else {
-                        let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
-                        let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
-                        if (objFromAuth) {
-                            if (connectionTableSlug !== req.table_slug) {
+                    }
+                }
+
+                if (isDup) {
+                    params.$or = query
+                } else {
+                    for (const autoFilter of automatic_filters) {
+                        if (autoFilter.not_use_in_tab && params.from_tab) {
+                            continue
+                        }
+                        let many2manyRelation = false
+                        if (autoFilter?.object_field?.includes('#')) {
+                            let splitedElement = autoFilter.object_field.split('#')
+                            autoFilter.object_field = splitedElement[0]
+                            let obj = relations.find(el => el.id === splitedElement[1])
+                            if (obj) {
+                                if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
+                                    autoFilter.custom_field = obj.field_from
+                                } else if (obj.type === 'Many2Many') {
+                                    many2manyRelation = true
+                                    if (obj.table_from === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_from
+                                    } else if (obj.table_to === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_to
+                                    }
+                                }
+                            }
+                        }
+                        if (autoFilter.custom_field === "user_id") {
+                            if (autoFilter.object_field !== req.table_slug) {
                                 if (!many2manyRelation) {
-                                    params[autoFilter.custom_field] = objFromAuth.object_id
+                                    params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
                                 } else {
-                                    params[autoFilter.custom_field] = { $in: objFromAuth.object_id }
+                                    params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+                                }
+                            } else { }
+                        } else {
+                            let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                            let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                            if (objFromAuth) {
+                                if (connectionTableSlug !== req.table_slug) {
+                                    if (!many2manyRelation) {
+                                        params[autoFilter.custom_field] = objFromAuth.object_id
+                                    } else {
+                                        params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    }
+                                } else {
+                                    params["guid"] = objFromAuth.object_id
                                 }
                             } else {
-                                params["guid"] = objFromAuth.object_id
+                                params[autoFilter.custom_field] = params["user_id_from_token"]
                             }
                         }
                     }
                 }
             }
         } else {
-            let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
-            if (objFromAuth) {
-                params["guid"] = objFromAuth.object_id
+            if (permission?.is_all == "undefined" || !permission?.is_all) {
+                objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
+                if (objFromAuth) {
+                    params["guid"] = objFromAuth.object_id
+                }
             }
-        }
+        } 
+
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
 
@@ -1816,17 +1855,7 @@ let objectBuilder = {
                 }
             }
         }
-        // if (clientTypeId) {
-        //     // const clientTypeTable = allTables["client_type"]
-        //     const clientType = await clientTypeTable?.models.findOne({
-        //         guid: clientTypeId
-        //     })
-        //     if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
-        //         params["guid"] = params["user_id_from_token"]
-        //     }
 
-        //     params["client_type_id"] = clientTypeId
-        // }
         let views = tableInfo.views;
         for (let view of views) {
             const permission = await viewPermission.models.findOne({
@@ -1835,9 +1864,7 @@ let objectBuilder = {
             }).lean() || {}
             view.attributes ? view.attributes.view_permission = permission : view.attributes = { view_permission: permission }
         }
-        // console.timeEnd("TIME_LOGGING:::app_id")
-        // add regExp to params for filtering
-        // console.time("TIME_LOGGING:::key_of_keys")
+
         for (const key of keys) {
             if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
                 params["guid"] = params[key]
@@ -1866,7 +1893,6 @@ let objectBuilder = {
         let relationsFields = []
 
         //new code
-
         if (with_relations) {
             let relation_table_to_slugs = [];
             for (const relation of relations) {
@@ -2047,7 +2073,6 @@ let objectBuilder = {
 
         let result = [], count;
         let searchByField = []
-        // console.time("TIME_LOGGING:::search")
         if (params.search) {
             for (const field of tableInfo.fields) {
                 if (con.STRING_TYPES.includes(field.type)) {
@@ -2058,7 +2083,6 @@ let objectBuilder = {
         }
 
         let populateArr = []
-
         // check soft deleted datas
         if (params.$or) {
             params.$and = [
@@ -2134,9 +2158,7 @@ let objectBuilder = {
                     } else if (relation.type === "Many2Many") {
                         continue
                     }
-                    // else if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
-                    //     relation.field_to = relation.field_from
-                    // }
+
                     let table_to_slug = ""
                     let deepRelations = []
                     const field = tableRelationFields[relation.id]
@@ -2149,17 +2171,7 @@ let objectBuilder = {
 
                     if (with_relations) {
                         if (relation.type === "Many2Dynamic") {
-                            // for(dynamic_table of relation.dynamic_tables){
-                            //     deepPopulateRelations = await Relation.find({table_from:dynamic_table.table_slug})
-                            //     for (const deepRelation of deepPopulateRelations) {
-                            //         if (deepRelation.table_to !== dynamic_table.table_slug) {
-                            //             let deepPopulate = {
-                            //                 path: deepRelation.table_to
-                            //             }
-                            //             deepRelations.push(deepPopulate)
-                            //         }
-                            //     }
-                            // }
+ 
                         } else {
                             deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
                             for (const deepRelation of deepPopulateRelations) {
@@ -2188,10 +2200,6 @@ let objectBuilder = {
                                         deepRelations.push(deepPopulate)
                                     }
                                 }
-                                // else if (deepRelation.type === "Many2Many" && deepRelation.table_to === relation.table_to) {
-                                //     deepRelation.field_to = deepRelation.field_from
-                                // }
-
 
                             }
                         }
@@ -2243,14 +2251,11 @@ let objectBuilder = {
         }
 
         count = await tableInfo.models.count(params);
-        // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
         }
         // this function add field permission for each field by role id
-        // let {fieldsWithPermissions} = await AddPermission.toField(fields, params.role_id_from_token, req.table_slug, req.project_id)
-        // let decodedFields = []
         // below for loop is in order to decode FIELD.ATTRIBUTES from proto struct to normal object
         for (const element of fieldsWithPermissions) {
             if (element.attributes && !(element.type === "LOOKUP" || element.type === "LOOKUPS" || element.type === "DYNAMIC")) {
@@ -2488,7 +2493,6 @@ let objectBuilder = {
     }),
     getList2: catchWrapDbObjectBuilder(`${NAMESPACE}.getList2`, async (req) => {
         const startMemoryUsage = process.memoryUsage();
-
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -2505,9 +2509,9 @@ let objectBuilder = {
             record_permission: permissionTable,
             automatic_filter: automaticFilterTable,
             client_type: clientTypeTable
-         } = await ObjectBuilder(true, req.project_id)
+        } = await ObjectBuilder(true, req.project_id)
 
-        // const tableInfo = allTables[req.table_slug]
+
         let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -2549,7 +2553,6 @@ let objectBuilder = {
             }
         }
      
-        // const permissionTable = allTables["record_permission"]
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -2577,7 +2580,6 @@ let objectBuilder = {
         })
 
         if (permission?.is_have_condition) {
-            // const automaticFilterTable = allTables["automatic_filter"]
             const automatic_filters = await automaticFilterTable.models.find({
                 $and: [
                     {
@@ -2741,16 +2743,6 @@ let objectBuilder = {
             }
         }
 
-        if (clientTypeId) {
-            // const clientTypeTable = allTables["client_type"]
-            const clientType = await clientTypeTable?.models.findOne({
-                guid: clientTypeId
-            })
-            if (clientType?.name === "DOCTOR" && req.table_slug === "doctors") {
-                params["guid"] = params["user_id_from_token"]
-            }
-        }
-
         for (const key of keys) {
             if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
                 params["guid"] = params[key]
@@ -2793,7 +2785,6 @@ let objectBuilder = {
             }
         }
         let { unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
-        let decodedFields = []
 
         let result = [], count;
         let populateArr = []
@@ -2874,9 +2865,6 @@ let objectBuilder = {
                     } else if (relation.type === "Many2Many") {
                         continue
                     }
-                    // else if (relation.type === "Many2Many" && relation.table_to === req.table_slug) {
-                    //     relation.field_to = relation.field_from
-                    // }
                     let table_to_slug = ""
                     let deepRelations = []
                     const field = tableRelationFields[relation.id]
@@ -2889,17 +2877,6 @@ let objectBuilder = {
 
                     if (with_relations) {
                         if (relation.type === "Many2Dynamic") {
-                            // for(dynamic_table of relation.dynamic_tables){
-                            //     deepPopulateRelations = await Relation.find({table_from:dynamic_table.table_slug})
-                            //     for (const deepRelation of deepPopulateRelations) {
-                            //         if (deepRelation.table_to !== dynamic_table.table_slug) {
-                            //             let deepPopulate = {
-                            //                 path: deepRelation.table_to
-                            //             }
-                            //             deepRelations.push(deepPopulate)
-                            //         }
-                            //     }
-                            // }
                         } else {
                             deepPopulateRelations = await Relation.find({ table_from: relation.table_to })
                             for (const deepRelation of deepPopulateRelations) {
@@ -2979,7 +2956,6 @@ let objectBuilder = {
         }
 
         count = await tableInfo.models.count(params);
-        // console.time("TIME_LOGGING:::result")
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
@@ -3165,8 +3141,6 @@ let objectBuilder = {
             }
         }
         
-
-        // console.time("TIME_LOGGING:::length")
         if (updatedObjects.length) {
             await objectBuilder.multipleUpdateV2({
                 table_slug: req.table_slug,
@@ -3472,9 +3446,7 @@ let objectBuilder = {
     getListInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListInExcel`, async (req) => {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-
             const startMemoryUsage = process.memoryUsage();
-
             let workSheet;
             logger.info("excel->" + req.project_id + " " + req.table_slug)
             if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab" && req.table_slug == "contact") {
@@ -3599,13 +3571,9 @@ let objectBuilder = {
                 for (const obj of result) {
                     excelObj = {}
                     for (const field of selectedFields) {
-    
-                        if (field.label == '' || !field.label) {
-                            field.label = field.attributes.label_en
-                        }
+                        field.label = field.attributes.label_en
     
                         if (obj[field.slug]) {
-    
                             if (field.type === "MULTI_LINE") {
                                 obj[field.slug] = obj[field.slug].replace(/<[^>]+>/g, '')
                             }
@@ -3614,17 +3582,16 @@ let objectBuilder = {
                                 toDate = new Date(obj[field.slug])
                                 try {
                                     obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
-                                } catch (error) {
-                                }
+                                } catch (error) {}
                             }
     
                             if (field.type === "DATE_TIME") {
                                 toDate = new Date(obj[field.slug])
                                 try {
                                     obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
-                                } catch (error) {
-                                }
+                                } catch (error) {}
                             }
+
                             if (field.type === "LOOKUP") {
                                 let overall = ""
                                 if (typeof field.view_fields === "object" && field.view_fields.length) {
@@ -3680,6 +3647,7 @@ let objectBuilder = {
 
                 workSheet = XLSX.utils.json_to_sheet(excelArr);
             }
+
             const workBook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
             let filename = "report_" + Math.floor(Date.now() / 1000) + ".xlsx"
@@ -3689,7 +3657,6 @@ let objectBuilder = {
             if ((typeof cfg.minioSSL === "boolean" && !cfg.minioSSL) || (typeof cfg.minioSSL === "string" && cfg.minioSSL !== "true")) {
                 ssl = false
             }
-
 
             let filepath = "./" + filename
             var minioClient = new Minio.Client({
@@ -4256,7 +4223,6 @@ let objectBuilder = {
         return { table_slug: req.table_slug, data: response }
 
     }),
-
     batch: catchWrapDbObjectBuilder(`${NAMESPACE}.batch`, async (req) => {
         try {
             const startMemoryUsage = process.memoryUsage();
@@ -5018,11 +4984,8 @@ let objectBuilder = {
         }
     }),
     getGroupReportTables: catchWrapDbObjectBuilder(`${NAMESPACE}.getGroupReportTables`, async (req) => {
-
         const params = struct.decode(req.data)
         const allTables = (await ObjectBuilder(true, req.project_id))
-
-
         let responseRow = []
         let responseColumn = []
         let responseValues = []
@@ -5255,7 +5218,6 @@ let objectBuilder = {
     }),
     getGroupByField: catchWrapDbObjectBuilder(`${NAMESPACE}.getGroupByField`, async (req) => {
         const startMemoryUsage = process.memoryUsage();
-
         const params = struct.decode(req.data)
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
@@ -6127,7 +6089,6 @@ let objectBuilder = {
         }
         return { table_slug: req.table_slug, data: resp }
     }),
-
     getListRelationTabInExcel: catchWrapDbObjectBuilder(`${NAMESPACE}.getListRelationTabInExcel`, async (req) => {
         try {
             const startMemoryUsage = process.memoryUsage();

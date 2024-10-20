@@ -143,7 +143,6 @@ let projectStore = {
             await new Promise((resolve, reject) => {
                 try {
                     mongoDBConn.once("open", async function () {
-                        // await insertCollectioinitialTableFolders(mongoDBConn, "", data.project_id)
                         await isSystemChecker(mongoDBConn)
                         mongoDBConn.model('Table.folder', require('../../schemas/table_folder'))
                         mongoDBConn.model('Table.history', require('../../schemas/table_history'))

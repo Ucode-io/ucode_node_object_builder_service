@@ -19,8 +19,8 @@ let NAMESPACE = "storage.items";
 let objectBuilderV2 = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
         //if you will be change this function, you need to change multipleInsert function
-        console.log("project_id " + req.project_id)
-        if (req.project_id == '559e2057-95b3-4d0c-acda-d055a7edfbc0' && req.table_slug == 'orders') {
+        console.log("project_id here " + req.project_id)
+        if (req.project_id == '49ae6c46-5397-4975-b238-320617f0190c' && req.table_slug == 'orders') {
             console.log("create items invoked by starex" )
         }
 

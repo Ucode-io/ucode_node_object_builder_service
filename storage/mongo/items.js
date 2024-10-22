@@ -28,14 +28,15 @@ let objectBuilderV2 = {
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
             
-            const addressLog = data["reciever_address"]
+            
+            let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
+            await payload.save();
+           
+            const addressLog = payload["reciever_address"]
 
             if (addressLog) {
                 console.log("addressLog before prepareToCreateInObjectBuilder", addressLog)
             }
-
-            let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
-            await payload.save();
             if (addressLog) {
                 console.log("addressLog after prepareToCreateInObjectBuilder", addressLog)
             }

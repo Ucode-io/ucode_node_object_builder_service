@@ -19,10 +19,10 @@ let NAMESPACE = "storage.items";
 let objectBuilderV2 = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
         //if you will be change this function, you need to change multipleInsert function
-        if (req.project_id == '3818c0d8-288c-40f2-95e1-cf1e468ed3de' && req.table_slug == 'orders') {
+        if (req.project_id == '342fba37-fc7d-4b6f-b02f-57b21beb0218' && req.table_slug == 'orders') {
             console.log("create items invoked by starex" )
         }
-        
+
         const startMemoryUsage = process.memoryUsage();
         let allTableInfos = await ObjectBuilder(true, req.project_id)
         const tableInfo = allTableInfos[req.table_slug]

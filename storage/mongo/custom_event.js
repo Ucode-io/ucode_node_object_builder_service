@@ -99,41 +99,53 @@ let customEventStore = {
         return custom_event;
     }),
     getList: catchWrapDb(`${NAMESPACE}.getList`, async (data) => {
-        const mongoConn = await mongoPool.get(data.project_id);
-        const CustomEvent = mongoConn.models["CustomEvent"];
-        let query = {
-            table_slug: data.table_slug,
-        };
-        if (data.method) {
-            query.method = data.method;
-        }
-        const customEvents = await CustomEvent.find(
-            {
-                $and: [query],
-            },
-            {
-                created_at: 0,
-                updated_at: 0,
-                createdAt: 0,
-                updatedAt: 0,
-                _id: 0,
-                __v: 0,
-            },
-            {
-                sort: { created_at: -1 },
+        try {
+            const mongoConn = await mongoPool.get(data.project_id);
+            const CustomEvent = mongoConn.models["CustomEvent"];
+    
+            let query = {
+                table_slug: data.table_slug,
+            };
+    
+            if (data.method) {
+                query.method = data.method;
             }
-        ).populate("functions");
-        customEvents.forEach((el) => {
-            if (el.attributes) el.attributes = struct.encode(el.attributes);
-        });
-        let customEventWithPermission = await AddPermission.toCustomEvent(
-            customEvents,
-            data.role_id,
-            data.table_slug,
-            data.project_id
-        );
-        const count = await CustomEvent.countDocuments(query);
-        return { custom_events: customEventWithPermission, count: count };
+    
+            const customEvents = await CustomEvent.find(
+                {
+                    $and: [query],
+                },
+                {
+                    created_at: 0,
+                    updated_at: 0,
+                    createdAt: 0,
+                    updatedAt: 0,
+                    _id: 0,
+                    __v: 0,
+                },
+                {
+                    sort: { created_at: -1 },
+                }
+            ).populate("functions");
+    
+            customEvents.forEach((el) => {
+                if (el.attributes) el.attributes = struct.encode(el.attributes);
+            });
+    
+            let customEventWithPermission = await AddPermission.toCustomEvent(
+                customEvents,
+                data.role_id,
+                data.table_slug,
+                data.project_id
+            );
+    
+            const count = await CustomEvent.countDocuments(query);
+    
+            return { custom_events: customEventWithPermission, count: count };
+        } catch (err) {
+            console.error(`${NAMESPACE}.getList - Error occurred: project_id -> ${data.project_id}`, err);
+            throw new Error('Failed to retrieve custom events'); // You can customize the error message
+        }
     }),
     getSingle: catchWrapDb(`${NAMESPACE}.getSingle`, async (data) => {
         const mongoConn = await mongoPool.get(data.project_id);

@@ -27,15 +27,29 @@ let objectBuilderV2 = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
+            
+            const addressLog = data["address_log"]
+
+            if (addressLog) {
+                console.log("addressLog before prepareToCreateInObjectBuilder", addressLog)
+            }
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             await payload.save();
+            if (addressLog) {
+                console.log("addressLog after prepareToCreateInObjectBuilder", addressLog)
+            }
+
             ownGuid = payload.guid;
             let funcs = []
             for (const appendMany2Many of appendMany2ManyObjects) {
                 funcs.push(objectBuilderV2.appendManyToMany(appendMany2Many))
             }
             await Promise.all(funcs)
+            if (addressLog) {
+                console.log("addressLog after await Promise.all(funcs)", addressLog)
+            }
+
             if (tableData && tableData.is_login_table && !data.from_auth_service) {
                 let tableAttributes = struct.decode(tableData.attributes)
                 if (tableAttributes && tableAttributes.auth_info) {
@@ -79,6 +93,7 @@ let objectBuilderV2 = {
                 }
             }
 
+
             const object = struct.encode({ data });
 
             let customMessage = ""
@@ -90,6 +105,10 @@ let objectBuilderV2 = {
 
                 })
                 if (customErrMsg) { customMessage = customErrMsg.message }
+            }
+
+            if (addressLog) {
+                console.log("addressLog after if (tableData) ", addressLog)
             }
 
             const endMemoryUsage = process.memoryUsage();
@@ -111,11 +130,21 @@ let objectBuilderV2 = {
             } else {
                 logger.info(`--> P-M Memory used by create items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
             }
+            if (addressLog) {
+                console.log("addressLog done", addressLog)
+            }
 
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
-
         } catch (err) {
+            if (addressLog) {
+                console.log("addressLog before tableInfo.models.deleteOne", addressLog)
+            }
+
             await tableInfo.models.deleteOne({ guid: ownGuid })
+            if (addressLog) {
+                console.log("addressLog after tableInfo.models.deleteOne", addressLog)
+            }
+            
             throw err
         }
     }),

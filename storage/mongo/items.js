@@ -28,7 +28,7 @@ let objectBuilderV2 = {
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
             
-            const addressLog = data["address_log"]
+            const addressLog = data["reciever_address"]
 
             if (addressLog) {
                 console.log("addressLog before prepareToCreateInObjectBuilder", addressLog)
@@ -144,7 +144,7 @@ let objectBuilderV2 = {
             if (addressLog) {
                 console.log("addressLog after tableInfo.models.deleteOne", addressLog)
             }
-            
+
             throw err
         }
     }),

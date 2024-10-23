@@ -100,8 +100,6 @@ let customEventStore = {
     }),
     getList: catchWrapDb(`${NAMESPACE}.getList`, async (data) => {
         try {
-            const key = data.table_slug + data.method+ data.project_id
-
             const mongoConn = await mongoPool.get(data.project_id);
             const CustomEvent = mongoConn.models["CustomEvent"];
             

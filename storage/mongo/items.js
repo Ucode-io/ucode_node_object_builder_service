@@ -19,6 +19,11 @@ let NAMESPACE = "storage.items";
 let objectBuilderV2 = {
     create: catchWrapDbObjectBuilder(`${NAMESPACE}.create`, async (req) => {
         //if you will be change this function, you need to change multipleInsert function
+        console.log("project_id here " + req.project_id)
+        if (req.project_id == '49ae6c46-5397-4975-b238-320617f0190c' && req.table_slug == 'orders') {
+            console.log("create items invoked by starex" )
+        }
+
         const startMemoryUsage = process.memoryUsage();
         let allTableInfos = await ObjectBuilder(true, req.project_id)
         const tableInfo = allTableInfos[req.table_slug]
@@ -95,6 +100,10 @@ let objectBuilderV2 = {
                 if (customErrMsg) { customMessage = customErrMsg.message }
             }
 
+            if (addressLog) {
+                console.log("addressLog after if (tableData) ", addressLog)
+            }
+
             const endMemoryUsage = process.memoryUsage();
 
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
@@ -113,6 +122,9 @@ let objectBuilderV2 = {
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
                 logger.info(`--> P-M Memory used by create items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+            if (addressLog) {
+                console.log("addressLog done", addressLog)
             }
 
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };

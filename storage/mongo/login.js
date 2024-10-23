@@ -5,8 +5,6 @@ const { struct } = require("pb-util");
 
 let NAMESPACE = "storage.login";
 
-
-// just comment
 let loginStore = {
     login: catchWrapDbObjectBuilder(`${NAMESPACE}.login`, async (req) => {
         const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
@@ -357,9 +355,7 @@ let loginStore = {
         const clientTypeTable = allTables["client_type"]
         const globalPermission = allTables["global_permission"]
         if (req.user_id === "") {
-            return {
-                user_found: false
-            }
+            return { user_found: false }
         }
         const clientType = await clientTypeTable.models.findOne(
             {
@@ -369,29 +365,34 @@ let loginStore = {
                 ]
             }
         ).lean()
-        let params = {
-            $or: [
-                { guid: req.user_id },
-                { user_id_auth: req.user_id }
-            ],
-            client_type_id: req.client_type,
-        }
-        let tableSlug = "user"
-        if (clientType && clientType.table_slug) {
-            tableSlug = clientType.table_slug
-        }
 
+        let params = {
+            $and: [
+                {
+                    $or: [
+                        { guid: req.user_id },
+                        { user_id_auth: req.user_id }
+                    ]
+                },
+                { client_type_id: req.client_type },
+                {
+                    $or: [
+                        { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+                        { deleted_at: null }
+                    ]
+                }
+            ]
+        };
+
+        let tableSlug = "user"
+        if (clientType && clientType.table_slug) { tableSlug = clientType.table_slug }
 
         const userTable = allTables[tableSlug]
         let user = await userTable.models.findOne(params).lean()
-
         let user_found = false
 
-        if (!user) {
-            return {
-                user_found: user_found
-            }
-        }
+        if (!user) { return { user_found: user_found } }
+
         const roleTable = allTables["role"]
 
         const role = await roleTable.models.findOne(
@@ -399,26 +400,19 @@ let loginStore = {
                 guid: user.role_id,
             }
         ).lean()
-        if (!role) {
-            return {
-                user_found: false
-            }
-        }
+
+        if (!role) { return { user_found: false } }
 
         const clientPlatfromTable = allTables["client_platform"]
 
         const clientPlatform = await clientPlatfromTable.models.findOne(
-            {
-                guid: role.client_platform_id
-            }
+            { guid: role.client_platform_id }
         ).lean()
 
         const connectionsTable = allTables["connections"]
 
         const connections = await connectionsTable.models.find(
-            {
-                client_type_id: clientType.guid
-            }
+            { client_type_id: clientType.guid }
         ).lean()
 
         let clientTypeResp = {}
@@ -428,27 +422,20 @@ let loginStore = {
         const recordPermission = allTables["record_permission"]
 
         const permissions = await recordPermission.models.find(
-            {
-                role_id: role.guid
-            }
+            { role_id: role.guid }
         ).lean()
 
         let userId;
         if (user) {
             user_found = true
             userId = user.user_id_auth
-            if (!userId || userId.length === 0) {
-                userId = user.guid;
-            }
-            if (tableSlug === "user") {
-                userId = user.guid
-            }
+            if (!userId || userId.length === 0) { userId = user.guid; }
+
+            if (tableSlug === "user") { userId = user.guid }
         }
         
-
         const global_permission = await globalPermission?.models.findOne({ role_id: user.role_id }) || {}
 
-        //@TODO:: check user can login with this login strategy
         let response = {
             user_found: user_found,
             client_platform: clientPlatform,

@@ -102,10 +102,8 @@ let customEventStore = {
         try {
             const key = data.table_slug + data.method+ data.project_id
 
-            console.log("Started fetching custom events", key)
             const mongoConn = await mongoPool.get(data.project_id);
             const CustomEvent = mongoConn.models["CustomEvent"];
-            console.log("get custom event model custom events", key, CustomEvent)
             
             let query = {
                 table_slug: data.table_slug,
@@ -132,12 +130,9 @@ let customEventStore = {
                 }
             ).populate("functions");
     
-            console.log("CustomEvent.find custom events", key)
-
             customEvents.forEach((el) => {
                 if (el.attributes) el.attributes = struct.encode(el.attributes);
             });
-            console.log("before customEventWithPermission custom events", key)
     
             let customEventWithPermission = await AddPermission.toCustomEvent(
                 customEvents,
@@ -145,14 +140,11 @@ let customEventStore = {
                 data.table_slug,
                 data.project_id
             );
-            console.log("before CustomEvent.countDocuments custom events", key)
     
             const count = await CustomEvent.countDocuments(query);
             
-            console.log("done custom events", key)
             return { custom_events: customEventWithPermission, count: count };
         } catch (err) {
-            console.error(`${NAMESPACE}.getList - Error occurred: project_id -> ${data.project_id}`, err);
             throw new Error('Failed to retrieve custom events'); // You can customize the error message
         }
     }),

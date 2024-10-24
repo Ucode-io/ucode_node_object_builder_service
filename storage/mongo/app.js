@@ -1,21 +1,14 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
-const { v4 } = require("uuid");
 const mongoPool = require('../../pkg/pool')
 const tableVersion = require('../../helper/table_version');
-const logger = require("../../config/logger");
 const ObjectBuilder = require("../../models/object_builder");
-const table = require("../../models/table");
 let NAMESPACE = "storage.app";
 
 let appStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {
         try {
-
             const mongoConn = await mongoPool.get(data.project_id)
-
             const App = mongoConn.models['App']
-
-
             const app = new App(data);
 
             const response = await app.save();
@@ -45,7 +38,6 @@ let appStore = {
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
-
             const App = mongoConn.models['App']
             const Table = mongoConn.models['Table']
 

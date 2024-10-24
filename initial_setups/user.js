@@ -9,6 +9,7 @@ async function createUser(userID, roleID, clientTypeID, clientPlatformID, projec
         "updatedAt": new Date(),
         "__v": 0,
         "is_system": true,
+        "user_id_auth": userID,
       }]
 
       return userData

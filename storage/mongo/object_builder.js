@@ -127,7 +127,6 @@ let objectBuilder = {
                             environment_id: data["company_service_environment_id"],
                             login_strategy: loginStrategy
                         }
-
                         await grpcClient.createUserAuth(authCheckRequest)
                         .catch((err) => {
                             console.error("error while creating user in auth service", JSON.stringify(err))

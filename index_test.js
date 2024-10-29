@@ -22,17 +22,17 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "583184ec-1762-48dd-b4a5-a1390099c1e2",
+            project_id: "088bf450-6381-45b5-a236-2cb0880dcaab",
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs",
-                username: "rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs",
-                password: "oDgRRrJR7U"
+                database: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
+                username: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
+                password: "xLezOfqNj0"
             }
         })
 
-        //mongodb://binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs:QGmh717SEf@142.93.164.37:27017/binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs
+        //mongodb://wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs:xLezOfqNj0@142.93.164.37:27017/wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs        //mongodb://binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs:QGmh717SEf@142.93.164.37:27017/binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs
         //mongodb://osnova_4b281d3b2f4d408281552f4c6676a028_p_obj_build_svcs:0uMNfbKQlD@142.93.164.37:27017/osnova_4b281d3b2f4d408281552f4c6676a028_p_obj_build_svcs
         //mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs
         //mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@46.101.161.155:30027/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs        //mongodb://wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs:xLezOfqNj0@142.93.164.37:27017/wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs

@@ -5288,11 +5288,15 @@ let objectBuilder = {
             const allTableInfo = (await ObjectBuilder(true, req.project_id))
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
             let response = []
+
             if (data.ids && data.ids.length) {
                 response = await allTableInfo[req.table_slug].models.find({
                     guid: { $in: data.ids }
                 })
+            }else if (data.query){
+                response = await allTableInfo[req.table_slug].models.find(data.query)
             }
+
             if (response && response.length) {
                 if (tableModel.attributes && tableModel.attributes !== null && tableModel.is_login_table) {
                     let tableAttributes = struct.decode(tableModel.attributes)
@@ -5313,7 +5317,6 @@ let objectBuilder = {
                                     readyForAuth.push({
                                         client_type_id: obj[authInfo['client_type_id']],
                                         role_id: obj[authInfo['role_id']],
-                                        // user_id: obj['guid']
                                         user_id: obj['user_id_auth']
                                     })
 
@@ -5330,10 +5333,19 @@ let objectBuilder = {
                         })
                     }
                 }
+                
                 if (!tableModel.soft_delete) {
-                    data.ids.length && await allTableInfo[req.table_slug].models.deleteMany({ guid: { $in: data.ids } });
+                    if (data.ids.length){
+                        await allTableInfo[req.table_slug].models.deleteMany({ guid: { $in: data.ids } });
+                    }else if (data.query){
+                        await allTableInfo[req.table_slug].models.deleteMany(data.query)
+                    }
                 } else if (tableModel.soft_delete) {
-                    data.ids.length && await allTableInfo[req.table_slug].models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
+                    if (data.ids.length){
+                        await allTableInfo[req.table_slug].models.models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
+                    }else if(data.query){
+                        await allTableInfo[req.table_slug].models.updateMany( data.query, { $set: { deleted_at: new Date() } })
+                    }
                 }
             }
 

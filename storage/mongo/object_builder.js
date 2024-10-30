@@ -5342,7 +5342,7 @@ let objectBuilder = {
                     }
                 } else if (tableModel.soft_delete) {
                     if (data.ids.length){
-                        await allTableInfo[req.table_slug].models.deleteMany({ guid: { $in: data.ids } });
+                        await allTableInfo[req.table_slug].models.models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
                     }else if(data.query){
                         await allTableInfo[req.table_slug].models.updateMany( data.query, { $set: { deleted_at: new Date() } })
                     }

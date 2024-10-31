@@ -233,66 +233,116 @@ let objectBuilder = {
                     authInfo = tableAttributes.auth_info;
                 }
 
-                if (authInfo && authInfo['password'] && data[authInfo['password']] !== "") {
-                    let checkPassword = ""
-                    if (data[authInfo['password']]) {
-                        checkPassword = data[authInfo['password']].substring(0, 4)
-                    }
-                    if (checkPassword != "$2b$" && checkPassword != "$2a$") {
-                        if (response) {
-                            if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                                if (tableAttributes && tableAttributes.auth_info) {
-                                    if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                                        throw new Error('This table is an auth table. Auth information not fully given');
+                if (!data.from_auth_service) {
+                    if (authInfo && authInfo['password'] && data[authInfo['password']] !== "") {
+                        let checkPassword = ""
+                        if (data[authInfo['password']]) {
+                            checkPassword = data[authInfo['password']].substring(0, 4)
+                        }
+                        if (checkPassword != "$2b$" && checkPassword != "$2a$") {
+                            if (response) {
+                                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                                    if (tableAttributes && tableAttributes.auth_info) {
+                                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                            throw new Error('This table is an auth table. Auth information not fully given');
+                                        }
+
+                                        let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                            guid: response[authInfo['client_type_id']],
+                                            table_slug: tableModel.slug
+                                        });
+
+                                        if (loginTable) {
+                                            let updateUserRequest = {
+                                                env_id: req.env_id,
+                                                phone: data[authInfo['phone']],
+                                                login: data[authInfo['login']],
+                                                email: data[authInfo['email']],
+                                                guid: response['user_id_auth'],
+                                                project_id: req.company_project_id,
+                                                role_id: response[authInfo['role_id']],
+                                                client_type_id: response[authInfo['client_type_id']],
+                                            };
+
+                                            if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
+                                                updateUserRequest['is_changed_phone'] = true
+                                            }
+
+                                            if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
+                                                updateUserRequest['is_changed_login'] = true
+                                            }
+
+                                            if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
+                                                updateUserRequest['is_changed_email'] = true
+                                            }
+
+                                            if (data[authInfo['password']] && data[authInfo['password']] !== response[authInfo['password']]) {
+                                                updateUserRequest['password'] = data[authInfo['password']]
+                                            }
+
+                                            updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
+                                        }
                                     }
-                    
-                                    let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                        guid: response[authInfo['client_type_id']],
-                                        table_slug: tableModel.slug
-                                    });
+                                }
+                            }
+                        } else {
+                            if (response) {
+                                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                                    let tableAttributes = struct.decode(tableModel.attributes);
 
-                                    if (loginTable) {
-                                        let updateUserRequest = {
-                                            guid: response['user_id_auth'],
-                                            env_id: req.env_id,
-                                            role_id: response[authInfo['role_id']],
-                                            project_id: req.company_project_id,
-                                            client_type_id: response[authInfo['client_type_id']],
-                                        };
+                                    if (tableAttributes && tableAttributes.auth_info) {
+                                        let authInfo = tableAttributes.auth_info;
 
-                                        if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
-                                            updateUserRequest['phone'] = data[authInfo['phone']]
+                                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                            throw new Error('This table is an auth table. Auth information not fully given');
                                         }
 
-                                        if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
-                                            updateUserRequest['login'] = data[authInfo['login']]
-                                        }
+                                        let loginTable = allTableInfo['client_type']?.models?.findOne({
+                                            guid: response[authInfo['client_type_id']],
+                                            table_slug: tableModel.slug
+                                        });
 
-                                        if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
-                                            updateUserRequest['email'] = data[authInfo['email']]
-                                        }
+                                        if (loginTable) {
+                                            let updateUserRequest = {
+                                                env_id: req.env_id,
+                                                phone: data[authInfo['phone']],
+                                                login: data[authInfo['login']],
+                                                email: data[authInfo['email']],
+                                                guid: response['user_id_auth'],
+                                                project_id: req.company_project_id,
+                                                role_id: response[authInfo['role_id']],
+                                                client_type_id: response[authInfo['client_type_id']],
+                                            };
+                                            if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
+                                                updateUserRequest['is_changed_phone'] = true
+                                            }
 
-                                        if (data[authInfo['password']] && data[authInfo['password']] !== response[authInfo['password']]) {
-                                            updateUserRequest['password'] = data[authInfo['password']]
+                                            if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
+                                                updateUserRequest['is_changed_login'] = true
+                                            }
+
+                                            if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
+                                                updateUserRequest['is_changed_email'] = true
+                                            }
+
+                                            updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
                                         }
-                    
-                                        updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
                                     }
                                 }
                             }
                         }
-                    } else {
+                    } else if (authInfo && authInfo['phone'] && data[authInfo['phone']]) {
                         if (response) {
                             if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                                 let tableAttributes = struct.decode(tableModel.attributes);
-                    
+
                                 if (tableAttributes && tableAttributes.auth_info) {
                                     let authInfo = tableAttributes.auth_info;
-                    
+
                                     if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                                         throw new Error('This table is an auth table. Auth information not fully given');
                                     }
-                    
+
                                     let loginTable = allTableInfo['client_type']?.models?.findOne({
                                         guid: response[authInfo['client_type_id']],
                                         table_slug: tableModel.slug
@@ -300,61 +350,22 @@ let objectBuilder = {
 
                                     if (loginTable) {
                                         let updateUserRequest = {
-                                            guid: response['user_id_auth'],
                                             env_id: req.env_id,
-                                            role_id: response[authInfo['role_id']],
+                                            phone: data[authInfo['phone']],
+                                            login: data[authInfo['login']],
+                                            email: data[authInfo['email']],
+                                            guid: response['user_id_auth'],
                                             project_id: req.company_project_id,
+                                            role_id: response[authInfo['role_id']],
                                             client_type_id: response[authInfo['client_type_id']],
                                         };
+
                                         if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
-                                            updateUserRequest['phone'] = data[authInfo['phone']]
+                                            updateUserRequest['is_changed_phone'] = true
                                         }
 
-                                        if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
-                                            updateUserRequest['login'] = data[authInfo['login']]
-                                        }
-
-                                        if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
-                                            updateUserRequest['email'] = data[authInfo['email']]
-                                        }
-                    
                                         updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
                                     }
-                                }
-                            }
-                        }
-                    }
-                } else if (authInfo && authInfo['phone'] && data[authInfo['phone']]) {
-                    if (response) { 
-                        if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                            let tableAttributes = struct.decode(tableModel.attributes);
-                
-                            if (tableAttributes && tableAttributes.auth_info) {
-                                let authInfo = tableAttributes.auth_info;
-                
-                                if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                                    throw new Error('This table is an auth table. Auth information not fully given');
-                                }
-
-                                let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                    guid: response[authInfo['client_type_id']],
-                                    table_slug: tableModel.slug
-                                });
-
-                                if (loginTable) {
-                                    let updateUserRequest = {
-                                        guid: response['user_id_auth'],
-                                        env_id: req.env_id,
-                                        role_id: response[authInfo['role_id']],
-                                        project_id: req.company_project_id,
-                                        client_type_id: response[authInfo['client_type_id']],
-                                    };
-
-                                    if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
-                                        updateUserRequest['phone'] = data[authInfo['phone']]
-                                    }
-
-                                    updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
                                 }
                             }
                         }
@@ -368,9 +379,11 @@ let objectBuilder = {
             data.user_id_auth = updatedUser.user_id
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
-            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
-
-            let updateResp = await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
+            if (!data.from_auth_service) {
+                await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
+            } else {
+                await tableInfo.models.findOneAndUpdate({ user_id_auth: data.id }, { $set: data });
+            }
             
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {

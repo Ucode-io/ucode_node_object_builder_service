@@ -379,11 +379,8 @@ let objectBuilder = {
             data.user_id_auth = updatedUser.user_id
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
-            if (!data.from_auth_service) {
-                await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
-            } else {
-                await tableInfo.models.findOneAndUpdate({ user_id_auth: data.id }, { $set: data });
-            }
+            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
+ 
             
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {

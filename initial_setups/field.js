@@ -583,6 +583,36 @@ async function createField() {
 		"__v": 0,
 		"is_system": true,
 	}, {
+		"required": false,
+		"slug": "user_id_auth",
+		"label": "User ID Auth",
+		"default": "",
+		"type": "UUID",
+		"index": "string",
+		"is_visible": false,
+		"attributes": {
+			"fields": {
+				"label_en": {
+					"stringValue": "User Id Auth",
+					"kind": "stringValue"
+				},
+				"label": {
+					"stringValue": "",
+					"kind": "stringValue"
+				},
+				"defaultValue": {
+					"boolValue": false,
+					"kind": "boolValue"
+				}
+			}
+		},
+		"id": "1bce218d-aad3-4d70-a044-f5c0b276cd73",
+		"table_id": "2546e042-af2f-4cef-be7c-834e6bde951c",
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true,
+	}, {
 		"id": "f932bf71-9049-462b-9342-8347bca7598d",
 		"required": false,
 		"slug": "update",

@@ -379,11 +379,8 @@ let objectBuilder = {
             data.user_id_auth = updatedUser.user_id
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
-            if (!data.from_auth_service) {
-                await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
-            } else {
-                await tableInfo.models.findOneAndUpdate({ user_id_auth: data.id }, { $set: data });
-            }
+            await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
+ 
             
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
@@ -3399,9 +3396,9 @@ let objectBuilder = {
             if (response) {
                 if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
                     let tableAttributes = struct.decode(tableModel.attributes)
+                    let authId = response['user_id_auth']
 
-                    if (tableAttributes && tableAttributes.auth_info) {
-
+                    if (tableAttributes && tableAttributes.auth_info && authId && authId != '') {
                         let authInfo = tableAttributes.auth_info
                         if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                             throw new Error('This table is auth table. Auth information not fully given')
@@ -3415,10 +3412,15 @@ let objectBuilder = {
                                 client_type_id: response[authInfo['client_type_id']],
                                 role_id: response[authInfo['role_id']],
                                 project_id: data['company_service_project_id'],
-                                user_id: response['user_id_auth'],
+                                user_id: authId,
                                 environment_id: data['company_service_environment_id']
                             }
-                            await grpcClient.deleteUserAuth(authDeleteUserRequest)
+
+                            try {
+                                await grpcClient.deleteUserAuth(authDeleteUserRequest);
+                            } catch (grpcError) {
+                                throw new Error('Failed to delete user authorization: ' + grpcError.message);
+                            }
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-const { parse } = require('date-fns');
+const { parse, parseISO } = require('date-fns');
 
 
 let updateISODateFunction = {
@@ -28,7 +28,11 @@ let updateISODateFunction = {
 
 //YYYY-MM-DD HH:MM:SS
 function isDateString(value) {
-    return !isNaN(parse('VALUE: ',value, 'yyyy-MM-dd HH:mm:ss', new Date()));
+    let parsedDate = parse(value, 'yyyy-MM-dd HH:mm:ss', new Date());
+    if (isNaN(parsedDate)){
+        parsedDate = parseISO(value);
+    }
+    return !isNaN(parsedDate);
 }
 
 module.exports = updateISODateFunction

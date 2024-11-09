@@ -6090,7 +6090,7 @@ let objectBuilder = {
         }
 
 
-        await updateISODateFunction.updateISODate(pipeline)
+        await updateISODateFunction.updateISODate(pipeline, data.parseIso)
 
         const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 

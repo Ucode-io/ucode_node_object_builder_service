@@ -22,20 +22,18 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "088bf450-6381-45b5-a236-2cb0880dcaab",
+            project_id: "c46972cb-5377-4e2a-923b-edbb5c7d6670",
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
-                username: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
-                password: "xLezOfqNj0"
+                database: "datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs",
+                username: "datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs",
+                password: "6WgABcjpbe"
             }
         })
 
-        //mongodb://wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs:xLezOfqNj0@142.93.164.37:27017/wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs        //mongodb://binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs:QGmh717SEf@142.93.164.37:27017/binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs
         //mongodb://osnova_4b281d3b2f4d408281552f4c6676a028_p_obj_build_svcs:0uMNfbKQlD@142.93.164.37:27017/osnova_4b281d3b2f4d408281552f4c6676a028_p_obj_build_svcs
         //mongodb://genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs:UAQljhZlWm@142.93.164.37:27017/genus_5f988f2b9eb64b0985172ca17d8038e3_p_obj_build_svcs
-        //mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs:oyGGjfQFI8@46.101.161.155:30027/starex_342fba37fc7d4b6fb02f57b21beb0218_p_obj_build_svcs        //mongodb://wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs:xLezOfqNj0@142.93.164.37:27017/wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs
         //mongodb://swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs:J65e1tOKfd@95.217.155.57:30027/swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs
         //mongodb://sync_user_848ec3dcbfc0449682240b30041b22a1_p_obj_build_svcs:LTorSVui1P@95.217.155.57:30027/sync_user_848ec3dcbfc0449682240b30041b22a1_p_obj_build_svcs
         //mongodb://datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs:6WgABcjpbe@142.93.164.37:27017/datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs

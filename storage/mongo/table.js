@@ -292,6 +292,7 @@ let tableStore = {
             }
 
             if (table) {
+                table.exists = true
                 const history = await TableHistory.findOne({ guid: table.commit_guid }).lean()
                 if (history) {
                     history.id = history.guid
@@ -309,7 +310,10 @@ let tableStore = {
                         name: history.name
                     }
                 }
+            } else {
+                table = {exists: false}
             }
+
             return table
         } catch (err) {
             throw err

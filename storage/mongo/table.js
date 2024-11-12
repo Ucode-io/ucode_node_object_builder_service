@@ -104,7 +104,7 @@ let tableStore = {
         try {   
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
-            const Field = mongoConn.models["Field"]
+            const Field = mongoConn.models['Field']
 
             data.is_changed = true
             data.is_changed_by_host = {
@@ -116,7 +116,7 @@ let tableStore = {
             })
 
             if(isSystemTable && isSystemTable.is_system) {
-                throw  new Error("This table is system table")
+                throw new Error("This table is system table")
             }
 
             let table = await Table.findOneAndUpdate({
@@ -184,29 +184,17 @@ let tableStore = {
                     __v: 0
                 }
 
-                await Field.updateOne(
-                    { table_id: data.id, slug: "user_id_auth" },
-                    { $set: label },
-                    { upsert: true }
-                )
-
                 let clientTypeObj = {
-                    "table_from": data.slug,
-                    "table_to": "client_type",
-                    "type": "Many2One",
-                    "view_fields": [
-                      "04d0889a-b9ba-4f5c-8473-c8447aab350d"
+                    table_from: data.slug,
+                    table_to: 'client_type',
+                    type: 'Many2One',
+                    view_fields: [
+                      '04d0889a-b9ba-4f5c-8473-c8447aab350d'
                     ],
-                    "relation_table_slug": "client_type",
-                    "label": "Client Type"
+                    relation_table_slug: 'client_type',
+                    label: 'Client Type'
                 }
 
-                await Field.updateOne(
-                    { table_id: data.id, slug: "client_type_id"},
-                    { $set: clientTypeObj },
-                    { upsert: true }
-                )
-                  
                 let roleObj = {
                     table_from: data.slug,
                     table_to: "role",
@@ -218,11 +206,29 @@ let tableStore = {
                     label: "Role"
                 }
 
-                await Field.updateOne(
-                    { table_id: data.id, slug: "role_id"},
-                    { $set: roleObj },
-                    { upsert: true }
-                )
+                let objects = [
+                    {
+                        updateOne: {
+                            filter: { table_id: data.id, slug: 'user_id_auth' },
+                            update: { $set: label },
+                            upsert: true
+                        }
+                    },{
+                        updateOne: {
+                            filter: { table_id: data.id, slug: 'client_type_id' },
+                            update: { $set: clientTypeObj },
+                            upsert: true
+                        }
+                    },{
+                        updateOne: {
+                            filter: { table_id: data.id, slug: 'role_id' },
+                            update: { $set: roleObj },
+                            upsert: true
+                        }
+                    },
+                ]
+
+                await Field.bulkWrite(objects);  
             }
 
             return table;

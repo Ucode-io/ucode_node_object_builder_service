@@ -123,9 +123,6 @@ let tableStore = {
                 id: data.id,
             }, { $set: data }, {new: true})
             
-            let event = {}
-            event.payload = data
-            event.project_id = data.project_id
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -190,6 +187,40 @@ let tableStore = {
                 await Field.updateOne(
                     { table_id: data.id, slug: "user_id_auth" },
                     { $set: label },
+                    { upsert: true }
+                )
+
+                let clientTypeObj = {
+                    "table_from": data.slug,
+                    "table_to": "client_type",
+                    "type": "Many2One",
+                    "view_fields": [
+                      "04d0889a-b9ba-4f5c-8473-c8447aab350d"
+                    ],
+                    "relation_table_slug": "client_type",
+                    "label": "Client Type"
+                }
+
+                await Field.updateOne(
+                    { table_id: data.id, slug: "client_type_id"},
+                    { $set: clientTypeObj },
+                    { upsert: true }
+                )
+                  
+                let roleObj = {
+                    table_from: data.slug,
+                    table_to: "role",
+                    type: "Many2One",
+                    view_fields: [
+                      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
+                    ],
+                    relation_table_slug: "role",
+                    label: "Role"
+                }
+
+                await Field.updateOne(
+                    { table_id: data.id, slug: "role_id"},
+                    { $set: roleObj },
                     { upsert: true }
                 )
             }

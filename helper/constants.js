@@ -106,6 +106,7 @@ module.exports = {
         "CREATE USER",
         "UPDATE USER",
         "DELETE USER",
+        "UPSERT MANY ITEM",
     ],
     ACTION_TYPE_MAP: {
         "CREATE": "CREATE", 

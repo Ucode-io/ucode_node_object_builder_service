@@ -21,7 +21,7 @@ const tableService = {
             const response = await tableStore.create(call.request);
 
             call.request.id = response.id
-            const resp = await fieldStore.createAll(call.request);
+            await fieldStore.createAll(call.request);
 
             let viewData = {}
             viewData.table_slug = call.request.slug
@@ -31,7 +31,7 @@ const tableService = {
             viewData.env_id = call.env_id
             viewData.id = call.request.view_id
             call.view = viewData
-            const viewResp = await viewStore.create(call.view);
+            await viewStore.create(call.view);
 
             callback(null, {
                 id: response.id

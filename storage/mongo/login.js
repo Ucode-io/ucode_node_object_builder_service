@@ -605,8 +605,12 @@ let loginStore = {
                 }
             )
 
+            let userIdAuth = updatedUser?.user_id_auth
+            if (userIdAuth === '') {
+                userIdAuth = updatedUser?.guid
+            }
             let response = {
-                user_id_auth: updatedUser?.user_id_auth,
+                user_id_auth: userIdAuth,
                 user_id: updatedUser?.guid
             }
 

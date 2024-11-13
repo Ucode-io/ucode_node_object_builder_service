@@ -5,12 +5,9 @@ const { v4 } = require("uuid");
 const { struct } = require("pb-util");
 const relationFieldChecker = require("../../helper/relationFieldChecker");
 const ObjectBuilder = require("../../models/object_builder");
-const cfg = require("../../config/index");
 const mongoPool = require("../../pkg/pool");
 const AddPermission = require("../../helper/addPermission");
-const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const os = require('os');
-const { data } = require("../../config/logger");
 
 let NAMESPACE = "storage.relation";
 
@@ -41,7 +38,6 @@ let relationStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
             const ViewRelationPermissionTable = (await ObjectBuilder(true, data.project_id))['view_relation_permission']
-            const History = mongoConn.models['object_builder_service.version_history']
             let layout_id = "", layout = null, insertManyRelationPermissions = [], field_id = ""
 
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
@@ -238,7 +234,6 @@ let relationStore = {
                     }
                     
                     let type = converter(field.type);
-                    let eventTo = {}
                     let tableRes = {}
                     let fieldsFrom = []
                     tableRes.slug = tableTo.slug
@@ -249,7 +244,6 @@ let relationStore = {
                         }
                     )
                     tableRes.fields = fieldsFrom
-                    eventTo.payload = tableRes
                     tableFrom = await Table.findOne({
                         slug: data.table_from,
                         deleted_at: "1970-01-01T18:00:00.000+00:00"
@@ -397,18 +391,12 @@ let relationStore = {
 
                     type = converter(field.type);
                     let fieldsTo = [];
-                    let eventFrom = {};
                     tableRes.slug = tableFrom.slug;
                     fieldsTo.push({
                         slug: field.slug,
                         type: type,
                     });
                     tableRes.fields = fieldsTo;
-                    eventFrom.payload = tableRes;
-                    // await sendMessageToTopic(
-                    //     con.TopicRelationFromCreateV1,
-                    //     eventFrom
-                    // );
                     break;
                 case "Recursive":
                     data.recursive_field = data.table_from + "_id";
@@ -561,7 +549,6 @@ let relationStore = {
 
                     let typeRecursive = converter(field.type);
                     let tableRecursive = {};
-                    let event = {};
                     let fields = [];
                     tableRecursive.slug = data.table_from;
                     fields.push({
@@ -569,7 +556,6 @@ let relationStore = {
                         type: typeRecursive,
                     });
                     tableRecursive.fields = fields;
-                    event.payload = tableRecursive;
                     break;
                 case "Many2One":
  
@@ -721,7 +707,6 @@ let relationStore = {
 
                     let typeMany2One = converter(field.type);
                     let tableMany2One = {};
-                    let eventMany2One = {};
                     let fieldsMany2One = [];
                     tableMany2One.slug = data.table_from;
                     fieldsMany2One.push({
@@ -729,11 +714,6 @@ let relationStore = {
                         type: typeMany2One,
                     });
                     tableMany2One.fields = fieldsMany2One;
-                    eventMany2One.payload = tableMany2One;
-                    // await sendMessageToTopic(
-                    //     con.TopicMany2OneRelationCreateV1,
-                    //     eventMany2One
-                    // );
                     break;
                 default:
             }
@@ -1534,30 +1514,15 @@ let relationStore = {
 
             let table, resp
             let tableResp = {}
-            let event = {}
             let fields = []
 
             if (relation.type === 'One2Many') {
-                // table = await Table.findOne({
-                //     slug: relation.table_to,
-                //     deleted_at: "1970-01-01T18:00:00.000+00:00"
-                // });
                 table = await tableVersion(mongoConn, { slug: relation.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
-                // resp = await Field.deleteOne({
-                //     table_id: table.id,
-                //     slug: relation.field_to,
-                //     relation_id: relation.id
-                // });
                 field.slug = relation.field_from
                 fields.push(field)
                 tableResp.slug = table.slug
                 tableResp.fields = fields
-                event.payload = tableResp
             } else if (relation.type === 'Many2Many') {
-                // table = await Table.findOne({
-                //     slug: relation.table_to,
-                //     deleted_at: "1970-01-01T18:00:00.000+00:00"
-                // });
                 table = await tableVersion(mongoConn, { slug: relation.table_to, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                 resp = await Field.deleteOne({
                     table_id: table.id,
@@ -1568,11 +1533,6 @@ let relationStore = {
                 fields.push(field)
                 tableResp.slug = table.slug
                 tableResp.fields = fields
-                event.payload = tableResp
-                // table = await Table.findOne({
-                //     slug: relation.table_from,
-                //     deleted_at: "1970-01-01T18:00:00.000+00:00"
-                // });
                 table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                 resp = await Field.deleteOne({
                     table_id: table.id,
@@ -1583,12 +1543,7 @@ let relationStore = {
                 fields.push(field);
                 tableResp.slug = table.slug;
                 tableResp.fields = fields;
-                event.payload = tableResp;
             } else if (relation.type === "Recursive") {
-                // table = await Table.findOne({
-                //     slug: relation.table_from,
-                //     deleted_at: '1970-01-01T18:00:00.000+00:00'
-                // });
                 table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                 resp = await Field.deleteOne({
                     table_id: table.id,
@@ -1599,12 +1554,7 @@ let relationStore = {
                 fields.push(field);
                 tableResp.slug = table.slug;
                 tableResp.fields = fields;
-                event.payload = tableResp;
             } else {
-                // table = await Table.findOne({
-                //     slug: relation.table_from,
-                //     deleted_at: '1970-01-01T18:00:00.000+00:00'
-                // });
                 table = await tableVersion(mongoConn, { slug: relation.table_from, deleted_at: "1970-01-01T18:00:00.000+00:00" }, data.version_id, true)
                 resp = await Field.deleteOne({
                     table_id: table.id,
@@ -1617,7 +1567,6 @@ let relationStore = {
                 fields.push(field)
                 tableResp.slug = table.slug
                 tableResp.fields = fields
-                event.payload = tableResp
             }
 
             await View.deleteMany({

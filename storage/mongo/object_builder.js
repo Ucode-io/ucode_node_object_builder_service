@@ -4555,6 +4555,57 @@ let objectBuilder = {
             throw err
         }
     }),
+    upsertMany: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertMany`, async (req) => {
+        //if you will be change this function, you need to change update function
+        try {
+            const mongoConn = await mongoPool.get(req.project_id)
+            const datas = struct.decode(req.data)
+
+            let objects = []
+            const fieldsSlug = datas?.field_slug
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+            if (!tableInfo) {
+                throw new Error('table not found')
+            }
+            for (const obj of datas.objects) {
+                let request = {
+                    data: struct.encode(obj),
+                    table_slug: req.table_slug,
+                    project_id: req.project_id,
+                }
+
+                let { data, event, appendMany2Many, deleteMany2Many } = await prepareFunction.prepareToUpdateInObjectBuilder(request, mongoConn)
+
+                let bulk = {
+                    updateOne: {
+                        filter:
+                            { [fieldsSlug]: data[fieldsSlug] },
+                        update: {
+                            $set: data,
+                            $setOnInsert: {
+                                guid: v4(),
+                            }
+                        },
+                        upsert: true,
+                    }
+                }
+
+                for (const resAppendM2M of appendMany2Many) {
+                    await objectBuilder.appendManyToMany(resAppendM2M)
+                }
+                for (const resDeleteM2M of deleteMany2Many) {
+                    await objectBuilder.deleteManyToMany(resDeleteM2M)
+                }
+
+                objects.push(bulk)
+            }
+
+            const resp = await tableInfo.models.bulkWrite(objects);
+            return { table_slug: req.table_slug, data: resp };
+        } catch (err) {
+            throw err
+        }
+    }),
     getFinancialAnalytics: catchWrapDbObjectBuilder(`${NAMESPACE}.getFinancialAnalytics`, async (req) => {
         try {
             const startTime = new Date()

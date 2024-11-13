@@ -1,5 +1,5 @@
-const objectBuilderStore = require("../storage/mongo/object_builder");
-const catchWrapServiceObjectBuilder = require("../helper/catchWrapServiceObjectBuilder");
+const objectBuilderStore = require(`../storage/mongo/object_builder`);
+const catchWrapServiceObjectBuilder = require(`../helper/catchWrapServiceObjectBuilder`);
 
 const objectBuilderService = {
     Create: catchWrapServiceObjectBuilder(`service.object_builder.create`, objectBuilderStore.create),
@@ -15,17 +15,18 @@ const objectBuilderService = {
     ManyToManyAppend: catchWrapServiceObjectBuilder(`service.object_builder.appendManyToMany`, objectBuilderStore.appendManyToMany),
     ManyToManyDelete: catchWrapServiceObjectBuilder(`service.object_builder.deleteManyToMany`, objectBuilderStore.deleteManyToMany),
     GetTableDetails: catchWrapServiceObjectBuilder(`service.object_builder.getObjectDetails`, objectBuilderStore.getTableDetails),
-    Batch: catchWrapServiceObjectBuilder("service.object_builder.batch", objectBuilderStore.batch),
-    MultipleUpdate: catchWrapServiceObjectBuilder("service.object_builder.multipleUpdate", objectBuilderStore.multipleUpdate),
-    GetFinancialAnalytics: catchWrapServiceObjectBuilder("service.object_builder.getFinancialAnalytics", objectBuilderStore.getFinancialAnalytics),
-    GetGroupReportTables: catchWrapServiceObjectBuilder("service.object_builder.getGroupReportTables", objectBuilderStore.getGroupReportTables),
-    GetGroupByField: catchWrapServiceObjectBuilder("service.object_builder.getGroupByField", objectBuilderStore.getGroupByField),
-    DeleteMany: catchWrapServiceObjectBuilder("service.object_builder.deleteMany", objectBuilderStore.deleteMany),
-    GroupByColumns: catchWrapServiceObjectBuilder("service.object_builder.groupByColumns", objectBuilderStore.groupByColumns),
-    CopyFromProject: catchWrapServiceObjectBuilder("service.object_builder.copyFromProject", objectBuilderStore.copyFromProject),
-    GetListWithOutRelations: catchWrapServiceObjectBuilder("service.object_builder.getListWithOutRelations", objectBuilderStore.getListWithOutRelations),
-    GetListAggregation: catchWrapServiceObjectBuilder("service.object_builder.getListAggregation", objectBuilderStore.getListAggregation),
+    Batch: catchWrapServiceObjectBuilder(`service.object_builder.batch`, objectBuilderStore.batch),
+    MultipleUpdate: catchWrapServiceObjectBuilder(`service.object_builder.multipleUpdate`, objectBuilderStore.multipleUpdate),
+    GetFinancialAnalytics: catchWrapServiceObjectBuilder(`service.object_builder.getFinancialAnalytics`, objectBuilderStore.getFinancialAnalytics),
+    GetGroupReportTables: catchWrapServiceObjectBuilder(`service.object_builder.getGroupReportTables`, objectBuilderStore.getGroupReportTables),
+    GetGroupByField: catchWrapServiceObjectBuilder(`service.object_builder.getGroupByField`, objectBuilderStore.getGroupByField),
+    DeleteMany: catchWrapServiceObjectBuilder(`service.object_builder.deleteMany`, objectBuilderStore.deleteMany),
+    GroupByColumns: catchWrapServiceObjectBuilder(`service.object_builder.groupByColumns`, objectBuilderStore.groupByColumns),
+    CopyFromProject: catchWrapServiceObjectBuilder(`service.object_builder.copyFromProject`, objectBuilderStore.copyFromProject),
+    GetListWithOutRelations: catchWrapServiceObjectBuilder(`service.object_builder.getListWithOutRelations`, objectBuilderStore.getListWithOutRelations),
+    GetListAggregation: catchWrapServiceObjectBuilder(`service.object_builder.getListAggregation`, objectBuilderStore.getListAggregation),
     GetListRelationTabInExcel:catchWrapServiceObjectBuilder(`service.object_builder.getListRelationTabInExcel`, objectBuilderStore.getListRelationTabInExcel),
+    UpsertMany: catchWrapServiceObjectBuilder(`service.object_builder.upsertMany`, objectBuilderStore.upsertMany),
 };
 
 module.exports = objectBuilderService;  

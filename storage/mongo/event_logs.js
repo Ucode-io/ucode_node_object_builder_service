@@ -1,7 +1,5 @@
 const EventLogs = require("../../models/event_log");
 const catchWrapDb = require("../../helper/catchWrapDb");
-const { v4 } = require("uuid");
-
 
 let NAMESPACE = "storage.event_logs";
 

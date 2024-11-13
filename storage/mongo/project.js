@@ -4,29 +4,14 @@ const insertCollections = require("../../helper/initialDatabaseSetup");
 const newMongoDBConn = require('../../config/mongoConn')
 const config = require('../../config/index')
 const client = require('../../services/grpc/client');
-const { k8s_namespace } = require("../../config/index");
 const objectBuilder = require("../../models/object_builder");
 const logger = require("../../config/logger");
-const initialTableFolder = require("../../helper/initialTableFolder")
 const isSystemChecker = require("../../helper/is_system")
 const initialMenu = require("../../helper/initialMenu");
-const defaultRoles = require("../../helper/defaultRole")
 const defaultPage = require("../../helper/addFieldForDefaultPage");
-const initialCustomMessage = require("../../helper/initialCustomMessage");
-const createIndexPermissionTables = require("../../helper/createIndexPermissionTables");
-const initialMenuPermission = require("../../helper/initialMenuPermission");
-const initialGlobalPermission = require("../../helper/initialCustomPermission");
-const initialViewPermission = require("../../helper/initialViewPermission");
 const addFields = require("../../helper/addFields");
-const systemChecker = require("../../helper/systemChecker");
-const fieldPermissionIndexChecker = require("../../helper/fieldPermissionIndexChecker")
-const ceckPermissionScript = require("../../helper/checkPermissionScript")
-const initialDefaultPivot = require("../../helper/initialDefaultPivot");
 const is_static = require("../../helper/is_static");
-const new_field = require("../../helper/new_field");
 const add_permission_field = require("../../helper/add_record_permission");
-
-
 
 let NAMESPACE = "storage.project";
 

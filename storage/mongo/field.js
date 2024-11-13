@@ -1,15 +1,10 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const { v4 } = require("uuid");
-const topics = require("../../config/kafkaTopics");
 const con = require("../../helper/constants");
-const sendMessageToTopic = require("../../config/kafka");
-const converter = require("../../helper/converter");
-const Relation = require("../../models/relation");
 const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require('../../pkg/pool');
 const tableVersion = require('../../helper/table_version');
-const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const os = require('os')
 
 
@@ -31,33 +26,7 @@ let fieldStore = {
                 unique: true,
                 type: "UUID",
             });
-            // data.fields.push({
-            //     "id": v4(),
-            //     "label": "row_order",
-            //     "slug": "row_order",
-            //     "default": "",
-            //     "required": false,
-            //     "type": "NUMBER",
-            //     "index": "string",
-            //     "attributes": {
-            //         "fields": {
-            //             "icon": {
-            //                 "stringValue": "",
-            //                 "kind": "stringValue"
-            //             },
-            //             "placeholder": {
-            //                 "stringValue": "",
-            //                 "kind": "stringValue"
-            //             },
-            //             "showTooltip": {
-            //                 "boolValue": false,
-            //                 "kind": "boolValue"
-            //             }
-            //         }
-            //     },
-            //     "is_visible": false,
-            //     "is_visible": false,
-            // })
+
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
             let fieldPermissions = []
             for (const fieldReq of data.fields) {

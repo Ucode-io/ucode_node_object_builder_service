@@ -21,7 +21,6 @@ const prepareFunction = require('../../helper/prepareFunctions');
 const grpcClient = require("../../services/grpc/client");
 const constants = require('../../helper/constants');
 const pluralize = require('pluralize');
-
 const TableStorage = require('./table')
 const FieldStorage = require('./field')
 const RelationStorage = require('./relation')
@@ -459,8 +458,6 @@ let objectBuilder = {
                 relatedTable.push(field?.slug + "_data")
             }
         }
-        //
-        // Get relationsM2M
         let relationQueries = []
         for (const relation of relationsM2M) {
             if (relation.table_to === req.table_slug) {

@@ -1,6 +1,6 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const ObjectBuilder = require("../../models/object_builder");
-const relationStore = require("../storage/mongo/relation");
+const relationStore = require("./relation");
 const { v4 } = require("uuid");
 const os = require("os")
 const layoutStorage = require("./layout")
@@ -106,6 +106,7 @@ let tableStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
+            const Relation = mongoConn.models["Relation"]
 
             data.is_changed = true
             data.is_changed_by_host = {
@@ -185,33 +186,95 @@ let tableStore = {
                     __v: 0
                 }
 
-                let clientTypeObj = {
-                    table_from: data.slug,
-                    table_to: 'client_type',
-                    type: 'Many2One',
-                    view_fields: [
-                      '04d0889a-b9ba-4f5c-8473-c8447aab350d'
-                    ],
-                    relation_table_slug: 'client_type',
-                    label: 'Client Type'
-                }
-
-                let roleObj = {
-                    table_from: data.slug,
-                    table_to: "role",
-                    type: "Many2One",
-                    view_fields: [
-                      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-                    ],
-                    relation_table_slug: "role",
-                    label: "Role"
-                }
-                
                 await Field.updateOne(
                     { table_id: data.id, slug: "user_id_auth" },
                     { $set: label },
                     { upsert: true }
                 )
+
+                let clientTypeObj = {
+                    table_from: data.slug,
+                    table_to: "client_type",
+                    type: "Many2One",
+                    view_fields: ["04d0889a-b9ba-4f5c-8473-c8447aab350d"],
+                    relation_table_slug: "client_type",
+                    label: "Client Type",
+                    project_id: data.project_id,
+                    attributes: {
+                      fields: {
+                        label_en: {
+                            stringValue: "Client Type",
+                            kind: "stringValue",
+                        },
+                        label_to_en: {
+                            stringValue: data.label,
+                            kind: "stringValue",
+                        },
+                        table_editable: {
+                            boolValue: false,
+                            kind: "boolValue",
+                        },
+                        enable_multi_language: {
+                            boolValue: false,
+                            kind: "boolValue",
+                        },
+                    },
+                  },
+                };
+
+                let roleObj = {
+                    table_from: data.slug,
+                    table_to: 'role',
+                    type: 'Many2One',
+                    view_fields: [
+                      'c12adfef-2991-4c6a-9dff-b4ab8810f0df'
+                    ],
+                    relation_table_slug: 'role',
+                    label: 'Role',
+                    project_id: data.project_id,
+                    attributes: {
+                        fields: {
+                          label_en: {
+                              stringValue: "Role",
+                              kind: "stringValue",
+                          },
+                          label_to_en: {
+                              stringValue: data.label,
+                              kind: "stringValue",
+                          },
+                          table_editable: {
+                              boolValue: false,
+                              kind: "boolValue",
+                          },
+                          enable_multi_language: {
+                              boolValue: false,
+                              kind: "boolValue",
+                          },
+                      },
+                    },                    
+                }
+
+                const clientTypeRelation = await Relation.findOne({
+                    table_from: data.slug,
+                    field_from: 'client_type_id',
+                    table_to: 'client_type',
+                    field_to: 'id'
+                })
+
+                if (!clientTypeRelation) {
+                    relationStore.create(clientTypeObj)
+                }
+
+                const roleRelation = await Relation.findOne({
+                    table_from: data.slug,
+                    field_from: 'client_type_id',
+                    table_to: 'client_type',
+                    field_to: 'id'
+                })
+
+                if (!roleRelation) {
+                    relationStore.create(roleObj)
+                }
             }
 
             return table;

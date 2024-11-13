@@ -5,11 +5,9 @@ const tableVersion = require('../../helper/table_version');
 const constants = require("../../helper/constants");
 const { struct } = require("pb-util/build");
 const folderMinio = require("../../helper/addMinioBucket");
-// const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants");
 const logger = require("../../config/logger");
 let NAMESPACE = "storage.menu";
 const fuzz = require('fuzzball');
-
 
 let menuStore = {
     create: catchWrapDb(`${NAMESPACE}.create`, async (data) => {

@@ -2,15 +2,8 @@ const grpc = require("@grpc/grpc-js");
 const logger = require("../config/logger");
 const tableStore = require("../storage/mongo/table");
 const fieldStore = require("../storage/mongo/field");
-const sectionStore = require("../storage/mongo/section");
 const viewStore = require("../storage/mongo/view");
 const catchWrapService = require("../helper/catchWrapService");
-const con = require("../config/kafkaTopics");
-const sendMessageToTopic = require("../config/kafka");
-const converter = require("../helper/converter");
-const cfg = require('../config/index');
-const layoutStore = require("../storage/mongo/layout");
-const customErrorMessageStore = require("../storage/mongo/custom_error_message");
 
 const NAMESPACE = `services.table`;
 

@@ -1,18 +1,15 @@
 var fs = require('fs');
 const Minio = require('minio');
 const { v4 } = require("uuid");
-
 const mongoPool = require('../../pkg/pool');
 const cfg = require("../../config/index");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const tableVersion = require("../../helper/table_version")
 const tableService = require("../../services/table");
-
 const viewStore = require("./view");
 const relationStore = require("./relation");
 const sectionStore = require("./section");
 const { resolve } = require('path');
-const { throws } = require('assert');
 
 
 let NAMESPACE = "storage.table_helpers";

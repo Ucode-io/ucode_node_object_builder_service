@@ -1,4 +1,3 @@
-const { struct } = require("pb-util");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const tableVersion = require("../../helper/table_version")
 const mongoPool = require('../../pkg/pool');

@@ -1,7 +1,6 @@
 const Variable = require("../../models/variable");
 const catchWrapDb = require("../../helper/catchWrapDb");
 
-
 let NAMESPACE = "storage.variable";
 
 let variableStore = {

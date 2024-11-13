@@ -1,17 +1,6 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
-
-
 const mongoPool = require('../../pkg/pool');
 
-// const mongoConn = await mongoPool.get(data.project_id)
-// const table = mongoConn.models['Table']
-// const Field = mongoConn.models['Field']
-// const Section = mongoConn.models['Section']
-// const App = mongoConn.models['App']
-// const View = mongoConn.models['View']
-// const Relation = mongoConn.models['Relation']
-// const ViewRelation = mongoConn.models['ViewRelation']
-// const Function = mongoConn.models['Function']
 let NAMESPACE = "storage.function";
 
 let functionStore = {

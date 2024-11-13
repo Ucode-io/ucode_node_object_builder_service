@@ -13,7 +13,6 @@ const grpcClient = require("../../services/grpc/client");
 const constants = require('../../helper/constants');
 const filterRules = require('../../helper/filterRules');
 
-
 let NAMESPACE = "storage.items";
 
 let objectBuilderV2 = {

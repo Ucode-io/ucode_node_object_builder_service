@@ -1,6 +1,5 @@
 const QueryFolder = require("../../models/query_folder");
 const catchWrapDb = require("../../helper/catchWrapDb");
-// const { v4 } = require("uuid");
 
 let NAMESPACE = "storage.query_folder"
 

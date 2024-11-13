@@ -68,21 +68,13 @@ let permission = {
                                         $set: data
                                     }
                                 )
-                                let event = {}
                                 let field_types = {}
-                                event.payload = {}
-                                event.payload.data = data
-                                event.payload.table_slug = "record_permission"
 
                                 for (const field of permissionTable.fields) {
                                     let type = converter(field.type);
                                     field_types[field.slug] = type
                                 }
                                 field_types.guid = "String"
-                                event.payload.field_types = field_types
-                                event.project_id = req.project_id
-
-                                await sendMessageToTopic(con.TopicObjectUpdateV1, event)
                             } else {
                                 let methods = ["read", "write", "delete", "update"]
                                 let keys = Object.keys(data)
@@ -95,19 +87,13 @@ let permission = {
                                 data["is_have_condition"] = false
                                 let payload = new permissionTable.models(data);
                                 res = await payload.save();
-                                let event = {}
                                 let field_types = {}
-                                event.payload = {}
-                                event.payload.data = data
-                                event.payload.table_slug = "record_permission"
 
                                 for (const field of permissionTable.fields) {
                                     let type = converter(field.type);
                                     field_types[field.slug] = type
                                 }
                                 field_types.guid = "String"
-                                event.payload.field_types = field_types
-                                event.project_id = req.project_id
 
                                 await sendMessageToTopic(con.TopicObjectCreateV1, event)
                             }

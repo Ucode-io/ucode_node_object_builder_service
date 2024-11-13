@@ -1,5 +1,6 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const ObjectBuilder = require("../../models/object_builder");
+const relationStore = require("../storage/mongo/relation");
 const { v4 } = require("uuid");
 const os = require("os")
 const layoutStorage = require("./layout")
@@ -205,30 +206,12 @@ let tableStore = {
                     relation_table_slug: "role",
                     label: "Role"
                 }
-
-                let objects = [
-                    {
-                        updateOne: {
-                            filter: { table_id: data.id, slug: 'user_id_auth' },
-                            update: { $set: label },
-                            upsert: true
-                        }
-                    },{
-                        updateOne: {
-                            filter: { table_id: data.id, slug: 'client_type_id' },
-                            update: { $set: clientTypeObj },
-                            upsert: true
-                        }
-                    },{
-                        updateOne: {
-                            filter: { table_id: data.id, slug: 'role_id' },
-                            update: { $set: roleObj },
-                            upsert: true
-                        }
-                    },
-                ]
-
-                await Field.bulkWrite(objects);  
+                
+                await Field.updateOne(
+                    { table_id: data.id, slug: "user_id_auth" },
+                    { $set: label },
+                    { upsert: true }
+                )
             }
 
             return table;

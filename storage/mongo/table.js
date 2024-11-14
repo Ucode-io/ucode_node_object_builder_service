@@ -276,7 +276,6 @@ let tableStore = {
                     relationStore.create(roleObj)
                 }
             }
-
             return table;
         } catch (err) {
             throw err
@@ -468,9 +467,6 @@ let tableStore = {
                     relation_id: params["relation_id"]
                 });
             }
-            // const sections = await Section.deleteMany({
-            //     table_id: data.id
-            // });
 
             const relations = await Relation.deleteMany({
                 $or: [

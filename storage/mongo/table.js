@@ -1,7 +1,9 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const ObjectBuilder = require("../../models/object_builder");
 const relationStore = require("./relation");
+const fieldStore = require("./field");
 const { v4 } = require("uuid");
+const { struct } = require('pb-util');
 const os = require("os")
 const layoutStorage = require("./layout")
 const { STATIC_TABLE_IDS } = require("../../helper/constants")
@@ -152,6 +154,109 @@ let tableStore = {
             }
 
             if (data.is_login_table && data.is_login_table === true) {
+                let authInfo = {
+                    "client_type_id": "client_type_id",
+                    "login_strategy": loginStrategies,
+                    "role_id": "role_id"
+                }
+
+                loginStrategies.forEach(strategy => {
+                    switch (strategy) {
+                        case "phone":
+                            let phoneObj = {
+                                "attributes": {
+                                  "fields": {
+                                    "label_en": {
+                                      "stringValue": "Phone",
+                                      "kind": "stringValue"
+                                    }
+                                  }
+                                },
+                                "default": "",
+                                "label": "Phone",
+                                "required": false,
+                                "slug": "phone",
+                                "table_id": data.id,
+                                "type": "INTERNATION_PHONE",
+                                "show_label": true,
+                                "project_id": data.project_id
+                            }
+                            fieldStore.createForLoginTable(phoneObj)
+                            authInfo["phone"] = "phone"
+                            break;
+                        case "login":
+                            let loginObj = {
+                                "attributes": {
+                                    "fields": {
+                                        "label_en": {
+                                            "stringValue": "Login",
+                                            "kind": "stringValue"
+                                        }
+                                    }
+                                },
+                                "default": "",
+                                "label": "Login",
+                                "required": false,
+                                "slug": "login",
+                                "table_id": data.id,
+                                "type": "SINGLE_LINE",
+                                "show_label": true,
+                                "project_id": data.project_id
+                            }
+
+                            let passwordObj = {
+                                "attributes": {
+                                    "fields": {
+                                        "label_en": {
+                                            "stringValue": "Password",
+                                            "kind": "stringValue"
+                                        }
+                                    }
+                                },
+                                "default": "",
+                                "label": "Password",
+                                "required": false,
+                                "slug": "password",
+                                "table_id": data.id,
+                                "type": "PASSWORD",
+                                "show_label": true,
+                                "project_id": data.project_id
+                            }
+
+                            fieldStore.createForLoginTable(loginObj)
+                            fieldStore.createForLoginTable(passwordObj)
+
+                            authInfo["login"] = "login"
+                            authInfo["password"] = "password"
+                            break;
+                        case "email":
+                            let emailObj = {
+                                "attributes": {
+                                    "fields": {
+                                        "label_en": {
+                                            "stringValue": "Email",
+                                            "kind": "stringValue"
+                                        }
+                                    }
+                                },
+                                "default": "",
+                                "label": "Email",
+                                "required": false,
+                                "slug": "email",
+                                "table_id": data.id,
+                                "type": "EMAIL",
+                                "show_label": true,
+                                "project_id": data.project_id
+                            }
+
+                            fieldStore.createForLoginTable(emailObj)
+                            authInfo["email"] = "email"
+                            break;
+                        default:
+                            console.log(`Unknown strategy: ${strategy}`);
+                    }
+                });
+
                 let label = {
                     id: v4(),
                     table_id: data.id,
@@ -267,14 +372,25 @@ let tableStore = {
 
                 const roleRelation = await Relation.findOne({
                     table_from: data.slug,
-                    field_from: 'client_type_id',
-                    table_to: 'client_type',
+                    field_from: 'role_id',
+                    table_to: 'role',
                     field_to: 'id'
                 })
 
                 if (!roleRelation) {
                     relationStore.create(roleObj)
                 }
+
+                let updatedAttributes = {
+                    "auth_info": authInfo,
+                    "label": data.label,
+                    "label_en": data.label
+                }
+                data.attributes = struct.encode(updatedAttributes)
+
+                table = await Table.findOneAndUpdate({
+                    id: data.id,
+                }, { $set: data }, {new: true})
             }
             return table;
         } catch (err) {
@@ -411,7 +527,6 @@ let tableStore = {
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
             const Menu = mongoConn.models['object_builder_service.menu']
-            const History = mongoConn.models['object_builder_service.version_history']
             
             const table = await Table.findOne({
                 id: data.id

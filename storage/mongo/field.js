@@ -131,7 +131,6 @@ let fieldStore = {
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
-            const History = mongoConn.models['object_builder_service.version_history']
 
             if(!data.id) {
                 data.id = v4()
@@ -250,9 +249,7 @@ let fieldStore = {
                         }
                     }
                 }
-            }
-         
-             
+            }      
 
             return field;
         } catch (err) {
@@ -1005,7 +1002,126 @@ let fieldStore = {
         } catch (err) {
             throw err
         }
-    })
+    }),
+    createForLoginTable: catchWrapDb(`${NAMESPACE}.createByLoginTable`, async (data) => {
+        try {
+            const mongoConn = await mongoPool.get(data.project_id)
+            const Table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+            const Tab = mongoConn.models['Tab']
+            const Section = mongoConn.models['Section']
+            const Layout = mongoConn.models['Layout']
+
+            if(!data.id) {
+                data.id = v4()
+            }
+
+            console.log("field data", JSON.stringify(data))
+            const upsertField = await Field.findOneAndUpdate(
+                { table_id: data.table_id, slug: data.slug },
+                { $set: data },
+                { upsert: true }
+            )
+            if (upsertField) {
+                return upsertField
+            }
+
+            const field = await Field.findOne({ 
+                table_id: data.table_id, 
+                slug: data.slug 
+            });
+
+            const table = await Table.findOneAndUpdate(
+                {
+                    id: data.table_id,
+
+                },
+                {
+                    $set: {
+                        is_changed: true,
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
+                    }
+                },
+                {
+                    new: true
+                }
+            )
+         
+            const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
+            const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
+            const roles = await roleTable?.models.find()
+            for (const role of roles) {
+                let permission = {
+                    view_permission: true,
+                    edit_permission: true,
+                    table_slug: table?.slug,
+                    field_id: field.id,
+                    label: field.label,
+                    role_id: role.guid
+                }
+                const fieldPermission = new fieldPermissionTable.models(permission)
+                fieldPermission.save()
+            }
+     
+            const layout = await Layout.findOne({table_id: table?.id})
+   
+            if (layout) { 
+                const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                if (tab) {
+                    let section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
+                    if(section[0]) {
+                        const count_columns = section[0].fields ? section[0].fields.length : 0
+                        if(count_columns < (table.section_column_count || 3)) {
+                            await Section.findOneAndUpdate(
+                                {
+                                    id: section[0].id
+                                }, 
+                                {
+                                    $set: {
+                                        fields: [
+                                            ...(count_columns ? section[0].fields : []),
+                                            {
+                                                id: field.id,
+                                                order: count_columns + 1,
+                                                field_name: field.label,
+                                            }
+                                        ]
+                                    }
+                                }
+                            )
+                        } else {
+                            section = await Section.create({
+                                id: v4(),
+                                order: section.length + 1,
+                                column: "SINGLE",
+                                label: "Info",
+                                icon: "",
+                                fields: [
+                                    {
+                                        id: field.id,
+                                        order: 1,
+                                        field_name: field.label,
+                                    }
+                                ],
+                                table_id: table.id,
+                                attributes: {},
+                                tab_id: tab.id
+                            })
+
+                             
+                        }
+                    }
+                }
+            }      
+
+            return field;
+        } catch (err) {
+            throw err
+        }
+
+    }),
 };
 
 module.exports = fieldStore;

@@ -1,8 +1,6 @@
 const HtmlTemplate = require("../../models/html_template");
 const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
-const { v4 } = require("uuid");
-
 
 let NAMESPACE = "storage.html_template";
 

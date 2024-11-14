@@ -1,8 +1,5 @@
 const Document = require("../../models/document");
 const catchWrapDb = require("../../helper/catchWrapDb");
-const { v4 } = require("uuid");
-const {struct} = require('pb-util');
-
 
 let NAMESPACE = "storage.document";
 

@@ -1,7 +1,6 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
 const { struct } = require('pb-util');
 const mongoPool = require('../../pkg/pool');
-const { v4 } = require("uuid");
 const { VIEW_TYPES, VERSION_HISTORY_TYPES } = require('../../helper/constants')
 const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
 const tableStorage = require('./table')

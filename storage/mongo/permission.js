@@ -12,7 +12,6 @@ const mongoPool = require('../../pkg/pool');
 const getPermissionByTableSlug = require('../../helper/getPermissionByTableSlug');
 const createTemplate = require("../../initial_setups/template");
 
-
 let permission = {
     upsertPermissionsByAppId: catchWrapDbObjectBuilder(`${NAMESPACE}.upsertPermissionsByAppId`, async (req) => {
         const startMemoryUsage = process.memoryUsage();

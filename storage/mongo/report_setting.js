@@ -41,7 +41,6 @@ let reportSettingStore = {
                 label: data.main_table_label,
                 icon: "gear.svg",
                 parent_id: "c57eedc3-a954-4262-a0af-376c65b5a274"
-                // icon: "chart-simple.svg"
             })
         }
         await ReportSetting.updateOne(
@@ -240,7 +239,6 @@ let reportSettingStore = {
                     project_id: data.resource_environment_id,
                     type: "PIVOT",
                     label: data.pivot_table_slug,
-                    // icon: "gear.svg",
                     parent_id: "7c26b15e-2360-4f17-8539-449c8829003f", //saved pivot folder id
                     pivot_template_id: data.id,
                     icon: "chart-simple.svg"

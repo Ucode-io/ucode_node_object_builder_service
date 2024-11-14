@@ -1,8 +1,6 @@
 const Event = require("../../models/event");
 const Table = require("../../models/table");
 const catchWrapDb = require("../../helper/catchWrapDb");
-const { v4 } = require("uuid");
-
 
 let NAMESPACE = "storage.event";
 

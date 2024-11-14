@@ -1,5 +1,4 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
-// const { v4 } = require("uuid");
 const mongoPool = require('../../pkg/pool');
 
 let NAMESPACE = "storage.query_folder"

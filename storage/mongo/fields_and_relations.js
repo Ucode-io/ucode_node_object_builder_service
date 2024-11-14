@@ -6,7 +6,6 @@ const ObjectBuilder = require("../../models/object_builder");
 const { v4 } = require("uuid");
 const relationFieldChecker = require("../../helper/relationFieldChecker");
 const converter = require("../../helper/converter");
-const sendMessageToTopic = require("../../config/kafka");
 const tableVersion = require('../../helper/table_version');
 
 let fieldsRelationsStore = {

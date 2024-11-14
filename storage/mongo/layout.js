@@ -7,11 +7,8 @@ const { v4 } = require("uuid");
 const AddPermission = require('../../helper/addPermission');
 const { struct } = require('pb-util');
 const ObjectBuilder = require('../../models/object_builder');
-const { VERSION_SOURCE_TYPES_MAP, ACTION_TYPE_MAP } = require("../../helper/constants")
-
 
 let NAMESPACE = 'storage.layout'
-
 
 let layoutStore = {
     createAll: catchWrapDb(`${NAMESPACE}.create`, async (data) => {

@@ -4,18 +4,10 @@ const converter = require("./converter");
 const generators = require("./generator")
 const { v4 } = require("uuid");
 const ObjectBuilder = require("./../models/object_builder");
-const FormulaFunction = require("./calculateFormulaFields");
 const tableVersion = require("../helper/table_version");
-const grpcClient = require("./../services/grpc/client");
-const getLastValue = require("../helper/getLastValue")
-
-
-
 
 let prepareFunction = {
     prepareToCreateInObjectBuilder: async (req, mongoConn) => {
-
-        // this function prepare data to create in object builder service
         const table = mongoConn.models['Table']
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
@@ -32,7 +24,6 @@ let prepareFunction = {
         }
         
         if (req.table_slug === "template" || req.table_slug === "file") {
-
             const relation = await Relation.findOne({
                 $or: [
                     {
@@ -50,7 +41,6 @@ let prepareFunction = {
                 ]
             })
             if (relation) {
-
                 let tableData = await table.findOne(
                     {
                         slug: req.table_slug
@@ -67,7 +57,6 @@ let prepareFunction = {
             }
         }
 
-        // const mFields = await Field.find({table_id: tableData?.id});
         let tableFields = []
 
         const fieldM = tableInfo.fields.reduce((acc, doc) => {
@@ -123,7 +112,6 @@ let prepareFunction = {
         let manually = fieldM["MANUAL_STRING"]
 
         if (manually) {
-            
             let computedFormula = manually.attributes.fields.formula.stringValue
             tableFields.forEach(el => {
                 let dataSLug = req.data.fields[el.slug]
@@ -288,21 +276,12 @@ let prepareFunction = {
             }
         }
 
-        // let rO = fieldM["NUMBER"]
-
-        // if (rO && rO?.slug == "row_order") {
-        //     let rowOrder = await getLastValue(mongoConn, req.table_slug)
-
-        //     data.row_order = rowOrder.value
-        // }
-
         let payload = new tableInfo.models(data);
 
         if (ownGuid) {
             payload.guid = ownGuid
         }
 
-        //deleted kafka to send topic to analytics
         let appendMany2ManyObjects = []
         for (const field of tableInfo.fields) {
             if (field.type === "LOOKUPS") {
@@ -381,7 +360,6 @@ let prepareFunction = {
             field_types[field.slug] = type
             let newIds = [], deletedIds = []
 
-            // this is many2many append and delete when many2many relation field type input
             if (field.type === "LOOKUPS") {
                 if (data[field.slug]) {
                     let olderArr = objectBeforeUpdate[field.slug] || []

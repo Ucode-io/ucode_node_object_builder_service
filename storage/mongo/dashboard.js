@@ -1,7 +1,6 @@
 const Dashboard = require("../../models/dashboard");
 const catchWrapDb = require("../../helper/catchWrapDb");
 
-
 let NAMESPACE = "storage.dashboard";
 
 let dashboardStore = {

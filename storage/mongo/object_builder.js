@@ -3917,8 +3917,7 @@ let objectBuilder = {
         let params = struct.decode(req?.data)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
-
-
+        const CustomEvent = mongoConn.models["CustomEvent"];
         const languageSetting = params.language_setting
         const allTables = (await ObjectBuilder(true, req.project_id))
         const viewPermission = allTables["view_permission"]
@@ -3933,9 +3932,6 @@ let objectBuilder = {
             if (field.relation_id) {
                 tableRelationFields[fields.relation_id] = field
             }
-            // if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
-            //     field.id = field.relation_id
-            // }
         })
         let with_relations = params.with_relations
 
@@ -4208,12 +4204,30 @@ let objectBuilder = {
             }
         };
 
+        const customEvents = await CustomEvent.find(
+            {
+                table_slug: req.table_slug,
+            },
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0,
+            },
+            {
+                sort: { created_at: -1 },
+            }
+        ).populate("functions").lean();
 
         const response = struct.encode({
             fields: decodedFields,
             views: views,
             relation_fields: relationsFields,
         });
+
+        response["custom_events"] = customEvents
 
         const endMemoryUsage = process.memoryUsage();
 

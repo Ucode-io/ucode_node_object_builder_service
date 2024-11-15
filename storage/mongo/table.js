@@ -153,7 +153,9 @@ let tableStore = {
                 }
             }
 
+            let attributes = struct.decode(data.attributes)
             if (data.is_login_table && data.is_login_table === true) {
+                let loginStrategies = attributes?.auth_info?.login_strategy
                 let authInfo = {
                     "client_type_id": "client_type_id",
                     "login_strategy": loginStrategies,

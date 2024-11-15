@@ -4324,29 +4324,36 @@ let objectBuilder = {
             const data = struct.decode(req.data)
             let response = []
 
-            for (const object of data.objects) {
-                const keys = Object.keys(object)
-                for (const key of keys) {
-                    if (object[key] === "true") {
-                        object[key] = (object[key] === 'true')
-                    } else if (object[key] === "false") {
-                        object[key] = (object[key] === 'false')
-                    } else {
-                        continue
+            if (data.query && data.new_data){
+                const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+                await tableInfo.models.updateMany(data.query, { $set: data.new_data})
+            }
+
+            if (data.objects.length !== 0){
+                for (const object of data.objects) {
+                    const keys = Object.keys(object)
+                    for (const key of keys) {
+                        if (object[key] === "true") {
+                            object[key] = (object[key] === 'true')
+                        } else if (object[key] === "false") {
+                            object[key] = (object[key] === 'false')
+                        } else {
+                            continue
+                        }
                     }
-                }
-                let request = {
-                    table_slug: req.table_slug,
-                    project_id: req.project_id,
-                    blocked_builder: req.blocked_builder,
-                    data: struct.encode(object)
-                }
-                if (!object.is_new) {
-                    let resp = await objectBuilder.update(request)
-                    response.push(resp)
-                } else {
-                    let resp = await objectBuilder.create(request)
-                    response.push(struct.decode(resp.data))
+                    let request = {
+                        table_slug: req.table_slug,
+                        project_id: req.project_id,
+                        blocked_builder: req.blocked_builder,
+                        data: struct.encode(object)
+                    }
+                    if (!object.is_new) {
+                        let resp = await objectBuilder.update(request)
+                        response.push(resp)
+                    } else {
+                        let resp = await objectBuilder.create(request)
+                        response.push(struct.decode(resp.data))
+                    }
                 }
             }
 
@@ -4530,7 +4537,6 @@ let objectBuilder = {
 
                 let { data, event, appendMany2Many, deleteMany2Many } = await prepareFunction.prepareToUpdateInObjectBuilder(request, mongoConn)
 
-                // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
                 let bulk = {
                     updateOne: {
                         filter:

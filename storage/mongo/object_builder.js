@@ -4327,6 +4327,7 @@ let objectBuilder = {
             if (data.query && data.new_data){
                 const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
                 await tableInfo.models.updateMany(data.query, { $set: data.new_data})
+                return { table_slug: req.table_slug, custom_message: "", data: {} }
             }
 
             if (data.objects.length !== 0){

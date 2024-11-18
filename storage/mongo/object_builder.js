@@ -4224,12 +4224,18 @@ let objectBuilder = {
             select: "-created_at -updated_at -createdAt -updatedAt -_id -__v",
         }).lean();
 
+        let customEventWithPermission = await AddPermission.toCustomEvent2(
+            customEvents,
+            params?.role_id_from_token,
+            req.table_slug,
+            req.project_id
+        );
 
         const response = struct.encode({
             fields: decodedFields,
             views: views,
             relation_fields: relationsFields,
-            custom_events: customEvents
+            custom_events: customEventWithPermission
         });
 
         const endMemoryUsage = process.memoryUsage();

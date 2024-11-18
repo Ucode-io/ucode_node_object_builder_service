@@ -4219,15 +4219,18 @@ let objectBuilder = {
             {
                 sort: { created_at: -1 },
             }
-        ).populate("functions").lean();
+        ).populate({
+            path: "functions",
+            select: "-created_at -updated_at -createdAt -updatedAt -_id -__v",
+        }).lean();
+
 
         const response = struct.encode({
             fields: decodedFields,
             views: views,
             relation_fields: relationsFields,
+            custom_events: customEvents
         });
-
-        response["custom_events"] = customEvents
 
         const endMemoryUsage = process.memoryUsage();
 

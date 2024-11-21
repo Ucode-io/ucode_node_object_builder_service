@@ -3917,8 +3917,7 @@ let objectBuilder = {
         let params = struct.decode(req?.data)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
-
-
+        const CustomEvent = mongoConn.models["CustomEvent"];
         const languageSetting = params.language_setting
         const allTables = (await ObjectBuilder(true, req.project_id))
         const viewPermission = allTables["view_permission"]
@@ -3933,9 +3932,6 @@ let objectBuilder = {
             if (field.relation_id) {
                 tableRelationFields[fields.relation_id] = field
             }
-            // if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
-            //     field.id = field.relation_id
-            // }
         })
         let with_relations = params.with_relations
 
@@ -4208,11 +4204,38 @@ let objectBuilder = {
             }
         };
 
+        const customEvents = await CustomEvent.find(
+            {
+                table_slug: req.table_slug,
+            },
+            {
+                created_at: 0,
+                updated_at: 0,
+                createdAt: 0,
+                updatedAt: 0,
+                _id: 0,
+                __v: 0,
+            },
+            {
+                sort: { created_at: -1 },
+            }
+        ).populate({
+            path: "functions",
+            select: "-created_at -updated_at -createdAt -updatedAt -_id -__v",
+        }).lean();
+
+        let customEventWithPermission = await AddPermission.toCustomEvent2(
+            customEvents,
+            params?.role_id_from_token,
+            req.table_slug,
+            req.project_id
+        );
 
         const response = struct.encode({
             fields: decodedFields,
             views: views,
             relation_fields: relationsFields,
+            custom_events: customEventWithPermission
         });
 
         const endMemoryUsage = process.memoryUsage();
@@ -4324,29 +4347,37 @@ let objectBuilder = {
             const data = struct.decode(req.data)
             let response = []
 
-            for (const object of data.objects) {
-                const keys = Object.keys(object)
-                for (const key of keys) {
-                    if (object[key] === "true") {
-                        object[key] = (object[key] === 'true')
-                    } else if (object[key] === "false") {
-                        object[key] = (object[key] === 'false')
-                    } else {
-                        continue
+            if (data.query && data.new_data){
+                const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+                await tableInfo.models.updateMany(data.query, { $set: data.new_data})
+                return { table_slug: req.table_slug, custom_message: "", data: {} }
+            }
+
+            if (data.objects.length !== 0){
+                for (const object of data.objects) {
+                    const keys = Object.keys(object)
+                    for (const key of keys) {
+                        if (object[key] === "true") {
+                            object[key] = (object[key] === 'true')
+                        } else if (object[key] === "false") {
+                            object[key] = (object[key] === 'false')
+                        } else {
+                            continue
+                        }
                     }
-                }
-                let request = {
-                    table_slug: req.table_slug,
-                    project_id: req.project_id,
-                    blocked_builder: req.blocked_builder,
-                    data: struct.encode(object)
-                }
-                if (!object.is_new) {
-                    let resp = await objectBuilder.update(request)
-                    response.push(resp)
-                } else {
-                    let resp = await objectBuilder.create(request)
-                    response.push(struct.decode(resp.data))
+                    let request = {
+                        table_slug: req.table_slug,
+                        project_id: req.project_id,
+                        blocked_builder: req.blocked_builder,
+                        data: struct.encode(object)
+                    }
+                    if (!object.is_new) {
+                        let resp = await objectBuilder.update(request)
+                        response.push(resp)
+                    } else {
+                        let resp = await objectBuilder.create(request)
+                        response.push(struct.decode(resp.data))
+                    }
                 }
             }
 
@@ -4530,7 +4561,6 @@ let objectBuilder = {
 
                 let { data, event, appendMany2Many, deleteMany2Many } = await prepareFunction.prepareToUpdateInObjectBuilder(request, mongoConn)
 
-                // await sendMessageToTopic(conkafkaTopic.TopicObjectUpdateV1, event)
                 let bulk = {
                     updateOne: {
                         filter:

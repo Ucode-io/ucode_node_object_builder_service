@@ -152,6 +152,52 @@ let permissionFunctions = {
         }
 
     },
+    toCustomEvent2: async (customEvents, roleId, tableSlug, project_id) => {
+        try {
+            if (!project_id) {
+                console.warn('WARNING:: Using default project id in checkRelationFieldExists...')
+            }
+
+            let customEventIds = [], actionPermissions = []
+            const actionPermissionMap = new Map();
+            for (const customEvent of customEvents) {
+                customEventIds.push(customEvent.id)
+            }
+            if (customEventIds.length) {
+                const actionPermissionTable = (await ObjectBuilder(true, project_id))["action_permission"]
+                actionPermissions = await actionPermissionTable.models.find({
+                    $and: [
+                        { custom_event_id: { $in: customEventIds } },
+                        { role_id: roleId },
+                        { table_slug: tableSlug }
+                    ]
+                },
+                    {
+                        created_at: 0,
+                        updated_at: 0,
+                        createdAt: 0,
+                        updatedAt: 0,
+                        _id: 0,
+                        __v: 0
+                    }
+                )
+                for (const actionPermission of actionPermissions) {
+                    actionPermissionMap.set(actionPermission.custom_event_id, actionPermission)
+                }
+            }
+            for (let customEvent of customEvents) {
+                let actionPer = actionPermissionMap.get(customEvent.id)
+                if (actionPer) {
+                    customEvent.action_permission = actionPer._doc
+                }
+            }
+            return customEvents
+
+        } catch (err) {
+            throw err
+        }
+
+    },
     toViewRelation: async (relations, roleId, tableSlug, project_id) => {
 
         try {

@@ -1012,11 +1012,7 @@ let fieldStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
 
-            if(!data.id) {
-                data.id = v4()
-            }
 
-            console.log("field data", JSON.stringify(data))
             const upsertField = await Field.findOneAndUpdate(
                 { table_id: data.table_id, slug: data.slug },
                 { $set: data },

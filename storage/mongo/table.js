@@ -115,21 +115,18 @@ let tableStore = {
                 [os.hostname()]: true
             }
 
-            const isSystemTable = await Table.findOne({
-                id: data.id
-            })
+            const isSystemTable = await Table.findOne( { id: data.id } )
 
             if(isSystemTable && isSystemTable.is_system) {
                 throw new Error("This table is system table")
             }
 
-            let table = await Table.findOneAndUpdate({
-                id: data.id,
-            }, { $set: data }, {new: true})
+            let table = await Table.findOneAndUpdate( { id: data.id }, { $set: data }, { new: true } )
             
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
+
             for (const role of roles) {
                 let is_exist_record = await recordPermissionTable.models.findOne({
                     $and: [
@@ -154,6 +151,16 @@ let tableStore = {
             }
 
             let attributes = struct.decode(data.attributes)
+
+            // Get Old Table LoginStrategy
+            const oldAttributes = struct.decode(isSystemTable?.attributes)
+            const oldAuthInfo = oldAttributes?.auth_info
+            const loginStrategyMap = {}
+
+            for (let strategy of oldAuthInfo?.login_strategy){
+                loginStrategyMap[strategy] = oldAuthInfo[strategy]
+            }
+
             if (data.is_login_table && data.is_login_table === true) {
                 let loginStrategies = attributes?.auth_info?.login_strategy
                 let authInfo = {
@@ -165,6 +172,11 @@ let tableStore = {
                 loginStrategies.forEach(strategy => {
                     switch (strategy) {
                         case "phone":
+                            if (loginStrategyMap[strategy]){
+                                authInfo["phone"] = loginStrategyMap[strategy]
+                                break;
+                            }
+
                             let phoneObj = {
                                 "attributes": {
                                   "fields": {
@@ -183,10 +195,17 @@ let tableStore = {
                                 "show_label": true,
                                 "project_id": data.project_id
                             }
+
                             fieldStore.createForLoginTable(phoneObj)
                             authInfo["phone"] = "phone"
                             break;
                         case "login":
+                            if (loginStrategyMap[strategy]){
+                                authInfo["login"] = loginStrategyMap[strategy]
+                                authInfo["password"] = "password"
+                                break;
+                            }
+
                             let loginObj = {
                                 "attributes": {
                                     "fields": {
@@ -232,6 +251,11 @@ let tableStore = {
                             authInfo["password"] = "password"
                             break;
                         case "email":
+                            if (loginStrategyMap[strategy]){
+                                authInfo["email"] = loginStrategyMap[strategy]
+                                break;
+                            }
+
                             let emailObj = {
                                 "attributes": {
                                     "fields": {

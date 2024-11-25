@@ -157,8 +157,10 @@ let tableStore = {
             const oldAuthInfo = oldAttributes?.auth_info
             const loginStrategyMap = {}
 
-            for (let strategy of oldAuthInfo?.login_strategy){
-                loginStrategyMap[strategy] = oldAuthInfo[strategy]
+            if (oldAuthInfo){
+                for (let strategy of oldAuthInfo?.login_strategy){
+                    loginStrategyMap[strategy] = oldAuthInfo[strategy]
+                }
             }
 
             if (data.is_login_table && data.is_login_table === true) {

@@ -1,6 +1,8 @@
 const ObjectBuilder = require("../../models/object_builder");
 const catchWrapDbObjectBuilder = require("../../helper/catchWrapDbObjectBuilder")
 const mongoPool = require("../../pkg/pool");
+const passwordTools = require('../../helper/passwordTools');
+
 const { struct } = require("pb-util");
 
 let NAMESPACE = "storage.login";
@@ -10,26 +12,19 @@ let loginStore = {
         const clientTypeTable = (await ObjectBuilder(true, req.project_id))["client_type"]
 
         const clientType = await clientTypeTable.models.findOne(
-            {
-                name: req.client_type,
-            }
+            { name: req.client_type }
         )
+
         const tableInfo = (await ObjectBuilder(true, req.project_id))["test_login"]
         const login = await tableInfo.models.findOne(
             {
                 $and: [
-                    {
-                        client_type_id: clientType.guid
-                    },
-                    {
-                        login_strategy: "Login with password"
-                    }
+                    { client_type_id: clientType.guid },
+                    { login_strategy: "Login with password" }
                 ]
             }
         )
-        if (!login) {
-            return null
-        }
+        if (!login) { return null }
 
         let params = {}
         params[login.login_view] = req.login
@@ -37,41 +32,26 @@ let loginStore = {
 
         const userTable = (await ObjectBuilder(true, req.project_id))[login.table_slug]
         let user, userId;
-        user = await userTable.models.findOne(
-            {
-                $and: [params]
-            }
-        )
+
+        user = await userTable.models.findOne( { $and: [params] } )
+
         let user_found = false
         if (!user) {
-            return {
-                user_found: user_found
-            }
+            return { user_found: user_found }
         }
+
         const roleTable = (await ObjectBuilder(true, req.project_id))["role"]
 
-        const role = await roleTable.models.findOne(
-            {
-                client_type_id: clientType.guid,
-            }
-        )
+        const role = await roleTable.models.findOne( { client_type_id: clientType.guid } )
 
         const clientPlatfromTable = (await ObjectBuilder(true, req.project_id))["client_platform"]
 
-        const clientPlatform = await clientPlatfromTable.models.findOne(
-            {
-                guid: role.client_platform_id
-            }
-        )
+        const clientPlatform = await clientPlatfromTable.models.findOne({ guid: role.client_platform_id } )
 
 
         const connectionsTable = (await ObjectBuilder(true, req.project_id))["connections"]
+        const connections = await connectionsTable.models.find( { client_type_id: clientType.guid } )
 
-        const connections = await connectionsTable.models.find(
-            {
-                client_type_id: clientType.guid
-            }
-        )
         let clientTypeResp = {}
         clientTypeResp = clientType
         clientTypeResp.tables = connections
@@ -81,12 +61,8 @@ let loginStore = {
         const permissions = await recordPermission.models.find(
             {
                 $and: [
-                    {
-                        client_type_id: clientType.guid
-                    },
-                    {
-                        role_id: role.guid
-                    }
+                    { client_type_id: clientType.guid },
+                    { role_id: role.guid }
                 ]
             }
         )
@@ -100,12 +76,8 @@ let loginStore = {
         const appPermissions = await recordPermission.models.find(
             {
                 $and: [
-                    {
-                        table_slug: "app"
-                    },
-                    {
-                        role_id: user.role_id
-                    }
+                    { table_slug: "app" },
+                    { role_id: user.role_id }
                 ]
             }
         )
@@ -354,9 +326,12 @@ let loginStore = {
         const allTables = (await ObjectBuilder(true, req.resource_environment_id))
         const clientTypeTable = allTables["client_type"]
         const globalPermission = allTables["global_permission"]
+        const Table = await mongoPool.get(req.resource_environment_id)
+       
         if (req.user_id === "") {
             return { user_found: false }
         }
+
         const clientType = await clientTypeTable.models.findOne(
             {
                 $or: [
@@ -393,12 +368,32 @@ let loginStore = {
 
         if (!user) { return { user_found: user_found } }
 
+        const loginTable = await Table.models['Table'].findOne(
+            { slug: tableSlug }
+        )
+
+        const loginTableAttribute = struct.decode(loginTable?.attributes)
+        let IsLoginStrategy = false
+
+        for (let strategy of loginTableAttribute?.auth_info?.login_strategy){
+            if (strategy === "login"){
+                IsLoginStrategy = true
+                break;
+            }
+        }
+
+        if (IsLoginStrategy){
+            const password = user[loginTableAttribute?.auth_info?.password]
+            const checkPassword = passwordTools.comparePasswordHash(req?.password, password)
+            if (!checkPassword){
+                return { compare_password: checkPassword }
+            } 
+        }
+
         const roleTable = allTables["role"]
 
         const role = await roleTable.models.findOne(
-            {
-                guid: user.role_id,
-            }
+            { guid: user.role_id }
         ).lean()
 
         if (!role) { return { user_found: false } }
@@ -446,7 +441,8 @@ let loginStore = {
             global_permission: global_permission,
             login_table_slug: tableSlug,
             user_data: struct.encode(user),
-            user_id_auth: userId
+            user_id_auth: userId,
+            compare_password: true,
         }
 
         return response

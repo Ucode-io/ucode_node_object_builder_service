@@ -131,7 +131,7 @@ let objectBuilder = {
                             console.error("error while creating user in auth service", JSON.stringify(err))
                         })
                         .then((res)=> {
-                            data.guid = res?.user_id
+                            // data.guid = res?.user_id
                             tableInfo.models.updateOne({
                                 guid: ownGuid
                             }, {

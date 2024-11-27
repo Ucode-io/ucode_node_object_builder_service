@@ -383,11 +383,13 @@ let loginStore = {
         }
 
         if (IsLoginStrategy){
-            const password = user[loginTableAttribute?.auth_info?.password]
-            const checkPassword = passwordTools.comparePasswordHash(req?.password, password)
-            if (!checkPassword){
-                return { compare_password: checkPassword }
-            } 
+            if (req?.password !== ""){
+                const password = user[loginTableAttribute?.auth_info?.password]
+                const checkPassword = passwordTools.comparePasswordHash(req?.password, password)
+                if (!checkPassword){
+                    return { compare_password: checkPassword }
+                } 
+            }
         }
 
         const roleTable = allTables["role"]

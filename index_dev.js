@@ -32,9 +32,12 @@ const logger = require("./config/logger");
             } 
         })
 
+        //481541ad-98c4-4d68-a225-081bdbf221e2:mongodb://integratio_f05fdd8df949499995935686ac272993_p_obj_build_svcs:m5M5Ek8zps@142.93.164.37:27017/integratio_f05fdd8df949499995935686ac272993_p_obj_build_svcs
+        //088bf450-6381-45b5-a236-2cb0880dcaab:mongodb://wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs:xLezOfqNj0@142.93.164.37:27017/wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs
+        //7172da91-9127-44b6-a298-3f91b6d559e5:mongodb://mbf_ebf657726f964d5fb08c65c915f85e2c_p_obj_build_svcs:kMiMD5V4VU@142.93.164.37:27017/mbf_ebf657726f964d5fb08c65c915f85e2c_p_obj_build_svcs
+        //a002eba6-feaf-4085-bf7d-3361ce5e8dd2:mongodb://osnova_4b281d3b2f4d408281552f4c6676a028_p_obj_build_svcs:0uMNfbKQlD@142.93.164.37:27017/osnova_4b281d3b2f4d408281552f4c6676a028_p_obj_build_svcs
+        //583184ec-1762-48dd-b4a5-a1390099c1e2:mongodb://rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs:oDgRRrJR7U@142.93.164.37:27017/rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs
         //f634987f-25c8-4004-b911-343591081acb:mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_d_obj_build_svcs:wa3ilnGY7M@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_d_obj_build_svcs
-        //43715880-3534-453e-b1df-a7546f69305e:mongodb://swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs:J65e1tOKfd@95.217.155.57:30027/swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs
-        //311ed2b3-c8a4-4ba0-b102-701fd7ada595:mongodb://wellplayed_462baeca37b04355addcb8ae5d26995d_p_obj_build_svcs:ztgZN4gM6m@95.217.155.57:30027/wellplayed_462baeca37b04355addcb8ae5d26995d_p_obj_build_svcs
 
         logger.info(`autoconnected successfully done!!!`);
 

@@ -368,22 +368,22 @@ let loginStore = {
 
         if (!user) { return { user_found: user_found } }
 
-        const loginTable = await Table.models['Table'].findOne(
-            { slug: tableSlug }
-        )
-
-        const loginTableAttribute = struct.decode(loginTable?.attributes)
-        let IsLoginStrategy = false
-
-        for (let strategy of loginTableAttribute?.auth_info?.login_strategy){
-            if (strategy === "login"){
-                IsLoginStrategy = true
-                break;
+        if (req?.password !== ""){
+            const loginTable = await Table.models['Table'].findOne(
+                { slug: tableSlug }
+            )
+    
+            const loginTableAttribute = struct.decode(loginTable?.attributes)
+            let IsLoginStrategy = false
+    
+            for (let strategy of loginTableAttribute?.auth_info?.login_strategy){
+                if (strategy === "login"){
+                    IsLoginStrategy = true
+                    break;
+                }
             }
-        }
-
-        if (IsLoginStrategy){
-            if (req?.password !== ""){
+    
+            if (IsLoginStrategy){
                 const password = user[loginTableAttribute?.auth_info?.password]
                 const checkPassword = passwordTools.comparePasswordHash(req?.password, password)
                 if (!checkPassword){

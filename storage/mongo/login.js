@@ -387,7 +387,7 @@ let loginStore = {
                 const password = user[loginTableAttribute?.auth_info?.password]
                 const checkPassword = passwordTools.comparePasswordHash(req?.password, password)
                 if (!checkPassword){
-                    return { compare_password: checkPassword }
+                    return { user_found: true, compare_password: checkPassword }
                 } 
             }
         }

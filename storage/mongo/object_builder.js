@@ -3586,7 +3586,7 @@ let objectBuilder = {
                 for (const obj of result) {
                     excelObj = {}
                     for (const field of selectedFields) {
-                        field.label = field.attributes.label_en
+                        field.label = field.attributes[`label_${language}`]
     
                         if (obj[field.slug]) {
                             if (field.type === "MULTI_LINE") {

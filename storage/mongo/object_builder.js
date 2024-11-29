@@ -4369,7 +4369,9 @@ let objectBuilder = {
                         table_slug: req.table_slug,
                         project_id: req.project_id,
                         blocked_builder: req.blocked_builder,
-                        data: struct.encode(object)
+                        data: struct.encode(object),
+                        env_id: req.env_id,
+                        project_id: req.company_project_id,
                     }
                     if (!object.is_new) {
                         let resp = await objectBuilder.update(request)

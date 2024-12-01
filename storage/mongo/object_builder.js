@@ -3586,7 +3586,7 @@ let objectBuilder = {
                 for (const obj of result) {
                     excelObj = {}
                     for (const field of selectedFields) {
-                        field.label = field.attributes.label_en
+                        field.label = field.attributes[`label_${language}`]
     
                         if (obj[field.slug]) {
                             if (field.type === "MULTI_LINE") {
@@ -4369,7 +4369,9 @@ let objectBuilder = {
                         table_slug: req.table_slug,
                         project_id: req.project_id,
                         blocked_builder: req.blocked_builder,
-                        data: struct.encode(object)
+                        data: struct.encode(object),
+                        env_id: req.env_id,
+                        project_id: req.company_project_id,
                     }
                     if (!object.is_new) {
                         let resp = await objectBuilder.update(request)

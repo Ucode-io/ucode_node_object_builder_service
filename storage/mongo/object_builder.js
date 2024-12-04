@@ -470,21 +470,24 @@ let objectBuilder = {
         }
         if (relationQueries.length > 0) {
             const fields = await Field.find(
-                {
-                    $or: relationQueries
-                }
+                { $or: relationQueries }
             )
             for (const field of fields) {
-                if (field)
-                    relatedTable.push(field?.slug + "_data")
+                if (field) { relatedTable.push(field?.slug + "_data") }
             }
         }
 
         let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(tableInfo.fields, data["role_id_from_token"], req.table_slug, req.project_id)
+        const filter = {} 
+        
+        if (!data.id){ 
+            filter["user_id_auth"] = data.user_id_auth 
+        }else {
+            filter["guid"] = data.id
+        }
 
-        let output = await tableInfo.models.findOne({
-            guid: data.id
-        },
+        let output = await tableInfo.models.findOne(
+            filter,
             {
                 created_at: 0,
                 updated_at: 0,

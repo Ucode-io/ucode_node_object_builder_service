@@ -296,18 +296,9 @@ let tableStore = {
                     index: "string",
                     attributes: {
                         fields: {
-                            label_en: {
-                                stringValue: "User Id Auth",
-                                kind: "stringValue"
-                            },
-                            label: {
-                                stringValue: "",
-                                kind: "stringValue"
-                            },
-                            defaultValue: {
-                                stringValue: "",
-                                kind: "stringValue"
-                            }
+                            label_en: { stringValue: "User Id Auth", kind: "stringValue" },
+                            label: { stringValue: "", kind: "stringValue" },
+                            defaultValue: { stringValue: "", kind: "stringValue" }
                         }
                     },
                     is_visible: false,
@@ -325,7 +316,7 @@ let tableStore = {
                     { upsert: true }
                 )
 
-                let clientTypeObj = {
+                const clientTypeObj = {
                     table_from: data.slug,
                     table_to: "client_type",
                     type: "Many2One",
@@ -334,57 +325,49 @@ let tableStore = {
                     label: "Client Type",
                     project_id: data.project_id,
                     attributes: {
-                      fields: {
-                        label_en: {
-                            stringValue: "Client Type",
-                            kind: "stringValue",
-                        },
-                        label_to_en: {
-                            stringValue: data.label,
-                            kind: "stringValue",
-                        },
-                        table_editable: {
-                            boolValue: false,
-                            kind: "boolValue",
-                        },
-                        enable_multi_language: {
-                            boolValue: false,
-                            kind: "boolValue",
-                        },
-                    },
-                  },
+                        fields: {
+                            label_en: { stringValue: "Client Type", kind: "stringValue" },
+                            label_to_en: { stringValue: data.label, kind: "stringValue" },
+                            table_editable: { boolValue: false, kind: "boolValue" },
+                            enable_multi_language: { boolValue: false, kind: "boolValue" }
+                        }
+                    }
                 };
 
-                let roleObj = {
+                const roleObj = {
                     table_from: data.slug,
                     table_to: 'role',
                     type: 'Many2One',
-                    view_fields: [
-                      'c12adfef-2991-4c6a-9dff-b4ab8810f0df'
-                    ],
+                    view_fields: ['c12adfef-2991-4c6a-9dff-b4ab8810f0df'],
                     relation_table_slug: 'role',
                     label: 'Role',
                     project_id: data.project_id,
                     attributes: {
                         fields: {
-                          label_en: {
-                              stringValue: "Role",
-                              kind: "stringValue",
-                          },
-                          label_to_en: {
-                              stringValue: data.label,
-                              kind: "stringValue",
-                          },
-                          table_editable: {
-                              boolValue: false,
-                              kind: "boolValue",
-                          },
-                          enable_multi_language: {
-                              boolValue: false,
-                              kind: "boolValue",
-                          },
-                      },
-                    },                    
+                            label_en: { stringValue: "Role", kind: "stringValue" },
+                            label_to_en: { stringValue: data.label, kind: "stringValue" },
+                            table_editable: { boolValue: false, kind: "boolValue" },
+                            enable_multi_language: { boolValue: false, kind: "boolValue" },
+                        }
+                    }                    
+                }
+
+                const roleObj2 = {
+                    table_from: data.slug,
+                    table_to: 'role',
+                    type: 'Many2One',
+                    view_fields: ['c12adfef-2991-4c6a-9dff-b4ab8810f0df'],
+                    relation_table_slug: 'role',
+                    label: 'Role 2',
+                    project_id: data.project_id,
+                    attributes: {
+                        fields: {
+                            label_en: { stringValue: "Role 2", kind: "stringValue" },
+                            label_to_en: { stringValue: data.label, kind: "stringValue" },
+                            table_editable: { boolValue: false, kind: "boolValue" },
+                            enable_multi_language: { boolValue: false, kind: "boolValue" },
+                        }
+                    }                    
                 }
 
                 const clientTypeRelation = await Relation.findOne({
@@ -395,18 +378,24 @@ let tableStore = {
                 })
 
                 if (!clientTypeRelation) {
-                    relationStore.create(clientTypeObj)
+                    await relationStore.create(clientTypeObj)
                 }
 
-                const roleRelation = await Relation.findOne({
+                const roleRelation = await Relation.find({
                     table_from: data.slug,
                     field_from: 'role_id',
                     table_to: 'role',
                     field_to: 'id'
                 })
 
-                if (!roleRelation) {
-                    relationStore.create(roleObj)
+
+                if (roleRelation.length === 0) {
+                    await relationStore.create(roleObj)
+                    await relationStore.create(roleObj2)
+                }
+
+                if (roleRelation.length === 1) {
+                    await relationStore.create(roleObj2)
                 }
 
                 let updatedAttributes = {

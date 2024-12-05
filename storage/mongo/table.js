@@ -182,11 +182,11 @@ let tableStore = {
                             let phoneObj = {
                                 "attributes": {
                                   "fields": {
-                                    "label_en": {
-                                      "stringValue": "Phone",
-                                      "kind": "stringValue"
+                                        "label_en": {
+                                            "stringValue": "Phone",
+                                            "kind": "stringValue"
+                                        }
                                     }
-                                  }
                                 },
                                 "default": "",
                                 "label": "Phone",
@@ -352,24 +352,6 @@ let tableStore = {
                     }                    
                 }
 
-                const roleObj2 = {
-                    table_from: data.slug,
-                    table_to: 'role',
-                    type: 'Many2One',
-                    view_fields: ['c12adfef-2991-4c6a-9dff-b4ab8810f0df'],
-                    relation_table_slug: 'role',
-                    label: 'Role 2',
-                    project_id: data.project_id,
-                    attributes: {
-                        fields: {
-                            label_en: { stringValue: "Role 2", kind: "stringValue" },
-                            label_to_en: { stringValue: data.label, kind: "stringValue" },
-                            table_editable: { boolValue: false, kind: "boolValue" },
-                            enable_multi_language: { boolValue: false, kind: "boolValue" },
-                        }
-                    }                    
-                }
-
                 const clientTypeRelation = await Relation.findOne({
                     table_from: data.slug,
                     field_from: 'client_type_id',
@@ -381,7 +363,7 @@ let tableStore = {
                     await relationStore.create(clientTypeObj)
                 }
 
-                const roleRelation = await Relation.find({
+                const roleRelation = await Relation.findOne({
                     table_from: data.slug,
                     field_from: 'role_id',
                     table_to: 'role',
@@ -389,13 +371,8 @@ let tableStore = {
                 })
 
 
-                if (roleRelation.length === 0) {
+                if (!roleRelation) {
                     await relationStore.create(roleObj)
-                    await relationStore.create(roleObj2)
-                }
-
-                if (roleRelation.length === 1) {
-                    await relationStore.create(roleObj2)
                 }
 
                 let updatedAttributes = {
@@ -403,11 +380,12 @@ let tableStore = {
                     "label": data.label,
                     "label_en": data.label
                 }
+
                 data.attributes = struct.encode(updatedAttributes)
 
-                table = await Table.findOneAndUpdate({
-                    id: data.id,
-                }, { $set: data }, {new: true})
+                table = await Table.findOneAndUpdate(
+                    { id: data.id }, { $set: data }, { new: true },
+                )
             }
             return table;
         } catch (err) {

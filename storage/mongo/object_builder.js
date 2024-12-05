@@ -373,14 +373,65 @@ let objectBuilder = {
             } catch (error) {
                 throw error
             }
-
+            
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             data.user_id_auth = updatedUser.user_id
+            console.log("REQUEST", data)
+
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
  
             
+            let funcs = []
+            for (const resAppendM2M of appendMany2Many) {
+                funcs.push(objectBuilder.appendManyToMany(resAppendM2M))
+            }
+            for (const resDeleteM2M of deleteMany2Many) {
+                funcs.push(objectBuilder.deleteManyToMany(resDeleteM2M))
+            }
+
+            await Promise.all(funcs)
+
+            const endMemoryUsage = process.memoryUsage();
+
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("update-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by update: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by update: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+            
+            return { table_slug: req.table_slug, data: struct.encode(data), custom_message: customMessage };
+        } catch (err) {
+            throw err
+        }
+    }),
+    updateByUserIdAuth: catchWrapDbObjectBuilder(`${NAMESPACE}.updateByUserIdAuth`, async (req) => {
+        //if you will be change this function, you need to change multipleUpdateV2 function
+        const startMemoryUsage = process.memoryUsage();
+        try {
+            const mongoConn = await mongoPool.get(req.project_id)
+            const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
+
+            let customMessage = ""
+            
+            let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
+
+            await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
+            await tableInfo.models.findOneAndUpdate({ user_id_auth: data.id }, { $set: data });
+ 
             let funcs = []
             for (const resAppendM2M of appendMany2Many) {
                 funcs.push(objectBuilder.appendManyToMany(resAppendM2M))
@@ -479,7 +530,7 @@ let objectBuilder = {
 
         let { fieldsWithPermissions, unusedFieldsSlugs } = await AddPermission.toField(tableInfo.fields, data["role_id_from_token"], req.table_slug, req.project_id)
         const filter = {} 
-        
+
         if (!data.id){ 
             filter["user_id_auth"] = data.user_id_auth 
         }else {
@@ -6361,7 +6412,7 @@ let objectBuilder = {
         } catch (err) {
             throw err
         }
-    }),
+    })
 }
 
 module.exports = objectBuilder;

@@ -137,7 +137,6 @@ module.exports = async function (data) {
             "attributes": {
                 "defaultValue": "TRUE",
                 "label": "",
-                "defaultValue": "",
                 "label_en": "Статус",
                 "number_of_rounds": null
             },

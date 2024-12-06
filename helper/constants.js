@@ -38,7 +38,7 @@ module.exports = {
         "65a7936b-f3db-4401-afef-8eee77b68da3", //view_permission
         "1b066143-9aad-4b28-bd34-0032709e463b", //global_permission
         "08a391b2-1c78-4f3e-b84a-9d745e7d528f", //menu_permission
-        "eca81c06-c4fc-4242-8dc9-ecca575e1762", // user_login_table
+        "eca81c06-c4fc-4242-8dc9-ecca575e1762", //user_login_table
         "c2f225b6-b6d9-4201-aa25-e648a4c1ff29", //custom_error
         "6b99e876-b4d8-440c-b2e2-a961530690f8", //doctors
         "961a3201-65a4-452a-a8e1-7c7ba137789c", //field_permission

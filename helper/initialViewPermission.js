@@ -3,8 +3,7 @@ const fields = require("../initial_setups/field")
 const recordPermissions = require("../initial_setups/recordPermission")
 const fieldPermissions = require("../initial_setups/fieldPermission")
 const relations = require("../initial_setups/relation")
-const { v4 } = require("uuid");
-const ObjectBuilder = require("../models/object_builder")
+
 const mongoPool = require('../pkg/pool');
 
 module.exports = async function (data) {

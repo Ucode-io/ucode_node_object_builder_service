@@ -21,14 +21,6 @@ const AppSchema = mongoose.Schema(
         icon: {
             type: String,
         },
-        // commit_id: {
-        //     type: Number,
-        //     required: [true, "commit_id is required"],
-        // },
-        // commit_guid: {
-        //     type: String,
-        //     required: [true, "commit_guid is required"],
-        // },
         is_system: {
             type: Boolean,
         }

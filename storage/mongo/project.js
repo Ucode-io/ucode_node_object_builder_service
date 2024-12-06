@@ -84,7 +84,6 @@ let projectStore = {
             throw err
         }
     }),
-
     deregister: catchWrapDb(`${NAMESPACE}.deregister`, async (data) => {
         try {
             await pool.remove(data?.project_id)
@@ -94,15 +93,12 @@ let projectStore = {
             throw err
         }
     }),
-
     registerMany: catchWrapDb(`${NAMESPACE}.registerMany`, async (data) => {
         throw new Error("not implemented yett")
     }),
-
     deregisterMany: catchWrapDb(`${NAMESPACE}.deregisterMany`, async (data) => {
         throw new Error("not implemented yett")
     }),
-
     getByID: catchWrapDb(`${NAMESPACE}.getByID`, async (data) => {
         try {
             const mongoConn = await pool.get(data?.project_id)
@@ -112,7 +108,6 @@ let projectStore = {
             throw err
         }
     }),
-
     reconnect: catchWrapDb(`${NAMESPACE}.reconnect`, async (data) => {
         try {
             const mongoDBConn = await newMongoDBConn({
@@ -142,22 +137,11 @@ let projectStore = {
                         mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                         mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                         await objectBuilder(false, data.project_id)
-                        // await initialTableFolder({ project_id: data.project_id })
                         await initialMenu({ project_id: data.project_id })
                         await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
                         await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
-                        // await new_field({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         await add_permission_field({project_id: data.project_id})
-                        // await initialCustomMessage({ project_id: data.project_id })
-                        // await initialMenuPermission({ project_id: data.project_id })
-                        // await initialGlobalPermission({ project_id: data.project_id })
-                        // await initialViewPermission({ project_id: data.project_id })
-                        // await createIndexPermissionTables({ project_id: data.project_id })
-                        // await fieldPermissionIndexChecker(mongoDBConn)
-                        // await addFields({ project_id: data.project_id })
-                        // await ceckPermissionScript({ project_id: data.project_id })
-                        // await initialDefaultPivot({ project_id: data.project_id })
                         resolve()
                     });
 

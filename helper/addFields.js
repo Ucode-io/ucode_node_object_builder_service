@@ -135,6 +135,7 @@ module.exports = async function (data) {
             "is_system": true,
         }, {
             "attributes": {
+                "defaultValue": "TRUE",
                 "label": "",
                 "defaultValue": "",
                 "label_en": "Статус",

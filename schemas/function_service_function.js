@@ -16,7 +16,7 @@ const FunctionServiceCustomEventSchema = mongoose.Schema({
         },
         type: {
             type: String,
-            enum: ["FUNCTION", "MICRO_FRONTEND"]
+            enum: ["FUNCTION", "MICRO_FRONTEND", "KNATIVE"]
         },
         description: {
             type: String,

@@ -48,6 +48,7 @@ let projectStore = {
                 mongoDBConn.model('Event', require('../../schemas/event'))
                 mongoDBConn.model('Field', require('../../schemas/field'))
                 mongoDBConn.model('Function', require('../../schemas/function'))
+                mongoDBConn.model('function_service.function', require('../../schemas/function_service_function'))
                 mongoDBConn.model('HtmlTemplate', require('../../schemas/html_template'))
                 mongoDBConn.model('Panel', require('../../schemas/panel'))
                 mongoDBConn.model('QueryFolder', require('../../schemas/query_folder'))

@@ -47,9 +47,7 @@ async function createTable() {
         "id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
         "created_at": new Date(),
         "updated_at": new Date(),
-        "updated_at": {
-            "$date": "2022-12-23T06:57:02.348Z"
-        },
+        "updated_at": { "$date": "2022-12-23T06:57:02.348Z" },
         "is_system": true,
         "__v": 0,
         "soft_delete": false,

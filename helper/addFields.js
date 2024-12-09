@@ -134,6 +134,26 @@ module.exports = async function (data) {
             "__v": 0,
             "is_system": true,
         }, {
+            "attributes": {
+                "defaultValue": "TRUE",
+                "label": "",
+                "label_en": "Статус",
+                "number_of_rounds": null
+            },
+            "default": "",
+            "index": "string",
+            "label": "Статус",
+            "required": false,
+            "slug": "status",
+            "table_id": "1ab7fadc-1f2b-4934-879d-4e99772526ad",
+            "type": "SWITCH",
+            "id": "dd1cce54-2333-4556-97ab-3663c577a28c",
+            "show_label": true,
+            "is_system": true,
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0,
+        }, {
             "id": "c5962e1c-2687-46a5-b2dd-d46d41a038c5",
             "required": false,
             "slug": "grant_access",

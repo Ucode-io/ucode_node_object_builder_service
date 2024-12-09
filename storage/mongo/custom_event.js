@@ -112,9 +112,7 @@ let customEventStore = {
             }
     
             const customEvents = await CustomEvent.find(
-                {
-                    $and: [query],
-                },
+                { $and: [query] },
                 {
                     created_at: 0,
                     updated_at: 0,
@@ -123,9 +121,7 @@ let customEventStore = {
                     _id: 0,
                     __v: 0,
                 },
-                {
-                    sort: { created_at: -1 },
-                }
+                { sort: { created_at: -1 } }
             ).populate("functions");
     
             customEvents.forEach((el) => {
@@ -162,9 +158,7 @@ let customEventStore = {
         const Field = mongoConn.models["Field"];
         const History = mongoConn.models['object_builder_service.version_history']
 
-        const actionPermissionTable = (
-            await ObjectBuilder(true, data.project_id)
-        )["action_permission"];
+        const actionPermissionTable = (await ObjectBuilder(true, data.project_id))["action_permission"];
 
         const resp = await CustomEvent.findOne({ id: data.id });
         const table = await Table.findOne({ slug: resp.table_slug });
@@ -176,8 +170,6 @@ let customEventStore = {
         });
         actionPermissionTable.models.deleteMany({ custom_event: data.id });
 
-         
-
         return custom_event;
     }),
     updateCustomEventByFunctionId: catchWrapDb(
@@ -187,26 +179,15 @@ let customEventStore = {
             const CustomEvent = mongoConn.models["CustomEvent"];
 
             let custom_event = await CustomEvent.findOneAndUpdate(
-                {
-                    event_path: data.function_id,
-                },
-                {
-                    $set: {
-                        disable: true,
-                    },
-                }
+                { event_path: data.function_id },
+                { $set: { disable: true } }
             );
-            const tableInfo = (await ObjectBuilder(true, data.project_id))[
-                custom_event.table_slug
-            ];
+            const tableInfo = (await ObjectBuilder(true, data.project_id))[custom_event.table_slug];
+
             for (const id of data.object_ids) {
                 await tableInfo.models.findOneAndUpdate(
-                    {
-                        guid: id,
-                    },
-                    {
-                        $set: { [data.field_slug]: true },
-                    }
+                    { guid: id },
+                    { $set: { [data.field_slug]: true } }
                 );
             }
             return {};

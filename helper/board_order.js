@@ -1,15 +1,9 @@
-const ObjectBuilder = require("../models/object_builder");
-const { struct } = require("pb-util");
-
-const mongoPool = require('../pkg/pool');
 const { VIEW_TYPES } = require('../helper/constants')
 
 
 module.exports = {
-    
     OrderUpdate: async (mongoConn, tableInfo, table_slug, data) => {
         try {
-          
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
 
@@ -40,18 +34,12 @@ module.exports = {
                             },
                             [field_slug]: data[field_slug]
                         },
-                        {
-                            $inc: { board_order: 1 }
-                        }
+                        { $inc: { board_order: 1 } }
                     )
-    
+
                     await tableInfo.models.findOneAndUpdate(
-                        {
-                            guid: data.id
-                        },
-                        {
-                            board_order: data.board_order
-                        }
+                        { guid: data.id },
+                        { board_order: data.board_order }
                     )
                 } else if (oldObject.board_order < data.board_order) {
                     await tableInfo.models.updateMany(
@@ -62,18 +50,12 @@ module.exports = {
                             },
                             [field_slug]: data[field_slug]
                         },
-                        {
-                            $inc: { board_order: -1 }
-                        }
+                        { $inc: { board_order: -1 } }
                     )
     
                     await tableInfo.models.findOneAndUpdate(
-                        {
-                            guid: data.id
-                        },
-                        {
-                            board_order: data.board_order
-                        }
+                        { guid: data.id },
+                        { board_order: data.board_order }
                     )
                 } else if (oldObject.board_order > data.board_order) {
                     await tableInfo.models.updateMany(
@@ -90,12 +72,8 @@ module.exports = {
                     )
     
                     await tableInfo.models.findOneAndUpdate(
-                        {
-                            guid: data.id
-                        },
-                        {
-                            board_order: data.board_order
-                        }
+                        { guid: data.id },
+                        { board_order: data.board_order }
                     )
                 }
             }
@@ -106,9 +84,7 @@ module.exports = {
             throw err
         }
     },
-
     BoardOrderChecker: async (mongoConn, table_slug) => {
-
         try {
             const Field = mongoConn.models['Field']
             const Table = mongoConn.models['Table']
@@ -129,18 +105,9 @@ module.exports = {
                     "index": "string",
                     "attributes": {
                         "fields": {
-                            "icon": {
-                                "stringValue": "",
-                                "kind": "stringValue"
-                            },
-                            "placeholder": {
-                                "stringValue": "",
-                                "kind": "stringValue"
-                            },
-                            "showTooltip": {
-                                "boolValue": false,
-                                "kind": "boolValue"
-                            }
+                            "icon": { "stringValue": "", "kind": "stringValue" },
+                            "placeholder": { "stringValue": "", "kind": "stringValue" },
+                            "showTooltip": { "boolValue": false, "kind": "boolValue" }
                         }
                     },
                     "is_visible": false,

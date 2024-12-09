@@ -1,5 +1,3 @@
-
-
 module.exports = async function (mongoConn) {
     try {
         const FieldPermission = mongoConn.models['field_permission']

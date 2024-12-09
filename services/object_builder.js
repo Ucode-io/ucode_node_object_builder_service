@@ -27,6 +27,7 @@ const objectBuilderService = {
     GetListAggregation: catchWrapServiceObjectBuilder(`service.object_builder.getListAggregation`, objectBuilderStore.getListAggregation),
     GetListRelationTabInExcel:catchWrapServiceObjectBuilder(`service.object_builder.getListRelationTabInExcel`, objectBuilderStore.getListRelationTabInExcel),
     UpsertMany: catchWrapServiceObjectBuilder(`service.object_builder.upsertMany`, objectBuilderStore.upsertMany),
+    UpdateByUserIdAuth: catchWrapServiceObjectBuilder(`service.object_builder.updateByUserIdAuth`, objectBuilderStore.updateByUserIdAuth)
 };
 
 module.exports = objectBuilderService;  

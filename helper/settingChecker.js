@@ -3,7 +3,6 @@ const fields = require("../initial_setups/field")
 const relations = require("../initial_setups/relation")
 const recordPermissions = require("../initial_setups/recordPermission")
 const fieldPermissions = require("../initial_setups/fieldPermission")
-const objectBuilder = require("../models/object_builder");
 
 
 module.exports = async function (mongoConn, project_id) {

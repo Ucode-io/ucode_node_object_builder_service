@@ -1,7 +1,6 @@
 const tables = require("../initial_setups/tables")
 const fields = require("../initial_setups/field")
 const relations = require("../initial_setups/relation")
-const { v4 } = require("uuid");
 const mongoPool = require('../pkg/pool');
 
 module.exports = async function (data) {

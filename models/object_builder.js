@@ -519,15 +519,6 @@ async function buildModels(is_build = true, project_id) {
             mongooseObject[project_id][model.slug].relations = model.relation;
             mongooseObject[project_id][model.slug].views = model.view;
 
-            // delete mongoDBConn.models[model.slug]
-            // delete mongooseObject[model.slug]
-            // mongooseObject[model.slug] = {};
-            // mongooseObject[model.slug].models = mongoDBConn.model(model.slug, model.model);
-            // mongooseObject[model.slug].fields = model.field;
-            // mongooseObject[model.slug].relations = model.relation;
-            // mongooseObject[model.slug].views = model.view;
-
-            // drop indexes if unique is disabled
             let index_list, dropIndexes;
             try {
                 index_list = await mongooseObject[project_id][model.slug].models.collection.getIndexes()

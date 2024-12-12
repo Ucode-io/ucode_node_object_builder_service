@@ -238,20 +238,6 @@ module.exports = async function (data) {
         }
 
         const documentsMenu = await Menu.findOne({id:"31a91a86-7ad3-47a6-a172-d33ceaebb35f"})
-        // if(!documentsMenu) {
-        //     await Menu.create({
-        //         "label": "Documents",
-        //         "icon": "folder.svg",
-        //         "id": "31a91a86-7ad3-47a6-a172-d33ceaebb35f",
-        //         "created_at": new Date(),
-        //         "updated_at": new Date(),
-        //         "__v": 0,
-        //         "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
-        //         "table_id": "",
-        //         "layout_id": "",
-        //         "type": "FOLDER",
-        //     })
-        // }
         if (documentsMenu) {
             await Menu.findOneAndDelete({id:"31a91a86-7ad3-47a6-a172-d33ceaebb35f"})
         }

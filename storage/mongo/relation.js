@@ -309,7 +309,7 @@ let relationStore = {
                                                     id: `${data.table_from}#${data.id}`,
                                                     order: count_columns + 1,
                                                     field_name: data.label,
-                                                    relation_type: "Many2One",
+                                                    relation_type: "Many2Many",
                                                     is_visible_layout:  true,
                                                     show_label: true
                                                 }
@@ -333,7 +333,7 @@ let relationStore = {
                                             id: `${data.table_from}#${data.id}`,
                                             order: 1,
                                             field_name: data.label,
-                                            relation_type: "Many2One",
+                                            relation_type: "Many2Many",
                                             is_visible_layout:  true,
                                             show_label: true
                                         }

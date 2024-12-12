@@ -33,66 +33,7 @@ async function createMenu() {
         "table_id": "",
         "layout_id": "",
         "type": "FOLDER"
-    }, 
-    // {
-    //     "label": "Analytics",
-    //     "icon": "folder.svg",
-    //     "id": "c57eedc3-a954-4262-a0af-376c65b5a278",
-    //     "created_at": new Date(),
-    //     "updated_at": new Date(),
-    //     "__v": 0,
-    //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
-    //     "table_id": "",
-    //     "layout_id": "",
-    //     "type": "FOLDER"
-    // },
-    // {
-    //     "label": "Pivot",
-    //     "icon": "folder.svg",
-    //     "id": "c57eedc3-a954-4262-a0af-376c65b5a276",
-    //     "created_at": new Date(),
-    //     "updated_at": new Date(),
-    //     "__v": 0,
-    //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a278",
-    //     "table_id": "",
-    //     "layout_id": "",
-    //     "type": "FOLDER"
-    // }, 
-    // {
-    //     "label": "Report Settings",
-    //     "icon": "folder.svg",
-    //     "id": "c57eedc3-a954-4262-a0af-376c65b5a274",
-    //     "created_at": new Date(),
-    //     "updated_at": new Date(),
-    //     "__v": 0,
-    //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a278",
-    //     "table_id": "",
-    //     "layout_id": "",
-    //     "type": "FOLDER"
-    // }, 
-    // {
-    //     "label": "Saved",
-    //     "icon": "folder.svg",
-    //     "id": "7c26b15e-2360-4f17-8539-449c8829003f",
-    //     "created_at": new Date(),
-    //     "updated_at": new Date(),
-    //     "__v": 0,
-    //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
-    //     "table_id": "",
-    //     "layout_id": "",
-    //     "type": "FOLDER"
-    // }, {
-    //     "label": "History",
-    //     "icon": "folder.svg",
-    //     "id": "e96b654a-1692-43ed-89a8-de4d2357d891",
-    //     "created_at": new Date(),
-    //     "updated_at": new Date(),
-    //     "__v": 0,
-    //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a276",
-    //     "table_id": "",
-    //     "layout_id": "",
-    //     "type": "FOLDER"
-    // }, 
+    },
     {
         "label": "User and Permission",
         "icon": "users.svg",
@@ -126,19 +67,7 @@ async function createMenu() {
         "table_id": "",
         "layout_id": "",
         "type": "FOLDER"
-    }, 
-    // {
-    //     "label": "Resource",
-    //     "icon": "code.svg",
-    //     "id": "f313614f-f018-4ddc-a0ce-10a1f5716401",
-    //     "created_at": new Date(),
-    //     "updated_at": new Date(),
-    //     "__v": 0,
-    //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
-    //     "table_id": "",
-    //     "layout_id": "",
-    //     "type": "FOLDER"
-    // }, 
+    },
     {
         "label": "API",
         "icon": "code.svg",
@@ -171,18 +100,6 @@ async function createMenu() {
             }
           },
     },
-    // {
-    //     "label": "Documents",
-    //     "icon": "folder.svg",
-    //     "id": "31a91a86-7ad3-47a6-a172-d33ceaebb35f",
-    //     "created_at": new Date(),
-    //     "updated_at": new Date(),
-    //     "__v": 0,
-    //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
-    //     "table_id": "",
-    //     "layout_id": "",
-    //     "type": "FOLDER"
-    // },
     {
         "label": "Wiki",
         "id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",
@@ -208,18 +125,6 @@ async function createMenu() {
         "updated_at": new Date(),
         "__v": 0,
     },
-    // {
-    //     "label": "Constructor",
-    //     "icon": "code.svg",
-    //     "id": "c19594a8-9b5e-4c12-a0a1-f97c2357070c",
-    //     "created_at": new Date(),
-    //     "updated_at": new Date(),
-    //     "__v": 0,
-    //     "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
-    //     "table_id": "",
-    //     "layout_id": "",
-    //     "type": "FOLDER"
-    // }
     ]
 
     return menu

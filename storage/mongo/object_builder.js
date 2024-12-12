@@ -251,7 +251,7 @@ let objectBuilder = {
                                             table_slug: tableModel.slug
                                         });
 
-                                        if (loginTable) {
+                                        if (loginTable && response['user_id_auth'] !== '') {
                                             let updateUserRequest = {
                                                 env_id: req.env_id,
                                                 phone: data[authInfo['phone']],
@@ -301,7 +301,7 @@ let objectBuilder = {
                                             table_slug: tableModel.slug
                                         });
 
-                                        if (loginTable) {
+                                        if (loginTable && response['user_id_auth'] !== '') {
                                             let updateUserRequest = {
                                                 env_id: req.env_id,
                                                 phone: data[authInfo['phone']],
@@ -347,7 +347,7 @@ let objectBuilder = {
                                         table_slug: tableModel.slug
                                     });
 
-                                    if (loginTable) {
+                                    if (loginTable && response['user_id_auth'] !== '') {
                                         let updateUserRequest = {
                                             env_id: req.env_id,
                                             phone: data[authInfo['phone']],
@@ -3456,7 +3456,7 @@ let objectBuilder = {
                             guid: response[authInfo['client_type_id']],
                             table_slug: tableModel.slug
                         })
-                        if (loginTable) {
+                        if (loginTable && authId !== '') {
                             let authDeleteUserRequest = {
                                 client_type_id: response[authInfo['client_type_id']],
                                 role_id: response[authInfo['role_id']],

@@ -522,22 +522,17 @@ let tableStore = {
             const Section = mongoConn.models['Section']
             const Relation = mongoConn.models['Relation']
             const Menu = mongoConn.models['object_builder_service.menu']
+            const View = mongoConn.models["View"]
             
-            const table = await Table.findOne({
-                id: data.id
-            })
+            const table = await Table.findOne( { id: data.id } )
             
-            if(!table) {
+            if (!table) {
                 throw new Error("Table not found")
             }
 
             const collection = (await ObjectBuilder(true, data.project_id))[table.slug]
            
-            const resp = await Table.findOneAndDelete(
-                {
-                    id: data.id
-                }
-            );
+            const resp = await Table.findOneAndDelete( { id: data.id } );
 
             const layouts = await Layout.find({table_id: data.id})
             const layout_ids = layouts.map(el => el.id)
@@ -551,14 +546,11 @@ let tableStore = {
 
             const getRelations = await Relation.find({
                 $or: [
-                    {
-                        table_from: table.slug
-                    },
-                    {
-                        table_to: table.slug
-                    }
+                    { table_from: table.slug },
+                    { table_to: table.slug }
                 ]
             });
+
             let relation_ids = []
             const params = {}
             params["table_id"] = data.id
@@ -569,36 +561,28 @@ let tableStore = {
                 params["relation_id"] = { $in: relation_ids }
             }
 
-            const fields = await Field.deleteMany({
-                table_id: params["table_id"]
-            });
+            const fields = await Field.deleteMany( { table_id: params["table_id"] } );
+
             if (relation_ids.length) {
-                const fields = await Field.deleteMany({
-                    relation_id: params["relation_id"]
-                });
+                const fields = await Field.deleteMany( { relation_id: params["relation_id"] } );
             }
 
             const relations = await Relation.deleteMany({
                 $or: [
-                    {
-                        table_from: table.slug
-                    },
-                    {
-                        table_to: table.slug
-                    }
+                    { table_from: table.slug },
+                    { table_to: table.slug }
                 ]
             });
+
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
-            const response = await fieldPermissionTable?.models.deleteMany({
-                table_slug: table.slug
-            })
+            const response = await fieldPermissionTable?.models.deleteMany( { table_slug: table.slug } )
             const tablePermission = (await ObjectBuilder(true, data.project_id))["record_permission"]
-            tablePermission?.models?.deleteMany({ table_slug: table.slug })
+            await tablePermission?.models?.deleteMany({ table_slug: table.slug })
+            await View.deleteMany( { table_slug: table.slug } )
+
 
             await collection.models.collection.drop()
-            await Menu.deleteMany({table_id: table.id})
-
-             
+            await Menu.deleteMany( { table_id: table.id } )
            
             return table;
         } catch (err) {

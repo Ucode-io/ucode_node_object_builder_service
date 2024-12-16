@@ -18,6 +18,9 @@ const FunctionServiceCustomEventSchema = mongoose.Schema({
             type: String,
             enum: ["FUNCTION", "MICRO_FRONTEND", "KNATIVE"]
         },
+        framework_type: {
+            type: String,
+        },
         description: {
             type: String,
         },
@@ -48,11 +51,35 @@ const FunctionServiceCustomEventSchema = mongoose.Schema({
         gitlab_group_id: {
             type: String
         },
+        source_url: {
+            type: String
+        },
+        branch: {
+            type: String
+        },
+        pipeline_status: {
+            type: String
+        },
+        repo_id: {
+            type: String
+        },
+        error_message: {
+            type: String
+        },
+        job_name: {
+            type: String
+        },
+        resource: {
+            type: String
+        },
+        provided_name: {
+            type: String
+        },
         request_type: {
             type: String,
             enum: ["ASYNC", "SYNC"],
             default: "ASYNC"
-        }  
+        }
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

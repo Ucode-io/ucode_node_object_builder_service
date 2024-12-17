@@ -4490,13 +4490,8 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Relation = mongoConn.models['Relation']
-            let tableData = await table.findOne(
-                {
-                    slug: req.table_slug
-                }
-            )
+            let tableData = await table.findOne( { slug: req.table_slug } )
+
             let isLoginTable = false
             let loginStrategy = ['login', 'email', 'phone']
             let authInfo = {}
@@ -4565,27 +4560,25 @@ let objectBuilder = {
                 }
                 objects.push(payload)
             }
+
             await tableInfo.models.insertMany(objects)
             let responseFromAuth
             if (isLoginTable) {
                 responseFromAuth = await grpcClient.createUsersAuth(authCheckRequests)
             }
+            
             let bulkWriteGuids = [];
             if (responseFromAuth && responseFromAuth?.user_ids && responseFromAuth?.user_ids?.length === guids.length) {
                 for (let i = 0; i < guids.length; i++) {
                     bulkWriteGuids.push({
                         updateOne: {
                             filter: { guid: el },
-                            update: {
-                                $set: {
-                                    // guid: responseFromAuth.user_ids[i]
-                                    user_id_auth: responseFromAuth.user_ids[i]
-                                }
-                            }
+                            update: { $set: { user_id_auth: responseFromAuth.user_ids[i] } }
                         }
                     })
                 }
             }
+
             await tableInfo.models.bulkWrite(bulkWriteGuids)
             for (const appendMany2Many of appendMany2ManyObj) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
@@ -4617,8 +4610,7 @@ let objectBuilder = {
 
                 let bulk = {
                     updateOne: {
-                        filter:
-                            { guid: data.id },
+                        filter: { guid: data.id },
                         update: data
                     }
                 }

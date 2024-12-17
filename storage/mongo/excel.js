@@ -10,6 +10,8 @@ const con = require("../../helper/constants");
 const logger = require("../../config/logger");
 const mongoPool = require('../../pkg/pool');
 const { getSingleWithRelations } = require('../../helper/getSingleWithRelations');
+const { parse, parseISO } = require('date-fns');
+const passwordTools = require('../../helper/passwordTools');
 
 let NAMESPACE = "storage.excel";
 
@@ -101,6 +103,7 @@ let excelStore = {
         let bucketName = "docs";
         let fileStream = fs.createWriteStream(createFilePath);
         let fileObjectKey = req.id + ".xlsx";
+        
         minioClient.getObject(bucketName, fileObjectKey, async function (err, object) {
             if (err) {
                 throw err
@@ -127,10 +130,10 @@ let excelStore = {
                                     viewFieldIds = splitedRelationFieldId.slice(1, splitedRelationFieldId.length)
                                     id = splitedRelationFieldId[0]
                                 }
+                                
                                 const field = fieldsMap[id]
-                                if (!field) {
-                                    continue;
-                                }
+                                if (!field) { continue; }
+                                
                                 let value = row[rows[0].indexOf(column_slug)]
                                 if (value === null) {
                                     con.NUMBER_TYPES.includes(field.type) ? value = 0 :
@@ -138,6 +141,7 @@ let excelStore = {
                                             con.BOOLEAN_TYPES.includes(field.type) ? value = "false" : ""
                                 }
                                 let options = []
+
                                 if (field.type == "MULTISELECT" && value !== null && value.length) {
                                     if (field.attributes) {
                                         let a = struct.decode(field.attributes)
@@ -178,20 +182,13 @@ let excelStore = {
                                     objectToDb[field?.slug] = value
     
                                 } else if (field.type === "LOOKUP" || field.type === "LOOKUPS") {
-    
-                                    relation = await Relation.findOne({
-                                        id: field.relation_id
-                                    })
+                                    relation = await Relation.findOne( { id: field.relation_id } )
     
                                     const viewFields = []
                                     for (let el of viewFieldIds) {
-                                        const field = await Field.findOne({
-                                            id: el
-                                        }).lean()
+                                        const field = await Field.findOne( { id: el } ).lean()
     
-                                        if (field) {
-                                            viewFields.push(field)
-                                        }
+                                        if (field) { viewFields.push(field) }
                                     }
     
                                     if (relation && relation.type !== "Many2Many") {
@@ -230,6 +227,7 @@ let excelStore = {
     
                                             }
                                         }
+
                                         if (Object.keys(params).length > 0) {
                                             const objectFromObjectBuilder = await getSingleWithRelations({
                                                 table_slug: relation.table_to,
@@ -358,41 +356,50 @@ let excelStore = {
                                     try {
                                         i = Number(strNumber)
                                     } catch (error) {
-                                        logger.error("value: ", strNumber, "error: ", error);
                                         i = 0
                                     }
+
                                     value = i
     
                                     objectToDb[field?.slug] = value
     
                                 } else if (con.STRING_TYPES.includes(field.type)) {
-                                    if (field.type === "DATE_TIME" || field.type === "DATE") {
+                                    if (field.type == "DATE"){
+                                        try{
+                                            const parsedISODate = parseISO(new Date(String(value).trim()).toISOString());
+                                            value = parsedISODate
+                                        } catch(error) {
+                                            value = ""
+                                        }
+                                    }
+
+                                    if (field.type === "DATE_TIME") {
                                         let i = ""
                                         try {
-                                            let toDate = new Date(value).toISOString()
+                                            let toDate = new Date(String(value).trim()).toISOString()
                                             i = toDate
                                         } catch (error) {
-                                            logger.error("value: ", strNumber, "error: ", error);
                                             i = ""
                                         }
+                                        
                                         value = i
-    
                                         objectToDb[field?.slug] = value
                                     } else {
                                         objectToDb[field?.slug] = value
                                     }
                                 }
                             }
+
     
                             objectToDb['company_service_project_id'] = datas['company_service_project_id']
                             objectToDb['company_service_environment_id'] = datas['company_service_environment_id']
                             objectsToDb.push(objectToDb)
-                        }catch(error){
+                        } catch(error) {
                             console.error("error", error)
                         }
                     }
 
-                    await obj.multipleInsert({
+                    const res = await obj.multipleInsert({
                         table_slug: req.table_slug,
                         data: struct.encode({ objects: objectsToDb }),
                         project_id: req.project_id
@@ -405,6 +412,11 @@ let excelStore = {
                 })
             } catch (err) {
                 console.error(err)
+
+                fs.unlink(createFilePath, function (err) {
+                    if (err) throw err;
+                });
+
             }
         });
 

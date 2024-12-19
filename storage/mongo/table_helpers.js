@@ -42,21 +42,6 @@ let tableHelpers = {
             app.tables.forEach(el => {
                 tableIds.push(el.table_id)
             })
-            // const tables = await Table.find(
-            //     {
-            //         deleted_at: "1970-01-01T18:00:00.000+00:00",
-            //         id: { $in: tableIds }
-            //     },
-            //     {
-            //         _id: 0,
-            //         __v: 0,
-            //         created_at: 0,
-            //         updated_at: 0,
-            //     },
-            //     {
-            //         sort: { created_at: -1 }
-            //     }
-            // )
             const tables = await tableVersion(mongoConn, {id: {$in: tableIds}, deleted_at: new Date("1970-01-01T18:00:00.000+00:00")}, data.version_id, false)
             let tableSlugs = [], changedTables = []
             for (const table of tables) {
@@ -146,7 +131,6 @@ let tableHelpers = {
         }
 
         let filename = "export_" + Math.floor(Date.now() / 1000) + ".json"
-        let filepath = "./" + filename
         let jsonStr = JSON.stringify(jsonObject, null, 2)
         fs.writeFileSync(filename, jsonStr, { encoding: 'utf8' });
 

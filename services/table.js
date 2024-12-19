@@ -28,7 +28,8 @@ const tableService = {
 
             callback(null, {
                 id: response.id,
-                record_permission: response.record_permission
+                record_permission: response.record_permission,
+                slug: response.slug
             });
         } catch (error) {
             logger.error(`[${NAMESPACE}].create request finished with FAILURE`);

@@ -2021,12 +2021,17 @@ let permission = {
         if (req.table_slug == "template") {
             return { is_have_permission: true }
         }
-        const resp = await tablePermission?.findOne(
-            {
-                role_id: req.role_id,
-                [req.method]: "Yes",
-                table_slug: req.table_slug
-            }).lean()
+        const resp = await tablePermission?.findOne({
+            table_slug: req.table_slug,
+            $or: [
+                {
+                    role_id: req.role_id,
+                    [req.method]: "Yes",
+                },
+                { is_public: true, [req.method]: "Yes" }
+            ]
+        }).lean();
+        
         if (resp) {
             return { is_have_permission: true }
         } else {

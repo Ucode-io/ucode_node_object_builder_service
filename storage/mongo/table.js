@@ -102,6 +102,7 @@ let tableStore = {
             return {
                 id: table.id,
                 record_permission: permissionRecord,
+                slug: table.slug
             };
         } catch (err) {
             throw err

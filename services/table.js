@@ -27,7 +27,8 @@ const tableService = {
             await viewStore.create(call.view);
 
             callback(null, {
-                id: response.id
+                id: response.id,
+                record_permission: response.record_permission
             });
         } catch (error) {
             logger.error(`[${NAMESPACE}].create request finished with FAILURE`);

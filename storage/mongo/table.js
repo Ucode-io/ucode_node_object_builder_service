@@ -21,6 +21,8 @@ let tableStore = {
                 data.id = v4()
             }
 
+            let permissionRecord = {}
+
             data.is_changed_by_host = {
                 [os.hostname()]: true
             }
@@ -30,7 +32,7 @@ let tableStore = {
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
             for (const role of roles) {
-                let permissionRecord = {
+                permissionRecord = {
                     delete: "Yes",
                     write: "Yes",
                     table_slug: table?.slug,
@@ -96,8 +98,11 @@ let tableStore = {
             }
 
             await layoutStorage.createAll(default_layout)
-             
-            return table;
+            
+            return {
+                id: table.id,
+                record_permission: permissionRecord,
+            };
         } catch (err) {
             throw err
         }

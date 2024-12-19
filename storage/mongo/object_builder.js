@@ -2179,8 +2179,6 @@ let objectBuilder = {
                     .lean();
                 count = await tableInfo.models.countDocuments(params);
             } else {
-
-
                 tableParams = []
                 for (const key of Object.keys(params)) {
                     if (key.includes('.')) {
@@ -2560,7 +2558,6 @@ let objectBuilder = {
         const offset = params.offset
         delete params["offset"]
         delete params["limit"]
-        let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
         const { 
             [req.table_slug]: tableInfo,
@@ -2568,7 +2565,6 @@ let objectBuilder = {
             automatic_filter: automaticFilterTable,
             client_type: clientTypeTable
         } = await ObjectBuilder(true, req.project_id)
-
 
         let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
@@ -2742,10 +2738,6 @@ let objectBuilder = {
                             } else {
                                 params[autoFilter.custom_field] = params["user_id_from_token"]
                             }
-                            
-                            // if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
-                            //     params[autoFilter.custom_field] = params["user_id_from_token"]
-                            // }
                         }
                     }
                 }
@@ -2847,7 +2839,6 @@ let objectBuilder = {
         let result = [], count;
         let populateArr = []
 
-        // check soft deleted datas
         if (params.$or) {
             params.$and = [
                 { $or: params.$or },

@@ -199,15 +199,17 @@ let projectStore = {
         let reconnect_data = await client.autoConn(config.k8s_namespace, config.nodeType);
         for (let it of reconnect_data.res) {
             if (it.resource_type !== "MONGODB") continue
-            // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
-            try {
-                await projectStore.reconnect(it)
+            if (it.credentials.database == "alpha_c19a15f865334d6ca9db044b1e0891a2_p_obj_build_svcs") {
+                console.log(it.credentials)
+            } 
+            // try {
+            //     await projectStore.reconnect(it)
 
 
-                // await addRowOrder({project_id: it?.project_id ?? it?.id})
-            } catch (err) {
-                logger.info(`auto connecting to resources failed: ${err}`);
-            }
+            //     // await addRowOrder({project_id: it?.project_id ?? it?.id})
+            // } catch (err) {
+            //     logger.info(`auto connecting to resources failed: ${err}`);
+            // }
         }
 
         return {}

@@ -107,7 +107,6 @@ let tableStore = {
         } catch (err) {
             throw err
         }
-
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         try {   

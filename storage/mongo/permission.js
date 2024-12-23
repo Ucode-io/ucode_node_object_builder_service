@@ -34,7 +34,6 @@ let permission = {
             if (app) {
                 if (app.tables.length) {
                     for (const tableFromApp of app.tables) {
-                        // const tableInfo = await table.findOne({ id: tableFromApp.table_id })
                         const tableInfo = await tableVersion(mongoConn, { id: tableFromApp.table_id }, data.version_id, true)
                         let res;
                         if (tableInfo) {
@@ -129,12 +128,6 @@ let permission = {
     getAllPermissionsByRoleId: catchWrapDbObjectBuilder(`${NAMESPACE}.getAllPermissionsByRoleId`, async (req) => {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
-            const table = mongoConn.models['Table']
-
-
-            // const tables = await table.find({
-            //     deleted_at: "1970-01-01T18:00:00.000+00:00",
-            // })
             const tables = await tableVersion(mongoConn, { delete_at: "1970-01-01T18:00:00.000+00:00" }, req.version_id, false)
             let tableSlugs = []
             let noPermissions = []
@@ -191,16 +184,6 @@ let permission = {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            // const Section = mongoConn.models['Section']
-            // const App = mongoConn.models['App']
-            // const View = mongoConn.models['View']
-            // const Relation = mongoConn.models['Relation']
-            // const ViewRelation = mongoConn.models['ViewRelation']
-
-            // const tableInfo = await table.findOne({
-            //     slug: req.table_slug,
-            //     deleted_at: "1970-01-01T18:00:00.000+00:00",
-            // }).lean()
             const tableInfo = await tableVersion(mongoConn, { slug: req.table_slug }, req.version_id, true)
             const fields = await Field.find({
                 table_id: tableInfo.id
@@ -253,14 +236,10 @@ let permission = {
 
     }),
     getListWithRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getListWithRoleAppTablePermissions`, async (req) => {
-        // return { project_id: "okok", data: {} }
-
-        let start = new Date()
         const mongoConn = await mongoPool.get(req.project_id)
 
         const Role = (await ObjectBuilder(true, req.project_id))['role'].models
         const AutomaticFilter = (await ObjectBuilder(true, req.project_id))['automatic_filter'].models
-        // const AppPermission = (await ObjectBuilder(true, req.project_id))['app_permission'].models
         const Field = mongoConn.models['Field']
 
         const Tab = mongoConn.models['Tab']
@@ -268,8 +247,6 @@ let permission = {
         const Table = mongoConn.models['Table']
         const CustomPermission = mongoConn.models['global_permission']
         const View = mongoConn.models['View']
-
-
 
         const role = await Role.findOne(
             { guid: req.role_id },
@@ -338,8 +315,6 @@ let permission = {
         ]
 
         const tables = await Table.aggregate(tablePipeline)
-
-
         if (!tables || !tables.length) {
             return roleCopy
         }
@@ -812,12 +787,8 @@ let permission = {
             }
             tablesList.push(tableCopy)
         }
-        // appCopy.tables = tablesList
-        // appsList.push(appCopy)
-        let end = new Date()
         roleCopy.tables = tablesList
         roleCopy.global_permission = await CustomPermission?.findOne({ role_id: roleCopy.guid }) || {}
-        // return {project_id: "asd", data: {}}
         return { project_id: req.project_id, data: roleCopy }
 
     }),
@@ -1083,9 +1054,7 @@ let permission = {
 
     }),
     updateRoleAppTablePermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateRoleAppTablePermissions`, async (req) => {
-        const start = new Date()
         const ErrRoleNotFound = new Error('role_id is required')
-        const ErrWhileUpdate = new Error('error while updating')
 
         const roleId = req?.data?.guid || ''
         if (!roleId) {
@@ -1093,9 +1062,6 @@ let permission = {
         }
 
         const mongoConn = await mongoPool.get(req.project_id)
-        const Table = mongoConn.models['Table']
-        const App = mongoConn.models['App']
-        // const projectModels = await ObjectBuilder(true, req.project_id)
         const Role = mongoConn.models['role']
         const RecordPermission = mongoConn.models['record_permission']
         const FieldPermission = mongoConn.models['field_permission']
@@ -1174,7 +1140,6 @@ let permission = {
             tableViewPermissions = [...tableViewPermissions, ...table.table_view_permissions]
         }
         for (let field_permission of (fieldPermissions || [])) {
-
             let documentFieldPermission = {
                 view_permission: field_permission.view_permission,
                 edit_permission: field_permission.edit_permission,
@@ -1239,7 +1204,6 @@ let permission = {
             })
         }
         for (let action_permission of (actionPermissions || [])) {
-
             let documentActionPermission = {
                 permission: action_permission.permission,
                 custom_event_id: action_permission.custom_event_id,
@@ -1698,7 +1662,6 @@ let permission = {
         bulkWriteViewPermissions.length && await TableViewPermission.bulkWrite(bulkWriteViewPermissions)
     }),
     getActionPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.getActionPermissions`, async (req) => {
-
         const mongoConn = await mongoPool.get(req.project_id)
         const CustomEvent = mongoConn.models['CustomEvent']
 
@@ -1825,9 +1788,7 @@ let permission = {
     }),
     getAllMenuPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.gettAllMenuPermissions`, async (data) => {
         try {
-
             const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
-
             const Menu = mongoConn.models['object_builder_service.menu']
 
             let query = {
@@ -1893,9 +1854,6 @@ let permission = {
     }),
     updateMenuPermissions: catchWrapDbObjectBuilder(`${NAMESPACE}.updateMenuPermissions`, async (data) => {
         try {
-
-            // const mongoConn = await mongoPool.get(data.project_id) // project_id: is resource_id
-
             const menuPermissionTable = (await ObjectBuilder(true, data.project_id))["menu_permission"].models
             let updateMenuPermissions = []
             data.menus.forEach(menu => {
@@ -2063,12 +2021,17 @@ let permission = {
         if (req.table_slug == "template") {
             return { is_have_permission: true }
         }
-        const resp = await tablePermission?.findOne(
-            {
-                role_id: req.role_id,
-                [req.method]: "Yes",
-                table_slug: req.table_slug
-            }).lean()
+        const resp = await tablePermission?.findOne({
+            table_slug: req.table_slug,
+            $or: [
+                {
+                    role_id: req.role_id,
+                    [req.method]: "Yes",
+                },
+                { is_public: true, [req.method]: "Yes" }
+            ]
+        }).lean();
+        
         if (resp) {
             return { is_have_permission: true }
         } else {

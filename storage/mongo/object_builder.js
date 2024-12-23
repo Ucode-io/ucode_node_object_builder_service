@@ -2179,8 +2179,6 @@ let objectBuilder = {
                     .lean();
                 count = await tableInfo.models.countDocuments(params);
             } else {
-
-
                 tableParams = []
                 for (const key of Object.keys(params)) {
                     if (key.includes('.')) {
@@ -2560,7 +2558,6 @@ let objectBuilder = {
         const offset = params.offset
         delete params["offset"]
         delete params["limit"]
-        let clientTypeId = params["client_type_id_from_token"]
         delete params["client_type_id_from_token"]
         const { 
             [req.table_slug]: tableInfo,
@@ -2568,7 +2565,6 @@ let objectBuilder = {
             automatic_filter: automaticFilterTable,
             client_type: clientTypeTable
         } = await ObjectBuilder(true, req.project_id)
-
 
         let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
@@ -2742,10 +2738,6 @@ let objectBuilder = {
                             } else {
                                 params[autoFilter.custom_field] = params["user_id_from_token"]
                             }
-                            
-                            // if (autoFilter.table_slug == "business_trips" || autoFilter.table_slug == "busines_trip_approvers") {
-                            //     params[autoFilter.custom_field] = params["user_id_from_token"]
-                            // }
                         }
                     }
                 }
@@ -2847,7 +2839,6 @@ let objectBuilder = {
         let result = [], count;
         let populateArr = []
 
-        // check soft deleted datas
         if (params.$or) {
             params.$and = [
                 { $or: params.$or },
@@ -4490,13 +4481,8 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const table = mongoConn.models['Table']
-            const Field = mongoConn.models['Field']
-            const Relation = mongoConn.models['Relation']
-            let tableData = await table.findOne(
-                {
-                    slug: req.table_slug
-                }
-            )
+            let tableData = await table.findOne( { slug: req.table_slug } )
+
             let isLoginTable = false
             let loginStrategy = ['login', 'email', 'phone']
             let authInfo = {}
@@ -4565,27 +4551,25 @@ let objectBuilder = {
                 }
                 objects.push(payload)
             }
+
             await tableInfo.models.insertMany(objects)
             let responseFromAuth
             if (isLoginTable) {
                 responseFromAuth = await grpcClient.createUsersAuth(authCheckRequests)
             }
+            
             let bulkWriteGuids = [];
             if (responseFromAuth && responseFromAuth?.user_ids && responseFromAuth?.user_ids?.length === guids.length) {
                 for (let i = 0; i < guids.length; i++) {
                     bulkWriteGuids.push({
                         updateOne: {
                             filter: { guid: el },
-                            update: {
-                                $set: {
-                                    // guid: responseFromAuth.user_ids[i]
-                                    user_id_auth: responseFromAuth.user_ids[i]
-                                }
-                            }
+                            update: { $set: { user_id_auth: responseFromAuth.user_ids[i] } }
                         }
                     })
                 }
             }
+
             await tableInfo.models.bulkWrite(bulkWriteGuids)
             for (const appendMany2Many of appendMany2ManyObj) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
@@ -4617,8 +4601,7 @@ let objectBuilder = {
 
                 let bulk = {
                     updateOne: {
-                        filter:
-                            { guid: data.id },
+                        filter: { guid: data.id },
                         update: data
                     }
                 }

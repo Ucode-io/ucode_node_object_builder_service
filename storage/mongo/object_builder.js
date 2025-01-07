@@ -1192,7 +1192,6 @@ let objectBuilder = {
         delete params["offset"]
         delete params["limit"]
         const allTables = (await ObjectSlimBuilder(true, req.project_id))
-        console.log("allTables", allTables)
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")

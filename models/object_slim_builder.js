@@ -14,7 +14,6 @@ async function buildSlimModels(is_build = true, project_id) {
         console.warn('WARNING:: Using default project id in build models...')
     }
     const mongoDBConn = await mongoPool.get(project_id)
-    console.log("mongoDBConn", mongoDBConn  )
 
     const Table = mongoDBConn.models['Table']
     const Field = mongoDBConn.models['Field']
@@ -47,8 +46,6 @@ async function buildSlimModels(is_build = true, project_id) {
             ]
         });
     }
-
-    console.log("tables", tables)
 
     let tempArray = []
 

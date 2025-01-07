@@ -5,6 +5,7 @@ const newMongoDBConn = require('../../config/mongoConn')
 const config = require('../../config/index')
 const client = require('../../services/grpc/client');
 const objectBuilder = require("../../models/object_builder");
+const buildSlimModels = require("../../models/object_slim_builder");
 const logger = require("../../config/logger");
 const isSystemChecker = require("../../helper/is_system")
 const initialMenu = require("../../helper/initialMenu");
@@ -138,6 +139,7 @@ let projectStore = {
                         mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                         mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                         await objectBuilder(false, data.project_id)
+                        await buildSlimModels(false, data.project_id)
                         await initialMenu({ project_id: data.project_id })
                         await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })

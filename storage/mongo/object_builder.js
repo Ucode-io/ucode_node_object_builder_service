@@ -3023,7 +3023,7 @@ let objectBuilder = {
 
                     const outputQuery = {
                         guid: {
-                            $in: flattenedGuids        
+                            $in: flattenedGuids
                         }
                     };
 

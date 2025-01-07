@@ -110,6 +110,7 @@ let fileStore = {
             if (data.another_doc) {
                 let name1 = ""
                 let genName1 = ""
+             
                 if (data.language == "uz") {
                     name1 = "4_Учредительный_договор_КТ_NP.docx"
                     genName1 = "Учредительный_договор_КТ_NP_reviewed_от_27082024г_UZ_Gen_" + v4().toString() + ".docx"
@@ -139,23 +140,24 @@ let fileStore = {
                 let genFileName1 = path.join(__dirname, '..', '..', 'document', genName1);
                 fs.writeFileSync(genFileName1, buf);
 
-                var minioClient = new Client({
-                    endPoint: cfg.minioEndpoint,
-                    useSSL: false,
-                    accessKey: cfg.minioAccessKeyID,
-                    secretKey: cfg.minioSecretAccessKey,
+                const minioClient = new Client({
+                    accessKey:  cfg.minioAccessKeyID,
+                    secretKey:  cfg.minioSecretAccessKey,
+                    endPoint:   cfg.minioEndpoint,
+                    useSSL:     true,
+                    pathStyle:  true,
+                    region:     'us-east-1'
                 })
 
-                minioClient.putObject('088bf450-6381-45b5-a236-2cb0880dcaab', 'Media/' + genName1, buf, function (error, etag) {
-                    if (error) {
-                        return console.log(error);
-                    }
+                try {
+                    await minioClient.putObject('088bf450-6381-45b5-a236-2cb0880dcaab', 'Media/' + genName1, buf);
                     fs.unlink(genFileName1, (err) => {
-                        if (err) {
-                            console.log("This is err", err);
-                        }
+                        if (err) console.log("File deletion error:", err);
                     });
-                });
+                } catch(err) {
+                    console.error("wordTemplate.error", err)
+                    throw err
+                }
 
                 files.push(cfg.minioEndpoint + "/088bf450-6381-45b5-a236-2cb0880dcaab/Media/" + genName1)
                 return { files: files };

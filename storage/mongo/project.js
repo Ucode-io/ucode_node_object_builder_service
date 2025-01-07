@@ -161,7 +161,6 @@ let projectStore = {
             throw err
         }
     }),
-
     registerProjects: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
 

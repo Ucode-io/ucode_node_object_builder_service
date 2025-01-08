@@ -135,7 +135,7 @@ let fieldStore = {
             if(!data.id) {
                 data.id = v4()
             }
-
+            
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
                 let autoFillTableSlug = data.autofill_table
                 if (data.autofill_table.includes("#")) {

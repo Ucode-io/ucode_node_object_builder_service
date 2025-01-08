@@ -6,7 +6,6 @@ const TableSchema = mongoose.Schema(
         id: {
             type: String,
             default: v4,
-            // unique: true
         },
         label: {
             type: String,
@@ -14,7 +13,6 @@ const TableSchema = mongoose.Schema(
         },
         slug: {
             type: String,
-            // required: [false, "Table must have slug"],
         },
         description: {
             type: String,

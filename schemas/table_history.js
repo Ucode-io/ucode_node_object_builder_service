@@ -17,7 +17,6 @@ const TableHistorySchema = mongoose.Schema(
         },
         slug: {
             type: String,
-            // required: [true, "Table must have slug"],
         },
         description: {
             type: String,
@@ -45,7 +44,6 @@ const TableHistorySchema = mongoose.Schema(
         },
         commit_type: {
             type: String,
-            // enum: ["CREATE", "UPDATE", "DELETE", "INITIAL", "REVERT"]
         },
         folder_id: {
             type: String

@@ -1,6 +1,6 @@
 async function createRecordPermision(roleID) {
     let recordPermission = [
-        {
+    {
             "update": "Yes",
             "table_slug": "setting.languages",
             "write": "Yes",
@@ -11,8 +11,7 @@ async function createRecordPermision(roleID) {
             "createdAt": new Date(),
             "updatedAt": new Date(),
             "__v": 0
-        },
-        {
+    }, {
             "update": "Yes",
             "table_slug": "setting.timezones",
             "write": "Yes",
@@ -23,8 +22,7 @@ async function createRecordPermision(roleID) {
             "createdAt": new Date(),
             "updatedAt": new Date(),
             "__v": 0
-        },
-        {
+    }, {
         "update": "Yes",
         "table_slug": "app",
         "write": "Yes",
@@ -132,6 +130,35 @@ async function createRecordPermision(roleID) {
         "read": "Yes",
         "delete": "Yes",
         "role_id": roleID,
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
+        "__v": 0
+    }, {
+        "update": "Yes",
+        "table_slug": "person",
+        "write": "Yes",
+        "guid": "bba7b585-001b-4dc3-a3c2-72fec295149a",
+        "read": "Yes",
+        "delete": "Yes",
+        "role_id": roleID,
+        "is_have_condition": false,
+        "is_public": false,
+        "pdf_action": "Yes",
+        "add_filter": "Yes",
+        "fix_column": "Yes",
+        "tab_group": "Yes",
+        "columns": "Yes",
+        "group": "Yes",
+        "excel_menu": "Yes",
+        "search_button": "Yes",
+        "field_filter": "Yes",
+        "add_field": "Yes",
+        "language_btn": "Yes",
+        "view_create": "Yes",
+        "automation": "Yes",
+        "settings": "Yes",
+        "share_modal": "Yes",
+        "delete_all": "Yes",
         "createdAt": new Date(),
         "updatedAt": new Date(),
         "__v": 0

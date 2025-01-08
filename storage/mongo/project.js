@@ -200,7 +200,6 @@ let projectStore = {
         let reconnect_data = await client.autoConn(config.k8s_namespace, config.nodeType);
         for (let it of reconnect_data.res) {
             if (it.resource_type !== "MONGODB") continue
-            // if (it.credentials.database != "facebook_facebook_object_builder_service") continue 
             try {
                 await projectStore.reconnect(it)
             } catch (err) {

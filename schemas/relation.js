@@ -6,7 +6,6 @@ const RelationSchema = mongoose.Schema(
         id: {
             type: String,
             default: v4,
-            // unique: true
         },
         relation_index: {
             type: Number,

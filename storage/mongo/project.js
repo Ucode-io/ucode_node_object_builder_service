@@ -139,7 +139,6 @@ let projectStore = {
                         mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                         mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                         await objectBuilder(false, data.project_id)
-                        await buildSlimModels(false, data.project_id)
                         await initialMenu({ project_id: data.project_id })
                         await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
